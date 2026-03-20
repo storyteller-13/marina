@@ -1,0 +1,589 @@
+/**
+ * Custom styles for Dr. von Steinkirch's personal website
+ * Moved from inline styles for better organization and maintainability
+ */
+
+/* Navigation styles */
+.UnderlineNav-item {
+    font-size: 18px !important;
+    font-weight: 500;
+}
+
+.UnderlineNav-item.selected {
+    font-weight: 600;
+    border-bottom-width: 4px !important;
+    border-bottom-color: #e85a4f !important;
+}
+
+/* Content organization */
+.content-section {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    color: rgb(148, 97, 199);
+    margin-bottom: 1rem;
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+}
+
+/* Typography – Orbitron + sizes (replaces inline styles) */
+.font-orbitron {
+    font-family: 'Orbitron', monospace;
+}
+
+.text-0_7 { font-size: 0.7rem; }
+.text-0_8 { font-size: 0.8rem; }
+.text-0_9 { font-size: 0.9rem; }
+.text-1 { font-size: 1rem; }
+.text-1_1 { font-size: 1.1rem; }
+.text-1_2 { font-size: 1.2rem; }
+.text-1_5 { font-size: 1.5rem; }
+.text-1_6 { font-size: 1.6rem; }
+.text-2_5 { font-size: 2.5rem; }
+
+.nice-ff {
+    font-family: 'Orbitron' !important;
+}
+
+.highlight-text {
+    color: HotPink;
+}
+
+.hotpink-text {
+    color: HotPink;
+}
+
+/* Journey page footnote (bottom of content box) */
+p.journey-footnote {
+    font-size: 0.5rem !important;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+}
+
+/* Journey page hero title – ensure Orbitron applies */
+.journey-title {
+    font-family: 'Orbitron', monospace !important;
+    font-size: 1.6rem !important;
+}
+
+.success-text {
+    color: rgb(18, 246, 87);
+}
+
+/* AI Scientist – animated gradient + glow */
+.ai-scientist-effect {
+    font-weight: 700;
+    background: linear-gradient(
+        90deg,
+        rgb(18, 246, 87),
+        #00d4ff,
+        HotPink,
+        rgb(18, 246, 87)
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: ai-scientist-gradient 4s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(18, 246, 87, 0.4);
+    filter: drop-shadow(0 0 8px rgba(18, 246, 87, 0.5));
+}
+@keyframes ai-scientist-gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Layout and positioning */
+.header-sticky {
+    z-index: 3;
+}
+
+.nav-margin-left {
+    margin-left: 2rem;
+}
+
+.sidebar-margin-right {
+    margin-right: 2rem;
+}
+
+.profile-card-margin {
+    margin-top: 24px;
+}
+
+.avatar-z-index {
+    z-index: 4;
+}
+
+.avatar-height-auto {
+    height: auto;
+}
+
+.sticky-position {
+    position: sticky;
+}
+
+.news-title-center {
+    text-align: center;
+    display: block;
+}
+
+/* Sidebar "Connect Professionally" title – same pink as newsletter subscription title */
+.Box-header .highlight-text.news-title-center {
+    color: HotPink;
+}
+[data-color-mode=dark] .Box-header .highlight-text.news-title-center {
+    color: #ff9ecd;
+}
+
+/* Buy me a Coffee – button below Current Motivation box */
+.coffee-btn {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    color: rgb(18, 246, 87);
+    background: rgba(18, 246, 87, 0.12);
+    border: 0.5px solid rgb(18, 246, 87);
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 12px rgba(18, 246, 87, 0.25);
+    font-family: inherit;
+}
+.coffee-btn:hover {
+    background: rgb(18, 246, 87);
+    color: var(--color-canvas-default, #0d1117);
+    box-shadow: 0 0 20px rgba(18, 246, 87, 0.5);
+    transform: scale(1.04);
+}
+.coffee-btn:focus {
+    outline: 0.5px solid rgb(18, 246, 87);
+}
+
+.coffee-btn-wrap {
+    margin-top: 1rem !important;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.coffee-btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobile-nav-sticky {
+    z-index: 3;
+}
+
+.code-small {
+    font-size: 0.8em;
+}
+
+.code-large {
+    font-size: 1.2em;
+}
+
+/* Box padding - Consistent left padding for all content boxes */
+.Box {
+    box-sizing: border-box;
+}
+
+.Box-body {
+    box-sizing: border-box;
+    padding-left: 1.5rem !important; /* Standard left padding for all boxes */
+}
+
+/* Extra padding for the main content box */
+.Box.mt-4 .Box-body {
+    padding-left: 5rem !important; /* Much more padding for the main content box */
+    padding-top: 0.25rem !important; /* Reduced top padding */
+    padding-bottom: 0.25rem !important; /* Reduced bottom padding */
+}
+
+/* Responsive padding - Adjust for smaller screens */
+@media (max-width: 768px) {
+    .Box-body {
+        padding-left: 1rem !important;
+    }
+    
+    .Box.mt-4 .Box-body {
+        padding-left: 3rem !important; /* Reduced but still more padding for main content */
+    }
+}
+
+@media (max-width: 480px) {
+    .Box-body {
+        padding-left: 0.75rem !important;
+    }
+    
+    .Box.mt-4 .Box-body {
+        padding-left: 2rem !important; /* Reduced but still more padding for main content */
+    }
+}
+
+/* Theme toggle SVG styles */
+.theme-toggle-moon {
+    fill: var(--color-profile-color-modes-toggle-moon);
+    margin: 7px 0 0 7px;
+}
+
+/* Neon theme animations and effects */
+
+
+/* Neon flicker animation */
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 5px #bf00ff,
+            0 0 10px #bf00ff,
+            0 0 15px #bf00ff,
+            0 0 20px #bf00ff,
+            0 0 25px #bf00ff,
+            0 0 30px #bf00ff,
+            0 0 35px #bf00ff;
+    }
+    20%, 24%, 55% {
+        text-shadow: 
+            0 0 3px #bf00ff,
+            0 0 8px #bf00ff,
+            0 0 12px #bf00ff,
+            0 0 18px #bf00ff,
+            0 0 25px #bf00ff,
+            0 0 32px #bf00ff;
+    }
+}
+
+
+/* Neon avatar effects */
+.neon-avatar {
+    border: 3px solid #bf00ff !important;
+    border-radius: 50% !important;
+    box-shadow: 
+        0 0 20px rgba(191, 0, 255, 0.5),
+        0 0 40px rgba(191, 0, 255, 0.3),
+        0 0 60px rgba(191, 0, 255, 0.2),
+        inset 0 0 20px rgba(191, 0, 255, 0.1);
+    animation: neon-avatar-glow 2s infinite alternate;
+    transition: all 0.3s ease-in-out;
+}
+
+.neon-avatar:hover {
+    animation: neon-avatar-glow 0.5s infinite alternate;
+    box-shadow: 
+        0 0 30px rgba(191, 0, 255, 0.7),
+        0 0 60px rgba(191, 0, 255, 0.5),
+        0 0 90px rgba(191, 0, 255, 0.3),
+        inset 0 0 30px rgba(191, 0, 255, 0.2);
+    transform: scale(1.05);
+}
+
+@keyframes neon-avatar-glow {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        box-shadow: 
+            0 0 20px rgba(191, 0, 255, 0.5),
+            0 0 40px rgba(191, 0, 255, 0.3),
+            0 0 60px rgba(191, 0, 255, 0.2),
+            inset 0 0 20px rgba(191, 0, 255, 0.1);
+    }
+    20%, 24%, 55% {
+        box-shadow: 
+            0 0 10px rgba(191, 0, 255, 0.3),
+            0 0 20px rgba(191, 0, 255, 0.2),
+            0 0 30px rgba(191, 0, 255, 0.1),
+            inset 0 0 10px rgba(191, 0, 255, 0.05);
+    }
+}
+
+/* Neon content box effects */
+.neon-content-box {
+    border: 3px solid #bf00ff !important;
+    border-radius: 8px !important;
+    box-shadow: 
+        0 0 20px rgba(191, 0, 255, 0.5),
+        0 0 40px rgba(191, 0, 255, 0.3),
+        0 0 60px rgba(191, 0, 255, 0.2),
+        inset 0 0 20px rgba(191, 0, 255, 0.1);
+    animation: neon-content-glow 2s infinite alternate;
+    transition: all 0.3s ease-in-out;
+}
+
+@keyframes neon-content-glow {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        box-shadow: 
+            0 0 20px rgba(191, 0, 255, 0.5),
+            0 0 40px rgba(191, 0, 255, 0.3),
+            0 0 60px rgba(191, 0, 255, 0.2),
+            inset 0 0 20px rgba(191, 0, 255, 0.1);
+    }
+    20%, 24%, 55% {
+        box-shadow: 
+            0 0 10px rgba(191, 0, 255, 0.3),
+            0 0 20px rgba(191, 0, 255, 0.2),
+            0 0 30px rgba(191, 0, 255, 0.1),
+            inset 0 0 10px rgba(191, 0, 255, 0.05);
+    }
+}
+
+/* Neon diamond effects */
+.neon-diamond {
+    font-size: 1.2em;
+    filter: drop-shadow(0 0 5px #bf00ff) 
+            drop-shadow(0 0 10px #bf00ff) 
+            drop-shadow(0 0 15px #bf00ff) 
+            drop-shadow(0 0 20px #bf00ff);
+    animation: neon-diamond-glow 2s infinite alternate;
+    transition: all 0.3s ease-in-out;
+}
+
+.neon-diamond:hover {
+    animation: neon-diamond-glow 0.5s infinite alternate;
+    filter: drop-shadow(0 0 8px #bf00ff) 
+            drop-shadow(0 0 15px #bf00ff) 
+            drop-shadow(0 0 25px #bf00ff) 
+            drop-shadow(0 0 35px #bf00ff);
+    transform: scale(1.1);
+}
+
+@keyframes neon-diamond-glow {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        filter: drop-shadow(0 0 5px #bf00ff) 
+                drop-shadow(0 0 10px #bf00ff) 
+                drop-shadow(0 0 15px #bf00ff) 
+                drop-shadow(0 0 20px #bf00ff);
+    }
+    20%, 24%, 55% {
+        filter: drop-shadow(0 0 3px #bf00ff) 
+                drop-shadow(0 0 8px #bf00ff) 
+                drop-shadow(0 0 12px #bf00ff) 
+                drop-shadow(0 0 18px #bf00ff);
+    }
+}
+
+/* Neon theme toggle effects */
+.neon-toggle {
+    transition: all 0.3s ease-in-out;
+}
+
+.neon-toggle-track {
+    border: 3px solid #bf00ff !important;
+    box-shadow: 
+        0 0 10px rgba(191, 0, 255, 0.5),
+        0 0 20px rgba(191, 0, 255, 0.3),
+        0 0 30px rgba(191, 0, 255, 0.2),
+        inset 0 0 10px rgba(191, 0, 255, 0.1);
+    animation: neon-toggle-glow 2s infinite alternate;
+    transition: all 0.3s ease-in-out;
+}
+
+.neon-toggle-thumb {
+    box-shadow: 
+        0 0 15px rgba(191, 0, 255, 0.6),
+        0 0 30px rgba(191, 0, 255, 0.4),
+        0 0 45px rgba(191, 0, 255, 0.3),
+        inset 0 0 15px rgba(191, 0, 255, 0.2);
+    animation: neon-toggle-thumb-glow 2s infinite alternate;
+    transition: all 0.3s ease-in-out;
+}
+
+.neon-toggle:hover .neon-toggle-track {
+    animation: neon-toggle-glow 0.5s infinite alternate;
+    box-shadow: 
+        0 0 15px rgba(191, 0, 255, 0.7),
+        0 0 30px rgba(191, 0, 255, 0.5),
+        0 0 45px rgba(191, 0, 255, 0.4),
+        inset 0 0 15px rgba(191, 0, 255, 0.2);
+}
+
+.neon-toggle:hover .neon-toggle-thumb {
+    animation: neon-toggle-thumb-glow 0.5s infinite alternate;
+    box-shadow: 
+        0 0 20px rgba(191, 0, 255, 0.8),
+        0 0 40px rgba(191, 0, 255, 0.6),
+        0 0 60px rgba(191, 0, 255, 0.4),
+        inset 0 0 20px rgba(191, 0, 255, 0.3);
+    transform: scale(1.05);
+}
+
+@keyframes neon-toggle-glow {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        box-shadow: 
+            0 0 10px rgba(191, 0, 255, 0.5),
+            0 0 20px rgba(191, 0, 255, 0.3),
+            0 0 30px rgba(191, 0, 255, 0.2),
+            inset 0 0 10px rgba(191, 0, 255, 0.1);
+    }
+    20%, 24%, 55% {
+        box-shadow: 
+            0 0 5px rgba(191, 0, 255, 0.3),
+            0 0 15px rgba(191, 0, 255, 0.2),
+            0 0 25px rgba(191, 0, 255, 0.1),
+            inset 0 0 5px rgba(191, 0, 255, 0.05);
+    }
+}
+
+@keyframes neon-toggle-thumb-glow {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        box-shadow: 
+            0 0 15px rgba(191, 0, 255, 0.6),
+            0 0 30px rgba(191, 0, 255, 0.4),
+            0 0 45px rgba(191, 0, 255, 0.3),
+            inset 0 0 15px rgba(191, 0, 255, 0.2);
+    }
+    20%, 24%, 55% {
+        box-shadow: 
+            0 0 8px rgba(191, 0, 255, 0.4),
+            0 0 20px rgba(191, 0, 255, 0.3),
+            0 0 35px rgba(191, 0, 255, 0.2),
+            inset 0 0 8px rgba(191, 0, 255, 0.1);
+    }
+}
+
+/* Neon slider styles – seamless infinite scroll */
+.neon-slider-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: var(--color-canvas-default);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.neon-slider {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.neon-slider-track {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: max-content;
+    min-width: 100%;
+    height: 100%;
+    animation: neon-slide-left 40s linear infinite;
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .neon-slider-track {
+        animation-duration: 60s;
+    }
+}
+
+.neon-slider-container:hover .neon-slider-track {
+    animation-play-state: paused;
+}
+
+.neon-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 
+        0 0 4px #bf00ff,
+        0 0 8px #bf00ff,
+        0 0 12px #bf00ff,
+        0 0 16px #bf00ff,
+        0 0 20px #bf00ff,
+        0 0 24px #bf00ff,
+        0 0 28px #bf00ff;
+    animation: neon-flicker 2s infinite alternate;
+    letter-spacing: 1px;
+    padding: 0 30px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+@keyframes neon-slide-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.neon-slider-container:hover .neon-text {
+    animation: neon-flicker 0.8s infinite alternate;
+    text-shadow: 
+        0 0 8px #bf00ff,
+        0 0 15px #bf00ff,
+        0 0 25px #bf00ff,
+        0 0 35px #bf00ff,
+        0 0 45px #bf00ff,
+        0 0 55px #bf00ff;
+}
+
+/* 404 Page Styles - Neon Theme */
+body.error-404 {
+    margin: 0;
+    padding: 0;
+    background: #0a0a0a;
+    color: #fff;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.error-404 .container {
+    text-align: center;
+    z-index: 1;
+}
+
+.error-404 .error-code {
+    font-size: 12rem;
+    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    margin: 0;
+    line-height: 1;
+}
+
+.error-404 .message {
+    font-size: 1.5rem;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    margin: 2rem 0;
+}
+
+.error-404 .home-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: #ff00ff;
+    text-decoration: none;
+    border: 2px solid #ff00ff;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px #ff00ff;
+    box-shadow: 0 0 20px #ff00ff;
+    transition: all 0.3s ease;
+}
+
+.error-404 .home-link:hover {
+    background: #ff00ff;
+    color: #000;
+    box-shadow: 0 0 30px #ff00ff;
+}
+
+.error-404 .glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}

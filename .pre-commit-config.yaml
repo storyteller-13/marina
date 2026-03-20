@@ -1,0 +1,37 @@
+# See https://pre-commit.com for usage
+# On each commit: tests (pytest), html <br> lint, Python linter (ruff), JS linter (eslint)
+# Setup: pip install pre-commit && pre-commit install
+repos:
+  - repo: local
+    hooks:
+      - id: test
+        name: test (pytest)
+        entry: make test
+        language: system
+        pass_filenames: false
+      - id: html-br
+        name: html <br> tags (canonical)
+        entry: node scripts/lint-html-br.js
+        language: system
+        pass_filenames: false
+      # HTML validation disabled (requires Java). Run manually: html5validator public/
+      # - id: html5validator
+      #   name: html5validator (lint HTML)
+      #   entry: html5validator
+      #   language: python
+      #   types: [html]
+      #   additional_dependencies: [html5validator]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.39.1
+    hooks:
+      - id: eslint
+        types: [javascript]
+        additional_dependencies:
+          - eslint@^9.39.1
+          - "@eslint/js@^9.39.1"
+          - "globals@^15.14.0"
