@@ -657,7 +657,7 @@ body.error-404 {
 }
 
 .blog-post-meta {
-    color: rgb(18, 246, 87);
+    color: rgb(148, 97, 199);
     margin-bottom: 3.25rem;
     font-size: 1.02rem;
     font-weight: 700;
@@ -666,10 +666,10 @@ body.error-404 {
 }
 
 .blog-post-subtitle {
-    color: HotPink;
+    color: rgb(148, 97, 199);
     font-size: 1.35rem;
     margin-top: -0.25rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
     font-weight: 700;
     font-family: 'Orbitron', monospace;
     line-height: 1.35;

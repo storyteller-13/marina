@@ -191,10 +191,9 @@ async function loadPost() {
   const slug = params.get("post");
   const titleRoot = document.getElementById("post-title");
   const subtitleRoot = document.getElementById("post-subtitle");
-  const metaRoot = document.getElementById("post-meta");
   const contentRoot = document.getElementById("post-content");
 
-  if (!slug || !titleRoot || !subtitleRoot || !metaRoot || !contentRoot) {
+  if (!slug || !titleRoot || !subtitleRoot || !contentRoot) {
     if (contentRoot) contentRoot.innerHTML = "<p>Missing post slug.</p>";
     return;
   }
@@ -208,7 +207,6 @@ async function loadPost() {
     titleRoot.textContent = meta.title || slug.replace(/-/g, " ");
     subtitleRoot.textContent = meta.subtitle || "";
     subtitleRoot.style.display = meta.subtitle ? "block" : "none";
-    metaRoot.textContent = meta.date || "";
     contentRoot.innerHTML = markdownToHtml(body);
   } catch (error) {
     contentRoot.innerHTML = `<p class="blog-error">${escapeHtml(error.message)}</p>`;
