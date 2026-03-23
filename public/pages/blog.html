@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1e2327">
+	<meta name="robots" content="noodp">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Dr. Steinkirch Technical Notes">
+	<meta property="og:url" content="/pages/blog.html">
+	<meta property="og:site_name" content="Technical Notes">
+	<meta property="og:image" content="/">
+	<meta property="og:image:width" content="2048">
+	<meta property="og:image:height" content="1024">
+	<title>Dr. Steinkirch's Universe</title>
+	<link rel="canonical" href="/pages/blog.html">
+	<link rel="stylesheet" href="/css/frameworks.min.css">
+	<link rel="stylesheet" href="/css/github.min.css">
+	<link rel="stylesheet" href="/css/github-style.css">
+	<link rel="stylesheet" href="/css/light.css">
+	<link rel="stylesheet" href="/css/dark.css">
+	<link rel="stylesheet" href="/css/syntax.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="stylesheet" href="/css/qa.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+	<script type="application/javascript" src="/js/theme-mode.js"></script>
+	<script type="application/javascript" src="/js/blog.js"></script>
+</head>
+<body>
+<div class="application-main">
+	<main>
+		<div class="mt-4 position-sticky top-0 d-none d-md-block bg-white width-full border-bottom color-border-secondary header-sticky">
+			<div class="container-xl px-3 px-md-4 px-lg-5">
+				<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+					<div class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0"></div>
+					<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+						<div class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
+							<nav class="UnderlineNav-body">
+								<a class="UnderlineNav-item" href="/"><code class="code-small">for (fun && profit)</code></a>
+								<a class="UnderlineNav-item" href="/pages/"><code class="code-small">for (fun || profit)</code></a>
+								<a class="UnderlineNav-item" href="/pages/qa.html"><code class="code-small">q && a</code></a>
+								<a class="UnderlineNav-item selected" href="/pages/blog.html"><code class="code-small">technical notes</code></a>
+							</nav>
+							<span class="profile-color-modes-toggle js-promo-color-modes-toggle no-select neon-toggle" tabindex="0" onclick="switchTheme()">
+								<div class="profile-color-modes-toggle-track no-select neon-toggle-track"></div>
+								<div class="profile-color-modes-toggle-thumb js-promo-color-modes-thumb neon-toggle-thumb">
+									<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"></path>
+									</svg>
+								</div>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-xl px-3 px-md-4 px-lg-5">
+			<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+				<div class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0 sidebar-margin-right">
+					<div class="h-card mt-md-n5 profile-card-margin">
+						<div class="user-profile-sticky-bar js-user-profile-sticky-bar d-none d-md-block" id="headerStuck">
+							<div class="user-profile-mini-vcard d-table">
+								<span class="user-profile-mini-avatar d-table-cell v-align-middle lh-condensed-ultra pr-2">
+									<img class="rounded-1 avatar-user" height="32" width="32" src="/images/steinkirch.png" alt="Marina von Steinkirch">
+								</span>
+							</div>
+						</div>
+						<div class="clearfix d-flex d-md-block flex-items-center mb-4 mb-md-0">
+							<div class="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0 avatar-z-index">
+								<a target="_blank" href="/images/steinkirch.png">
+									<img class="avatar avatar-user width-full border bg-white neon-avatar avatar-height-auto" alt="Marina von Steinkirch Avatar" width="260" height="260" id="headerImg" src="/images/steinkirch.png">
+								</a>
+								<div class="user-status-container position-relative hide-sm hide-md">
+									<div class="f5 user-status-circle-badge-container">
+										<div class="user-status-circle-badge d-inline-block lh-condensed-ultra p-2">
+											<div class="d-flex flex-items-center flex-items-stretch">
+												<div class="f6 lh-condensed user-status-header d-inline-flex user-status-emoji-only-header circle">
+													<div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center">
+														<div>
+															<g-emoji class="g-emoji neon-diamond">💎</g-emoji>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<br>
+						<br>
+						<section class="Box mt-2">
+							<header class="Box-header">
+								<h3 class="Box-title">
+									<span class="highlight-text news-title-center text-0_9 font-orbitron">Connect Professionally and Support My Craft</span>
+								</h3>
+							</header>
+							<div class="Box-body p-1">
+								<p class="coffee-btn-wrap mb-2 text-center">
+									<span class="coffee-btn-row">
+										<button type="button" class="coffee-btn font-orbitron text-0_9" onclick="window.open('https://sundaychats.vercel.app/','_blank','noopener,noreferrer')">👩🏻‍🏫 Chat and Learn</button>
+									</span>
+									<span class="coffee-btn-row">
+										<button type="button" class="coffee-btn font-orbitron text-0_9" onclick="window.open('https://donationvonsteinkirchcom.vercel.app/','_blank','noopener,noreferrer')">☕️  Buy Me a Latte</button>
+									</span>
+								</p>
+								<br>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+					<div class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
+						<nav class="UnderlineNav-body">
+							<a class="UnderlineNav-item" href="/"><code class="code-large">for (fun && profit)</code></a>
+							<a class="UnderlineNav-item" href="/pages/"><code class="code-large">for (fun || profit)</code></a>
+							<a class="UnderlineNav-item" href="/pages/qa.html"><code class="code-large">q && a</code></a>
+							<a class="UnderlineNav-item selected" href="/pages/blog.html"><code class="code-large">technical notes</code></a>
+						</nav>
+					</div>
+
+					<div class="Box mt-4 neon-content-box">
+						<div class="Box-body p-4">
+							<article class="markdown-body entry-content container-lg f5 blog-shell">
+								<div class="qa-page-wrap">
+									<br>
+									<h1><span class="section-title">Dr.'s Technical Notes</span></h1>
+									<br>
+									<div id="blog-post-list" class="blog-line-list" aria-label="Technical Notes posts"></div>
+									<br><br><br>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
+<div class="footer container-xl width-full p-responsive">
+	<div class="pt-6 mt-6"></div>
+</div>
+
+<div class="neon-slider-container">
+	<div class="neon-slider">
+		<div class="neon-slider-track">
+			<span class="neon-text">
+				impossible is a state of mind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				it always seems impossible until it's done&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				to achieve the impossible, one must attempt the absurd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				the word impossible is not in my dictionary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				i can do all this through him who gives me strength (philippians 4:13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				a winner is a dreamer who never gives up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				the harder the battle, the greater the triumph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</span>
+			<span class="neon-text" aria-hidden="true">
+				impossible is a state of mind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				it always seems impossible until it's done&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				to achieve the impossible, one must attempt the absurd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				the word impossible is not in my dictionary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				i can do all this through him who gives me strength (philippians 4:13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				a winner is a dreamer who never gives up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				the harder the battle, the greater the triumph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

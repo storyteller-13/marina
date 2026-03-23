@@ -1,4 +1,4 @@
-.PHONY: server test lint
+.PHONY: server test lint blog-sync
 server:
 	cd public && python3 -m http.server 8037
 	echo "server running at http://localhost:8037"
@@ -10,3 +10,6 @@ lint:
 	pre-commit run ruff --all-files
 	pre-commit run eslint --all-files
 	pre-commit run html-br --all-files
+
+blog-sync:
+	python3 scripts/sync-blog-posts.py
