@@ -191,41 +191,47 @@ p.journey-footnote {
     font-size: 1.2em;
 }
 
-/* Box padding - Consistent left padding for all content boxes */
+/* Box padding – equal horizontal padding so content sits evenly in the box */
 .Box {
     box-sizing: border-box;
 }
 
 .Box-body {
     box-sizing: border-box;
-    padding-left: 1.5rem !important; /* Standard left padding for all boxes */
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
 }
 
-/* Extra padding for the main content box */
+/* Extra horizontal padding for the main content box */
 .Box.mt-4 .Box-body {
-    padding-left: 5rem !important; /* Much more padding for the main content box */
-    padding-top: 0.25rem !important; /* Reduced top padding */
-    padding-bottom: 0.25rem !important; /* Reduced bottom padding */
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
 }
 
 /* Responsive padding - Adjust for smaller screens */
 @media (max-width: 768px) {
     .Box-body {
         padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
-    
+
     .Box.mt-4 .Box-body {
-        padding-left: 3rem !important; /* Reduced but still more padding for main content */
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
     }
 }
 
 @media (max-width: 480px) {
     .Box-body {
         padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
     }
-    
+
     .Box.mt-4 .Box-body {
-        padding-left: 2rem !important; /* Reduced but still more padding for main content */
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
     }
 }
 
@@ -586,4 +592,168 @@ body.error-404 {
     height: 100%;
     background: radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
     pointer-events: none;
+}
+
+/* Blog page */
+.blog-shell {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+}
+
+.blog-post-page {
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.blog-subtitle {
+    color: var(--color-fg-muted);
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.55;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    gap: 1.5rem;
+}
+
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.blog-post-link {
+    text-align: left;
+    border: 1px solid var(--color-border-default);
+    background: transparent;
+    border-radius: 10px;
+    padding: 0.7rem 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.blog-post-link:hover,
+.blog-post-link.is-active {
+    border-color: #e85a4f;
+    background: rgba(232, 90, 79, 0.08);
+    transform: translateY(-1px);
+}
+
+.blog-post-link-title {
+    display: block;
+    font-weight: 600;
+    color: var(--color-fg-default);
+}
+
+.blog-post-link-date {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--color-fg-muted);
+    font-size: 0.82rem;
+}
+
+.blog-post-title {
+    margin-bottom: 0.15rem;
+    font-family: 'Orbitron', monospace;
+}
+
+.blog-post-meta {
+    color: rgb(148, 97, 199);
+    margin-bottom: 3.25rem;
+    font-size: 1.02rem;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    letter-spacing: 0.02em;
+}
+
+.blog-post-subtitle {
+    color: rgb(148, 97, 199);
+    font-size: 1.35rem;
+    margin-top: -0.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    line-height: 1.35;
+}
+
+.blog-post-content p {
+    line-height: 1.7;
+}
+
+.blog-back-row {
+    margin-bottom: 0.5rem;
+}
+
+.blog-back-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-back-link:visited,
+.blog-back-link:hover,
+.blog-back-link:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-back-link code {
+    color: HotPink;
+    border-bottom: 1px dotted transparent;
+    transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.blog-back-link:hover code {
+    color: #ff9ecd;
+    border-bottom-color: #ff9ecd;
+    text-shadow: 0 0 8px rgba(255, 158, 205, 0.45);
+}
+
+.blog-error {
+    color: #f85149;
+}
+
+.blog-line-list {
+    margin-top: 0.4rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 760px;
+}
+
+.blog-line {
+    margin: 0 0 0.4rem 0;
+    text-align: left;
+}
+
+.blog-line-link {
+    color: #1cffb3;
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+    transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 900;
+    line-height: 1.55;
+}
+
+.blog-line-link:hover {
+    color: #66ffd1;
+    border-bottom-color: #66ffd1;
+    text-shadow: 0 0 8px rgba(28, 255, 179, 0.45);
+}
+
+.blog-line-date {
+    color: #66d9ff;
+}
+
+@media (max-width: 900px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
 }

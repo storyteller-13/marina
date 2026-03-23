@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "3",
+    "title": "Book Review: Build a Large Language Moldel, by Sebastian Raschka",
+    "date": "2026-03-29",
+    "subtitle": "Rating: |"
+  },
+  {
+    "slug": "2",
+    "title": "Book Review: AI Engineering, by Chip Huyen",
+    "date": "2026-03-25",
+    "subtitle": "Rating: 8/10 | Beginner to Intermediate AI/Software Engineer"
+  },
+  {
+    "slug": "1",
+    "title": "HashHop as an Interpretability Probe",
+    "date": "2026-03-23",
+    "subtitle": "A Thought Experiment Interpreting Long-Context Retrieval in Transformers"
+  }
+]
