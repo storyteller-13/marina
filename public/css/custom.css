@@ -230,8 +230,8 @@ p.journey-footnote {
     }
 
     .Box.mt-4 .Box-body {
-        padding-left: 2rem !important;
-        padding-right: 2rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
 }
 
@@ -737,7 +737,7 @@ body.error-404 {
     border-bottom: 1px dotted transparent;
     transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
     font-family: 'Orbitron', monospace;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 900;
     line-height: 1.55;
 }
@@ -756,4 +756,100 @@ body.error-404 {
     .blog-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Blog & notes — mobile readability */
+@media (max-width: 768px) {
+    /* Clear fixed bottom ticker (blog index, etc.) without affecting post pages */
+    html:has(.neon-slider-container) .application-main {
+        padding-bottom: 48px;
+    }
+
+    .section-title {
+        font-size: 1.85rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+
+    .blog-subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .blog-post-subtitle {
+        font-size: 1.15rem;
+        line-height: 1.4;
+    }
+
+    .blog-post-meta {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    .mobile-nav-sticky {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .mobile-nav-sticky .UnderlineNav-body {
+        flex-wrap: wrap;
+        row-gap: 0.15rem;
+        justify-content: flex-start;
+    }
+
+    .mobile-nav-sticky .UnderlineNav-item {
+        font-size: 13px !important;
+        padding-left: 0.35rem !important;
+        padding-right: 0.35rem !important;
+    }
+
+    .blog-line-list {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .blog-line-link {
+        display: inline-block;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.45rem;
+    }
+
+    .blog-post-page {
+        padding-top: 1.25rem;
+        padding-bottom: 2.5rem;
+    }
+}
+
+/* Long code lines and tables in rendered notes */
+.blog-post-content pre,
+.blog-shell .markdown-body pre {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.blog-post-content table,
+.blog-shell .markdown-body table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.blog-post-content img,
+.blog-shell .markdown-body img {
+    max-width: 100%;
+    height: auto;
 }
