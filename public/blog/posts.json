@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "4",
+    "title": "Context windows && the shape of attention",
+    "date": "2026-04-05",
+    "subtitle": "A short Sunday note on memory, retrieval, and when more tokens help"
+  },
+  {
+    "slug": "3",
+    "title": "Book Review: Build a LLM from Scratch, by S. Raschka",
+    "date": "2026-03-29",
+    "subtitle": "Rating: 9/10 | Beginner to Intermediate AI/Software Engineer"
+  },
+  {
+    "slug": "2",
+    "title": "Book Review: AI Engineering, by C. Huyen",
+    "date": "2026-03-25",
+    "subtitle": "Rating: 8/10 | Beginner to Intermediate AI/Software Engineer"
+  },
+  {
+    "slug": "1",
+    "title": "HashHop as an Interpretability Probe",
+    "date": "2026-03-23",
+    "subtitle": "A Thought Experiment Interpreting Long-Context Retrieval in Transformers"
+  }
+]

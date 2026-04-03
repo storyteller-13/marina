@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dr. Steinkirch's Universe</title>
+	
+	<!-- Meta tags -->
+	<meta name="theme-color" content="#1e2327">
+	<meta name="robots" content="noodp">
+	<link rel="canonical" href="/">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="Dr. Steinkirch's Universe">
+	<meta property="og:url" content="/">
+	<meta property="og:image" content="/images/steinkirch.png">
+	<meta property="og:image:width" content="2048">
+	<meta property="og:image:height" content="1024">
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+	
+	<!-- RSS Feed -->
+	<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Dr. Steinkirch's Universe">
+	
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/css/frameworks.min.css">
+	<link rel="stylesheet" href="/css/github.min.css">
+	<link rel="stylesheet" href="/css/github-style.css">
+	<link rel="stylesheet" href="/css/light.css">
+	<link rel="stylesheet" href="/css/dark.css">
+	<link rel="stylesheet" href="/css/syntax.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	
+	<!-- Theme script -->
+	<script type="application/javascript" src="/js/theme-mode.js"></script>
+</head>
+
+<body>
+	<div class="application-main">
+		<main>
+			<!-- Header Navigation -->
+			<header class="mt-4 position-sticky top-0 d-none d-md-block bg-white width-full border-bottom color-border-secondary header-sticky">
+				<div class="container-xl px-3 px-md-4 px-lg-5">
+					<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+						<div class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0">
+						</div>
+						<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+							<nav class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
+								<div class="UnderlineNav-body">
+									<a class="UnderlineNav-item selected" href="/">
+										<code class="code-small">for (fun && profit)</code>
+									</a>
+									<a class="UnderlineNav-item" href="/pages/">
+										<code class="code-small">for (fun || profit)</code>
+									</a>
+									<a class="UnderlineNav-item" href="/pages/qa.html">
+										<code class="code-small">q && a</code>
+									</a>
+									<a class="UnderlineNav-item" href="/pages/blog.html">
+										<code class="code-small">dev notes</code>
+									</a>
+								</div>
+          							<div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
+            								<svg width="106" height="60" viewBox="0 0 106 60" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+	              								<g class="profile-color-modes-illu-group profile-color-modes-illu-red">
+		                							<path d="M37.5 58.5V57.5C37.5 49.768 43.768 43.5 51.5 43.5V43.5C59.232 43.5 65.5 49.768 65.5 57.5V58.5"></path>
+	              								</g>
+	              								<g class="profile-color-modes-illu-group profile-color-modes-illu-orange">
+		                							<path d="M104.07 58.5C103.401 55.092 97.7635 54.3869 95.5375 57.489C97.4039 54.6411 99.7685 48.8845 94.6889 46.6592C89.4817 44.378 86.1428 50.1604 85.3786 54.1158C85.9519 50.4768 83.7226 43.294 78.219 44.6737C72.7154 46.0534 72.7793 51.3754 74.4992 55.489C74.169 54.7601 72.4917 53.3567 70.5 52.8196"></path>
+	              								</g>
+	              								<g class="profile-color-modes-illu-group profile-color-modes-illu-purple">
+			                						<path d="M5.51109 58.5V52.5C5.51109 41.4543 14.4654 32.5 25.5111 32.5C31.4845 32.5 36.8464 35.1188 40.5111 39.2709C40.7212 39.5089 40.9258 39.7521 41.1245 40"></path>
+			               							<path d="M27.511 49.5C29.6777 49.5 28.911 49.5 32.511 49.5"></path>
+			                						<path d="M27.511 56.5C29.6776 56.5 26.911 56.5 30.511 56.5"></path>
+	              								</g>
+	              								<g class="profile-color-modes-illu-group profile-color-modes-illu-green">
+			                						<circle cx="5.5" cy="12.5" r="4"></circle>
+			               							<circle cx="18.5" cy="5.5" r="4"></circle>
+			                						<path d="M18.5 9.5L18.5 27.5"></path>
+			                						<path d="M18.5 23.5C6 23.5 5.5 23.6064 5.5 16.5"></path>
+		              							</g>
+	             	 							<g class="profile-color-modes-illu-group profile-color-modes-illu-blue">
+	                								<g class="profile-color-modes-illu-frame">
+	                  									<path d="M40.6983 31.5C40.5387 29.6246 40.6456 28.0199 41.1762 27.2317C42.9939 24.5312 49.7417 26.6027 52.5428 30.2409C54.2551 29.8552 56.0796 29.6619 57.9731 29.6619C59.8169 29.6619 61.5953 29.8452 63.2682 30.211C66.0833 26.5913 72.799 24.5386 74.6117 27.2317C75.6839 28.8246 75.0259 33.7525 73.9345 37.5094C74.2013 37.9848 74.4422 38.4817 74.6555 39"></path>
+	                								</g>
+	                								<g class="profile-color-modes-illu-frame">
+		                  								<path d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39"></path>
+		                  								<path d="M49.4996 33V35.6757"></path>
+		                  								<path d="M67.3375 33V35.6757"></path>
+		                							</g>
+		                							<g class="profile-color-modes-illu-frame">
+		                  								<path d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39"></path>
+		                							</g>
+		                							<g class="profile-color-modes-illu-frame">
+		                  								<path d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39"></path>
+		                  								<path d="M49.4996 33V35.6757"></path>
+		                  								<path d="M67.3375 33V35.6757"></path>
+		                							</g>
+		                							<g class="profile-color-modes-illu-frame">
+		                  								<path d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39"></path>
+		                							</g>
+		                							<g class="profile-color-modes-illu-frame">
+		                  								<path d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39"></path>
+		                  								<path d="M49.4996 33V35.6757"></path>
+		                  								<path d="M67.3375 33V35.6757"></path>
+		                							</g>
+		                							<g class="profile-color-modes-illu-frame">
+		                 		 						<path d="M73.4999 40.2236C74.9709 38.2049 75.8108 35.5791 75.8108 32.2283C75.8108 29.2229 75.1351 26.6488 73.9344 24.5094C75.0258 20.7525 75.6838 15.8246 74.6116 14.2317C72.7989 11.5386 66.0832 13.5913 63.2681 17.211C61.5952 16.8452 59.8167 16.6619 57.973 16.6619C56.0795 16.6619 54.2549 16.8552 52.5427 17.2409C49.7416 13.6027 42.9938 11.5312 41.176 14.2317C40.0859 15.8512 40.7843 20.9182 41.9084 24.6968C41.003 26.3716 40.4146 28.3065 40.2129 30.5"></path>
+		                  								<path d="M82.9458 30.5471L76.8413 31.657"></path>
+		                  								<path d="M76.2867 34.4319L81.8362 37.7616"></path>
+		                  								<path d="M49.4995 27.8242V30.4999"></path>
+		                  								<path d="M67.3374 27.8242V30.4998"></path>
+		                							</g>
+		                							<g class="profile-color-modes-illu-frame">
+		                  								<path d="M45.3697 34.2658C41.8877 32.1376 39.7113 28.6222 39.7113 23.2283C39.7113 20.3101 40.3483 17.7986 41.4845 15.6968C40.3605 11.9182 39.662 6.85125 40.7522 5.23168C42.5699 2.53117 49.3177 4.6027 52.1188 8.24095C53.831 7.85521 55.6556 7.66186 57.5491 7.66186C59.3929 7.66186 61.1713 7.84519 62.8442 8.21095C65.6593 4.59134 72.375 2.5386 74.1877 5.23168C75.2599 6.82461 74.6019 11.7525 73.5105 15.5094C74.7112 17.6488 75.3869 20.2229 75.3869 23.2283C75.3869 28.6222 73.2105 32.1376 69.7285 34.2658C70.8603 35.5363 72.6057 38.3556 73.3076 40"></path>
+		                  								<path d="M49.0747 19.8242V22.4999"></path>
+		                  								<path d="M54.0991 28C54.6651 29.0893 55.7863 30.0812 57.9929 30.0812C59.0642 30.0812 59.8797 29.8461 60.5 29.4788"></path>
+		                  								<path d="M66.9126 19.8242V22.4999"></path>
+		                  								<path d="M33.2533 20.0237L39.0723 22.1767"></path>
+		                 								<path d="M39.1369 25.0058L33.0935 27.3212"></path>
+		                  								<path d="M81.8442 19.022L76.0252 21.1751"></path>
+		                  								<path d="M75.961 24.0041L82.0045 26.3196"></path>
+		                							</g>
+		                							<g class="profile-color-modes-illu-frame">
+		                  								<path d="M73.4999 40.2236C74.9709 38.2049 75.8108 35.5791 75.8108 32.2283C75.8108 29.2229 75.1351 26.6488 73.9344 24.5094C75.0258 20.7525 75.6838 15.8246 74.6116 14.2317C72.7989 11.5386 66.0832 13.5913 63.2681 17.211C61.5952 16.8452 59.8167 16.6619 57.973 16.6619C56.0795 16.6619 54.2549 16.8552 52.5427 17.2409C49.7416 13.6027 42.9938 11.5312 41.176 14.2317C40.0859 15.8512 40.7843 20.9182 41.9084 24.6968C41.003 26.3716 40.4146 28.3065 40.2129 30.5"></path>
+		                  								<path d="M82.9458 30.5471L76.8413 31.657"></path>
+		                  								<path d="M76.2867 34.4319L81.8362 37.7616"></path>
+		                  								<path d="M49.4995 27.8242V30.4999"></path>
+		                  								<path d="M67.3374 27.8242V30.4998"></path>
+		                							</g>
+		                							<g class="profile-color-modes-illu-frame">
+		                  								<path d="M40.6983 31.5C40.5387 29.6246 40.6456 28.0199 41.1762 27.2317C42.9939 24.5312 49.7417 26.6027 52.5428 30.2409C54.2551 29.8552 56.0796 29.6619 57.9731 29.6619C59.8169 29.6619 61.5953 29.8452 63.2682 30.211C66.0833 26.5913 72.799 24.5386 74.6117 27.2317C75.6839 28.8246 75.0259 33.7525 73.9345 37.5094C74.2013 37.9848 74.4422 38.4817 74.6555 39"></path>
+										</g>
+            								</svg>
+						            		<span class="profile-color-modes-toggle js-promo-color-modes-toggle no-select neon-toggle" tabindex="0" onclick="switchTheme()">
+						              			<div class="profile-color-modes-toggle-track no-select neon-toggle-track">
+										</div>
+						              			<div class="profile-color-modes-toggle-thumb js-promo-color-modes-thumb neon-toggle-thumb">
+						                			<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
+						                  				<path fill-rule="evenodd" clip-rule="evenodd" d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"></path>
+											</svg>
+										</div>
+						            		</span>
+          							</div>
+        						</div>
+      						</div>
+   					 </div>
+  				</div>
+			</div>
+
+			<!-- Main Content Container -->
+			<div class="container-xl px-3 px-md-4 px-lg-5">
+				<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+					<!-- Profile Sidebar -->
+					<aside class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0 sidebar-margin-right">
+						<div class="h-card mt-md-n5 profile-card-margin">
+							<!-- Sticky Profile Bar -->
+							<div class="user-profile-sticky-bar js-user-profile-sticky-bar d-none d-md-block" id="headerStuck">
+								<div class="user-profile-mini-vcard d-table">
+									<span class="user-profile-mini-avatar d-table-cell v-align-middle lh-condensed-ultra pr-2">
+										<img class="rounded-1 avatar-user" height="32" width="32" src="/images/steinkirch.png" alt="Marina von Steinkirch">
+									</span>
+								</div>
+							</div>
+							
+							<!-- Profile Content -->
+							<div class="clearfix d-flex d-md-block flex-items-center mb-4 mb-md-0">
+								<div class="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0 avatar-z-index">
+									<a target="_blank" href="/images/steinkirch.png">
+										<img class="avatar avatar-user width-full border bg-white avatar-height-auto" alt="Marina von Steinkirch Avatar" width="260" height="260" id="headerImg" src="/images/steinkirch.png">
+									</a>
+									
+									<!-- Status Badge -->
+									<div class="user-status-container position-relative hide-sm hide-md">
+										<div class="f5 user-status-circle-badge-container">
+											<div class="user-status-circle-badge d-inline-block lh-condensed-ultra p-2">
+												<div class="d-flex flex-items-center flex-items-stretch">
+													<div class="f6 lh-condensed user-status-header d-inline-flex user-status-emoji-only-header circle">
+														<div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center">
+															<div>
+																<g-emoji class="g-emoji neon-diamond">💎</g-emoji>
+															</div> 
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Profile Information -->
+								<div class="vcard-names-container float-left col-10 col-md-12 pt-1 pt-md-3 pb-1 pb-md-3 js-sticky js-user-profile-sticky-fields sticky-position" data-original-top="0px">
+									<h1 class="vcard-names pl-2 pl-md-2">
+										<span class="p-name vcard-fullname d-block overflow-hidden">
+											<h3>
+												<br><span class="success-text text-1 font-orbitron">Dr. Marina von Steinkirch</span>
+											</h3>
+										</span>
+										<span class="p-nickname vcard-username d-block"> 
+											<strong>
+												<h4 class="text-1">
+				 									<br><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch">Theoretical Astrophysicist</a> → 
+													<br><a target="_blank" href="https://github.com/von-steinkirch">Principal Software Engineer</a> → 
+													<br><span class="ai-scientist-effect">AI Engineer and Scientist</span>
+												</h4>
+											</strong>
+										</span>
+									</h1>
+								</div>
+							</div>
+						</div>
+						
+						<br>
+						<!-- News Section -->
+						<section class="Box mt-2">
+							<header class="Box-header">
+								<h3 class="Box-title">
+									<span class="highlight-text news-title-center text-0_9 font-orbitron">Current Motivation</span>
+								</h3>
+							</header>
+							<div class="Box-body p-3">
+
+								<article class="d-flex flex-column mt-2">
+									<strong><span class="success-text text-0_8 font-orbitron">On St. Paul...</span></strong>
+									<br>
+									<p class="text-mono text-0_7">
+										<i>"Whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is commendable — if there is any excellence, if there is anything worthy of praise, think about these things."</i>
+									</p>
+								</article>
+							</div>
+						</section>
+
+					</aside>
+
+					<!-- Main Content Area -->
+					<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+						<!-- Mobile Navigation -->
+						<nav class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
+							<div class="UnderlineNav-body">
+								<a class="UnderlineNav-item selected" href="/">
+									<code class="code-large">for (fun && profit)</code>
+								</a>
+								<a class="UnderlineNav-item" href="/pages/">
+									<code class="code-large">for (fun || profit)</code>
+								</a>
+								<a class="UnderlineNav-item" href="/pages/qa.html">
+									<code class="code-large">q && a</code>
+								</a>
+								<a class="UnderlineNav-item" href="/pages/blog.html">
+									<code class="code-large">dev notes</code>
+								</a>
+							</div>
+						</nav>
+
+						<!-- Content Sections -->
+						<div class="position-relative">
+							<div class="Box mt-4">
+								<div class="Box-body p-4">
+									<article class="markdown-body entry-content container-lg f5 mb-4 mt-4">
+										<!-- Specialization Section -->
+										<section class="content-section">
+											<h1 class="section-title">Areas of Interest</h1>
+											<br>
+											<ol>
+												<li><strong><span class="highlight-text font-orbitron">Clean Code</span> → Rust; Python; Lean; Infrastructure; Algorithms; Formal Verification</strong> </li>
+												<li><strong><span class="highlight-text font-orbitron">AI && ML</span> → Interpretability; Theorem Proving; Scientific && Creative Endeavors </strong> </li>
+												<li><strong><span class="highlight-text font-orbitron">Astrophysics</span> → Quantum Field Theories; Group Theory; Astronomy; Cosmology</strong> </li>
+												<li><strong><span class="highlight-text font-orbitron">Storytelling</span> → Philosophy; Theology; The Hero's Journey; The Human Condition</strong> </li>
+											</ol>
+										</section>
+
+								<br>
+								
+								<h1 class="section-title">Open-Source Projects I Authored</h1>
+								<br>
+							
+								<h3><span class="success-text text-1 font-orbitron">Theoretical Physics || Astrophysics || Quantum Computing</span></h3>
+								<br>
+									<ul>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/astrophysics-mfits-py">[2013] 👾👾👾👾 astrophysics-mfits-py</a></strong>, a tool for statistical analysis of x-ray bursters (python, idl)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/interstellar">[2013] 👾👾👾👾 interstellar-idl</a></strong>, a tool for analyzing interstellar dust (monte carlo, idl)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/exolife-idl">[2013] 👾👾👾👾 exolife-idl</a></strong>, analysis of the spectra of earthshine for exolife (idl)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/solar-idl">[2013] 👾👾👾 solar-idl</a></strong>, tool for analyzing interferometric radio data from the sun (idl)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/adv-optimization-physics-py">[2013] 👾👾👾 advanced-optimization-physics-py</a></strong>, ffts, pdes, odes, etc. (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/lilit-org/desci-ai-experiments-py/tree/master/EBMs">[2020] 👾👾 openAI's EBMs</a></strong>, quantum ai experiment: training energy-based-models (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/ml-qtensorflow-py">[2020] 👾👾 ml-qtensorflow-py</a></strong>, deploying a quantum computing version of tensorflow in kubernetes (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/quantum-computing-toolkit">[2019] 👾👾 quantum-computing-toolkit</a></strong>, quantum computing and cryptography resources (python)</li>
+										<li><strong><a target="_blank" href="https://www.youtube.com/watch?v=oGYMrXpQT-8">[2019] 👾 quantum teleportation</a></strong>, a demo of quantum teleportation in cirq (python)</li>
+									</ul>
+								<br>
+
+								<h3><span class="success-text text-1 font-orbitron">Artificial Intelligence || Machine Learning || Robotics</span></h3>
+								<br>
+									<ul>
+										<li><strong><a target="_blank" href="https://github.com/future-ai-org/ml-classifiers-and-experiments-py">[2014] 👾👾👾👾👾 ml-classifiers-and-experiments-py</a></strong>, experiments of ML/AI algorithms from first principles (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/mlnet-complex-networks">[2014] 👾👾👾👾 mlnet-complex-networks-py</a></strong>, classify complex networks with ML (python, networkx)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/ml-graph-network-analyser">[2014] 👾👾👾👾 ml-graph-network-analyser-py</a></strong>, a tool for graph analysis (python, networkx)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/master-algorithms-py">[2013] 👾👾👾👾 master-algorithms-py</a></strong>, a comprehensive book on algorithms and data structures (python)</li>	
+										<li><strong><a target="_blank" href="https://github.com/shadowy-forest/desci-ai-experiments-py">[2020] 👾👾👾 desci-ai-experiments-py</a></strong>, resources, experiments, notes for ml, ai, agents, LLMs (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/shadowy-forest/awesome-decentralized-ai">[2025] 👾👾👾 awesome-decentralized-ai</a></strong>, curated resources for decentralized AI, LLMs, agents, etc.</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/ml-tensorflower">[2016] 👾👾👾 ml-tensorflower-py</a></strong>, ml notebooks, tensorflow/numpy small projects, data engineering (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/lilit-org/lean4-toolkit">[2025] 👾👾👾 lean4-toolkit</a></strong>, 0 to hero for lean4, a functional language and interactive theorem prover</li>
+										<li><strong><a target="_blank" href="https://github.com/lilit-org/drusilla-py">[2025] 👾👾👾 drusilla-py</a></strong>, a multifaceted agentic framework for deepseek-r1 (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/robotics-matlab">[2013] 👾👾👾 robotics-matlab</a></strong>, several experiments with depth sensors (c++, matlab)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/cuda-for-deep-learning-c">[2016] 👾 cuda-for-deep-learning-c</a></strong>, random notes from helping with Apple's deep learning research (c++)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/ml-netclean">[2014] 👾 ml-netclean-py</a></strong>, code for cleansing vector data for complex networks (python, shell)</li>
+									</ul>
+								<br>
+								<h3><span class="success-text text-1 font-orbitron">Privacy || Security || Infrastructure</span></h3>
+								<br>
+									<ul>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/surfline-pipeline-aws-py">[2019] 👾👾👾👾 surfline-pipeline-py</a></strong>, my production-grade code for <strong><a target="_blank" href="https://www.surfline.com/lp/sessions">surfline sessions</a></strong> (python, terraform, k8s)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/sec-pentesting-toolkit">[2014] 👾👾👾👾 sec-pentesting-toolkit</a></strong>, web2 security toolkit (shell, c/c++)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/backend-and-orchestration-toolkit">[2019] 👾👾👾 backend-and-orchestration-toolkit</a></strong>, theory and code (docker, aws, gcp, k8s, kafka)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/gcp-sec-amigo-py">[2019] 👾👾👾 gcp-sec-amigo-py</a></strong>, cli tool for gcp security enforcement (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/cypherpunk-symposium/metaverse-steganography-py">[2021] 👾👾👾 metaverse-steganography-py</a></strong>, conceptual project using images from the hubble space telescope (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/shell-toolkit">[2014] 👾👾 shell-toolkit</a></strong>, dotfiles, git, tmux, vim, chef, scripts, etc. over the years (shell)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/csrf-apache-modsecurity-rb">[2013] 👾👾 csrf-apache-modsecurity-rb</a></strong>, a modification of apache's mod_security to monitor attacks (ruby)</li>
+										<li><strong><a target="_blank" href="https://github.com/storyteller-13/agent-supabase-resend-py">[2026] 👾 agent-supabase-resend-py</a></strong>, bob gets excited and sends emails on INSERTs (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/storyteller-13/agent-blockchain-transfer-js">[2026] 👾 agent-blockchain-transfer-js</a></strong>, bill gets excited and sends emails on a blockchain transfer (python)</li>
+									</ul>
+								<br>
+
+								<h3><span class="success-text text-1 font-orbitron">Blockchains || Decentralized Finance</span></h3>
+								<br>
+									<ul>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/amm-arbitrage-tool-py">[2022] 👾👾👾👾 amm-arbitrage-tool-py</a></strong>, a tool for arbitrage on uniswap v2 &amp;&amp; forks (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/mev-toolkit">[2022] 👾👾👾👾 mev-toolkit</a></strong>, notes and resources for my research on maximal extractable value</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/ethernaut-foundry-framework-solutions-sol">[2023] 👾👾👾👾 ethernaut-foundry-framework-solutions-sol</a></strong>, my system for the challenges (solidity)</li> 
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/searcher-cowswap-py">[2022] 👾👾👾👾 searcher-cowswap-py</a></strong>, a CoW protocol arbitrage mev solver (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/blockchain-science-rs">[2023] 👾👾👾👾 blockchain-science-rs</a></strong>, on-chain research, merkle trees, foundry, bots (rust)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/blockchain-science-py">[2022] 👾👾👾👾 blockchain-science-py</a></strong>, on-chain research, zkp, pir, notebooks, bots (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/blockchains-gray-hacking-toolkit">[2022] 👾👾👾👾 blockchains-security-toolkit</a></strong>, security, gray-hacking, and auditing (foundry, solidity)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/loot-storyteller-nft-collection-sol">[2021] 👾👾👾👾 loot-storyteller-nft-collection-sol</a></strong>, contract for my generative collection, sold 21 eth (solidity)</li>
+										<li><strong><a target="_blank" href="https://github.com/urani-trade/urani-swap-ts">[2024] 👾👾👾👾 solana-swap-ts</a></strong>, production-grade dapp for order intent ingestion (typescript) </li>
+										<li><strong><a target="_blank" href="https://github.com/urani-trade/solana-mev-agent-py">[2024] 👾👾👾 solana-mev-agent-py</a></strong>, urani's first mev agent template (python) </li>
+										<li><strong><a target="_blank" href="https://github.com/urani-trade/solana-dev-onboarding-rs">[2024] 👾👾👾 solana-dev-onboarding-rs</a></strong>, backend and frontend starter kit (rust)</li>
+										<li><strong><a target="_blank" href="https://github.com/cypherpunk-symposium/blockchain-science-rs/tree/main/forest-node-for-ai">[2025] 👾👾👾 forest-node-rs</a></strong>, prototype of a blockchain node for decentralized AI jobs execution (rust)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/decentralized-cryptography-toolkit">[2024] 👾👾 decentralized-cryptography-toolkit</a></strong>, curated resources for zkps, mpc, tees, differential privacy, etc.</li>
+										<li><strong><a target="_blank" href="https://github.com/cypherpunk-symposium/blockchain-data-engineering-toolkit">[2023] 👾👾 blockchain-data-engineering-toolkit</a></strong>, design, code, plans, <i>e.g.,</i> on-chain indexing (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/decentralized-protocols-toolkit">[2022] 👾👾 decentralized-protocols-toolkit</a></strong>, protocol design, incentives, game theory, da, etc. </li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/autistic-cypherpunk-toolkit">[2024] 👾👾 the-autistic-cypherpunk-toolkit</a></strong>, honoring the past as we build the future </li>
+										<li><strong><a target="_blank" href="https://github.com/urani-trade/solana-mev-literature">[2024] 👾👾 solana-mev-literature</a></strong>, resources for my research on sol mev</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/web3-starter-sol">[2022] 👾👾 web3-starter-sol</a></strong>, scripts and projects for basic on-chain ops (solidity)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/web3-starter-rs">[2022] 👾👾 web3-starter-rs</a></strong>, scripts and projects for basic on-chain ops (rust, foundry)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/web3-starter-py">[2021] 👾👾 web3-starter-py</a></strong>, scripts and projects for basic on-chain ops (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/coin-mixer-py">[2021] 👾👾 coin-mixer-py</a></strong>, back-of-the-envelope proof-of-concept (python)</li>
+									</ul>
+								<br>
+								<h3><span class="success-text text-1 font-orbitron">Just for Fun || Frontend AI-Driven Projects</span></h3>
+								
+								<br>
+
+								<ul>
+										<li><strong><a target="_blank" href="https://github.com/storyteller-13/marina-OS">[2026] 👾👾👾👾 marina-os</a></strong>, my offbeat storyteller operating system (javascript)</li>
+										<li><strong><a target="_blank" href="https://github.com/storyteller-13/the-side-quest">[2026] 👾👾👾👾 the-side-quest</a></strong>, a cute game i wrote in one day using claude (javascript)</li>
+										<li><strong><a target="_blank" href="https://github.com/storyteller-13/the-spring-countdown">[2026] 👾👾👾 the-spring-countdown</a></strong>, a terminal-based true love invitation (javascript)</li>
+										<li><strong><a target="_blank" href="https://github.com/storyteller-13/luna-capra">[2026] 👾👾👾 luna capra</a></strong>, a book of poems — unfolding weekly (astro)</li>
+										<li><strong><a target="_blank" href="https://github.com/von-steinkirch/marina.vonsteinkirch.com">[2024] 👾👾👾 marina</a></strong>, this very website, served as it is in html (javascript)</li>
+										<li><strong><a target="_blank" href="https://github.com/storyteller-13/sundays">[2026] 👾👾 sundays</a></strong>, an app for my heart-to-heart chat services (javascript)</li>
+										<li><strong><a target="_blank" href="https://github.com/future-ai-org/lilit-app-ts">[2025] 👾 lilit-app</a></strong>, a poc for astronomical patterns and predictions (typescript)</li>
+									</ul>
+								<br>
+								<br>
+
+								<h1 class="section-title">Third-Party Projects I've Contributed To</h1>
+									<br>
+									<ul>	
+										<li><strong><a target="_blank" href="https://github.com/hellas-ai/catgrad">[2025] 👾👾👾👾 catgrad</a>, a deep learning compiler using category theory to statically compile models (rust)</strong></li>
+										<li><strong><a target="_blank" href="https://github.com/Yelp/threat_intel">[2015] 👾👾👾👾 yelp's threat intel</a>, apis for several intel and ioc feeds for incident response (python)</strong></li>
+										<li><strong><a target="_blank" href="https://github.com/aws/s2n-tls">[2015] 👾👾👾👾 aws's s2n-tls</a></strong>, aws's implementation of the tls/ssl protocols (c, rust)</li>
+										<li><strong><a target="_blank" href="https://github.com/quantumlib/Cirq">[2019] 👾👾👾👾 google's cirq</a></strong>, framework for noisy intermediate-scale quantum circuits (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/reactioncommerce/reaction">[2019] 👾👾👾👾 reactioncommerce's reaction</a></strong>, api for a headless commerce platform (node.js, react, graphql)</li>
+										<li><strong><a target="_blank" href="https://github.com/reactioncommerce/reaction-admin">[2019] 👾👾👾👾 reactioncommerce's reaction-admin</a></strong>, admin for a headless commerce platform (node.js, react, graphql)</li>
+										<li><strong><a target="_blank" href="https://github.com/zapatacomputing/z-qml">[2020] 👾👾👾 zapatacomputing's z-qml</a></strong>, package for quantum machine learning circuits (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/zapatacomputing/z-lstm">[2020] 👾👾👾 zapatacomputing's z-lstm</a></strong>, package to run prediction with LSTM on quantum computers (python)</li>
+										<li><strong><a target="_blank" href="https://github.com/onflow/flow">[2021] 👾👾👾 flow blockchain</a></strong>, fast, secure, and developer-friendly decentralized protocol (golang)</li>
+									</ul>
+
+								<br>
+								<br>
+										
+								<!-- Publications Section -->
+								<section class="content-section">
+									<h1 class="section-title">Public Technical Research I Wrote</h1>
+	
+									<br>
+	
+									<h3><span class="success-text text-1 font-orbitron">Theoretical Physics || Astrophysics || Quantum Computing</span></h3>
+									<br>
+										<ul>	
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf"><strong>[2011] 👾👾👾👾👾👾 On Group Theory for Physicists [e-book]</a></strong></li>
+											<li><a target="_blank" href="https://iopscience.iop.org/article/10.3847/0004-637X/832/2/102"><strong>[2014] 👾👾👾👾👾👾 On Modeling X-Rays Bursting Neutron Stars [The Astrophysical Journal]</a></strong></li>
+											<li><a target="_blank" href="https://journals.aps.org/prc/abstract/10.1103/PhysRevC.86.024908"><strong>[2012] 👾👾👾👾👾👾 On Heavy Ion Collisions at the BNL Collider [Phys. Review C]</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/qft.pdf"><strong>[2011] 👾👾👾👾👾👾 On Quantum Field Theory [e-book]</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/qi.pdf"><strong>[2011] 👾👾👾👾👾 On Quantum Information [e-book]</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/xrb_review.pdf"><strong>[2014] 👾👾👾👾 On Physics of X-Ray Bursters and Neutron Stars [e-book]</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/xrays.pdf"><strong>[2014] 👾👾👾👾 On X-Ray Bursters and the Equation of State of the Cold Dense Matter</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/sdm.pdf"><strong>[2010] 👾👾👾👾 On the Search for Dark Matter</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/potts_model_paper.pdf"><strong>[2012] 👾👾👾👾 On Potts Model, Chromatic Polynomials, Quantum Computing</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/newphy.pdf"><strong>[2010] 👾👾👾 On New Physics in pp¯ Collisions at √s = 1.96 TeV</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/su5.pdf"><strong>[2010] 👾👾👾 On the Gauge Group SU(5) as a Simple GUT</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/scat.pdf"><strong>[2010] 👾👾👾 On Scattering, Diffraction, and Radiation</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/CHERNSIMONS.pdf"><strong>[2010] 👾👾👾 On the Maxwell-Chern-Simons Theory</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/ledoux.pdf"><strong>[2012] 👾👾👾 On the Ledoux Criterion for Convection in a Star</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/DGLAP.pdf"><strong>[2010] 👾👾👾 On Parton Evolution</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/cond.pdf"><strong>[2010] 👾👾👾 On Superconductivity</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/marina_earth.pdf"><strong>[2012] 👾👾👾 On Spectroscopy of the Earthshine Spectra</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/radio_steinkirch.pdf"><strong>[2012] 👾👾👾 On Calculating the Angular Diameter of the Sun by Michelson Radio Interferometry</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/extinction.pdf"><strong>[2012] 👾👾👾 On the Measurement of Stellar Fluxes for the Study of the Interstellar Dust Extinction of M35</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/colliders.pdf"><strong>[2010] 👾👾👾 On Physics of Colliders</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/PHOTOPRODUCTION.pdf"><strong>[2010] 👾👾👾 On Photon-production of Heavy Quarks</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/tqfts.pdf"><strong>[2011] 👾👾👾 On Extended Topological QFT [handwritten] </a></strong></li>
+											<li><a target="_blank" href="https://github.com/cypherpunk-symposium/bt3gls-theoretical-physics-arxiv"><strong>[2014] 👾👾👾 On 100+ Pages of Theoretical Derivations for My PhD [handwritten]</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/first_results.pdf"><strong>[2013] 👾👾👾 On the First Results of the X-Ray Bursters Simulations at Los Alamos</a></strong></li>		
+											<li><strong>[2013] 👾👾👾 On Numerical Methods: <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/num_hw1.pdf">Integration && Diff</a></strong>; <strong><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/num_hw2.pdf">ODEs</a></strong>; <strong><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/num_hw3.pdf">Linear Algebra && FFTs</a></strong>; <strong><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/num_hw6.pdf">2D Rayleigh-Taylor Instabilities</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/cte_cosmologica_nov_2007.pdf"><strong>[2007] 👾👾👾 On the Cosmological Constant [portuguese] </a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/1a.pdf"><strong>[2012] 👾👾👾 On Type Ia Supernovae</a></strong></li>		
+											<li><a target="_blank" href="https://lore.vonsteinkirch.com/chapters/24_winter.html#2025_march_22"><strong>[2025] 👾👾 On Topological Quantum Computing</a></strong></li>		
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/sm07.pdf"><strong>[2007] 👾👾 On the Standard Model of Elementary Particles [portuguese] </a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/lab_fot.pdf"><strong>[2007] 👾👾 On Determining the Planck Constant [portuguese, multiple authors]</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/lab_mil.pdf"><strong>[2007] 👾👾 On the Millikan Experiment [portuguese, multiple authors]</a></strong></li>
+											<li><a target="_blank" href="https://cds.cern.ch/record/1249755/files/p533.pdf"><strong>[2009] 👾👾 On High-Energy Cosmic-Ray Acceleration [portuguese, multiple authors]</a></strong></li>	
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/lab_spec.pdf"><strong>[2006] 👾👾 On the Spectra of H and Na [portuguese, multiple authors]</a></strong></li>
+										</ul>
+									<br>
+	
+									<h3><span class="success-text text-1 font-orbitron">Artificial Intelligence || Machine Learning || Robotics</span></h3>
+									<br>
+										<ul>	
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/kin_rob.pdf"><strong>[2013] 👾👾👾👾 On Depth Sensors for Gesture Recognition</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/twitter.pdf"><strong>[2012] 👾👾👾👾 On Information Diffusion on Twitter</a></strong></li>
+											<li><a target="_blank" href="https://github.com/autistic-symposium/ml-graph-network-analyser/blob/master/on-classifying-complex-networks-by-their-features.pdf"><strong>[2013] 👾👾👾👾 On Classifying Complex Networks by Topological Features</a></strong> 
+											<strong>(<a target="_blank" href="https://singularity-sh.vercel.app/projects_page/html_files/mloutputs.html">page</a>)</strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/kin_pho.pdf"><strong>[2013] 👾👾👾 On Depth Sensors Applications for Computational Photography and Vision</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/review_kinect_marina.pdf"><strong>[2013] 👾👾👾 On Microsoft Kinect for Computational Photography and Vision</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/ml_hw1_mari_wahl.pdf"><strong>[2013] 👾👾👾 On Probability, Parameter Estimation, Decision Trees, Naive Bayes, Logistic Regression</a></strong></li>
+											<li><strong>[2013] 👾👾👾 On Computational Photography: <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/comp_hw2.pdf">Image Blending</a></strong>; <strong><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/comp_hw3.pdf">Face Morphing</a></strong>; <strong><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/reviews/rob_hw3.pdf">Robotics and Field of View</a></strong></li>
+											<li><strong>[2016] 👾👾 On Machine Learning and AI Studies: <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-1.html">1</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-2.html">2</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-3.html">3</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-4.html">4</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-5.html">5</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-6.html">6</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-7.html">7</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-8.html">8</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-9.html">9</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-10.html">10</a>, <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-11.html">11</a>, and <a target="_blank" href="https://singularity.vonsteinkirch.com/studies-in-machine-learning-ai-12.html">12</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/the-effects-of-convolutional-neural-networks-on-a-hot-summer-night.html"><strong>[2016] 👾 On a Convolutional Neural Networks Example</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/thinking-about-machine-learning-data-pipelines.html"><strong>[2016] 👾 On Machine Learning Data Pipelines</a></strong></li>
+										</ul>
+									<br>
+	
+									<h3><span class="success-text text-1 font-orbitron">Privacy || Security || Infrastructure</span></h3>
+									<br>
+										<ul>	
+											<li><strong>[2014] 👾👾👾 On the Caesar and Vigenere Ciphers: <a target="_blank" href="https://singularity.vonsteinkirch.com/csaw-ctf-2014-cryptography-200-psifer-school.html">here</a></strong> and <strong><a target="_blank" href="https://singularity.vonsteinkirch.com/cryptography-war-beating-krypton.html">here</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/smashing-the-stack-for-fun-or-wargames-narnia-0-4.html"><strong>[2014] 👾👾👾 On Smashing the Stack for Fun or WarGames</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/csaw-ctf-2014-forensics-300-fluffy-no-more.html"><strong>[2014] 👾👾👾 On Forensics of a MySQL Dump for a JS Exploit</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/black-hat-python-building-a-udp-scanner.html"><strong>[2014] 👾👾👾 On Black Hat Python: Building a UDP Scanner</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/introducing-amigo-a-tool-to-manage-google-cloud-platform-security.html"><strong>[2016] 👾👾👾 On Amigo, a Tool to Manage GCP Security</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/m3excg/a-tor-proxy-in-a-raspberry-pi"><strong>[2014] 👾👾👾 On a Tor Proxy on a Raspberry Pi</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/security_hw.txt"><strong>[2011] 👾👾👾 On Computer Security Problems</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/5db5eg/understanding-the-shellshock-vulnerability"><strong>[2014] 👾👾👾 On Shellshock Vulnerabilities</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/kubxjq/linux-and-bash-shell-basics"><strong>[2014] 👾👾👾 On Linux and (Bash) Shell</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/rnywsq/simple-online-security-guide"><strong>[2014] 👾👾👾 On Simple Linux Security</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/on-paillier-ciphersystem-binary-search-and-the-asis-ctf-2014.html"><strong>[2014] 👾👾👾 On Paillier Ciphersystem</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/csaw-ctf-2014-forensics-200-why-not-sftp.html"><strong>[2014] 👾👾👾 On Wireshark Forensics</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/5pam_q/the-linux-file-system-fedora"><strong>[2014] 👾👾👾 On the Linux File System </a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/wcje3w/practical-guide-to-linux-s-cut-command"><strong>[2014] 👾👾 On the Linux CUT Command</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/a-closer-look-at-chromes-security-understanding-v8.html"><strong>[2014] 👾👾 On Chrome's Security and V8</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/a-list-of-common-web-vulnerabilities.html"><strong>[2014] 👾👾 On a List of Common Web Vulnerabilities</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/some-dns-stuff.html"><strong>[2014] 👾👾 On DNS Recursive Requests, Reverse DNS, Security</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/on-crls-ocsp-and-a-short-review-of-why-revocation-checking-doesnt-work-for-browsers.html"><strong>[2014] 👾👾 On CRLs, OCSP, Why Revocation Checking Doesn't Work</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/3hrrmq/rooting-and-pwning-your-android"><strong>[2014] 👾👾 On Rooting and Pwning Your Android</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/introducing-threat-intel.html"><strong>[2015] 👾👾 On Threat Intelligence</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/3mpszw/setting-up-a-vnc-server-in-fedora-20"><strong>[2014] 👾 On Setting Up a VNC Server on Fedora 20</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/gkhwoq/setting-up-stunnel-in-fedora-20"><strong>[2014] 👾 On Setting Up a Stunnel on Fedora 20</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/ajtlqa/getting-started-with-pgp-gpg"><strong>[2014] 👾 On Getting Started with PGP/GPG</a></strong></li>
+											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/blugene.html"><strong>[2011] 👾 On Running Jobs on New York Blue at BNL</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/kopgca/setting-a-ssh-server-in-fedora-20"><strong>[2014] 👾 On Setting Up an SSH Server on Fedora 20</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/s6hapa/getting-started-with-vagrant-in-fedora-20"><strong>[2014] 👾 On Vagrant in Fedora 20</a></strong></li>
+											<li><a target="_blank" href="https://singularity.vonsteinkirch.com/tmux-shortcuts-cheatsheet.html"><strong>[2015] 👾 On Tmux Shortcuts & Cheatsheet</a></strong></li>	
+											<li><a target="_blank" href="https://coderwall.com/p/skucrq/javascript-crash-course"><strong>[2014] 👾 On a Crash Course to JavaScript</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/5ltrxq/lamp-and-codeigniter"><strong>[2014] 👾 On LAMP and CodeIgniter</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/l2vbta/getting-started-with-irc"><strong>[2014] 👾 On Getting Started with IRC</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/a1aegg/when-installing-kali"><strong>[2014] 👾 On When Installing Kali...</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/x9vxvg/getting-started-with-usenet"><strong>[2013] 👾 On Getting Started with Usenet</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/8-aeka/python-good-practices"><strong>[2013] 👾 On Python's Good Practices</a></strong></li>
+											<li><a target="_blank" href="https://coderwall.com/p/uf_44a/quick-ip-netns"><strong>[2013] 👾 On Quick IP-netns</a></strong></li>
+										</ul>	
+									<br>
+	
+									<h3><span class="success-text text-1 font-orbitron">Blockchains || Decentralized Finance</span></h3>
+									<br>
+										<ul>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/o_IkRyHG9knfuW2pfZ1nnnM6a-Hccom8J6wBOJDc-aU"><strong>[2023] 👾👾👾👾 On Hacking Systematically with Foundry</a></strong></li>		
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/zX1BaGZLHAcQOKdhFnSSM0VW67_-OFCi5ZegGFPryvg"><strong>[2023] 👾👾👾👾 On My Rusty Sparse Merkle Tree Experiment</a></strong></li>	
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/7Q5DK8cZNZ5CP6ThJjEithPvjgckA24D2wb-j0Ps5-I"><strong>[2023] 👾👾👾👾 On My Favorite OpenZeppelin Contracts</a></strong></li>	
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/s_RwnRgJvK_6fLYPyav7lFT3Zs4W4ZvYwp-AM9EbuhQ"><strong>[2022] 👾👾👾👾 On COWSOL, My CoWSwap MEV Solver</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/EwRYWHcjsic4lPbFLRcPhakxKyfGuOKS_TL4YgsoaOk"><strong>[2022] 👾👾👾👾 On BDEX, My x*y=k AMM Arbitrage Tool</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/e-gsChe2GxfadHeBnMDsWe_4eQar9JJHJKlWqIE-jKY"><strong>[2023] 👾👾👾👾 On Manipoolator, My GMX Oracle Player</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/vSF18xcLyfXLIWwxjreRa3I_XskwgnjSc6pScegNJWI"><strong>[2023] 👾👾👾 On Building a Scalable Ethereum Event Scanner</a></strong></li>	
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/A3iJGhXTJI5fgQoZVgIu3ovPV1P8zrxigpwngm0n4I0"><strong>[2023] 👾👾👾 On Uploading Your Soul to IPFS</a></strong></li>	
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/KQ0basHaclOCDDtOhz3NgKQhHdHqaqOtU89Sr4QO5L4"><strong>[2023] 👾👾👾 On COINTBOT, My Cointegration Trader</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/NM2YzBGS-o3IGb0vUctryrLOddxxMkPuEGNClZA1htM"><strong>[2022] 👾👾👾 On Experiencing the Ethereum Merge</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/F5PI4eqShKTGlx0GzL0Lq0-vHQ6b14OoV4ylE2FMsAc"><strong>[2022] 👾👾👾 On Running Your Own Goerli Validator</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/Xo_5rIpRQpFOC__kYfjLJVOFwlSZH2n8tUnHoXo6VyI"><strong>[2022] 👾👾👾 On MEV-boost, Relays, Self-Sovereignty</a></strong></li>
+											<li><a target="_blank" href="https://github.com/cypherpunk-symposium/blockchain-science-py/tree/main/fixed-graph-py"><strong>[2023] 👾👾 On Prototyping a Fixed Computational Graph</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/4G5bsqUkjLxhQ0M9so3f25o4cABwN--tC40N3jkReug"><strong>[2023] 👾👾 On Private Information Retrieval Experiments</a></strong></li>	
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/UVHQEQ62KnAuozj5Rn5fjUHvDSYBBhqOxLhHV_wAQTI"><strong>[2023] 👾👾 On My Loot-based ERC-721 Collection for FilmmakerDAO</a></strong></li>	
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/g5xSOpsbuqdIlmW1H9bP8AQLdxFXHgVvLiTk3pvXPbM"><strong>[2022] 👾👾 On Balancer's DoS Vulnerability</a></strong></li>
+											<li><a target="_blank" href="https://github.com/cypherpunk-symposium/blockchain-science-rs/tree/main/foundry-historical/avalanche-c-chain"><strong>[2022] 👾👾 On Simulating Avalanche C-Chain Sandwich Attacks</a></strong></li>	
+											<li><a target="_blank" href="https://www.urani.trade/blog/transaction"><strong>[2024] 👾👾 On Building a Limit Order Ingestion on Solana</a></strong></li>
+											<li><a target="_blank" href="https://github.com/cypherpunk-symposium/blockchain-data-engineering-toolkit/tree/main/eip-9999"><strong>[2024] 👾👾 On an EIP for Rental NFTs with Rights Management</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/DKaWYobU7q3EvZw8x01J7uEmF_E8PfNN27j0VgxQhNQ"><strong>[2023] 👾👾 On Training DeFi Agents with Markov Chains</a></strong></li>
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/7bxj980BWftX6oiwPu0OoTUyxLs7PhOVtSS0jVuXc04"><strong>[2022] 👾👾 On cTokens, Aurora, Hardhat Forks</a></strong></li>
+											<li><a target="_blank" href="https://github.com/cypherpunk-symposium/blockchain-data-engineering-toolkit/tree/main/game-protocol-design"><strong>[2024] 👾 On Designing a Protocol for Bartering of Game NFT Assets</a></strong></li>
+											<li><a target="_blank" href="https://github.com/cypherpunk-symposium/blockchain-science-py/blob/main/on-chain-data-by-address/inspecting-public-addresses.ipynb"><strong>[2022] 👾 On Extracting On-chain Data from Ethereum Addresses</a></strong></li>
+											<li><a target="_blank" href="https://github.com/autistic-symposium/blockchain-science-py/blob/main/transfer-events-analysis/retrieving_token_holders_and_balance.ipynb"><strong>[2022] 👾 On Transfer Events Analysis through eth_getLogs</a></strong></li>
+											<li><a target="_blank" href="https://github.com/autistic-symposium/blockchain-science-py/blob/main/uniswap-data/uni_weth_swap_pair_v2.ipynb"><strong>[2022] 👾 On Uniswap Subgraph for Extracting Token Pair Information</a></strong></li>	
+											<li><a target="_blank" href="https://github.com/autistic-symposium/blockchain-science-py/blob/main/dexs-equations-analysis/dexs-equations-analysis.ipynb"><strong>[2022] 👾 On a Study of DEXs Equations</a></strong></li>	
+											<li><a target="_blank" href="https://github.com/autistic-symposium/blockchain-science-py/blob/main/moralis-tokens-and-txs/moralis_txs_and_tokens.ipynb"><strong>[2022] 👾 On Leveraging Moralis API to Extract On-chain Data</a></strong></li>
+											<li><a target="_blank" href="https://github.com/autistic-symposium/blockchain-science-py/blob/main/messari-assets-data/messari-trading.ipynb"><strong>[2022] 👾 On Leveraging Messari API for Tokens Alert</a></strong></li>	
+											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/rGyGGoOLek_pCoJVlSFSjjFL-b5_Mw_P5hC3giwUCtc"><strong>[2022] 👾 On Flashbots Auctions in 5 Minutes</a></strong></li>
+										</ul>
+
+										<br>
+										<br>
+	
+									</section>
+
+
+									</article>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer container-xl width-full p-responsive">
+		<div class="pt-6 mt-6">
+		</div>
+	</footer>
+
+</body>
+</html>
