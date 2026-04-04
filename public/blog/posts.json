@@ -1,5 +1,11 @@
 [
   {
+    "slug": "4",
+    "title": "What a week for AI!",
+    "date": "2026-04-05",
+    "subtitle": "Sunday dev notes — models, tools, and the feeling of standing in a river"
+  },
+  {
     "slug": "3",
     "title": "Book Review: Build a LLM from Scratch, by S. Raschka",
     "date": "2026-03-29",
