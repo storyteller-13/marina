@@ -1,9 +1,15 @@
 [
   {
+    "slug": "5",
+    "title": "Book Review: RLHF, by N. Lambert",
+    "date": "2026-04-12",
+    "subtitle": "Draft in progress"
+  },
+  {
     "slug": "4",
-    "title": "What a week for AI!",
+    "title": "Was this the craziest week yet in AI?",
     "date": "2026-04-05",
-    "subtitle": "Sunday dev notes — models, tools, and the feeling of standing in a river"
+    "subtitle": "We are riding that exponential curve, aren't we?"
   },
   {
     "slug": "3",
