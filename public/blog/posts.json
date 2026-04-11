@@ -1,9 +1,15 @@
 [
   {
+    "slug": "5",
+    "title": "Building Secure Research Pipelines in the Era of AI Agents",
+    "date": "2026-04-11",
+    "subtitle": "This article launches a series of notes on building secure, AI-native research workflows across various operating systems \u2014 starting with macOS \u2014 by integrating data extraction and automation tools while avoiding unsafe plugins and related threat vectors."
+  },
+  {
     "slug": "4",
-    "title": "What a week for AI!",
+    "title": "Was this the craziest week yet in AI?",
     "date": "2026-04-05",
-    "subtitle": "Sunday dev notes — models, tools, and the feeling of standing in a river"
+    "subtitle": "We are riding that exponential curve, aren't we?"
   },
   {
     "slug": "3",
