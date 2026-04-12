@@ -42,4 +42,5 @@ then open [localhost:8037](http://localhost:8037).
 <br>
 
 - `public/` — static assets (HTML, CSS, JS, images).
+- `make blog-sync` or `make blog-link` — same command: regenerates `public/blog/posts.json` and `public/blog/drafts.json` from `public/blog/posts/*.md` and `public/blog/drafts/*.md` (see `scripts/sync-blog-posts.py`).
 - `eslint.config.js` — ESLint flat config (JS). Ruff used for Python (no config file; pre-commit + CI).

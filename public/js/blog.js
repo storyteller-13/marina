@@ -1,5 +1,11 @@
 "use strict";
 
+/** Resolve /blog/... against site root (parent of /pages/) so fetches work under subpaths. */
+function assetUrl(pathFromSiteRoot) {
+  const clean = pathFromSiteRoot.replace(/^\//, "");
+  return new URL(clean, new URL("../", window.location.href)).href;
+}
+
 function escapeHtml(text) {
   return text
     .replace(/&/g, "&amp;")
@@ -41,7 +47,7 @@ async function loadBlog() {
   }
 
   try {
-    const response = await fetch("/blog/posts.json", { cache: "no-store" });
+    const response = await fetch(assetUrl("blog/posts.json"), { cache: "no-store" });
     if (!response.ok) {
       throw new Error("Could not load Technical Notes index.");
     }
@@ -59,7 +65,7 @@ async function loadBlog() {
       let date = post.date || "";
 
       try {
-        const postResponse = await fetch(`/blog/posts/${safeSlug}.md`, { cache: "no-store" });
+        const postResponse = await fetch(assetUrl(`blog/posts/${safeSlug}.md`), { cache: "no-store" });
         if (postResponse.ok) {
           const markdown = await postResponse.text();
           const { meta } = parseFrontMatter(markdown);
@@ -94,7 +100,7 @@ async function loadBlog() {
       line.className = "blog-line";
       const safeDate = escapeHtml(post.date || "");
       const safeTitle = escapeHtml(post.title || "");
-      line.innerHTML = `<a class="blog-line-link" href="/pages/post.html?post=${post.safeSlug}"><span class="blog-line-date">${safeDate}</span>; ${safeTitle}</a>`;
+      line.innerHTML = `<a class="blog-line-link" href="post.html?post=${post.safeSlug}"><span class="blog-line-date">${safeDate}</span>; ${safeTitle}</a>`;
       listRoot.appendChild(line);
     });
   } catch (error) {
@@ -102,4 +108,87 @@ async function loadBlog() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", loadBlog);
+async function loadDrafts() {
+  const draftRoot = document.getElementById("blog-draft-list");
+
+  if (!draftRoot) {
+    return;
+  }
+
+  try {
+    const response = await fetch(assetUrl("blog/drafts.json"), { cache: "no-store" });
+    if (!response.ok) {
+      draftRoot.innerHTML = '<p class="blog-draft-empty">Could not load drafts list.</p>';
+      return;
+    }
+
+    const indexEntries = await response.json();
+    if (!Array.isArray(indexEntries) || indexEntries.length === 0) {
+      draftRoot.innerHTML = '<p class="blog-draft-empty">Nothing listed here yet.</p>';
+      return;
+    }
+
+    const rendered = await Promise.all(indexEntries.map(async (entry) => {
+      if (typeof entry === "string") {
+        const title = entry.trim();
+        return title ? { statusLabel: "wip", title, date: "", slug: "" } : null;
+      }
+
+      const slug = entry.slug || "";
+      const safeSlug = encodeURIComponent(slug);
+      let title = entry.title || slug.replace(/-/g, " ");
+      let date = entry.date || "";
+      let status = entry.status || "";
+
+      if (slug) {
+        try {
+          const draftResponse = await fetch(assetUrl(`blog/drafts/${safeSlug}.md`), { cache: "no-store" });
+          if (draftResponse.ok) {
+            const markdown = await draftResponse.text();
+            const { meta } = parseFrontMatter(markdown);
+            title = meta.title || title;
+            date = meta.date || date;
+            status = meta.status || status;
+          }
+        } catch {
+          // keep fallback fields from drafts index
+        }
+      }
+
+      const statusLabel = status || date || "wip";
+      return { statusLabel, title, date, slug };
+    }));
+
+    const rows = rendered.filter((row) => row && (row.title || "").trim());
+    rows.sort((a, b) => {
+      const aTime = Date.parse(a.date || "");
+      const bTime = Date.parse(b.date || "");
+      if (!Number.isNaN(aTime) && !Number.isNaN(bTime) && aTime !== bTime) {
+        return bTime - aTime;
+      }
+
+      return (b.slug || "").localeCompare(a.slug || "");
+    });
+    if (rows.length === 0) {
+      draftRoot.innerHTML = '<p class="blog-draft-empty">Nothing listed here yet.</p>';
+      return;
+    }
+
+    draftRoot.replaceChildren();
+    rows.forEach((row) => {
+      const line = document.createElement("p");
+      line.className = "blog-line blog-draft-line";
+      const safeStatus = escapeHtml(row.statusLabel || "wip");
+      const safeTitle = escapeHtml(row.title || "");
+      line.innerHTML = `<span class="blog-draft-row"><span class="blog-line-date">${safeStatus}</span>; <span class="blog-draft-title">${safeTitle}</span></span>`;
+      draftRoot.appendChild(line);
+    });
+  } catch (error) {
+    draftRoot.innerHTML = `<p class="blog-error">${escapeHtml(error.message)}</p>`;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadBlog();
+  loadDrafts();
+});

@@ -1,5 +1,11 @@
 "use strict";
 
+/** Resolve /blog/... against site root (parent of /pages/) so fetches work under subpaths. */
+function assetUrl(pathFromSiteRoot) {
+  const clean = pathFromSiteRoot.replace(/^\//, "");
+  return new URL(clean, new URL("../", window.location.href)).href;
+}
+
 function escapeHtml(text) {
   return text
     .replace(/&/g, "&amp;")
@@ -9,6 +15,9 @@ function escapeHtml(text) {
     .replace(/'/g, "&#39;");
 }
 
+/** Placeholder so literal `<br>` in markdown survives escapeHtml and becomes a line break. */
+const INLINE_BR_TOKEN = "@@MARINA_INLINE_BR@@";
+
 function parseInline(text) {
   const imagePlaceholders = [];
   const withImageSlots = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
@@ -17,7 +26,9 @@ function parseInline(text) {
     return `@@MARINA_IMG_${id}@@`;
   });
 
-  let html = escapeHtml(withImageSlots);
+  const withBrSlots = withImageSlots.replace(/<br\s*\/?>/gi, INLINE_BR_TOKEN);
+
+  let html = escapeHtml(withBrSlots);
   imagePlaceholders.forEach((img, i) => {
     const safeSrc = escapeHtml(img.src);
     const safeAlt = escapeHtml(img.alt);
@@ -28,6 +39,7 @@ function parseInline(text) {
   html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a target="_blank" rel="noopener noreferrer" href="$2">$1</a>');
   html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  html = html.split(INLINE_BR_TOKEN).join("<br>");
   return html;
 }
 
@@ -209,28 +221,103 @@ function markdownToHtml(markdown) {
   return out.join("\n");
 }
 
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch {
+      return false;
+    }
+  }
+}
+
+function enhanceCodeBlocks(root) {
+  if (!root) {
+    return;
+  }
+  root.querySelectorAll("pre").forEach((pre) => {
+    if (pre.closest(".blog-code-wrap")) {
+      return;
+    }
+    const code = pre.querySelector("code");
+    if (!code) {
+      return;
+    }
+
+    const wrap = document.createElement("div");
+    wrap.className = "blog-code-wrap";
+    const toolbar = document.createElement("div");
+    toolbar.className = "blog-code-toolbar";
+
+    const langMatch = code.className.match(/language-(\S+)/);
+    const lang = langMatch ? langMatch[1] : "";
+    const label = document.createElement("span");
+    label.className = "blog-code-lang";
+    label.textContent = lang || "code";
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "blog-code-copy";
+    btn.setAttribute("aria-label", "Copy code to clipboard");
+    btn.textContent = "Copy";
+
+    btn.addEventListener("click", async () => {
+      const ok = await copyToClipboard(code.textContent);
+      btn.textContent = ok ? "Copied!" : "Copy failed";
+      setTimeout(() => {
+        btn.textContent = "Copy";
+      }, 2200);
+    });
+
+    toolbar.append(label, btn);
+    pre.parentNode.insertBefore(wrap, pre);
+    wrap.append(toolbar, pre);
+  });
+}
+
 async function loadPost() {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("post");
   const titleRoot = document.getElementById("post-title");
   const subtitleRoot = document.getElementById("post-subtitle");
   const contentRoot = document.getElementById("post-content");
+  const articleRoot = titleRoot?.closest(".blog-post-page");
 
   if (!slug || !titleRoot || !subtitleRoot || !contentRoot) {
     if (contentRoot) contentRoot.innerHTML = "<p>Missing post slug.</p>";
     return;
   }
 
+  const mdPath = assetUrl(`blog/posts/${encodeURIComponent(slug)}.md`);
+
   try {
-    const postResponse = await fetch(`/blog/posts/${encodeURIComponent(slug)}.md`, { cache: "no-store" });
-    if (!postResponse.ok) throw new Error("Could not load post content.");
+    const postResponse = await fetch(mdPath, { cache: "no-store" });
+    if (!postResponse.ok) {
+      throw new Error("Could not load post content.");
+    }
     const markdown = await postResponse.text();
     const { meta, body } = parseFrontMatter(markdown);
 
     titleRoot.textContent = meta.title || slug.replace(/-/g, " ");
     subtitleRoot.textContent = meta.subtitle || "";
     subtitleRoot.style.display = meta.subtitle ? "block" : "none";
+    if (articleRoot) {
+      articleRoot.classList.toggle("blog-post-page--no-subtitle", !meta.subtitle);
+    }
     contentRoot.innerHTML = markdownToHtml(body);
+    enhanceCodeBlocks(contentRoot);
   } catch (error) {
     contentRoot.innerHTML = `<p class="blog-error">${escapeHtml(error.message)}</p>`;
   }
