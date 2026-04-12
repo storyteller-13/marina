@@ -128,11 +128,13 @@ p.journey-footnote {
     display: block;
 }
 
-/* Sidebar "Connect Professionally" title – same pink as newsletter subscription title */
-.Box-header .highlight-text.news-title-center {
+/* Box sidebar titles (e.g. Connect Professionally) + dev notes Draft Backlog – same pink as Current Motivation */
+.Box-header .highlight-text.news-title-center,
+.blog-draft-backlogs-heading .blog-draft-backlogs-title-text {
     color: HotPink;
 }
-[data-color-mode=dark] .Box-header .highlight-text.news-title-center {
+[data-color-mode=dark] .Box-header .highlight-text.news-title-center,
+[data-color-mode=dark] .blog-draft-backlogs-heading .blog-draft-backlogs-title-text {
     color: #ff9ecd;
 }
 
@@ -944,7 +946,7 @@ body.error-404 {
 }
 
 .blog-draft-row {
-    color: #1cffb3;
+    color: rgba(28, 255, 179, 0.68);
     font-family: 'Orbitron', monospace;
     font-size: 1rem;
     font-weight: 900;
@@ -960,11 +962,12 @@ body.error-404 {
 
 .blog-draft-line .blog-line-date {
     letter-spacing: 0.02em;
+    color: rgba(102, 217, 255, 0.62);
 }
 
 .blog-draft-row:hover {
-    color: #66ffd1;
-    text-shadow: 0 0 8px rgba(28, 255, 179, 0.35);
+    color: rgba(28, 255, 179, 0.76);
+    text-shadow: none;
 }
 
 @media (max-width: 900px) {
