@@ -882,6 +882,8 @@ body.error-404 {
 .blog-draft-line-list {
     margin-top: 0.15rem;
     text-align: left;
+    padding-left: 1.35rem;
+    box-sizing: border-box;
 }
 
 .blog-draft-line-list .blog-draft-row {
@@ -1029,6 +1031,10 @@ body.error-404 {
         max-width: 100%;
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .blog-draft-line-list {
+        padding-left: 1rem;
     }
 
     .blog-line-link {
