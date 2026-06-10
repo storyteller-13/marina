@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "5",
+    "title": "NULLSTAR GAMES: 27 Years in the Making",
+    "date": "2026-06-07",
+    "subtitle": "The one where I introduce what I'll be building for the next decade."
+  },
+  {
+    "slug": "4",
+    "title": "On Secure Research Pipelines in the Era of AI Agents",
+    "date": "2026-04-11",
+    "subtitle": "This article launches a series of conversational notes on building secure, AI-native research workflows across various operating systems \u2014 starting with macOS \u2014 by integrating data extraction and automation tools while avoiding unsafe plugins and related threat vectors."
+  },
+  {
+    "slug": "3",
+    "title": "Was this the craziest week yet in AI?",
+    "date": "2026-04-05",
+    "subtitle": "We are riding that exponential curve, aren't we?"
+  },
+  {
+    "slug": "2",
+    "title": "Book Review: \"Build a LLM from Scratch\", by S. Raschka",
+    "date": "2026-03-29",
+    "subtitle": "Rating: 9/10 | Beginner to Intermediate AI/Software Engineer"
+  },
+  {
+    "slug": "1",
+    "title": "Book Review: \"AI Engineering\", by C. Huyen",
+    "date": "2026-03-25",
+    "subtitle": "Rating: 8/10 | Beginner to Intermediate AI/Software Engineer"
+  }
+]

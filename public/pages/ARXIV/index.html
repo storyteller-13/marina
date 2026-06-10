@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1e2327">
+	<meta name="robots" content="noodp">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Doc Steinkirch's Universe">
+	<meta property="og:url" content="/pages/">
+	<meta property="og:site_name" content="for (fun || profit)">
+	<meta property="og:image" content="/">
+	<meta property="og:image:width" content="2048">
+	<meta property="og:image:height" content="1024">
+	
+	<title>Doc Steinkirch's Universe</title>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>👾</text></svg>">
+	<link rel="canonical" href="/pages/">
+	
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/css/frameworks.min.css">
+	<link rel="stylesheet" href="/css/github.min.css">
+	<link rel="stylesheet" href="/css/github-style.css">
+	<link rel="stylesheet" href="/css/light.css">
+	<link rel="stylesheet" href="/css/dark.css">
+	<link rel="stylesheet" href="/css/syntax.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+	
+	<!-- Scripts -->
+	<script type="application/javascript" src="/js/theme-mode.js"></script>
+	
+</head>
+
+<body>
+<div class="application-main">
+	<main>
+		<div class="mt-4 position-sticky top-0 d-none d-md-block bg-white width-full border-bottom color-border-secondary header-sticky">
+			<div class="container-xl px-3 px-md-4 px-lg-5">
+				<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+					<div class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0"></div>
+					<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+						<div class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
+							<nav class="UnderlineNav-body">
+								<a class="UnderlineNav-item" href="/">
+									<code class="code-large">work</code>
+								</a>
+								<a class="UnderlineNav-item" href="/pages/blog.html">
+									<code class="code-large">blog</code>
+								</a>
+							</nav>
+						<div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
+							<svg width="106" height="60" viewBox="0 0 106 60" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+								<g class="profile-color-modes-illu-group profile-color-modes-illu-red">
+									<path d="M37.5 58.5V57.5C37.5 49.768 43.768 43.5 51.5 43.5V43.5C59.232 43.5 65.5 49.768 65.5 57.5V58.5"></path>
+								</g>
+								<g class="profile-color-modes-illu-group profile-color-modes-illu-orange">
+									<path d="M104.07 58.5C103.401 55.092 97.7635 54.3869 95.5375 57.489C97.4039 54.6411 99.7685 48.8845 94.6889 46.6592C89.4817 44.378 86.1428 50.1604 85.3786 54.1158C85.9519 50.4768 83.7226 43.294 78.219 44.6737C72.7154 46.0534 72.7793 51.3754 74.4992 55.489C74.169 54.7601 72.4917 53.3567 70.5 52.8196"></path>
+								</g>
+								<g class="profile-color-modes-illu-group profile-color-modes-illu-purple">
+									<path d="M5.51109 58.5V52.5C5.51109 41.4543 14.4654 32.5 25.5111 32.5C31.4845 32.5 36.8464 35.1188 40.5111 39.2709C40.7212 39.5089 40.9258 39.7521 41.1245 40"></path>
+									<path d="M27.511 49.5C29.6777 49.5 28.911 49.5 32.511 49.5"></path>
+									<path d="M27.511 56.5C29.6776 56.5 26.911 56.5 30.511 56.5"></path>
+								</g>
+								<g class="profile-color-modes-illu-group profile-color-modes-illu-green">
+									<circle cx="5.5" cy="12.5" r="4"></circle>
+									<circle cx="18.5" cy="5.5" r="4"></circle>
+									<path d="M18.5 9.5L18.5 27.5"></path>
+									<path d="M18.5 23.5C6 23.5 5.5 23.6064 5.5 16.5"></path>
+								</g>
+								<g class="profile-color-modes-illu-group profile-color-modes-illu-blue">
+									<g class="profile-color-modes-illu-frame">
+										<path d="M40.6983 31.5C40.5387 29.6246 40.6456 28.0199 41.1762 27.2317C42.9939 24.5312 49.7417 26.6027 52.5428 30.2409C54.2551 29.8552 56.0796 29.6619 57.9731 29.6619C59.8169 29.6619 61.5953 29.8452 63.2682 30.211C66.0833 26.5913 72.799 24.5386 74.6117 27.2317C75.6839 28.8246 75.0259 33.7525 73.9345 37.5094C74.2013 37.9848 74.4422 38.4817 74.6555 39"></path>
+									</g>
+									<g class="profile-color-modes-illu-frame">
+										<path d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39"></path>
+										<path d="M49.4996 33V35.6757"></path>
+										<path d="M67.3375 33V35.6757"></path>
+									</g>
+									<g class="profile-color-modes-illu-frame">
+										<path d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39"></path>
+									</g>
+									<g class="profile-color-modes-illu-frame">
+										<path d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39"></path>
+										<path d="M49.4996 33V35.6757"></path>
+										<path d="M67.3375 33V35.6757"></path>
+									</g>
+									<g class="profile-color-modes-illu-frame">
+										<path d="M73.4999 40.2236C74.9709 38.2049 75.8108 35.5791 75.8108 32.2283C75.8108 29.2229 75.1351 26.6488 73.9344 24.5094C75.0258 20.7525 75.6838 15.8246 74.6116 14.2317C72.7989 11.5386 66.0832 13.5913 63.2681 17.211C61.5952 16.8452 59.8167 16.6619 57.973 16.6619C56.0795 16.6619 54.2549 16.8552 52.5427 17.2409C49.7416 13.6027 42.9938 11.5312 41.176 14.2317C40.0859 15.8512 40.7843 20.9182 41.9084 24.6968C41.003 26.3716 40.4146 28.3065 40.2129 30.5"></path>
+										<path d="M82.9458 30.5471L76.8413 31.657"></path>
+										<path d="M76.2867 34.4319L81.8362 37.7616"></path>
+										<path d="M49.4995 27.8242V30.4999"></path>
+										<path d="M67.3374 27.8242V30.4998"></path>
+									</g>
+									<g class="profile-color-modes-illu-frame">
+										<path d="M45.3697 34.2658C41.8877 32.1376 39.7113 28.6222 39.7113 23.2283C39.7113 20.3101 40.3483 17.7986 41.4845 15.6968C40.3605 11.9182 39.662 6.85125 40.7522 5.23168C42.5699 2.53117 49.3177 4.6027 52.1188 8.24095C53.831 7.85521 55.6556 7.66186 57.5491 7.66186C59.3929 7.66186 61.1713 7.84519 62.8442 8.21095C65.6593 4.59134 72.375 2.5386 74.1877 5.23168C75.2599 6.82461 74.6019 11.7525 73.5105 15.5094C74.7112 17.6488 75.3869 20.2229 75.3869 23.2283C75.3869 28.6222 73.2105 32.1376 69.7285 34.2658C70.8603 35.5363 72.6057 38.3556 73.3076 40"></path>
+										<path d="M49.0747 19.8242V22.4999"></path>
+										<path d="M54.0991 28C54.6651 29.0893 55.7863 30.0812 57.9929 30.0812C59.0642 30.0812 59.8797 29.8461 60.5 29.4788"></path>
+										<path d="M66.9126 19.8242V22.4999"></path>
+										<path d="M33.2533 20.0237L39.0723 22.1767"></path>
+										<path d="M39.1369 25.0058L33.0935 27.3212"></path>
+										<path d="M81.8442 19.022L76.0252 21.1751"></path>
+										<path d="M75.961 24.0041L82.0045 26.3196"></path>
+									</g>
+									<g class="profile-color-modes-illu-frame">
+										<path d="M73.4999 40.2236C74.9709 38.2049 75.8108 35.5791 75.8108 32.2283C75.8108 29.2229 75.1351 26.6488 73.9344 24.5094C75.0258 20.7525 75.6838 15.8246 74.6116 14.2317C72.7989 11.5386 66.0832 13.5913 63.2681 17.211C61.5952 16.8452 59.8167 16.6619 57.973 16.6619C56.0795 16.6619 54.2549 16.8552 52.5427 17.2409C49.7416 13.6027 42.9938 11.5312 41.176 14.2317C40.0859 15.8512 40.7843 20.9182 41.9084 24.6968C41.003 26.3716 40.4146 28.3065 40.2129 30.5"></path>
+										<path d="M82.9458 30.5471L76.8413 31.657"></path>
+										<path d="M76.2867 34.4319L81.8362 37.7616"></path>
+										<path d="M49.4995 27.8242V30.4999"></path>
+										<path d="M67.3374 27.8242V30.4998"></path>
+									</g>
+									<g class="profile-color-modes-illu-frame">
+										<path d="M40.6983 31.5C40.5387 29.6246 40.6456 28.0199 41.1762 27.2317C42.9939 24.5312 49.7417 26.6027 52.5428 30.2409C54.2551 29.8552 56.0796 29.6619 57.9731 29.6619C59.8169 29.6619 61.5953 29.8452 63.2682 30.211C66.0833 26.5913 72.799 24.5386 74.6117 27.2317C75.6839 28.8246 75.0259 33.7525 73.9345 37.5094C74.2013 37.9848 74.4422 38.4817 74.6555 39"></path>
+									</g>
+								</g>
+							</svg>
+							<span class="profile-color-modes-toggle js-promo-color-modes-toggle no-select neon-toggle" tabindex="0" onclick="switchTheme()">
+								<div class="profile-color-modes-toggle-track no-select neon-toggle-track"></div>
+								<div class="profile-color-modes-toggle-thumb js-promo-color-modes-thumb neon-toggle-thumb">
+									<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"></path>
+									</svg>
+								</div>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-xl px-3 px-md-4 px-lg-5">
+		<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+			<div class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0 sidebar-margin-right">
+				<div class="h-card mt-md-n5 profile-card-margin">
+					<div class="user-profile-sticky-bar js-user-profile-sticky-bar d-none d-md-block" id="headerStuck">
+						<div class="user-profile-mini-vcard d-table">
+							<span class="user-profile-mini-avatar d-table-cell v-align-middle lh-condensed-ultra pr-2">
+								<img class="rounded-1 avatar-user" height="32" width="32" src="/images/steinkirch.png">
+							</span>
+						</div>
+					</div>
+					<div class="clearfix d-flex d-md-block flex-items-center mb-4 mb-md-0">
+						<div class="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0 avatar-z-index">	
+							<a target="_blank" href="/images/steinkirch.png">
+								<img class="avatar avatar-user width-full border bg-white neon-avatar avatar-height-auto" alt="Avatar" width="260" height="260" id="headerImg" src="/images/steinkirch.png">
+							</a>
+							<div class="user-status-container position-relative hide-sm hide-md">
+								<div class="f5 user-status-circle-badge-container">
+									<div class="user-status-circle-badge d-inline-block lh-condensed-ultra p-2">
+										<div class="d-flex flex-items-center flex-items-stretch">
+											<div class="f6 lh-condensed user-status-header d-inline-flex user-status-emoji-only-header circle">
+												<div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center ">
+													<div><g-emoji class="g-emoji neon-diamond">🪁</g-emoji></div> 
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+			<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+				<div class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
+					<nav class="UnderlineNav-body">
+						<a class="UnderlineNav-item" href="/">
+							<code class="code-large">work</code>
+						</a>
+						<a class="UnderlineNav-item" href="/pages/blog.html">
+							<code class="code-large">blog</code>
+						</a>
+					</nav>
+				</div>
+				<div>
+					<div class="position-relative">
+						<div class="Box mt-4 neon-content-box">
+							<div class="Box-body p-4">
+
+							<article class="markdown-body entry-content container-lg f5">
+								<br>
+
+
+								<h1 class="text-center"><span class="section-title">Doc's Journey</span></h1>
+								<br>
+								<p class="blog-subtitle text-center">Scientist, engineer, storyteller. This path began in high school and has been shaped by years of deliberate effort. Here, I document key checkpoints as both a testament to the journey so far and a map for the years ahead.</p>
+								<br>
+								<h3><span class="success-text text-1_2 font-orbitron">2026</span></h3>
+
+								<ul>
+									<li><strong><a target="_blank" href="/pages/post.html?post=5">🌟 Founded NULLSTAR GAMES</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/abceab872b7a4bab220e64230f92a66a">📝 Books I'm Reading This Year</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/0b2f642d0c16b30cf9c479d028531b84">📝 Interpretability Articles I Read This Year</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/6016fb28ae2f79f47f78bbcae97e691b">📝 Technical Articles && Papers I Read This Year</a></strong></li>
+									<li><strong><a target="_blank" href="https://matrix.nullstar.fun">🕹️ Marina OS (Home for My Offbeat Lowkey Storytelling)</a></strong></li>
+									<li><strong><a target="_blank" href="https://luna-capra.vercel.app/">🕹️ Luna Capra (Poetry Book with a New Entry Every Week)</a></strong></li>
+									<li><strong>🗺️ Lived in  Malaysia<sup class="hotpink-text">†</sup>, Brazil, Denver, and ...</strong></li>
+								</ul>
+								
+								<h3><span class="success-text text-1_2 font-orbitron">2025</span></h3>
+
+								<ul>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/7b0a78df77d7d15f263b99be1713d996">📝 10 Goals for My Next 10 Years</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/a226e8381030f0e198a1ed108be7b4bb">📝 66 Ideas for Fun with the Fam</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/d91fe30134471d27290088f400439ffa">📝 Guidelines for Collaborating with Me</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007">📝 Travel with the Fam: The Bucket List</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/1c9f435e57e5abcd6f2cd9e9a1df8adc">📝 Classical Books to Read with Our Kids</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/f45a57b69ac66076bc367b4ea005dd9c">📝 Classical Movies to Watch with Our Kids</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e">📝 Classical Videogames to Play with Our Kids</a></strong></li>
+									<li><strong><a target="_blank" href="https://gist.github.com/von-steinkirch/986d89e2dc0b900ae279056b4c947da7">📝 What We'll Teach Our Kids in Their First Years</a></strong></li>
+									<li><strong><a target="_blank" href="https://lore.nullstar.fun">🕹️ Loyal Love Lore (A Different Type of Blogging)</a></strong></li>
+									<li><strong><a target="_blank" href="https://samhain.nullstar.fun">🕹️ Samhain'25 (A Playful Halloween Spell Game)</a></strong></li>
+									<li><strong><a target="_blank" href="https://demons.nullstar.fun/">🕹️ Demons (A 5th-Wall Storytelling Experiment)</a></strong></li>
+									<li><strong><a target="_blank" href="https://future-ai-app.vercel.app/">🕹️ Future AI (A Cosmological Prediction Market)</a></strong></li>
+									<li><strong><a target="_blank" href="https://true-love-series.vercel.app/">🕹️ The True Love Series (An Ode to My Soulmate)</a></strong></li>
+									<li><strong>✅ Collaborated with <a target="_blank" href="https://hellas.ai/" rel="noopener noreferrer">hellas.ai, as a Principal Blockchain ML Engineer</a></strong></li>
+									<li><strong>✅ Collaborated with <a href="https://greenfieldcapital.com/" target="_blank" rel="noopener noreferrer">Greenfield Capital, as a Senior Software Engineer</a></strong></li>
+									<li><strong>✅ Joined the <a target="_blank" href="https://www.youtube.com/@TheEsotericaChannel" rel="noopener noreferrer">Esoterica Community</a> for an In-Depth Study in Egypt</strong></li>
+									<li><strong>✅ Joined the <a target="_blank" href="https://ns.com" rel="noopener noreferrer">Network State</a> in Malaysia for 2 months</strong></li>
+									<li><strong>🗺️ Lived in Hamburg, Berlin, Valencia, Malaysia, Oahu, Brazil, The Netherlands, and New Orleans</strong></li>
+								</ul>
+
+								<h3><span class="success-text text-1_2 font-orbitron">2024</span></h3>
+
+								<ul>
+									<li><strong><a target="_blank" href="http://tv.vonsteinkirch.com">🕹️ TV (An Innermost Human Experiment)</a></strong></li>
+									<li><strong><a target="_blank" href="https://lilit.vonsteinkirch.com">🕹️ Lilit (What If Astrology Were Actually Real)</a></strong></li>
+									<li><strong><a target="_blank" href="https://urani.nullstar.fun/">🕹️ Urani (Intent-Based Protocol and Agentic Markets)</a></strong></li>
+									<li><strong>✅ Founded <a target="_blank" href="https://github.com/urani-trade" rel="noopener noreferrer">urani.trade, a Decentralized Platform for DeFi Agents</a></strong></li>
+									<li><strong>✅ 1st Place at the <a target="_blank" href="https://colosseum.com/" rel="noopener noreferrer">DeFi Track of the Solana Colosseum Hackathon</a></strong></li>
+									<li><strong>✅ Turned Down a $3M Investment Offer for Urani, led by <a target="_blank" href="https://greenfieldcapital.com/" rel="noopener noreferrer">Greenfield Capital</a></strong></li>
+									<li><strong>✅ Joined <a target="_blank" href="https://ethdenver.com/">ETH Denver</a> and <a target="_blank" href="https://devcon.org/en/">Ethereum DevCon in Thailand</a></strong></li>
+									<li><strong>✅ Dubai's Storm Large-Scale <a target="_blank" href="/images/avatar.jpg">Miracle</a> while I was in Cannes</a></strong></li>
+									<li><strong>✅ Open-sourced <a target="_blank" href="https://github.com/urani-trade/solana-mev-agent-py" rel="noopener noreferrer">Agent Mulder</a> (before agents were a thing)</strong></li>
+									<li><strong>🗺️ Lived in Berlin, Cannes, Singapore, Santorini, Tokyo, Osaka, Catania, and Seattle</strong></li>
+								</ul>
+
+								<h3><span class="success-text text-1_2 font-orbitron">2023</span></h3>
+
+								<ul>
+									<li><strong><a target="_blank" href="https://choices.vonsteinkirch.com/choices/choose-your-adventure/storytelling/the-usdchoice-of-hero/become-a-storyteller/gaf">📝 My Favorite Movies && Books</a></strong></li>
+									<li><strong><a target="_blank" href="https://choices.vonsteinkirch.com/choices/choose-your-adventure/storytelling/the-usdchoice-of-hero/become-a-storyteller/gmf">📝 My Favorite Directors && Musicians</a></strong></li>
+									<li><strong><a target="_blank" href="https://github.com/cypherpunk-symposium/cyph3rs-vue-js">🕹️ cyph3rs, The Marketplace for MEV Agents </a></strong></li>
+									<li><strong>✅ Took the Life-Changing Psilocybin Heroic Dose</strong></li>
+									<li><strong>✅ Learned the Kabbalah and Started Performing Large-Scale Miracles</strong></li>
+									<li><strong>✅ Collaborated with <a target="_blank" href="https://ethereum.foundation/" rel="noopener noreferrer">Ethereum Foundation, as a Research Engineer</a></strong></li>
+									<li><strong>✅ Collaborated with <a target="_blank" href="https://espresso.foundation/" rel="noopener noreferrer">Espresso Foundation, as a Senior Software Engineer</a></strong></li>
+									<li><strong>🗺️ Lived in Los Angeles, Munich, and Malta</strong></li>
+								</ul>
+
+								<h3><span class="success-text text-1_2 font-orbitron">2022</span></h3>
+
+								<ul>
+									<li><strong><a target="_blank" href="https://coven.vonsteinkirch.com">🕹️ Midsumm3r (A Neo-Cypherpunk Coven)</a></strong></li>
+									<li><strong><a target="_blank" href="https://choices.vonsteinkirch.com">🕹️ The Game of $CHOICES (You Are Supposed To Be Free)</a></strong></li>
+									<li><strong>✅ Collaborated with <a target="_blank" href="/images/immunefi.png" rel="noopener noreferrer">Immunefi, as a Security Engineer</a></strong></li>
+									<li><strong>✅ Collaborated with <a target="_blank" href="https://app.rook.fi/en/trade" rel="noopener noreferrer">KeeperDAO, as a Senior Software Engineer</a></strong></li>
+									<li><strong>🗺️ Lived in Berlin, Barcelona, Dubai, Paris, and Traveled Around Europe</strong></li>
+								</ul>
+
+								
+								<h3><span class="success-text text-1_2 font-orbitron">2021</span></h3>
+									
+									<ul>
+										<li><strong><a href="https://web.archive.org/web/20211204110920/https://dreamers.cash/" target="_blank">🕹️ dreamers.cash (Crypto Support)</a></strong></li>
+										<li><strong><a target="_blank" href="https://paragraph.com/@getstory/l0gline-i-the-newsletter-for-web3-filmmakers">📝  Story Protocol: Web3 for Filmmakers</a></strong></li>
+										<li><strong><a target="_blank" href="https://etherscan.io/address/0x9213256fe89fa0428e8546910a8d78180dbbdc38#code">🕹️ Mint a Storyteller Loot NFT (My First Smart Contract)</a></strong></li>
+										<li><strong>✅  Presented at <a target="_blank" href="https://www.youtube.com/watch?v=9uV2SURf_5Y">LisCon about MidsummerDAO/FilmmakerDAO</a></strong></li>
+										<li><strong>✅ Joined the <a target="_blank" href="https://www.launchhouse.com/">Launch House Mansion in Beverly Hills for 2 Months</a></strong></li>
+										<li><strong>✅ Co-founded the <a target="_blank" href="https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/102260123057669474950847799880201608080189635296019951388527127018360736317441" rel="noopener noreferrer">Blockchain Team at Shopify, as a Senior Software Engineer</a></strong></li>
+										<li><strong>✅ Collaborated with the <a target="_blank" href="https://www.niftygateway.com/">NFT Engineering Team at Gemini, as a Senior Software Engineer</a></strong></li>
+										<li><strong>🗺️ Lived in Los Angeles and The Big Island</strong></li>
+									</ul>
+
+								
+								<h3><span class="success-text text-1_2 font-orbitron">2020</span></h3>
+									
+									<ul>
+										<li><strong><a target="_blank" href="https://web.archive.org/web/20200426052315/http://curiee.com/">🕹️ Curiee <a> (Quantum Computing from Hackers to Hackers; Ycombinator Hackathon)</a></strong></li>	
+										<li><strong>✅ Joined the <a target="_blank" href="https://github.com/shopifymia">Tooling Engineering Team at Shopify, as a Senior Software Engineer</a></strong></li>
+										<li><strong>✅ Collaborated with <a target="_blank" href="https://github.com/zapatacomputing/z-qml">Zapata Computing, as a Senior Software Engineer</a></strong></li>
+										<li><strong>🗺️ Lived in Los Angeles</strong></li>
+									</ul>
+								
+								<h3><span class="success-text text-1_2 font-orbitron">2019</span></h3>
+								
+									<ul>
+										<li><strong><a target="_blank" href="https://vimeo.com/285146753">🕹️ Droning + Traveling + Art Music Video Experiments</a></strong></li>	
+										<li><strong>✅ Collaborated with <a href="https://www.surfline.com/" target="_blank" rel="noopener noreferrer">Surfline, as a Senior Software Engineer</a></strong></li>
+										<li><strong>✅ Collaborated with <a href="https://github.com/reactioncommerce" target="_blank" rel="noopener noreferrer">Reaction Commerce, as a Senior Software Engineer</a></strong></li>
+										<li><strong>✅ Collaborated with <a target="_blank" href="https://quantumgravityresearch.org/">Quantum Gravity Research, as a Research Engineer</a></strong></li>
+										<li><strong>✅ Joined <a target="_blank" href="https://www.btbounds.com/">Beyond The Boundaries Snowboarders at Woodward Tahoe</a></strong></li>
+										<li><strong>✅ Dropped in on the Ramp at Tony Hawk's House without a Helmet</strong></li>
+										<li><strong>✅ Almost Died Surfing Big Waves in Puerto Escondido, Mexico</strong></li>
+										<li><strong>🗺️ Lived in Encinitas, Malibu, and Maui</strong></li>
+									</ul>
+
+								<h3><span class="success-text text-1_2 font-orbitron">2017</span></h3>
+									
+									<ul>
+										<li><strong>✅ Joined the <a target="_blank" href="https://etsy.com">Security Team at Etsy, as a Senior Software Engineer</a></strong></li>
+										<li><strong>✅ Joined the <a href="https://www.sanfranciscofilmschool.edu/" target="_blank" rel="noopener noreferrer">San Francisco Filmmaking School for 2 months</a></strong></li>	
+										<li><strong>✅ Went Skydiving in San Jose on the Day I Quit My Job at Apple</strong></li>
+										<li><strong>🗺️ Lived in Oahu, San Francisco, and Manhattan</strong></li>
+									</ul>
+
+								<h3><span class="success-text text-1_2 font-orbitron">2015</span></h3>
+									
+									<ul>
+										<li><strong>✅ Spoke at <a href="https://www.youtube.com/watch?v=1Fp6ibfOQ4Y" target="_blank" rel="noopener noreferrer">DEF CON on "Hacking Quantum Computers"</a></strong></li>	
+										<li><strong>✅ Joined the <a href="https://yelp.com" target="_blank" rel="noopener noreferrer">Security Team at Yelp, as a Software Engineer</a></strong></li>
+										<li><strong>✅ Joined the <a target="_blank" href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/OSX_Technology_Overview/CoreOSLayer/CoreOSLayer.html">CoreOS Team at Apple, as a Senior Software Engineer</a></strong></li>	
+										<li><strong>✅ Joined and Hacked with the CTF teams <a href="https://ctftime.org/team/3208" target="_blank" rel="noopener noreferrer">Hacking for Soju</a> and <a href="https://ctftime.org/team/7016" target="_blank" rel="noopener noreferrer">Snatch the Root</a></strong></li>
+										<li><strong>🗺️ Moved to San Francisco and Cupertino</strong></li>
+									</ul>
+								
+								<h3><span class="success-text text-1_2 font-orbitron">2014</span></h3>
+									
+									<ul>
+										<li><strong><a target="_blank" href="http://singularity.nullstar.fun">🕹️ chmod +x singularity.sh (an old ML project)</a></strong></li>
+										<li><strong>✅ Concluded a <a target="_blank" href="http://www.astro.sunysb.edu/steinkirch/" rel="noopener noreferrer">PhD in Physics from Stony Brook University</a></strong></li>	
+										<li><strong>✅ PhD Research at the <a target="_blank" href="https://lanl.gov" rel="noopener noreferrer">Los Alamos National Laboratory in New Mexico</a></strong></li>
+										<li><strong>✅ Turned Down a Postdoctoral Offer at the Los Alamos National Laboratory</strong></li>	
+										<li><strong>✅ Peer-reviewed Paper <a target="_blank" href="https://iopscience.iop.org/article/10.3847/0004-637X/832/2/102" rel="noopener noreferrer">"Modeling X-Rays Bursting Neutron Stars" (The Astrophysical Journal)</a></strong></li>
+										<li><strong>✅ Joined the <a href="https://www.recurse.com/about" target="_blank" rel="noopener noreferrer">Hacker School (Recursive Center) in New York City for 3 months</a></strong></li>	
+										<li><strong>✅ Published book: <a target="_blank" href="https://github.com/cypherpunk-symposium/master-algorithms-py" rel="noopener noreferrer">"Python, Algorithms, and Data Structures" with Hanbit Media</a></strong></li>	
+												
+									</ul>
+										
+
+								<h3><span class="success-text text-1_2 font-orbitron">2013</span></h3>
+									
+									<ul>
+										<li><strong><a target="_blank" href="https://vimeo.com/user32415653">🕹️ A Grad Student Playing with Her Archaic Robots</a></strong></li>
+										<li><strong>✅ PhD Research at the  <a target="_blank" href="https://bnl.gov" rel="noopener noreferrer">Brookhaven National Laboratory in New York</a></strong></li>
+										<li><strong>✅ Peer-reviewed Paper <a target="_blank" href="https://journals.aps.org/prc/abstract/10.1103/PhysRevC.86.024908" rel="noopener noreferrer">"On Heavy Ion Collisions at the BNL Collider" (Phys. Review C)</a></strong></li>
+												
+									</ul>
+
+								<h3><span class="success-text text-1_2 font-orbitron">2011</span></h3>
+									
+									<ul>
+										<li><strong><a target="_blank" href="http://www.astro.sunysb.edu/steinkirch">🕹️ The Cosmos Is All That Is (My PhD Website and Portfolio)</a></strong></li>
+										<li><strong>✅ Earned a <a target="_blank" href="https://github.com/autistic-symposium/bt3gls-theoretical-physics-arxiv" rel="noopener noreferrer">Master's Degree in Physics (en route) from Stony Brook University</a></strong></li>	
+										<li><strong>✅ Wrote books: <a target="_blank" href="http://www.astro.sunysb.edu/steinkirch/books/group.pdf" rel="noopener noreferrer">Group Theory</a></strong>, <strong><a target="_blank" href="https://www.freebookcentre.net/physics-books-download/Introduction-to-Quantum-Field-Theory-by-Marina-von-Steinkirch.html" rel="noopener noreferrer">Quantum Field Theory</a>, and <a target="_blank" href="http://www.astro.sunysb.edu/steinkirch/books/qi.pdf" rel="noopener noreferrer">Quantum Information</a></strong></li>	
+									</ul>
+										
+								
+								<h3><span class="success-text text-1_2 font-orbitron">2009</span></h3>
+
+									<ul>
+										<li><strong><a target="_blank" href="https://web.archive.org/web/20090620090344/http://www.steinkirch.org">🕹️ My Old Lil Bytegirl's Page (My College Portfolio)</a></strong></li>
+										<li><strong><a target="_blank" href="https://web.archive.org/web/20090621224724/http://saturn.steinkirch.org">🕹️ Saturn, Strings, Everything Else (my college site)</a></strong></li>
+										<li><strong><a target="_blank" href="https://web.archive.org/web/20090621224750/http://www.steinkirch.org/bookmarks.html">📝 My Old Geeky Bookmark (What I Used to Like Back Then)</a></strong></li>
+										<li><strong>✅ Joined the <a href="https://cds.cern.ch/record/1119305/files/CERN-2010-001.pdf" target="_blank" rel="noopener noreferrer">CERN Winter School on Particle Physics in Medellin</a></strong></li>	
+										<li><strong>✅ Joined the <a target="_blank" href="http://insti.physics.sunysb.edu/conf/simonswork7/participants.html" rel="noopener noreferrer">Simons Workshop in String Theory '09 at Stony Brook University</a></strong></li>	
+										<li><strong>✅ Joined the <a target="_blank" href="https://www.nasa.gov/goddard/about/">NASA Goddard Space Flight Center for the Summer, as a Graduate Student Researcher from CUA</a></strong></li>
+										<li><strong>✅ Started a <a target="_blank" href="https://www.stonybrook.edu/commcms/physics/">PhD in Physics (String Theory) at Stony Brook University with Full Tuition, Teaching, Research Scholarship</a></strong></li>
+										<li><strong>🗺️ Lived in Curitiba, Washington DC, and Chile; moved to Long Island</strong></li>
+									</ul>
+
+								<h3><span class="success-text text-1_2 font-orbitron">2008</span></h3>
+
+									<ul>
+										<li><strong><a target="_blank" href="https://web.archive.org/web/20110410001836/http://en.wikipedia.org/wiki/User:Steinkirch">🕹️ That Time I was an Atheist Materialist (My Old Wikipedia Page)</a></strong></li>
+										<li><strong>✅ Earned a Bachelor's Degree in Physics from the <a href="https://en.wikipedia.org/wiki/Institute_of_Physics_of_the_University_of_S%C3%A3o_Paulo" target="_blank" rel="noopener noreferrer">University of Sao Paulo</a></strong></li>		
+										<li><strong>✅ Published <a href="https://www.astro.sunysb.edu/steinkirch/reviews/cte_cosmologica_nov_2007.pdf" target="_blank" rel="noopener noreferrer">"An Analysis of the Cosmological Constant" (Portuguese)</a></strong></li>		
+										<li><strong>✅ Joined the <a target="_blank" href="http://insti.physics.sunysb.edu/conf/simonswork6/participants.html" rel="noopener noreferrer">Simons Workshop in String Theory '08 at Stony Brook University</a></strong></li>	
+										<li><strong>✅ Aced both the <a href="https://www.ets.org/gre/score-users/about/subject-tests.html#accordion-b2c7932074-item-6d8fe1bbcf" target="_blank" rel="noopener noreferrer">GRE Physics and the Quantitative section of the General GRE</a></strong></li>	
+										<li><strong>✅ bitcoin.org was Registered on My Birthday and <a href="https://bitcoin.org/bitcoin.pdf" target="_blank">a P2P Electronic Cash</a> Published on Halloween</strong></li>
+										<li><strong>🗺️ Lived in Sao Paulo and played a lot of <a href="https://steamcommunity.com/id/bt3gl" target="_blank">Videogames</a></strong></li>
+									</ul>
+
+								<h3><span class="success-text text-1_2 font-orbitron">1999</span></h3>
+
+								<ul>
+									<li><strong><a target="_blank" href="https://web.archive.org/web/20070322015644/http://fly.to/bytegirl">🕹️ My Older Lil Bytegirl's Page (My First Website)</a></strong></li>
+									<li><strong>✅ Programmer Job at <a target="_blank" href="https://de.wikipedia.org/wiki/Conectiva" rel="noopener noreferrer">Conectiva Linux</a> in Curitiba</strong></li>
+									<li><strong>✅ Watched Pulp Fiction, the Greatest Movie Ever Made</strong></li>
+									<li><strong>✅ 1st Place at the <a target="_blank" href="https://www.mostratec.com.br/en/" rel="noopener noreferrer">National High School Science Fair (MOSTRATEC)</a>, with an AI Doctor project ("Medico do Lar") applying <a target="_blank" href="https://en.wikipedia.org/wiki/Expert_system" rel="noopener noreferrer">Expert Systems</a></strong></li>
+								</ul>
+								
+								<br>	
+								<br>	
+								<br>
+								<p class="hotpink-text journey-footnote"><sup>†</sup> I consider myself to be living in a city whenever I spend more than a month in my own apartment there.</p>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+</div>
+
+<div class="footer container-xl width-full p-responsive">
+	<div class="pt-6 mt-6"></div>
+</div>
+		
+<!-- Neon Slider -->
+<div class="neon-slider-container">
+	<div class="neon-slider">
+		<div class="neon-slider-track">
+			<span class="neon-text">
+				impossible is a state of mind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				it always seems impossible until it's done&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				to achieve the impossible, one must attempt the absurd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				the word impossible is not in my dictionary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				i can do all this through him who gives me strength (philippians 4:13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				a winner is a dreamer who never gives up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				the harder the battle, the greater the triumph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</span>
+			<span class="neon-text" aria-hidden="true">
+				impossible is a state of mind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				it always seems impossible until it's done&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				to achieve the impossible, one must attempt the absurd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				the word impossible is not in my dictionary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				i can do all this through him who gives me strength (philippians 4:13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				a winner is a dreamer who never gives up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				the harder the battle, the greater the triumph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</span>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
