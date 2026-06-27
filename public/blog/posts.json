@@ -1,31 +1,43 @@
 [
   {
+    "slug": "7",
+    "title": "\ud83d\udcda BOOK: Reinforcement Learning, Sutton & Barto (2018)",
+    "date": "2026-06-28",
+    "subtitle": "Rating: 10/10 | Intermediate to Advanced AI Scientist"
+  },
+  {
+    "slug": "6",
+    "title": "\ud83d\udcda  BOOK: LLM Engineer Handbook, J. Chaumond et al. (2024)",
+    "date": "2026-06-24",
+    "subtitle": "Rating: 9/10 | Beginner to Intermediate AI/Software Engineer"
+  },
+  {
     "slug": "5",
-    "title": "NULLSTAR GAMES: 27 Years in the Making",
+    "title": "\u2728 NULLSTAR: Agentic-Native Game & Intelligence Studio",
     "date": "2026-06-07",
     "subtitle": "The one where I introduce what I'll be building for the next decade."
   },
   {
     "slug": "4",
-    "title": "On Secure Research Pipelines in the Era of AI Agents",
+    "title": "\ud83e\udd16 TECH: Secure Research Pipelines in the Agentic Era",
     "date": "2026-04-11",
     "subtitle": "This article launches a series of conversational notes on building secure, AI-native research workflows across various operating systems \u2014 starting with macOS \u2014 by integrating data extraction and automation tools while avoiding unsafe plugins and related threat vectors."
   },
   {
     "slug": "3",
-    "title": "Was this the craziest week yet in AI?",
+    "title": "\ud83e\udd16 TECH: Was this the craziest week yet in AI?",
     "date": "2026-04-05",
     "subtitle": "We are riding that exponential curve, aren't we?"
   },
   {
     "slug": "2",
-    "title": "Book Review: \"Build a LLM from Scratch\", by S. Raschka",
+    "title": "\ud83d\udcda BOOK: Build a LLM from Scratch, S. Raschka (2024)",
     "date": "2026-03-29",
     "subtitle": "Rating: 9/10 | Beginner to Intermediate AI/Software Engineer"
   },
   {
     "slug": "1",
-    "title": "Book Review: \"AI Engineering\", by C. Huyen",
+    "title": "\ud83d\udcda BOOK: AI Engineering, C. Huyen (2024)",
     "date": "2026-03-25",
     "subtitle": "Rating: 8/10 | Beginner to Intermediate AI/Software Engineer"
   }
