@@ -1,8 +1,14 @@
 [
   {
+    "slug": "8",
+    "title": "\ud83d\udcfa PODCAST: This Week's Dialogues on General Relativity",
+    "date": "2026-07-11",
+    "subtitle": "Rating: 10/10 | Beginner to Advanced Physicists"
+  },
+  {
     "slug": "7",
-    "title": "\ud83d\udcda BOOK: Reinforcement Learning, Sutton & Barto (2018)",
-    "date": "2026-06-28",
+    "title": "\ud83d\udcda BOOK: Reinforcement Learning, Sutton & Barto (2018) I",
+    "date": "2026-07-04",
     "subtitle": "Rating: 10/10 | Intermediate to Advanced AI Scientist"
   },
   {
