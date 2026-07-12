@@ -1,48 +1,54 @@
 [
   {
-    "slug": "8",
+    "slug": "podcast_computation",
+    "title": "\ud83d\udcfa PODCAST: Tim Roughgarden + Ergo on Computation",
+    "date": "2026-07-12",
+    "subtitle": "Rating: 10/10 | Beginner to Intermediate Computer Scientists"
+  },
+  {
+    "slug": "podcast_gr",
     "title": "\ud83d\udcfa PODCAST: This Week's Dialogues on General Relativity",
     "date": "2026-07-11",
     "subtitle": "Rating: 10/10 | Beginner to Advanced Physicists"
   },
   {
-    "slug": "7",
+    "slug": "book_rl",
     "title": "\ud83d\udcda BOOK: Reinforcement Learning, Sutton & Barto (2018) I",
     "date": "2026-07-04",
     "subtitle": "Rating: 10/10 | Intermediate to Advanced AI Scientist"
   },
   {
-    "slug": "6",
+    "slug": "book_llm_eng",
     "title": "\ud83d\udcda  BOOK: LLM Engineer Handbook, J. Chaumond et al. (2024)",
     "date": "2026-06-24",
     "subtitle": "Rating: 9/10 | Beginner to Intermediate AI/Software Engineer"
   },
   {
-    "slug": "5",
+    "slug": "nullstar_intro",
     "title": "\u2728 NULLSTAR: Agentic-Native Game & Intelligence Studio",
     "date": "2026-06-07",
     "subtitle": "The one where I introduce what I'll be building for the next decade."
   },
   {
-    "slug": "4",
+    "slug": "tech_secure_pipeline",
     "title": "\ud83e\udd16 TECH: Secure Research Pipelines in the Agentic Era",
     "date": "2026-04-11",
     "subtitle": "This article launches a series of conversational notes on building secure, AI-native research workflows across various operating systems \u2014 starting with macOS \u2014 by integrating data extraction and automation tools while avoiding unsafe plugins and related threat vectors."
   },
   {
-    "slug": "3",
+    "slug": "tech_crazy_week",
     "title": "\ud83e\udd16 TECH: Was this the craziest week yet in AI?",
     "date": "2026-04-05",
     "subtitle": "We are riding that exponential curve, aren't we?"
   },
   {
-    "slug": "2",
+    "slug": "book_build_llm",
     "title": "\ud83d\udcda BOOK: Build a LLM from Scratch, S. Raschka (2024)",
     "date": "2026-03-29",
     "subtitle": "Rating: 9/10 | Beginner to Intermediate AI/Software Engineer"
   },
   {
-    "slug": "1",
+    "slug": "book_ai_eng",
     "title": "\ud83d\udcda BOOK: AI Engineering, C. Huyen (2024)",
     "date": "2026-03-25",
     "subtitle": "Rating: 8/10 | Beginner to Intermediate AI/Software Engineer"

@@ -22,7 +22,7 @@ Next comes a discussion of black holes, their inevitable existence as predicted 
 
 Gravity around a black hole can be understood as a Taylor expansion correction to the familiar Newtonian gravitational field (first order), and Adam goes into detail about how the equations behave both near and inside the event horizon.
 
-In terms of energy generation, while fusion and fission rely on the strong nuclear force, neither fundamentally converts the rest mass of matter with the efficiency that gravity could. Chemical and nuclear reactions tap only a small fraction of the energy stored in mass, whereas accretion onto black holes could convert a much larger fraction into radiation.
+In terms of energy generation, while fusion and fission rely on the strong and weak forces, neither fundamentally converts the rest mass of matter with the efficiency that gravity could. Chemical and nuclear reactions tap only a small fraction of the energy stored in mass, whereas accretion onto black holes could convert a much larger fraction into radiation (in theory).
 
 *Adam and Dwarkesh end the episode by wondering about the future of physics in the age of AI, leaving physicists and philosophers alike with a marvelous sense of curiosity. Thank you, folks!*
 
