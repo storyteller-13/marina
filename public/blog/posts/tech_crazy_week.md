@@ -1,5 +1,5 @@
 ---
-title: 🤖 TECH: Was this the craziest week yet in AI?
+title: 🤖 TECH → Was this the craziest week yet in AI?
 subtitle: We are riding that exponential curve, aren't we?
 date: 2026-04-05
 ---

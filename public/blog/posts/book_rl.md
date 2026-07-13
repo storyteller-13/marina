@@ -1,6 +1,6 @@
 ---
-title: 📚 BOOK: Reinforcement Learning, Sutton & Barto (2018) I
-subtitle: Rating: 10/10 | Intermediate to Advanced AI Scientist
+title: 📚 BOOK → Reinforcement Learning I (Sutton & Barto, 2018)
+subtitle: Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists
 date: 2026-07-04
 ---
 

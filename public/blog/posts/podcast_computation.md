@@ -1,10 +1,10 @@
 ---
-title: 📺 PODCAST: Tim Roughgarden + Ergo on Computation
-subtitle: Rating: 10/10 | Beginner to Intermediate Computer Scientists
+title: 📺 PODCAST → Tim Roughgarden + Ergo on Computation
+subtitle: Rating: 10/10 | Audience: Beginner to Intermediate Computer Scientists
 date: 2026-07-12
 ---
 
-#### ✨ Last week I discovered a [new YouTube channel called Ergo](https://www.youtube.com/@ergo_org), and they're publishing lectures featuring many outstanding guests. I wanted to binge-watch all of them, but I decided to start with one of my favorite subjects ever: [Algorithms](https://www.youtube.com/playlist?list=PL1GBzfniaE7xovcAP1LbbTi7UXsqEoCyl). 
+#### ✨ Last week I discovered a [new YouTube channel called Ergo](https://www.youtube.com/@ergo_org), and they're publishing lectures featuring many outstanding guests. I wanted to binge-watch all of them, but I decided to start with one of my favorite subjects ever: [Algorithms](https://www.youtube.com/playlist?list=PL1GBzfniaE7xovcAP1LbbTi7UXsqEoCyl) (I even published [a book about it](https://github.com/cypherpunk-symposium/master-algorithms-py) a decade ago).
 
 <br>
 

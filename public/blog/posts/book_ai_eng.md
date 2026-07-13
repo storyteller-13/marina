@@ -1,6 +1,6 @@
 ---
-title: 📚 BOOK: AI Engineering, C. Huyen (2024)
-subtitle: Rating: 8/10 | Beginner to Intermediate AI/Software Engineer
+title: 📚 BOOK → AI Engineering (Huyen, 2024)
+subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI/Software Engineers
 date: 2026-03-25
 ---
 

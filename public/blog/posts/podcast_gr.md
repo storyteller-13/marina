@@ -1,6 +1,6 @@
 ---
-title: 📺 PODCAST: This Week's Dialogues on General Relativity
-subtitle: Rating: 10/10 | Beginner to Advanced Physicists
+title: 📺 PODCAST → This Week's Dialogues on General Relativity
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced Physicists
 date: 2026-07-11
 ---
 

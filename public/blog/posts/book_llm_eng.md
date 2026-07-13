@@ -1,6 +1,6 @@
 ---
-title: 📚  BOOK: LLM Engineer Handbook, J. Chaumond et al. (2024)
-subtitle: Rating: 9/10 | Beginner to Intermediate AI/Software Engineer
+title: 📚  BOOK → LLM Engineer Handbook (Chaumond et al., 2024)
+subtitle: Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers
 date: 2026-06-24
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: ✨ NULLSTAR: Agentic-Native Game & Intelligence Studio
+title: ✨ NULLSTAR → Agentic-Native Game & Intelligence Studio
 subtitle: The one where I introduce what I'll be building for the next decade.
 date: 2026-06-07
 ---
@@ -10,7 +10,7 @@ date: 2026-06-07
 
 Today I'm excited to formally announce what I've been cooking — and what I'll be building for many years to come. 
 
-✨ Introducing **[NULLSTAR](https://github.com/NULLSTAR-GAMES)**, an agentic-native game and intelligence studio — or as I like to call it, the operating system for superintelligence in the agentic era. ✨
+✨ Introducing **[NULLSTAR](https://github.com/NULLSTAR-GAMES)**, an agentic-native game and intelligence studio — or as I like to call it, the operating system for agentic superintelligence. ✨
 
 
 What does that mean exactly? I'm building a 7-layer, vertically integrated infrastructure and technology that will fundamentally change how multiplayer games are created and delivered.
@@ -61,11 +61,11 @@ I've started companies before: **[Curiee](https://web.archive.org/web/2020042605
 
 <br>
 
-## 🌟 LOGIC 13: The Flagship Sci-Fi MMORPG
+## 🌟 LOGIC-13: The Flagship Sci-Fi MMORPG
 
 <br>
 
-**NULLSTAR** has a second mission: to dogfood **PleiadesOS** with my own MMORPG universe, **LOGIC 13**.
+**NULLSTAR** has a second mission: to dogfood **PleiadesOS** with my own MMORPG universe, **LOGIC-13**.
 
 I've been writing this sci-fi universe — originally conceived as a book series — for many months now. Its lore is set in the near future and explores themes I've long studied: physics, astronomy, quantum computing, game theory, alternate timelines, spacetime, decentralization, and the hero's journey.
 
