@@ -1,32 +1,8 @@
 [
   {
-    "slug": "tech_agents",
-    "title": "\ud83e\udd16 TECH \u2192 Rambling On My Favorite Agents",
-    "date": "2026-07-24",
-    "subtitle": "???"
-  },
-  {
-    "slug": "podcast_ergo",
-    "title": "\ud83d\udcfa PODCAST \u2192 Ergo",
-    "date": "2026-07-23",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientist/Engineer"
-  },
-  {
-    "slug": "podcast_nathan",
-    "title": "\ud83d\udcfa PODCAST \u2192 On Nathan's Lambert",
-    "date": "2026-07-22",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientist/Engineer"
-  },
-  {
-    "slug": "tech_id_machines",
-    "title": "\ud83d\udcfa PODCAST \u2192 Iddle Machines",
-    "date": "2026-07-21",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientist/Engineer"
-  },
-  {
     "slug": "tech_weng",
-    "title": "\ud83e\udd16 TECH \u2192 A Walk Through Lilian Weng's Research",
-    "date": "2026-07-20",
+    "title": "\ud83e\udd16 TECH \u2192 A Mnemonic Walk Through Weng's Research",
+    "date": "2026-07-18",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI/Software Engineers/Scientists"
   },
   {
