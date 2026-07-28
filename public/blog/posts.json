@@ -1,5 +1,17 @@
 [
   {
+    "slug": "book_hands",
+    "title": "\ud83d\udcda BOOK \u2192 Hands-On LLM (Alammar & Grootendorst, 2024)",
+    "date": "2026-07-27",
+    "subtitle": "Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers"
+  },
+  {
+    "slug": "book_lanchain",
+    "title": "\ud83d\udcda BOOK \u2192 Generative AI with LangChain (Auffarth, 2023)",
+    "date": "2026-07-23",
+    "subtitle": "Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers"
+  },
+  {
     "slug": "tech_weng",
     "title": "\ud83e\udd16 TECH \u2192 A Mnemonic Walk Through Weng's Research",
     "date": "2026-07-18",
@@ -37,7 +49,7 @@
   },
   {
     "slug": "nullstar_intro",
-    "title": "\u2728 NULLSTAR \u2192 Agentic-Native Game & Intelligence Studio",
+    "title": "\ud83c\udf1f NULLSTAR \u2192 Agentic-Native Game & Intelligence Studio",
     "date": "2026-06-07",
     "subtitle": "The one where I introduce what I'll be building for the next decade."
   },

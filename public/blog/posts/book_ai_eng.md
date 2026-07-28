@@ -4,13 +4,17 @@ subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI/Software Engineer
 date: 2026-03-25
 ---
 
-A good end-to-end review of the field.
+A good end-to-end overview of the field.
 
-Below are facts and concepts I particularly enjoyed reading about, organized by topic.
+##### 💜🤖 Below are facts and concepts I particularly enjoyed reading about, organized by topic. If they look interesting to you, it's your *moral* duty to read the original book.
+
+<br>
 
 ---
 
 ## The AI Engineering Stack
+
+<br>
 
 - The stack has three layers: **Application Development** (prompts, context, evaluation, interfaces), **Model Development** (modeling, training, finetuning, dataset engineering), and **Infrastructure** (model serving, compute, monitoring).
 
@@ -23,9 +27,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - In short: AI engineering is less about model development and more about **adapting and evaluating models**.
 
+<br>
+
 ---
 
 ## Model Adaptation
+
+<br>
 
 - Adaptation techniques fall into two categories: **prompt-based** (no weight updates) and **finetuning** (weight updates required).
 
@@ -45,10 +53,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 1. Supervised Finetuning (SFT) — optimizes for conversations instead of text completion.
 2. Preference Finetuning — aligns outputs with human preferences via RL (RLHF, DPO, RLAIF).
 ```
+<br>
 
 ---
 
 ## Transformer Architecture
+
+<br>
 
 - The transformer was created to address two problems with seq2seq + RNNs: (1) outputs were generated using only the final hidden state; (2) sequential processing was slow for long inputs.
 
@@ -70,9 +81,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - The **output layer** (unembedding layer / model head) maps output vectors into token probabilities.
 
+<br>
+
 ---
 
 ## Model Sizing & Compute
+
+<br>
 
 - To estimate inference memory: multiply number of parameters × bytes per parameter (e.g., 7B params × 2 bytes = 14 GB minimum).
 
@@ -89,17 +104,25 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 - **KV cache** is used only during inference (not training); its memory grows linearly with sequence length and batch size.
   - Formula: `2 × B × S × L × H × M`
 
+<br>
+
 ---
 
 ## Alternative Architectures
+
+<br>
 
 - **SSMs (State Space Models)** show promise for long-range memory as an alternative to transformers.
 
 - Evolution of SSMs: S4 → H3 → **Mamba** (scales to 3B params; inference scales linearly vs. quadratic for transformers) → **Jamba** (hybrid Transformer–Mamba; 52B total / 12B active params, fits in a single 80 GB GPU, supports 256K context length).
 
+<br>
+
 ---
 
 ## Sampling & Output Generation
+
+<br>
 
 - A language model outputs a **logit vector**; each logit corresponds to one token in the vocabulary.
 
@@ -116,9 +139,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - **Entropy** measures the average information carried by a token; higher entropy = more bits needed to represent a token.
 
+<br>
+
 ---
 
 ## Evaluation
+
+<br>
 
 - Evaluation is described as **the biggest bottleneck to AI adoption**.
 
@@ -134,9 +161,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - When designing an evaluation pipeline: check for variance across runs, avoid redundant correlated metrics, and account for latency/cost overhead.
 
+<br>
+
 ---
 
 ## Prompt Engineering & In-Context Learning
+
+<br>
 
 - Teaching models via prompts is called **in-context learning**.
 
@@ -146,9 +177,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - How much prompt engineering is needed depends on the model's robustness to prompt perturbation.
 
+<br>
+
 ---
 
 ## Prompt Security
+
+<br>
 
 - Three main types of prompt attacks: **prompt extraction**, **jailbreaking / prompt injection**, and **information extraction**.
 
@@ -156,9 +191,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - Adversarial purposes include: data theft, privacy violations, and copyright infringement.
 
+<br>
+
 ---
 
 ## RAG (Retrieval-Augmented Generation)
+
+<br>
 
 - RAG enhances generation by retrieving relevant information from external memory (databases, chat history, the internet).
 
@@ -181,9 +220,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - **In short: finetuning is for form; RAG is for facts.**
 
+<br>
+
 ---
 
 ## Memory in AI Models
+
+<br>
 
 - AI models have three memory mechanisms:
 ```
@@ -192,9 +235,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 3. Long-term memory — external data sources via retrieval (e.g., RAG); persistent and deletable without retraining.
 ```
 
+<br>
+
 ---
 
 ## Finetuning (Deep Dive)
+
+<br>
 
 - Finetuning = adapting a model by further training all or part of it.
 
@@ -229,9 +276,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 5. Prompt loss weight: response tokens should contribute more to the loss than prompt tokens during instruction finetuning.
 ```
 
+<br>
+
 ---
 
 ## Data & Dataset Engineering
+
+<br>
 
 - **Data-centric AI** improves performance by enhancing data quality and diversity; contrasts with **model-centric AI** (better architectures, bigger models).
 
@@ -239,9 +290,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - **Deduplication methods**: pairwise comparison (exact/n-gram/fuzzy/semantic), hashing (MinHash, Bloom filter), dimensionality reduction + comparison.
 
+<br>
+
 ---
 
 ## Inference Optimization
+
+<br>
 
 - Autoregressive models generate tokens sequentially — 10 ms/token × 100 tokens = 1 second total latency.
 
@@ -258,9 +313,13 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - Major AI accelerators beyond NVIDIA: AMD GPUs, Google TPU, Intel Habana Gaudi, Graphcore IPU, Groq LPU, Cerebras QPU.
 
+<br>
+
 ---
 
 ## AI Application Architecture
+
+<br>
 
 - A production AI system evolves incrementally:
 ```
@@ -269,11 +328,15 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 3. Add model router and gateway for complex pipelines and security.
 4. Add caching to optimize latency and cost.
 5. Add complex logic and write actions for maximum capability.
-````
+```
+
+<br>
 
 ---
 
 ## Miscellaneous
+
+<br>
 
 - **Lindy's Law**: the future life expectancy of a technology is proportional to its current age — if it's been around a while, it'll likely stick around.
 
@@ -283,3 +346,6 @@ Below are facts and concepts I particularly enjoyed reading about, organized by 
 
 - Tasks are either **compute-bound** (bottlenecked by computation speed) or **memory bandwidth-bound** (bottlenecked by data transfer rate); the distinction matters for optimization strategy.
 
+<br>
+
+### ⬛️

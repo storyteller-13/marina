@@ -4,13 +4,15 @@ subtitle: Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineer
 date: 2026-03-29
 ---
 
-![](/blog/assets/llm_time.png)
+![](/blog/assets/3.png)
 
 ## TL; DR
 
+<br>
+
 This book walks through the full lifecycle of building a large language model: from raw text tokenization all the way to classical fine-tuning examples. 
 
-I enjoyed this read: althought it's introductory, it has great explanations, great pictures (visual learners winning here), and fun Python exercises. I read it in 3 days, and it helped me refresh some key concepts in my mind. Below is a very very very high-level overview because I don't want to infringe on any copyright.
+I enjoyed this read: althought it's introductory, it has great explanations, great pictures (visual learners winning here), and fun Python exercises. I read it in 3 days, and it helped me refresh some key concepts in my mind. 
 
 The journey is structured as the following:
 
@@ -20,12 +22,21 @@ The journey is structured as the following:
 | 2 | Foundations: training loop, evaluation, loading pre-trained weights |
 | 3 | Fine-tuning: classification or instruction-following |
 
+<br>
 
-> 💡 *Note that the source code for this book is [open and free](https://github.com/rasbt/LLMs-from-scratch).*
+##### 💜🤖 Below are facts and concepts I particularly enjoyed reading about, organized by topic. If they look interesting to you, it's your *moral* duty to read the original book. Plus, the source code for this book is [open and free](https://github.com/rasbt/LLMs-from-scratch).
 
-![LLM-from-scratch pipeline overview](/blog/assets/3.png)
+<br>
+
+![LLM-from-scratch pipeline overview](/blog/assets/llm_time.png)
+
+<br>
+
+---
 
 ## The Pipeline for Working with Text Data
+
+<br>
 
 ```
 1. Tokenization; split text into tokens
@@ -36,7 +47,13 @@ The journey is structured as the following:
     - a fancy lookup table for which the lookup weights get optimized during training
 ```
 
+<br>
+
+---
+
 ## Attention Attention
+
+<br>
 
 Self-attention is the heart of the transformer. For each token in the sequence, compute how much it should "attend to" every other token, then blend those tokens' information accordingly. The mechanics use three learned projections per token (just as in database lingo):
 
@@ -48,8 +65,13 @@ Self-attention is the heart of the transformer. For each token in the sequence, 
 
 Attention scores are computed as dot products between queries and keys, scaled by the square root of the embedding dimension (to prevent gradients from vanishing with large values), then passed through softmax to produce weights that are normalized.
 
+<br>
+
+---
 
 ## GPT Model Architecture
+
+<br>
 
 The full GPT model stacks transformer blocks repeatedly:
 
@@ -75,10 +97,17 @@ GPT-2 model sizes for reference (their weigths are open):
 | Large | 774M | 20 | 1,280 | 1,024 |
 | XL | 1.5B | 25 | 1,600 | 1,024 |
 
+<br>
+
+---
 
 ## Pretraining && Evaluation
 
+<br>
+
 ![](/blog/assets/training.png)
+
+<br>
 
 Pretraining is conceptually straightforward: minimize cross-entropy loss between the model's predicted token probabilities and the actual next token. 
 
@@ -91,7 +120,6 @@ In practice:
 - Temperature scaling and probabilistic sampling introduce controlled randomness, trading coherence for diversity
 ```
 
-
 At inference time, GPT generates one token at a time:
 
 ```
@@ -101,7 +129,13 @@ At inference time, GPT generates one token at a time:
 4. Append it to the sequence and repeat
 ```
 
+<br>
+
+---
+
 ## Classification Fine-Tuning
+
+<br>
 
 The classical spam detection classification example:
 
@@ -115,11 +149,20 @@ The classical spam detection classification example:
 - Don't need to fine-tune the whole model (just the top layer(s) on a small labeled dataset)
 ```
 
+<br>
+
+---
 
 ## What This Book Does Well
+
+<br>
 
 ```
 - Demystifies LLMs by building everything from first principles in PyTorch
 - Bridges the gap between intuition and implementation (concepts like attention and tokenization become much clearer once you've coded them)
 - The progression from "random weights → pretrained → fine-tuned" mirrors how real production models are built
 ```
+
+<br>
+
+### ⬛️

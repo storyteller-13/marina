@@ -17,7 +17,7 @@ Mid-weeks are a nice time to read a good book, and I like to review the ML/AI en
 
 Today I finished reading this book from the co-founders of HuggingFace and ZenML, which covers useful topics such as MLOps (DevOps) pipelines, RAG pipelines, fine-tuning pipelines, evals approaches, and inference optimizations. 
 
-##### 💜🤖 Below are my highlights (with some attempt, although very moderate, at coherence).
+##### 💜🤖 Below are facts and concepts I particularly enjoyed reading about, organized by topic. If they look interesting to you, it's your *moral* duty to read the original book.
 
 <br>
 
@@ -255,4 +255,4 @@ Today I finished reading this book from the co-founders of HuggingFace and ZenML
 
 <br>
 
-⬛️
+### ⬛️

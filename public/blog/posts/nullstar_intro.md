@@ -1,5 +1,5 @@
 ---
-title: ✨ NULLSTAR → Agentic-Native Game & Intelligence Studio
+title: 🌟 NULLSTAR → Agentic-Native Game & Intelligence Studio
 subtitle: The one where I introduce what I'll be building for the next decade.
 date: 2026-06-07
 ---

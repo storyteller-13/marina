@@ -7,10 +7,12 @@ date: 2026-07-18
 A few days ago this article [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/) came up in my feed. Since a great part of the work I am doing at [NULLSTAR](https://nullstar.fun) revolves around designing the *perfect* harnesses and skills for the problems I am solving, it immediately caught my attention. To my delight, the article was exactly the kind of read I enjoy: deep enough to be intellectually satisfying, well written, and packed with relevant citations presented through a thoughtful historical overview. After finishing it, my immediate thought was: *"Who is the author, and what else can I learn from them?"*
 
 
-##### 💜🤖 Below are my highlights (with some attempt, although very moderate, at coherence). PS: if they look interesting to you, it's your *moral duty* to read the original articles (and their references).
+##### 💜🤖 Below are my highlights (with some attempt, although very moderate, at coherence). If they look interesting to you, it's your *moral duty* to read the original articles (and their references).
 
 
 <br>
+
+---
 
 ## 🧋 Article I: [Harness Engineering for Self-Improvement (2026)](https://lilianweng.github.io/posts/2026-07-04-harness/)
 
@@ -94,6 +96,8 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 <br>
 
+---
+
 ## 🧋 Article II: [Scaling Laws, Carefully (2026)](https://lilianweng.github.io/posts/2026-06-24-scaling-laws/)
 
 <br>
@@ -134,6 +138,8 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 - Knowledge or skills are learned in discrete chunks (quantized) and the frequency distribution of these skills follow a power law?
 
 <br>
+
+----
 
 ## 🧋 Article III: [Why We Think (2025)](https://lilianweng.github.io/posts/2025-05-01-thinking/)
 
@@ -206,6 +212,8 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 <br>
 
+----
+
 ## 🧋 Article IV: [Reward Hacking in Reinforcement Learning (2024)](https://lilianweng.github.io/posts/2024-11-28-reward-hacking/)
 
 <br>
@@ -259,6 +267,9 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 - RL algorithm improvement: 1) adversarial reward function; 2) model lookahead (give reward based on future antecipated states); 3) adversarial blinding (blind the model with certain variables so the agent cannot learn information that leads to hacking); 4) sandboxing; 5) reward capping; 6) counterexample resistance (improvement on adversarial robustness should benefit the robustness of the reward function); 7) combination of multiple rewards; 8) reward pretraining; 9) variable indifference (ask the agent to optimize only some variables); 10) trip wires (intentionally introduce some vulnerabilities and setup monitoring if it gets reward hacked).
 
 <br>
+
+
+---
 
 ## 🧋 Article V: [Extrinsic Hallucinations in LLMs (2024)](https://lilianweng.github.io/posts/2024-07-07-hallucination/)
 
@@ -357,6 +368,8 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 <br>
 
+---
+
 ## 🧋 Article VI: [Diffusion Models for Video Generation (2024)](https://lilianweng.github.io/posts/2024-04-12-diffusion-video/)
 
 <br>
@@ -409,6 +422,8 @@ Thank you, Weng, for the beautiful math derivation.
 
 <br>
 
+----
+
 ## 🧋 Article VII: [Thinking About High-Quality Human Data (2024)](https://lilianweng.github.io/posts/2024-02-05-human-data-quality/)
 
 <br>
@@ -424,6 +439,8 @@ Weng starts by stating the sets of operation steps for collecting human data:
 Weng then discusses the idea of the wisdom of the crowd (Vox populi), rater agreement, disagreement, the qualities of data and model training, prediction changes during training, and noisy cross-validation.
 
 <br>
+
+---
 
 ## 🧋 Article VIII: [Adversarial Attacks on LLMs at Inference Time (2023)](https://lilianweng.github.io/posts/2023-10-25-adv-attack-llm/)
 
@@ -448,6 +465,8 @@ Weng then discusses the idea of the wisdom of the crowd (Vox populi), rater agre
 
 <br>
 
+----
+
 ## 🧋 Article IX: [LLM Powered Autonomous Agents (2023)](https://lilianweng.github.io/posts/2023-06-23-agent/)
 
 <br>
@@ -463,6 +482,8 @@ In this ahead-of-the-time essay, Weng gives an overview of what an LLM-based age
 Weng finalizes the paper reviewing  possible case studies, such as scientific discovery agents, generative agents simulation, and proof-of-concept examples.
 
 <br>
+
+----
 
 ## 🧋 Article X: [Prompt Engineering (2023)](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/)
 
@@ -512,6 +533,8 @@ Also known as In-Context-Prompting, it refers to empirical methods for how commu
 - Methods: augment-prune-select and clustering techniques.
 
 <br>
+
+---
 
 ### *Thank you, Lilian Weng, this was fun!* 🤩
 

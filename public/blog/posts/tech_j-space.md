@@ -13,6 +13,8 @@ PS: A note to the curious anons. Besides being very familiar with Jacobians from
 
 <br>
 
+---
+
 ## 🧉 Core Thesis
 
 <br>
@@ -20,6 +22,8 @@ PS: A note to the curious anons. Besides being very familiar with Jacobians from
 Language models maintain a privileged, limited set of internal representations — analogous to a "global workspace" — that are available for verbal report, deliberate manipulation, and internal reasoning, sitting atop a much larger volume of automatic processing the model can't access or report on. This structure is identified using a new interpretability method called the Jacobian lens (J-lens).
 
 <br>
+
+---
 
 ## 🧉 Global Workspace Theory from Human Cognition
 
@@ -30,6 +34,8 @@ Language models maintain a privileged, limited set of internal representations �
 - The workspace integrates and broadcasts information for flexible reasoning and report. It's capacity-limited, so entry is competitive and shaped by attention.
 
 <br>
+
+---
 
 ## 🧉  What Would a Workspace in an LLM Look Like?
 
@@ -47,6 +53,8 @@ The researchers found workspace-like representations by first searching for verb
 
 <br>
 
+---
+
 ## 🧉 The Jacobian Lens
 
 <br>
@@ -58,6 +66,8 @@ The researchers found workspace-like representations by first searching for verb
 - **J-space**: the set of points expressible as a sparse, nonnegative combination of J-lens vectors, with a sparsity parameter k (empirically ≤25 — the number of J-lens vectors meaningfully active at once). Geometrically a union of k-dimensional cones. Any activation can be decomposed into a J-space component (nearest point in J-space) and a non-J-space remainder.
 
 <br>
+
+---
 
 ## 🧉 Findings
 
@@ -91,6 +101,8 @@ The researchers found workspace-like representations by first searching for verb
 
 <br>
 
+---
+
 ## 🧉 Limitations
 
 <br>
@@ -100,6 +112,8 @@ The researchers found workspace-like representations by first searching for verb
 - **Vs. human workspace**: the human workspace can be sustained via recurrent dynamics over indefinite time without verbalizing; may also contain non-verbal content (spatial, motor, perceptual) that has no compact description — the paper speculates image-generating models might develop a visual workspace component.
 
 <br>
+
+---
 
 ## 🧉 Broader Theoretical Connections
 

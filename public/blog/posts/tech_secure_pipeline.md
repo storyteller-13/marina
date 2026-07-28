@@ -8,14 +8,23 @@ date: 2026-04-11
 
 > 🌟 EDIT: **[this project started one day after this post](https://github.com/LobsterTrap/tank-os)** and it implements the ideas discussed here. I love seeing this conversation!
 
+---
 
 ## 🦖 TL;DR
+
+<br>
 
 As AI agents become increasingly integrated into research workflows, the risk profile of executing unvetted code or third-party plugins grows. To mitigate these risks, researchers require an isolated, reproducible environment that does not compromise the host operating system. 
 
 This guide details the implementation of a high-performance, secure stack on macOS — leveraging **[Lima](https://github.com/lima-vm/lima)**, **[Podman](https://github.com/containers/podman)**, **[Distrobox](https://github.com/89luca89/distrobox)**, and **[Lazydocker](https://github.com/jesseduffield/lazydocker)** — to create a seamless bridge between BSD-based macOS and the Linux-native features required for modern AI research agents.
 
+<br>
+
+---
+
 ## 🦖 Architecture Overview
+
+<br>
 
 Because macOS is built on the Darwin kernel (a BSD derivative), it speaks a different 'internal language' than Linux. It lacks the native `namespaces` required to allow a process to operate as if it were in its own isolated environment (i.e., process isolation, hiding other processes and files from the container), as well as Control Groups (`cgroups`), which act as the resource 'meter' to prevent a container from hijacking system memory or CPU (i.e., resource hardening by capping RAM, CPU, and I/O usage).
 
@@ -29,11 +38,17 @@ To bridge this gap, we use **[Lima](https://github.com/lima-vm/lima)**. It spins
 | **Compatibility** | **Distrobox** | A high-level wrapper that maps host users, home directories, and X11/Wayland sockets into containers. |
 | **Orchestration** | **Lazydocker** | A Terminal User Interface (TUI) providing real-time telemetry and container management. |
 
+<br>
+
 > 💡 *As of 2026, Docker remains the industry heavyweight for local development, while Podman has become the standard for security-sensitive and Kubernetes-native workflows. The primary difference is architecture: Docker relies on a central background service (a daemon), while Podman is daemonless (fork/exec), meaning it runs containers as independent processes. Additionally, Podman integrates beautifully with `systemd`, allowing you to manage containers as if they were standard system services.*
+
+<br>
 
 ---
 
 ## 0️⃣ Setting the Environment
+
+<br>
 
 The host system requires the **[Homebrew](https://brew.sh/)** package manager for dependency resolution and **[iTerm2](https://iterm2.com/)** and **[tmux](https://github.com/tmux/tmux/wiki)** for advanced terminal multiplexing.
 
@@ -47,12 +62,18 @@ Additionally, ensure Xcode Command Line Tools are installed (`xcode-select --ins
 brew install iterm2
 brew install tmux
 ```
+<br>
 
 > 💡 *You should customize your `.tmux.conf`. Mine is **[here](https://github.com/cypherpunk-symposium/shell-whiz-toolkit/tree/master/tmux)** (or, if you are feeling inspired, set your **[iTerm2's profile](https://github.com/cypherpunk-symposium/shell-whiz-toolkit/blob/master/iterm/iterm_profile.json)**).*
+
+
+<br>
 
 ---
 
 ## 1️⃣ Deploying the Linux Subsystem (Lima)
+
+<br>
 
 
 Lima (Linux Machine) facilitates the execution of Linux binaries on macOS with automatic file sharing and port forwarding:
@@ -147,9 +168,13 @@ You can start Podman using this command instead (name your podman the way you li
 limactl start --name=podman ~/lima-podman.yaml
 ```
 
+<br>
+
 ---
 
 ## 2️⃣ Implementing Distrobox for OS Interoperability
+
+<br>
 
 Once the Lima VM is active, we utilize Distrobox. 
 
@@ -238,11 +263,12 @@ And, in some cases, you can `exec` into it (bypassing distrobox) with:
 ```bash
 podman exec -it arch-research /bin/bash
 ```
- 
 
 ---
 
 ## 3️⃣ Monitoring via Lazydocker TUI
+
+<br>
 
 To manage the lifecycle of these research environments without the overhead of complex CLI strings, we employ **Lazydocker**. 
 
@@ -256,9 +282,13 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 lazydocker
 ```
 
+<br>
+
 ---
 
 ## 4️⃣ Final Integration & Host Aliasing
+
+<br>
 
 To make this stack indistinguishable from native macOS tools, you can map the guest commands to the host shell (`.zshrc`). Here is an example of setup:
 
@@ -278,9 +308,13 @@ fi
 
 Additionally, ensure that your `.zshrc` aliases include the `$XDG_RUNTIME_DIR export;` to ensure that Lazydocker can instantly communicate with the Podman socket the moment you launch your TUI dashboard, providing immediate telemetry on your research agents.
 
+<br>
+
 ---
 
 ## 🦖 Cleaning Up
+
+<br>
 
 Whenever a research project is complete, you can clean the disk space (Lima VMs can grow to tens of gigabytes) with:
 
@@ -297,9 +331,13 @@ limactl delete podman
 rm -rf ~/.lima/podman
 ```
 
+<br>
+
 ---
 
 ## 🦖 Security Considerations
+
+<br>
 
 ### Rootless Podman
 
@@ -313,20 +351,29 @@ While the containers are ephemeral, the data stored in `~/` persists on the macO
 
  While traditional containers protect against known vulnerabilities, AI-native workflows introduce the risk of 'hallucinated' or injected malicious commands. By isolating the agent in a rootless Podman environment, even a successful Remote Code Execution (RCE) attempt is contained within a non-privileged namespace, preventing the agent from accessing your macOS Keychain, browser cookies, or the host's `/Users` directory.
 
+<br>
 
 > 💡 *For instance, Obsidian plugins operate with broad access to the local environment, which introduces a meaningful security risk if not carefully managed. Because plugins can read and write files within the vault — and in some cases interact with external services — they may expose sensitive notes, metadata, or system information if malicious or poorly maintained. The threat model includes risks such as data exfiltration, supply chain attacks through compromised plugin updates, and unintended vulnerabilities introduced by third-party code.*
+
+<br>
 
 ---
 
 ## 🦖 Performance Tuning
 
+<br>
+
 * **Memory Allocation:** If running LLM-heavy workloads (e.g., local Ollama instances within a container), increase the VM memory in `~/.lima/podman/lima.yaml`.
 
 * **I/O Performance:** The `virtiofs` mount type is critical for research tasks involving large datasets (e.g., CSV/JSON extraction).
 
+<br>
+
 ---
 
 ## 🦖 Outro
+
+<br>
 
 By abstracting the Linux kernel through Lima and Podman, researchers can leverage the vast ecosystem of Linux-native tools and AI agents without compromising the integrity of their primary macOS environment. By the way, if you are a UI person, you can also install [podman-tui](https://github.com/containers/podman-tui) or [podman desktop](https://podman-desktop.io/).
 
@@ -336,4 +383,10 @@ Future explorations may include automated data extraction agents for streamlined
 
 Beyond that, the possibilities are vast: integrating multiple LLMs for private data processing, orchestrate multi-agent workflows, and building automated and advanced research pipelines — all within sandboxed ecosystems.
 
+<br>
+
 ![](/blog/assets/rag.png)
+
+<br>
+
+### ⬛️
