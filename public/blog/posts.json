@@ -1,5 +1,11 @@
 [
   {
+    "slug": "book_ai",
+    "title": "\ud83d\udcda BOOK \u2192 Artificial Intelligence 1\ufe0f\u20e3 (Russell & Norvig, 2010)",
+    "date": "2026-08-02",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists"
+  },
+  {
     "slug": "book_hands",
     "title": "\ud83d\udcda BOOK \u2192 Hands-On LLM (Alammar & Grootendorst, 2024)",
     "date": "2026-07-27",
@@ -37,7 +43,7 @@
   },
   {
     "slug": "book_rl",
-    "title": "\ud83d\udcda BOOK \u2192 Reinforcement Learning I (Sutton & Barto, 2018)",
+    "title": "\ud83d\udcda BOOK \u2192 Reinforcement Learning 1\ufe0f\u20e3 (Sutton & Barto, 2018)",
     "date": "2026-07-04",
     "subtitle": "Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists"
   },
@@ -49,9 +55,9 @@
   },
   {
     "slug": "nullstar_intro",
-    "title": "\ud83c\udf1f NULLSTAR \u2192 Agentic-Native Game & Intelligence Studio",
+    "title": "\u2728 NULLSTAR \u2192 Agentic-Native Game & Intelligence Studio",
     "date": "2026-06-07",
-    "subtitle": "The one where I introduce what I'll be building for the next decade."
+    "subtitle": "In which I introduce what I'll be building for the next decade."
   },
   {
     "slug": "tech_secure_pipeline",
