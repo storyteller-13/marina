@@ -1,7 +1,7 @@
 ---
 title: 🤖 TECH → On Global Workspace and J-Space in LLMs
 subtitle: Rating: 9/10 | Audience: Intermediate to Advanced AI Scientists
-date: 2026-07-13
+date: 2026; 7; 13
 ---
 
 A week ago, one of Anthropic's research groups published a paper titled [Verbalizable Representations Form a Global Workspace in Language Models](http://transformer-circuits.pub/2026/workspace/index.html). Since one of my hobbies is to [study interpretability](https://gist.github.com/von-steinkirch/0b2f642d0c16b30cf9c479d028531b84), I thought it was an important read, so I decided to write a quick review here.

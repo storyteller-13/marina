@@ -1,7 +1,7 @@
 ---
 title: 🤖 TECH → A Mnemonic Walk Through Weng's Research
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI/Software Engineers/Scientists
-date: 2026-07-18
+date: 2026; 7; 18
 ---
 
 A few days ago this article [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/) came up in my feed. Since a great part of the work I am doing at [NULLSTAR](https://nullstar.fun) revolves around designing the *perfect* harnesses and skills for the problems I am solving, it immediately caught my attention. To my delight, the article was exactly the kind of read I enjoy: deep enough to be intellectually satisfying, well written, and packed with relevant citations presented through a thoughtful historical overview. After finishing it, my immediate thought was: *"Who is the author, and what else can I learn from them?"*

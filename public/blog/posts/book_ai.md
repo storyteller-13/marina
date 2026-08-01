@@ -1,14 +1,14 @@
 ---
-title: 📚 BOOK → Artificial Intelligence 1️⃣ (Russell & Norvig, 2010) 
+title: 📚 BOOK → AI - Part  1️⃣ (Russell & Norvig, 2010) 
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists
-date: 2026-08-02
+date: 2026; 8; 2
 ---
 
-This book is not only a must-read for every researcher in the field, but also an incredibly interesting read. It's one of the best books I've ever read (outside of Physics). 
+This book is not only a *must* for every researcher in the field, but also an incredibly interesting journey. It's one of the best books I've ever read (outside of Physics). 
 
-In this first post, I cover the first 9 chapters, up to inference in first-order logic. In a few days, I'll publish Part II, covering the remaining chapters.
+In this first post, I cover the first 9 chapters, up to inference in first-order logic. At some point in the future, I'll publish Part II, covering the remaining chapters.
 
-From my Ph.D. in Theoretical Physics, I'm well aware that something fascinating happens to your brain when you spend time studying mathematics and logic. It's like going to the gym — but for your mind. You also become fluent in the language and notation of science. That's one of the reasons I believe a Ph.D. in Physics equips you with the analytical tools to tackle virtually any technical problem.
+💡 *From my Ph.D. in Theoretical Physics, I'm well aware that something fascinating happens to your brain when you spend time studying mathematics and logic. It's like going to the gym — but for your mind. You also become fluent in the language and notation of science. That's one of the reasons I believe a Ph.D. in Physics equips you with the analytical tools to tackle virtually any technical problem.*
 
 
 **🤖 Below are my highlights with some attempt, although very moderate, at coherence.**
@@ -663,7 +663,7 @@ function MIN-VALUE(state) returns a utility value
 
 <br>
 
-> 👾*Each player’s goal is not just to move pieces to the right squares but also to minimize the information that the opponent has about their location. Playing any predictable “optimal” strategy provides the opponent with information. Hence, optimal play in partially observable games requires a willingness to play somewhat randomly. This means occasionally selecting moves that may seem “intrinsically” weak—but they gain strength from their very unpredictability, because the opponent is unlikely to have prepared any defense against them.*
+> 👾 *Each player’s goal is not just to move pieces to the right squares but also to minimize the information that the opponent has about their location. Playing any predictable “optimal” strategy provides the opponent with information. Hence, optimal play in partially observable games requires a willingness to play somewhat randomly. This means occasionally selecting moves that may seem “intrinsically” weak—but they gain strength from their very unpredictability, because the opponent is unlikely to have prepared any defense against them.*
 
 <br>
 
@@ -1296,11 +1296,11 @@ Greedy(y).
 
 <br>
 
-> ✨ *If S is an unsatisfiable set of clauses, then the application of a finite number of resolution steps to S will yield a contradiction.*
+> ✨ *If S is an unsatisfiable set of clauses, then the application of a finite number of resolution steps to S will yield a contradiction.* ✨
 
 <br>
 
-> ✨ **GODEL’S INCOMPLETENESS THEOREM -> By slightly extending the language of first-order logic to allow for the mathematical induction schema in arithmetic, Kurt Godel was able to show, in his incompleteness theorem, that there are true arithmetic sentences that cannot be proved. -> we can never prove all the theorems of mathematics within any given system of axioms.**
+> ✨ **GODEL’S INCOMPLETENESS THEOREM -> By slightly extending the language of first-order logic to allow for the mathematical induction schema in arithmetic, Kurt Godel was able to show, in his incompleteness theorem, that there are true arithmetic sentences that cannot be proved. -> we can never prove all the theorems of mathematics within any given system of axioms.** ✨
 
 <br>
 

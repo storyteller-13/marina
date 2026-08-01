@@ -1,7 +1,7 @@
 ---
 title: 📚 BOOK → Generative AI with LangChain (Auffarth, 2023)
 subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers
-date: 2026-07-23
+date: 2026; 7; 23
 ---
 
 A good end-to-end overview of the subject.

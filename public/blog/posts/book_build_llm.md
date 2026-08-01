@@ -1,7 +1,7 @@
 ---
 title: 📚 BOOK → Build a LLM from Scratch (Raschka, 2024)
 subtitle: Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers
-date: 2026-03-29
+date: 2026; 3; 29
 ---
 
 ![](/blog/assets/3.png)

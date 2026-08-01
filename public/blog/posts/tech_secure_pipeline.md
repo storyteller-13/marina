@@ -1,7 +1,7 @@
 ---
 title: 🤖 TECH → Secure Research Pipelines in the Agentic Era
 subtitle: This article launches a series of conversational notes on building secure, AI-native research workflows across various operating systems — starting with macOS — by integrating data extraction and automation tools while avoiding unsafe plugins and related threat vectors.
-date: 2026-04-11
+date: 2026; 4; 11
 ---
 
 ![](/blog/assets/agents.png)

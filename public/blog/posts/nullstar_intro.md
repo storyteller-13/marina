@@ -1,7 +1,7 @@
 ---
 title: ✨ NULLSTAR → Agentic-Native Game & Intelligence Studio
 subtitle: In which I introduce what I'll be building for the next decade.
-date: 2026-06-07
+date: 2026; 6; 7
 ---
 
 ## 🌟 Hello, Starlit World

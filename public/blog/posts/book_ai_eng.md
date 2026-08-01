@@ -1,7 +1,7 @@
 ---
 title: 📚 BOOK → AI Engineering (Huyen, 2024)
 subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI/Software Engineers
-date: 2026-03-25
+date: 2026; 3; 25
 ---
 
 A good end-to-end overview of the field.
