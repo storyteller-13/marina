@@ -6,7 +6,7 @@ date: 2026; 8; 2
 
 This book is not only a *must* for every researcher in the field, but also an incredibly interesting journey. It's one of the best books I've ever read (outside of Physics). 
 
-In this first post, I cover the first 9 chapters, up to inference in first-order logic. At some point in the future, I'll publish Part II, covering the remaining chapters.
+In this first post, I cover the first 9 chapters, up to inference in first-order logic. At some point in the future, I'll publish Part 2️⃣ and 3️⃣, covering the remaining chapters.
 
 💡 *From my Ph.D. in Theoretical Physics, I'm well aware that something fascinating happens to your brain when you spend time studying mathematics and logic. It's like going to the gym — but for your mind. You also become fluent in the language and notation of science. That's one of the reasons I believe a Ph.D. in Physics equips you with the analytical tools to tackle virtually any technical problem.*
 
@@ -17,7 +17,7 @@ In this first post, I cover the first 9 chapters, up to inference in first-order
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
 
 
-*Thank you, Russell & Norvig, for this fun and enlightening journey!*
+*Thank you, Dr. Russell & Dr. Norvig, for this fun and enlightening journey!*
 
 <br>
 
