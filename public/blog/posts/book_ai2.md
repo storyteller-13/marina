@@ -12,9 +12,9 @@ In this second post, I continue **[the work started in Part 1️⃣](https://mar
 
 The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and acting` are closer to the applied side of ML and Robotics (which I studied during my PhD, or over the years...). Interesting for some of the practical work at **[NULLSTAR ](https://www.nullstar.fun/)** (e.g., the RL section) — or, simply for fun (or profit). I'll cover them in the final post, Part 3️⃣.
 
-**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**<br>
-**🤖 If you see a 👾, it means I found something particularly cool or learned something new.**<br>
-**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**<br>
+**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**
+**🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
+**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
 
 <br>
@@ -415,7 +415,7 @@ Decision theory = probability theory + utility theory
 
 <br>
 
-> 👾 *WHERE DO PROBABILITIES COME FROM? 1) The frequentist position is that the numbers can come only from experiments.; 2) The objectivist view is that probabilities are real aspects of the universe—propensities of objects to behave in certain ways—rather than being just descriptions of an observer’s degree of belief.; 3) he subjectivist view describes probabilities as a way of characterizing an agent’s beliefs, rather than as having any external physical significance. The subjective Bayesian view allows any self-consistent ascription of prior probabilities to propositions, but then insists on proper Bayesian updating as evidence arrives.*
+> 👾 *WHERE DO PROBABILITIES COME FROM? 1) The frequentist position is that the numbers can come only from experiments.; 2) The objectivist view is that probabilities are real aspects of the universe—propensities of objects to behave in certain ways—rather than being just descriptions of an observer’s degree of belief.; 3) the subjectivist view describes probabilities as a way of characterizing an agent’s beliefs, rather than as having any external physical significance. The subjective Bayesian view allows any self-consistent ascription of prior probabilities to propositions, but then insists on proper Bayesian updating as evidence arrives.*
 
 <br>
 
@@ -450,7 +450,7 @@ Decision theory = probability theory + utility theory
 ```
 1. Each node corresponds to a random variable, which may be discrete or continuous.
 2. A set of directed links or arrows connects pairs of nodes. If there is an arrow from node X to node Y , X is said to be a parent of Y. The graph has no directed cycles (and hence is a directed acyclic graph, or DAG.
-3. 3. Each node Xi has a conditional probability distribution P(Xi |Parents(Xi)) that quantifies the effect of the parents on the node.
+3. Each node Xi has a conditional probability distribution P(Xi |Parents(Xi)) that quantifies the effect of the parents on the node.
 ```
 
 <br>
@@ -471,8 +471,7 @@ Decision theory = probability theory + utility theory
 
 * Chain rule —> the Bayesian network is a correct representation of the domain only if each node is conditionally independent of its other predecessors in the node ordering, given its parents.
 
-1. Nodes: First determine the set of variables that are required to model the domain. Now order them, `{X1,... ,Xn}`. Any order will work, but the resulting network will be more compact if the variables are ordered such that causes precede effects.
-
+1.  Nodes: First determine the set of variables that are required to model the domain. Now order them, `{X1,... ,Xn}`. Any order will work, but the resulting network will be more compact if the variables are ordered such that causes precede effects.
 2.  Links: `For i = 1 to n do: Choose, from X1,... ,Xi`, a minimal set of parents for `Xi`, such that the chain rule is satisfied. For each parent insert a link from the parent to `Xi`. CPTs: Write down the conditional probability table, `P(Xi|Parents(Xi))`. -> the parents of node `Xi` should contain all those nodes in `X1, ... , Xi` that directly influence `Xi`. 
 
 * Another important property of Bayesian networks is that they contain no redundant probability values. If there is no redundancy, then there is no chance for inconsistency.
@@ -549,11 +548,11 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 * Singly connected networks or polytrees -> the time and space complexity of exact inference in polytrees is linear in the size of the network. 
 
-* For multiply connected networks. variable elimination can have exponential time and space complexity in the worst case, even when the number of parents per node is bounded. -> inference in Bayesian networks is NP-hard. -> the problem is as hard as that of computing the number of satisfying assignments for a propositional logic formula. This means that it is #P-hard (“number-P hard”)—that is, strictly harder than NP-complete problems.
+* For multiply connected networks, variable elimination can have exponential time and space complexity in the worst case, even when the number of parents per node is bounded. -> inference in Bayesian networks is NP-hard. -> the problem is as hard as that of computing the number of satisfying assignments for a propositional logic formula. This means that it is #P-hard ("number-P hard")—that is, strictly harder than NP-complete problems.
 
 <br>
 
-> 👾 *The difficulty of solving a discrete CSP is related to how “treelike” its constraint graph is. Measures such as tree width, which bound the complexity of solving a CSP, can also be applied directly to Bayesian networks. Moreover, the variable elimination algorithm can be generalized to solve CSPs as well as Bayesian networks.* 
+> 👾 *The difficulty of solving a discrete CSP is related to how "treelike" its constraint graph is. Measures such as tree width, which bound the complexity of solving a CSP, can also be applied directly to Bayesian networks. Moreover, the variable elimination algorithm can be generalized to solve CSPs as well as Bayesian networks.* 
 
 <br>
 
@@ -621,7 +620,7 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 <br>
 
-* A Bayesian approach expresses our “ignorance” in terms of how our beliefs would change in the face of future information gathering.
+* A Bayesian approach expresses our "ignorance" in terms of how our beliefs would change in the face of future information gathering.
 
 * Fuzzy set theory is a means of specifying how well an object satisfies a vague description.
 
@@ -653,7 +652,7 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 * We view the world as a series of snapshots, or time slices, each of which contains a set of random variables, some observable and some not. -> we will assume that the same subset of variables is observable in each time slice (although this is not strictly necessary in anything that follows). We will use `Xt` to denote the set of state variables at time `t`, which are assumed to be unobservable, and `Et` to denote the set of observable evidence variables. The observation at time `t` is `Et = et` for some set of values `et`.
 
-* With the set of state and evidence variables for a given problem decided on, the next step iS to specify how the world evolves (the transition model) and how the evidence variables get their values (the sensor model).
+* With the set of state and evidence variables for a given problem decided on, the next step is to specify how the world evolves (the transition model) and how the evidence variables get their values (the sensor model).
 
 * First-order Markov process, in which the current state depends only on the previous state and not on any earlier states. -> The first-order Markov assumption says that the state variables contain all the information needed to characterize the probability distribution for the next time slice.
 
@@ -719,7 +718,7 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 <br>
 
-> 👾 *Recall that likelihood weighting works by sampling the nonevidence nodes of the network in topological order, weighting each sample by the likelihood it accords to the observed evidence variables. As with the exact algorithms, we could apply likelihood weighting directly to an unrolled DBN, but this would suffer from the same problems of increasing time and space requirements per update as the observation sequence grows. -> The problem is that the standard algorithm runs each sample in turn, all the way through the network. Instead, we can simply run all N samples together through the DBN, one slice at a time. The modified algorithm fits the general pattern of filtering algorithms, with the set of `N` samples as the forward message. The first key innovation, then, is to use the samples themselves as an approximate representation of the current state distribution.*
+> 👾 *Recall that likelihood weighting works by sampling the nonevidence nodes of the network in topological order, weighting each sample by the likelihood it accords to the observed evidence variables. As with the exact algorithms, we could apply likelihood weighting directly to an unrolled DBN, but this would suffer from the same problems of increasing time and space requirements per update as the observation sequence grows. -> The problem is that the standard algorithm runs each sample in turn, all the way through the network. Instead, we can simply run all `N` samples together through the DBN, one slice at a time. The modified algorithm fits the general pattern of filtering algorithms, with the set of `N` samples as the forward message. The first key innovation, then, is to use the samples themselves as an approximate representation of the current state distribution.*
 
 <br>
 
@@ -903,7 +902,7 @@ a standard probabilistic inference algorithm.
 * Under stationarity there are just two coherent ways to assign utilities to sequences:
 
 1. Additive rewards
-2. Discounted rewards (with a discount factor `γ`  between 0 and 1)
+2. Discounted rewards (with a discount factor `γ`  between `0` and `1`)
 
 <br>
 
@@ -994,7 +993,7 @@ a standard probabilistic inference algorithm.
 
 * Each player in a game must adopt and then execute a strategy (which is the name used in game theory for a policy). A pure strategy is a deterministic policy; for a single-move game, a pure strategy is just a single action. For many games an agent can do better with a mixed strategy, which is a randomized policy that selects actions according to a probability distribution. The mixed strategy that chooses action a with probability `p` and action `b` otherwise is written `[p:a;(1−p):b]`. A strategy profile is an assignment of a strategy to each player; given the strategy profile, the game’s outcome is a numeric value for each player.
 
-* A solution to a game is a strategy profile in which each player adopts a rational strategy. We will see that the most important issue in game theory is to define what “rational” means when each agent chooses only part of the strategy profile that determines the outcome.
+* A solution to a game is a strategy profile in which each player adopts a rational strategy. We will see that the most important issue in game theory is to define what "rational" means when each agent chooses only part of the strategy profile that determines the outcome.
 
 * We say that a strategy `s` for player `p` strongly dominates strategy `s` if the outcome for `s` is better for `p` than the outcome for `s`, for every choice of strategies by the other player(s). Strategy `s` weakly dominates `s` if `s` is better than `s` on at least one strategy profile and no worse on any other. A dominant strategy is a strategy that dominates all others.
 
@@ -1066,7 +1065,7 @@ Formally, a mechanism consists of:
 
 <br>
 
-> 👾 *It is well known, through the work of Turing (1936) and Godel (1931), that certain mathematical questions are in principle unanswerable by particular formal systems. Godel’s incompleteness theorem is the most famous example of this. Briefly, for any formal axiomatic system `F` powerful enough to do arithmetic, it is possible to construct a so-called Godel sentence `G(F)` with the following properties:
+> 👾 *It is well known, through the work of Turing (1936) and Godel (1931), that certain mathematical questions are in principle unanswerable by particular formal systems. Godel’s incompleteness theorem is the most famous example of this. Briefly, for any formal axiomatic system `F` powerful enough to do arithmetic, it is possible to construct a so-called Godel sentence `G(F)` with the following properties:*
 
 * `G(F)` is a sentence of `F`, but cannot be proved within `F`.
 * If `F` is consistent, then `G(F)` is true.
@@ -1077,7 +1076,7 @@ Formally, a mechanism consists of:
 
 * 👾 Turing machines are infinite, whereas computers are finite, and any computer can therefore be described as a (very large) system in propositional logic, which is not subject to Godel’s incompleteness theorem.
 
-* 👾 Is is impossible to prove that humans are not subject to Godel’s incompleteness theorem, because any rigorous proof would require a formalization of the claimed unformalizable human talent, and hence refute itself?
+* 👾 It's impossible to prove that humans are not subject to Godel’s incompleteness theorem -> any rigorous proof would require a formalization of the claimed unformalizable human talent, and hence refute itself.
 
 * 👾 The qualification problem in AI ->  The inability to capture everything in a set of logical rules -> human behavior is far too complex to be captured by any simple set of rules and that because computers can do no more than follow a set of rules, they cannot generate behavior as intelligent as that of humans.
 
@@ -1089,11 +1088,11 @@ Formally, a mechanism consists of:
 
 <br>
 
-* Many philosophers have claimed that a machine that passes the Turing Test would still not be actually thinking, but would be only a simulation of thinking…
+* Many philosophers have claimed that a machine that passes the Turing Test would still not be actually thinking, but would be only a simulation of thinking.
 
 <br>
 
-> 🥹 *Professor Geoffrey Jefferson (1949) “Not until a machine could write a sonnet or compose a concerto because of thoughts and emotions felt, and not by the chance fall of symbols, could we agree that machine equals brain—that is, not only write it but know that it had written it.*
+> 🥹 *Professor Geoffrey Jefferson (1949) "Not until a machine could write a sonnet or compose a concerto because of thoughts and emotions felt, and not by the chance fall of symbols, could we agree that machine equals brain—that is, not only write it but know that it had written it."*
 
 <br>
 
@@ -1109,7 +1108,7 @@ Formally, a mechanism consists of:
 
 * Under functionalist theory, any two systems with isomorphic causal processes would have the same mental states. -> Therefore, a computer program could have the same mental states as a person. 
 
-* A strong challenge to functionalism has been mounted by John Searle’s (1980) biological naturalism, according to which mental states are high-level emergent features that are caused by low-level physical processes in the neurons, and it is the (unspecified) properties of the neurons that matter. -> “running the right program does not necessarily generate understanding.” -> he then states 4 controversial (and perhpaps proven wrong) axioms:
+* A strong challenge to functionalism has been mounted by John Searle’s (1980) biological naturalism, according to which mental states are high-level emergent features that are caused by low-level physical processes in the neurons, and it is the (unspecified) properties of the neurons that matter. -> “running the right program does not necessarily generate understanding.” -> he then states 4 controversial (and perhaps proven wrong) axioms:
 
 ```
 1. Computer programs are formal (syntactic).
