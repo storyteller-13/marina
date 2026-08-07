@@ -10,11 +10,11 @@ date: 2026; 8; 7
 
 In this second post, I continue **[the work started in Part 1️⃣](https://marina.nullstar.fun/pages/post.html?post=book_ai)**, studying inference in first-order logic, planning, searching, uncertainty, reasoning, making decisions, and a bit of the superintelligence discussion from the last post.
 
-The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and acting` are closer to the applied side of ML and Robotics (which I studied during my PhD, or over the years...). Interesting for some of the practical work at **[NULLSTAR ](https://www.nullstar.fun/)** (e.g., the RL section) - or, simply for fun (or profit). I'll cover them in the final post, Part 3️⃣.
+The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and acting` are closer to the applied side of ML and Robotics (which I studied during my PhD, or over the years...). Interesting for some of the practical work at **[NULLSTAR ](https://www.nullstar.fun/)** (e.g., the RL section) — or, simply for fun (or profit). I'll cover them in the final post, Part 3️⃣.
 
-**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**
-**🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
-**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**
+**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**<br>
+**🤖 If you see a 👾, it means I found something particularly cool or learned something new.**<br>
+**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**<br>
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
 
 <br>
@@ -33,7 +33,7 @@ The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and
 
 <br>
 
-* PDDL (the Planning Domain Definition Language) -> allows us to express all 4Tn^2 actions with one action schema -> describes the four things we need to define a search problem: 
+* PDDL (the Planning Domain Definition Language) -> allows us to express all `4Tn^2` actions with one action schema -> describes the four things we need to define a search problem: 
 
 <br>
 
@@ -46,7 +46,7 @@ The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and
 
 <br>
 
-* The Initial state is a conjunction of ground atoms.
+* The initial state is a conjunction of ground atoms.
 
 * The goal is just like a precondition: a conjunction of literals (positive or negative) that may contain variables.
 
@@ -61,7 +61,7 @@ The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and
 
 <br>
 
-* Two approaches to searching for a plan. (a) Forward (progression) search through the space of states, starting in the initial state and using the problem’s actions to search forward for a member of the set of goal states. (b) Backward (regression) search through sets of relevant states, starting at the set of states representing the goal and using the inverse of the actions to search backward for the initial state.
+* Two approaches to searching for a plan -> (a) Forward (progression) search through the space of states, starting in the initial state and using the problem’s actions to search forward for a member of the set of goal states.; (b) Backward (regression) search through sets of relevant states, starting at the set of states representing the goal and using the inverse of the actions to search backward for the initial state.
 
 <br>
 
@@ -83,27 +83,27 @@ The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and
 
 * A planning problem asks if we can reach a goal state from the initial state. Suppose we are given a tree of all possible actions from the initial state to successor states, and their successors -> exponential size -> A planning graph is polynomial-size approximation to this tree that can be constructed quickly. 
 
-* It can’t answer definitively whether G is reachable from S0, but it can estimate how many steps it takes to reach G. -> a directed graph organized into levels. -> , Si contains all the literals that could hold at time i, depending on the actions executed at preceding time steps AND Ai contains all the actions that could have their preconditions satisfied at time i. 
+* It can’t answer definitively whether `G` is reachable from `S0`, but it can estimate how many steps it takes to reach `G`. -> a directed graph organized into levels. -> `Si` contains all the literals that could hold at time `i`, depending on the actions executed at preceding time steps AND `Ai` contains all the actions that could have their preconditions satisfied at time `i`. 
 
 * Mutual exclusion (or mutex) links -> records conflicts between actions that would prevent them from occurring together.
 
-* Level S1 contains all the literals that could result from picking any subset of the actions in A0, as well as mutex links (gray lines) indicating literals that could not appear together -> S1 represents a belief state: a set of possible states. -> continue alternating between -> n state level Si and action level Ai until we reach a point where two consecutive levels are identical. -> the graph has leveled off.
+* Level `S1` contains all the literals that could result from picking any subset of the actions in `A0`, as well as mutex links (gray lines) indicating literals that could not appear together -> `S1` represents a belief state: a set of possible states. -> continue alternating between -> `n` state level `Si` and action level `Ai` until we reach a point where two consecutive levels are identical. -> the graph has leveled off.
 
 
-* Every Si level contains all the literals that could result from any possible choice of actions in Ai 1, along with constraints saying which pairs of literals are not possible. - the process of constructing the planning graph does not require choosing among actions, which would entail combinatorial search. Instead, it just records the impossibility of certain choices using mutex links.
+* Every `Si` level contains all the literals that could result from any possible choice of actions in `Ai`, along with constraints saying which pairs of literals are not possible. -> the process of constructing the planning graph does not require choosing among actions, which would entail combinatorial search. Instead, it just records the impossibility of certain choices using mutex links.
 
 * A mutex relation holds between two actions at a given level if any of the following three conditions holds: 1) Inconsistent effects; 2) Inference; 3) Competing needs.
 
 
 <br>
 
-> 👾 *A planning graph is polynomial in the size of the planning problem. For a planning problem with l literals and a actions, each Si has no more than l nodes and l2 mutex links, and each Ai has no more than a + l nodes (including the no-ops), (a + l)2 mutex links, and 2(al + l) precondition and effect links. Thus, an entire graph with n levels has a size of O(n(a + l)2). The time to build the graph has the same complexity.*
+> 👾 *A planning graph is polynomial in the size of the planning problem. For a planning problem with `l` literals and `a` actions, each `Si` has no more than `l` nodes and l2 mutex links, and each `Ai` has no more than `a + l` nodes (including the no-ops), `(a + l)2` mutex links, and `2(al + l)` precondition and effect links. Thus, an entire graph with n levels has a size of `O(n(a + l)2)`. The time to build the graph has the same complexity.*
 
 <br>
 
 * if any goal literal fails to appear in the final level of the graph, then the problem is unsolvable.
 
-* Level cost of go -> we can estimate the cost of achieving any goal literal gi from state s as the level at which gi first appears in the planning graph constructed from initial state s.
+* Level cost of go -> we can estimate the cost of achieving any goal literal `gi` from state `s` as the level at which `gi` first appears in the planning graph constructed from initial state `s`.
 
 * Serial graph insists that only one action can actually occur at any given time step; this is done by adding mutex links between every pair of nonpersistence actions.
 
@@ -119,13 +119,13 @@ The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and
 
 ```
 function GRAPHPLAN(problem) returns solution or failure
-	graph ←INITIAL-PLANNING-GRAPH(problem)
-	goals ←CONJUNCTS(problem.GOAL)
-	nogoods ←an empty hash table
+	graph ← INITIAL-PLANNING-GRAPH(problem)
+	goals ← CONJUNCTS(problem.GOAL)
+	nogoods ← an empty hash table
 	for tl = 0 to ∞ do
 		if goals all non-mutex in St of graph then
-			solution ←EXTRACT-SOLUTION(graph, goals, NUMLEVELS(graph), nogoods)
-			if solution ̸= failure then return solution
+			solution ← EXTRACT-SOLUTION(graph, goals, NUMLEVELS(graph), nogoods)
+			if solution = failure then return solution
 		if graph and nogoods have both leveled off then return failure
 		graph←EXPAND-GRAPH(graph, problem)
 ```
@@ -164,7 +164,7 @@ function GRAPHPLAN(problem) returns solution or failure
 
 * Planning combines the two major areas of AI we have covered so far: search and logic.
 
-* Planning is foremost an exercise in controlling combinatorial explosion. If there are n propositions in a domain, then there are 2n states. As we have seen, planning is PSPACE-hard. Against such pessimism, the identification of independent subproblems can be a powerful weapon. In the best case—full decomposability of the problem—we get an exponential speedup. Decomposability is destroyed, however, by negative interactions between actions. GRAPHPLAN records mutexes to point out where the difficult interactions are. SATPLAN represents a similar range of mutex relations, but does so by using the general CNF form rather than a specific data structure. Forward search addresses the problem heuristically by trying to find patterns (subsets of propositions) that cover the independent subproblems. Since this approach is heuristic, it can work even when the subproblems are not completely independent.
+* Planning is foremost an exercise in controlling combinatorial explosion. If there are `n` propositions in a domain, then there are `2n` states. As we have seen, planning is PSPACE-hard. Against such pessimism, the identification of independent subproblems can be a powerful weapon. In the best case—full decomposability of the problem—we get an exponential speedup. Decomposability is destroyed, however, by negative interactions between actions. GRAPHPLAN records mutexes to point out where the difficult interactions are. SATPLAN represents a similar range of mutex relations, but does so by using the general CNF form rather than a specific data structure. Forward search addresses the problem heuristically by trying to find patterns (subsets of propositions) that cover the independent subproblems. Since this approach is heuristic, it can work even when the subproblems are not completely independent.
 
 * AI planning arose from investigations into state-space search, theorem proving, and control theory and from the practical needs of robotics, scheduling, and other domains.
 
@@ -181,7 +181,7 @@ function GRAPHPLAN(problem) returns solution or failure
 
 <br>
 
-* Plan first, schedule later”: that is, we divide the overall problem into a planning phase in which actions are selected, with some ordering constraints, to meet the goals of the problem, and a later scheduling phase, in which temporal information is added to the plan to ensure that it meets resource and deadline constraints.
+* Plan first, schedule later: that is, we divide the overall problem into a planning phase in which actions are selected, with some ordering constraints, to meet the goals of the problem, and a later scheduling phase, in which temporal information is added to the plan to ensure that it meets resource and deadline constraints.
 
 * A typical job-shop scheduling problem, consists of a set of jobs, each of which consists a collection of actions with ordering constraints among them. Each action has a duration and a set of resource constraints required by the action. Each constraint specifies a type of resource (e.g., bolts, wrenches, or pilots), the number of that resource required, and whether that resource is consumable (e.g., the bolts are no longer available for use) or reusable (e.g., a pilot is occupied during a flight but is available again when the flight is over). 
 
@@ -189,7 +189,7 @@ function GRAPHPLAN(problem) returns solution or failure
 
 * To minimize makespan (plan duration), we must find the earliest start times for all the actions consistent with the ordering constraints supplied with the problem.
 
-* We can apply the critical path method (CPM) to this graph to determine the possible start and end times of each action. A path through a graph representing a partial-order plan is a linearly ordered sequence of actions beginning with Start and ending with Finish. 
+* We can apply the critical path method (CPM) to this graph to determine the possible start and end times of each action. A path through a graph representing a partial-order plan is a linearly ordered sequence of actions beginning with `Start` and ending with `Finish`. 
 
 <br>
 
@@ -227,7 +227,7 @@ function GRAPHPLAN(problem) returns solution or failure
 
 * Planners deal with factored representations rather than atomic representations. This affects the way we represent the agent’s capability for action and observation and the way we represent belief states—the sets of possible physical states the agent might be in—for unobservable and partially observable environments. 
 
-*  Conversion of a sensorless planning problem to a belief-state planning problem -> the main differences are that the underlying physical transition model is represented by a collection of action schemas and the belief state can be represented by a logical formula instead of an explicitly enumerated set of states.
+* Conversion of a sensorless planning problem to a belief-state planning problem -> the main differences are that the underlying physical transition model is represented by a collection of action schemas and the belief state can be represented by a logical formula instead of an explicitly enumerated set of states.
 
 * In classical planning, where the closed-world assumption is made, we would assume that any fluent not mentioned in a state is false, but in sensorless (and partially observable) planning we have to switch to an open-world assumption in which states contain both positive and negative fluents, and if a fluent does not appear, its value is unknown. Thus, the belief state corresponds exactly to the set of possible worlds that satisfy the formula.
 
@@ -250,8 +250,7 @@ function GRAPHPLAN(problem) returns solution or failure
 <br>
 
 
-* Trouble occurs when an action is actually not nondeterministic, but rather depends on some precondition that the agent does not know about. Every prediction failure is an
-* opportunity for learning; an agent should be able to modify its model of the world to accord with its percepts.
+* Trouble occurs when an action is actually not nondeterministic, but rather depends on some precondition that the agent does not know about. Every prediction failure is an opportunity for learning; an agent should be able to modify its model of the world to accord with its percepts.
 
 <br>
 
@@ -315,7 +314,7 @@ function GRAPHPLAN(problem) returns solution or failure
 
 * The distinction between liquid and nonliquid events is exactly analogous to the difference between substances, or stuff, and individual objects, or things. In fact, some have called liquid events temporal substances, whereas substances like butter are spatial substances.
 
-* Modal logic includes special modal operators that take sentences (rather than terms) as arguments.  The syntax of modal logic is the same as first-order logic, except that sentences can also be formed with modal operators.
+* Modal logic includes special modal operators that take sentences (rather than terms) as arguments. The syntax of modal logic is the same as first-order logic, except that sentences can also be formed with modal operators.
 
 * We need a more complicated model, one that consists of a collection of possible worlds rather than just one true world. The worlds are connected in a graph by accessibility relations, one relation for each modal operator. 
 
@@ -400,11 +399,11 @@ Decision theory = probability theory + utility theory
 
 * In probability theory, the set of all possible worlds is called the sample space. The possible worlds are mutually exclusive and exhaustive—two possible worlds cannot both be the case, and one possible world must be the case.
 
-* unconditional or prior probabilities -> degrees of belief in propositions in the absence of any other information -> as opposed to conditional or posterior probability.
+* Unconditional or prior probabilities -> degrees of belief in propositions in the absence of any other information -> as opposed to conditional or posterior probability.
 
 * A possible world is defined to be an assignment of values to all of the random variables under consideration. 
 
-* Kolmogorov’s axiom -> inclusion–exclusion principle -> P(a ∨b) = P(a) + P(b)−P(a ∧b)
+* Kolmogorov’s axiom -> inclusion–exclusion principle -> `P(a ∨b) = P(a) + P(b)−P(a ∧b)`
 
 <br>
 
@@ -424,7 +423,7 @@ Decision theory = probability theory + utility theory
 
 <br>
 
-> *The conditional probability P(effect |cause) quantifies the relationship in the causal direction, whereas P(cause |effect) describes the diagnostic direction.*
+> *The conditional probability `P(effect |cause)` quantifies the relationship in the causal direction, whereas `P(cause |effect)` describes the diagnostic direction.*
 
 <br>
 
@@ -456,7 +455,7 @@ Decision theory = probability theory + utility theory
 
 <br>
 
-* The meaning of an arrow is typically that X has a direct influence on Y. 
+* The meaning of an arrow is typically that `X` has a direct influence on `Y`. 
 
 * Once the topology of the Bayesian network is laid out, we need only specify a conditional probability distribution for each variable, given its parents. 
 
@@ -472,9 +471,9 @@ Decision theory = probability theory + utility theory
 
 * Chain rule —> the Bayesian network is a correct representation of the domain only if each node is conditionally independent of its other predecessors in the node ordering, given its parents.
 
-1. Nodes: First determine the set of variables that are required to model the domain. Now order them, {X1,... ,Xn}. Any order will work, but the resulting network will be more compact if the variables are ordered such that causes precede effects.
+1. Nodes: First determine the set of variables that are required to model the domain. Now order them, `{X1,... ,Xn}`. Any order will work, but the resulting network will be more compact if the variables are ordered such that causes precede effects.
 
-2.  Links: For i = 1 to n do: Choose, from X1,... ,Xi 1, a minimal set of parents for Xi, such that the chain rule is satisfied. For each parent insert a link from the parent to Xi. CPTs: Write down the conditional probability table, P(Xi|Parents(Xi)). -> the parents of node Xi should contain all those nodes in X1, ... , Xi 1 that directly influence Xi. 
+2.  Links: `For i = 1 to n do: Choose, from X1,... ,Xi`, a minimal set of parents for `Xi`, such that the chain rule is satisfied. For each parent insert a link from the parent to `Xi`. CPTs: Write down the conditional probability table, `P(Xi|Parents(Xi))`. -> the parents of node `Xi` should contain all those nodes in `X1, ... , Xi` that directly influence `Xi`. 
 
 * Another important property of Bayesian networks is that they contain no redundant probability values. If there is no redundancy, then there is no chance for inconsistency.
 
@@ -490,17 +489,17 @@ Decision theory = probability theory + utility theory
 
 <br>
 
-* The worst-case scenario in which the relationship between the parents and the child is completely arbitrary -> O(2^k) 
+* The worst-case scenario in which the relationship between the parents and the child is completely arbitrary -> `O(2^k)`
 
 * Usually, such a relationships are describable by a canonical distribution.
 
 * The simplest example is provided by deterministic nodes -> has has value specified exactly by the values of its parents, with no uncertainty.
 
-* Uncertain relationships can often be characterized by so-called noisy logical relationships. The standard example is the noisy-OR relation, which is a generalization of the logical OR.
+* Uncertain relationships can often be characterized by so-called noisy logical relationships. The standard example is the noisy-OR relation, which is a generalization of the logical `OR`.
 
 * A network with both discrete and continuous variables is called a hybrid Bayesian network. To specify a hybrid network, we have to specify two new kinds of distributions: the conditional distribution for a continuous variable given discrete or continuous parents; and the conditional distribution for a discrete variable given continuous parents. 
 
-* 👾 Linear Gaussian distribution -> the child has a Gaussian distribution whose mean μ varies linearly with the value of the parent and whose standard deviation σ is fixed. ->  We need two distributions, one for subsidy and one for ¬ subsidy.
+* 👾 Linear Gaussian distribution -> the child has a Gaussian distribution whose mean `μ` varies linearly with the value of the parent and whose standard deviation σ is fixed. ->  We need two distributions, one for subsidy and one for `¬` subsidy.
 
 * When discrete variables are added as parents (not as children) of continuous variables, the network defines a conditional Gaussian, or CG, distribution: given any assignment to the discrete variables, the distribution over the continuous variables is a multivariate Gaussian.
 
@@ -518,9 +517,7 @@ Decision theory = probability theory + utility theory
 
 * A query can be answered using a Bayesian network by computing sums of products of conditional probabilities from the network.
 
-* The time complexity for a network with n Boolean variables is always O(2^n).
-
-* The enumeration algorithm for answering queries on Bayesian networks.
+* The time complexity for a network with `n` Boolean variables is always `always(2^n)`. The numerationation algorithm for answering queries on Bayesian networks.
 
 <br>
 
@@ -560,7 +557,7 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 <br>
 
-* In a polytree network, one would need to issue O(n) queries costing O(n) each, for a total of O(n^2) time. Using clustering algorithms (also known as join tree algorithms), the time can be reduced to O(n). For this reason, these algorithms are widely used in commercial Bayesian network tools.
+* In a polytree network, one would need to issue queries costing `O(n)` each, for a total of `O(time)` time. Using clustering algorithms (also known as join algorithmsithms), the time can be reduced to `O(n)`. For this reason, these algorithms are widely used in commercial Bayesian network tools.
 
 <br>
 
@@ -568,9 +565,9 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 <br>
 
-* In any sampling algorithm, the answers are computed by counting the actual samples generated. Suppose there are N total samples, and let NPS (x1,... ,xn) be the number of times the specific event x1,... ,xn occurs in the set of samples. We expect this number, as a fraction of the total, to converge in the limit to its expected value according to the sampling probability.
+* In any sampling algorithm, the answers are computed by counting the actual samples generated. Suppose there are `N` total samples, and let `NPS (x1,... ,xn)` be the number of times the specific event `x1,... ,xn` occurs in the set of samples. We expect this number, as a fraction of the total, to converge in the limit to its expected value according to the sampling probability.
 
-* Rejection sampling is a general method for producing samples from a hard-to-sample distribution given an easy-to-sample distribution. In its simplest form, it can be used to compute conditional probabilities. -> lots of samples are rejected ->  The fraction of samples consistent with the evidence e drops exponentially as the number of evidence variables grows, so the procedure is simply unusable for complex problems.
+* Rejection sampling is a general method for producing samples from a hard-to-sample distribution given an easy-to-sample distribution. In its simplest form, it can be used to compute conditional probabilities. -> lots of samples are rejected ->  The fraction of samples consistent with the evidence `e` drops exponentially as the number of evidence variables grows, so the procedure is simply unusable for complex problems.
 
 <br>
 
@@ -578,17 +575,17 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 <br>
 
-* Likelihood weighting avoids the inefficiency of rejection sampling by generating only events that are consistent with the evidence e. It is a particular instance of the general statistical technique of importance sampling, tailored for inference in Bayesian networks.
+* Likelihood weighting avoids the inefficiency of rejection sampling by generating only events that are consistent with the evidence `e`. It is a particular instance of the general statistical technique of importance sampling, tailored for inference in Bayesian networks.
 
 * Markov chain Monte Carlo (MCMC) -> instead of generating each sample from scratch, MCMC algorithms generate each sample by making a random change to the preceding sample -> an MCMC algorithm as being in a particular current state specifying a value for every variable and generating a next state by making random changes to the current state.
 
-* 👾 A particular form of MCMC called Gibbs sampling is especially well suited for Bayesian networks. -> The Gibbs sampling algorithm for Bayesian networks starts with an arbitrary state (with the evidence variables fixed at their observed values) and generates a next state by randomly sampling a value for one of the nonevidence variables Xi. The sampling for Xi is done conditioned on the current values of the variables in the Markov blanket of Xi. -> The algorithm therefore wanders randomly around the state space—the space of possible complete assignments—flipping one variable at a time, but keeping the evidence variables fixed.
+* 👾 A particular form of MCMC called Gibbs sampling is especially well suited for Bayesian networks. -> The Gibbs sampling algorithm for Bayesian networks starts with an arbitrary state (with the evidence variables fixed at their observed values) and generates a next state by randomly sampling a value for one of the nonevidence variables `Xi`. The sampling for `Xi` is done conditioned on the current values of the variables in the Markov blanket of `Xi`. -> The algorithm therefore wanders randomly around the state space—the space of possible complete assignments—flipping one variable at a time, but keeping the evidence variables fixed.
 
 * 👾 Why Gibbs sampling works -> the sampling process settles into a “dynamic equilibrium” in which the long-run fraction of time spent in each state is exactly proportional to its posterior probability. -> property follows from the specific transition probability with which the process moves from one state to another, as defined by the conditional distribution given the Markov blanket of the variable being sampled.
 
-* Let q(x → x ) be the probability that the process makes a transition from state x to state x . This transition probability defines what is called a Markov chain on the state space.
+* Let `q(x → x )` be the probability that the process makes a transition from state `x` to state `x`. This transition probability defines what is called a Markov chain on the state space.
 
-* Provided the transition probability distribution q is ergodic—that is, every state is reachable from every other and there are no strictly periodic cycles—there is exactly one distribution π satisfying the Markov chain equation for any given q.
+* Provided the transition probability distribution `q` is ergodic—that is, every state is reachable from every other and there are no strictly periodic cycles—there is exactly one distribution π satisfying the Markov chain equation for any given `q`.
 
 <br>
 
@@ -614,13 +611,13 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 * Probability makes the same ontological commitment as logic: that propositions are true or false in the world, even if the agent is uncertain as to which is the case. Researchers in fuzzy logic have proposed an ontology that allows vagueness: that a proposition can be “sort of” true. Vagueness and uncertainty are in fact orthogonal issues.
 
-* Logical systems in general, and logical rule-based systems in particular, have three desirable properties: 1) Locality (In logical systems, whenever we have a rule of the form A ⇒ B, we can conclude B, given evidence A, without worrying about any other rules. In probabilistic systems, we need to consider all the evidence); 2) Detachment (Once a logical proof is found for a proposition B, the proposition can be used regardless of how it was derived. That is, it can be detached from its justification. In dealing with probabilities, on the other hand, the source of the evidence for a belief is important for subsequent reasoning.); and 3) Truth-functionality (In logic, the truth of complex sentences can be computed from the truth of the components. Probability combination does not work this way, except under strong global independence assumptions).
+* Logical systems in general, and logical rule-based systems in particular, have three desirable properties: 1) Locality (In logical systems, whenever we have a rule of the form `A ⇒ B`, we can conclude `B`, given evidence `A`, without worrying about any other rules. In probabilistic systems, we need to consider all the evidence); 2) Detachment (Once a logical proof is found for a proposition `B`, the proposition can be used regardless of how it was derived. That is, it can be detached from its justification. In dealing with probabilities, on the other hand, the source of the evidence for a belief is important for subsequent reasoning.); and 3) Truth-functionality (In logic, the truth of complex sentences can be computed from the truth of the components. Probability combination does not work this way, except under strong global independence assumptions).
 
 * Rule-based systems is that the properties of locality, detachment, and truth-functionality are simply not appropriate for uncertain reasoning.
 
 <br>
 
-> 👾 *The Dempster–Shafer theory is designed to deal with the distinction between uncertainty and ignorance. Rather than computing the probability of a proposition, it computes the probability that the evidence supports the proposition. This measure of belief is called a belief function, written Bel(X).*
+> 👾 *The Dempster–Shafer theory is designed to deal with the distinction between uncertainty and ignorance. Rather than computing the probability of a proposition, it computes the probability that the evidence supports the proposition. This measure of belief is called a belief function, written `Bel(X)`.*
 
 <br>
 
@@ -654,13 +651,13 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 <br>
 
-* We view the world as a series of snapshots, or time slices, each of which contains a set of random variables, some observable and some not. -> we will assume that the same subset of variables is observable in each time slice (although this is not strictly necessary in anything that follows). We will use Xt to denote the set of state variables at time t, which are assumed to be unobservable, and Et to denote the set of observable evidence variables. The observation at time t is Et = et for some set of values et.
+* We view the world as a series of snapshots, or time slices, each of which contains a set of random variables, some observable and some not. -> we will assume that the same subset of variables is observable in each time slice (although this is not strictly necessary in anything that follows). We will use `Xt` to denote the set of state variables at time `t`, which are assumed to be unobservable, and `Et` to denote the set of observable evidence variables. The observation at time `t` is `Et = et` for some set of values `et`.
 
 * With the set of state and evidence variables for a given problem decided on, the next step iS to specify how the world evolves (the transition model) and how the evidence variables get their values (the sensor model).
 
 * First-order Markov process, in which the current state depends only on the previous state and not on any earlier states. -> The first-order Markov assumption says that the state variables contain all the information needed to characterize the probability distribution for the next time slice.
 
-* There are infinitely many possible values of t -> Do we need to specify a different distribution for each time step?  -> We avoid this problem by assuming that changes in the world state are caused by a stationary process—that is, a process of change that is governed by laws that do not themselves change over time. 
+* There are infinitely many possible values of `t` -> Do we need to specify a different distribution for each time step?  -> We avoid this problem by assuming that changes in the world state are caused by a stationary process—that is, a process of change that is governed by laws that do not themselves change over time. 
 
 <br>
 
@@ -718,11 +715,11 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 * For the system to handle sensor failure properly, the sensor model must include the possibility of failure.
 
-* The cost of HMM updating, which is O(d^{2n}) -> even though we can use DBNs to represent very complex temporal processes with many sparsely connected variables, we cannot reason efficiently and exactly about those processes.
+* The cost of HMM updating, which is `O(d^{2n})` -> even though we can use DBNs to represent very complex temporal processes with many sparsely connected variables, we cannot reason efficiently and exactly about those processes.
 
 <br>
 
-> 👾 *Recall that likelihood weighting works by sampling the nonevidence nodes of the network in topological order, weighting each sample by the likelihood it accords to the observed evidence variables. As with the exact algorithms, we could apply likelihood weighting directly to an unrolled DBN, but this would suffer from the same problems of increasing time and space requirements per update as the observation sequence grows. -> The problem is that the standard algorithm runs each sample in turn, all the way through the network. Instead, we can simply run all N samples together through the DBN, one slice at a time. The modified algorithm fits the general pattern of filtering algorithms, with the set of N samples as the forward message. The first key innovation, then, is to use the samples themselves as an approximate representation of the current state distribution.*
+> 👾 *Recall that likelihood weighting works by sampling the nonevidence nodes of the network in topological order, weighting each sample by the likelihood it accords to the observed evidence variables. As with the exact algorithms, we could apply likelihood weighting directly to an unrolled DBN, but this would suffer from the same problems of increasing time and space requirements per update as the observation sequence grows. -> The problem is that the standard algorithm runs each sample in turn, all the way through the network. Instead, we can simply run all N samples together through the DBN, one slice at a time. The modified algorithm fits the general pattern of filtering algorithms, with the set of `N` samples as the forward message. The first key innovation, then, is to use the samples themselves as an approximate representation of the current state distribution.*
 
 <br>
 
@@ -753,11 +750,11 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 <br>
 
-* The agent’s preferences are captured by a utility function, U(s), which assigns a single number to express the desirability of a state. The expected utility of an action given the evidence, EU(a|e), is just the average utility value of the outcomes, weighted by the probability that the outcome occurs.
+* The agent’s preferences are captured by a utility function, `U(s)`, which assigns a single number to express the desirability of a state. The expected utility of an action given the evidence, `EU(a|e)`, is just the average utility value of the outcomes, weighted by the probability that the outcome occurs.
 
 <br>
 
-> 👾 Also, in Portuguese, if someone is not being rational, you can say “Meu!” -> *The principle of maximum expected utility (MEU) says that a rational agent should choose the action that maximizes the agent’s expected utility. -> If an agent acts so as to maximize a utility function that correctly reflects the performance measure, then the agent will achieve the highest possible performance score (averaged over all the possible environments). *
+> 👾 Also, in Portuguese, if someone is not being rational, you can say “Meu!” -> *The principle of maximum expected utility (MEU) says that a rational agent should choose the action that maximizes the agent’s expected utility. -> If an agent acts so as to maximize a utility function that correctly reflects the performance measure, then the agent will achieve the highest possible performance score (averaged over all the possible environments).*
 
 <br>
 
@@ -773,18 +770,18 @@ A ≻∼B the agent prefers A over B or is indifferent between them.
 
 <br>
 
-* We can think of the set of outcomes for each action as a lottery—think of each action as a ticket. A lottery L with possible outcomes S1,... ,Sn that occur with probabilities p1,... ,pn is written `L = [p1,S1; p2,S2; ... pn,Sn]`.
+* We can think of the set of outcomes for each action as a lottery—think of each action as a ticket. A lottery `L` with possible outcomes `S1,... ,Sn` that occur with probabilities `p1,... ,pn` is written `L = [p1,S1; p2,S2; ... pn,Sn]`.
 
-* Each outcome Si of a lottery can be either an atomic state or another lottery. -> ow preferences between complex lotteries are related to preferences between the underlying states in those lotteries?
+* Each outcome `Si` of a lottery can be either an atomic state or another lottery. -> preferences between complex lotteries are related to preferences between the underlying states in those lotteries?
 
 * The axioms of utility theory:
 
-1. Orderability -> the agent cannot avoid decide -> Exactly one of (A ≻B), (B ≻A), or (A∼B) holds.
-2. Transitiviy -> (A ≻B) ∧(B ≻C) ⇒ (A ≻C)
-3. Continuity -> A ≻B ≻C ⇒ ∃p [p,A; 1−p,C]∼B 
-4. Substitutability -> A∼B ⇒ [p,A; 1−p,C] ∼ [p,B;1−p,C]
-5. Monotocity -> A ≻B ⇒ (p > q ⇔ [p,A; 1−p,B] ≻[q,A; 1−q,B])
-6. Decomposability -> [p,A; 1−p,[q,B; 1−q,C]]∼[p,A; (1−p)q,B; (1−p)(1−q),C]
+1. Orderability -> the agent cannot avoid decide -> Exactly one of `(A ≻B), (B ≻A)`, or `(A∼B)` holds.
+2. Transitiviy -> `(A ≻B) ∧(B ≻C) ⇒ (A ≻C)`
+3. Continuity -> `A ≻B ≻C ⇒ ∃p [p,A; 1−p,C]∼B` 
+4. Substitutability -> `A∼B ⇒ [p,A; 1−p,C] ∼ [p,B;1−p,C]`
+5. Monotocity -> `A ≻B ⇒ (p > q ⇔ [p,A; 1−p,B] ≻[q,A; 1−q,B])`
+6. Decomposability -> `[p,A; 1−p,[q,B; 1−q,C]]∼[p,A; (1−p)q,B; (1−p)(1−q),C]`
 
 * Expected Utility of a Lottery: The utility of a lottery is the sum of the probability of each outcome times the utility of that outcome.
 
@@ -810,7 +807,7 @@ A ≻∼B the agent prefers A over B or is indifferent between them.
 
 <br>
 
-* If A1 stochastically dominates A2, then for any monotonically nondecreasing utility function U(x), the expected utility of A1 is at least as high as the expected utility of A2.
+* If `A1` stochastically dominates `A2`, then for any monotonically nondecreasing utility function `U(x)`, the expected utility of `A1` is at least as high as the expected utility of `A2`.
 
 <br>
 
@@ -893,20 +890,20 @@ a standard probabilistic inference algorithm.
 
 * Assume a fully observable environment -> the transition model (the outcome of each action in each state, where the outcome is stochastic -> transitions are markovian -> the transition model can be represented as a dynamic bayesian network.
 
-* To complete the definition of the task environment, we must specify the utility for the agent -> Because the decision problem is sequential, the utility function will depend on a sequence of states—an environment history—rather than on a single state. -> in each state s, the agent receives a reward R(s), which may be positive or negative, but must be bounded. 
+* To complete the definition of the task environment, we must specify the utility for the agent -> Because the decision problem is sequential, the utility function will depend on a sequence of states—an environment history—rather than on a single state. -> in each state `s`, the agent receives a reward `R(s)`, which may be positive or negative, but must be bounded. 
 
-* Markov decision process -> a sequential decision problem for a fully observable, stochastic environment with a Markovian transition model and additive rewards is called a  or MDP, and consists of a set of states (with an initial state s0); a set ACTIONS(s) of actions in each state; a transition model P(s |s,a); and a reward function R(s).
+* Markov decision process -> a sequential decision problem for a fully observable, stochastic environment with a Markovian transition model and additive rewards is called `a` or MDP, and consists of a set of states (with an initial state `s0`); a set ACTIONS(s) of actions in each state; a transition model `P(s |s,a)`; and a reward function `R(s)`.
 
 * Policy -> a solution must specify what the agent should do for any state that the agent might reach. -> If the agent has a complete policy, then no matter what the outcome of any action, the agent will always know what to do next. -> An optimal policy is a policy that yields the highest expected utility.
 
-* 👾 A finite horizon means that there is a fixed time N after which nothing matters—the game is over. -> the optimal action in a given state could change over time. -> the optimal policy for a finite horizon is nonstationary.
+* 👾 A finite horizon means that there is a fixed time `N` after which nothing matters—the game is over. -> the optimal action in a given state could change over time. -> the optimal policy for a finite horizon is nonstationary.
 
 * 👾 Infinite horizon -> no reason to behave differently in the same state at different times. -> the optimal policy is stationary.
 
 * Under stationarity there are just two coherent ways to assign utilities to sequences:
 
 1. Additive rewards
-2. Discounted rewards (with a discount factor γ  between 0 and 1)
+2. Discounted rewards (with a discount factor `γ`  between 0 and 1)
 
 <br>
 
@@ -928,13 +925,13 @@ a standard probabilistic inference algorithm.
 
 <br>
 
-* If there are n possible states, then there are n Bellman equations, one for each state. The n equations contain n unknowns—the utilities of the states. -> solve these simultaneous equations to find the utilities.
+* If there are `n` possible states, then there are n Bellman equations, one for each state. The n equations contain n unknowns—the utilities of the states. -> solve these simultaneous equations to find the utilities.
 
 * Systems of nonlinear equations -> start with arbitrary initial values for the utilities, updating the utility of each state from the utilities of its neighbors, until equilibrium.
 
-* Contraction -> a function of one argument that, when applied to two different inputs in turn, produces two output values that are “closer together.
+* Contraction -> a function of one argument that, when applied to two different inputs in turn, produces two output values that are closer together.
 
-* 👾 The Bellman update is a contraction by a factor of γ on the space of utility vectors.
+* 👾 The Bellman update is a contraction by a factor of `γ` on the space of utility vectors.
 
 <br>
 
@@ -942,12 +939,12 @@ a standard probabilistic inference algorithm.
 
 <br>
 
-* The policy iteration algorithm alternates the following two steps, beginning from some initial policy π0:
+* The policy iteration algorithm alternates the following two steps, beginning from some initial policy `π0`:
 
-1. Policy evaluation: given a policy πi, calculate Ui = Uπi, the utility of each state if πi were to be executed.
-2. Policy improvement: Calculate a new MEU policy πi+1, using one-step look-ahead based on Ui.
+1. Policy evaluation: given a policy `πi`, calculate `Ui = Uπi`, the utility of each state if `πi` were to be executed.
+2. Policy improvement: Calculate a new MEU policy `πi+1`, using one-step look-ahead based on `Ui`.
 
-* The algorithm terminates when the policy improvement step yields no change in the utilities. -> the utility function Ui is a fixed point of the Bellman update -> must be an optimal policy.
+* The algorithm terminates when the policy improvement step yields no change in the utilities. -> the utility function `Ui` is a fixed point of the Bellman update -> must be an optimal policy.
 
 <br>
 
@@ -955,11 +952,11 @@ a standard probabilistic inference algorithm.
 
 <br>
 
-> 👾 *The agent does not necessarily know which state it is in, so it cannot execute the action π(s) recommended for that state. Furthermore, the utility of a state s and the optimal action in s depend not just on s, but also on how much the agent knows when it is in s.*
+> 👾 *The agent does not necessarily know which state it is in, so it cannot execute the action `π(s)` recommended for that state. Furthermore, the utility of a state `s` and the optimal action in `s` depend not just on `s`, but also on how much the agent knows when it is in `s`.*
 
 <br>
 
-> 👾 *A POMDP has the same elements as an MDP—the transition model P(s |s,a), actions A(s), and reward function R(s)—but, like the partially observable search problems, it also has a sensor model P(e|s).*
+> 👾 *A POMDP has the same elements as an MDP—the transition model `P(s |s,a)`, actions `A(s)`, and reward function `R(s)`—but, like the partially observable search problems, it also has a sensor model `P(e|s)`.*
 
 <br>
 
@@ -979,41 +976,40 @@ a standard probabilistic inference algorithm.
 
 <br>
 
-> *Agent design: Game theory can analyze the agent’s decisions and compute the expected utility for each decision (under the assumption that other agents are acting optimally according to game theory). For example, in the game two-finger Morra, two players, O and E, simultaneously display one or two fingers. Let the total number of fingers be f. If f is odd, O collects f dollars from E; and if f is even, E collects f dollars from O. Game theory can determine the best strategy against a rational player and the expected return for each player.*
+> *Agent design: Game theory can analyze the agent’s decisions and compute the expected utility for each decision (under the assumption that other agents are acting optimally according to game theory).*
 
 <br>
 
-> *Mechanism design: When an environment is inhabited by many agents, it might be possible to define the rules of the environment (i.e., the game that the agents must play) so that the collective good of all agents is maximized when each agent adopts the game-theoretic solution that maximizes its own utility. For example, game theory can help design the protocols for a collection of Internet traffic routers so that each router has an incentive to act in such a way that global throughput is maximized. Mechanism design can also be used to construct intelligent multiagent systems that solve complex problems in a distributed fashion.*
+> *Mechanism design: When an environment is inhabited by many agents, it might be possible to define the rules of the environment (i.e., the game that the agents must play) so that the collective good of all agents is maximized when each agent adopts the game-theoretic solution that maximizes its own utility. Mechanism design can also be used to construct intelligent multiagent systems that solve complex problems in a distributed fashion.*
 
 <br>
 
 * A single-move game is defined by three components:
 
-1. Players or agents who will be making decisions. Two-player games have received the most attention, although n-player games for n > 2 are also common. 
+1. Players or agents who will be making decisions. Two-player games have received the most attention, although n-player games for `n > 2` are also common. 
 2. Actions that the players can choose. The players may or may not have the same set of actions available.
 3. A payoff function that gives the utility to each player for each combination of actions by all the players. For single-move games the payoff function can be represented by a matrix, a representation known as the strategic form (also called normal form). 
 
 <br>
 
-* Each player in a game must adopt and then execute a strategy (which is the name used in game theory for a policy). A pure strategy is a deterministic policy; for a single-move game, a pure strategy is just a single action. For many games an agent can do better with a mixed strategy, which is a randomized policy that selects actions according to a probability distribution. The mixed strategy that chooses action a with probability p and action b otherwise is written [p:a;(1−p):b]. A strategy profile is an assignment of a strategy to each player; given the strategy profile, the game’s outcome is a numeric value for each player.
+* Each player in a game must adopt and then execute a strategy (which is the name used in game theory for a policy). A pure strategy is a deterministic policy; for a single-move game, a pure strategy is just a single action. For many games an agent can do better with a mixed strategy, which is a randomized policy that selects actions according to a probability distribution. The mixed strategy that chooses action a with probability `p` and action `b` otherwise is written `[p:a;(1−p):b]`. A strategy profile is an assignment of a strategy to each player; given the strategy profile, the game’s outcome is a numeric value for each player.
 
 * A solution to a game is a strategy profile in which each player adopts a rational strategy. We will see that the most important issue in game theory is to define what “rational” means when each agent chooses only part of the strategy profile that determines the outcome.
 
-* We say that a strategy s for player p strongly dominates strategy s if the outcome for s is better for p than the outcome for s , for every choice of strategies by the other player(s). Strategy s weakly dominates s if s is better than s on at least one strategy profile and no worse on any other. A dominant strategy is a strategy that dominates all others.
+* We say that a strategy `s` for player `p` strongly dominates strategy `s` if the outcome for `s` is better for `p` than the outcome for `s`, for every choice of strategies by the other player(s). Strategy `s` weakly dominates `s` if `s` is better than `s` on at least one strategy profile and no worse on any other. A dominant strategy is a strategy that dominates all others.
 
 * An outcome is Pareto optimal if there is no other outcome that all players would prefer. An outcome is Pareto dominated by another outcome if all players would prefer the other outcome.
 
 * When each player has a dominant strategy, the combination of those strategies is called a dominant strategy equilibrium. In general, a strategy profile forms an equilibrium if no player can benefit by switching strategies, given that every other player sticks with the same strategy. An equilibrium is essentially a local optimum in the space of policies; it is the top of a peak that slopes downward along every dimension, where a dimension corresponds to a player’s strategy choices.
 
-*  Nash equilibrium ->  every game has at least one equilibrium. ->  dominant strategy equilibrium is a Nash equilibrium, but some games have Nash equilibria but no dominant strategies.
+*  Nash equilibrium ->  every game has at least one equilibrium. -> dominant strategy equilibrium is a Nash equilibrium, but some games have Nash equilibria but no dominant strategies.
 
 * Von Neumann -> every two-player zero-sum game has a maximin equilibrium when you allow mixed strategies. -> every Nash equilibrium in a zero-sum game is a maximin for both players. 
 
 * Finding equilibria in non-zero-sum games is somewhat more complicated. The general approach has two steps:
 
-1) Enumerate all possible subsets of actions that might form mixed
-strategies. 
-2) For each strategy profile enumerated in (1), check to see if it is an equilibrium. 
+1) Enumerate all possible subsets of actions that might form mixed strategies. 
+2) For each strategy profile enumerated in 1), check to see if it is an equilibrium. 
 
 <br>
 
@@ -1041,8 +1037,7 @@ strategies.
 
 Formally, a mechanism consists of:
 
-1) a language for describing the set of allowable strategies that
-agents may adopt
+1) a language for describing the set of allowable strategies that agents may adopt
 2) a distinguished agent, called the center, that collects reports of strategy choices from the agents in the game, and 
 3) an outcome rule, known to all agents, that the center uses to determine the payoffs to each agent, given their strategy choices.
 
@@ -1071,10 +1066,10 @@ agents may adopt
 
 <br>
 
-> 👾 *It is well known, through the work of Turing (1936) and Godel (1931), that certain mathematical questions are in principle unanswerable by particular formal systems. Godel’s incompleteness theorem is the most famous example of this. Briefly, for any formal axiomatic system F powerful enough to do arithmetic, it is possible to construct a so-called Godel sentence G(F) with the following properties:
+> 👾 *It is well known, through the work of Turing (1936) and Godel (1931), that certain mathematical questions are in principle unanswerable by particular formal systems. Godel’s incompleteness theorem is the most famous example of this. Briefly, for any formal axiomatic system `F` powerful enough to do arithmetic, it is possible to construct a so-called Godel sentence `G(F)` with the following properties:
 
-* G(F) is a sentence of F, but cannot be proved within F.
-* If F is consistent, then G(F) is true.
+* `G(F)` is a sentence of `F`, but cannot be proved within `F`.
+* If `F` is consistent, then `G(F)` is true.
 
 <br>
 
@@ -1104,8 +1099,6 @@ agents may adopt
 
 * The nature of the mind has been a standard topic of philosophical theorizing from ancient times to the present. In the Phaedo, Plato specifically considered and rejected the idea that the mind could be an “attunement” or pattern of organization of the parts of the body, a viewpoint that approximates the functionalist viewpoint in modern philosophy of mind. He decided instead that the mind had to be an immortal, immaterial soul, separable from the body and different in substance—the viewpoint of dualism. Aristotle distinguished a variety of souls (Greek ψυχη) in living things, some of which, at least, he described in a functionalist manner.
 
-<br>
-
 * Physicalist philosophers have attempted to explicate what it means to say that a person—and, by extension, a computer—is in a particular mental state. They have focused in particular on intentional states. These are states, such as believing, knowing, desiring, fearing, and so on, that refer to some aspect of the external world.
 
 * If physicalism is correct, it must be the case that the proper description of a person’s mental state is determined by that person’s brain state.
@@ -1124,8 +1117,6 @@ agents may adopt
 3. Syntax by itself is neither constitutive of nor sufficient for semantics.
 4. Brains cause minds.
 ```
-
-<br>
 
 * Qualia  -> the technical term for the intrinsic nature of experiences. 
 
