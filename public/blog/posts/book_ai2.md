@@ -12,9 +12,9 @@ In this second post, I continue **[the work started in Part 1️⃣](https://mar
 
 The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and acting` are closer to the applied side of ML and Robotics (which I studied during my PhD, or over the years...). Interesting for some of the practical work at **[NULLSTAR ](https://www.nullstar.fun/)** (e.g., the RL section) — or, simply for fun (or profit). I'll cover them in the final post, Part 3️⃣.
 
-**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**<br>
-**🤖 If you see a 👾, it means I found something particularly cool or learned something new.**<br>
-**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**<br>
+**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**
+**🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
+**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
 
 <br>
