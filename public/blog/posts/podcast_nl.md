@@ -4,7 +4,7 @@ subtitle: Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists/Engin
 date: 2026; 8; 13
 ---
 
-> **[🎼](https://www.youtube.com/watch?v=3qTDdzmzGPg)** *"Of all existing things, some are in our power, and others are not in our power. In our power are thought, impulse, will to get and will to avoid, and, in a word, everything which is our own doing. Things not in our power include the body, property, reputation, office, and, in a word, everything which is not our own doing."* - Epictetus (~100 AD)
+> **[🎼](https://www.youtube.com/watch?v=3qTDdzmzGPg)** *"Of all existing things, some are in our power, and others are not in our power. In our power are thought, impulse, will to get and will to avoid, and, in a word, everything which is our own doing. Things not in our power include the body, property, reputation, office, and, in a word, everything which is not our own doing."* - Epictetus (c. 100 CE)
 
 <br>
 
@@ -1686,7 +1686,7 @@ Cross-entropy(p, q) = Entropy (p) + KL_Divergence(p, q)
 
 <br>
 
-##### ✨*"Freedom is the only worthy goal in life. It is won by disregarding things that lie beyond our control."* - Epictetus (~100 AD) ✨
+##### ✨*"Freedom is the only worthy goal in life. It is won by disregarding things that lie beyond our control."* - Epictetus (c. 100 CE) ✨
 
 <br>
 
