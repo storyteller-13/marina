@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "book_ai2",
+    "title": "\ud83d\udcda BOOK \u2192 AI - Part  2\ufe0f\u20e3 (Russell & Norvig, 2010)",
+    "date": "2026; 8; 7",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists"
+  },
+  {
+    "slug": "book_superintel",
+    "title": "\ud83d\udcda BOOK \u2192 Superintelligence (Bostrom, 2014)",
+    "date": "2026; 8; 3",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists/Engineers"
+  },
+  {
+    "slug": "book_ai",
+    "title": "\ud83d\udcda BOOK \u2192 AI - Part  1\ufe0f\u20e3 (Russell & Norvig, 2010)",
+    "date": "2026; 8; 2",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists"
+  },
+  {
+    "slug": "book_ai3",
+    "title": "\ud83d\udcda BOOK \u2192 AI - Part 3\ufe0f\u20e3 (Russell & Norvig, 2010)",
+    "date": "2026; 8; 14",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists"
+  },
+  {
+    "slug": "podcast_nl",
+    "title": "\ud83d\udcfa PODCAST \u2192 Nathan Lambert's Post-Training Lectures",
+    "date": "2026; 8; 13",
+    "subtitle": "Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists/Engineers"
+  },
+  {
+    "slug": "book_rl",
+    "title": "\ud83d\udcda BOOK \u2192 Reinforcement Learning 1\ufe0f\u20e3 (Sutton & Barto, 2018)",
+    "date": "2026; 7; 4",
+    "subtitle": "Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists"
+  },
+  {
+    "slug": "book_hands",
+    "title": "\ud83d\udcda BOOK \u2192 Hands-On LLM (Alammar & Grootendorst, 2024)",
+    "date": "2026; 7; 27",
+    "subtitle": "Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers"
+  },
+  {
+    "slug": "book_lanchain",
+    "title": "\ud83d\udcda BOOK \u2192 Generative AI with LangChain (Auffarth, 2023)",
+    "date": "2026; 7; 23",
+    "subtitle": "Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers"
+  },
+  {
+    "slug": "papers_weng",
+    "title": "\ud83d\udcca PAPERS\u2192 A Mnemonic Walk Through Weng's Research",
+    "date": "2026; 7; 18",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI/Software Engineers/Scientists"
+  },
+  {
+    "slug": "papers_j-space",
+    "title": "\ud83d\udcca PAPERS \u2192 On Global Workspace and J-Space in LLMs",
+    "date": "2026; 7; 13",
+    "subtitle": "Rating: 9/10 | Audience: Intermediate to Advanced AI Scientists"
+  },
+  {
+    "slug": "podcast_computation",
+    "title": "\ud83d\udcfa PODCAST \u2192 Tim Roughgarden + Ergo on Computation",
+    "date": "2026; 7; 12",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Intermediate Computer Scientists"
+  },
+  {
+    "slug": "podcast_gr",
+    "title": "\ud83d\udcfa PODCAST \u2192 This Week's Dialogues on General Relativity",
+    "date": "2026; 7; 11",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Physicists"
+  },
+  {
+    "slug": "nullstar_intro",
+    "title": "\u2728 NULLSTAR \u2192 Agentic-Native Game & Intelligence Studio",
+    "date": "2026; 6; 7",
+    "subtitle": "In which I introduce what I'll be building for the next decade."
+  },
+  {
+    "slug": "book_llm_eng",
+    "title": "\ud83d\udcda  BOOK \u2192 LLM Engineer Handbook (Chaumond et al., 2024)",
+    "date": "2026; 6; 24",
+    "subtitle": "Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers"
+  },
+  {
+    "slug": "papers_crazy_week",
+    "title": "\ud83d\udcca PAPERS \u2192 Was this the craziest week yet in AI?",
+    "date": "2026; 4; 5",
+    "subtitle": "We are riding that exponential curve, aren't we?"
+  },
+  {
+    "slug": "ideas_secure_pipeline",
+    "title": "\ud83e\udde0 IDEA \u2192 Secure Research Pipelines in the Agentic Era",
+    "date": "2026; 4; 11",
+    "subtitle": "This article launches a series of conversational notes on building secure, AI-native research workflows across various operating systems \u2014 starting with macOS \u2014 by integrating data extraction and automation tools while avoiding unsafe plugins and related threat vectors."
+  },
+  {
+    "slug": "book_build_llm",
+    "title": "\ud83d\udcda BOOK \u2192 Build a LLM from Scratch (Raschka, 2024)",
+    "date": "2026; 3; 29",
+    "subtitle": "Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers"
+  },
+  {
+    "slug": "book_ai_eng",
+    "title": "\ud83d\udcda BOOK \u2192 AI Engineering (Huyen, 2024)",
+    "date": "2026; 3; 25",
+    "subtitle": "Rating: 8/10 | Audience: Beginner to Intermediate AI/Software Engineers"
+  }
+]
