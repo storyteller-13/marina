@@ -19,9 +19,9 @@ date: 2026; 8; 22
 
 For the first series of posts of my **[new and free life](https://gist.github.com/von-steinkirch/8213afc9f505664e6b634d2834eeaca6)**, as I continue to **[work on my dreams](https://gist.github.com/von-steinkirch/c6a453915347867425c522fce52becdc)** and build **[NULLSTAR](https://www.nullstar.fun/)**, I decided to delve into a **[quintessential](https://arxiv.org/pdf/2608.16753)** **[Bible](https://www.youtube.com/watch?v=xH7U7w9Qzlo)** that has been on my reading list for decades. At some point (again, when I was living in the Bay Area), I even owned the physical books — but shamefully, barely read them.
 
-Well, I am **[super-uber](https://www.youtube.com/watch?v=oWIwYGs30T4)** excited because now I am in that slightly **[liminal space](https://www.youtube.com/watch?v=iSIP65HQ-iA)** where I actually have some time to read them in between the tasks of my main job of, you know, actually writing code and building my (still) stealth company. One thing I have learned over the many years of honing my craft, and about the way my brain works, is that I am most efficient when I alternate between bits of *producing* work (like writing code and debugging) and *consuming* work (like technical reading or some writing). Luckily, this kind of cyclical context switching is somehow both fun and productive. How about you? Have you figured out *your best protocol* for working on your craft and doing what you love?
+Well, I am **[super-uber](https://www.youtube.com/watch?v=oWIwYGs30T4)** excited because now I am in that slightly **[liminal space](https://www.youtube.com/watch?v=iSIP65HQ-iA)** where I actually have some time to read them in between the tasks of my main job of, you know, actually writing code and building my (still) stealth company. One thing I have learned over the many years of **[honing](https://[vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html)** my craft, and about the way my **[brain](https://arxiv.org/pdf/2607.12664v1)** works, is that I am most efficient when I alternate between bits of *producing* work (like writing code and some writing) and *consuming* work (like technical reading or some debugging). Luckily, this kind of cyclical context switching is somehow both **[fun](https://www.youtube.com/watch?v=N5AQFYtqx8Q)** and productive. How about you? Have you figured out *your best protocol* for working on your craft and doing what you love?
 
-Is it weird that I am low-key very, very thrilled about this journey? I have no idea how many posts I will need to write to complete all four volumes of **[The Art of Computer Programming](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043?tag=ustxtaddt-20)** by the master Donald E. Knuth (or even whether I will complete the Odyssey *alive*...), but I do have a feeling I might emerge as another **[hero](https://openai.com/index/pacing-model-development-cyber-capabilities/)** when I come out **[the other side](https://www.youtube.com/watch?v=lrd5aiw-gv4)**.
+By the way, is it weird that I am low-key very thrilled about this journey? I have no idea how many posts I will need to write to complete all 4️⃣ volumes of **[The Art of Computer Programming](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043?tag=ustxtaddt-20)** by the master Donald E. Knuth (or even whether I will complete the Odyssey *alive*...), but I do have a feeling I might emerge as another **[hero](https://openai.com/index/pacing-model-development-cyber-capabilities/)** when I come out **[the other side](https://www.youtube.com/watch?v=lrd5aiw-gv4)**.
 
 In this post, I worked through Volume 1️⃣, *Fundamental Algorithms*, and the first part of Volume 2️⃣, *Seminumerical Algorithms*. And, not going to lie, I know I’m a great computer scientist because I pretty much know everything in this first book in my bones. I guess dedicating your entire life to your profession does that. 💁🏻‍♀️
 
@@ -36,13 +36,14 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
+**🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; we must dance).**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original books.**
 
 <br>
 
 ----
 
-## 🌠 VOLUME 1️⃣; CHAPTER 1️⃣; BASIC CONCEPTS
+## 🌠 VOLUME 1️⃣; CHAPTER 1️⃣ and 2️⃣; BASIC CONCEPTS
 
 <br>
 
@@ -54,7 +55,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-(note to self that should never be shared publicly: I wish he had used some version of assembly, but I get it — the whole portability and generalization thing.)
+☀️ *(note to self that should never be shared publicly: I wish he had used some version of assembly, but I get it — the whole portability and generalization thing.)*
 
 <br>
 
@@ -68,7 +69,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 * Topological sorting → important process needed in connection with network problems, with so-called PERT charts, and even with linguistics; in fact, it is of potential use whenever we have a problem involving a partial ordering. A partial ordering of a set `S` is a relation between the objects of `S`, which we may denote by the symbol `“⪯”`, satisfying the following properties for any objects `x`, `y`, and `z` (not necessarily distinct) in `S`:
 
-```
+```🐝
 i) If x ⪯ y and y ⪯ z, then x ⪯ z. (Transitivity.)
 ii) If x ⪯ y and y ⪯ x, then x = y. (Antisymmetry.)
 iii) x ⪯ x. (Reflexivity.)
@@ -110,14 +111,107 @@ iii) x ⪯ x. (Reflexivity.)
 
 <br>
 
+----
+
+## 🌠 VOLUME 2️⃣; CHAPTER 3️⃣; RANDOM NUMBERS
+
+<br>
+
+> *Numbers that are “chosen at random” are useful in many different kinds of applications: simulation, sampling, numerical analysis, computer programming, decision making, cryptography, aesthetic, and recreation.*
+
+<br>
+
+> *It is conceivable that someday somebody will invent a random number generator that produces one of these other random quantities directly, instead of getting it indirectly via the uniform distribution. But no direct methods have as yet proved to be practical, except for the “random bit”...*
+
+<br>
+
+> *D. H. Lehmer (1951): “A random sequence is a vague notion embodying the idea of a sequence in which each term is unpredictable to the uninitiated and whose digits pass a certain number of tests, traditional with statisticians and depending somewhat on the uses to which the sequence is to be put.”*
+
+<br>
+
+> *J. N. Franklin (1962): “A sequence is random if it has every property that is shared by all infinite sequences of independent samples of random variables from the uniform distribution.”*
+
+<br>
+
 ![](/blog/assets/knuth3.png)
 
 <br>
 
+* Consider methods for generating a sequence of random fractions—random real numbers `Un`, uniformly distributed between zero and one. Since a computer can represent a real number with only finite accuracy, we shall actually be generating integers `Xn` between zero and some number `m`; the fraction `Un = Xn/m` will then lie between zero and one. Usually `m` is the word size of the computer, so `Xn` may be regarded (conservatively) as the integer contents of a computer word with the radix point assumed at the extreme right, andUn maybe regarded (liberally) as the contents of the same word with the radix point assumed at the extreme left.
+
+* Linear congruential sequence → by far the most popular random number generators in use today are special cases of the following scheme → We choose four magic integers: `m`, the modulus; `0 < m`, `a`, the multiplier; `0 ≤ a < m`, `c`, the increment; `0 ≤ c < m`, `X0`, the starting value; `0 ≤ X0 < m`. The desired sequence of random numbers `⟨Xn⟩` is then obtained by setting:
+
+```🐝
+Xn+1 = (aXn +c) mod m, n ≥ 0
+```
+
+<br>
+
+With the following rules:
+
+```🐝
+1. The seed X_0 must be chosen arbtritary
+2. The number m should be large, at least 2^{30}
+3. If m is a power of 2 (i.e., if a binary computer), pick a so that a mod 8 = 5
+4. The multiplier a should be chosen between .01m and .99m, and its binary or decimal digits should not have a simple regular pattern
+5. c must have no factor in common with m
+6. It’s best to think of X as a random fraction X/m between 0 and 1
+7. The accuracy in t dimensions will be only about one part in sqrt_t(m)
+8. At most about m/1000 numbers should be generated, otherwise th future will behave more like the past
+```
+
+<br>
+
+* The most prudent policy for a person to follow is to run each Monte Carlo program at least twice using quite different sources of random numbers, before taking the answers of the program seriously; this will not only give an indication of the stability of the results, it also will guard against the danger of trusting in a generator with hidden deficiencies.
+
+* “Mathematicians consider the decimal expansion of `π` a random series, but to a modern numerologist it is rich with remarkable patterns.” Dr. Matrix has pointed out, for example, that the first repeated two-digit number in `π`’s expansion is `26`, and its second appearance comes in the middle of a curious repetition pattern: `3.14159265358979323846264338327950`. After listing a dozen or so further properties of these digits, he observed that `π`, when correctly interpreted, conveys the entire history of the human race!
+
+* The chi-square test (`χ2` test) is perhaps the best known of all statistical tests, and it is a basic method that is used in connection with many other tests. The distribution is an approximation that is valid only for large enough values of `n`.
+
+<br>
+
+> *The Kolmogorov–Smirnov test → the chi-square test applies to the situation when observations can fall into a finite number of categories. It is not unusual, however, to consider random quantities that range over infinitely many values, such as a random fraction (a random real number between `0` and `1`). Even though only finitely many real numbers can be represented in a computer, we want our random values to behave essentially as if all real numbers in `[0..1)` were equally likely. A general notation for specifying probability distributions, whether they are finite or infinite, is commonly used in the study of probability and statistics. Suppose we want to specify the distribution of the values of a random quantity, `X`; we do this in terms of the distribution function `F(x)`, where `F(x) = Pr(X ≤x) =` probability that `(X ≤ x)`. If we make n independent observations of the random quantity `X`, thereby obtaining the values `X1, X2,..., Xn`, we can form the empirical distribution function `Fn(x)`, where number of `X1,X2,...,Xn that are ≤x Fn(x) = n`. The Kolmogorov–Smirnov test (KS test) may be used when `F(x)` has no jumps. It is based on the difference between `F(x)` and `Fn(x)`. A bad source of random numbers will give empirical distribution functions that do not approximate `F(x)` sufficiently well.*
+
+<br>
+
+* An important difference between the KS test and the chi-square test is that the KS test applies to distributions `F(x)` having no jumps, while the chi-square test applies to distributions having nothing but jumps (since all observations are divided into `k` categories).
+
+<br>
+
+> ☀️ *More generally, we want pairs of successive numbers to be uniformly distributed in an independent manner. The sun comes up just about as often as it goes down, in the long run, but that doesn’t make its motion random.*
+
+<br>
+
+* Theoretical tests for randomness (summarized by robot CG, “If these numbers were truly independent and uniformly distributed, would I see this particular pattern this often?”):
+
+```🐝
+1. Equidistribution test — checks whether generated values occur with approximately equal frequency across the possible outcomes.
+2. Serial test — checks whether successive pairs/tuples of values are uniformly distributed, detecting dependence between neighboring values.
+3. Gap test — examines the lengths of gaps between occurrences of values in a specified interval.
+4. Poker test — groups values into fixed-size sets and checks whether the resulting patterns occur with the expected frequencies.
+5. Coupon collector’s test — measures how many observations are needed to collect all possible categories, looking for deviations from the expected collection time.
+6. Permutation test — checks whether the relative ordering of successive values produces each possible permutation with the expected frequency.
+7. Run test — examines consecutive increasing/decreasing runs to detect patterns inconsistent with randomness.
+8. Maximum-of-t test — divides observations into blocks and studies the distribution of each block’s maximum.
+9. Collision test — looks for repeated values (“collisions”) and compares their frequency with the probability expected under independent random sampling.
+10. Spectral test — primarily for linear congruential generators, examines the lattice structure of generated points to detect hidden regularities.
+```
+
+<br>
+
+* A sequence is said to be `∞`-distributed if it is `k`-distributed for all positive integers `k`.
+
+* A truly random sequence will exhibit local non-randomness.
+
+* Does `∞`-distributed= random? A `[0..1)` sequence is defined to be “random” if it is an `∞`-distributed sequence.
+
+<br>
 
 
+---
 
+### TO BE CONTINUED... 😄
 
-----
+<br>
 
 ### ⬛️
