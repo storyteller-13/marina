@@ -12,6 +12,12 @@
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists/Engineers"
   },
   {
+    "slug": "book_knuth",
+    "title": "\ud83d\udcda BOOK \u2192 TAOCP - Part  1\ufe0f\u20e3 (Donald E. Knuth, 1997)",
+    "date": "2026; 8; 22",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists"
+  },
+  {
     "slug": "book_ai",
     "title": "\ud83d\udcda BOOK \u2192 AI - Part  1\ufe0f\u20e3 (Russell & Norvig, 2010)",
     "date": "2026; 8; 2",
@@ -31,7 +37,7 @@
   },
   {
     "slug": "book_rl",
-    "title": "\ud83d\udcda BOOK \u2192 Reinforcement Learning 1\ufe0f\u20e3 (Sutton & Barto, 2018)",
+    "title": "\ud83d\udcda BOOK \u2192 RL - Part  1\ufe0f\u20e3 (Sutton & Barto, 2018)",
     "date": "2026; 7; 4",
     "subtitle": "Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists"
   },
@@ -49,13 +55,13 @@
   },
   {
     "slug": "papers_weng",
-    "title": "\ud83d\udcca PAPERS\u2192 A Mnemonic Walk Through Weng's Research",
+    "title": "\ud83d\udcca PAPER \u2192 A Mnemonic Walk Through Weng's Research",
     "date": "2026; 7; 18",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI/Software Engineers/Scientists"
   },
   {
     "slug": "papers_j-space",
-    "title": "\ud83d\udcca PAPERS \u2192 On Global Workspace and J-Space in LLMs",
+    "title": "\ud83d\udcca PAPER \u2192 On Global Workspace and J-Space in LLMs",
     "date": "2026; 7; 13",
     "subtitle": "Rating: 9/10 | Audience: Intermediate to Advanced AI Scientists"
   },
@@ -84,8 +90,8 @@
     "subtitle": "Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers"
   },
   {
-    "slug": "papers_crazy_week",
-    "title": "\ud83d\udcca PAPERS \u2192 Was this the craziest week yet in AI?",
+    "slug": "fridays_crazy_week",
+    "title": "\ud83c\udf3a FRIDAYS \u2192 Was this the craziest week yet in AI?",
     "date": "2026; 4; 5",
     "subtitle": "We are riding that exponential curve, aren't we?"
   },

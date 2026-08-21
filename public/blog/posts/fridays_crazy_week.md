@@ -1,5 +1,5 @@
 ---
-title: 📊 PAPERS → Was this the craziest week yet in AI?
+title: 🌺 FRIDAYS → Was this the craziest week yet in AI?
 subtitle: We are riding that exponential curve, aren't we?
 date: 2026; 4; 5
 ---
