@@ -1,8 +1,13 @@
 ---
 title: 📚 BOOK → TAOCP - Part  1️⃣ (Donald E. Knuth, 1997)
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists
-date: 2026; 8; 21
+date: 2026; 8; 22
 ---
+
+![](/blog/assets/gauguin.jpg)
+
+<br>
+
 
 > [🎶](https://www.youtube.com/watch?v=hkWKXdRMVxE) ✨ ***"The process of preparing programs for a digital computer is especially attractive, not only because it can be economically and scientifically rewarding, but also because it can be an aesthetic experience much like composing poetry or music".*** ✨
 
