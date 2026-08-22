@@ -17,7 +17,11 @@ date: 2026; 8; 24
 In this second post, I continue **[the work started in Part 1️⃣](https://marina.nullstar.fun/pages/post.html?post=book_knuth)**, studying
 
 
+.....
+
 https://www.jank.cool/death-to-the-self-playing-game/
+https://www.youtube.com/watch?v=tW6VQLOhBcE -> mills
+https://www.youtube.com/watch?v=6as2S-ixusE -> marcelo gleiser
 
 ....
 
@@ -80,15 +84,23 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 * Another interesting alternative is available for doing arithmetic on large integer numbers, based on some simple principles of number theory. The idea is to have several moduli `m1`,` m2`,…, `mr` that contain no common factors, and to work indirectly with residues `u mod m1`, `u mod m2`,…, `u mod`mr` instead of directly with the number `u`.
 
+<br>
+
+![](/blog/assets/knuth6.png)
+
+<br>
+
 * We may therefore regard `(u1,u2,...,ur)` as a new type of internal computer representation, a “modular representation,” of the integer `u`.
 
 * The range of numbers that can be handled by modular arithmetic is equal to `m = m1 m2 ... mr`, the product of the moduli; and if each `mj` is near our computer’s word size we can deal with `n`-place numbers when `r ≈ n`.
 
 * The critical problem in high-precision multiplication is the determination of “convolution products” such as `ur v0 + u_{r−1} v1 + ··· +u0 vr`, and there is an intimate relation between convolutions and Fourier transformation.
 
+<br>
 
+![](/blog/assets/knuth7.png)
 
-
+<br>
 
 
 ---

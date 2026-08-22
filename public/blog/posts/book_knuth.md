@@ -52,6 +52,10 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
+☀️ *(note to self that should never be shared publicly: I wish he had used some version of assembly, but I get it — the whole portability and generalization thing.)*
+
+<br>
+
 > 👾 *Mathematical Induction → Let `P(n)` be some statement about the integer `n`; for example, `P(n)` might be “`n` times `(n + 3)` is an even number," or "if `n ≥ 10`, then `2^n > n^31`” . Suppose we want to prove that `P(n)` is true for all positive integers `n`. An important way to do this is: 1) Give a proof that `P(1)` is true; 2) Give a proof that "if all o f `P(1), P(2),…, P(n)` are true, then `P(n + 1)` is also true"; this proof should be valid for any positive integer `n` → algorithmic proof procedure.*
 
 <br>
@@ -60,7 +64,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-☀️ *(note to self that should never be shared publicly: I wish he had used some version of assembly, but I get it — the whole portability and generalization thing.)*
+![](/blog/assets/knuth8.png)
 
 <br>
 
@@ -155,14 +159,14 @@ Xn+1 = (aXn +c) mod m, n ≥ 0
 With the following rules:
 
 ```🐝
-1. The seed X_0 must be chosen arbtritary
-2. The number m should be large, at least 2^{30}
-3. If m is a power of 2 (i.e., if a binary computer), pick a so that a mod 8 = 5
-4. The multiplier a should be chosen between .01m and .99m, and its binary or decimal digits should not have a simple regular pattern
-5. c must have no factor in common with m
-6. It’s best to think of X as a random fraction X/m between 0 and 1
-7. The accuracy in t dimensions will be only about one part in sqrt_t(m)
-8. At most about m/1000 numbers should be generated, otherwise th future will behave more like the past
+1. The seed (X_0) must be chosen arbitrarily.
+2. The number (m) should be large, at least (2^{30}).
+3. If (m) is a power of 2 (i.e., if using a binary computer), choose (a) so that (a \bmod 8 = 5).
+4. The multiplier (a) should be chosen between (0.01m) and (0.99m), and its binary or decimal digits should not have a simple, regular pattern.
+5. (c) must have no factor in common with (m).
+6. It’s best to think of (X) as a random fraction (X/m) between 0 and 1.
+7. The accuracy in (t) dimensions will be only about one part in (\sqrt[t]{m}).
+8. At most about (m/1000) numbers should be generated; otherwise, the future will behave more like the past.
 ```
 
 <br>
