@@ -4,7 +4,7 @@ subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists
 date: 2026; 8; 22
 ---
 
-![](/blog/assets/gauguin.jpg)
+![](/blog/assets/monet.jpg)
 
 <br>
 
@@ -24,7 +24,7 @@ date: 2026; 8; 22
 
 For the first series of posts of my **[new and free life](https://gist.github.com/von-steinkirch/8213afc9f505664e6b634d2834eeaca6)**, as I continue to **[work on my dreams](https://gist.github.com/von-steinkirch/c6a453915347867425c522fce52becdc)** and build **[NULLSTAR](https://www.nullstar.fun/)**, I decided to delve into a **[quintessential](https://arxiv.org/pdf/2608.16753)** **[Bible](https://www.youtube.com/watch?v=xH7U7w9Qzlo)** that has been on my reading list for decades. At some point (again, when I was living in the Bay Area), I even owned the physical books — but shamefully, barely read them.
 
-Well, I am **[super-uber](https://www.youtube.com/watch?v=oWIwYGs30T4)** excited because now I am in that slightly **[liminal space](https://www.youtube.com/watch?v=iSIP65HQ-iA)** where I actually have some time to read them in between the tasks of my main job of, you know, actually writing code and building my (still) stealth company. One thing I have learned over the many years of **[honing](https://vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html)** my craft, and about the way my **[brain](https://arxiv.org/pdf/2607.12664v1)** works, is that I am most efficient when I alternate between bits of *producing* work (like writing code and some writing) and *consuming* work (like technical reading or some debugging). Luckily, this kind of cyclical context switching is somehow both **[fun](https://www.youtube.com/watch?v=N5AQFYtqx8Q)** and productive. How about you? Have you figured out *your best protocol* for working on your craft and doing what you love?
+Well, I am **[super-uber](https://www.youtube.com/watch?v=oWIwYGs30T4)** excited because now I am in that slightly **[liminal space](https://www.youtube.com/watch?v=iSIP65HQ-iA)** where I actually have some time to read them in between the tasks of my main job of, you know, actually writing code and building my (still) stealth company. One thing I have learned over the many years of **[honing](https://vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html)** my craft, and about the way my **[brain](https://arxiv.org/pdf/2607.12664v1)** works, is that I am most efficient when I alternate between bits of *producing* work (like writing code, writing, or doing some planing) and *consuming* work (like technical reading, debugging, or watching podcasts). Luckily, this kind of cyclical context switching is somehow both **[fun](https://www.youtube.com/watch?v=N5AQFYtqx8Q)** and productive. How about you? Have you figured out *your best protocol* for working on your craft and doing what you love?
 
 By the way, is it weird that I am low-key very thrilled about this journey? I have no idea how many posts I will need to write to complete all 4️⃣ volumes of **[The Art of Computer Programming](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043?tag=ustxtaddt-20)** by the master Donald E. Knuth (or even whether I will complete the Odyssey *alive*...), but I do have a feeling I might emerge as another **[hero](https://openai.com/index/pacing-model-development-cyber-capabilities/)** when I come out **[the other side](https://www.youtube.com/watch?v=lrd5aiw-gv4)**.
 
@@ -52,6 +52,10 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
+### Induction; Deduction; Logic
+
+<br>
+
 ☀️ *(note to self that should never be shared publicly: I wish he had used some version of assembly, but I get it — the whole portability and generalization thing.)*
 
 <br>
@@ -68,11 +72,25 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
+---
+
+### Routines; Subroutines; Co-routines
+
+<br>
+
 * Transfer of control between subroutines and main programs is called subroutine linkage → no subroutine may call on any other subroutine that is (directly or indirectly) calling on it.
 
 * Subroutines are special cases of more general program components, called co-routines. In contrast to the unsymmetric relationship between a main routine and a subroutine, there is complete symmetry between coroutines, which call on each other.
 
 * A computer memory is often classified as a “random access memory,” like MIX’s main memory; or as a “read-only memory,” which is supposed to contain essentially constant information; or a “secondary bulk memory,” like MIX’s disk units, which cannot be accessed at high speed although large quantities of information can be stored; or an “associative memory,” more properly called a “content-addressed memory,” for which information is addressed by its value rather than by its location; and so on. The intended function of each kind of memory is so important that it enters into the name of the particular memory type; all of these devices are “memory” units, but the purposes to which they are put profoundly influence their design and their cost.
+
+<br>
+
+---
+
+### Data Structures
+
+<br>
 
 * The process of entering and leaving subroutines during the execution of a computer program has a stack-like behavior. Stacks are particularly useful for the processing of languages with a nested structure, like programming languages, arithmetic expressions, and the literary German “Schachtelsätze.” 
 
@@ -126,6 +144,10 @@ iii) x ⪯ x. (Reflexivity.)
 
 <br>
 
+### Random Numbers
+
+<br>
+
 > *Numbers that are “chosen at random” are useful in many different kinds of applications: simulation, sampling, numerical analysis, computer programming, decision making, cryptography, aesthetic, and recreation.*
 
 <br>
@@ -151,7 +173,7 @@ iii) x ⪯ x. (Reflexivity.)
 * Linear congruential sequence → by far the most popular random number generators in use today are special cases of the following scheme → We choose four magic integers: `m`, the modulus; `0 < m`, `a`, the multiplier; `0 ≤ a < m`, `c`, the increment; `0 ≤ c < m`, `X0`, the starting value; `0 ≤ X0 < m`. The desired sequence of random numbers `⟨Xn⟩` is then obtained by setting:
 
 ```🐝
-Xn+1 = (aXn +c) mod m, n ≥ 0
+Xn+1 = (aXn + c) mod m, n ≥ 0
 ```
 
 <br>
