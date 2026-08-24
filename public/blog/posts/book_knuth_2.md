@@ -18,7 +18,6 @@ date: 2026; 8; 24
 
 In this second post, I continue **[the work started in Part 1️⃣](https://marina.nullstar.fun/pages/post.html?post=book_knuth)** during this **[luminal spacetime of mine](https://www.youtube.com/watch?v=4V7Mt_TcFjM)**. Here, I conclude volume 2️⃣ and revisit the basics and **[the beauty](https://essays.georgestrakhov.com/weird/)** of arithmetic. This was a very nostalgic **[sesh](https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/)** that transported me back to **[my high school](https://web.archive.org/web/20070322015644/http://fly.to/bytegirl)** and **[college days](https://web.archive.org/web/20090620090344/http://www.steinkirch.org/)** (and perhaps even **[my PhD](https://www.astro.sunysb.edu/steinkirch/)**?). I love **[math](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization)**, I love **[physics](https://www.youtube.com/watch?v=6as2S-ixusE)**, I love **[computers](https://www.youtube.com/watch?v=HI2q3ci3Iuc)**, I love **[science](https://www.youtube.com/watch?v=cRZNwgvcWUg)**, I love **[nature](https://www.youtube.com/watch?v=pDSDbi6ffIc&list=LL&index=26)**, I love art, I love **[philosophy](https://www.youtube.com/watch?v=tW6VQLOhBcE)**, I love the **[universe](https://apod.nasa.gov/apod/astropix.html)**, I love **[life](https://www.jank.cool/death-to-the-self-playing-game/)**.
 
-
 <br>
 
 As always, below are a few highlights (for personal inventory), with a moderate attempt at coherence:
@@ -26,7 +25,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at [NULLSTAR](https://www.nullstar.fun/).**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
-**🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; we must dance).**
+**🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; [we must dance](https://www.youtube.com/watch?v=VbD_kBJc_gI)).**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original books.**
 
 <br>
@@ -118,6 +117,12 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 * The execution time of Euclid’s algorithm depends on `T`, the number of times the division step `A2` is performed. The quantity `T` is also an important factor in the running time of other algorithms, such as the evaluation of functions satisfying a reciprocity formula. 
 
+<br>
+
+![](/blog/assets/euclid.png)
+
+<br>
+
 ```🐝
 // x1, x2, ..., xn // = 1 / (x1 +1 / (x2 +1 / (··· / (xn−1 + 1/xn ) … )))
 ``` 
@@ -134,10 +139,6 @@ e = 2 + //1,2,1,1,4,1,1,6,1,1,8,1,1,10,1,1,12,1,1,14,1,1,16,1,1,18,1,...//;
 <br>
 
 * 👾 The worst case of Euclid’s algorithm → the upper bound on the number of division steps → when the inputs are consecutive Fibonacci numbers.
-
-<br>
-
-![](/blog/assets/euclid.png)
 
 <br>
 
@@ -263,7 +264,7 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 ![](/blog/assets/nasa.png)
 
-##### (Talking about nostalgia — here’s a picture of me when I was living in D.C. and studying **[active galatic nuclei](https://en.wikipedia.org/wiki/Active_galactic_nucleus)** at the **[Goddard Space Flight Center, NASA](https://www.nasa.gov/goddard/)**, circa 2008)
+##### (Talking about nostalgia — here’s a picture of me when I was living in D.C. and studying **[active galatic nuclei](https://en.wikipedia.org/wiki/Active_galactic_nucleus)** at the **[Goddard Space Flight Center, NASA](https://www.nasa.gov/goddard/)** — **[sudo](https://store.xkcd.com/)** circa 2008)
 
 <br>
 

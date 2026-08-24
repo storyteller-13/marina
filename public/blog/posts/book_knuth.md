@@ -41,7 +41,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
-**🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; we must dance).**
+**🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; [we must dance](https://www.youtube.com/watch?v=VbD_kBJc_gI)).**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original books.**
 
 <br>
