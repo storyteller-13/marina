@@ -12,9 +12,15 @@
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists/Engineers"
   },
   {
+    "slug": "book_knuth_2",
+    "title": "\ud83d\udcda BOOK \u2192 TAOCP - Part 2\ufe0f\u20e3 (Donald E. Knuth, 1997)",
+    "date": "2026; 8; 24",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists"
+  },
+  {
     "slug": "book_knuth",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP - Part  1\ufe0f\u20e3 (Donald E. Knuth, 1997)",
-    "date": "2026; 8; 22",
+    "date": "2026; 8; 21",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists"
   },
   {

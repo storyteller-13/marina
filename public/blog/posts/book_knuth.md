@@ -4,6 +4,11 @@ subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists
 date: 2026; 8; 22
 ---
 
+![](/blog/assets/monet.jpg)
+
+<br>
+
+
 > [🎶](https://www.youtube.com/watch?v=hkWKXdRMVxE) ✨ ***"The process of preparing programs for a digital computer is especially attractive, not only because it can be economically and scientifically rewarding, but also because it can be an aesthetic experience much like composing poetry or music".*** ✨
 
 > ***Things have changed in the past two decades.*** — Bill Gate (1995)
@@ -19,7 +24,7 @@ date: 2026; 8; 22
 
 For the first series of posts of my **[new and free life](https://gist.github.com/von-steinkirch/8213afc9f505664e6b634d2834eeaca6)**, as I continue to **[work on my dreams](https://gist.github.com/von-steinkirch/c6a453915347867425c522fce52becdc)** and build **[NULLSTAR](https://www.nullstar.fun/)**, I decided to delve into a **[quintessential](https://arxiv.org/pdf/2608.16753)** **[Bible](https://www.youtube.com/watch?v=xH7U7w9Qzlo)** that has been on my reading list for decades. At some point (again, when I was living in the Bay Area), I even owned the physical books — but shamefully, barely read them.
 
-Well, I am **[super-uber](https://www.youtube.com/watch?v=oWIwYGs30T4)** excited because now I am in that slightly **[liminal space](https://www.youtube.com/watch?v=iSIP65HQ-iA)** where I actually have some time to read them in between the tasks of my main job of, you know, actually writing code and building my (still) stealth company. One thing I have learned over the many years of **[honing](https://[vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html)** my craft, and about the way my **[brain](https://arxiv.org/pdf/2607.12664v1)** works, is that I am most efficient when I alternate between bits of *producing* work (like writing code and some writing) and *consuming* work (like technical reading or some debugging). Luckily, this kind of cyclical context switching is somehow both **[fun](https://www.youtube.com/watch?v=N5AQFYtqx8Q)** and productive. How about you? Have you figured out *your best protocol* for working on your craft and doing what you love?
+Well, I am **[super-uber](https://www.youtube.com/watch?v=oWIwYGs30T4)** excited because now I am in that slightly **[liminal space](https://www.youtube.com/watch?v=iSIP65HQ-iA)** where I actually have some time to read them in between the tasks of my main job of, you know, actually writing code and building my (still) stealth company. One thing I have learned over the many years of **[honing](https://vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html)** my craft, and about the way my **[brain](https://arxiv.org/pdf/2607.12664v1)** works, is that I am most efficient when I alternate between bits of *producing* work (like writing code, writing, or doing some planing) and *consuming* work (like technical reading, debugging, or watching podcasts). Luckily, this kind of cyclical context switching is somehow both **[fun](https://www.youtube.com/watch?v=N5AQFYtqx8Q)** and productive. How about you? Have you figured out *your best protocol* for working on your craft and doing what you love?
 
 By the way, is it weird that I am low-key very thrilled about this journey? I have no idea how many posts I will need to write to complete all 4️⃣ volumes of **[The Art of Computer Programming](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043?tag=ustxtaddt-20)** by the master Donald E. Knuth (or even whether I will complete the Odyssey *alive*...), but I do have a feeling I might emerge as another **[hero](https://openai.com/index/pacing-model-development-cyber-capabilities/)** when I come out **[the other side](https://www.youtube.com/watch?v=lrd5aiw-gv4)**.
 
@@ -47,6 +52,14 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
+### Induction; Deduction; Logic
+
+<br>
+
+☀️ *(note to self that should never be shared publicly: I wish he had used some version of assembly, but I get it — the whole portability and generalization thing.)*
+
+<br>
+
 > 👾 *Mathematical Induction → Let `P(n)` be some statement about the integer `n`; for example, `P(n)` might be “`n` times `(n + 3)` is an even number," or "if `n ≥ 10`, then `2^n > n^31`” . Suppose we want to prove that `P(n)` is true for all positive integers `n`. An important way to do this is: 1) Give a proof that `P(1)` is true; 2) Give a proof that "if all o f `P(1), P(2),…, P(n)` are true, then `P(n + 1)` is also true"; this proof should be valid for any positive integer `n` → algorithmic proof procedure.*
 
 <br>
@@ -55,7 +68,13 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-☀️ *(note to self that should never be shared publicly: I wish he had used some version of assembly, but I get it — the whole portability and generalization thing.)*
+![](/blog/assets/knuth8.png)
+
+<br>
+
+---
+
+### Routines; Subroutines; Co-routines
 
 <br>
 
@@ -64,6 +83,14 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 * Subroutines are special cases of more general program components, called co-routines. In contrast to the unsymmetric relationship between a main routine and a subroutine, there is complete symmetry between coroutines, which call on each other.
 
 * A computer memory is often classified as a “random access memory,” like MIX’s main memory; or as a “read-only memory,” which is supposed to contain essentially constant information; or a “secondary bulk memory,” like MIX’s disk units, which cannot be accessed at high speed although large quantities of information can be stored; or an “associative memory,” more properly called a “content-addressed memory,” for which information is addressed by its value rather than by its location; and so on. The intended function of each kind of memory is so important that it enters into the name of the particular memory type; all of these devices are “memory” units, but the purposes to which they are put profoundly influence their design and their cost.
+
+<br>
+
+---
+
+### Data Structures
+
+<br>
 
 * The process of entering and leaving subroutines during the execution of a computer program has a stack-like behavior. Stacks are particularly useful for the processing of languages with a nested structure, like programming languages, arithmetic expressions, and the literary German “Schachtelsätze.” 
 
@@ -117,6 +144,10 @@ iii) x ⪯ x. (Reflexivity.)
 
 <br>
 
+### Random Numbers
+
+<br>
+
 > *Numbers that are “chosen at random” are useful in many different kinds of applications: simulation, sampling, numerical analysis, computer programming, decision making, cryptography, aesthetic, and recreation.*
 
 <br>
@@ -142,7 +173,7 @@ iii) x ⪯ x. (Reflexivity.)
 * Linear congruential sequence → by far the most popular random number generators in use today are special cases of the following scheme → We choose four magic integers: `m`, the modulus; `0 < m`, `a`, the multiplier; `0 ≤ a < m`, `c`, the increment; `0 ≤ c < m`, `X0`, the starting value; `0 ≤ X0 < m`. The desired sequence of random numbers `⟨Xn⟩` is then obtained by setting:
 
 ```🐝
-Xn+1 = (aXn +c) mod m, n ≥ 0
+Xn+1 = (aXn + c) mod m, n ≥ 0
 ```
 
 <br>
@@ -150,14 +181,14 @@ Xn+1 = (aXn +c) mod m, n ≥ 0
 With the following rules:
 
 ```🐝
-1. The seed X_0 must be chosen arbtritary
-2. The number m should be large, at least 2^{30}
-3. If m is a power of 2 (i.e., if a binary computer), pick a so that a mod 8 = 5
-4. The multiplier a should be chosen between .01m and .99m, and its binary or decimal digits should not have a simple regular pattern
-5. c must have no factor in common with m
-6. It’s best to think of X as a random fraction X/m between 0 and 1
-7. The accuracy in t dimensions will be only about one part in sqrt_t(m)
-8. At most about m/1000 numbers should be generated, otherwise th future will behave more like the past
+1. The seed (X_0) must be chosen arbitrarily.
+2. The number (m) should be large, at least (2^{30}).
+3. If (m) is a power of 2 (i.e., if using a binary computer), choose (a) so that (a \bmod 8 = 5).
+4. The multiplier (a) should be chosen between (0.01m) and (0.99m), and its binary or decimal digits should not have a simple, regular pattern.
+5. (c) must have no factor in common with (m).
+6. It’s best to think of (X) as a random fraction (X/m) between 0 and 1.
+7. The accuracy in (t) dimensions will be only about one part in (\sqrt[t]{m}).
+8. At most about (m/1000) numbers should be generated; otherwise, the future will behave more like the past.
 ```
 
 <br>
@@ -203,7 +234,7 @@ With the following rules:
 
 * A truly random sequence will exhibit local non-randomness.
 
-* Does `∞`-distributed= random? A `[0..1)` sequence is defined to be “random” if it is an `∞`-distributed sequence.
+* Does `∞`-distributed = random? A `[0..1)` sequence is defined to be “random” if it is an `∞`-distributed sequence.
 
 <br>
 
