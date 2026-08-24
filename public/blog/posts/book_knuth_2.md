@@ -12,9 +12,11 @@ date: 2026; 8; 24
 
 > [🎵](https://www.youtube.com/watch?v=pJsX3os6Xc0)  ***"An idea is like a virus. Resilient. Highly contagious. And even the smallest seed of an idea can grow. It can grow to define or destroy you."*** — Dom Cobb, Inception
 
+> [🎼](https://www.youtube.com/watch?v=h2cipX5Ir-0) ***"Science is a method of disciplined skepticism: it does not seek absolute certainty, but progressively stronger evidence against plausible alternatives. We do not establish truth by eliminating uncertainty; we establish increasingly compelling evidence by exposing hypotheses to attempts at falsification. 5σ under the null hypothesis is the scientific method's way of saying the more surprising the claim, the more evidence it needs to earn belief. Turning Carl Sagan's old line, 'extraordinary claims require extraordinary evidence,' into an actual, enforceable threshold."*** — Robot Clau in collaboration with Robot CG
+
 <br>
 
-In this second post, I continue **[the work started in Part 1️⃣](https://marina.nullstar.fun/pages/post.html?post=book_knuth)** during this **[luminal spacetime of mine](https://www.youtube.com/watch?v=4V7Mt_TcFjM)**. Here, I conclude volume 2️⃣ and revisit the basics and **[the beauty](https://essays.georgestrakhov.com/weird/)** of arithmetic. This was a very nostalgic sesh that transported me back to **[my high school](https://web.archive.org/web/20070322015644/http://fly.to/bytegirl)** and **[college days](https://web.archive.org/web/20090620090344/http://www.steinkirch.org/)** (and perhaps even **[my PhD](https://www.astro.sunysb.edu/steinkirch/)**?). I love math, I love **[physics](https://www.youtube.com/watch?v=6as2S-ixusE)**, I love **[computers](https://www.youtube.com/watch?v=HI2q3ci3Iuc)**, I love **[science](https://www.youtube.com/watch?v=cRZNwgvcWUg)**, I love nature, I love art, I love **[philosophy](https://www.youtube.com/watch?v=tW6VQLOhBcE)**, I love the **[universe](https://apod.nasa.gov/apod/astropix.html)**, I love **[life](https://www.jank.cool/death-to-the-self-playing-game/)**.
+In this second post, I continue **[the work started in Part 1️⃣](https://marina.nullstar.fun/pages/post.html?post=book_knuth)** during this **[luminal spacetime of mine](https://www.youtube.com/watch?v=4V7Mt_TcFjM)**. Here, I conclude volume 2️⃣ and revisit the basics and **[the beauty](https://essays.georgestrakhov.com/weird/)** of arithmetic. This was a very nostalgic **[sesh](https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/)** that transported me back to **[my high school](https://web.archive.org/web/20070322015644/http://fly.to/bytegirl)** and **[college days](https://web.archive.org/web/20090620090344/http://www.steinkirch.org/)** (and perhaps even **[my PhD](https://www.astro.sunysb.edu/steinkirch/)**?). I love **[math](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization)**, I love **[physics](https://www.youtube.com/watch?v=6as2S-ixusE)**, I love **[computers](https://www.youtube.com/watch?v=HI2q3ci3Iuc)**, I love **[science](https://www.youtube.com/watch?v=cRZNwgvcWUg)**, I love **[nature](https://www.youtube.com/watch?v=pDSDbi6ffIc&list=LL&index=26)**, I love art, I love **[philosophy](https://www.youtube.com/watch?v=tW6VQLOhBcE)**, I love the **[universe](https://apod.nasa.gov/apod/astropix.html)**, I love **[life](https://www.jank.cool/death-to-the-self-playing-game/)**.
 
 
 <br>
@@ -235,12 +237,33 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 <br>
 
+> 👾 *”The asymptotically best algorithms frequently turn out to be worst on all problems for which they are used.”* — Cantor and Zassenhaus (1981)
 
+<br>
 
+![](/blog/assets/starchains.png)
+
+<br>
+
+* An addition chain for n is a sequence of integers `1 = a0, a1, a2, ..., ar = n` with the property that `ai = aj +ak, for some k ≤ j < i`, for all `i = 1, 2,..., r`.
+
+* 👾 An addition chain corresponds in a natural way to a directed graph, where the vertices are labeled `ai` for `0 ≤i ≤ r`, and where we draw arcs from `aj` to `ai` and from `ak` to `ai` as a representation of each step `ai = aj +ak`.
+
+* The length of the addition chain, exclusive of useless steps, can be reconstructed by looking at the reduced graph → `(number of arcs) −(number of vertices) + 1` (deletion of a vertex of out-degree `1` also deletes one arc).
+
+* An addition chain is equivalent to a star chain if and only if its reduced directed graph can be topologically sorted in only one way.
+
+<br>
 
 ---
 
 ### TO BE CONTINUED... 🤓
+
+<br>
+
+![](/blog/assets/nasa.png)
+
+##### (Talking about nostalgia — here’s a picture of me when I was living in D.C. and studying **[active galatic nuclei](https://en.wikipedia.org/wiki/Active_galactic_nucleus)** at the **[Goddard Space Flight Center, NASA](https://www.nasa.gov/goddard/)**, circa 2008)
 
 <br>
 
