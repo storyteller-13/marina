@@ -139,6 +139,61 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
+* A Young tableau of shape `(n1, n2, …, nm)`, where `n1 ≥ n2 ≥ … ≥ nm > 0`, is an arrangement of `n1 + n2 + … + nm` distinct integers in an array of left-justified rows, with `ni` elements in row `i`, such that the entries of each row are in increasing order from left to right, and the entries of each column are increasing from top to bottom.
+
+* An involution is a permutation that is its own inverse. The number of involutions of `{1, 2, ..., n}` is the same as the number of tableaux that can be formed from the elements `{1, 2, ..., n}`.
+
+<br>
+
+> *Algorithm (Insertion into a tableau) → Let `P = (Pij)` be a tableau of positive integers, and let `x` be a positive integer not in `P`. This algorithm transforms `P` into another tableau that contains `x` in addition to its original elements. The new tableau has the same shape as the old, except for the addition of a new position in row `s`, column `t`, where `s` and `t` are quantities determined by the algorithm.*
+
+<br>
+
+> *Algorithm (Deletion from a tableau) → Given a tableau `P` and positive integers `s`, `t`, this algorithm transforms `P` into another tableau, having almost the same shape, but with `∞` in column `t` of row `s`. An element `x`, determined by the algorithm, is deleted from `P`.*
+
+<br>
+
+> *Theorem → There is a one-to-one correspondence between the set of all permutations of `{1, 2, ..., n}` and the set of ordered pairs `(P, Q)` of tableaux formed from `{1, 2, ..., n}`, where `P` and `Q` have the same shape.*
+
+<br>
+
+![](/blog/assets/knuth_witchcraft.png)
+
+<br>
+
+> ✨ *In particular, this theorem establishes two surprising facts about the tableau insertion algorithm: If successive insertion of distinct elements `p1, ..., pn` into an empty tableau yields tableau `P`, insertion in the opposite order `pn, ..., p1` yields the transposed tableau `P^T`. And if we not only insert the `p`’s in this order `pn, ..., p1` but also interchange the roles of `<` and `>`, as well as `0` and `∞`, in the insertion process, we obtain the dual tableau `P^S` → The unusual nature of these coincidences might lead us to suspect that some sort of witchcraft is operating behind the scenes! No simple explanation for these phenomena is yet known.* ✨
+
+<br>
+
+* The hook corresponding to a cell in a tableau is defined to be the cell itself plus the cells lying below and to its right.
+
+<br>
+
+> *Theorem: the number of tableaux on `{1, 2, ..., n}` having a specified shape is `n!` divided by the product of the hook lengths (and so this is the number of binary trees) → The number of permutations `a1 a2 ... an` of `{1, 2, ..., n}` containing no decreasing subsequence `ai > aj > ak` for `i < j < k` is the number of binary trees with `n` nodes.*
+
+<br>
+
+* Binary trees with `n` nodes correspond to permutations that can be obtained with a stack, and that such permutations correspond to sequences `a1 a2 ... a_{2n}` of `n` `S`’s and `n` `X`’s, where the number of `S`’s is never less than the number of `X`’s as we read from left to right.
+
+<br>
+
+> ☀️ Fun fact: I spent a lot of time playing with Young tableaux during my PhD in **Theoretical Physics**, when I was studying group theory representations in the context of quantum field theory—and I ended up writing another book, [**Group Theory for Physicists**](https://www.astro.sunysb.edu/steinkirch/books/group.pdf) (which was even [**a little successful**](https://gist.github.com/von-steinkirch/dbe61fee2861184489a648b719e57fd1) at the time) **and** [**Quantum Field Theory**](https://www.astro.sunysb.edu/steinkirch/books/qft.pdf). I’m pretty proud of how I explain the theory, so if you’re interested in these subjects, I invite you to read the chapter:
+
+
+<br>
+
+![](/blog/assets/steinkirch_tableau.png)
+
+<br>
+
+<br>
+
+
+
+
+
+
+
 
 
 ---
