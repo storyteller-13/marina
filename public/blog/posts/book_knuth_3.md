@@ -6,9 +6,11 @@ date: 2026; 8; 26
 
 > [🎶](https://www.youtube.com/watch?v=4yVheY2WBgM) *"There is nothing more difficult to take in hand, more perilous to conduct, or more uncertain in its success, than to take the lead in the introduction of a new order of things."* — Niccolo Machiavelli (1513)
 
-> [🎵](https://www.youtube.com/watch?v=UQh-vGjuocM) 
+> [🎵](https://www.youtube.com/watch?v=UQh-vGjuocM) *"But if the optimal route looks too quiet, the solution is not to avoid it. The solution is to stand firm, knowing that you're doing the right thing, and eventually the results will speak for themselves."* — Paul Graham
 
 > [🎼](https://www.youtube.com/watch?v=_9jaJtmraXA)
+
+<br>
 
 ![](/blog/assets/magritte.webp)
 
@@ -109,6 +111,33 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 <br>
 
 
+* The intercalation product `α ⊺ β` of two multiset permutations `α` and `β` is obtained by (a) expressing `α` and `β` in the two-line notation, (b) juxtaposing these two-line representations, and (c) sorting the columns into nondecreasing order of the top line. The sorting is supposed to be stable, in the sense that left-to-right order of elements in the bottom line is preserved when the corresponding top line elements are equal. 
+
+<br>
+
+![](/blog/assets/knuth10.png)
+
+<br>
+
+> *Theorem: Let the elements of the multiset `M` be linearly ordered by the relation `“<”`. Every permutation `π` of `M` has a unique representation as the intercalation `π = (x11 … x1 n1 y1) (x21 … x2 n2 y2) ... (xt1 … xtn tyt)`, `t ≥ 0`, where the following two conditions are satisfied: `y1 ≤ y2 ≤ ... ≤ yt` and `yi < xij` for `1 ≤ j ≤ ni`, `1 ≤ i ≤ t`.*
+
+<br>
+
+* A permutation is prime if and only if it is a cycle with no repeated elements. A nonprime permutation can be factored into smaller and smaller pieces until it has been expressed as a product of primes. 
+
+<br>
+
+![](/blog/assets/knuth11.png)
+
+<br>
+
+* If we place a vertical line at both ends of a permutation `a1 a2 ... an` and also between `aj` and `aj + 1` whenever `aj > aj + 1`, the runs are the segments between pairs of lines. For example, the permutation `|3 5 7 |1 6 8 9 |4 |2 |` has four runs.
+
+<br>
+
+![](/blog/assets/eulerian.png)
+
+<br>
 
 
 
