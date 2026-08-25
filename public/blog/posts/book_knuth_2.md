@@ -246,11 +246,11 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 <br>
 
-* An addition chain for n is a sequence of integers `1 = a0, a1, a2, ..., ar = n` with the property that `ai = aj +ak, for some k ≤ j < i`, for all `i = 1, 2,..., r`.
+* An addition chain for n is a sequence of integers `1 = a0, a1, a2, ..., ar = n` with the property that `ai = aj + ak, for some k ≤ j < i`, for all `i = 1, 2,..., r`.
 
-* 👾 An addition chain corresponds in a natural way to a directed graph, where the vertices are labeled `ai` for `0 ≤i ≤ r`, and where we draw arcs from `aj` to `ai` and from `ak` to `ai` as a representation of each step `ai = aj +ak`.
+* 👾 An addition chain corresponds in a natural way to a directed graph, where the vertices are labeled `ai` for `0 ≤ i ≤ r`, and where we draw arcs from `aj` to `ai` and from `ak` to `ai` as a representation of each step `ai = aj + ak`.
 
-* The length of the addition chain, exclusive of useless steps, can be reconstructed by looking at the reduced graph → `(number of arcs) −(number of vertices) + 1` (deletion of a vertex of out-degree `1` also deletes one arc).
+* The length of the addition chain, exclusive of useless steps, can be reconstructed by looking at the reduced graph → `(number of arcs) − (number of vertices) + 1` (deletion of a vertex of out-degree `1` also deletes one arc).
 
 * An addition chain is equivalent to a star chain if and only if its reduced directed graph can be topologically sorted in only one way.
 
@@ -260,11 +260,11 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 ### TO BE CONTINUED... 🤓
 
+##### (Talking about nostalgia — here’s a picture of me when I was living in D.C. and studying **[active galatic nuclei](https://en.wikipedia.org/wiki/Active_galactic_nucleus)** at the **[Goddard Space Flight Center, NASA](https://www.nasa.gov/goddard/)** — **[sudo](https://store.xkcd.com/)** circa 2008.)
+
 <br>
 
 ![](/blog/assets/nasa.png)
-
-##### (Talking about nostalgia — here’s a picture of me when I was living in D.C. and studying **[active galatic nuclei](https://en.wikipedia.org/wiki/Active_galactic_nucleus)** at the **[Goddard Space Flight Center, NASA](https://www.nasa.gov/goddard/)** — **[sudo](https://store.xkcd.com/)** circa 2008)
 
 <br>
 

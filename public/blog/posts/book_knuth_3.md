@@ -8,7 +8,10 @@ date: 2026; 8; 26
 
 > [🎵](https://www.youtube.com/watch?v=UQh-vGjuocM) *"But if the optimal route looks too quiet, the solution is not to avoid it. The solution is to stand firm, knowing that you're doing the right thing, and eventually the results will speak for themselves."* — Paul Graham
 
-> [🎼](https://www.youtube.com/watch?v=_9jaJtmraXA)
+> [🎼](https://www.youtube.com/watch?v=_9jaJtmraXA) *"They that weave networks shall be confounded."* — Isaiah 19:9
+
+> [🎹]() *"Surely, then, as in the case of an archer, there must be some end at which we aim, and we shall be more likely to hit the mark if we have a target.”* — Aristotle’s  Nicomachean Ethics, Book I
+
 
 <br>
 
@@ -16,13 +19,13 @@ date: 2026; 8; 26
 
 <br>
 
-In this third post, I continue the the *brain-gymnastics* I began in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth) and continued in [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth), all within this [**luminal spacetime of ours**](https://www.youtube.com/watch?v=DqjWFZN82_A). Today we go through the entire **Sorting** chapter, and I must say, this might be one of my favorites. Call me a *weirdo*, but there is a **[sublime](https://www.youtube.com/watch?v=G5BIhjXCJOY)** pleasure in trying *to optimize the order of a set of things*. Every algorithm traces a different **[pathway](https://www.youtube.com/watch?v=CXKGNFVse30)** through the brain, a series of braidings (or multidimensions?) that makes it itch in a peculiar way.
+In this third post, I continue the the *brain-gymnastics* I began in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth) and continued in [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth), all within this [**luminal spacetime of ours**](https://www.youtube.com/watch?v=DqjWFZN82_A). Today we go through the entire **Sorting** chapter, and I must say, this might be one of my favorites. Call me a *weirdo*, but there is a **[sublime](https://www.youtube.com/watch?v=G5BIhjXCJOY)** pleasure in trying *to optimize the order of a set of things*. Every algorithm traces a different **[pathway](https://www.youtube.com/watch?v=CXKGNFVse30)** through the brain, a series of braidings (or multidimensions?) that makes it itch in a **[peculiar](https://www.youtube.com/watch?v=2f9bBlGOuX4)** way.
 
-Speaking of funny, pleasant way the brain can be itched, it’s story time.
+Speaking of **[funny, pleasant](https://blog.archive.org/2026/08/16/vintage-artificial-intelligence-before-it-got-awkward/)** ways the brain can be itched, it’s story time.
 
 Back in c. 2014, when I was in the **[last year of my PhD](https://www.astro.sunysb.edu/steinkirch/)**, I was running a lot of **[Monte Carlo simulations](https://www.astro.sunysb.edu/steinkirch/reviews/first_results.pdf)** and **[calculations](https://github.com/future-ai-org/astrophysics-mfits-py)** with **[Los Alamos Laboratory](https://www.lanl.gov/)** to find **[the correct form](https://www.astro.sunysb.edu/steinkirch/figures/opacities_LANL.png)** for the **[equation of state](https://www.astro.sunysb.edu/steinkirch/reviews/xrays.pdf)** of **[neutron stars](https://iopscience.iop.org/article/10.3847/0004-637X/832/2/102)** through the observation of **[X-ray bursters](https://www.astro.sunysb.edu/steinkirch/reviews/xrb_review.pdf)**. In those years of astrophysics, I was writing a lot of code in [**IDL**](https://github.com/future-ai-org/interstellar-idl/blob/master/src/calibration.pro), **[MATLAB](https://github.com/future-ai-org/robotics-matlab/blob/master/gradient/code/README_and_RESULTS.txt)**, and [**C**](https://github.com/future-ai-org/solar/blob/master/src/DataRedux.C)/C++. But I was getting really hooked on **[Python](https://en.wikipedia.org/wiki/Python_(programming_language)**. At that time, it felt like the most superior language (sorry, [**Ruby**](https://github.com/cypherpunk-symposium/csrf-apache-modsecurity-rb) crew...). 
 
-Since I didn’t have a traditional computer science background, I decided it was the moment for me to work through the traditional classical algorithms exercises, and since there were **[barely any of them published in Python](https://www.andrew.cmu.edu/user/ramesh/teaching/course/48784.pdf)**, that was the perfect excuse to create and open-source something unique. I started working through all the exercises in [**Cracking the Coding Interview**](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850) and [**Algorithms by Skiena**](https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202?tag=ustxtaddt-20), and at the same time, because I love writing things down to organize my thoughts (and I used to love writing things in **[LaTeX](https://www.latex-project.org/)** as well), I started writing a **[book on Python, algorithms, and data structures](https://github.com/future-ai-org/master-algorithms-py)**. The book was open, and the repository got **[over 600 stars at the time](https://github.com/future-ai-org/master-algorithms-py/blob/master/book_pdf/assets/600_stars.png)** (later, I lost all the stars when I made the repository private). A year or so later, I received an email from a **[Korean publisher asking whether they could publish my book](https://www.hanbit.co.kr/books/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EC%B4%88-%ED%8A%BC%ED%8A%BC-%ED%95%B5%EC%8B%AC-%EC%8F%99%EC%8F%99-%EC%8B%A4%EB%A0%A5-%EC%91%A5%EC%91%A5?code=B8465804191)**. They would give me a small amount of money, plus two hard copies. Well, I told them, “But the book is free already,” and they said, “But it’s not in Korean.” **[That’s the story of the publication of my first book](https://github.com/future-ai-org/master-algorithms-py/commits/master/?after=9fb230309aec59a1b35df7e2171af3d1044104b8+769)** (and the easter egg in this tale is that the book’s theme is **[Buffy the Vampire Slayer](https://en.wikipedia.org/wiki/Buffy_the_Vampire_Slayer)** — which they kept entirely in the publication!). 
+Since I didn’t have a traditional computer science background, I decided it was the moment for me to work through the traditional classical algorithms exercises, and since there were **[barely](https://www.andrew.cmu.edu/user/ramesh/teaching/course/48784.pdf)** any of them published in Python, that was the perfect excuse to create and open-source something unique. I started working through all the exercises in [**Cracking the Coding Interview**](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850) and [**Algorithms by Skiena**](https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202?tag=ustxtaddt-20), and at the same time, because I love **[writing](https://www.youtube.com/watch?v=2chNuUpC8_Y)** things down to organize my thoughts (and I used to love writing things in **[LaTeX](https://www.latex-project.org/)** as well), I started writing a **[book on Python, algorithms, and data structures](https://github.com/future-ai-org/master-algorithms-py)**. The book was open, and the repository got **[over 600 stars at the time](https://github.com/future-ai-org/master-algorithms-py/blob/master/book_pdf/assets/600_stars.png)** (later, I lost all the stars when I made the repository private). A year or so later, I received an email from a **[Korean publisher asking whether they could publish my book](https://www.hanbit.co.kr/books/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EC%B4%88-%ED%8A%BC%ED%8A%BC-%ED%95%B5%EC%8B%AC-%EC%8F%99%EC%8F%99-%EC%8B%A4%EB%A0%A5-%EC%91%A5%EC%91%A5?code=B8465804191)**. They would give me a small amount of money, plus two hard copies. Well, I told them, “But the book is free already,” and they said, “But it’s not in Korean.” **[That’s the story of the publication of my first book](https://github.com/future-ai-org/master-algorithms-py/commits/master/?after=9fb230309aec59a1b35df7e2171af3d1044104b8+769)** (and the easter egg in this tale is that the book’s theme is **[Buffy the Vampire Slayer](https://en.wikipedia.org/wiki/Buffy_the_Vampire_Slayer)** — which they kept entirely in the publication!). 
 
 <br>
 
@@ -32,7 +35,7 @@ Since I didn’t have a traditional computer science background, I decided it wa
 
 Why am I telling this story? 
 
-Ah, yes. That was the first time in my life when I actually tried to solve *almost* every type of sorting algorithm imaginable, and when I learned I had to love **[merge sort](https://en.wikipedia.org/wiki/Merge_sort)** and disapprove of **[bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)**. Now, more than a decade later, as I return to these problems under the voice of **[the Master](https://en.wikipedia.org/wiki/Donald_Knuth)**, and one day before a final **[eclipse](https://marina.nullstar.fun/images/eclipse_26_08_27.png)** **[cycle](https://apod.nasa.gov/apod/ap260825.html)** in my **[2nd house](https://choices.vonsteinkirch.com/choices/choose-your-adventure/astrology/usd/undefined-1/eclipses)**, I feel a beautiful sense of coming **[full circle](https://en.wikipedia.org/wiki/Ouroboros)**. A deep sense of worthiness. I think I made it. I think I became the amazing computer scientist I always dreamed I would be when I **[grew up](https://www.youtube.com/watch?v=eKLeBGHAUGw)**. And I am so excited to live the best (and final) part of my life, where I get to build the most interesting project of this (ephemeral) life: my (still-**[stealth](https://www.youtube.com/watch?v=E9NlRJaBIR4)**) **[NULLSTAR](https://nullstar.games)**.
+Ah, yes. That was the first time in my life when I actually tried to solve *almost* every type of sorting algorithm imaginable, and when I learned I had to love **[merge sort](https://en.wikipedia.org/wiki/Merge_sort)** and disapprove of **[bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)**. Now, more than a decade later, as I return to these problems under the voice of **[the Master](https://en.wikipedia.org/wiki/Donald_Knuth)**, and one day before a final **[eclipse](https://marina.nullstar.fun/images/eclipse_26_08_27.png)** **[cycle](https://apod.nasa.gov/apod/ap260825.html)** in my **[2nd house](https://choices.vonsteinkirch.com/choices/choose-your-adventure/astrology/usd/undefined-1/eclipses)**, I feel a beautiful sense of coming **[full circle](https://en.wikipedia.org/wiki/Ouroboros)**. A deep sense of worthiness. I think I made it. I think I became the amazing computer scientist I always dreamed I would be when I **[grew up](https://www.youtube.com/watch?v=eKLeBGHAUGw)**. And I am so excited to live the best (and final) part of my life, where I get to build the most interesting project of this (ephemeral) life yet: my (still-**[stealth](https://www.youtube.com/watch?v=E9NlRJaBIR4)**) **[NULLSTAR](https://nullstar.games)**.
 
 <br>
 
@@ -79,6 +82,8 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 ![](/blog/assets/knuth9.png)
 
 <br>
+
+---
 
 ### COMBINATORIAL PROPERTIES OF PERMUTATIONS
 
@@ -139,7 +144,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-* A Young tableau of shape `(n1, n2, …, nm)`, where `n1 ≥ n2 ≥ … ≥ nm > 0`, is an arrangement of `n1 + n2 + … + nm` distinct integers in an array of left-justified rows, with `ni` elements in row `i`, such that the entries of each row are in increasing order from left to right, and the entries of each column are increasing from top to bottom.
+* A Young tableau of shape `(n1, n2, ..., nm)`, where `n1 ≥ n2 ≥ ... ≥ nm > 0`, is an arrangement of `n1 + n2 + ... + nm` distinct integers in an array of left-justified rows, with `ni` elements in row `i`, such that the entries of each row are in increasing order from left to right, and the entries of each column are increasing from top to bottom.
 
 * An involution is a permutation that is its own inverse. The number of involutions of `{1, 2, ..., n}` is the same as the number of tableaux that can be formed from the elements `{1, 2, ..., n}`.
 
@@ -177,19 +182,57 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-> ☀️ Fun fact: I spent a lot of time playing with Young tableaux during my PhD in **Theoretical Physics**, when I was studying group theory representations in the context of quantum field theory—and I ended up writing another book, [**Group Theory for Physicists**](https://www.astro.sunysb.edu/steinkirch/books/group.pdf) (which was even [**a little successful**](https://gist.github.com/von-steinkirch/dbe61fee2861184489a648b719e57fd1) at the time) **and** [**Quantum Field Theory**](https://www.astro.sunysb.edu/steinkirch/books/qft.pdf). I’m pretty proud of how I explain the theory, so if you’re interested in these subjects, I invite you to read the chapter:
-
-
-<br>
-
 ![](/blog/assets/steinkirch_tableau.png)
 
 <br>
 
+> ☀️ Another fun story ⬆️ → I spent a lot of time playing with Young tableaux during my PhD in Theoretical Physics, when I was studying group theory representations in the context of quantum field theory — and I ended up writing a couple of other books: [**Group Theory for Physicists**](https://www.astro.sunysb.edu/steinkirch/books/group.pdf) (which was even [**a little successful**](https://gist.github.com/von-steinkirch/dbe61fee2861184489a648b719e57fd1) at the time) and [**Quantum Field Theory**](https://www.astro.sunysb.edu/steinkirch/books/qft.pdf). I’m pretty proud of how I explain the theory, so if you’re interested in these subjects, I invite you to read the chapter.
+
 <br>
 
+----
 
+### INTERNAL SORTING
 
+<br>
+
+![](/blog/assets/knuth_is_the_king.png)
+
+<br>
+
+![](/blog/assets/knuth_bubble.png)
+
+<br>
+
+![](/blog/assets/knuth_heap.png)
+
+<br>
+
+![](/blog/assets/knuth_merge.png)
+
+<br>
+
+![](/blog/assets/knuth_quick.png)
+
+<br>
+
+----
+
+### OPTIMAL SORTING
+
+<br>
+
+* Let `T(G)` be the number of permutations consistent with `G`, that is, the number of ways to assign the integers `{1, 2, ... , n}` to the vertices of `G` so that the number on vertex `x` is less than the number on vertex `y` whenever `x → y` in `G` → the efficiency of `G` is `E(G) = {n!}{2^k T(G)}`.
+
+<br>
+
+>  👾 *Theorem → Zero-one principle → If a network with `n` input lines sorts all `2n` sequences of `0`s and `1`s into nondecreasing order, it will sort any arbitrary sequence of `n` numbers into nondecreasing order.*
+
+<br>
+
+![](/blog/assets/knuth_graph_eff.png)
+
+<br>
 
 
 
@@ -198,14 +241,13 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 ---
 
-### TO BE CONTINUED... 🙃
+### TO BE CONTINUED (UNTIL THEN, HAPPY ECLIPSE)... ☀️🌙🙃
 
+##### (Talking about **[nostalgia](https://archive.org/details/msdos_Racter_1984)**, part 2️⃣ — here’s a picture of me during my Astrophysics PhD student years, living in Long Island, NY. You can clearly see I was into **[progressive rock](https://web.archive.org/web/20090621102022/http://www.last.fm/user/steinkirch)**, the definition of the infinite, and **[looking exactly like Buffy](https://www.imdb.com/title/tt11286314/mediaviewer/rm253881601/)** — circa 2012.)
 
 <br>
 
 ![](/blog/assets/buffy.png)
-
-##### (Talking about nostalgia, part 2️⃣ — here’s a picture of me during my Astrophysics PhD student years, living in Long Island, NY. You can clearly see I was into **[progressive rock](https://web.archive.org/web/20090621102022/http://www.last.fm/user/steinkirch)**, the definition of the infinite, and **[looking exactly like Buffy](https://www.imdb.com/title/tt11286314/mediaviewer/rm253881601/)** — circa 2012.)
 
 <br>
 
