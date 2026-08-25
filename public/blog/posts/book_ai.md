@@ -17,7 +17,7 @@ In this first post, I cover the first 9 chapters, up to inference in first-order
 
 **🤖 Below are my highlights with some attempt, although very moderate, at coherence.**
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
-**🤖 If you see a ⭐️, it means the idea is somehow related to our research at NULLSTAR.**
+**🤖 If you see a ⭐️, it means the idea is somehow related to our research at [NULLSTAR](https://www.nullstar.games/).**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
 

@@ -10,7 +10,7 @@ date: 2026; 8; 13
 
 This week, I looked at the **[very insightful and fresh series on post-training by Dr. Nathan Lambert](https://www.youtube.com/@natolambert)**.
 
-I discovered his work **[early last year](https://www.youtube.com/watch?v=_1f-o0nqpEI)**, and since then, I have been following **[his writing](https://www.interconnects.ai/)**. With the work we are doing at **[NULLSTAR](https://www.nullstar.fun/)** (more specifically, on `MEROPE`, but perhaps a little bit on all of the modules), I found the timing of these lectures very serendipitous. 
+I discovered his work **[early last year](https://www.youtube.com/watch?v=_1f-o0nqpEI)**, and since then, I have been following **[his writing](https://www.interconnects.ai/)**. With the work we are doing at **[NULLSTAR](https://www.nullstar.games/)** (more specifically, on `MEROPE`, but perhaps a little bit on all of the modules), I found the timing of these lectures very serendipitous. 
 
 He also just released a **[book on RLHF](https://www.amazon.com/Reinforcement-Learning-Human-Feedback-post-training/dp/1633434303?tag=ustxtaddt-20)**, which is in my reading list and will certainly become a post eventually.
 
@@ -20,7 +20,7 @@ As always:
 
 **🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
-**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**
+**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at [NULLSTAR](https://www.nullstar.games/).**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to watch the original videos.**
 
