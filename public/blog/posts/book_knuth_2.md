@@ -260,7 +260,7 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 ### TO BE CONTINUED... 🤓
 
-##### (Talking about nostalgia — here’s a picture of me when I was living in D.C. and studying **[active galatic nuclei](https://en.wikipedia.org/wiki/Active_galactic_nucleus)** at the **[Goddard Space Flight Center, NASA](https://www.nasa.gov/goddard/)** — **[sudo](https://store.xkcd.com/)** circa 2008.)
+##### Talking about nostalgia — here’s a picture of me when I was living in D.C. and studying **[active galatic nuclei](https://en.wikipedia.org/wiki/Active_galactic_nucleus)** at the **[Goddard Space Flight Center, NASA](https://www.nasa.gov/goddard/)** — **[sudo](https://store.xkcd.com/)** circa 2008.
 
 <br>
 
