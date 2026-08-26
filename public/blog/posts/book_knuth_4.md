@@ -152,6 +152,29 @@ left branch is taken about `ϕ ≈ 1.618` times as often as the right branch
 
 * However, computer simulation experiments show that interpolation search does not decrease the number of comparisons enough to compensate for the extra computing time involved, unless the table is rather large. Typical files aren’t sufficiently random, and the difference between `lg lg N` and `lg N` is not substantial unless `N` exceeds, say, `2^{16} = 65,536`. Interpolation is most successful in the early stages of searching a large possibly external file; after the range has been narrowed down, binary search finishes things off more quickly.
 
+<br>
+
+![](/blog/assets/knuth_bs2.png)
+
+<br>
+
+* Figure 10 shows a binary search tree containing the names of eleven signs of the zodiac. If we now search for the twelfth name, `SAGITTARIUS`, starting at the root or apex of the tree, we find it is greater than `CAPRICORN`, so we move to the right; it is greater than `PISCES`, so we move right again; it is less than `TAURUS,` so we move left; and it is less than `SCORPIO`, so we arrive at external node `8` . The search was unsuccessful; we can now insert `SAGITTARIUS` at the place the search ended, by linking it into the tree in place of the external node `8` . In this way the table can grow without the necessity of moving any of the existing records. Figure 10 was formed by starting with an empty tree and successively inserting the keys `CAPRICORN`, `AQUARIUS`, `PISCES`, `ARIES`, `TAURUS`, `GEMINI`, `CANCER`, `LEO`, `VIRGO`, `LIBRA`, `SCORPIO`, in this order. It follows that the keys appear in strict alphabetic sequence from left to right, `AQUARIUS`, `ARIES`, `CANCER`, `CAPRICORN`, `GEMINI`, `LEO`, ... , `VIRGO`. if we traverse the tree in symmetric order, since symmetric order is based on traversing the left subtree of each node just before that node, then traversing the right subtree.
+
+<br>
+
+![](/blog/assets/knuth_bs3.png)
+
+<br>
+
+* Algorithm (Tree search and insertion) → Given a table of records that form a binary tree as described above, this algorithm searches for a given argument `K`. If `K` is not in the table, a new node containing `K` is inserted into the tree in the appropriate place.
+
+* Theorem (T. N. Hibbard, 1962) → After a random element is deleted from a random tree by Algorithm D, the resulting tree is still random. The shape of the tree is random after deletions, but the relative distribution of values in a given tree shape may change, and it turns out that the first random insertion after deletion actually destroys the randomness property on the shapes. 
+
+<br>
+
+![](/blog/assets/knuth_bs4.png)
+
+<br>
 
 
 <br>
@@ -162,7 +185,7 @@ left branch is taken about `ϕ ≈ 1.618` times as often as the right branch
 
 ##### Talking about searching, would a **binary** *soul* **search** be the answer to the meaning of life? Nowadays, I believe so, but I had to try many other types of seaches to come up with this conclusion. This is a story for **nostalgia, part 3️⃣** — illustrated by the picture below of me snowboarding at **[Woodward Tahoe](https://www.rideboreal.com/explore/who-we-are/woodward-tahoe/)**, circa 2019. This one is long.
 
-##### Once I left Cupertino, at the end of 2016, I officially became a nomad for the first time in my life. See, after five years stuck in an office without windows, followed by a couple of years of working too many hours a day and full weekends, I was feeling like I was missing out. I wanted a chance to finally experience a little bit of life, all that free spirit that had been sold to me in the movies. At that time, I had a very cool blue Subaru Crosstrek that could hold all my boards — for surf, skate, and snow — as well as my camera gear and lenses, **[my DJI drone](https://vimeo.com/bt3gl)**, a guitar, a blanket, and everything I needed to be **[the bravest kid in the world](https://en.wikipedia.org/wiki/Kafka_on_the_Shore)** (a couple of years later, I got myself a Tesla Model 3, which doubled the coolness). Don't forget that I was still very green at probably every single thing in life at that time, because until then, I had pretty much spent most of my time being the best student or nerd I could be.
+##### Once I left Cupertino, at the end of 2016, I officially became a nomad for the first time in my life. See, after five years stuck in an office without windows, followed by a couple of years of working too many hours a day and full weekends, I was feeling like I was missing out. I wanted a chance to finally experience a little bit of life, all that free spirit that had been sold to me in the movies. At that time, I had a very cool blue Subaru Crosstrek that could hold all my boards — for surf, skate, and snow — as well as my camera gear and lenses, **[my DJI drone](https://vimeo.com/bt3gl)**, a guitar, a blanket, and everything I needed to be **[the bravest kid in the world](https://en.wikipedia.org/wiki/Kafka_on_the_Shore)** (a couple of years later, I got myself a Tesla Model 3, which doubled the coolness). Also, don't forget that I was still very *green* at probably every single thing in life at that time, because until then, I had pretty much spent most of my time being the best student or nerd I could be.
 
 ##### I decided I would explore and stargaze across the entire states of California and Hawaii — all the beaches, parks, and mountains. I wanted to live this type of life once before going back to my *normal* life, getting married, becoming a full adult, etc. I wanted to get to know people, I wanted to learn more about different lifestyles, I wanted to have some **[meat for storytelling](https://en.wikipedia.org/wiki/Jack_Kerouac)**, I wanted to find my soul, I wanted to chase the meaning of life, I wanted **[to express myself creating art](https://tv.vonsteinkirch.com/an-ode-to-a-quantum-simulation)**, and I wanted to be able to say I did not spend my entire life in front of my lovely computers. And I did. For three years, I lived that life — nobody will ever steal that experience from me. It's mine. I did it.
 
