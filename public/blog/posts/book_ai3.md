@@ -8,7 +8,7 @@ date: 2026; 8; 14
 
 <br>
 
-In this third and final post, I continue the work started in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_ai) and [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_ai2), studying the chapters on learning, natural language, perception, and robotics, and thinking about the problems we are tackling at [**NULLSTAR**](https://www.nullstar.fun/).
+In this third and final post, I continue the work started in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_ai) and [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_ai2), studying the chapters on learning, natural language, perception, and robotics, and thinking about the problems we are tackling at [**NULLSTAR**](https://nullstar.games/).
 
 > 💡 *One cool thing about building a century-scale, full-stack research company from scratch (besides the ridiculous fun of doing it, by definition) is that, in between coding sessions with **[my fleet of agents](https://github.com/von-steinkirch/von-steinkirch/blob/main/README.md)** and wrestling with **rusty** questions that I really have to think about, I get to shift my brain into research mode: reading the canon, digging into papers, and drawing connections back to the work. Obviously, we’re still in a very early stage, but as we (slowly) grow, I can’t wait to bring in more folks and **[teach them the right && hard way of building in the future](https://gist.github.com/von-steinkirch/81c5e3b29fbd630ead0f501d6aea572c)**.*
 
@@ -18,7 +18,7 @@ As always:
 
 **🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
-**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**
+**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at [NULLSTAR](https://nullstar.games/).**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
 

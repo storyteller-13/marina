@@ -1,6 +1,6 @@
 ---
-title: 📚 BOOK → TAOCP - Part  1️⃣ (Donald E. Knuth, 1997)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists
+title: 📚 BOOK → TAOCP - Part  1️⃣ (Donald E. Knuth, 1997) 
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope
 date: 2026; 8; 22
 ---
 
@@ -22,9 +22,9 @@ date: 2026; 8; 22
 
 <br>
 
-For the first series of posts of my **[new and free life](https://gist.github.com/von-steinkirch/8213afc9f505664e6b634d2834eeaca6)**, as I continue to **[work on my dreams](https://gist.github.com/von-steinkirch/c6a453915347867425c522fce52becdc)** and build **[NULLSTAR](https://www.nullstar.fun/)**, I decided to delve into a **[quintessential](https://arxiv.org/pdf/2608.16753)** **[Bible](https://www.youtube.com/watch?v=xH7U7w9Qzlo)** that has been on my reading list for decades. At some point (again, when I was living in the Bay Area), I even owned the physical books — but shamefully, barely read them.
+For the first series of posts of my **[new and free life](https://gist.github.com/von-steinkirch/8213afc9f505664e6b634d2834eeaca6)**, as I continue to **[work on my dreams](https://gist.github.com/von-steinkirch/c6a453915347867425c522fce52becdc)** and build **[NULLSTAR](https://nullstar.games)**, I decided to delve into a **[quintessential](https://arxiv.org/pdf/2608.16753)** **[Bible](https://www.youtube.com/watch?v=xH7U7w9Qzlo)** that has been on my reading list for decades. At some point (again, when I was living in the Bay Area), I even owned the physical books — but shamefully, barely read them.
 
-Well, I am **[super-uber](https://www.youtube.com/watch?v=oWIwYGs30T4)** excited because now I am in that slightly **[liminal space](https://www.youtube.com/watch?v=iSIP65HQ-iA)** where I actually have some time to read them in between the tasks of my main job of, you know, actually writing code and building my (still) stealth company. One thing I have learned over the many years of **[honing](https://vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html)** my craft, and about the way my **[brain](https://arxiv.org/pdf/2607.12664v1)** works, is that I am most efficient when I alternate between bits of *producing* work (like writing code, writing, or doing some planing) and *consuming* work (like technical reading, debugging, or watching podcasts). Luckily, this kind of cyclical context switching is somehow both **[fun](https://www.youtube.com/watch?v=N5AQFYtqx8Q)** and productive. How about you? Have you figured out *your best protocol* for working on your craft and doing what you love?
+Well, I am **[super-uber](https://www.youtube.com/watch?v=oWIwYGs30T4)** excited because now I am in that slightly **[liminal space](https://www.youtube.com/watch?v=iSIP65HQ-iA)** where I actually have some time to read them in between the tasks of my main job of, you know, actually writing code and building my (still-stealth) company. One thing I have learned over the many years of **[honing](https://vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html)** my craft, and about the way my **[brain](https://arxiv.org/pdf/2607.12664v1)** works, is that I am most efficient when I alternate between bits of *producing* work (like writing code, writing, or doing some planing) and *consuming* work (like technical reading, debugging, or watching podcasts). Luckily, this kind of cyclical context switching is somehow both **[fun](https://www.youtube.com/watch?v=N5AQFYtqx8Q)** and productive. How about you? Have you figured out *your best protocol* for working on your craft and doing what you love?
 
 By the way, is it weird that I am low-key very thrilled about this journey? I have no idea how many posts I will need to write to complete all 4️⃣ volumes of **[The Art of Computer Programming](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043?tag=ustxtaddt-20)** by the master Donald E. Knuth (or even whether I will complete the Odyssey *alive*...), but I do have a feeling I might emerge as another **[hero](https://openai.com/index/pacing-model-development-cyber-capabilities/)** when I come out **[the other side](https://www.youtube.com/watch?v=lrd5aiw-gv4)**.
 
@@ -39,9 +39,9 @@ In this post, I worked through Volume 1️⃣, *Fundamental Algorithms*, and the
 As always, below are a few highlights (for personal inventory), with a moderate attempt at coherence:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
-**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at NULLSTAR.**
+**🤖 If you see a ⭐️, it means the idea is somehow related to our cool research at [NULLSTAR](https://www.nullstar.games/).**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
-**🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; we must dance).**
+**🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; [we must dance](https://www.youtube.com/watch?v=VbD_kBJc_gI)).**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original books.**
 
 <br>
