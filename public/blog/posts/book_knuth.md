@@ -1,6 +1,6 @@
 ---
-title: 📚 BOOK → TAOCP - Part  1️⃣ (Donald E. Knuth, 1997)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists
+title: 📚 BOOK → TAOCP - Part  1️⃣ (Donald E. Knuth, 1997) 
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope
 date: 2026; 8; 22
 ---
 

@@ -242,10 +242,106 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
+----
+
+###  EXTERNAL SORTING
+
+<br>
+
+> *Time for us to study the interesting problems that arise when the number of records to be sorted is larger than our computer can hold in its high-speed internal memory.*
+
+<br>
 
 
+* 👾 Algorithm (Polyphase merge sorting with “horizontal” distribution) → This algorithm takes initial runs and disperses them to tapes, one run at a time, until the supply of initial runs is exhausted. Then it specifies how the tapes are to be merged, assuming that there are `T = P + 1 ≥ 3` available tape units, using P-way merging. Tape `T` may be used to hold the input, since it does not receive any initial runs. The following tables are maintained:
 
+```🐝
+A[j], 1 ≤ j ≤ T
+	→ The perfect Fibonacci distribution we are striving for
 
+D[j], 1 ≤ j ≤ T
+	→ Number of dummy runs assumed to be present at the beginning of logical tape unit #j
+```
+
+<br>
+
+* Algorithm (Cascade merge sorting with special distribution) → This algorithm takes initial runs and disperses them to tapes, one run at a time, until the supply of initial runs is exhausted. Then it specifies how the tapes are to be merged, assuming that there are `T ≥ 3` available tape units, using at most `(T − 1)`-way merging and avoiding unnecessary one-way merging. Tape `T` may be used to hold the input, since it does not receive any initial runs. The following tables are maintained:
+
+```🐝
+A[j], 1 ≤ j ≤ T: The perfect cascade distribution we have most recently reached
+
+AA[j], 1 ≤ j ≤ T: The perfect cascade distribution we are striving for
+
+D[j], 1 ≤ j ≤ T: Number of dummy runs assumed to be present on logical tape unit number j
+
+M[j], 1 ≤ j < T: Maximum number of dummy runs desired on logical tape unit number j
+
+TAPE[j], 1 ≤ j ≤ T: Number of the physical tape unit corresponding to logical tape unit number j
+```
+
+<br>
+
+* The following brief survey gives the highlights of the most significant algorithms we have encountered for internal sorting. As usual, `N` stands for the number of records in the given file:
+
+```🐝
+1. Distribution counting 
+    → is very useful when the keys have a small range
+    → It is stable (doesn’t affect the order of records with equal keys)
+    → but requires memory space for counters and for 2N records
+
+2. Straight insertion 
+    → is the simplest method to program, requires no extra space
+    → and is quite efficient for small N (say N ≤25)
+    → For large N it is unbearably slow unless the input is nearly in order
+
+3. Shellsort 
+    → is also quite easy to program, and uses minimum memory space
+    → and it is reasonably efficient for moderately large N (say N ≤ 1000)
+
+4. List insertion 
+    → uses the same basic idea as straight insertion, so it is suitable only for small N
+    → Like the other list sorting methods described below, it saves the cost of moving long records by manipulating links
+    → this is particularly advantageous when the records have variable length or are part of other data structures
+
+5. Address calculation techniques 
+    → efficient when the keys have a known (usually uniform) distribution
+    → the principal variants of this approach are multiple list insertion, and MacLaren’s combined radix-insertion method
+
+6. Merge exchange 
+    → Useful when a large number of comparisons can be made simultaneously
+
+7. Quicksort 
+    → probably the most useful general-purpose technique for internal sorting
+    → Requires very little memory space
+    → Its average running time on most computers beats that of its competitors
+    → It can run very slowly in its worst case, however
+    → so a careful choice of the partitioning elements should be made whenever nonrandom data are likely
+
+8. Straight selection 
+    → a simpl method
+    → especially suitable when special hardware is available to find the smallest element of a list rapidly
+
+9. Heapsort 
+    → requires minimum memory and is guaranteed to run pretty fast
+    → its average time and its maximum time are both roughly twice the average running time of quicksort
+
+10. List merging 
+    → is a list sort that, like heapsort, is guaranteed to be rather fast even in its worst case;
+    → moreover, it is stable with respect to equal keys
+
+11. Radix sorting 
+    → List sort especially appropriate for keys that are either rather short
+    → or that have an unusual lexicographic collating sequence.
+
+12. Merge insertion 
+    → is especially suitable for very small values of N, in a “straight-line-coded” routine
+    → it would be the appropriate method in an application that requires the sorting of numerous five- or six-record groups
+
+13. Hybrid methods 
+    → combining one or more of the techniques above, are also possible
+```
+
+<br>
 
 ---
 
