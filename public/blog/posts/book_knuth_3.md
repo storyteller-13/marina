@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → TAOCP - Part 3️⃣ (Donald E. Knuth, 1997)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Flourishing
 date: 2026; 8; 26
 ---
 
@@ -8,9 +8,9 @@ date: 2026; 8; 26
 
 > [🎵](https://www.youtube.com/watch?v=UQh-vGjuocM) *"But if the optimal route looks too quiet, the solution is not to avoid it. The solution is to stand firm, knowing that you're doing the right thing, and eventually the results will speak for themselves."* — Paul Graham
 
-> [🎼](https://www.youtube.com/watch?v=_9jaJtmraXA) *"They that weave networks shall be confounded."* — Isaiah 19:9
+> [🎼](https://www.youtube.com/watch?v=QO1uJdA73ts) *"They that weave networks shall be confounded."* — Isaiah 19:9
 
-> [🎹]() *"Surely, then, as in the case of an archer, there must be some end at which we aim, and we shall be more likely to hit the mark if we have a target.”* — Aristotle’s  Nicomachean Ethics, Book I
+> [🎹](https://www.youtube.com/watch?v=_9jaJtmraXA) *"Then, as in the case of an archer, there must be some end at which we aim, and we shall be more likely to hit the mark if we have a target.”* — Aristotle’s  Nicomachean Ethics
 
 
 <br>
@@ -23,7 +23,7 @@ In this third post, I continue the the *brain-gymnastics* I began in [**Part 1�
 
 Speaking of **[funny, pleasant](https://blog.archive.org/2026/08/16/vintage-artificial-intelligence-before-it-got-awkward/)** ways the brain can be itched, it’s story time.
 
-Back in c. 2014, when I was in the **[last year of my PhD](https://www.astro.sunysb.edu/steinkirch/)**, I was running a lot of **[Monte Carlo simulations](https://www.astro.sunysb.edu/steinkirch/reviews/first_results.pdf)** and **[calculations](https://github.com/future-ai-org/astrophysics-mfits-py)** with **[Los Alamos Laboratory](https://www.lanl.gov/)** to find **[the correct form](https://www.astro.sunysb.edu/steinkirch/figures/opacities_LANL.png)** for the **[equation of state](https://www.astro.sunysb.edu/steinkirch/reviews/xrays.pdf)** of **[neutron stars](https://iopscience.iop.org/article/10.3847/0004-637X/832/2/102)** through the observation of **[X-ray bursters](https://www.astro.sunysb.edu/steinkirch/reviews/xrb_review.pdf)**. In those years of astrophysics, I was writing a lot of code in [**IDL**](https://github.com/future-ai-org/interstellar-idl/blob/master/src/calibration.pro), **[MATLAB](https://github.com/future-ai-org/robotics-matlab/blob/master/gradient/code/README_and_RESULTS.txt)**, and [**C**](https://github.com/future-ai-org/solar/blob/master/src/DataRedux.C)/C++. But I was getting really hooked on **[Python](https://en.wikipedia.org/wiki/Python_(programming_language)**. At that time, it felt like the most superior language (sorry, [**Ruby**](https://github.com/cypherpunk-symposium/csrf-apache-modsecurity-rb) crew...). 
+Back in c. 2014, when I was in the **[last year of my PhD](https://www.astro.sunysb.edu/steinkirch/)**, I was running a lot of **[Monte Carlo simulations](https://www.astro.sunysb.edu/steinkirch/reviews/first_results.pdf)** and **[calculations](https://github.com/future-ai-org/astrophysics-mfits-py)** with **[Los Alamos Laboratory](https://www.lanl.gov/)** to find **[the correct form](https://www.astro.sunysb.edu/steinkirch/figures/opacities_LANL.png)** for the **[equation of state](https://www.astro.sunysb.edu/steinkirch/reviews/xrays.pdf)** of **[neutron stars](https://iopscience.iop.org/article/10.3847/0004-637X/832/2/102)** through the **[observation](https://science.nasa.gov/asset/webb/life-cycles-of-sun-like-and-massive-stars/)** of **[X-ray bursters](https://www.astro.sunysb.edu/steinkirch/reviews/xrb_review.pdf)**. In those years of astrophysics, I was writing a lot of code in [**IDL**](https://github.com/future-ai-org/interstellar-idl/blob/master/src/calibration.pro), **[MATLAB](https://github.com/future-ai-org/robotics-matlab/blob/master/gradient/code/README_and_RESULTS.txt)**, and [**C**](https://github.com/future-ai-org/solar/blob/master/src/DataRedux.C)/C++. But I was getting really hooked on **[Python](https://en.wikipedia.org/wiki/Python_(programming_language)**. At that time, it felt like the most superior language (sorry, [**Ruby**](https://github.com/cypherpunk-symposium/csrf-apache-modsecurity-rb) crew...). 
 
 Since I didn’t have a traditional computer science background, I decided it was the moment for me to work through the traditional classical algorithms exercises, and since there were **[barely](https://www.andrew.cmu.edu/user/ramesh/teaching/course/48784.pdf)** any of them published in Python, that was the perfect excuse to create and open-source something unique. I started working through all the exercises in [**Cracking the Coding Interview**](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850) and [**Algorithms by Skiena**](https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202?tag=ustxtaddt-20), and at the same time, because I love **[writing](https://www.youtube.com/watch?v=2chNuUpC8_Y)** things down to organize my thoughts (and I used to love writing things in **[LaTeX](https://www.latex-project.org/)** as well), I started writing a **[book on Python, algorithms, and data structures](https://github.com/future-ai-org/master-algorithms-py)**. The book was open, and the repository got **[over 600 stars at the time](https://github.com/future-ai-org/master-algorithms-py/blob/master/book_pdf/assets/600_stars.png)** (later, I lost all the stars when I made the repository private). A year or so later, I received an email from a **[Korean publisher asking whether they could publish my book](https://www.hanbit.co.kr/books/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EC%B4%88-%ED%8A%BC%ED%8A%BC-%ED%95%B5%EC%8B%AC-%EC%8F%99%EC%8F%99-%EC%8B%A4%EB%A0%A5-%EC%91%A5%EC%91%A5?code=B8465804191)**. They would give me a small amount of money, plus two hard copies. Well, I told them, “But the book is free already,” and they said, “But it’s not in Korean.” **[That’s the story of the publication of my first book](https://github.com/future-ai-org/master-algorithms-py/commits/master/?after=9fb230309aec59a1b35df7e2171af3d1044104b8+769)** (and the easter egg in this tale is that the book’s theme is **[Buffy the Vampire Slayer](https://en.wikipedia.org/wiki/Buffy_the_Vampire_Slayer)** — which they kept entirely in the publication!). 
 
@@ -35,7 +35,15 @@ Since I didn’t have a traditional computer science background, I decided it wa
 
 Why am I telling this story? 
 
-Ah, yes. That was the first time in my life when I actually tried to solve *almost* every type of sorting algorithm imaginable, and when I learned I had to love **[merge sort](https://en.wikipedia.org/wiki/Merge_sort)** and disapprove of **[bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)**. Now, more than a decade later, as I return to these problems under the voice of **[the Master](https://en.wikipedia.org/wiki/Donald_Knuth)**, and one day before a final **[eclipse](https://marina.nullstar.fun/images/eclipse_26_08_27.png)** **[cycle](https://apod.nasa.gov/apod/ap260825.html)** in my **[2nd house](https://choices.vonsteinkirch.com/choices/choose-your-adventure/astrology/usd/undefined-1/eclipses)**, I feel a beautiful sense of coming **[full circle](https://en.wikipedia.org/wiki/Ouroboros)**. A deep sense of worthiness. I think I made it. I think I became the amazing computer scientist I always dreamed I would be when I **[grew up](https://www.youtube.com/watch?v=eKLeBGHAUGw)**. And I am so excited to live the best (and final) part of my life, where I get to build the most interesting project of this (ephemeral) life yet: my (still-**[stealth](https://www.youtube.com/watch?v=E9NlRJaBIR4)**) **[NULLSTAR](https://nullstar.games)**.
+Ah, yes. That was the first time in my life when I actually tried to solve *almost* every type of sorting algorithm imaginable, and when I learned I had to love **[merge sort](https://en.wikipedia.org/wiki/Merge_sort)** and disapprove of **[bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)**. Now, more than a decade later, as I return to these problems under the voice of **[the Master](https://en.wikipedia.org/wiki/Donald_Knuth)**, and one day before a final **[eclipse](https://marina.nullstar.fun/images/eclipse_26_08_27.png)** **[cycle](https://apod.nasa.gov/apod/ap260825.html)** in my **[2nd house](https://choices.vonsteinkirch.com/choices/choose-your-adventure/astrology/usd/undefined-1/eclipses)**, I feel a beautiful sense of coming **[full circle](https://en.wikipedia.org/wiki/Ouroboros)**. 
+
+<br>
+
+![](/blog/assets/knuth_infinite.png)
+
+<br>
+
+A deep sense of worthiness. I think I made it. I think I became the amazing computer scientist I always dreamed I would be when I **[grew up](https://www.youtube.com/watch?v=eKLeBGHAUGw)**. And I am so very excited to live the best (and final) part of my life, where I get to build the most interesting project yet of this (ephemeral) existence: my (still-**[stealth](https://www.youtube.com/watch?v=E9NlRJaBIR4)**) **[NULLSTAR](https://nullstar.games)**.
 
 <br>
 
@@ -241,9 +249,10 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 ---
 
-### TO BE CONTINUED (UNTIL THEN, HAPPY ECLIPSE)... ☀️🌙🙃
+### TO BE CONTINUED (UNTIL THEN, SAFE ECLIPSE)... ☀️🌙
 
-##### (Talking about **[nostalgia](https://archive.org/details/msdos_Racter_1984)**, part 2️⃣ — here’s a picture of me during my Astrophysics PhD student years, living in Long Island, NY. You can clearly see I was into **[progressive rock](https://web.archive.org/web/20090621102022/http://www.last.fm/user/steinkirch)**, the definition of the infinite, and **[looking exactly like Buffy](https://www.imdb.com/title/tt11286314/mediaviewer/rm253881601/)** — circa 2012.)
+##### (Talking about [**nostalgia**](https://archive.org/details/msdos_Racter_1984), part 2️⃣ — here’s a picture of me during my Astrophysics PhD student years, living on Long Island, NY. Those were cold winters, but I loved the snow. One of my favorite hobbies was going for a nice hike right after a storm, when the snow was all fluffy and fun. I have very tender **[memories](https://www.youtube.com/watch?v=5aCegKCsd7I)** of those years, despite all the graduate student work and living on a graduate student scholarship. By the way, you can clearly see that I was into [**progressive rock**](https://web.archive.org/web/20090621102022/http://www.last.fm/user/steinkirch), the definition of the infinite, and [**looking exactly like Buffy**](https://www.imdb.com/title/tt11286314/mediaviewer/rm253881601/) — circa 2012.)
+
 
 <br>
 
