@@ -1,7 +1,7 @@
 ---
-title: 📚 BOOK → TAOCP - Part 4️⃣ (Donald E. Knuth, 1997)
+title: 📚 BOOK → TAOCP - Part 4️⃣ (Donald E. Knuth, 2019)
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable
-date: 2026; 8; 28
+date: 2026; 8; 27
 ---
 
 > [🎼](https://www.youtube.com/watch?v=h9CqJTsT2Ms) *"Attempt the end, and never stand to doubt; Nothing’s so hard, but search will find it out."* — Robert Herrick (1648)
@@ -55,11 +55,11 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 ```🐝
 1. [Initialize.] Set i ← 1.
 
-2. [Compare.] If K ≤ Ki, go to 4.
+2. [Compare.] If K ≤ K_i, go to 4.
 
 3. [Advance.] Increase i by 1 and return to 2.
 
-4. [Equality?] If K = Ki, the algorithm terminates successfully. Otherwise it terminates unsuccessfully.
+4. [Equality?] If K = K_i, the algorithm terminates successfully. Otherwise it terminates unsuccessfully.
 ``` 
 
 <br>
@@ -83,14 +83,16 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-> *Algorithm (Binary search) → Given a table of records `R1,  R2, ..., RN` whose keys are in increasing order `K1 < K2 < ··· < KN`, this algorithm searches for a given argument `K`.*
+> *Algorithm (Binary search) → Given a table of records `R_1,  R_2, ..., R_N` whose keys are in increasing order `K_1 < K_2 < ··· < K_N`, this algorithm searches for a given argument `K`.*
 
 ```🐝
 1. [Initialize.] Set l ← 1, u ← N.
 
-2. [Get midpoint.] At this point we know that if K is in the table, it satisfies Kl ≤ K ≤ Ku. If u < l, the algorithm terminates unsuccessfully. Otherwise, set i←[(l + u)/2], the approximate midpoint of the relevant table area.
+2. [Get midpoint.] At this point we know that if K is in the table, it satisfies K_l ≤ K ≤ K_u. If u < l, 
+    the algorithm terminates unsuccessfully. 
+    Otherwise, set i ← [(l + u) / 2], the approximate midpoint of the relevant table area.
 
-3. [Compare.] If K < Ki, go to 4; if K > Ki, go to 5; and if K = Ki, the algorithm terminates successfully.
+3. [Compare.] If K < K_i, go to 4; if K > K_i, go to 5; and if K = K_i, the algorithm terminates successfully.
 
 4. [Adjust u.] Set u ← i − 1 and return to 2.
 
@@ -107,18 +109,22 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-> 👾 *Algorithm (Fibonaccian search). Given a table of records `R1, R2, ..., RN` whose keys are in increasing order `K1 < K2 < ··· < KN`, this algorithm searches for a given argument `K`. For convenience in description, we assume that `N + 1` is a perfect Fibonacci number, `F_{k+1}`.*
+> 👾 *Algorithm (Fibonaccian search). Given a table of records `R_1, R_2, ..., R_N` whose keys are in increasing order `K_1 < K_2 < ··· < K_N`, this algorithm searches for a given argument `K`. For convenience in description, we assume that `N + 1` is a perfect Fibonacci number, `F_{k + 1}`.*
 
 * It is not difficult to make the method work for arbitrary `N`, if a suitable initialization is provided:
 
 ```🐝
-1. [Initialize.] Set i ← Fk, p ← Fk − 1, q ← Fk − 2. (Throughout the algorithm, p and q will be consecutive Fibonacci numbers.)
+1. [Initialize.] Set i ← Fk, p ← Fk − 1, q ← Fk − 2. 
+    (Throughout the algorithm, p and q will be consecutive Fibonacci numbers.)
 
-2. [Compare.] If K < Ki, go to step 3; if K > Ki, go to 4; and if K = Ki, the algorithm terminates successfully.
+2. [Compare.] If K < K_i, go to step 3; if K > K_i, go to 4; and if K = Ki, 
+    the algorithm terminates successfully.
 
-3. [Decrease i.] If q = 0, the algorithm terminates unsuccessfully. Otherwise set i ← i − q, and set (p, q) ← (q, p − q); then return to 2.
+3. [Decrease i.] If q = 0, the algorithm terminates unsuccessfully. 
+    Otherwise set i ← i − q, and set (p, q) ← (q, p − q); then return to 2.
 
-4. [Increase i.] If p = 1, the algorithm terminates unsuccessfully. Otherwise set i ← i + q, p ← p − q, then q ← q − p, and return to 2.
+4. [Increase i.] If p = 1, the algorithm terminates unsuccessfully. 
+    Otherwise set i ← i + q, p ← p − q, then q ← q − p, and return to 2.
 ```
 
 <br>
@@ -137,7 +143,7 @@ left branch is taken about `ϕ ≈ 1.618` times as often as the right branch
 
 <br>
 
-> *Interpolation search → When we know that `K` lies between `Kl` and `Ku`, we can choose the next probe to be about `(K − Kl) / (Ku − Kl)` of the way between `l` and `u`, assuming that the keys are numeric and that they increase in a roughly constant manner throughout the interval.*
+> *Interpolation search → When we know that `K` lies between `K_l` and `K_u`, we can choose the next probe to be about `(K − K_l) / (K_u − K_l)` of the way between `l` and `u`, assuming that the keys are numeric and that they increase in a roughly constant manner throughout the interval.*
 
 <br>
 
@@ -153,11 +159,11 @@ left branch is taken about `ϕ ≈ 1.618` times as often as the right branch
 
 ### TO BE CONTINUED... 🫪
 
-##### Talking about searching, would a **binary** *soul* **search** be the answer to the meaning of life? Nowadays, I believe so, but I had to try many other types of seaches to come up with this conclusion. This is a story for **nostalgia, part 3️⃣** — illustrated by a picture of me snowboarding at **[Woodward Tahoe](https://www.rideboreal.com/explore/who-we-are/woodward-tahoe/)**, circa 2019. This one is long.
+##### Talking about searching, would a **binary** *soul* **search** be the answer to the meaning of life? Nowadays, I believe so, but I had to try many other types of seaches to come up with this conclusion. This is a story for **nostalgia, part 3️⃣** — illustrated by the picture below of me snowboarding at **[Woodward Tahoe](https://www.rideboreal.com/explore/who-we-are/woodward-tahoe/)**, circa 2019. This one is long.
 
-##### Once I left Cupertino, at the end of 2016, I officially became a nomad for the first time in my life. See, after five years stuck in an office without windows, followed by a couple of years of working too many hours a day and full weekends, I was feeling like I was missing out. I wanted a chance to finally experience a little bit of life, all that free spirit that had been sold to me in the movies. At that time, I had a very cool blue Subaru Crosstrek that could hold all my boards — for surf, skate, and snow — as well as my camera gear and lenses, my DJI drone, a guitar, a blanket, and everything I needed to be **[the bravest kid in the world](https://en.wikipedia.org/wiki/Kafka_on_the_Shore)**. Don't forget that I was still very green at probably every single thing in life at that time, because until then, I had pretty much spent most of my time being the best student or nerd I could be.
+##### Once I left Cupertino, at the end of 2016, I officially became a nomad for the first time in my life. See, after five years stuck in an office without windows, followed by a couple of years of working too many hours a day and full weekends, I was feeling like I was missing out. I wanted a chance to finally experience a little bit of life, all that free spirit that had been sold to me in the movies. At that time, I had a very cool blue Subaru Crosstrek that could hold all my boards — for surf, skate, and snow — as well as my camera gear and lenses, **[my DJI drone](https://vimeo.com/bt3gl)**, a guitar, a blanket, and everything I needed to be **[the bravest kid in the world](https://en.wikipedia.org/wiki/Kafka_on_the_Shore)**. Don't forget that I was still very green at probably every single thing in life at that time, because until then, I had pretty much spent most of my time being the best student or nerd I could be.
 
-##### I decided I would explore and stargaze across the entire states of California and Hawaii — all the beaches, parks, and mountains. I wanted to live this type of life once before going back to my *normal* life, getting married, becoming a full adult, etc. I wanted to get to know people, I wanted to learn more about different lifestyles, I wanted to have some meat for storytelling, I wanted to find my soul, I wanted to chase the meaning of life, and I wanted to be able to say I did not spend my entire life in front of my lovely computers. And I did. For three years, I lived that life — nobody will ever steal that experience from me. It's mine. I did it.
+##### I decided I would explore and stargaze across the entire states of California and Hawaii — all the beaches, parks, and mountains. I wanted to live this type of life once before going back to my *normal* life, getting married, becoming a full adult, etc. I wanted to get to know people, I wanted to learn more about different lifestyles, I wanted to have some **[meat for storytelling](https://en.wikipedia.org/wiki/Jack_Kerouac)**, I wanted to find my soul, I wanted to chase the meaning of life, I wanted **[to express myself creating art](https://tv.vonsteinkirch.com/an-ode-to-a-quantum-simulation)**, and I wanted to be able to say I did not spend my entire life in front of my lovely computers. And I did. For three years, I lived that life — nobody will ever steal that experience from me. It's mine. I did it.
 
 ##### The original plan was to do this while working remotely (I joined Etsy Engineering, a nice remote job, right before this decision), staying at nice Airbnbs or Nomadic Communities (there were so many of them before the pandemic!), or sometimes even getting a longer stay if the place was worth it, such as in Encinitas or Maui, for instance. The original plan was to do this for just a couple of years or so at most, and then set up a base in my favorite spot and move on with my destiny. It took something like a global pandemic for me to realize that this life is not very sustainable for too long, especially if your main goal is still to be an engineer, builder, or, you know, a serious person.
 

@@ -1,5 +1,5 @@
 ---
-title: 📚 BOOK → TAOCP - Part 2️⃣ (Donald E. Knuth, 1997)
+title: 📚 BOOK → TAOCP - Part 2️⃣ (Donald E. Knuth, 2019)
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia
 date: 2026; 8; 24
 ---
