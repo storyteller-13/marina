@@ -188,7 +188,7 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 
 ##### That particular year in the Tahoe pic was a very intense year for me. I should mention that I only learned how to snowboard back in 2017, so being able to jump on a slippery tube on a board without breaking my legs or **[dying](https://science.nasa.gov/universe/stars/#death)** was, at that moment, the coolest personal achievement possible.
 
-##### Looking back now, as the person I am today, after all the suffering that came after this journey of ego dissolution, this whole thing does sound a little silly and dangerous, and I am not sure why I did not feel either of those feelings back then. But that person is still me. She is still someone I got to be once, and I don't look back on it regretfully. It's more like, *"I have empirically experienced living inside that persona for a while."*
+##### Looking back now, as the person I am today, after all the suffering that came after this journey of ego dissolution, this whole thing does sound a little silly and dangerous, and I am not sure why I did not feel either of those feelings back then. But it's only *silly* because I had the chance to experience it down to my bones, overcome it, and eventually call it *silly* — that's the inexorable beauty of growing and maturing and being a human. And that person is still me. She is still someone I got to be once, and I don't look back on it regretfully. It's more like, *"I have empirically experienced living inside that persona for a while."*
 
 ##### Life is a funny thing. If you live intensively like I did, indulging yourself to maximize experiences and knowledge, you will eventually find no more meaning in certain choices, and you will grow out of past characters. On the other hand, if you don't do it at all — if you never go explore the world, if you never push yourself to the limits, if you never leave "home" for the hero's journey — you will never know. And I am pretty sure you will become one of those people who eventually grow into a resentful character, constantly asking, *"what if?"* (But you might also become super-safe and uber-rich, too, so who knows?).
 
@@ -199,5 +199,7 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 ![](/blog/assets/searching_dopamine.png)
 
 <br>
+
+##### PS: When I look back at this picture, I think, "It's so epic — why am I not wearing something better?" 😅. That’s a little quirk of mine: I never really cared about pictures or how I looked to others. I was the classic nerd who needed to wear comfortable clothes because, "I'm too busy and That's really what matters". See why I have never been interested in or cared about social media? These days, as maturity pushes me to embrace my roles as a scholar, entrepreneur, and leader (and, soon, a mother and wife), I've become more mindful of my wardrobe. When I'm working, I mostly wear black and suits; for personal activities, I enjoy floral, colorful, and elegant dresses.
 
 ### ⬛️
