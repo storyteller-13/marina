@@ -103,7 +103,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-> *Let `a1 a2 … an` be a permutation of the set `{1, 2, …, n}`. If `i < j` and `ai > aj`, the pair `(ai, aj)` is called an inversion of the permutation; for example, the permutation `3 1 4 2` has three inversions: `(3, 1)`, `(3, 2)`, and `(4, 2)`. Each inversion is a pair of elements that is out of sort, so the only permutation with no inversions is the sorted permutation `12 ... n`.*
+> *Let `a1 a2 ... an` be a permutation of the set `{1, 2, ..., n}`. If `i < j` and `ai > aj`, the pair `(ai, aj)` is called an inversion of the permutation; for example, the permutation `3 1 4 2` has three inversions: `(3, 1)`, `(3, 2)`, and `(4, 2)`. Each inversion is a pair of elements that is out of sort, so the only permutation with no inversions is the sorted permutation `12 ... n`.*
 
 <br> 
 
@@ -346,7 +346,7 @@ TAPE[j], 1 ≤ j ≤ T: Number of the physical tape unit corresponding to logica
 <br>
 
 ---
-*
+
 ### TO BE CONTINUED (UNTIL THEN, HAVE YOUR-SELF A SAFE ECLIPSE)... ☀️🌙
 
 ##### Talking about [**nostalgia**](https://archive.org/details/msdos_Racter_1984), part 2️⃣ — here’s a picture of me during my Astrophysics PhD student years, living on Long Island, NY. Those were cold winters, but I loved the snow. One of my favorite hobbies was going for a nice hike right after a storm, when the snow was all fluffy and fun. I have very tender **[memories](https://www.youtube.com/watch?v=5aCegKCsd7I)** of those years, despite all the work of graduate school and living on a graduate student scholarship. By the way, you can clearly see that I was into [**progressive rock**](https://web.archive.org/web/20090621102022/http://www.last.fm/user/steinkirch), the definition of the infinite, and [**looking exactly like Buffy**](https://www.imdb.com/title/tt11286314/mediaviewer/rm253881601/) — circa 2012.

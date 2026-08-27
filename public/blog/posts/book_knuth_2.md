@@ -56,9 +56,9 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 * Decimal notation was applied at first only to integer numbers, not to fractions. Arabic astronomers, who required fractions in their star charts and other tables, continued to use the notation of Ptolemy, a notation based on sexagesimal fractions.
 
-* Chinese mathematicians—who never used sexagesimals—were apparently the first people to work with the equivalent of decimal fractions, although their numeral system (lacking zero) was not originally a positional number system in the strict sense. Chinese units of weights and measures were decimal, so that Tsu Ch’ung-Chih (who died in A.D. 500 or 501) was able to express an approximation to π in the following form: 3 chang, 1 ch’in, 4 ts’un, 1 fen, 5 li, 9 hao, 2 miao, 7 hu.
+* Chinese mathematicians—who never used sexagesimals—were apparently the first people to work with the equivalent of decimal fractions, although their numeral system (lacking zero) was not originally a positional number system in the strict sense. Chinese units of weights and measures were decimal, so that Tsu Ch’ung-Chih (who died in A.D. 500 or 501) was able to express an approximation to `π` in the following form: 3 chang, 1 ch’in, 4 ts’un, 1 fen, 5 li, 9 hao, 2 miao, 7 hu.
 
-* Blaise Pascal wrote, “Denaria enim ex instituto hominum, non ex necessitate naturæ ut vulgus arbitratur, et sane satis inepte, posita est”; i.e., “The decimal system has been established, somewhat foolishly to be sure, according to man’s custom, not from a natural necessity as most people think.”
+* Blaise Pascal wrote, *"Denaria enim ex instituto hominum, non ex necessitate naturæ ut vulgus arbitratur, et sane satis inepte, posita est"*; i.e., *"The decimal system has been established, somewhat foolishly to be sure, according to man’s custom, not from a natural necessity as most people think".*
 
 <br>
 
@@ -66,7 +66,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-> ✨ *For many purposes, it is considerably more convenient to let the position of the radix point be dynamically variable or “floating” as a program is running, and to carry with each number an indication of its current radix point position. This idea has been used for many years in scientific calculations, especially for expressing very large numbers like Avogadro’s number `N = 6.02214×1023` (`N = (74,+.60221400)`), or very small numbers like Planck’s constant `h = 6.6261×10−27` erg sec (`h= (24,+.66261000).`).* ✨
+> ✨ *For many purposes, it is considerably more convenient to let the position of the radix point be dynamically variable or “floating” as a program is running, and to carry with each number an indication of its current radix point position. This idea has been used for many years in scientific calculations, especially for expressing very large numbers like Avogadro’s number `N = 6.02214 × 10^23` (`N = (74,+.60221400)`), or very small numbers like Planck’s constant `h = 6.6261 × 10^−27 erg sec` (`h = (24,+.66261000).`).* ✨
 
 > *Round numbers are always false.* — Samuel Johnson (1750)
 
@@ -79,7 +79,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 * The crucial formula `u ⊕ v = round(u + v)` is a regularity property that makes a great deal of difference between whether mathematical analysis of computational algorithms is worth doing or worth avoiding. Without any underlying symmetry properties, the job of proving interesting results becomes extremely unpleasant. The enjoyment of one’s tools is an essential ingredient of successful work.
 
-* Another interesting alternative is available for doing arithmetic on large integer numbers, based on some simple principles of number theory. The idea is to have several moduli `m1`,` m2`,…, `mr` that contain no common factors, and to work indirectly with residues `u mod m1`, `u mod m2`,..., `u mod mr` instead of directly with the number `u`.
+* Another interesting alternative is available for doing arithmetic on large integer numbers, based on some simple principles of number theory. The idea is to have several moduli `m1`,` m2`, ... , `mr` that contain no common factors, and to work indirectly with residues `u mod m1`, `u mod m2`,..., `u mod mr` instead of directly with the number `u`.
 
 <br>
 
@@ -87,11 +87,11 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-* We may therefore regard `(u1,u2,...,ur)` as a new type of internal computer representation, a “modular representation,” of the integer `u`.
+* We may therefore regard `(u1, u2, ... , ur)` as a new type of internal computer representation, a “modular representation,” of the integer `u`.
 
 * The range of numbers that can be handled by modular arithmetic is equal to `m = m1 m2 ... mr`, the product of the moduli; and if each `mj` is near our computer’s word size we can deal with `n`-place numbers when `r ≈ n`.
 
-* The critical problem in high-precision multiplication is the determination of “convolution products” such as `ur v0 + u_{r−1} v1 + ··· + u0 vr`, and there is an intimate relation between convolutions and Fourier transformation.
+* The critical problem in high-precision multiplication is the determination of “convolution products” such as `ur v0 + u_{r − 1} v1 + ··· + u0 vr`, and there is an intimate relation between convolutions and Fourier transformation.
 
 <br>
 
@@ -105,15 +105,15 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-> *Original Euclidean algorithm → Given two integers `A` and `C` greater than unity, this algorithm finds their greatest common divisor: E1. [Is `A` divisible by `C`?] If `C` divides `A`, the algorithm terminates with `C` as the answer. E2. [Replace `A` by remainder.] If `A mod C` is equal to unity, the given numbers were relatively prime, so the algorithm terminates. Otherwise replace the pair of values `(A,C)` by `(C, A mod C)` and return to step E1.*
+> *Original Euclidean algorithm → Given two integers `A` and `C` greater than unity, this algorithm finds their greatest common divisor: E1. [Is `A` divisible by `C`?] If `C` divides `A`, the algorithm terminates with `C` as the answer. E2. [Replace `A` by remainder.] If `A mod C` is equal to unity, the given numbers were relatively prime, so the algorithm terminates. Otherwise replace the pair of values `(A, C)` by `(C, A mod C)` and return to step E1.*
 
 <br>
 
-> *Modern Euclidean algorithm → Given nonnegative integers `u` and `v`, this algorithm finds their greatest common divisor. `A1`. `[v= 0?]` If `v = 0`, the algorithm terminates with `u` as the answer. `A2`. [Take `u mod v`.] Set `r ← u mod v`, `u ← v`, `v ← r`, and return to A1.*
+> *Modern Euclidean algorithm → Given nonnegative integers `u` and `v`, this algorithm finds their greatest common divisor. `A1`. `[v = 0?]` If `v = 0`, the algorithm terminates with `u` as the answer. `A2`. [Take `u mod v`.] Set `r ← u mod v`, `u ← v`, `v ← r`, and return to `A1`.*
 
 <br>
 
-* If u and v are integers chosen at random, the probability that `gcd(u,v) = 1` is `6/π2 ≈.60793`.
+* If u and v are integers chosen at random, the probability that `gcd(u, v) = 1` is `6 / π2 ≈.60793`.
 
 * The execution time of Euclid’s algorithm depends on `T`, the number of times the division step `A2` is performed. The quantity `T` is also an important factor in the running time of other algorithms, such as the evaluation of functions satisfying a reciprocity formula. 
 
@@ -124,7 +124,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 <br>
 
 ```🐝
-// x1, x2, ..., xn // = 1 / (x1 +1 / (x2 +1 / (··· / (xn−1 + 1/xn ) … )))
+// x1, x2, ..., xn // = 1 / (x1 + 1 / (x2 + 1 / (··· / (xn − 1 + 1/xn ) ... )))
 ``` 
 
 <br>
@@ -156,7 +156,7 @@ e = 2 + //1,2,1,1,4,1,1,6,1,1,8,1,1,10,1,1,12,1,1,14,1,1,16,1,1,18,1,...//;
 
 <br>
 
-* Let `π(x)` be the number of primes `≤ x`, so that `π(2) = 1`, `π(10) = 4`; the asymptotic behavior of this function has been studied extensively by many of the world’s greatest mathematicians, beginning with Legendre in 1798, then the Riemann conjecture in 1859, which was disproved by J.E. Littlewood in 1914, and the Riemann hypothesis which states that the complex function `ζ(z)` is zero only when the real part of `z` is equal to `1/2`, except in the trivial cases where `z` is a negative even integer, which would imply `π(x) = L(x)+O(√xlogx)` where ` L(x) = int_2^x dt/lnt`.
+* Let `π(x)` be the number of primes `≤ x`, so that `π(2) = 1`, `π(10) = 4`; the asymptotic behavior of this function has been studied extensively by many of the world’s greatest mathematicians, beginning with Legendre in 1798, then the Riemann conjecture in 1859, which was disproved by J.E. Littlewood in 1914, and the Riemann hypothesis which states that the complex function `ζ(z)` is zero only when the real part of `z` is equal to `1/2`, except in the trivial cases where `z` is a negative even integer, which would imply `π(x) = L(x) + O(√xlogx)` where ` L(x) = int_2^x dt/lnt`.
 
 * 👾 The size of prime factors has a remarkable connection with permutations: The average number of bits in the `k`th largest prime factor of a random `n`-bit integer is asymptotically the same as the average length of the `k`th largest cycle of a random `n`-element permutation, as `n → ∞`.
 
@@ -242,10 +242,6 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 <br>
 
-![](/blog/assets/starchains.png)
-
-<br>
-
 * An addition chain for n is a sequence of integers `1 = a0, a1, a2, ..., ar = n` with the property that `ai = aj + ak, for some k ≤ j < i`, for all `i = 1, 2,..., r`.
 
 * 👾 An addition chain corresponds in a natural way to a directed graph, where the vertices are labeled `ai` for `0 ≤ i ≤ r`, and where we draw arcs from `aj` to `ai` and from `ak` to `ai` as a representation of each step `ai = aj + ak`.
@@ -253,6 +249,10 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 * The length of the addition chain, exclusive of useless steps, can be reconstructed by looking at the reduced graph → `(number of arcs) − (number of vertices) + 1` (deletion of a vertex of out-degree `1` also deletes one arc).
 
 * An addition chain is equivalent to a star chain if and only if its reduced directed graph can be topologically sorted in only one way.
+
+<br>
+
+![](/blog/assets/starchains.png)
 
 <br>
 

@@ -60,7 +60,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-> 👾 *Mathematical Induction → Let `P(n)` be some statement about the integer `n`; for example, `P(n)` might be “`n` times `(n + 3)` is an even number," or "if `n ≥ 10`, then `2^n > n^31`” . Suppose we want to prove that `P(n)` is true for all positive integers `n`. An important way to do this is: 1) Give a proof that `P(1)` is true; 2) Give a proof that "if all o f `P(1), P(2),…, P(n)` are true, then `P(n + 1)` is also true"; this proof should be valid for any positive integer `n` → algorithmic proof procedure.*
+> 👾 *Mathematical Induction → Let `P(n)` be some statement about the integer `n`; for example, `P(n)` might be “`n` times `(n + 3)` is an even number," or "if `n ≥ 10`, then `2^n > n^31`” . Suppose we want to prove that `P(n)` is true for all positive integers `n`. An important way to do this is: 1) Give a proof that `P(1)` is true; 2) Give a proof that "if all of `P(1), P(2), ... , P(n)` are true, then `P(n + 1)` is also true"; this proof should be valid for any positive integer `n` → algorithmic proof procedure.*
 
 <br>
 
@@ -78,11 +78,11 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-* Transfer of control between subroutines and main programs is called subroutine linkage → no subroutine may call on any other subroutine that is (directly or indirectly) calling on it.
+* Transfer of control between subroutines and main programs → subroutine linkage → no subroutine may call on any other subroutine that is (directly or indirectly) calling on it.
 
 * Subroutines are special cases of more general program components, called co-routines. In contrast to the unsymmetric relationship between a main routine and a subroutine, there is complete symmetry between coroutines, which call on each other.
 
-* A computer memory is often classified as a “random access memory,” like MIX’s main memory; or as a “read-only memory,” which is supposed to contain essentially constant information; or a “secondary bulk memory,” like MIX’s disk units, which cannot be accessed at high speed although large quantities of information can be stored; or an “associative memory,” more properly called a “content-addressed memory,” for which information is addressed by its value rather than by its location; and so on. The intended function of each kind of memory is so important that it enters into the name of the particular memory type; all of these devices are “memory” units, but the purposes to which they are put profoundly influence their design and their cost.
+* A computer memory is often classified as a "random access memory"; or as a "read-only memory", which is supposed to contain essentially constant information; or a "secondary bulk memory"; or an "associative memory", more properly called a "content-addressed memory", for which information is addressed by its value rather than by its location; and so on. The intended function of each kind of memory is so important that it enters into the name of the particular memory type; all of these devices are “memory” units, but the purposes to which they are put profoundly influence their design and their cost.
 
 <br>
 
@@ -126,7 +126,7 @@ iii) x ⪯ x. (Reflexivity.)
 
 <br>
 
-> 👾 *The “infinity lemma” → Every infinite oriented tree in which every vertex has finite degree has an infinite path to the root, that is, an infinite sequence of vertices `V0, V1, V2,…` in which `V0` is the root and `fin(e[Vj+1]) = Vj` for all `j ≥ 0`.*
+> 👾 *The “infinity lemma” → Every infinite oriented tree in which every vertex has finite degree has an infinite path to the root, that is, an infinite sequence of vertices `V0, V1, V2,...` in which `V0` is the root and `fin(e[Vj + 1]) = Vj` for all `j ≥ 0`.*
 
 <br>
 
@@ -184,7 +184,8 @@ With the following rules:
 1. The seed (X_0) must be chosen arbitrarily.
 2. The number (m) should be large, at least (2^{30}).
 3. If (m) is a power of 2 (i.e., if using a binary computer), choose (a) so that (a \bmod 8 = 5).
-4. The multiplier (a) should be chosen between (0.01m) and (0.99m), and its binary or decimal digits should not have a simple, regular pattern.
+4. The multiplier (a) should be chosen between (0.01m) and (0.99m), 
+        and its binary or decimal digits should not have a simple, regular pattern.
 5. (c) must have no factor in common with (m).
 6. It’s best to think of (X) as a random fraction (X/m) between 0 and 1.
 7. The accuracy in (t) dimensions will be only about one part in (\sqrt[t]{m}).
@@ -201,7 +202,7 @@ With the following rules:
 
 <br>
 
-> *The Kolmogorov–Smirnov test → the chi-square test applies to the situation when observations can fall into a finite number of categories. It is not unusual, however, to consider random quantities that range over infinitely many values, such as a random fraction (a random real number between `0` and `1`). Even though only finitely many real numbers can be represented in a computer, we want our random values to behave essentially as if all real numbers in `[0..1)` were equally likely. A general notation for specifying probability distributions, whether they are finite or infinite, is commonly used in the study of probability and statistics. Suppose we want to specify the distribution of the values of a random quantity, `X`; we do this in terms of the distribution function `F(x)`, where `F(x) = Pr(X ≤x) =` probability that `(X ≤ x)`. If we make n independent observations of the random quantity `X`, thereby obtaining the values `X1, X2,..., Xn`, we can form the empirical distribution function `Fn(x)`, where number of `X1,X2,...,Xn that are ≤x Fn(x) = n`. The Kolmogorov–Smirnov test (KS test) may be used when `F(x)` has no jumps. It is based on the difference between `F(x)` and `Fn(x)`. A bad source of random numbers will give empirical distribution functions that do not approximate `F(x)` sufficiently well.*
+> *The Kolmogorov–Smirnov test → the chi-square test applies to the situation when observations can fall into a finite number of categories. It is not unusual, however, to consider random quantities that range over infinitely many values, such as a random fraction (a random real number between `0` and `1`). Even though only finitely many real numbers can be represented in a computer, we want our random values to behave essentially as if all real numbers in `[0..1)` were equally likely. A general notation for specifying probability distributions, whether they are finite or infinite, is commonly used in the study of probability and statistics. Suppose we want to specify the distribution of the values of a random quantity, `X`; we do this in terms of the distribution function `F(x)`, where `F(x) = Pr(X ≤x) =` probability that `(X ≤ x)`. If we make `n` independent observations of the random quantity `X`, thereby obtaining the values `X1, X2,..., Xn`, we can form the empirical distribution function `Fn(x)`, where number of `X1,X2,...,Xn that are ≤ x Fn(x) = n`. The Kolmogorov–Smirnov test (KS test) may be used when `F(x)` has no jumps. It is based on the difference between `F(x)` and `Fn(x)`. A bad source of random numbers will give empirical distribution functions that do not approximate `F(x)` sufficiently well.*
 
 <br>
 
@@ -216,16 +217,30 @@ With the following rules:
 * Theoretical tests for randomness (summarized by robot CG, “If these numbers were truly independent and uniformly distributed, would I see this particular pattern this often?”):
 
 ```🐝
-1. Equidistribution test — checks whether generated values occur with approximately equal frequency across the possible outcomes.
-2. Serial test — checks whether successive pairs/tuples of values are uniformly distributed, detecting dependence between neighboring values.
-3. Gap test — examines the lengths of gaps between occurrences of values in a specified interval.
-4. Poker test — groups values into fixed-size sets and checks whether the resulting patterns occur with the expected frequencies.
-5. Coupon collector’s test — measures how many observations are needed to collect all possible categories, looking for deviations from the expected collection time.
-6. Permutation test — checks whether the relative ordering of successive values produces each possible permutation with the expected frequency.
-7. Run test — examines consecutive increasing/decreasing runs to detect patterns inconsistent with randomness.
-8. Maximum-of-t test — divides observations into blocks and studies the distribution of each block’s maximum.
-9. Collision test — looks for repeated values (“collisions”) and compares their frequency with the probability expected under independent random sampling.
-10. Spectral test — primarily for linear congruential generators, examines the lattice structure of generated points to detect hidden regularities.
+1. Equidistribution test 
+    — checks whether generated values occur with approximately equal frequency across the possible outcomes.
+2. Serial test 
+    — checks whether successive pairs/tuples of values are uniformly distributed,
+    - detecting dependence between neighboring values.
+3. Gap test 
+    — examines the lengths of gaps between occurrences of values in a specified interval.
+4. Poker test 
+    — groups values into fixed-size sets and checks whether the resulting patterns occur with the expected frequencies.
+5. Coupon collector’s test 
+    — measures how many observations are needed to collect all possible categories, 
+    - looking for deviations from the expected collection time.
+6. Permutation test
+    — checks whether relative ordering of successive values produces each possible permutation with expected frequency.
+7. Run test 
+    — examines consecutive increasing/decreasing runs to detect patterns inconsistent with randomness.
+8. Maximum-of-t test 
+    — divides observations into blocks and studies the distribution of each block’s maximum.
+9. Collision test 
+    — looks for repeated values (“collisions”) and 
+    - compares their frequency with the probability expected under independent random sampling.
+10. Spectral test 
+    — primarily for linear congruential generators, 
+    - examines the lattice structure of generated points to detect hidden regularities.
 ```
 
 <br>
