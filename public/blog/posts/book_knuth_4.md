@@ -4,11 +4,13 @@ subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | T
 date: 2026; 8; 27
 ---
 
+> [🎶](https://www.youtube.com/watch?v=FQpuSV9AHQ4) *"Seek and you shall find."* — Matthew 7:7
+
 > [🎼](https://www.youtube.com/watch?v=h9CqJTsT2Ms) *"Attempt the end, and never stand to doubt; Nothing’s so hard, but search will find it out."* — Robert Herrick (1648)
 
 > [🎵](https://www.youtube.com/watch?v=yUXwdnOJ_z0) *"You can't connect the dots looking forward; you can only connect them looking backwards."* — **[Steve Jobs (2005)](https://www.youtube.com/watch?v=jiHZqamCD8c)** 
 
-> [🎶](https://www.youtube.com/watch?v=FQpuSV9AHQ4) *"Seek and you shall find."* — Matthew 7:7
+> [🌳](https://www.youtube.com/watch?v=hnFlDk5n34Q) *"Why don’t you pair ’em up in threes?"* — attributed to Yogi Berra (c. 1970)
 
 <br>
 
@@ -18,7 +20,7 @@ date: 2026; 8; 27
 
 In this third post, I continue the *brain-marathon* I began in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth), [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth_2), and [**Part 3️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth_3), savoring [**our luminal reality**](https://www.youtube.com/watch?v=dtW-AFYpH_A).
 
-Today, we **[dive](https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/)** into the **Searching** chapter. If you think of 💕 binary search 💕 when someone says "search", you’re like me — it's **[nice](https://pollen-robotics.com/microduck/)** and binaryly pretty. This **[time](https://www.youtube.com/watch?v=a0lDsM_J_rc)**, though, I learned there’s much more **[color](https://apod.nasa.gov/apod/ap260827.html)** to it. And, funny enough, I **[learned](https://www.youtube.com/watch?v=edbIJ7PpVlc)** this through the zodiacs on a **[tree](https://www.youtube.com/watch?v=DAzVVp9lmis)**. Read on if you want to **[understand](https://www.youtube.com/watch?v=58-k4F7-AoA)** what I mean!
+Today, we **[dive](https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/)** into the **Searching** chapter. If you think of 💕 binary search 💕 when someone says "search", you’re like me — it's **[nice](https://pollen-robotics.com/microduck/)** and binaryly **[pretty](https://apod.nasa.gov/apod/ap260820.html)**. This **[time](https://www.youtube.com/watch?v=a0lDsM_J_rc)**, though, I learned there’s much more **[color](https://apod.nasa.gov/apod/ap260827.html)** to it. And, funny enough, I **[learned](https://www.youtube.com/watch?v=edbIJ7PpVlc)** this through the zodiacs on a **[tree](https://www.youtube.com/watch?v=DAzVVp9lmis)**. Read on if you want to **[understand](https://www.youtube.com/watch?v=58-k4F7-AoA)** what I mean!
 
 <br>
 
@@ -177,13 +179,71 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 
 * All subtrees of an optimum tree are optimum.
 
-* The minimum cost is closely related to entropy →  If `p1, p2, ..., pn` are probabilities with `p1 + p2 + ... + pn = 1`, we define the entropy `H(p1, p2,..., pn)` by the formula `H(p1, p2,..., pn) = sum^n_{k = 1} p_k lg(1 / p_k)`. If `n` events are possible and the `k`th event occurs with probability `pk`, we can imagine that we have received `lg(1 / pk)` bits of information when the `k`th event has occurred. 
+* The minimum cost is closely related to entropy →  If `p1, p2, ..., pn` are probabilities with `p1 + p2 + ... + pn = 1`, we define the entropy `H(p1, p2,..., pn)` by the formula `H(p1, p2,..., pn) = sum^n_{k = 1} pk lg(1 / pk)`. If `n` events are possible and the `k`th event occurs with probability `pk`, we can imagine that we have received `lg(1 / pk)` bits of information when the `k`th event has occurred. 
 
 <br>
 
 ![](/blog/assets/knuth_garsia_wachs_2.png)
 ![](/blog/assets/knuth_garsia-wachs.png)
 ![](/blog/assets/knuth_opt_tree.png)
+
+<br>
+
+* The height of a tree is defined to be its maximum level, the length of the longest path from the root to an external node. A binary tree is called balanced if the height of the left subtree of every node never differs by more than `±1` from the height of its right subtree.
+
+* Theorem (Adelson-Velsky and Landis) → The height of a balanced tree with `N` internal nodes always lies between `lg(N + 1)` and `1.440 lg(N  + 2) − 0.3277`.
+
+<br>
+
+```🐝
+A B-tree of order m is a tree that satisfies the following properties:
+
+i) Every node has at most m children.
+
+ii) Every node, except for the root and the leaves, has at least m/2 children.
+
+iii) The root has at least 2 children (unless it is a leaf).
+
+iv) All leaves appear on the same level, and carry no information.
+
+v) A nonleaf node with k children contains k − 1 keys.
+```
+
+<br>
+
+![](/blog/assets/knuth_balanced_tree.png)
+
+<br>
+
+### DIGITAL SEARCHING
+
+<br>
+
+* A trie — pronounced “try” — is essentially an M-ary tree, whose nodes are M-place vectors with components corresponding to digits or characters. Each node on level `l` represents the set of all keys that begin with a certain sequence of l characters called its prefix; the node specifies an M-way branch, depending on the `(l + 1)`st character.
+
+* The number of nodes needed to store `N` random keys in an M-ary trie, with the trie branching terminated for subfiles of `≤ s` keys, is approximately `N / (s lnM)`. This approximation is valid for large `N`, small `s`, and small `M`. Since a trie node involves `M` link fields, we will need only about `N / ln M` link fields if we choose `s = M`.
+
+* The number of digits or characters examined during a random search is approximately `log_M N` for all methods considered. 
+
+* Sometimes it’s necessary to conduct a search based on the values of other fields in the records besides the primary key; these other fields are often called secondary keys or attributes of the record.
+
+* ✨It is interesting to note that the human brain is much better at secondary key retrieval than computers are; in fact, people find it rather easy to recognize faces or melodies from only fragmentary information, while computers have barely been able to do this at all. Therefore it is not unlikely that a completely new approach to machine design will someday be discovered that solves the problem of secondary key retrieval once and for all, making this entire section obsolete. ✨
+
+<br>
+
+![](/blog/assets/knuth_patricia.png)
+
+<br>
+
+### HASHING
+
+<br>
+
+* A third possibility for search methods is to avoid all this rummaging around by doing some arithmetical calculation on `K`, computing a function `f(K)` that is the location of `K` and the associated data in the table.
+
+<br>
+
+![](/blog/assets/knuth_bytegirl.png)
 
 <br>
 
@@ -214,5 +274,8 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 <br>
 
 ##### PS: When I look back at this picture, I think, "It's so epic — why am I not wearing something better?" 😅. That’s a little quirk of mine: I never really cared about pictures or how I looked to others. I was the classic nerd who needed to wear comfortable clothes because, "I'm too busy and That's really what matters". See why I have never been interested in or cared about social media? These days, as maturity pushes me to embrace my roles as a scholar, entrepreneur, and leader (and, soon, a mother and wife), I've become more mindful of my wardrobe. When I'm working, I mostly wear black and suits; for personal activities, I enjoy floral, colorful, and elegant dresses.
+
+##### PS2: I realize I am posting this exactly at the time of the eclipse ([**see my last post**](http://localhost:8037/pages/post.html?post=book_knuth_3)). “They” say that whatever you do, whatever intention you put out into the world, and whatever knots you make (or unmake) during these “spooky” times will have consequences for at least the next six months. We shall empirically see.
+
 
 ### ⬛️

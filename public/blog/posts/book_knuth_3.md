@@ -357,7 +357,7 @@ TAPE[j], 1 ≤ j ≤ T: Number of the physical tape unit corresponding to logica
 
 <br>
 
-##### PS: This little girl is the face of what the most successful tech CEOs of the future will look like. Who’s ready to leave **[old, outdated paradigms](https://www.youtube.com/watch?v=F0N5Kg3FmtI)** behind? 🙋🏿
+##### PS: This little girl is the face of what the most successful tech CEOs of the future will look like. Who’s ready to leave **[old, outdated paradigms](https://www.youtube.com/watch?v=F0N5Kg3FmtI)** behind? 🙋🏿 It's called meritocracy.
 
 <br>
 
