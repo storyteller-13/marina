@@ -18,7 +18,7 @@ date: 2026; 8; 27
 
 In this third post, I continue the *brain-marathon* I began in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth), [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth_2), and [**Part 3️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth_3), savoring [**our luminal reality**](https://www.youtube.com/watch?v=dtW-AFYpH_A).
 
-Today, we **[dive](https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/)** into the **Searching** chapter. If you think of 💕 binary search 💕 when someone says "search", you’re like me — it's nice and binaryly pretty. This **[time](https://www.youtube.com/watch?v=a0lDsM_J_rc)**, though, I learned there’s much more **[color](https://apod.nasa.gov/apod/ap260827.html)** to it. And, funny enough, I **[learned](https://www.youtube.com/watch?v=edbIJ7PpVlc)** this through the zodiacs on a **[tree](https://www.youtube.com/watch?v=DAzVVp9lmis)**. Read on if you want to understand what I mean!
+Today, we **[dive](https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/)** into the **Searching** chapter. If you think of 💕 binary search 💕 when someone says "search", you’re like me — it's **[nice](https://pollen-robotics.com/microduck/)** and binaryly pretty. This **[time](https://www.youtube.com/watch?v=a0lDsM_J_rc)**, though, I learned there’s much more **[color](https://apod.nasa.gov/apod/ap260827.html)** to it. And, funny enough, I **[learned](https://www.youtube.com/watch?v=edbIJ7PpVlc)** this through the zodiacs on a **[tree](https://www.youtube.com/watch?v=DAzVVp9lmis)**. Read on if you want to **[understand](https://www.youtube.com/watch?v=58-k4F7-AoA)** what I mean!
 
 <br>
 
@@ -171,6 +171,19 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 
 <br>
 
+* Let us now explore the problem of finding the optimum tree → when `N` is large there are `perm(2N N) / ( N + 1 ) ≈ 4^N / √πN^{3/2})` binary trees (so we can’t just try them all).
+
+* Call the expected number of comparisons for a binary tree the cost of the tree; and the minimum-cost tree is optimum. We can determine an optimum tree in `O(n^3)` units of time, using `O(n^2)` cells of memory.
+
+* All subtrees of an optimum tree are optimum.
+
+* The minimum cost is closely related to entropy →  If `p1, p2, ..., pn` are probabilities with `p1 + p2 + ... + pn = 1`, we define the entropy `H(p1, p2,..., pn)` by the formula `H(p1, p2,..., pn) = sum^n_{k = 1} p_k lg(1 / p_k)`. If `n` events are possible and the `k`th event occurs with probability `pk`, we can imagine that we have received `lg(1 / pk)` bits of information when the `k`th event has occurred. 
+
+<br>
+
+![](/blog/assets/knuth_garsia_wachs_2.png)
+![](/blog/assets/knuth_garsia-wachs.png)
+![](/blog/assets/knuth_opt_tree.png)
 
 <br>
 
