@@ -103,6 +103,98 @@ p.journey-footnote {
     margin-left: 2rem;
 }
 
+/* Language switch: clone of the cat/moon toggle, sitting to its left */
+@media (min-width: 768px) {
+    .profile-color-modes.js-promo-color-modes-banner-profile {
+        display: block !important;
+    }
+}
+
+.profile-color-modes-toggle.lang-toggle {
+    right: auto;
+    left: -54px;
+    cursor: pointer;
+}
+
+.profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb,
+[data-color-mode="dark"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb,
+[data-color-mode="auto"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb {
+    transform: none;
+}
+
+.profile-color-modes-toggle.lang-toggle:hover .profile-color-modes-toggle-thumb {
+    transform: scale(1.05);
+}
+
+html[data-locale="ja"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb,
+html[data-locale="ja"][data-color-mode="dark"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb,
+html[data-locale="ja"][data-color-mode="auto"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb {
+    transform: translateX(18px);
+}
+
+html[data-locale="ja"] .profile-color-modes-toggle.lang-toggle:hover .profile-color-modes-toggle-thumb {
+    transform: translateX(18px) scale(1.05);
+}
+
+@media (max-width: 767.98px) {
+    .mobile-nav-sticky {
+        display: flex !important;
+        align-items: center;
+    }
+
+    .lang-slot--mobile {
+        position: relative;
+        margin-left: auto;
+        margin-right: 0.55rem;
+        width: 42px;
+        height: 24px;
+    }
+
+    .lang-slot--mobile .lang-toggle {
+        right: 0;
+        left: auto;
+        top: 0;
+    }
+}
+
+.lang-slot--404 {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 5;
+    width: 42px;
+    height: 24px;
+}
+
+.lang-slot--404 .lang-toggle {
+    right: 0;
+    left: auto;
+    top: 0;
+}
+
+html[data-locale="ja"] body,
+html[data-locale="ja"] .markdown-body,
+html[data-locale="ja"] .qa-answer-text,
+html[data-locale="ja"] .blog-subtitle,
+html[data-locale="ja"] .vcard-username {
+    font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+html[data-locale="ja"] .section-title,
+html[data-locale="ja"] .font-orbitron,
+html[data-locale="ja"] .success-text,
+html[data-locale="ja"] .qa-question-text,
+html[data-locale="ja"] .qa-page-wrap h1,
+html[data-locale="ja"] .code-large,
+html[data-locale="ja"] .code-small {
+    font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+html[data-locale="ja"] .section-title {
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+}
+
 .sidebar-margin-right {
     margin-right: 2rem;
 }
@@ -596,6 +688,12 @@ body.error-404 {
     pointer-events: none;
 }
 
+html[data-locale="ja"] body.error-404,
+html[data-locale="ja"] .error-404 .message,
+html[data-locale="ja"] .error-404 .home-link {
+    font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
 /* Blog page */
 .blog-shell {
     margin-top: 0;
@@ -1028,6 +1126,10 @@ body.error-404 {
         font-size: 13px !important;
         padding-left: 0.35rem !important;
         padding-right: 0.35rem !important;
+    }
+
+    html[data-locale="ja"] .section-title {
+        font-size: 1.45rem;
     }
 
     .blog-line-list {

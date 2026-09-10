@@ -15,6 +15,13 @@ function escapeHtml(text) {
     .replace(/'/g, "&#39;");
 }
 
+function tx(key, fallback) {
+  if (window.MarinaI18n && typeof window.MarinaI18n.t === "function") {
+    return window.MarinaI18n.t(key);
+  }
+  return fallback;
+}
+
 function parseFrontMatter(markdown) {
   const normalized = markdown.replace(/\r\n/g, "\n");
   if (!normalized.startsWith("---\n")) {
@@ -49,12 +56,12 @@ async function loadBlog() {
   try {
     const response = await fetch(assetUrl("blog/posts.json"), { cache: "no-store" });
     if (!response.ok) {
-      throw new Error("Could not load Technical Notes index.");
+      throw new Error(tx("blog.indexError", "Could not load Technical Notes index."));
     }
 
     const posts = await response.json();
     if (!Array.isArray(posts) || posts.length === 0) {
-      listRoot.innerHTML = '<p class="color-fg-muted">No posts yet.</p>';
+      listRoot.innerHTML = `<p class="color-fg-muted" data-i18n="blog.empty">${escapeHtml(tx("blog.empty", "No posts yet."))}</p>`;
       return;
     }
 
@@ -118,13 +125,13 @@ async function loadDrafts() {
   try {
     const response = await fetch(assetUrl("blog/drafts.json"), { cache: "no-store" });
     if (!response.ok) {
-      draftRoot.innerHTML = '<p class="blog-draft-empty">Could not load drafts list.</p>';
+      draftRoot.innerHTML = `<p class="blog-draft-empty" data-i18n="blog.draftsError">${escapeHtml(tx("blog.draftsError", "Could not load drafts list."))}</p>`;
       return;
     }
 
     const indexEntries = await response.json();
     if (!Array.isArray(indexEntries) || indexEntries.length === 0) {
-      draftRoot.innerHTML = '<p class="blog-draft-empty">Nothing listed here yet.</p>';
+      draftRoot.innerHTML = `<p class="blog-draft-empty" data-i18n="blog.draftsEmpty">${escapeHtml(tx("blog.draftsEmpty", "Nothing listed here yet."))}</p>`;
       return;
     }
 
@@ -170,7 +177,7 @@ async function loadDrafts() {
       return (b.slug || "").localeCompare(a.slug || "");
     });
     if (rows.length === 0) {
-      draftRoot.innerHTML = '<p class="blog-draft-empty">Nothing listed here yet.</p>';
+      draftRoot.innerHTML = `<p class="blog-draft-empty" data-i18n="blog.draftsEmpty">${escapeHtml(tx("blog.draftsEmpty", "Nothing listed here yet."))}</p>`;
       return;
     }
 

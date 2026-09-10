@@ -15,6 +15,13 @@ function escapeHtml(text) {
     .replace(/'/g, "&#39;");
 }
 
+function tx(key, fallback) {
+  if (window.MarinaI18n && typeof window.MarinaI18n.t === "function") {
+    return window.MarinaI18n.t(key);
+  }
+  return fallback;
+}
+
 /** Placeholder so literal `<br>` in markdown survives escapeHtml and becomes a line break. */
 const INLINE_BR_TOKEN = "@@MARINA_INLINE_BR@@";
 
@@ -265,19 +272,24 @@ function enhanceCodeBlocks(root) {
     const lang = langMatch ? langMatch[1] : "";
     const label = document.createElement("span");
     label.className = "blog-code-lang";
-    label.textContent = lang || "code";
+    label.textContent = lang || tx("blog.code", "code");
+    if (!lang) {
+      label.setAttribute("data-i18n", "blog.code");
+    }
 
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "blog-code-copy";
-    btn.setAttribute("aria-label", "Copy code to clipboard");
-    btn.textContent = "Copy";
+    btn.setAttribute("aria-label", tx("blog.copyAria", "Copy code to clipboard"));
+    btn.setAttribute("data-i18n-aria", "blog.copyAria");
+    btn.setAttribute("data-i18n", "blog.copy");
+    btn.textContent = tx("blog.copy", "Copy");
 
     btn.addEventListener("click", async () => {
       const ok = await copyToClipboard(code.textContent);
-      btn.textContent = ok ? "Copied!" : "Copy failed";
+      btn.textContent = ok ? tx("blog.copied", "Copied!") : tx("blog.copyFailed", "Copy failed");
       setTimeout(() => {
-        btn.textContent = "Copy";
+        btn.textContent = tx("blog.copy", "Copy");
       }, 2200);
     });
 
@@ -296,7 +308,7 @@ async function loadPost() {
   const articleRoot = titleRoot?.closest(".blog-post-page");
 
   if (!slug || !titleRoot || !subtitleRoot || !contentRoot) {
-    if (contentRoot) contentRoot.innerHTML = "<p>Missing post slug.</p>";
+    if (contentRoot) contentRoot.innerHTML = `<p data-i18n="blog.missingSlug">${tx("blog.missingSlug", "Missing post slug.")}</p>`;
     return;
   }
 
@@ -305,7 +317,7 @@ async function loadPost() {
   try {
     const postResponse = await fetch(mdPath, { cache: "no-store" });
     if (!postResponse.ok) {
-      throw new Error("Could not load post content.");
+      throw new Error(tx("blog.loadError", "Could not load post content."));
     }
     const markdown = await postResponse.text();
     const { meta, body } = parseFrontMatter(markdown);

@@ -25,4 +25,8 @@ module.exports = [
     files: ["public/js/theme-mode.js"],
     rules: { "no-unused-vars": ["error", { "varsIgnorePattern": "^switchTheme$" }] },
   },
+  {
+    files: ["public/js/i18n.js"],
+    rules: { "no-unused-vars": ["error", { "varsIgnorePattern": "^MarinaI18n$" }] },
+  },
 ];

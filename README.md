@@ -1,8 +1,4 @@
-# 👸🏻 marina.nullstar.fun
-
-<br>
-
-## running locally
+# 👸🏻 marina.nullstar.fun 
 
 <br>
 

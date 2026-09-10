@@ -37,6 +37,7 @@
 	
 	<!-- Theme script -->
 	<script type="application/javascript" src="/js/theme-mode.js"></script>
+	<script type="application/javascript" src="/js/i18n.js"></script>
 </head>
 
 <body>
@@ -52,10 +53,10 @@
 							<nav class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
 								<div class="UnderlineNav-body">
 									<a class="UnderlineNav-item selected" href="/">
-										<code class="code-small">work</code>
+										<code class="code-small" data-i18n="nav.work">work</code>
 									</a>
 									<a class="UnderlineNav-item" href="/pages/blog.html">
-										<code class="code-small">blog</code>
+										<code class="code-small" data-i18n="nav.blog">blog</code>
 									</a>
 								</div>
           							<div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -197,8 +198,8 @@
 										<span class="p-nickname vcard-username d-block"> 
 											<strong>
 												<h4 class="text-1">
-													<br><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch">Theoretical Astrophysicist</a> → 
-												    <br><a target="_blank" href="https://github.com/von-steinkirch">Principal Software Engineer</a> 
+													<br><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch" data-i18n="role.physicist">Theoretical Astrophysicist</a> → 
+												    <br><a target="_blank" href="https://github.com/von-steinkirch" data-i18n="role.engineer">Principal Software Engineer</a> 
 													</span>
 											   </h4>
 											</strong>
@@ -219,10 +220,10 @@
 						<nav class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
 							<div class="UnderlineNav-body">
 								<a class="UnderlineNav-item selected" href="/">
-									<code class="code-large">work</code>
+									<code class="code-large" data-i18n="nav.work">work</code>
 								</a>
 								<a class="UnderlineNav-item" href="/pages/blog.html">
-									<code class="code-large">blog</code>
+									<code class="code-large" data-i18n="nav.blog">blog</code>
 								</a>
 							</div>
 						</nav>
@@ -235,10 +236,11 @@
 										<!-- Specialization Section -->
 										<section class="content-section">
 
-											<h1 class="section-title">Professional Bio</h1>
+											<h1 class="section-title" data-i18n="home.bio.title">Professional Bio</h1>
 
 											<br>
 
+											<div data-i18n-html="home.bio">
 											I am a <b><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/">theoretical physicist</a></b> by training (B.Sc. at the University of Sao Paulo; M.Sc. en route, Ph.D. at Stony Brook University; graduate research at the Los Alamos National Laboratory and Brookhaven National Laboratory; <b><a target="_blank" href="https://web.archive.org/web/20090620090344/http://www.steinkirch.org/">undergraduate research</a></b> at NASA Goddard Space Center) and a <b><a target="_blank" href="https://github.com/von-steinkirch">principal software engineer by trade</a></b> (Shopify, Apple, Etsy, Yelp, startups, and private projects — both as an individual contributor and in leadership roles).
 											<br><br>
 
@@ -248,15 +250,16 @@
 
 											<br><br>
 											I am grateful to have been able to dedicate every day to my passion — constantly learning, experimenting, and deepening my knowledge during these extraordinary days of technological acceleration — and I hope to do so until the very last breath of my existence.
+											</div>
 											<br><br><br>
 
-											<h1 class="section-title">Long-Term Intellectual Interests</h1>
+											<h1 class="section-title" data-i18n="home.interests.title">Long-Term Intellectual Interests</h1>
 											<br>
 											<ol>
-												<li><strong><span class="highlight-text font-orbitron">AI + ML</span> → Multiplayer Agents; Infrastructure; Graphs; Memory; Interpretability; Robots; Local; AGI</strong> </li>
-												<li><strong><span class="highlight-text font-orbitron">Physics</span> → <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/qi.pdf">Quantum</a> <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/qft.pdf">Field</a> <a target="_blank" href="https://github.com/future-ai-org/my-phd-theoretical-physics-calculations-and-notes">Theories</a>; <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf">Group Theory</a>; <a href="https://www.astro.sunysb.edu/steinkirch/reviews/cte_cosmologica_nov_2007.pdf" target="_blank">Cosmology</a>; Game Theory; Astronomy; Qubits </strong> </li>
-												<li><strong><span class="highlight-text font-orbitron">Clean Code</span> → <a target="_blank" href="https://github.com/future-ai-org/master-algorithms-py">Python</a>; Rust; Lean; Algorithms; Formal Verification; Logic; Blockchains; Security</strong> </li>
-												<li><strong><span class="highlight-text font-orbitron">Storytelling</span> → <a href="https://matrix.nullstar.fun" target="_blank">The Hero's Journey</a>; Philosophy; Theology; The Human Condition; History; Agape</strong> </li>
+												<li><strong data-i18n-html="home.interests.ai"><span class="highlight-text font-orbitron">AI + ML</span> → Multiplayer Agents; Infrastructure; Graphs; Memory; Interpretability; Robots; Local; AGI</strong> </li>
+												<li><strong data-i18n-html="home.interests.physics"><span class="highlight-text font-orbitron">Physics</span> → <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/qi.pdf">Quantum</a> <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/qft.pdf">Field</a> <a target="_blank" href="https://github.com/future-ai-org/my-phd-theoretical-physics-calculations-and-notes">Theories</a>; <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf">Group Theory</a>; <a href="https://www.astro.sunysb.edu/steinkirch/reviews/cte_cosmologica_nov_2007.pdf" target="_blank">Cosmology</a>; Game Theory; Astronomy; Qubits </strong> </li>
+												<li><strong data-i18n-html="home.interests.code"><span class="highlight-text font-orbitron">Clean Code</span> → <a target="_blank" href="https://github.com/future-ai-org/master-algorithms-py">Python</a>; Rust; Lean; Algorithms; Formal Verification; Logic; Blockchains; Security</strong> </li>
+												<li><strong data-i18n-html="home.interests.story"><span class="highlight-text font-orbitron">Storytelling</span> → <a href="https://matrix.nullstar.fun" target="_blank">The Hero's Journey</a>; Philosophy; Theology; The Human Condition; History; Agape</strong> </li>
 											</ol>
 										</section>
 
@@ -265,11 +268,11 @@
 								<!-- Publications Section -->
 								<section class="content-section">
 						
-									<h1 class="section-title">Public Technical Research I Published</h1>
+									<h1 class="section-title" data-i18n="home.pubs.title">Public Technical Research I Published</h1>
 	
 									<br>
 	
-									<h3><span class="success-text text-1 font-orbitron">Theoretical Physics || Astrophysics || Quantum Computing</span></h3>
+									<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.physics">Theoretical Physics || Astrophysics || Quantum Computing</span></h3>
 									<br>
 										<ul>	
 											<li><a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf"><strong>[2011] 👾👾👾👾👾👾 On Group Theory for Physicists [e-book]</a></strong></li>
@@ -312,7 +315,7 @@
 										</ul>
 									<br>
 	
-									<h3><span class="success-text text-1 font-orbitron">Artificial Intelligence || Machine Learning || Robotics</span></h3>
+									<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.ai">Artificial Intelligence || Machine Learning || Robotics</span></h3>
 									<br>
 										<ul>	
 											<li><strong>[2016] 👾👾👾👾 On ML + AI Studies While I Was Living in the Bay Area: <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-1.html">Zero</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-2.html">One</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-3.html">Two</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-4.html">Three</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-5.html">Four</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-6.html">Five</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-7.html">Six</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-8.html">Seven</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-9.html">Eight</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-10.html">Nine</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-11.html">Ten</a>, <a target="_blank" href="https://singularity.nullstar.fun/studies-in-machine-learning-ai-12.html">Eleven</a>, <a target="_blank" href="https://singularity.nullstar.fun/thinking-about-machine-learning-data-pipelines.html">Twelve</a>, <a target="_blank" href="https://singularity.nullstar.fun/fun-with-genetic-algorithms.html">Thirteen</a></strong></li>
@@ -331,7 +334,7 @@
 										</ul>
 									<br>
 	
-									<h3><span class="success-text text-1 font-orbitron">Privacy || Security || Infrastructure</span></h3>
+									<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.sec">Privacy || Security || Infrastructure</span></h3>
 									<br>
 										<ul>	
 											<li><a target="_blank" href="https://singularity.nullstar.fun/smashing-the-stack-for-fun-or-wargames-narnia-0-4.html"><strong>[2014] 👾👾👾👾 On Smashing the Stack for Fun or WarGames</a></strong></li>
@@ -386,7 +389,7 @@
 										</ul>	
 									<br>
 	
-									<h3><span class="success-text text-1 font-orbitron">Blockchains || Decentralized Finance</span></h3>
+									<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.chain">Blockchains || Decentralized Finance</span></h3>
 									<br>
 										<ul>
 											<li><a target="_blank" href="https://mirror.xyz/go-outside.eth/UVHQEQ62KnAuozj5Rn5fjUHvDSYBBhqOxLhHV_wAQTI"><strong>[2023] 👾👾👾👾 On My Loot-based ERC-721 for FilmmakerDAO</a></strong></li>	
@@ -421,10 +424,10 @@
 
 										<br>
 
-								<h1 class="section-title">Open-Source Projects I Authored</h1>
+								<h1 class="section-title" data-i18n="home.oss.title">Open-Source Projects I Authored</h1>
 								<br>
 							
-								<h3><span class="success-text text-1 font-orbitron">Theoretical Physics || Astrophysics || Quantum Computing</span></h3>
+								<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.physics">Theoretical Physics || Astrophysics || Quantum Computing</span></h3>
 								<br>
 									<ul>
 										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/astrophysics-mfits-py">[2013] 👾👾👾👾 astrophysics-mfits-py</a></strong>, statistical analysis of x-ray bursters (monte carlo, python, idl)</li>
@@ -439,7 +442,7 @@
 									</ul>
 								<br>
 
-								<h3><span class="success-text text-1 font-orbitron">Artificial Intelligence || Machine Learning || Robotics</span></h3>
+								<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.ai">Artificial Intelligence || Machine Learning || Robotics</span></h3>
 								<br>
 									<ul>
 										<li><strong><a target="_blank" href="https://github.com/future-ai-org/ml-classifiers-and-experiments-py">[2014] 👾👾👾👾👾 ml-classifiers-and-experiments-py</a></strong>, ML/AI algorithms from first principles (python)</li>
@@ -456,7 +459,7 @@
 										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/ml-netclean">[2014] 👾 ml-netclean-py</a></strong>, code for cleansing vector data for complex networks (python, shell)</li>
 									</ul>
 								<br>
-								<h3><span class="success-text text-1 font-orbitron">Privacy || Security || Infrastructure</span></h3>
+								<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.sec">Privacy || Security || Infrastructure</span></h3>
 								<br>
 									<ul>
 										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/surfline-pipeline-aws-py">[2019] 👾👾👾👾 surfline-pipeline-py</a></strong>, my production code for <strong><a target="_blank" href="https://www.surfline.com/lp/sessions">surfline sessions</a></strong> (python, terraform, k8s)</li>
@@ -472,7 +475,7 @@
 									</ul>
 								<br>
 
-								<h3><span class="success-text text-1 font-orbitron">Blockchains || Decentralized Finance</span></h3>
+								<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.chain">Blockchains || Decentralized Finance</span></h3>
 								<br>
 									<ul>
 										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/amm-arbitrage-tool-py">[2022] 👾👾👾👾 amm-arbitrage-tool-py</a></strong>, a tool for arbitrage on uniswap v2 &amp;&amp; forks (python)</li>
@@ -498,7 +501,7 @@
 										<li><strong><a target="_blank" href="https://github.com/autistic-symposium/coin-mixer-py">[2021] 👾👾 coin-mixer-py</a></strong>, back-of-the-envelope proof-of-concept (python)</li>
 									</ul>
 								<br>
-								<h3><span class="success-text text-1 font-orbitron">Just for Fun || Frontend AI-Driven Projects</span></h3>
+								<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.fun">Just for Fun || Frontend AI-Driven Projects</span></h3>
 								
 								<br>
 
@@ -515,7 +518,7 @@
 								<br>
 								<br>
 
-								<h1 class="section-title">Third-Party Projects I've Contributed To</h1>
+								<h1 class="section-title" data-i18n="home.contrib.title">Third-Party Projects I've Contributed To</h1>
 									<br>
 									<ul>	
 										<li><strong><a target="_blank" href="https://github.com/hellas-ai/catgrad">[2025] 👾👾👾👾 catgrad</a></strong>, a deep learning compiler using category theory to statically compile models (rust)</strong></li>
@@ -532,7 +535,7 @@
 										<br>
 										<br>
 									<h3>
-										<span class="text-1 font-orbitron">easter egg → <a target="_blank" href="/pages/ARXIV/qa.html">🎮</strong></a>
+										<span class="text-1 font-orbitron" data-i18n="home.easter">easter egg →</span> <a target="_blank" href="/pages/ARXIV/qa.html">🎮</a>
 									</h3>
 	
 									</section>
