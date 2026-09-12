@@ -6,9 +6,11 @@
 const fs = require("fs");
 const path = require("path");
 
-const publicDir = process.env.MARINA_HTML_BR_LINT_ROOT
-  ? path.resolve(process.env.MARINA_HTML_BR_LINT_ROOT)
-  : path.join(__dirname, "..", "public");
+function getPublicDir() {
+  return process.env.MARINA_HTML_BR_LINT_ROOT
+    ? path.resolve(process.env.MARINA_HTML_BR_LINT_ROOT)
+    : path.join(__dirname, "..", "public");
+}
 
 function walk(dir, out = []) {
   if (!fs.existsSync(dir)) {
@@ -37,28 +39,38 @@ function normalizeBrTags(content) {
   );
 }
 
-const fix = process.argv.includes("--fix");
-const files = walk(publicDir);
-let bad = 0;
+function runCli(argv = process.argv) {
+  const fix = argv.includes("--fix");
+  const files = walk(getPublicDir());
+  let bad = 0;
 
-for (const file of files) {
-  const before = fs.readFileSync(file, "utf8");
-  const after = normalizeBrTags(before);
-  if (before === after) {
-    continue;
+  for (const file of files) {
+    const before = fs.readFileSync(file, "utf8");
+    const after = normalizeBrTags(before);
+    if (before === after) {
+      continue;
+    }
+    bad += 1;
+    if (fix) {
+      fs.writeFileSync(file, after, "utf8");
+      process.stdout.write(`fixed: ${path.relative(process.cwd(), file)}\n`);
+    } else {
+      process.stdout.write(
+        `non-canonical <br> usage: ${path.relative(process.cwd(), file)}\n` +
+          "  run: node scripts/lint-html-br.js --fix\n",
+      );
+    }
   }
-  bad += 1;
-  if (fix) {
-    fs.writeFileSync(file, after, "utf8");
-    process.stdout.write(`fixed: ${path.relative(process.cwd(), file)}\n`);
-  } else {
-    process.stdout.write(
-      `non-canonical <br> usage: ${path.relative(process.cwd(), file)}\n` +
-        "  run: node scripts/lint-html-br.js --fix\n",
-    );
+
+  if (bad && !fix) {
+    process.exitCode = 1;
   }
+  return bad;
 }
 
-if (bad && !fix) {
-  process.exitCode = 1;
+module.exports = { getPublicDir, walk, normalizeBrTags, runCli };
+
+/* istanbul ignore next */
+if (require.main === module) {
+  runCli();
 }

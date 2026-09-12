@@ -3,14 +3,13 @@
 import os
 import subprocess
 from pathlib import Path
-from typing import Dict, Optional
 
 REPO = Path(__file__).resolve().parents[1]
 SCRIPT = REPO / "scripts" / "lint-html-br.js"
 
 
 def _run(
-    *, cwd: Path, env: Optional[Dict[str, str]] = None
+    *, cwd: Path, env: dict[str, str] | None = None
 ):
     return subprocess.run(
         ["node", str(SCRIPT)],

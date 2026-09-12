@@ -1,4 +1,4 @@
-# Run tests and linter (same as pre-commit: test, html-br, ruff, eslint)
+# Run tests (100% coverage) and linter (same as pre-commit: test, html-br, ruff, eslint, stylelint)
 name: CI
 
 on:
@@ -21,10 +21,14 @@ jobs:
       - name: Install dev dependencies
         run: pip install -r requirements-dev.txt
 
-      - name: Set up Node (for ESLint hook)
+      - name: Set up Node (for tests, coverage, ESLint, Stylelint)
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: npm
+
+      - name: Install JS dependencies
+        run: npm ci
 
       - name: Run tests and linter
         run: pre-commit run --all-files

@@ -50,11 +50,10 @@
 }
 .qa-question-text {
 	font-weight: 900;
-	color: var(--color-fg-default);
 	line-height: 1.55;
 	margin: 0;
 	font-size: 1.2rem !important;
-	color:#1cffb3;
+	color: #1cffb3;
 }
 .qa-answer {
 	font-weight: 700;
@@ -83,6 +82,98 @@
 	color: var(--color-fg-muted);
 	line-height: 1.7;
 	margin: 0;
+	min-width: 0;
+	flex: 1;
+}
+.qa-answer-text > p {
+	margin: 0;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+}
+.markdown-body .qa-routine {
+	list-style: none;
+	margin: 0.85rem 0 1.25rem;
+	padding: 0.2rem 0.95rem;
+	width: 78%;
+	max-width: 30rem;
+	background: rgba(191, 0, 255, 0.07);
+	border: 1px solid rgba(191, 0, 255, 0.16);
+	border-radius: 10px;
+}
+.markdown-body .qa-routine:last-child {
+	margin-bottom: 0;
+}
+.markdown-body .qa-routine li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.7rem;
+	margin: 0;
+	padding: 0.58rem 0;
+	border-bottom: 1px solid rgba(191, 0, 255, 0.12);
+	font-size: inherit;
+	line-height: 1.5;
+}
+.markdown-body .qa-routine li > span:last-child {
+	min-width: 0;
+	flex: 1;
+}
+.markdown-body .qa-routine li:last-child {
+	border-bottom: none;
+}
+.qa-routine-mark {
+	flex: 0 0 1.6rem;
+	width: 1.6rem;
+	height: 1.6rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	font-size: 0.92rem;
+	line-height: 1;
+	margin-top: 0.05rem;
+}
+.qa-routine--day .qa-routine-mark {
+	background: rgba(255, 196, 72, 0.18);
+}
+.qa-routine--night .qa-routine-mark {
+	background: rgba(120, 160, 255, 0.18);
+}
+[data-color-mode=dark] .markdown-body .qa-routine {
+	background: rgba(191, 0, 255, 0.08);
+	border-color: rgba(197, 132, 219, 0.22);
+}
+[data-color-mode=dark] .markdown-body .qa-routine li {
+	border-bottom-color: rgba(197, 132, 219, 0.14);
+}
+
+.markdown-body .qa-warning {
+	margin: 0;
+	padding: 1rem 1.15rem;
+	border: 1px solid rgba(255, 68, 68, 0.4);
+	border-left: 4px solid #ff4444;
+	border-radius: 10px;
+	background: rgba(255, 68, 68, 0.09);
+	box-shadow: 0 0 18px rgba(255, 68, 68, 0.16);
+	color: #b42318;
+}
+.markdown-body .qa-warning p {
+	margin: 0 0 0.8rem;
+	font-size: inherit;
+	line-height: 1.7;
+	color: inherit;
+}
+.markdown-body .qa-warning p:last-child {
+	margin-bottom: 0;
+}
+.markdown-body .qa-warning code {
+	color: inherit;
+	background: rgba(255, 68, 68, 0.12);
+}
+[data-color-mode=dark] .markdown-body .qa-warning {
+	background: rgba(255, 68, 68, 0.1);
+	border-color: rgba(255, 68, 68, 0.45);
+	color: #ff8a8a;
 }
 
 /* Sidebar "Connect Professionally" title – same pink as newsletter subscription title */

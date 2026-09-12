@@ -336,3 +336,15 @@ async function loadPost() {
 }
 
 window.addEventListener("DOMContentLoaded", loadPost);
+
+globalThis.MarinaBlogPost = {
+  assetUrl,
+  escapeHtml,
+  tx,
+  parseInline,
+  parseFrontMatter,
+  markdownToHtml,
+  copyToClipboard,
+  enhanceCodeBlocks,
+  loadPost,
+};

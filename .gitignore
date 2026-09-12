@@ -17,8 +17,14 @@ build/
 # venv/
 # env/
 
-# Node (if you add package.json later)
+# Node
 node_modules/
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+.coverage.*
 
 # pre-commit (local env cache when running outside CI)
 .pre-commit-cache/

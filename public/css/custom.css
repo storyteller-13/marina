@@ -43,7 +43,7 @@ img {
 .text-2_5 { font-size: 2.5rem; }
 
 .nice-ff {
-    font-family: 'Orbitron' !important;
+    font-family: 'Orbitron', monospace !important;
 }
 
 .highlight-text {
@@ -110,9 +110,34 @@ p.journey-footnote {
     }
 }
 
+.profile-color-modes {
+    overflow: visible;
+}
+
+.lang-color-modes-illu {
+    position: absolute;
+    top: 0;
+    left: -160px;
+    width: 106px;
+    height: 60px;
+    pointer-events: none;
+}
+
+.lang-color-modes-illu-group {
+    stroke: var(--color-auto-gray-3);
+}
+
+.lang-color-modes-illu-frame {
+    opacity: 0;
+}
+
+.profile-color-modes-toggle {
+    z-index: 1;
+}
+
 .profile-color-modes-toggle.lang-toggle {
     right: auto;
-    left: -54px;
+    left: -64px;
     cursor: pointer;
 }
 
@@ -134,6 +159,112 @@ html[data-locale="ja"][data-color-mode="auto"] .profile-color-modes-toggle.lang-
 
 html[data-locale="ja"] .profile-color-modes-toggle.lang-toggle:hover .profile-color-modes-toggle-thumb {
     transform: translateX(18px) scale(1.05);
+}
+
+/* Dog illu: same wake/sleep frames as the theme cat, driven by locale */
+:root .lang-color-modes-illu-frame:nth-child(8),
+html:not([data-locale="ja"]) .lang-color-modes-illu-frame:nth-child(8) {
+    animation: profile-light-color-modes-illu-anim-frame-show 0s forwards,
+        profile-light-color-modes-illu-anim-frame-hide 0s 0.3s forwards;
+}
+
+:root .lang-color-modes-illu-frame:nth-child(9),
+html:not([data-locale="ja"]) .lang-color-modes-illu-frame:nth-child(9) {
+    animation: profile-light-color-modes-illu-anim-frame-show 0s 0.3s forwards,
+        profile-light-color-modes-illu-anim-frame-hide 0s 0.36s forwards;
+}
+
+:root .lang-color-modes-illu-frame:nth-child(10),
+html:not([data-locale="ja"]) .lang-color-modes-illu-frame:nth-child(10) {
+    animation: profile-light-color-modes-illu-anim-frame-show 0s 0.36s forwards;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-red {
+    stroke: var(--color-scale-red-5);
+    animation-delay: 0.4s;
+    animation-duration: 0.1s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-orange {
+    stroke: var(--color-scale-orange-3);
+    animation-delay: 0.5s;
+    animation-duration: 0.1s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-purple {
+    stroke: var(--color-scale-purple-5);
+    animation-delay: 0.6s;
+    animation-duration: 0.1s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-green {
+    stroke: var(--color-scale-green-3);
+    animation-delay: 0.8s;
+    animation-duration: 0.2s;
+    animation-timing-function: cubic-bezier(0.47, 2.92, 0.84, -1.5);
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-blue {
+    stroke: var(--color-scale-blue-4);
+    animation-delay: 0.7s;
+    animation-duration: 0.1s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-group {
+    animation: profile-color-modes-illu-anim 0.2s cubic-bezier(0.72, 0.08, 1, 0.68) backwards;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame {
+    animation: profile-color-modes-illu-anim-frame-show 0s forwards,
+        profile-color-modes-illu-anim-frame-hide 0s forwards;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:first-child {
+    opacity: 1;
+    animation: profile-color-modes-illu-anim-frame-hide 0s forwards;
+    animation-delay: 1.8s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(8) {
+    animation: profile-color-modes-illu-anim-frame-show 0s forwards;
+    animation-delay: 3.56s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(2) {
+    animation-delay: 1.8s, 2.58s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(3) {
+    animation-delay: 2.58s, 2.66s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(4) {
+    animation-delay: 2.66s, 2.78s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(5) {
+    animation-delay: 2.78s, 2.84s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(6) {
+    animation-delay: 2.84s, 3.44s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(7) {
+    animation-delay: 3.44s, 3.56s;
+}
+
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(9),
+html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(10) {
+    animation: none;
+}
+
+.lang-color-modes-illu.isInitialLang .lang-color-modes-illu-frame,
+.lang-color-modes-illu.isInitialLang .lang-color-modes-illu-group,
+html .lang-color-modes-illu.isInitialLang .lang-color-modes-illu-frame:first-child,
+html .lang-color-modes-illu.isInitialLang .lang-color-modes-illu-frame:nth-child(n) {
+    animation-duration: 0s;
+    animation-delay: 0s;
 }
 
 @media (max-width: 767.98px) {
@@ -553,6 +684,30 @@ html[data-locale="ja"] .section-title {
     .easter-egg::after {
         animation: none;
     }
+}
+
+.vcard-names {
+    text-align: center;
+}
+
+.vcard-fullname .success-text {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.role-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.role-plus {
+    display: block;
+    font-size: 1.75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #bf00ff;
 }
 
 /* Neon theme toggle effects */
@@ -1172,7 +1327,7 @@ html[data-locale="ja"] .error-404 .home-link {
     .section-title {
         font-size: 1.85rem;
         line-height: 1.2;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .blog-draft-backlogs-heading .blog-draft-backlogs-title-text {
@@ -1234,7 +1389,6 @@ html[data-locale="ja"] .error-404 .home-link {
         display: inline-block;
         max-width: 100%;
         overflow-wrap: anywhere;
-        word-break: break-word;
     }
 
     .blog-draft-section {
@@ -1250,7 +1404,6 @@ html[data-locale="ja"] .error-404 .home-link {
         display: inline-block;
         max-width: 100%;
         overflow-wrap: anywhere;
-        word-break: break-word;
     }
 }
 

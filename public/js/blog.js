@@ -105,8 +105,8 @@ async function loadBlog() {
     rendered.forEach((post) => {
       const line = document.createElement("p");
       line.className = "blog-line";
-      const safeDate = escapeHtml(post.date || "");
-      const safeTitle = escapeHtml(post.title || "");
+      const safeDate = escapeHtml(post.date);
+      const safeTitle = escapeHtml(post.title);
       line.innerHTML = `<a class="blog-line-link" href="post.html?post=${post.safeSlug}"><span class="blog-line-date">${safeDate}</span>; ${safeTitle}</a>`;
       listRoot.appendChild(line);
     });
@@ -166,7 +166,7 @@ async function loadDrafts() {
       return { statusLabel, title, date, slug };
     }));
 
-    const rows = rendered.filter((row) => row && (row.title || "").trim());
+    const rows = rendered.filter((row) => row && row.title.trim());
     rows.sort((a, b) => {
       const aTime = Date.parse(a.date || "");
       const bTime = Date.parse(b.date || "");
@@ -185,8 +185,8 @@ async function loadDrafts() {
     rows.forEach((row) => {
       const line = document.createElement("p");
       line.className = "blog-line blog-draft-line";
-      const safeStatus = escapeHtml(row.statusLabel || "wip");
-      const safeTitle = escapeHtml(row.title || "");
+      const safeStatus = escapeHtml(row.statusLabel);
+      const safeTitle = escapeHtml(row.title);
       line.innerHTML = `<span class="blog-draft-row"><span class="blog-line-date">${safeStatus}</span>; <span class="blog-draft-title">${safeTitle}</span></span>`;
       draftRoot.appendChild(line);
     });
@@ -199,3 +199,12 @@ window.addEventListener("DOMContentLoaded", () => {
   loadBlog();
   loadDrafts();
 });
+
+globalThis.MarinaBlog = {
+  assetUrl,
+  escapeHtml,
+  tx,
+  parseFrontMatter,
+  loadBlog,
+  loadDrafts,
+};

@@ -3,7 +3,10 @@ const globals = require("globals");
 
 module.exports = [
   {
-    files: ["eslint.config.js"],
+    ignores: ["coverage/**", "node_modules/**"],
+  },
+  {
+    files: ["eslint.config.js", "stylelint.config.js"],
     languageOptions: { globals: { ...globals.node } },
   },
   js.configs.recommended,
@@ -22,11 +25,10 @@ module.exports = [
     },
   },
   {
-    files: ["public/js/theme-mode.js"],
-    rules: { "no-unused-vars": ["error", { "varsIgnorePattern": "^switchTheme$" }] },
-  },
-  {
-    files: ["public/js/i18n.js"],
-    rules: { "no-unused-vars": ["error", { "varsIgnorePattern": "^MarinaI18n$" }] },
+    files: ["tests/js/**/*.js", "jest.config.js"],
+    languageOptions: {
+      globals: { ...globals.node, ...globals.jest, ...globals.browser },
+      ecmaVersion: 2022,
+    },
   },
 ];

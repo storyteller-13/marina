@@ -7,7 +7,6 @@ import json
 import re
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 POSTS_DIR = ROOT / "public" / "blog" / "posts"
 INDEX_FILE = ROOT / "public" / "blog" / "posts.json"
@@ -86,5 +85,5 @@ def main() -> None:
     print(f"Synced {len(drafts)} drafts -> {DRAFTS_INDEX_FILE}")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()

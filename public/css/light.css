@@ -1,4 +1,4 @@
-git push -f origin main:root {
+:root {
   --color-canvas-default-transparent: rgba(255,255,255,0);
   --color-page-header-bg: #f6f8fa;
   --color-diff-blob-addition-num-text: #24292f;

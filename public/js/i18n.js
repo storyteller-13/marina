@@ -64,28 +64,21 @@ const MESSAGES = {
     "qa.intro": "This page offers colleagues a glimpse into the human behind the work.",
     "qa.q1": "What does your day-to-day look like?",
     "qa.a1":
-      '➡️ I love routines, and my career and family are my two greatest priorities. As a result, my mornings tend to follow the same rhythm:' +
-      "<br><br>" +
-      "☀️ Wake up + shower + spa" +
-      "<br>" +
-      '☀️ <a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">Journal</a> + Hatha yoga or Kung Fu' +
-      "<br>" +
-      "☀️ Coffee + protein-based breakfast" +
-      "<br>" +
-      '☀️    <a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + a little bit of chess and piano' +
-      "<br>" +
-      "☀️   Start Working!" +
-      "<br><br>" +
-      "➡️ In the evenings, I usually:" +
-      "<br>" +
-      "<br>" +
-      '🌙   <a target="_blank" href="https://gist.github.com/von-steinkirch/abceab872b7a4bab220e64230f92a66a">Read</a>, <a target="_blank" href="https://gist.github.com/von-steinkirch/2f6c82155253bf9fc113fbc966037a7d">watch movies</a>, <a href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e" target="_blank" >play</a>, dance, or work out' +
-      "<br>" +
-      "🌙  Check messages and the news + plan the next day" +
-      "<br>" +
-      "🌙  Shower + spa + meditation" +
-      "<br>" +
-      "🌙  Sleep and have very good dreams 😴",
+      "<p>I love routines, and my career and family are my two greatest priorities. As a result, my mornings tend to follow the same rhythm:</p>" +
+      '<ul class="qa-routine qa-routine--day">' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Wake up + shower + spa</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">Journal</a> + Hatha yoga or Kung Fu</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Coffee + protein-based breakfast</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + a little bit of chess and piano</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Start Working!</span></li>' +
+      "</ul>" +
+      "<p>In the evenings, I usually:</p>" +
+      '<ul class="qa-routine qa-routine--night">' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/abceab872b7a4bab220e64230f92a66a">Read</a>, <a target="_blank" href="https://gist.github.com/von-steinkirch/2f6c82155253bf9fc113fbc966037a7d">watch movies</a>, <a href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e" target="_blank">play</a>, dance, or work out</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>Check messages and the news + plan the next day</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>Shower + spa + meditation</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>Sleep and have very good dreams 😴</span></li>' +
+      "</ul>",
     "qa.q2": "What's your story with coding?",
     "qa.a2":
       'The first time I used a terminal, I was around 7 years old. It was <a target="_blank" href="https://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a> running on an <a target="_blank" href="/images/8086.png">i386</a> machine. I started coding in middle school, working with (very old) languages such as BASIC and Pascal/Delphi. In high school, I discovered C/C++. In grad school, Python.' +
@@ -123,7 +116,7 @@ const MESSAGES = {
       "<br><br>" +
       'My relationship with astrology, however, took a rather unexpected turn. In 2020, a PhD colleague of mine from <a href="https://github.com/zapatacomputing/z-qml" target="_blank">Zapata</a> <a href="https://github.com/zapatacomputing/z-lstm" target="_blank">Computing</a> introduced me to birth charts. He was a very intelligent person, so I decided to investigate more. As I tend to do with anything that captures my interest, I went down the rabbit hole: I read dozens of books and analyzed hundreds of birth charts, all while applying the skeptical, scientific mindset I have used throughout my life.' +
       "<br><br>" +
-      'I began noticing correlations and patterns, particularly in theories involving ascendants and angles, and I have been creating a mathematical theory drawing on my knowledges in <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf">Group Theory</a> and other related fields. There are still several open questions that I cannot confidently answer — and that I also cannot simply dismiss.' +
+      'I began noticing correlations and patterns, particularly in theories involving ascendants and angles, and I have been creating a mathematical theory drawing on my knowledge in <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf">Group Theory</a> and other related fields. There are still several open questions that I cannot confidently answer — and that I also cannot simply dismiss.' +
       "<br><br>" +
       'Astrology has therefore become one of the subjects I will continue to study seriously throughout my life, alongside astronomy, computer science, physics, math, philosophy, literature, history, movies, art, and music. Just like <a href="https://en.wikipedia.org/wiki/Isaac_Newton\'s_occult_studies" target="_blank">Isaac Newton</a>.',
     "qa.q6": "What's your story with traveling?",
@@ -151,13 +144,12 @@ const MESSAGES = {
       'As of 2026, I\'ve returned to the AI/ML space, and this is where I\'ll be building for the next decades. Although I still believe in the ethos of decentralization, I cannot endorse how toxic and casino-like things have become — <a target="_blank" href="https://gist.github.com/von-steinkirch/746bb4dffa5ba4c0e1042c4f822ecf72">but I do hope this will change</a>.',
     "qa.q9": "Do you have Instagram, OF, or any other form of personal online engagement?",
     "qa.a9":
-      "No. Obviously not. Never did, never will. My career and studies as an engineer and scientist have been my main focus throughout my entire life." +
-      "<br><br>" +
-      '<span style="color: #ff4444;">I am, and have always been, a very private person. I do not have and I never had any social media presence or other forms of online engagement beyond my GitHub (and the projects within it), personal YouTube, and email. The only official links for any of my work or projects are, and have always been, those listed on my website. If you have come across with any other links or accounts, they are and have always been a criminal impersonation.</span>' +
-      "<br><br>" +
-      '<span style="color: #ff4444;">Any access to, or streaming from, any of my devices is, and has always been, illegal and constitutes a violation of my privacy, dignity, and human rights. Any distribution of personal photographs or videos depicting my private life is, and has always been, illegal and constitutes a violation of my privacy, dignity, and human rights.</span>' +
-      "<br><br>" +
-      "Offenders will be prosecuted to the fullest extent of the law. If you are aware of such incidents, I'd deeply appreciate it if you INFORM THE POLICE and at <code>contact@vonsteinkirch.com</code>.",
+      '<aside class="qa-warning">' +
+      "<p>No. Obviously not. Never did, never will. My career and studies as an engineer and scientist have been my main focus throughout my entire life.</p>" +
+      "<p>I am, and have always been, a very private person. I do not have and I never had any social media presence or other forms of online engagement beyond my GitHub (and the projects within it), personal YouTube, and email. The only official links for any of my work or projects are, and have always been, those listed on my website. If you have come across with any other links or accounts, they are and have always been criminal impersonations.</p>" +
+      "<p>Any access to, or streaming from, any of my devices is, and has always been, illegal and constitutes a violation of my privacy, dignity, and human rights. Any distribution of personal photographs or videos depicting my private life is, and has always been, illegal and constitutes a violation of my privacy, dignity, and human rights.</p>" +
+      "<p>Offenders will be prosecuted to the fullest extent of the law. If you are aware of any such incidents, I'd deeply appreciate it if you INFORM THE POLICE and at <code>contact@vonsteinkirch.com</code>.</p>" +
+      "</aside>",
     "qa.slider":
       "impossible is a state of mind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it always seems impossible until it's done&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to achieve the impossible, one must attempt the absurd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the word impossible is not in my dictionary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a winner is a dreamer who never gives up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the harder the battle, the greater the triumph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
     "error.message": "page not found",
@@ -220,28 +212,21 @@ const MESSAGES = {
     "qa.intro": "仕事の向こう側にいる人間を、同僚に少し見せるページです。",
     "qa.q1": "日常はどんな感じですか？",
     "qa.a1":
-      "➡️ ルーティンが好きで、仕事と家族が私の二大優先事項です。そのため、朝はだいたい同じリズムです：" +
-      "<br><br>" +
-      "☀️ 起床 + シャワー + スパ" +
-      "<br>" +
-      '☀️ <a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">ジャーナル</a> + ハタヨガまたはカンフー' +
-      "<br>" +
-      "☀️ コーヒー + タンパク質中心の朝食" +
-      "<br>" +
-      '☀️    <a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + 少しチェスとピアノ' +
-      "<br>" +
-      "☀️   仕事開始！" +
-      "<br><br>" +
-      "➡️ 夜はたいてい：" +
-      "<br>" +
-      "<br>" +
-      '🌙   <a target="_blank" href="https://gist.github.com/von-steinkirch/abceab872b7a4bab220e64230f92a66a">読書</a>、<a target="_blank" href="https://gist.github.com/von-steinkirch/2f6c82155253bf9fc113fbc966037a7d">映画</a>、<a href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e" target="_blank" >ゲーム</a>、ダンス、またはトレーニング' +
-      "<br>" +
-      "🌙  メッセージとニュースの確認 + 翌日の計画" +
-      "<br>" +
-      "🌙  シャワー + スパ + 瞑想" +
-      "<br>" +
-      "🌙  眠って、とてもいい夢を見る 😴",
+      "<p>ルーティンが好きで、仕事と家族が私の二大優先事項です。そのため、朝はだいたい同じリズムです：</p>" +
+      '<ul class="qa-routine qa-routine--day">' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>起床 + シャワー + スパ</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">ジャーナル</a> + ハタヨガまたはカンフー</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>コーヒー + タンパク質中心の朝食</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + 少しチェスとピアノ</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>仕事開始！</span></li>' +
+      "</ul>" +
+      "<p>夜はたいてい：</p>" +
+      '<ul class="qa-routine qa-routine--night">' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/abceab872b7a4bab220e64230f92a66a">読書</a>、<a target="_blank" href="https://gist.github.com/von-steinkirch/2f6c82155253bf9fc113fbc966037a7d">映画</a>、<a href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e" target="_blank">ゲーム</a>、ダンス、またはトレーニング</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>メッセージとニュースの確認 + 翌日の計画</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>シャワー + スパ + 瞑想</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>眠って、とてもいい夢を見る 😴</span></li>' +
+      "</ul>",
     "qa.q2": "プログラミングとの関わりは？",
     "qa.a2":
       '初めてターミナルを触ったのは7歳くらいのときでした。<a target="_blank" href="/images/8086.png">i386</a>マシン上の<a target="_blank" href="https://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a>です。中学でプログラミングを始め、BASICやPascal/Delphiといった（とても古い）言語を使いました。高校でC/C++に出会い、大学院でPythonに出会いました。' +
@@ -307,13 +292,12 @@ const MESSAGES = {
       '2026年現在、AI/MLの領域に戻っており、これからの数十年はここで作ります。分散の精神はいまも信じていますが、有毒でカジノ化した現状は支持できません——<a target="_blank" href="https://gist.github.com/von-steinkirch/746bb4dffa5ba4c0e1042c4f822ecf72">それでも、変わってほしいとは願っています</a>。',
     "qa.q9": "Instagram、OF、その他の個人的なオンライン発信はしていますか？",
     "qa.a9":
-      "いいえ。当然しません。したこともなく、これからもありません。エンジニアおよび科学者としてのキャリアと研究が、生涯の主眼です。" +
-      "<br><br>" +
-      '<span style="color: #ff4444;">私は、そして常に、非常に私的な人間です。GitHub（とその中のプロジェクト）、個人のYouTube、メール以外に、ソーシャルメディア上の存在や他の形態のオンライン発信は持っておらず、持ったこともありません。私の仕事やプロジェクトの公式リンクは、そして常に、このウェブサイトに掲載されているものだけです。それ以外のリンクやアカウントに出会った場合、それらは、そして常に、犯罪的ななりすましです。</span>' +
-      "<br><br>" +
-      '<span style="color: #ff4444;">私のいずれかのデバイスへのアクセス、またはそこからのストリーミングは、そして常に、違法であり、プライバシー、尊厳、人権の侵害です。私生活を写した個人の写真や動画の配布は、そして常に、違法であり、プライバシー、尊厳、人権の侵害です。</span>' +
-      "<br><br>" +
-      "加害者は法の最大限の範囲で訴追されます。こうした事案を知っている場合は、警察に通報し、<code>contact@vonsteinkirch.com</code> にも知らせていただけると深く感謝します。",
+      '<aside class="qa-warning">' +
+      "<p>いいえ。当然しません。したこともなく、これからもありません。エンジニアおよび科学者としてのキャリアと研究が、生涯の主眼です。</p>" +
+      "<p>私は、そして常に、非常に私的な人間です。GitHub（とその中のプロジェクト）、個人のYouTube、メール以外に、ソーシャルメディア上の存在や他の形態のオンライン発信は持っておらず、持ったこともありません。私の仕事やプロジェクトの公式リンクは、そして常に、このウェブサイトに掲載されているものだけです。それ以外のリンクやアカウントに出会った場合、それらは、そして常に、犯罪的ななりすましです。</p>" +
+      "<p>私のいずれかのデバイスへのアクセス、またはそこからのストリーミングは、そして常に、違法であり、プライバシー、尊厳、人権の侵害です。私生活を写した個人の写真や動画の配布は、そして常に、違法であり、プライバシー、尊厳、人権の侵害です。</p>" +
+      "<p>加害者は法の最大限の範囲で訴追されます。こうした事案を知っている場合は、警察に通報し、<code>contact@vonsteinkirch.com</code> にも知らせていただけると深く感謝します。</p>" +
+      "</aside>",
     "qa.slider":
       "不可能とは心の状態である&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;いつだって、成し遂げるまでは不可能に見える&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不可能を成すには、不条理に挑まねばならない&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;私の辞書に不可能という文字はない&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;勝者とは、決して諦めない夢想家である&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;戦いが過酷であるほど、勝利は大きい&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
     "error.message": "ページが見つかりません",
@@ -418,8 +402,80 @@ function applyLocale(locale) {
 
 function setLocale(locale) {
   const next = LOCALES.includes(locale) ? locale : "en";
+  document.querySelectorAll(".lang-color-modes-illu.isInitialLang").forEach((el) => {
+    el.classList.remove("isInitialLang");
+  });
   writeStoredLocale(next);
   applyLocale(next);
+}
+
+function dogIlluSvg() {
+  const paws =
+    '<path d="M43 44H49"></path>' +
+    '<path d="M57 44H63"></path>';
+  const nose =
+    '<path d="M50 25H56"></path>';
+  const neck =
+    '<path d="M47 34C48 42 58 42 59 34"></path>';
+  const ears =
+    '<path d="M38 16C28 12 25 24 30 34C33 37 38 34 41 24"></path>' +
+    '<path d="M68 16C78 12 81 24 76 34C73 37 68 34 65 24"></path>';
+  const sleepHead =
+    '<path d="M38 20C28 18 26 28 31 36C34 38 39 35 41 27"></path>' +
+    '<path d="M68 20C78 18 80 28 75 36C72 38 67 35 65 27"></path>' +
+    '<circle cx="53" cy="20" r="12"></circle>' +
+    '<ellipse cx="53" cy="28" rx="8" ry="5"></ellipse>' +
+    '<path d="M50 27H56"></path>' +
+    '<path d="M47 36C48 43 58 43 59 36"></path>' +
+    paws;
+  const sitHead =
+    ears +
+    '<circle cx="53" cy="18" r="13"></circle>' +
+    '<ellipse cx="53" cy="26" rx="9" ry="6"></ellipse>' +
+    nose +
+    neck +
+    paws;
+  const sitEyes =
+    '<path d="M45 14V19"></path>' +
+    '<path d="M61 14V19"></path>';
+  const mouth =
+    '<path d="M47 28C50 31 56 31 59 28"></path>';
+  const lookHead =
+    sitHead + sitEyes + mouth;
+  const awakeHead =
+    lookHead;
+
+  return (
+    '<svg class="lang-color-modes-illu isInitialLang" width="106" height="60" viewBox="0 0 106 60" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<g class="lang-color-modes-illu-group lang-color-modes-illu-green">' +
+        '<circle cx="5.5" cy="12.5" r="4"></circle>' +
+        '<circle cx="18.5" cy="5.5" r="4"></circle>' +
+        '<path d="M18.5 9.5L18.5 27.5"></path>' +
+        '<path d="M18.5 23.5C6 23.5 5.5 23.6064 5.5 16.5"></path>' +
+      "</g>" +
+      '<g class="lang-color-modes-illu-group lang-color-modes-illu-orange">' +
+        '<path d="M25 46C25 41 21 38 17 38C13 38 10 41 10 45C10 47 11 49 13 50C11 51 10 53 10 55C10 59 13 59 17 59C21 59 25 56 25 54H81C81 56 85 59 89 59C93 59 96 59 96 55C96 53 95 51 93 50C95 49 96 47 96 45C96 41 93 38 89 38C85 38 81 41 81 46H25Z"></path>' +
+      "</g>" +
+      '<g class="lang-color-modes-illu-group lang-color-modes-illu-blue">' +
+        '<g class="lang-color-modes-illu-frame">' + sleepHead + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + sitHead + sitEyes + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + sitHead + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + sitHead + sitEyes + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + sitHead + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + sitHead + sitEyes + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + lookHead + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + awakeHead + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + lookHead + "</g>" +
+        '<g class="lang-color-modes-illu-frame">' + sleepHead + "</g>" +
+      "</g>" +
+    "</svg>"
+  );
+}
+
+function createDogIllu() {
+  const holder = document.createElement("div");
+  holder.innerHTML = dogIlluSvg();
+  return holder.firstElementChild;
 }
 
 function glyphSvg() {
@@ -465,9 +521,12 @@ function mountSelectors() {
     const toggle = modes.querySelector(".js-promo-color-modes-toggle") ||
       modes.querySelector(".profile-color-modes-toggle:not(.lang-toggle)");
     const sel = createSelector();
+    const dog = createDogIllu();
     if (toggle) {
+      modes.insertBefore(dog, modes.firstElementChild);
       modes.insertBefore(sel, toggle);
     } else {
+      modes.appendChild(dog);
       modes.appendChild(sel);
     }
   });
@@ -507,6 +566,11 @@ window.MarinaI18n = {
   getLocale: () => document.documentElement.getAttribute("data-locale") || "en",
   setLocale,
   applyTranslations,
+  applyLocale,
+  initI18n,
+  mountSelectors,
+  readStoredLocale,
+  ensureJpFont,
 };
 
 if (document.readyState === "loading") {

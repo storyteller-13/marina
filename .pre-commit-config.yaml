@@ -1,11 +1,11 @@
 # See https://pre-commit.com for usage
-# On each commit: tests (pytest), html <br> lint, Python linter (ruff), JS linter (eslint)
-# Setup: pip install pre-commit && pre-commit install
+# On each commit: tests+coverage (pytest, jest), html <br> lint, Python linter (ruff), JS linter (eslint), CSS linter (stylelint)
+# Setup: pip install -r requirements-dev.txt && npm install && pre-commit install
 repos:
   - repo: local
     hooks:
       - id: test
-        name: test (pytest)
+        name: test (pytest + jest, 100% coverage)
         entry: make test
         language: system
         pass_filenames: false
@@ -14,6 +14,12 @@ repos:
         entry: node scripts/lint-html-br.js
         language: system
         pass_filenames: false
+      - id: stylelint
+        name: stylelint (CSS)
+        entry: npx --no-install stylelint
+        language: system
+        types: [css]
+        pass_filenames: true
       # HTML validation disabled (requires Java). Run manually: html5validator public/
       # - id: html5validator
       #   name: html5validator (lint HTML)

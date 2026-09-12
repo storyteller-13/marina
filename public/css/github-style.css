@@ -10,10 +10,10 @@ body {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  padding-left: 32px!important;
-  padding-right: 32px!important;
+  padding: 16px 32px;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
   z-index: 32;
-  padding: 16px;
   font-size: 14px;
   line-height: 1.5;
   color: var(--color-header-text);

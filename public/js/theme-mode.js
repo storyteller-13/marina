@@ -27,3 +27,7 @@ function currentTheme() {
 (() => {
   setTheme(currentTheme());
 })();
+
+globalThis.switchTheme = switchTheme;
+globalThis.setTheme = setTheme;
+globalThis.currentTheme = currentTheme;
