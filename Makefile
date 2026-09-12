@@ -1,4 +1,4 @@
-.PHONY: setup server test lint blog
+.PHONY: setup server test lint blog clean
 
 setup:
 	python3 -m pip install -r requirements-dev.txt
@@ -22,3 +22,9 @@ lint:
 # Rebuild public/blog/posts.json and public/blog/drafts.json from markdown under posts/ and drafts/.
 blog:
 	python3 scripts/sync-blog-posts.py
+
+clean:
+	rm -rf node_modules .pytest_cache .ruff_cache .mypy_cache .pre-commit-cache \
+		.coverage .coverage.* coverage htmlcov dist build *.egg-info .eggs
+	find . -type d -name '__pycache__' -prune -exec rm -rf {} +
+	find . -type f \( -name '*.py[cod]' -o -name '*.pyo' \) -delete
