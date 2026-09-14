@@ -330,6 +330,16 @@ html[data-locale="ja"] .section-title {
     margin-right: 2rem;
 }
 
+@media (max-width: 767.98px) {
+    .sidebar-margin-right {
+        margin-right: 0;
+    }
+
+    .nav-margin-left {
+        margin-left: 0;
+    }
+}
+
 .profile-card-margin {
     margin-top: 24px;
 }
@@ -443,8 +453,34 @@ html[data-locale="ja"] .section-title {
     }
 
     .Box.mt-4 .Box-body {
-        padding-left: 3rem !important;
-        padding-right: 3rem !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    /* Profile header: name beside avatar must be allowed to shrink */
+    .h-card .clearfix.d-flex {
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .vcard-names-container {
+        flex: 1 1 auto;
+        width: auto !important;
+        max-width: 100%;
+        padding-top: 0.15rem;
+    }
+
+    .vcard-fullname .success-text {
+        font-size: clamp(0.9rem, 3.8vw, 1.25rem);
+    }
+
+    .role-titles {
+        font-size: 0.9rem;
+    }
+
+    .role-plus {
+        font-size: 1.35em;
+        margin: 0.15rem 0;
     }
 }
 
@@ -457,6 +493,14 @@ html[data-locale="ja"] .section-title {
     .Box.mt-4 .Box-body {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
+    }
+
+    .vcard-fullname .success-text {
+        font-size: clamp(0.82rem, 4.2vw, 1.1rem);
+    }
+
+    html[data-locale="ja"] .vcard-fullname .success-text {
+        font-size: clamp(0.75rem, 3.6vw, 1rem);
     }
 }
 
@@ -686,13 +730,49 @@ html[data-locale="ja"] .section-title {
     }
 }
 
-.vcard-names {
-    text-align: center;
+/* Keep flex/grid children from forcing horizontal page scroll */
+.container-xl,
+.gutter-condensed.d-flex,
+.flex-shrink-0.col-12,
+.vcard-names-container,
+.vcard-names,
+.markdown-body,
+.Box,
+.Box-body {
+    min-width: 0;
+    max-width: 100%;
 }
 
+.vcard-names {
+    text-align: center;
+    max-width: 100%;
+}
+
+.vcard-fullname {
+    max-width: 100%;
+}
+
+.vcard-fullname h3 {
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Scale + wrap so the name never overflows any viewport */
 .vcard-fullname .success-text {
-    white-space: nowrap;
-    display: inline-block;
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    line-height: 1.25;
+    font-size: clamp(0.95rem, 0.55rem + 2.2vw, 1.6rem);
+    box-sizing: border-box;
+}
+
+html[data-locale="ja"] .vcard-fullname .success-text {
+    overflow-wrap: anywhere;
+    font-size: clamp(0.82rem, 0.45rem + 1.8vw, 1.35rem);
+    letter-spacing: 0.02em;
 }
 
 .role-titles {
@@ -700,6 +780,18 @@ html[data-locale="ja"] .section-title {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 100%;
+}
+
+.role-titles a {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
+    line-height: 1.35;
+}
+
+html[data-locale="ja"] .role-titles a {
+    overflow-wrap: anywhere;
 }
 
 .role-plus {
@@ -708,6 +800,19 @@ html[data-locale="ja"] .section-title {
     font-weight: 700;
     line-height: 1;
     color: #bf00ff;
+}
+
+/* Long publication / project lines and category headings */
+.markdown-body li,
+.markdown-body h3 .success-text {
+    overflow-wrap: anywhere;
+}
+
+.markdown-body h3 .success-text {
+    display: inline-block;
+    max-width: 100%;
+    line-height: 1.35;
+    font-size: clamp(0.85rem, 0.7rem + 0.8vw, 1rem);
 }
 
 /* Neon theme toggle effects */
