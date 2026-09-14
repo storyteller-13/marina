@@ -2,7 +2,7 @@
 
 <br>
 
-### run locally
+### run
 
 <br>
 

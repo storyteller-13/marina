@@ -69,7 +69,7 @@ const MESSAGES = {
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Wake up + shower + spa</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">Journal</a> + Hatha yoga or Kung Fu</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Coffee + protein-based breakfast</span></li>' +
-      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + a little bit of chess and piano</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + a little bit of chess, piano, and languages</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Start Working!</span></li>' +
       "</ul>" +
       "<p>In the evenings, I usually:</p>" +
@@ -83,7 +83,7 @@ const MESSAGES = {
     "qa.a2":
       'The first time I used a terminal, I was around 7 years old. It was <a target="_blank" href="https://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a> running on an <a target="_blank" href="/images/8086.png">i386</a> machine. I started coding in middle school, working with (very old) languages such as BASIC and Pascal/Delphi. In high school, I discovered C/C++. In grad school, Python.' +
       "<br><br>" +
-      'Python has since become my primary language — I even <a target="_blank" href="https://github.com/cypherpunk-symposium/master-algorithms-py" rel="noopener noreferrer">published a book on it in 2014</a> (one of the first open-source Python solutions to classical computer science problems in algorithms and data structures).' +
+      'Python has since become my primary <span style="color: purple;"> computer language</span> — I even <a target="_blank" href="https://github.com/cypherpunk-symposium/master-algorithms-py" rel="noopener noreferrer">published a book on it in 2014</a> (one of the first open-source Python solutions to classical computer science problems in algorithms and data structures).' +
       "<br><br>" +
       'Throughout my career, I\'ve had the opportunity to write production code in many other languages, including <a target="_blank" href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Ruby</a> (Shopify), <a target="_blank" href="https://en.wikipedia.org/wiki/Swift_(programming_language)">Swift</a> and <a target="_blank" href="https://en.wikipedia.org/wiki/Objective-C">Objective-C</a> (Apple), <a target="_blank" href="https://en.wikipedia.org/wiki/Go_(programming_language)">Go</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/C++">C++</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Rust_(programming_language)">Rust</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Assembly_language">Assembly</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Solidity">Solidity</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Shell_script">Shell</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Terraform_(software)">Terraform</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/CUDA">CUDA</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/IDL_(programming_language)">IDL</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/MATLAB">MATLAB</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a>, and <a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>.' +
       "<br><br>" +
@@ -123,9 +123,11 @@ const MESSAGES = {
     "qa.a6":
       "I have spent my life navigating multiple cultural contexts." +
       "<br><br>" +
-      "Language has fascinated me for decades: from Chomsky’s theories to the cultural and social dimensions of how humans communicate. Born and raised in Brazil in a European-descended family and living in the United States since 2009, I have experienced firsthand the complexities derived by communication, as well as the subtle ways in which culture shapes how we understand and interact with one another." +
+      '<span style="color: purple;">Human language</span> has fascinated me for decades: from Chomsky’s theories to the cultural and social dimensions of how humans communicate. Born and raised in Brazil in a European-descended family and living in the United States since 2009, I have experienced firsthand the complexities derived by communication, as well as the subtle ways in which culture shapes how we understand and interact with one another.' +
       "<br><br>" +
-      "During the first part of my life, I had a big dream of exploring the world and experiencing different traditions, so I took every opportunity to travel through my research. Over the last decade, my work as an engineer has paid reasonably well and allowed me to work remotely, which has enabled me to pursue <a href=\"https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007\" target=\"_blank\">this objective</a> consistently." +
+      "I speak English and Portuguese natively, and I can get by in Spanish and Italian. I’m the only person in my family who doesn’t speak German (though I still hope to learn it someday). I’ve also been studying Hebrew and Japanese for a while now — two languages that have been lifelong goals of mine." +
+      "<br><br>" +
+      'In addition, during the first part of my life, I had a big dream of exploring the world and experiencing different traditions, so I took every opportunity to travel through my research. Over the last decade, my work as an engineer has paid reasonably well and allowed me to work remotely, which has enabled me to pursue <a href="https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007" target="_blank">this objective</a> consistently.' +
       "<br><br>" +
       'I’ve been to 30+ countries, lived in dozens of cities, and visited almost every state in the U.S. One of my goals for the second part of my life is to continue traveling with my family and <a href="https://matrix.nullstar.fun/" target="_blank">telling beautiful, compelling stories</a> about these experiences and the things I\'ve seen.',
     "qa.q7": "What's your story with religions?",
@@ -219,7 +221,7 @@ const MESSAGES = {
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>起床 + シャワー + スパ</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">ジャーナル</a> + ハタヨガまたはカンフー</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>コーヒー + タンパク質中心の朝食</span></li>' +
-      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + 少しチェスとピアノ</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + 少しチェスとピアノ、そして語学</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>仕事開始！</span></li>' +
       "</ul>" +
       "<p>夜はたいてい：</p>" +
@@ -233,7 +235,7 @@ const MESSAGES = {
     "qa.a2":
       '初めてターミナルを触ったのは7歳くらいのときでした。<a target="_blank" href="/images/8086.png">i386</a>マシン上の<a target="_blank" href="https://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a>です。中学でプログラミングを始め、BASICやPascal/Delphiといった（とても古い）言語を使いました。高校でC/C++に出会い、大学院でPythonに出会いました。' +
       "<br><br>" +
-      'それ以来Pythonが主言語になり、2014年には<a target="_blank" href="https://github.com/cypherpunk-symposium/master-algorithms-py" rel="noopener noreferrer">本まで出しています</a>（アルゴリズムとデータ構造における古典的な計算機科学の問題に対する、最初期のオープンソースPython解答集のひとつです）。' +
+      'それ以来Pythonが主<span style="color: purple;">コンピュータ言語</span>になり、2014年には<a target="_blank" href="https://github.com/cypherpunk-symposium/master-algorithms-py" rel="noopener noreferrer">本まで出しています</a>（アルゴリズムとデータ構造における古典的な計算機科学の問題に対する、最初期のオープンソースPython解答集のひとつです）。' +
       "<br><br>" +
       'キャリアを通じて、ほかにも多くの言語で本番コードを書いてきました。<a target="_blank" href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Ruby</a>（Shopify）、<a target="_blank" href="https://en.wikipedia.org/wiki/Swift_(programming_language)">Swift</a>と<a target="_blank" href="https://en.wikipedia.org/wiki/Objective-C">Objective-C</a>（Apple）、<a target="_blank" href="https://en.wikipedia.org/wiki/Go_(programming_language)">Go</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/C++">C++</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/Rust_(programming_language)">Rust</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/Assembly_language">Assembly</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/Solidity">Solidity</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/Shell_script">Shell</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/Terraform_(software)">Terraform</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/CUDA">CUDA</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/IDL_(programming_language)">IDL</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/MATLAB">MATLAB</a>、<a target="_blank" href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a>、そして<a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>です。' +
       "<br><br>" +
@@ -273,9 +275,11 @@ const MESSAGES = {
     "qa.a6":
       "私は生涯を通じて複数の文化的文脈のあいだを行き来してきました。" +
       "<br><br>" +
-      "言語そのものにも、何十年も魅了されてきました。チョムスキーの理論から、人間がどうコミュニケーションするかの文化的・社会的な側面まで。ヨーロッパ系の家系をもつブラジルで生まれ育ち、2009年からアメリカに住んでいる私は、コミュニケーションから生じる複雑さ、そして文化が互いの理解や関わり方をいかに形づくるかを、身をもって経験してきました。" +
+      '<span style="color: purple;">人間の言語</span>に、何十年も魅了されてきました。チョムスキーの理論から、人間がどうコミュニケーションするかの文化的・社会的な側面まで。ヨーロッパ系の家系をもつブラジルで生まれ育ち、2009年からアメリカに住んでいる私は、コミュニケーションから生じる複雑さ、そして文化が互いの理解や関わり方をいかに形づくるかを、身をもって経験してきました。' +
       "<br><br>" +
-      "人生の前半、世界を探り、異なる伝統を体験するという大きな夢があり、研究を通じて旅する機会はすべて取りました。この十年、エンジニアとしての仕事はそこそこ報酬があり、リモートもできたので、<a href=\"https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007\" target=\"_blank\">この目標</a>を一貫して追うことができました。" +
+      "英語とポルトガル語はネイティブで話し、スペイン語とイタリア語ならなんとか通じます。家族のなかでドイツ語を話せないのは私だけで（いつか学びたいとは今も思っています）。ヘブライ語と日本語も、しばらく勉強しています——どちらも生涯の目標だった言語です。" +
+      "<br><br>" +
+      "加えて、人生の前半、世界を探り、異なる伝統を体験するという大きな夢があり、研究を通じて旅する機会はすべて取りました。この十年、エンジニアとしての仕事はそこそこ報酬があり、リモートもできたので、<a href=\"https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007\" target=\"_blank\">この目標</a>を一貫して追うことができました。" +
       "<br><br>" +
       '30か国以上を訪れ、何十もの都市に住み、アメリカのほぼ全州に行きました。人生の後半の目標のひとつは、家族と旅を続け、これらの経験と見てきたものについて<a href="https://matrix.nullstar.fun/" target="_blank">美しく、心を打つ物語を語ること</a>です。',
     "qa.q7": "宗教との関わりは？",
