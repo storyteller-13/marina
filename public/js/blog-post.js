@@ -270,11 +270,11 @@ function enhanceCodeBlocks(root) {
 
     const langMatch = code.className.match(/language-(\S+)/);
     const lang = langMatch ? langMatch[1] : "";
-    const label = document.createElement("span");
-    label.className = "blog-code-lang";
-    label.textContent = lang || tx("blog.code", "code");
-    if (!lang) {
-      label.setAttribute("data-i18n", "blog.code");
+    if (lang) {
+      const label = document.createElement("span");
+      label.className = "blog-code-lang";
+      label.textContent = lang;
+      toolbar.append(label);
     }
 
     const btn = document.createElement("button");
@@ -293,7 +293,7 @@ function enhanceCodeBlocks(root) {
       }, 2200);
     });
 
-    toolbar.append(label, btn);
+    toolbar.append(btn);
     pre.parentNode.insertBefore(wrap, pre);
     wrap.append(toolbar, pre);
   });

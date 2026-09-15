@@ -1202,6 +1202,7 @@ html[data-locale="ja"] .error-404 .home-link {
 }
 
 .blog-code-copy {
+    margin-left: auto;
     flex-shrink: 0;
     font: inherit;
     font-size: 0.72rem;

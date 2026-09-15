@@ -24,6 +24,10 @@
 	background: rgba(191, 0, 255, 0.06);
 	overflow: hidden;
 	box-shadow: 0 0 12px rgba(197, 132, 219, 0.15);
+	scroll-margin-top: 5rem;
+}
+.qa-item:target {
+	box-shadow: 0 0 0 2px rgba(28, 255, 179, 0.55), 0 0 18px rgba(197, 132, 219, 0.35);
 }
 .qa-question {
 	display: flex;
@@ -32,6 +36,15 @@
 	gap: 1rem;
 	padding: 1.5rem 1.75rem;
 	border-bottom: 2px solid rgba(191, 0, 255, 0.2);
+}
+.qa-question-text a {
+	color: inherit;
+	text-decoration: none;
+}
+.qa-question-text a:hover,
+.qa-question-text a:focus {
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
 }
 .qa-q-badge {
 	flex-shrink: 0;

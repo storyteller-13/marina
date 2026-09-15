@@ -110,6 +110,10 @@ test("enhanceCodeBlocks wraps, copies, and skips already wrapped / empty pre", a
   enhanceCodeBlocks(document.body);
   expect(document.querySelectorAll(".blog-code-wrap")).toHaveLength(3);
   expect(document.querySelector(".blog-code-lang").textContent).toBe("js");
+  const plainWrap = [...document.querySelectorAll(".blog-code-wrap")].find((w) =>
+    w.querySelector("code")?.textContent === "plain"
+  );
+  expect(plainWrap.querySelector(".blog-code-lang")).toBeNull();
 
   navigator.clipboard = { writeText: jest.fn().mockResolvedValue(undefined) };
   const timeouts = [];
