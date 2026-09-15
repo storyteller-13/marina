@@ -22,7 +22,7 @@ const MESSAGES = {
       "<br><br>" +
       'I started coding in <b><a target="_blank" href="https://web.archive.org/web/20070322015644/http://fly.to/bytegirl">middle school</a></b> and have spent my entire life working on engineering & science. My story with AI/ML started back in high school when I received the first place on a national competition with Expert Systems ("AI Doctor"), during my PhD while working on my thesis on the equation of state of neutron stars at Los Alamos (I also took graduate classes in ML and robotics at that time), then at <b><a target="_blank" href="https://singularity.nullstar.fun/ouroboros-statement.html">many moments</a></b> during my engineering jobs.' +
       "<br><br>" +
-      'Now, with LLMs and the many fascinating advances in the field, I\'ve been building and researching a range of projects — running <b><a target="_blank" href="https://marina.nullstar.fun/pages/post.html?post=idea_nullstar">my fleet of agents through my own custom harness and memory stack</a></b>, experimenting with and testing local models, reading research papers and technical literature, and writing lots of code at my colorful Linux workstations.' +
+      'Now, with LLMs and the many fascinating advances in the field, I\'ve been building and researching a range of projects — running <b><a target="_blank" href="https://marina.nullstar.fun/pages/post.html?post=idea_nullstar">my fleet of agents through my own custom harness and memory stack</a></b> (and, in my free time, building my own sci-fi mystical MMORPG on top of it all), experimenting with and testing local, smaller and distilled models, reading research papers and technical literature daily, and writing lots of code at my colorful Linux workstations.' +
       "<br><br>" +
       "I am grateful to have been able to dedicate every day to my passion — constantly learning, experimenting, and deepening my knowledge during these extraordinary days of technological acceleration — and I hope to do so until the very last breath of my existence.",
     "home.interests.title": "Lifelong Skills & Long-Term Intellectual Interests",
@@ -129,7 +129,7 @@ const MESSAGES = {
       "<br><br>" +
       'In addition, during the first part of my life, I had a big dream of exploring the world and experiencing different traditions, so I took every opportunity to travel through my research. Over the last decade, my work as an engineer has paid reasonably well and allowed me to work remotely, which has enabled me to pursue <a href="https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007" target="_blank">this objective</a> consistently.' +
       "<br><br>" +
-      'I’ve been to 30+ countries, lived in dozens of cities, and visited almost every state in the U.S. One of my goals for the second part of my life is to continue traveling with my family and <a href="https://matrix.nullstar.fun/" target="_blank">telling beautiful, compelling stories</a> about these experiences and the things I\'ve seen.',
+      'I’ve been to 30+ countries, lived in dozens of cities, and visited almost every state in the U.S. One of my goals for the second part of my life is to continue traveling with my family and <a href="https://matrix.nullstar.fun/" target="_blank">telling beautiful, compelling stories</a> about these experiences and the things I\'ve seen. There are still dozens of countries and thousands of cities to check off my list.',
     "qa.q7": "What's your story with religions?",
     "qa.a7":
       "My family is German and Italian, with a Jewish side, but I was raised Catholic (and I am confirmed). In my 20s, I became atheist. In my 30s, I explored several aspects of spirituality, including Eastern philosophies (and I was vegetarian for many years)." +
@@ -174,7 +174,7 @@ const MESSAGES = {
       "<br><br>" +
       'プログラミングは<b><a target="_blank" href="https://web.archive.org/web/20070322015644/http://fly.to/bytegirl">中学</a></b>から始め、生涯をエンジニアリングと科学に捧げてきました。AI/MLとの関わりは高校時代、エキスパートシステム（「AIドクター」）で全国大会1位を取ったところから始まり、博士課程ではロスアラモスで中性子星の状態方程式の論文に取り組みながら（その頃、機械学習とロボット工学の大学院講義も受講していました）、その後エンジニアとしての仕事の<b><a target="_blank" href="https://singularity.nullstar.fun/ouroboros-statement.html">さまざまな局面</a></b>でも続いてきました。' +
       "<br><br>" +
-      'いまはLLMをはじめ、この分野の多くの魅力的な進展を受けて、幅広く作り、調べています。<b><a target="_blank" href="https://marina.nullstar.fun/pages/post.html?post=idea_nullstar">自作のハーネスとメモリスタックでエージェント群を動かしたり</a></b>、ローカルモデルを試したり、論文や技術文献を読んだり、色とりどりのLinuxワークステーションで大量のコードを書いたりしています。' +
+      'いまはLLMをはじめ、この分野の多くの魅力的な進展を受けて、幅広く作り、調べています。<b><a target="_blank" href="https://marina.nullstar.fun/pages/post.html?post=idea_nullstar">自作のハーネスとメモリスタックでエージェント群を動かしたり</a></b>（余暇には、そのすべてを土台に自作のSFミステリー風MMORPGも作っています）、ローカルのより小さく蒸留されたモデルを試したり、毎日論文や技術文献を読んだり、色とりどりのLinuxワークステーションで大量のコードを書いたりしています。' +
       "<br><br>" +
       "毎日を情熱に捧げられること——技術が加速するこの非凡な時代に、学び、試し、理解を深め続けられること——に感謝しています。そして、存在の最後の一息まで、そうでありたいと思っています。",
     "home.interests.title": "生涯スキルと長期的な知的関心",
@@ -281,7 +281,7 @@ const MESSAGES = {
       "<br><br>" +
       "加えて、人生の前半、世界を探り、異なる伝統を体験するという大きな夢があり、研究を通じて旅する機会はすべて取りました。この十年、エンジニアとしての仕事はそこそこ報酬があり、リモートもできたので、<a href=\"https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007\" target=\"_blank\">この目標</a>を一貫して追うことができました。" +
       "<br><br>" +
-      '30か国以上を訪れ、何十もの都市に住み、アメリカのほぼ全州に行きました。人生の後半の目標のひとつは、家族と旅を続け、これらの経験と見てきたものについて<a href="https://matrix.nullstar.fun/" target="_blank">美しく、心を打つ物語を語ること</a>です。',
+      '30か国以上を訪れ、何十もの都市に住み、アメリカのほぼ全州に行きました。人生の後半の目標のひとつは、家族と旅を続け、これらの経験と見てきたものについて<a href="https://matrix.nullstar.fun/" target="_blank">美しく、心を打つ物語を語ること</a>です。まだまだ何十もの国と何千もの都市が、リストに残っています。',
     "qa.q7": "宗教との関わりは？",
     "qa.a7":
       "家族はドイツ系とイタリア系で、ユダヤの系統もありますが、カトリックで育ち（堅信も受けています）、20代で無神論者になり、30代では東洋思想を含むスピリチュアリティのいくつかの面を探りました（何年も菜食でした）。" +
