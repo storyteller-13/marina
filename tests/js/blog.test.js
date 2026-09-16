@@ -30,7 +30,7 @@ afterEach(() => {
 
 test("helpers: assetUrl, escapeHtml, tx, parseFrontMatter", () => {
   require("../../public/js/blog.js");
-  const { assetUrl, escapeHtml, tx, parseFrontMatter } = window.MarinaBlog;
+  const { assetUrl, escapeHtml, tx, parseFrontMatter, parsePostDate } = window.MarinaBlog;
 
   expect(assetUrl("/blog/posts.json")).toBe("http://localhost/blog/posts.json");
   expect(escapeHtml(`&<>"'`)).toBe("&amp;&lt;&gt;&quot;&#39;");
@@ -50,6 +50,11 @@ test("helpers: assetUrl, escapeHtml, tx, parseFrontMatter", () => {
   const parsed = parseFrontMatter("---\r\n: skip\nnope\ntitle: Hi\n---\nbody");
   expect(parsed.meta).toEqual({ title: "Hi" });
   expect(parsed.body).toBe("body");
+
+  expect(Number.isNaN(parsePostDate(""))).toBe(true);
+  expect(Number.isNaN(parsePostDate("not-a-date"))).toBe(true);
+  expect(parsePostDate("2026; 09; 16")).toBe(Date.UTC(2026, 8, 16));
+  expect(parsePostDate("2024-01-01")).toBe(Date.parse("2024-01-01"));
 });
 
 test("loadBlog and loadDrafts return when roots are missing", async () => {
@@ -72,6 +77,8 @@ test("loadBlog renders sorted posts and fetch fallbacks", async () => {
         { slug: "", title: "empty-slug", date: "2019-01-01" },
         { slug: "untitled-post", date: "2018-01-01" },
         { slug: "keep-meta", title: "keep", date: "2017-01-01" },
+        { slug: "semicolon-old", title: "old semi", date: "2026; 09; 06" },
+        { slug: "semicolon-new", title: "new semi", date: "2026; 09; 16" },
       ]);
     }
     if (String(url).includes("fresh.md")) {
@@ -90,7 +97,12 @@ test("loadBlog renders sorted posts and fetch fallbacks", async () => {
   await window.MarinaBlog.loadBlog();
 
   const hrefs = [...document.querySelectorAll(".blog-line-link")].map((a) => a.getAttribute("href"));
+  expect(hrefs[0]).toBe("post.html?post=semicolon-new");
+  expect(hrefs.indexOf("post.html?post=semicolon-new")).toBeLessThan(
+    hrefs.indexOf("post.html?post=semicolon-old")
+  );
   expect(hrefs).toContain("post.html?post=fresh");
+  expect(hrefs.indexOf("post.html?post=fresh")).toBeLessThan(hrefs.indexOf("post.html?post=10"));
   expect(hrefs.indexOf("post.html?post=10")).toBeLessThan(hrefs.indexOf("post.html?post=2"));
   expect(hrefs.indexOf("post.html?post=zeta")).toBeLessThan(hrefs.indexOf("post.html?post=alpha"));
   expect(document.body.innerHTML).toContain("Fresh");

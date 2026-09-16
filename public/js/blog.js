@@ -46,6 +46,43 @@ function parseFrontMatter(markdown) {
   return { meta, body: normalized.slice(end + 5) };
 }
 
+/** Parse post dates, including site format "YYYY; MM; DD". */
+function parsePostDate(dateStr) {
+  if (!dateStr) return NaN;
+  const raw = String(dateStr).trim();
+
+  const semicolon = raw.match(/^(\d{4});\s*(\d{1,2});\s*(\d{1,2})$/);
+  if (semicolon) {
+    const [, y, m, d] = semicolon;
+    return Date.UTC(Number(y), Number(m) - 1, Number(d));
+  }
+
+  const time = Date.parse(raw);
+  return Number.isNaN(time) ? NaN : time;
+}
+
+function compareByDateThenSlug(a, b, aSlug, bSlug) {
+  const aTime = parsePostDate(a);
+  const bTime = parsePostDate(b);
+  const aHasDate = !Number.isNaN(aTime);
+  const bHasDate = !Number.isNaN(bTime);
+
+  if (aHasDate && bHasDate && aTime !== bTime) {
+    return bTime - aTime;
+  }
+  if (aHasDate !== bHasDate) {
+    return aHasDate ? -1 : 1;
+  }
+
+  const aSlugNum = Number(aSlug);
+  const bSlugNum = Number(bSlug);
+  if (!Number.isNaN(aSlugNum) && !Number.isNaN(bSlugNum) && aSlugNum !== bSlugNum) {
+    return bSlugNum - aSlugNum;
+  }
+
+  return String(bSlug || "").localeCompare(String(aSlug || ""));
+}
+
 async function loadBlog() {
   const listRoot = document.getElementById("blog-post-list");
 
@@ -86,21 +123,7 @@ async function loadBlog() {
       return { safeSlug, title, date };
     }));
 
-    rendered.sort((a, b) => {
-      const aTime = Date.parse(a.date || "");
-      const bTime = Date.parse(b.date || "");
-      if (!Number.isNaN(aTime) && !Number.isNaN(bTime) && aTime !== bTime) {
-        return bTime - aTime;
-      }
-
-      const aSlugNum = Number(a.safeSlug);
-      const bSlugNum = Number(b.safeSlug);
-      if (!Number.isNaN(aSlugNum) && !Number.isNaN(bSlugNum) && aSlugNum !== bSlugNum) {
-        return bSlugNum - aSlugNum;
-      }
-
-      return b.safeSlug.localeCompare(a.safeSlug);
-    });
+    rendered.sort((a, b) => compareByDateThenSlug(a.date, b.date, a.safeSlug, b.safeSlug));
 
     rendered.forEach((post) => {
       const line = document.createElement("p");
@@ -167,15 +190,7 @@ async function loadDrafts() {
     }));
 
     const rows = rendered.filter((row) => row && row.title.trim());
-    rows.sort((a, b) => {
-      const aTime = Date.parse(a.date || "");
-      const bTime = Date.parse(b.date || "");
-      if (!Number.isNaN(aTime) && !Number.isNaN(bTime) && aTime !== bTime) {
-        return bTime - aTime;
-      }
-
-      return (b.slug || "").localeCompare(a.slug || "");
-    });
+    rows.sort((a, b) => compareByDateThenSlug(a.date, b.date, a.slug, b.slug));
     if (rows.length === 0) {
       draftRoot.innerHTML = `<p class="blog-draft-empty" data-i18n="blog.draftsEmpty">${escapeHtml(tx("blog.draftsEmpty", "Nothing listed here yet."))}</p>`;
       return;
@@ -205,6 +220,8 @@ globalThis.MarinaBlog = {
   escapeHtml,
   tx,
   parseFrontMatter,
+  parsePostDate,
+  compareByDateThenSlug,
   loadBlog,
   loadDrafts,
 };
