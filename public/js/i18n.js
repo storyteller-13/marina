@@ -96,7 +96,7 @@ const MESSAGES = {
       "<br><br>" +
       'During my <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/">PhD</a>, I used mostly Fedora, as well as <a target="_blank" href="https://en.wikipedia.org/wiki/Red_Hat">Red Hat</a> and actual <a target="_blank" href="https://en.wikipedia.org/wiki/Unix">UNIX</a> servers in the labs and on the large computing systems where I ran my research. When I became a software engineer, I joined Apple as a Senior Engineer in my first year, and I experimented with <a target="_blank" href="https://en.wikipedia.org/wiki/MacOS">macOS</a> for a while.' +
       "<br><br>" +
-      'Nowadays, all my machines run Linux (and I\'ve been using <a target="_blank" href="https://en.wikipedia.org/wiki/Omarchy">Omarchy</a> since 2025).',
+      'Nowadays, all my machines run Linux (and I\'ve been using <a target="_blank" href="https://gist.github.com/von-steinkirch/845e383a1605a926ae43b742274eadd5">Omarchy</a> since 2025).',
     "qa.q4": "What's your story with videogames?",
     "qa.a4":
       'When I was 5 or so, my dad brought an <a target="_blank" href="https://en.wikipedia.org/wiki/Atari">Atari</a> home, and we spent the following nights playing and eating bowls of french fries (his specialty). Around 10, my mom bought us a Super Nintendo, which is still my favorite console of all time. After that, we had a Mega Drive (Sega Genesis), a Nintendo 64, PlayStation 1, 2, 3, 4, Xbox 360, Nintendo Wii, and the Meta VR series. Plus, I have always been a PC gamer at the same time.' +
@@ -248,7 +248,7 @@ const MESSAGES = {
       "<br><br>" +
       '<a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/">博士課程</a>ではおもにFedoraを使い、研究室や大規模計算システムでは<a target="_blank" href="https://en.wikipedia.org/wiki/Red_Hat">Red Hat</a>や本物の<a target="_blank" href="https://en.wikipedia.org/wiki/Unix">UNIX</a>サーバも使いました。ソフトウェアエンジニアになって最初の一年はAppleのシニアエンジニアとして入り、しばらく<a target="_blank" href="https://en.wikipedia.org/wiki/MacOS">macOS</a>も試しました。' +
       "<br><br>" +
-      'いまはすべてのマシンがLinuxです（2025年から<a target="_blank" href="https://en.wikipedia.org/wiki/Omarchy">Omarchy</a>を使っています）。',
+      'いまはすべてのマシンがLinuxです（2025年から<a target="_blank" href="https://gist.github.com/von-steinkirch/845e383a1605a926ae43b742274eadd5">Omarchy</a>を使っています）。',
     "qa.q4": "ゲームとの関わりは？",
     "qa.a4":
       '5歳くらいのとき、父が<a target="_blank" href="https://en.wikipedia.org/wiki/Atari">Atari</a>を家に持ってきて、それから何晩も遊んで、父特製のフライドポテトを食べました。10歳前後で母がスーパーファミコンを買ってくれて、今でも史上最高のゲーム機です。その後、メガドライブ（Sega Genesis）、NINTENDO 64、PlayStation 1、2、3、4、Xbox 360、Wii、Meta VRシリーズ。同時に、ずっとPCゲーマーでもありました。' +
