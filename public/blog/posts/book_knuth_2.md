@@ -1,5 +1,5 @@
 ---
-title: 📚 BOOK → TAOCP - Part 2️⃣  of 6️⃣ (Donald E. Knuth, 2019)
+title: 📚 BOOK → TAOCP 2️⃣ of 6️⃣ (Donald E. Knuth, 2019)
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia
 date: 2026; 08; 24
 ---
@@ -28,6 +28,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; [we must dance](https://www.youtube.com/watch?v=VbD_kBJc_gI)).**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original books.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 

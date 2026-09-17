@@ -1,5 +1,5 @@
 ---
-title: 📚 BOOK → AI - Part  1️⃣  of 3️⃣ (Russell & Norvig, 2010) 
+title: 📚 BOOK → Artificial Intel 1️⃣ of 3️⃣ (Russell & Norvig, 2010) 
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists
 date: 2026; 08; 02
 ---
@@ -19,6 +19,7 @@ In this first post, I cover the first 9 chapters, up to inference in first-order
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 
 *Thank you, Dr. Russell & Dr. Norvig, for this fun and enlightening journey!*

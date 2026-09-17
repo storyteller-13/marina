@@ -45,7 +45,7 @@ const MESSAGES = {
     "home.easter": "easter egg →",
     "blog.title": "just another tech blog",
     "blog.intro":
-      "Here, I write down some of my ideas, pay homage to the research and other works that have made me smile, and, usually on Fridays, share some of the cool things I learned during the week.",
+      "Here, I write down some of my ideas, pay homage to the technical research and works that have made me smile, and, usually on Fridays, share some of the cool things I learned during the week.",
     "blog.drafts.title": "Drafts Backlog",
     "blog.drafts.intro":
       "A queue of things I'm playing with in my spare time — each of which might eventually become a review.",
@@ -129,7 +129,7 @@ const MESSAGES = {
       "<br><br>" +
       'In addition, during the first part of my life, I had a big dream of exploring the world and experiencing different traditions, so I took every opportunity to travel through my research. Over the last decade, my work as an engineer has paid reasonably well and allowed me to work remotely, which has enabled me to pursue <a href="https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007" target="_blank">this objective</a> consistently.' +
       "<br><br>" +
-      'I’ve been to 30+ countries, lived in dozens of cities, and visited almost every state in the U.S. One of my goals for the second part of my life is to continue traveling with my family and <a href="https://matrix.nullstar.fun/" target="_blank">telling beautiful, compelling stories</a> about these experiences and the things I\'ve seen. There are still dozens of countries and thousands of cities to check off my list.',
+      'I’ve been to 30+ countries, lived in dozens of cities, and visited almost every state in the U.S. One of my goals for the second part of my life is to continue traveling with my family and <a href="https://matrix.nullstar.fun/" target="_blank">telling beautiful, compelling stories</a> about these experiences and the things I\'ve seen. There are still dozens of countries, hundreds of cities, thousands of museums, and infinite sunsets to check off my list.',
     "qa.q7": "What's your story with religions?",
     "qa.a7":
       "My family is German and Italian, with a Jewish side, but I was raised Catholic (and I am confirmed). In my 20s, I became atheist. In my 30s, I explored several aspects of spirituality, including Eastern philosophies (and I was vegetarian for many years)." +

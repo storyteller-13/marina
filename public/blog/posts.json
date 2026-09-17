@@ -1,43 +1,49 @@
 [
   {
+    "slug": "blackboard_webllc_gpu",
+    "title": "\ud83e\uddd1\u200d\ud83c\udfeb BLACKBOARD \u2192  WebLLM, WebGPU, Web Inference",
+    "date": "2026; 09; 17",
+    "subtitle": "Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold"
+  },
+  {
     "slug": "podcast_closer_2",
-    "title": "\ud83d\udcfa PODCAST \u2192 O'Connor + Kuhn on Consciousness - 2\ufe0f\u20e3 of 3\ufe0f\u20e3",
+    "title": "\ud83d\udcfa PODCAST \u2192 O'Connor + Kuhn on Consciousness 2\ufe0f\u20e3 of 3\ufe0f\u20e3",
     "date": "2026; 09; 16",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Alive"
   },
   {
     "slug": "podcast_closer",
-    "title": "\ud83d\udcfa PODCAST \u2192 O'Connor + Kuhn on Consciousness - 1\ufe0f\u20e3 of 3\ufe0f\u20e3",
+    "title": "\ud83d\udcfa PODCAST \u2192 O'Connor + Kuhn on Consciousness 1\ufe0f\u20e3 of 3\ufe0f\u20e3",
     "date": "2026; 09; 06",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Integrity"
   },
   {
     "slug": "book_knuth_4",
-    "title": "\ud83d\udcda BOOK \u2192 TAOCP - Part 4\ufe0f\u20e3  of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
+    "title": "\ud83d\udcda BOOK \u2192 TAOCP 4\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 27",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable"
   },
   {
     "slug": "book_knuth_3",
-    "title": "\ud83d\udcda BOOK \u2192 TAOCP - Part 3\ufe0f\u20e3  of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
+    "title": "\ud83d\udcda BOOK \u2192 TAOCP 3\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 26",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Flourishing"
   },
   {
     "slug": "book_knuth_2",
-    "title": "\ud83d\udcda BOOK \u2192 TAOCP - Part 2\ufe0f\u20e3  of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
+    "title": "\ud83d\udcda BOOK \u2192 TAOCP 2\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 24",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia"
   },
   {
     "slug": "book_knuth",
-    "title": "\ud83d\udcda BOOK \u2192 TAOCP - Part  1\ufe0f\u20e3  of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
+    "title": "\ud83d\udcda BOOK \u2192 TAOCP 1\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 22",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope"
   },
   {
     "slug": "book_ai3",
-    "title": "\ud83d\udcda BOOK \u2192 AI - Part 3\ufe0f\u20e3 of 3\ufe0f\u20e3 (Russell & Norvig, 2010)",
+    "title": "\ud83d\udcda BOOK \u2192 Artificial Intel 3\ufe0f\u20e3 of 3\ufe0f\u20e3 (Russell & Norvig, 2010)",
     "date": "2026; 08; 14",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists"
   },
@@ -49,7 +55,7 @@
   },
   {
     "slug": "book_ai2",
-    "title": "\ud83d\udcda BOOK \u2192 AI - Part  2\ufe0f\u20e3  of 3\ufe0f\u20e3 (Russell & Norvig, 2010)",
+    "title": "\ud83d\udcda BOOK \u2192 Artificial Intel 2\ufe0f\u20e3 of 3\ufe0f\u20e3 (Russell & Norvig, 2010)",
     "date": "2026; 08; 07",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists"
   },
@@ -61,7 +67,7 @@
   },
   {
     "slug": "book_ai",
-    "title": "\ud83d\udcda BOOK \u2192 AI - Part  1\ufe0f\u20e3  of 3\ufe0f\u20e3 (Russell & Norvig, 2010)",
+    "title": "\ud83d\udcda BOOK \u2192 Artificial Intel 1\ufe0f\u20e3 of 3\ufe0f\u20e3 (Russell & Norvig, 2010)",
     "date": "2026; 08; 02",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists"
   },
@@ -103,7 +109,7 @@
   },
   {
     "slug": "book_rl",
-    "title": "\ud83d\udcda BOOK \u2192 RL - Part  1\ufe0f\u20e3  of 2\ufe0f\u20e3 (Sutton & Barto, 2018)",
+    "title": "\ud83d\udcda BOOK \u2192 RL AI 1\ufe0f\u20e3 of 2\ufe0f\u20e3 (Sutton & Barto, 2018)",
     "date": "2026; 07; 04",
     "subtitle": "Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists"
   },

@@ -1,5 +1,5 @@
 ---
-title: 📚 BOOK → TAOCP - Part 4️⃣  of 6️⃣ (Donald E. Knuth, 2019)
+title: 📚 BOOK → TAOCP 4️⃣ of 6️⃣ (Donald E. Knuth, 2019)
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable
 date: 2026; 08; 27
 ---
@@ -36,6 +36,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If you see a ☀️, it means it's just a fun easter egg (because life's short; [we must dance](https://www.youtube.com/watch?v=VbD_kBJc_gI)).**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original books.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 
@@ -258,7 +259,13 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 ##### Talking about searching, would a 💕 **binary** *soul* **search** 💕 be the answer to the meaning of life? Nowadays, I believe so, but I had to try many other types of searches to come to this conclusion. This is a story for **nostalgia, part 3️⃣** — illustrated by the picture below of me snowboarding at **[Woodward Tahoe](https://www.rideboreal.com/explore/who-we-are/woodward-tahoe/)**, circa 2019. This one is long.
 
-##### Once I left Cupertino, at the end of 2016, I officially became a nomad for the first time in my life. See, after five years stuck in an office without windows, followed by a couple of years of working too many hours a day and full weekends, I was feeling like I was missing out. I wanted a chance to finally experience life a bit, all that **[free spirit](https://www.youtube.com/watch?v=5CXzUcdNEtU)** that had been sold to me in the movies. At that time, I had a very cool blue Subaru Crosstrek that could hold all my boards — for surf, skate, and snow — as well as my camera gear and lenses, **[my DJI drone](https://vimeo.com/bt3gl)**, a guitar, a blanket, and everything I needed to be **[the bravest kid in the world](https://en.wikipedia.org/wiki/Kafka_on_the_Shore)**. Also, don't forget that I was still very *green* at probably every single thing in life at that time, because until then, I had pretty much spent most of my time being the best student or nerd I could be.
+##### Once I left Cupertino, at the end of 2016, I officially became a nomad for the first time in my life. See, after five years stuck in an office without windows, followed by a couple of years of working too many hours a day and full weekends, I was feeling like I was missing out. I wanted a chance to finally experience life a bit, all that **[free spirit](https://www.youtube.com/watch?v=5CXzUcdNEtU)** that had been sold to me in the movies. At that time, I had a very cool blue Subaru Crosstrek that could hold all my boards — for surf, skate, and snow — as well as my camera gear and lenses, **[my DJI drone](https://vimeo.com/bt3gl)**, a guitar, a blanket, and everything I needed to be **[the bravest kid in the world](https://en.wikipedia.org/wiki/Kafka_on_the_Shore)** (two years later, I got myself a brand new Tesla, which I called Summer, and it was really fun to drive on the open road — including Hawaiʻi, yes, I actually shipped it there when I was living in Kona). Also, don't forget that I was still very *green* at probably every single thing in life at that time, because until then, I had pretty much spent most of my time being the best student or nerd I could be.
+
+<br>
+
+![](/blog/assets/summer.png)
+
+<br>
 
 ##### I decided I would explore and stargaze across the entire states of California and Hawaii — all the beaches, parks, and mountains. I wanted to live this type of life once before going back to my *normal* life, getting married, becoming a full adult, etc. I wanted to get to know people, I wanted to learn more about different lifestyles, I wanted to have some **[meat for storytelling](https://en.wikipedia.org/wiki/Jack_Kerouac)**, I wanted to find my soul, I wanted to chase the meaning of life, I wanted **[to express myself creating art](https://tv.vonsteinkirch.com/an-ode-to-a-quantum-simulation)**, and I wanted to be able to say I did not spend my entire life in front of my lovely computers. And I did. For years, I lived that life — nobody will ever steal that experience from me. It's mine. I did it.
 
