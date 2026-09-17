@@ -1,5 +1,5 @@
 ---
-title: 📚 BOOK → AI - Part  2️⃣  of 3️⃣ (Russell & Norvig, 2010) 
+title: 📚 BOOK → Artificial Intel 2️⃣ of 3️⃣ (Russell & Norvig, 2010) 
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists
 date: 2026; 08; 07
 ---
@@ -12,10 +12,12 @@ In this second post, I continue **[the work started in Part 1️⃣](https://mar
 
 The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and acting` are closer to the applied side of ML and Robotics (which I studied during my PhD, or over the years...). I'll cover them in the final post, Part 3️⃣.
 
-**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**
+Below are my highlights (for personal inventory), with a moderate attempt at coherence. And the rules:
+
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 

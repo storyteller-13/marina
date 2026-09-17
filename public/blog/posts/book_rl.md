@@ -1,5 +1,5 @@
 ---
-title: 📚 BOOK → RL - Part  1️⃣  of 2️⃣ (Sutton & Barto, 2018)
+title: 📚 BOOK → RL AI 1️⃣ of 2️⃣ (Sutton & Barto, 2018)
 subtitle: Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists
 date: 2026; 07; 04
 ---

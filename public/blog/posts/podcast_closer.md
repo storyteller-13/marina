@@ -1,5 +1,5 @@
 ---
-title: 📺 PODCAST → O'Connor + Kuhn on Consciousness - 1️⃣ of 3️⃣
+title: 📺 PODCAST → O'Connor + Kuhn on Consciousness 1️⃣ of 3️⃣
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Integrity
 date: 2026; 09; 06
 ---
@@ -20,11 +20,12 @@ Last week, I was delighted to come accross a discussion among some of our **[fav
 
 The material is dense, so I have divided this study into three parts. In this first post, I go over several selected subclasses of materialism, including, for instance, neurobiological and language theories, that I believe are relevant to my research. In the second post, we will look at the remaining relevant subclass of materialism (i.e., **[Computational & Functionalism](https://loc.closertotruth.com/theories/computational-and-functionalism)**, **[Electromagnetic Field](https://loc.closertotruth.com/theories/electromagnetic-field)**, and **[Relational](https://loc.closertotruth.com/theories/relational)**. Finally, in the third post, we will touch on the **[Quantum & Dimensions](https://loc.closertotruth.com/theory?category=quantum-dimensions)** approaches, as well as **[Information](https://loc.closertotruth.com/theory?category=information)** classes.
 
-As I read through most of the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory. Plus, as always:
+As I read through most of the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory. Plus, as always, remember the rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 ##### P.S. Can you guess the name of the famous fractals?
 

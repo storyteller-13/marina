@@ -1,5 +1,5 @@
 ---
-title: 📚 BOOK → AI - Part 3️⃣ of 3️⃣ (Russell & Norvig, 2010) 
+title: 📚 BOOK → Artificial Intel 3️⃣ of 3️⃣ (Russell & Norvig, 2010) 
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists
 date: 2026; 08; 14
 ---
@@ -11,12 +11,12 @@ date: 2026; 08; 14
 In this third and final post, I continue the work started in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_ai) and [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_ai2), studying the chapters on learning, natural language, perception, and robotics, and thinking about the problems I have been tackling.
 
 
-As always:
+Below are my highlights (for personal inventory), with a moderate attempt at coherence. And, as always, remember the rules:
 
-**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 

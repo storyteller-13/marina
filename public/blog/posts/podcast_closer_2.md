@@ -1,5 +1,5 @@
 ---
-title: 📺 PODCAST → O'Connor + Kuhn on Consciousness - 2️⃣ of 3️⃣
+title: 📺 PODCAST → O'Connor + Kuhn on Consciousness 2️⃣ of 3️⃣
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Alive
 date: 2026; 09; 16
 ---
@@ -20,13 +20,14 @@ Today, we look at the remaining relevant subclasses of materialism: **[Computati
 
 In the third and final post, we will review **[Quantum & Dimensions](https://loc.closertotruth.com/theory?category=quantum-dimensions)** and **[Information](https://loc.closertotruth.com/theory?category=information)**.
 
-As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory. Plus, as always:
+As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory. Plus, as always, remember the rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
-##### P.S. גמר חתימה טובה
+##### P.S. [גמר חתימה טובה](https://gist.github.com/von-steinkirch/f4fce2f49fa582e8fe458539ece20a93#9%EF%B8%8F%E2%83%A3-yom-kippur-prayer)
 
 <br>
 

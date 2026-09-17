@@ -18,6 +18,7 @@ So yes — I stand by the claim that this is another must-read for every researc
 
 **🤖 Below are my highlights with some attempt, although very moderate, at coherence.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book (or [attend](https://www.youtube.com/watch?v=rfKiTGj-zeQ) the [discussion](https://www.youtube.com/watch?v=8qTZLqY-cnI)).**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 

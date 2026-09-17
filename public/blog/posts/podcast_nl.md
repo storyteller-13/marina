@@ -22,6 +22,7 @@ As always:
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look interesting to you, it's your ✦moral duty✦ to watch the original videos.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 
