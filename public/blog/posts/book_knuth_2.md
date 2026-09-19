@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → TAOCP 2️⃣ of 6️⃣ (Donald E. Knuth, 2019)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia なつかしさ
 date: 2026; 08; 24
 ---
 

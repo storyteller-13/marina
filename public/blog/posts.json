@@ -1,9 +1,15 @@
 [
   {
-    "slug": "blackboard_webllc_gpu",
+    "slug": "papers_multiagents",
+    "title": "\ud83d\udcca PAPERS \u2192 On Multiplayer Agents & Intelligence 1\ufe0f\u20e3 of \u267e\ufe0f",
+    "date": "2026; 09; 19",
+    "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace"
+  },
+  {
+    "slug": "blackboard_webllm_gpu",
     "title": "\ud83e\uddd1\u200d\ud83c\udfeb BLACKBOARD \u2192  WebLLM, WebGPU, Web Inference",
     "date": "2026; 09; 17",
-    "subtitle": "Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold"
+    "subtitle": "Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold \u304d\u3087\u3046\u304b\u3044"
   },
   {
     "slug": "podcast_closer_2",
@@ -21,25 +27,25 @@
     "slug": "book_knuth_4",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP 4\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 27",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable \u3075\u304b\u3072"
   },
   {
     "slug": "book_knuth_3",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP 3\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 26",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Flourishing"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Flourishing \u306f\u3093\u3048\u3044"
   },
   {
     "slug": "book_knuth_2",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP 2\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 24",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia \u306a\u3064\u304b\u3057\u3055"
   },
   {
     "slug": "book_knuth",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP 1\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 22",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope \u304d\u307c\u3046"
   },
   {
     "slug": "book_ai3",
@@ -85,13 +91,13 @@
   },
   {
     "slug": "papers_weng",
-    "title": "\ud83d\udcca PAPER \u2192 A Mnemonic Walk Through Weng's Research",
+    "title": "\ud83d\udcca PAPERS \u2192 A Mnemonic Walk Through Weng's Research",
     "date": "2026; 07; 18",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI/Software Engineers/Scientists"
   },
   {
     "slug": "papers_j-space",
-    "title": "\ud83d\udcca PAPER \u2192 On Global Workspace and J-Space in LLMs",
+    "title": "\ud83d\udcca PAPERS \u2192 On Global Workspace and J-Space in LLMs",
     "date": "2026; 07; 13",
     "subtitle": "Rating: 9/10 | Audience: Intermediate to Advanced AI Scientists"
   },
