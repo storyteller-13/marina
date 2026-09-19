@@ -1,12 +1,12 @@
 ---
 title: 📊 PAPERS → On Multiplayer Agents 1️⃣ of ♾️
 subtitle: Audience: Intermediate to Advanced AI Scientists/Engineers | Today's Word: Solace
-date: 2026; 09; 21
+date: 2026; 09; 20
 ---
 
 > [🎼](https://www.youtube.com/watch?v=w6Z8JfXjc4k) *"What is past is prologue."* — William Shakespeare, The Tempest
 
-> [🎶]() *"And now that you don't have to be perfect, you can be good."* — John Steinbeck, East of Eden
+> [🎶](https://www.youtube.com/watch?v=-X3klDNV0VE) *"And now that you don't have to be perfect, you can be good."* — John Steinbeck, East of Eden
 
 <br>
 
@@ -66,6 +66,37 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
+
+<br>
+
+---
+
+## 🪂 [A Survey on the Memory Mechanism of LLM based Agents (2024)](www.alphaxiv.org/pdf/2404.13501)
+
+<br>
+
+
+> In the agent-environment interaction process, there are three key phases, that is, (1) the agent perceives information from the environment, and stores it into the memory; (2) the agent processes the stored information to make it more usable; and (3) the agent takes the next action based on the processed memory information. In all these phases, memory plays an extremely important role.
+
+<br>
+
+![](/blog/assets/ma_1.png)
+
+<br>
+
+> The textual memory stores raw information about the agent-environment interactions, which is more comprehensive and detailed. However, it is constrained by the token limitation of LLM prompts, which makes the agent hard to store extensive information. In contrast, the parametric memory is not limited by the prompt length, but it may suffer from information loss when transforming texts into parameters, and the complex memory training can bring additional challenges.
+
+> For textual memory, each LLM inference requires to integrate memory into the context prompt, which leads to higher costs and longer processing times. In contrast, for parametric memory, the information can be integrated into the parameters of the LLM, eliminating the extra costs of these contexts. However, parametric memory takes additional costs in the writing process, but textual memory is easier to write, especially for small amounts of data. In a nutshell, textual memory is more efficient in writing, while parametric memory is more efficient in reading.
+
+> Textual memory is usually more explainable than the parametric one, since natural languages are the most natural and straightforward strategies for humans to understand, while parametric memory is commonly represented in latent space. Nevertheless, such explainability is obtained at the cost of information density. This is because the sequences of words in textual memory are represented in a discrete space, which is not as dense as continuous space in parametric memory.
+
+<br>
+
+![](/blog/assets/ma_2.png)
+
+<br>
+
+> Although parametric memory holds great prospects, it currently faces numerous challenges. Foremost among these is the issue of efficiency: how to effectively transform textual information into parameters or modifications of parameters is a critical question. Presently, researchers can transfer vast amounts of domain knowledge into the parameters of LLMs by SFT. However, it is time-consuming and requires extensive text corpus, making it unsuitable for situational knowledge. One viable approach is to employ meta-learning to let models learn to memorize. Moreover, the lack of interpretability associated with parametric memory can be a hindrance, especially in domains requiring high levels of trust, such as medicine. Therefore, enhancing the credibility and interpretability of parametric memory is an urgent issue that needs to be addressed.
 
 <br>
 
