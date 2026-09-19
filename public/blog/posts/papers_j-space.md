@@ -1,5 +1,5 @@
 ---
-title: 📊 PAPER → On Global Workspace and J-Space in LLMs
+title: 📊 PAPERS → On Global Workspace and J-Space in LLMs
 subtitle: Rating: 9/10 | Audience: Intermediate to Advanced AI Scientists
 date: 2026; 07; 13
 ---
