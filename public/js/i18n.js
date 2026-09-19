@@ -46,7 +46,7 @@ const MESSAGES = {
     "blog.title": "just another tech blog",
     "blog.intro":
       "Here, I write down some of my ideas, pay homage to the technical research and works that have made me smile, and, usually on Fridays, share some of the cool things I learned during the week.",
-    "blog.drafts.title": "Drafts Backlog",
+    "blog.drafts.title": "Backlog of Long Term Projects",
     "blog.drafts.intro":
       "A queue of things I'm playing with in my spare time — each of which might eventually become a review.",
     "blog.empty": "No posts yet.",
