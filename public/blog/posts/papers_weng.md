@@ -1,5 +1,5 @@
 ---
-title: 📊 PAPER → A Mnemonic Walk Through Weng's Research
+title: 📊 PAPERS → A Mnemonic Walk Through Weng's Research
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI/Software Engineers/Scientists
 date: 2026; 07; 18
 ---
