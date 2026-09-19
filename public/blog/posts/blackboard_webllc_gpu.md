@@ -6,7 +6,7 @@ date: 2026; 09; 17
 
 > [🎼](https://www.youtube.com/watch?v=JCX0SEX9YMo) *"In the face of the **[Sublime](https://www.youtube.com/watch?v=x8JVrSc4J8Y)**, we feel a shiver, a foretaste of death itself, something too large for our minds to encompass. And for a moment it shakes us out of our smugness and releases us from the deathlike grip of habit and banality."* — Robert Green, on The Laws of Human Nature
 
-> [🎵](https://www.youtube.com/watch?v=jlIeMgsjr6c) *"The rest is silence."* — William Shakespeare, on Hamlet
+> [🎵](https://www.youtube.com/watch?v=3PFJ9SETS4M) *"The rest is silence."* — William Shakespeare, on Hamlet
 
 <br>
 
@@ -82,7 +82,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 1️⃣ `ServiceWorkerMLCEngine`: lightweight, endpoint-like object the web developer instantiates in the page. It takes OpenAI-style JSON requests and streams back OpenAI-style JSON responses.
 2️⃣ MLCEngine running inside Web Workers / Service Workers: the actual computation happens off the main thread, so a long generation doesn't freeze page scrolling or input.
-3️⃣ Ahead-of-time-compiled WebGPU kernels: produced by MLC-LLM/TVM, as described above, plus a WebAssembly layer (compiled from C++ via Emscripten) for CPU-side work that doesn't belong on the GPU: the grammar engine for structured/JSON generation, paged-KV-cache bookkeeping, and tensor-manipulation glue for launching kernels.
+3️⃣ Ahead-of-time-compiled WebGPU kernels: produced by MLC-LLM/TVM. Plus a WebAssembly layer (compiled from C++ via Emscripten) for CPU-side work that doesn't belong on the GPU: the grammar engine for structured/JSON generation, paged-KV-cache bookkeeping, and tensor-manipulation glue for launching kernels.
 
 <br>
 
