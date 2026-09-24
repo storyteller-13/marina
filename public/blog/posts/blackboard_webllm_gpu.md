@@ -26,7 +26,7 @@ In another of my side quests, I have been looking at small, distilled LLMs that 
 
 <br>
 
-I am also working on my own ever-evolving platform to test and work through these experiments, while having some fun at the same time. I call it **My Japanese AI**. You can **[play with it as I build](https://japanese.nullstar.fun/)** (will be adding many tiny and distilled models in the 1-16B parameter range soon) or check out its **[source code](https://github.com/future-ai-org/my_japanese_ai)**.
+I am also working on my own ever-evolving platform to test and work through these experiments, while having some fun at the same time. I built an open-source demo that you can **[play with](https://japanese.nullstar.fun/)** (**[source code](https://github.com/future-ai-org/tiny-models-inference)**).
 
 As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory and delight (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:
 

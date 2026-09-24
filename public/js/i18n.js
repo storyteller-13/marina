@@ -27,13 +27,13 @@ const MESSAGES = {
       "I am grateful to have been able to dedicate every day to my passion — constantly learning, experimenting, and deepening my knowledge during these extraordinary days of technological acceleration — and I hope to do so until the very last breath of my existence.",
     "home.interests.title": "Lifelong Skills & Intellectual Interests",
     "home.interests.ai":
-      '<span class="highlight-text font-orbitron">AI + ML</span> → Multiplayer Agents; Infrastructure; Graphs; Memory; Interpretability; Robots; Local; AGI',
+      '<span class="highlight-text font-orbitron">AI && ML</span> → Multiplayer Agents; Infrastructure; Graphs; Memory; Interpretability; Local; RSI; AGI',
     "home.interests.physics":
       '<span class="highlight-text font-orbitron">Physics</span> → <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/qi.pdf">Quantum</a> <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/qft.pdf">Field</a> <a target="_blank" href="https://github.com/future-ai-org/my-phd-theoretical-physics-calculations-and-notes">Theories</a>; <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf">Group Theory</a>; <a href="https://www.astro.sunysb.edu/steinkirch/reviews/cte_cosmologica_nov_2007.pdf" target="_blank">Cosmology</a>; Game Theory; Astronomy; Qubits',
+      "home.interests.story":
+        '<span class="highlight-text font-orbitron">Philosophy</span> → <a href="https://matrix.nullstar.fun" target="_blank">Storytelling</a>; The Hero\'s Journey; Theology; Consciousness; History; Agape; Robots',
     "home.interests.code":
       '<span class="highlight-text font-orbitron">Clean Code</span> → <a target="_blank" href="https://github.com/future-ai-org/master-algorithms-py">Python</a>; Rust; Lean; Algorithms; Formal Verification; Logic; Blockchains; Security',
-    "home.interests.story":
-      '<span class="highlight-text font-orbitron">Storytelling</span> → <a href="https://matrix.nullstar.fun" target="_blank">The Hero\'s Journey</a>; Philosophy; Theology; The Human Condition; History; Agape',
     "home.pubs.title": "Public Technical Research I Published",
     "home.oss.title": "Open-Source Projects I Authored",
     "home.contrib.title": "Third-Party Projects I've Contributed To",
@@ -69,14 +69,14 @@ const MESSAGES = {
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Wake up + shower + spa</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">Journal</a> + Hatha yoga or Kung Fu</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Coffee + protein-based breakfast</span></li>' +
-      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://science.nasa.gov/apod/">APOD</a> + a little bit of chess, piano, and languages</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>A little bit of <a target="_blank" href="https://science.nasa.gov/apod/">APOD</a>, <a target="_blank" href="https://www.chess.com/daily">chess</a>, piano, or languages</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Start Working!</span></li>' +
       "</ul>" +
       "<p>In the evenings, I usually:</p>" +
       '<ul class="qa-routine qa-routine--night">' +
       '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span><a target="_blank" href="https://matrix.nullstar.fun/?list=books-2026">Read</a>, <a target="_blank" href="https://gist.github.com/von-steinkirch/2f6c82155253bf9fc113fbc966037a7d">watch movies</a>, <a href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e" target="_blank">play</a>, dance, or work out</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>Check messages and the news + plan the next day</span></li>' +
-      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>Shower + spa + meditation</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>Shower + spa + meditation + <a target="_blank" href="https://gist.github.com/von-steinkirch/f4fce2f49fa582e8fe458539ece20a93">pray</a></span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">🌙</span><span>Sleep and have very good dreams 😴</span></li>' +
       "</ul>",
     "qa.q2": "What's your story with coding?",
@@ -100,7 +100,7 @@ const MESSAGES = {
       "<br><br>" +
       'During my <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/">PhD</a>, I used mostly Fedora, as well as <a target="_blank" href="https://en.wikipedia.org/wiki/Red_Hat">Red Hat</a> and actual <a target="_blank" href="https://en.wikipedia.org/wiki/Unix">UNIX</a> servers in the labs and on the large computing systems where I ran my research. When I became a software engineer, I joined Apple as a Senior Engineer in my first year, and I experimented with <a target="_blank" href="https://en.wikipedia.org/wiki/MacOS">macOS</a> for a while.' +
       "<br><br>" +
-      'Nowadays, all my machines run Linux (and I\'ve been using <a target="_blank" href="https://gist.github.com/von-steinkirch/845e383a1605a926ae43b742274eadd5">Omarchy</a> since 2025). My mobile devices are either disposable or run <a target="_blank" href="https://grapheneos.org/">GrapheneOS</a> and <a target="_blank" href="https://en.wikipedia.org/wiki/LineageOS" >LineageOS</a>.',
+      'Nowadays, all my machines run Linux (and I\'ve been using <a target="_blank" href="https://gist.github.com/von-steinkirch/845e383a1605a926ae43b742274eadd5">Omarchy</a> since 2025, together with another private setup). My mobile devices are either disposable or run <a target="_blank" href="https://grapheneos.org/">GrapheneOS</a> and <a target="_blank" href="https://en.wikipedia.org/wiki/LineageOS" >LineageOS</a>.',
     "qa.q4": "What's your story with videogames?",
     "qa.a4":
       'When I was 5 or so, my dad brought an <a target="_blank" href="https://en.wikipedia.org/wiki/Atari">Atari</a> home, and we spent the following nights playing and eating bowls of french fries (his specialty). Around 10, my mom bought us a Super Nintendo, which is still my favorite console of all time. After that, we had a Mega Drive (Sega Genesis), a Nintendo 64, PlayStation 1, 2, 3, 4, Xbox 360, Nintendo Wii, and the Meta VR series. Plus, I have always been a PC gamer at the same time.' +
@@ -123,13 +123,13 @@ const MESSAGES = {
       'I began noticing correlations and patterns, particularly in theories involving ascendants and angles, and I have been creating a mathematical theory drawing on my knowledge in <a target="_blank" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf">Group Theory</a> and other related fields. There are still several open questions that I cannot confidently answer — and that I also cannot simply dismiss.' +
       "<br><br>" +
       'Astrology has therefore become one of the subjects I will continue to study seriously throughout my life, alongside astronomy, computer science, physics, math, philosophy, literature, history, movies, art, and music. Just like <a href="https://en.wikipedia.org/wiki/Isaac_Newton\'s_occult_studies" target="_blank">Isaac Newton</a>.',
-    "qa.q6": "What's your story with traveling?",
+    "qa.q6": "What's your story with traveling and languages?",
     "qa.a6":
       "I have spent my life navigating multiple cultural contexts." +
       "<br><br>" +
       '<span style="color: #b392f0;">Human language</span> has fascinated me for decades: from Chomsky’s theories to the cultural and social dimensions of how humans communicate. Born and raised in Brazil in a European-descended family and living in the United States since 2009, I have experienced firsthand the complexities derived by communication, as well as the subtle ways in which culture shapes how we understand and interact with one another.' +
       "<br><br>" +
-      "I speak English and Portuguese natively, and I can get by in Spanish and Italian. I’m the only person in my family who doesn’t speak German (though I still hope to learn it someday). I’ve also been studying Hebrew and <a href=\"https://japanese.nullstar.fun/\" target=\"_blank\">Japanese</a> for a while now — two languages that have been lifelong goals of mine." +
+      "I speak English and Portuguese natively, and I can get by in Spanish and Italian. I’m the only person in my family who doesn’t speak German (though I still hope to learn it someday). I’ve also been studying Hebrew and Japanese for a while now — two languages that have been lifelong goals of mine." +
       "<br><br>" +
       'In addition, during the first part of my life, I had a big dream of exploring the world and experiencing different traditions, so I took every opportunity to travel through my research. Over the last decade, my work as an engineer has paid reasonably well and allowed me to work remotely, which has enabled me to pursue <a href="https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007" target="_blank">this objective</a> consistently.' +
       "<br><br>" +

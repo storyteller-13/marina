@@ -14,7 +14,7 @@ date: 2026; 09; 19
 
 <br>
 
-Saturdays are a great day to review a few papers related to one of my current main areas of interest: collective (super)intelligence and multiplayer agents. The backlog is large, but this is fun (and we have our whole lives ahead of us).
+Saturdays are a great day to review a few papers related to one of my main areas of interest for (**[many](https://github.com/cypherpunk-symposium)** **[years](https://github.com/urani-trade)**): collective (super)intelligence and multiplayer agents. The backlog is large, but this is fun (and we have our whole lives ahead of us).
 
 As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory and delight (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:
 
@@ -391,50 +391,6 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 ----
 
-## 🪂 In the backlog for the next times
-
-<br>
-
-* [Collective Intelligence for Deep Learning: A Survey of Recent Developments](https://arxiv.org/abs/2111.14377)
-
-* [Tree of Thoughts: Deliberate Problem Solving with Large Language Models (2023)](https://arxiv.org/pdf/2305.10601)
-
-* [Improving Factuality and Reasoning in Language Models through Multiagent Debate](https://arxiv.org/abs/2305.14325)
-
-* [Retrieval Augmented Conversational Recommendation with Reinforcement Learning (2026)](https://arxiv.org/abs/2604.04457)
-
-* [Multi-Agent Collaboration via Evolving Orchestration (2025)](https://arxiv.org/pdf/2505.19591)
-
-* [Evolutionary Optimization of Model Merging Recipes (2025)](https://arxiv.org/pdf/2403.13187)
-
-* [GPTSwarm: Language Agents as Optimizable Graphs (2024)](https://arxiv.org/pdf/2402.16823)
-
-* [Revisiting Model Stitching to Compare Neural Representations](https://arxiv.org/pdf/2106.07682)
-
-* [Self-Refine: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651)
-
-* [ReAct: Synergizing Reaction and Acting in Language Models (2023)](https://arxiv.org/pdf/2210.03629)
-
-* [MasRouter: Learning to Route LLMs for Multi-Agent Systems (2025)](https://arxiv.org/abs/2502.11133)
-
-* [Tool Learning with Large Language Models: A Survey](https://arxiv.org/pdf/2405.17935)
-
-* [Michelangelo: Long Context Evaluations Beyond Haystacks via Latent Structure Queries](https://arxiv.org/pdf/2409.12640)
-
-* [RouterDC: Query-Based Router by Dual Contrastive Learning for Assembling Large Language Models](https://arxiv.org/abs/2409.19886)
-
-* [SMOOTHIE: Label Free Language Model Routing](https://arxiv.org/pdf/2412.04692)
-
-* [Mixture-of-Agents Enhances Large Language Model Capabilities](https://arxiv.org/pdf/2406.04692)
-
-* [Automated Design of Agentic Systems](https://arxiv.org/abs/2408.08435)
-
-* [Learning to Orchestrate Agents in Natural Language with the Conductor](https://arxiv.org/abs/2512.04388)
-
-* [CharXiv: Charting Gaps in Realistic Chart Understanding in Multimodal LLMs](https://arxiv.org/pdf/2406.18521)
-
-<br>
-
-----
+### Until next time! 
 
 ### ⬛️
