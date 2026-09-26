@@ -14,7 +14,7 @@ date: 2026; 09; 19
 
 <br>
 
-Saturdays are a great day to review a few papers related to one of my main areas of interest for (**[many](https://github.com/cypherpunk-symposium)** **[years](https://github.com/urani-trade)**): collective (super)intelligence and multiplayer agents. The backlog is large, but this is fun (and we have our whole lives ahead of us).
+Saturdays are a great day to review a few papers related to one of my main areas of interest (for **[many](https://github.com/cypherpunk-symposium)** **[years](https://github.com/urani-trade)**): collective (super)intelligence and multiplayer agents. The backlog is large, but this is fun (and we have our whole lives ahead of us).
 
 As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory and delight (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:
 

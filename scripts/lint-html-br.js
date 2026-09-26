@@ -57,7 +57,7 @@ function runCli(argv = process.argv) {
     } else {
       process.stdout.write(
         `non-canonical <br> usage: ${path.relative(process.cwd(), file)}\n` +
-          "  run: node scripts/lint-html-br.js --fix\n",
+        "  run: node scripts/lint-html-br.js --fix\n",
       );
     }
   }

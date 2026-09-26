@@ -1,7 +1,7 @@
 ---
 title: 📺 PODCAST → O'Connor + Kuhn on Consciousness 3️⃣ of 3️⃣
 subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Unfolding てんかい הִתְפַּתְּחוּת
-date: 2026; 09; 25
+date: 2026; 09; 24
 ---
 
 > [🎼](https://www.youtube.com/watch?v=eVZ9-aoWe6Y) *"Imagination will often carry us to worlds that never were. But without it we go nowhere."* — Carl Sagan
@@ -25,6 +25,10 @@ As I read through the material, I wrote down a few highlights — with a moderat
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 **🤖 Plus, for this special edition, we are adding ⭐ to score my agreement with the theory.**
+
+<br>
+
+##### P.S. Go watch **[Andrew Huberman and Michael Pollan's very fresh discussion](https://www.youtube.com/watch?v=nk15CT41MFc)** on this topic.
 
 <br>
 

@@ -22,7 +22,7 @@ const MESSAGES = {
       "<br><br>" +
       'I started coding in <b><a target="_blank" href="https://web.archive.org/web/20070322015644/http://fly.to/bytegirl">middle school</a></b> and have spent my entire life working on engineering & science. My story with AI/ML started back in high school when I received the first place on a national competition with Expert Systems ("AI Doctor"), during my PhD while working on my thesis on the equation of state of neutron stars at Los Alamos (I also took graduate classes in ML and robotics at that time), then at <b><a target="_blank" href="https://singularity.nullstar.fun/ouroboros-statement.html">many moments</a></b> during my engineering jobs.' +
       "<br><br>" +
-      'Now, with LLMs and the many fascinating advances in the field, I\'ve been building and researching a range of projects — running <b><a target="_blank" href="https://marina.nullstar.fun/pages/post.html?post=idea_nullstar">my fleet of agents through my own custom harness and memory stack</a></b> (and, in my free time, <b><a target="_blank" href="https://www.nullstar.games/">building my own sci-fi mystical MMORPG</a></b> on top of it), experimenting with and testing local and distilled models, reading research papers and technical literature daily, and writing lots of code at my colorful Linux workstations.' +
+      'Now, with LLMs and the many fascinating advances in the field, I’ve been building and researching a range of ultimately interconnected projects — running <b><a target="_blank" href="https://marina.nullstar.fun/pages/post.html?post=idea_nullstar">my fleet of agents through my own custom harness and memory stack research</a></b>, creating <b><a target="_blank" href="https://www.nullstar.games/">a sci-fi mystical MMORPG universe</a></b> on top of it, experimenting with local models, reading research papers and technical literature daily, and writing lots of code at my colorful Linux workstations.' +
       "<br><br>" +
       "I am grateful to have been able to dedicate every day to my passion — constantly learning, experimenting, and deepening my knowledge during these extraordinary days of technological acceleration — and I hope to do so until the very last breath of my existence.",
     "home.interests.title": "Lifelong Skills & Intellectual Interests",
@@ -45,7 +45,7 @@ const MESSAGES = {
     "home.easter": "easter egg →",
     "blog.title": "just another tech blog",
     "blog.intro":
-      "Here, I write down some of my ideas, pay homage to the technical research and works that have made me smile, and, usually on Fridays, share some of the cool things I learned during the week.",
+      "Here, on Fridays or over the weekend, I share some of my ideas, pay homage to the technical research and work that have made me smile, and share some of the cool things I’ve learned during the week.",
     "blog.drafts.title": "Backlog of Long Term Projects",
     "blog.drafts.intro":
       "A queue of things I'm playing with in my spare time — each of which might eventually become a review.",
@@ -67,9 +67,9 @@ const MESSAGES = {
       "<p>I love routines, and my career and family are my greatest priorities. As a result, my mornings tend to follow this protocol (even when I am traveling):</p>" +
       '<ul class="qa-routine qa-routine--day">' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Wake up + shower + spa</span></li>' +
-      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">Journal</a> + Hatha yoga or Kung Fu</span></li>' +
-      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Coffee + protein-based breakfast</span></li>' +
-      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>A little bit of <a target="_blank" href="https://science.nasa.gov/apod/">APOD</a>, <a target="_blank" href="https://www.chess.com/daily">chess</a>, piano, or languages</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span><a target="_blank" href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">Journal</a> + Hatha yoga or Kung Fu + Run</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Coffee + vitamins + protein-based breakfast</span></li>' +
+      '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>A bit of <a target="_blank" href="https://science.nasa.gov/apod/">APOD</a>, <a target="_blank" href="https://xkcd.com/">XKCD</a>, <a target="_blank" href="https://www.chess.com/daily">chess</a>, piano, or languages</span></li>' +
       '<li><span class="qa-routine-mark" aria-hidden="true">☀️</span><span>Start Working!</span></li>' +
       "</ul>" +
       "<p>In the evenings, I usually:</p>" +
@@ -156,7 +156,8 @@ const MESSAGES = {
       "<p>No. Obviously not. Never did, never will. My career and studies as an engineer and scientist have been my main focus throughout my entire life.</p>" +
       "<p>I am, and have always been, a very private person. I do not have and I never had any social media presence or other forms of online engagement beyond my GitHub (and the projects within it), personal YouTube, and email. The only official links for any of my work or projects are, and have always been, those listed on my website. If you have come across with any other links or accounts, they are and have always been criminal impersonations.</p>" +
       "<p>Any access to, or streaming from, any of my devices is, and has always been, illegal and constitutes a violation of my privacy, dignity, and human rights. Any distribution of personal photographs or videos depicting my private life is, and has always been, illegal and constitutes a violation of my privacy, dignity, and human rights.</p>" +
-      "<p>Offenders will be prosecuted to the fullest extent of the law. If you are aware of any such incidents, I'd deeply appreciate it if you INFORM THE POLICE and at <code>contact@vonsteinkirch.com</code>.</p>" +
+      "<p>Offenders will be prosecuted to the fullest extent of the law. If you are aware of any such incidents, I'd deeply appreciate it if you INFORM THE POLICE and at <code>contact@vonsteinkirch.com</code>. </p>" +
+      "<p>The reason why this note is here is because, during 2022–2024, my then-boyfriend filmed me without my consent, impersonated me, and allowed me to be hacked and sex-trafficked, causing a lot of harm to my life and career. <a href='https://github.com/storyteller-13/the-crime' target="_blank">I only found out the full extent in 2025</a>.  It has been a long, painful, and unfortunately public process to recover from this trauma, but I am much stronger now: my work and the good people in the world are my strength.</p>" +
       "</aside>",
     "qa.slider":
       "impossible is a state of mind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it always seems impossible until it's done&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to achieve the impossible, one must attempt the absurd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the word impossible is not in my dictionary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a winner is a dreamer who never gives up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the harder the battle, the greater the triumph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",

@@ -1,7 +1,7 @@
 ---
-title: 🧑‍🏫 BLACKBOARD →  WebLLM, WebGPU, Web Inference
+title: 🧠 IDEA → WebLLM, WebGPU, Open-Source Tiny Inference
 subtitle: Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold きょうかい
-date: 2026; 09; 17
+date: 2026; 09; 25
 ---
 
 > [🎼](https://www.youtube.com/watch?v=JCX0SEX9YMo) *"In the face of the **[Sublime](https://www.youtube.com/watch?v=x8JVrSc4J8Y)**, we feel a shiver, a foretaste of death itself, something too large for our minds to encompass. And for a moment it shakes us out of our smugness and releases us from the deathlike grip of habit and banality."* — Robert Green, on The Laws of Human Nature
@@ -14,11 +14,16 @@ date: 2026; 09; 17
 
 <br>
 
-In another of my side quests, I have been looking at small, distilled LLMs that can run locally in the browser. The inference stack we are learning today:
+In another of my side quests, I've been looking at small, distilled LLMs that can run locally in the browser (or are tiny enough to be submitted as very fast, *free* inference jobs in the cloud).
+
+Today, I'll introduce my project and share some of my whiteboarding thougths on this technilogy. The inference stack we'll be learning about:
 
 1️⃣ **[WebLLM](https://github.com/mlc-ai/web-llm)**
 2️⃣ **[WebGPU](https://gpuweb.github.io/gpuweb/)**
 3️⃣ MLC and **[MLC-LLM](https://github.com/mlc-ai/mlc-llm)**
+
+
+In addition, I built an open-source demo that you can **[play with](https://japanese.nullstar.fun/)** (**[source code](https://github.com/future-ai-org/tiny-models-inference)**).
 
 <br>
 
@@ -26,9 +31,7 @@ In another of my side quests, I have been looking at small, distilled LLMs that 
 
 <br>
 
-I am also working on my own ever-evolving platform to test and work through these experiments, while having some fun at the same time. I built an open-source demo that you can **[play with](https://japanese.nullstar.fun/)** (**[source code](https://github.com/future-ai-org/tiny-models-inference)**).
-
-As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory and delight (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:
+ As always, remember the rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
