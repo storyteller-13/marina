@@ -105,7 +105,7 @@ const MESSAGES = {
     "qa.a4":
       'When I was 5 or so, my dad brought an <a target="_blank" href="https://en.wikipedia.org/wiki/Atari">Atari</a> home, and we spent the following nights playing and eating bowls of french fries (his specialty). Around 10, my mom bought us a Super Nintendo, which is still my favorite console of all time. After that, we had a Mega Drive (Sega Genesis), a Nintendo 64, PlayStation 1, 2, 3, 4, Xbox 360, Nintendo Wii, and the Meta VR series. Plus, I have always been a PC gamer at the same time.' +
       "<br><br>" +
-      'I have <a target="_blank" href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e">too many favorite games</a>, but in terms of hours played, I would highlight all the old-school PC LAN games and the SNES and PS1 classics, with a sweet spot for Resident Evils, Silent Hills, Tomb Raiders, Half-Life/Portals, Left 4 Deads, Age of Empires, Fallouts, WoW, StarCrafts, and Diablos.' +
+      'I have <a target="_blank" href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e">too many favorite games</a>, but in terms of hours played, I would highlight all the old-school PC LAN games and the SNES and PS1 classics, with a sweet spot for <a href="https://log.schemescape.com/posts/memoir/dos.html">SimCity 2000</a>, Resident Evils, Silent Hills, Tomb Raiders, Half-Life/Portals, Left 4 Deads, Age of Empires, Fallouts, WoW, StarCrafts, and Diablos.' +
       "<br><br>" +
       'P.S. I\'ve always been a Linux girl, but I might have had to use Windows for my <a href="https://steamcommunity.com/id/bt3gl" target="_blank">Steam</a> and Blizzard games back in the day. Or not.',
     "qa.q5": "What's your story with astronomy and astrology?",
