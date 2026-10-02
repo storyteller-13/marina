@@ -672,7 +672,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-> *“Although there is nothing specifically psychic or mental in the relational properties of a system with respect to another system. There is definitely something in common with panpsychism, because the world is not described from the outside: it is always described relative to a physical system. So, physical reality is, in our current physics, perspectival reality.*
+> *Although there is nothing specifically psychic or mental in the relational properties of a system with respect to another system. There is definitely something in common with panpsychism, because the world is not described from the outside: it is always described relative to a physical system. So, physical reality is, in our current physics, perspectival reality.*
 
 <br>
 

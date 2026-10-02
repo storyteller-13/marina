@@ -45,7 +45,7 @@ const MESSAGES = {
     "home.easter": "easter egg →",
     "blog.title": "just another tech blog",
     "blog.intro":
-      "Here, on Fridays or over the weekend, I share some of my ideas, pay homage to the technical research and work that have made me smile, and share some of the cool things I’ve learned during the week.",
+      "Here, on Fridays or over the weekends, I share some of my ideas, pay homage to the technical research and work that have made me smile, and share some of the cool things I’ve learned during the week.",
     "blog.drafts.title": "Backlog of Long Term Projects",
     "blog.drafts.intro":
       "A queue of things I'm playing with in my spare time — each of which might eventually become a review.",

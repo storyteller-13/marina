@@ -6,7 +6,7 @@ date: 2026; 09; 25
 
 > [🎼](https://www.youtube.com/watch?v=JCX0SEX9YMo) *"In the face of the **[Sublime](https://www.youtube.com/watch?v=x8JVrSc4J8Y)**, we feel a shiver, a foretaste of death itself, something too large for our minds to encompass. And for a moment it shakes us out of our smugness and releases us from the deathlike grip of habit and banality."* — Robert Green, on The Laws of Human Nature
 
-> [🎵](https://www.youtube.com/watch?v=3PFJ9SETS4M) *"The rest is silence."* — William Shakespeare, on Hamlet
+> [🎶](https://www.youtube.com/watch?v=-X3klDNV0VE) *"The rest is silence."* — William Shakespeare, on Hamlet
 
 <br>
 
@@ -14,16 +14,15 @@ date: 2026; 09; 25
 
 <br>
 
-In another of my side quests, I've been looking at small, distilled LLMs that can run locally in the browser (or are tiny enough to be submitted as very fast, *free* inference jobs in the cloud).
+In another of my side quests, I've been looking at small, distilled LLMs that can be run locally in the browser (or are tiny enough to be submitted as very fast, *free* inference jobs in the cloud).
 
-Today, I'll introduce my project and share some of my whiteboarding thougths on this technilogy. The inference stack we'll be learning about:
+I built an open-source e2e demo that you can **[play with](https://japanese.nullstar.fun/)** (and you should check the **[source code](https://github.com/future-ai-org/tiny-models-inference)**, as it's pretty good 😏).
+
+The inference stack we'll be learning about is:
 
 1️⃣ **[WebLLM](https://github.com/mlc-ai/web-llm)**
 2️⃣ **[WebGPU](https://gpuweb.github.io/gpuweb/)**
 3️⃣ MLC and **[MLC-LLM](https://github.com/mlc-ai/mlc-llm)**
-
-
-In addition, I built an open-source demo that you can **[play with](https://japanese.nullstar.fun/)** (**[source code](https://github.com/future-ai-org/tiny-models-inference)**).
 
 <br>
 

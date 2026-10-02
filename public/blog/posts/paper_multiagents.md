@@ -1,12 +1,10 @@
 ---
-title: 📊 PAPERS → On Multiplayer Agents & Intelligence 1️⃣ of ♾️
+title: 📊 PAPER → Multiplayer Intelligence 1️⃣ of ♾️: Multi-Agents
 subtitle: Audience: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace
 date: 2026; 09; 19
 ---
 
 > [🎼](https://www.youtube.com/watch?v=w6Z8JfXjc4k) *"What is past is prologue."* — William Shakespeare, on The Tempest
-
-> [🎶](https://www.youtube.com/watch?v=-X3klDNV0VE) *"And now that you don't have to be perfect, you can be good."* — John Steinbeck, on East of Eden
 
 <br>
 

@@ -1,10 +1,10 @@
 ---
 title: 🧠 IDEA → The OS for Multiplayer Superintelligence
-subtitle: In which I introduce a very cool project I have been working on.
+subtitle: In which I introduce how I believe friendship networks will be done in the future.
 date: 2026; 06; 07
 ---
 
->  💡 EDIT: Folks love my work! For example, although my application for this project wasn't accepted at YC, **[they decided to use my insights](https://github.com/yc-software/qm)**! Thank you to everyone who follows my journey and appreciates my ideas — they will keep coming 😊
+>  💡 **[EDIT; October, 2026] [Dates have been defined; 37 4 life](https://www.nullstar.games/)**.
 
 <br>
 
@@ -14,13 +14,13 @@ date: 2026; 06; 07
 
 Today I'm excited to talk a little bit about what I've been cooking.
 
-✨ Introducing NULLSTAR, an agentic-native game and intelligence studio — or as I like to call it, the operating system for multiplayer agentic superintelligence. ✨
+✨ Introducing NULLSTAR, an agentic-native game and intelligence studio — or as I like to call it, the operating system for collective superintelligence. ✨
 
 
-What does that mean exactly? I've been building a seven-layer, vertically integrated infrastructure and operating system designed to fundamentally change how multiplayer games and interactive experiences are created and delivered.
+What does that mean exactly? I've been building a seven-layer, vertically integrated infrastructure and operating system designed to fundamentally change how multiplayer games, friendship networks, and interactive experiences are created and delivered.
 
 
-This operating system (codename **PleiadesOS**) is designed to introduce advanced procedural content generation for rich, non-linear storytelling — dynamic quests, branching outcomes, and evolving world states governed by flexible rules and alternative physics. Non-player characters (NPCs) are modeled as autonomous agents with persistent memory, goals, and decision-making capabilities. They adapt to player behavior, enabling players to co-create their experience — all built on top of current industry tools and standards.
+This operating system, with the prototype codename **PleiadesOS**, is designed to introduce advanced procedural content generation for rich, non-linear storytelling — dynamic quests, branching outcomes, and evolving world states governed by flexible rules and alternative physics. Non-player characters (NPCs) are modeled as autonomous agents with persistent memory, goals, and decision-making capabilities. They adapt to player behavior, enabling players to co-create their experiences — all built on top of current industry tools and standards.
 
 <br>
 
@@ -28,22 +28,27 @@ This operating system (codename **PleiadesOS**) is designed to introduce advance
 
 <br>
 
+My vision is to move gaming beyond static, developer-limited experiences toward scalable, intelligence-driven worlds built for the Age of Agents — and to bring every daring hero along for the ride.
+
 Here is how **PleiadesOS** is engineered:
 
 ![pleiadesOS](/blog/assets/pleiadesOS.png)
 
-
-#### 1. MAIA v1.0: A graph-based multi-agent harness inspired by Pi, featuring guardrails, middleware, and verification loops (written in Rust).
-#### 2. ELECTRA v1.0: A multi-layered short- and long-term memory module that manages internal state, vaults, compaction, and summarization, optimized for fast search and intelligent retrieval (written in Rust).
-#### 3. TAYGETE v1.0: A customizable plug-and-play secondary harness and wrapper providing native support for dozens of additional tools and optional features, including monetization, voice integration, and advanced caching (written in Rust and Python).
-#### 4. ALCYONE v1.0: Evals, observability, benchmarking, testing, security hardening, compliance, and dashboards (written in Rust and Python).
-#### 5. CELAENO v1.0: A novel Rust-based multiplayer deployment and infrastructure layer built through the coordinated orchestration of sandboxed subagents.
-#### 6. STEROPE v1.0: A multimodal module integrating game engines.
-#### 7. MEROPE v1.0: A novel NPC cognition engine.
-
 <br>
 
-My vision is to move gaming beyond static, developer-limited experiences toward scalable, intelligence-driven worlds built for the Age of Agents — and to bring every daring game developer and adventurer along for the ride.
+#### 1. MAIA v1.0: Graph-based multi-agent harness inspired by Pi, featuring guardrails, middleware, and verification loops (written in Rust).
+
+#### 2. ELECTRA v1.0: Multi-layered short- and long-term memory module that manages internal state, vaults, compaction, and summarization, optimized for fast search and intelligent retrieval (written in Rust).
+
+#### 3. TAYGETE v1.0: Customizable, plug-and-play secondary harness and wrapper providing native support for dozens of additional tools and optional features, including monetization, multimodal integration, and advanced caching (written in Rust and Python).
+
+#### 4. ALCYONE v1.0: Evals, observability, benchmarking, testing, security hardening, compliance, and dashboards (written in Rust and Python).
+
+#### 5. CELAENO v1.0: Novel multiplayer deployment and infrastructure layer built through the coordinated orchestration of sandboxed subagents (written in Rust).
+
+#### 6. STEROPE v1.0: Game engine integration.
+
+#### 7. MEROPE v1.0: Novel NPC cognition engine.
 
 <br>
 
@@ -51,16 +56,15 @@ My vision is to move gaming beyond static, developer-limited experiences toward 
 
 <br>
 
-## 🌟 LOGIC-13: The Flagship Sci-Fi MMORPG
+## 🌟 LOGIC-13: The Flagship Superintelligent Sci-Fi Mystical MMORPG
 
 <br>
 
-**NULLSTAR** has a secondary mission: to dogfood **PleiadesOS** with my own MMORPG universe, **LOGIC-13**.
+**NULLSTAR** is built to host magical interactions. Its first mission will be to dogfood **PleiadesOS** with my own sci-fi mystical MMORPG world, **LOGIC-13**, full of the coolest puzzles and where real friends meet. An agentic-native living universe in which (super)intelligence itself becomes part of the gameplay. I can't tell you much more just yet. It's a surprise coming in 2027 for all the good people in the world.
 
-I've been writing this sci-fi universe — originally conceived as a book series — for many months now. Its lore is set in the near future and explores themes I've long studied: physics, astronomy, quantum computing, game theory, alternate timelines, spacetime, decentralization, and the hero's journey.
+(P.S. I've been writing this sci-fi universe, originally conceived as a book series, for some time now. Its lore is set in the near future and explores themes I've long studied: physics, astronomy, quantum computing, game theory, alternate timelines, spacetime, decentralization, consciousness, and the hero's journey.)
 
 I can't wait to show you what I've been creating!
-
 ### Until the next update <br> have a great week, anon <br>  🤖✨
 
 <br>

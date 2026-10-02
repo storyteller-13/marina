@@ -12,8 +12,8 @@
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Unfolding \u3066\u3093\u304b\u3044 \u05d4\u05b4\u05ea\u05b0\u05e4\u05bc\u05b7\u05ea\u05b0\u05bc\u05d7\u05d5\u05bc\u05ea"
   },
   {
-    "slug": "papers_multiagents",
-    "title": "\ud83d\udcca PAPERS \u2192 On Multiplayer Agents & Intelligence 1\ufe0f\u20e3 of \u267e\ufe0f",
+    "slug": "paper_multiagents",
+    "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 1\ufe0f\u20e3 of \u267e\ufe0f: Multi-Agents",
     "date": "2026; 09; 19",
     "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace"
   },
@@ -96,14 +96,14 @@
     "subtitle": "Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers"
   },
   {
-    "slug": "papers_weng",
-    "title": "\ud83d\udcca PAPERS \u2192 A Mnemonic Walk Through Weng's Research",
+    "slug": "paper_weng",
+    "title": "\ud83d\udcca PAPER \u2192 A Mnemonic Walk Through Weng's AI Research",
     "date": "2026; 07; 18",
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI/Software Engineers/Scientists"
   },
   {
-    "slug": "papers_j-space",
-    "title": "\ud83d\udcca PAPERS \u2192 On Global Workspace and J-Space in LLMs",
+    "slug": "paper_j-space",
+    "title": "\ud83d\udcca PAPER \u2192 On Global Workspace and J-Space in LLMs",
     "date": "2026; 07; 13",
     "subtitle": "Rating: 9/10 | Audience: Intermediate to Advanced AI Scientists"
   },
@@ -135,7 +135,7 @@
     "slug": "idea_nullstar",
     "title": "\ud83e\udde0 IDEA \u2192 The OS for Multiplayer Superintelligence",
     "date": "2026; 06; 07",
-    "subtitle": "In which I introduce a very cool project I have been working on."
+    "subtitle": "In which I introduce how I believe friendship networks will be done in the future."
   },
   {
     "slug": "idea_secure_pipeline",
