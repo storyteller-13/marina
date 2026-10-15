@@ -1,5 +1,11 @@
 [
   {
+    "slug": "book_legg",
+    "title": "\ud83d\udcda BOOK \u2192 Machine Super Intelligence (S. Legg, 2008)",
+    "date": "2026; 10; 16",
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Future \u672a\u6765 \u00b7 \u05e2\u05ea\u05d9\u05d3"
+  },
+  {
     "slug": "idea_webllm_gpu",
     "title": "\ud83e\udde0 IDEA \u2192 WebLLM, WebGPU, Open-Source Tiny Inference",
     "date": "2026; 09; 25",
@@ -13,7 +19,7 @@
   },
   {
     "slug": "paper_multiagents",
-    "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 1\ufe0f\u20e3 of \u267e\ufe0f: Multi-Agents",
+    "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 1\ufe0f\u20e3 of \u267e\ufe0f: Multi-Agents I",
     "date": "2026; 09; 19",
     "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace"
   },

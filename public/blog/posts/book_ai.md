@@ -1305,7 +1305,7 @@ Greedy(y).
 
 <br>
 
-> ✨ **GODEL’S INCOMPLETENESS THEOREM -> By slightly extending the language of first-order logic to allow for the mathematical induction schema in arithmetic, Kurt Gödel was able to show, in his incompleteness theorem, that there are true arithmetic sentences that cannot be proved. -> we can never prove all the theorems of mathematics within any given system of axioms.** ✨
+> ✨ **GOEDEL’S INCOMPLETENESS THEOREM -> By slightly extending the language of first-order logic to allow for the mathematical induction schema in arithmetic, Kurt Gödel was able to show, in his incompleteness theorem, that there are true arithmetic sentences that cannot be proved. -> we can never prove all the theorems of mathematics within any given system of axioms.** ✨
 
 <br>
 
