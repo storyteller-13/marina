@@ -22,18 +22,18 @@ Ah, and by the way, as we read through today's material, please remember our rul
 
 ---
 
-# 🎮 Serving the Infrastructure for Multiplayer MMO Experiences in the Agentic Era
+# 🌟 Serving the Infrastructure for MMO Experiences in the Agentic Era
 
 <br>
 
-One of the reasons we are building [**NULLSTAR**](https://nullstar.games/) is to bring the development of interactive experiences to a remarkably modular agentic paradigm. This matters because a game engine renders and simulates *experience worlds*, but does not automatically provide the infrastructure needed to support a persistent MMO with thousands of players. NULLSTAR is a seven-layer operating system being developed to integrate these layers (and today, we are discussing more specifically our sixth layer, **[STEROPE](http://localhost:8037/pages/post.html?post=idea_nullstar)**).
+One of the reasons we are building [**NULLSTAR**](https://nullstar.games/) is to bring the development of interactive experiences to a remarkably modular agentic paradigm (**["everything is a plugin"](https://arxiv.org/pdf/2608.25512)**). This matters because a game engine renders and simulates *experience worlds*, but does not automatically provide the infrastructure needed to support a persistent MMO with thousands➕ of players. NULLSTAR is a seven-layer operating system being developed to integrate these components. Today, we are discussing more specifically our sixth layer, **[STEROPE](http://localhost:8037/pages/post.html?post=idea_nullstar)**.
 
-Although several great engine options are available (e.g., browser-first platforms, single-player engines, and 2D engines), the infrastructure for the experiences we are creating should support the following features:
+Although several great engine options are available (e.g., browser-first platforms, single-player, 2D), the infrastructure for the experiences we are creating should support the following features:
 
-- High-quality rendering for a large-world simulation
-- Authoritative multiplayer networking with excellent server performance
 - (Multimodal) asset streaming 
+- High-quality rendering for a large-world simulation
 - The ability to operate the game for years (persistence)
+- Authoritative multiplayer networking with excellent server performance
 
 <br>
 
@@ -47,7 +47,7 @@ Therefore, for this report, let us narrow our options to three powerful open-sou
 
 ----
 
-# 🎮 Head-to-head comparison
+# 🌟 Head-to-head comparison
 
 <br>
 
@@ -73,13 +73,13 @@ Additionally:
 
 - Godot also supports dedicated headless servers and multiplayer APIs, but you still need to design the authoritative simulation and production server architecture.
 
-- Bevy offers more freedom to build a Rust-native stack, but its networking capabilities depend on the libraries and architecture you select. Its community maintains networking and replication options, rather than one integrated, MMORPG-ready networking solution.
+- Bevy offers more freedom to build a Rust-native stack, but its networking capabilities depend on the libraries and architecture you select. Its community maintains networking and replication options, rather than one integrated, MMO-ready networking solution.
 
 <br>
 
 ---
 
-# 🎮 What each engine means for real MMO Experiences
+# 🌟 What each engine means for real-time MMO Experiences
 
 <br>
 
@@ -87,12 +87,16 @@ Additionally:
 
 <br>
 
-**[Godot](https://github.com/godotengine/godot)** is attractive for getting character movement, exploration, quests, inventory, dialogue, and social gameplay into a functioning game quickly. Plus, some of its strongest features are:
+**[Godot](https://github.com/godotengine/godot)** is attractive for getting character movement, exploration, quests, inventory, dialogue, and social gameplay into a functioning game quickly. **[Here](https://www.youtube.com/watch?v=7ZwEmxihlw4)** are some examples of games made in 2025. Plus, some of its strongest features are:
 
 - Mature editor and iteration workflow
 - Dedicated headless server exports
 - Multiplayer APIs that you can use as a foundation
-- MIT licensing, with fewer engine-license constraints for commercial distribution
+- **[MIT licensing](https://docs.godotengine.org/en/stable/about/complying_with_licenses.html)**, with fewer engine-license constraints for commercial distribution
+
+<br>
+
+> *Intuitive scene-driven design with the following features: 1) Build your game from simple blocks, 2) Extend beyond features provided by the engine, 3) Create data-driven elements with custom resources, 4) Support both high and low-end devices, 5) Seamlessly integrate with your asset pipeline, 6) Create animated videos and prerendered cutscenes in engine.*
 
 <br>
 
@@ -108,55 +112,34 @@ Now, here are some things that would need be implemented (integrated with NULLST
 - handling concurrent writes, retries, transaction boundaries, and crash recovery
 - keeping durable storage separate from frequently updated in-memory simulation state
 
-##### World partitioning and server scaling
-- dividing the world into zones, regions, or server-owned areas
-- assigning players to instances and handle their transitions between zones
-- implementing interest management so clients receive updates only for relevant nearby entities
-- split, migrate, scale of out overloaded regions
-
 <br>
 
 ## Bevy: best for a custom simulation platform
 
 <br>
 
-**[Bevy](https://github.com/bevyengine/bevy)** makes sense if the experience is a long-lived software platform with custom simulation rules, procedural systems, agent behavior, and a Rust-heavy codebase. Plus, some of its strongest features are:
+**[Bevy](https://github.com/bevyengine/bevy)** makes sense if the experience is a long-lived software platform with custom simulation rules, procedural systems, agent behavior, and a Rust-heavy codebase. **[Here](https://github.com/bevyengine/bevy/tree/latest/examples)** are some examples. Plus, some of its strongest features are:
 
-- An ECS (Entity Component System) architecture is a natural fit for large numbers of simulated entities
-- Game logic can share types and concepts with other Rust services (Rust is suitable for performance-sensitive server components)
+- An **[ECS (Entity Component System)](https://github.com/SanderMertens/ecs-faq)** architecture is a natural fit for large numbers of simulated entities
+- Game logic can share types and concepts with other Rust services (Rust is our language of choice for performance-sensitive server components)
 - You can choose networking libraries to fit your protocol and deployment model
+- Dual **[MIT and Apache 2.0 licensing](https://github.com/bevyengine/bevy#license)**
+
+<br>
+
+
+> *Design Goals: 1) Capable: Offer a complete 2D and 3D feature set , 2) Simple: Easy for newbies to pick up, but infinitely flexible for power users , 3) Data Focused: Data-oriented architecture using the Entity Component System paradigm, 4) Modular: Use only what you need. Replace what you don't like, 5) Fast: App logic should run quickly, and when possible, in parallel, 6) Productive: Changes should compile quickly.* 
 
 <br>
 
 In addition, these are the things that would need be implemented for this engine (integrated with NULLSTAR's TAYGETE and CELAENO):
 
 ##### Multiplayer networking and replication
-- selection of a networking solution for client-server communication, packet delivery, and connection lifecycle management
 - which ECS components are replicated, which remain server-only, and which are predicted locally
+- selection of a networking solution for client-server communication, packet delivery, and connection lifecycle management
 - serialization, delta updates, entity creation and destruction messages, and synchronization of component changes
-- handling latency, packet loss, interpolation, prediction, reconciliation, and reconnection
-
-##### Server-authoritative simulation
-- separate server simulation systems from client presentation systems
-- validation of player inputs and execute combat, movement, AI, and interactions on the server
-- defining update ordering, simulation frequency, and deterministic or reproducible behavior where needed
-- preventing clients from modifying authoritative ECS components directly
-
-##### Persistence and data lifecycle
-- serialization and database representations for entities and their components
-- which data is transient, periodically saved, or committed immediately
-- map persistent character IDs to runtime ECS entities when players join
-- migrations, recovery, and consistency rules for data that changes across sessions
-
-##### World partitioning and distributed simulation
-- the boundaries between world zones, instances, or server processes
-- how to transfer entities and player ownership between server processes
-- coordination of shared world events and avoid conflicting writes when multiple services interact with the same state
-- interest management and visibility filtering to limit network traffic
 
 ##### Editor and developer tooling
-- integration of workflows for creating levels, inspecting entities, tuning gameplay, and debugging network state
-- in-game diagnostics for latency, replication, entity counts, and server performance
 - repeatable local development environments that launch clients, dedicated servers, and supporting services together
 
 <br>
@@ -165,12 +148,13 @@ In addition, these are the things that would need be implemented for this engine
 
 <br>
 
-**[O3DE](https://github.com/o3de/o3de)** is worth consideration for advanced high-fidelity 3D rendering and a networking framework integrated into the engine (O3DE has the most AAA-style tech). Plus, some of its strongest features are:
+**[O3DE](https://github.com/o3de/o3de)** is worth consideration for advanced high-fidelity 3D rendering and a networking framework integrated into the engine (O3DE has the most AAA-style tech). **[Here](https://www.youtube.com/@Open3DEngine/videos)** are some of the good work they are doing. Plus, some of its strongest features are:
 
 - Dedicated server runtime
 - Multiplayer Gem with replication and server-authoritative networking
 - C++ customization and modular Gems
 - Extensive tooling for complex 3D applications
+- **[Apache 2.0 licensing](https://github.com/o3de/o3de/blob/development/LICENSE.txt)**
 
 <br>
 
@@ -181,15 +165,7 @@ In addition, these are the things that would need be implemented for this engine
 In addition, here are some things that would need be implemented for this engine (integrated with NULLSTAR's TAYGETE and CELAENO):
 
 ##### Network-enabled game entities 
-- which entities participate in multiplayer and which components expose networked properties
-- configuration of network entity roles and ownership for players, NPCs, interactable objects, and other gameplay entities
-- using O3DE's auto-component generation where appropriate, then implement the actual gameplay behavior
-
-##### World zoning and large-scale server architecture
-- the division between world regions, instances, and server processes
-- routing and handoff mechanisms for players moving between regions
-- interest management and update prioritization for large numbers of entities
-- how to scale individual regions, recover failed processes, and maintain world ownership
+- using O3DE's auto-component generation where appropriate, then implement the gameplay behavior
 
 <br>
 
@@ -202,6 +178,14 @@ In addition, here are some things that would need be implemented for this engine
 ##### Gameplay and AI systems
 - combat, quests, progression, world events, and game-specific rules using the engine's component and scripting systems
 - AI decisions on the server and replicate the resulting actions to clients
+- configuration of network entity roles and ownership for players, NPCs, interactable objects, and other gameplay entities
+
+##### World zoning and large-scale server architecture
+- the division between world regions, instances, and server processes
+- routing and handoff mechanisms for players moving between regions
+- how to scale individual regions, recover failed processes, and maintain world ownership
+- how to transfer entities and player ownership between server processes
+- coordination of shared world events and avoid conflicting writes when multiple services interact with the same state
 
 ##### Accounts and sessions
 - integration of account authentication and authorization
@@ -215,14 +199,14 @@ In addition, here are some things that would need be implemented for this engine
 - deciding when state changes must be committed, and recover from crashes or failed writes
 - implementing save/load workflows that reconcile persisted data with entities spawned into the running world
 
-<br>
-
-#### ✨ MMO operations, integrated with NULLSTAR's ALCYONE: 
-
-##### **Build and deployment**
+##### Build and deployment
 - headless dedicated servers and package the binaries with their configuration and secrets
 - deployment of pipelines that roll out updates through orchestration, scaling, graceful restarts, and rolling deployments
 - management of engine modules (e.g., O3DE Gems), project dependencies, and custom engine code with end-to-end workflows
+
+<br>
+
+#### ✨ MMO operations, integrated with NULLSTAR's ALCYONE: 
 
 ##### **Runtime observability**
 - health checks for every server process
@@ -242,7 +226,7 @@ In addition, here are some things that would need be implemented for this engine
 
 ---
 
-# 🎮 Engine-Architecture Integration
+# 🌟 Engine-Architecture Integration
 
 <br>
 
@@ -259,6 +243,8 @@ And an *ever-growing* list of very good resources on building games and large-sc
 - **[frozenfractal](https://frozenfractal.com)**
 - **[heredragonsabound](https://heredragonsabound.blogspot.com/)**
 - **[the godot-rust book](https://godot-rust.github.io/book/)**
+- **[ecs-faq](https://github.com/SanderMertens/ecs-faq)**
+- **[Google's Rust Style Guide](https://google.github.io/styleguide/rustguide.html)**
 
 <br>
 
@@ -267,3 +253,9 @@ And an *ever-growing* list of very good resources on building games and large-sc
 ### Until next time, my friend!
 
 ### ⬛
+
+<br>
+
+![](/blog/assets/goat.png)
+
+<br>

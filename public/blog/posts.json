@@ -1,8 +1,20 @@
 [
   {
+    "slug": "paper_intel_3",
+    "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 3\ufe0f\u20e3 of \u267e\ufe0f: Harness RSI",
+    "date": "2026; 10; 25",
+    "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's word: Ghost \u30b4\u30fc\u30b9\u30c8 \u00b7 \u05e8\u05d5\u05d7 \u05d8\u05d5\u05d1\u05d4"
+  },
+  {
+    "slug": "paper_intel_2",
+    "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 2\ufe0f\u20e3 of \u267e\ufe0f: G\u00f6del Machines",
+    "date": "2026; 10; 24",
+    "subtitle": "Audience: Intermediate to Advanced AI Scientists | Today's word: Home \u6545\u90f7 \u00b7 \u05d1\u05d9\u05ea"
+  },
+  {
     "slug": "report_oss_game_engines",
     "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Fun Ride Through OSS Game Engines",
-    "date": "2026; 10; 20",
+    "date": "2026; 10; 17",
     "subtitle": "In which we learn a little bit about the current open-source landscape."
   },
   {
@@ -24,7 +36,7 @@
     "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Unfolding \u3066\u3093\u304b\u3044 \u05d4\u05b4\u05ea\u05b0\u05e4\u05bc\u05b7\u05ea\u05b0\u05bc\u05d7\u05d5\u05bc\u05ea"
   },
   {
-    "slug": "paper_intelligence",
+    "slug": "paper_intel",
     "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 1\ufe0f\u20e3 of \u267e\ufe0f: Multi-Agents",
     "date": "2026; 09; 19",
     "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace"

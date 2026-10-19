@@ -30,25 +30,25 @@ This operating system, with the prototype codename **PleiadesOS**, is designed t
 
 My vision is to move gaming beyond static, developer-limited experiences toward scalable, intelligence-driven worlds built for the Age of Agents — and to bring every daring hero along for the ride.
 
-Here is how **PleiadesOS** is engineered:
+Here is how **PleiadesOS** is currently being developed:
 
 ![pleiadesOS](/blog/assets/pleiadesOS.png)
 
 <br>
 
-#### 1. MAIA v1.0: Graph-based multi-agent harness inspired by Pi, featuring guardrails, middleware, and verification loops (written in Rust).
+#### 1. MAIA v1.0: Minimal, graph-based, multi-agent-oriented harness — featuring guardrails, middleware, and verification loops (written in Rust). This project will be open-sourced in 2027.
 
-#### 2. ELECTRA v1.0: Multi-layered short- and long-term memory module that manages internal state, vaults, compaction, and summarization, optimized for fast search and intelligent retrieval (written in Rust).
+#### 2. ELECTRA v1.0: Multi-layered short- and long-term memory module that manages internal state, vaults, compaction, and summarization, optimized for fast search and intelligent retrieval (written in Rust). Integrated with both MAIA and TAYGETE.
 
-#### 3. TAYGETE v1.0: Customizable, plug-and-play secondary harness and wrapper providing native support for dozens of additional tools and optional features, including monetization, multimodal integration, and advanced caching (written in Rust and Python).
+#### 3. TAYGETE v1.0: Secondary customizable, composable, adaptive and self-improving harness wrapper (written in Rust and Python). It contains our own observability-driven adaptation engine and provides native support for several additional tools and optional features, including monetization, multimodal integration, and advanced caching. This project is expected to be open-sourced in the future.
 
-#### 4. ALCYONE v1.0: Evals, observability, benchmarking, testing, security hardening, compliance, and dashboards (written in Rust and Python).
+#### 4. ALCYONE v1.0: Evals, observability, benchmarking, testing, security hardening, compliance, and dashboards. Integrated across the operating system.
 
-#### 5. CELAENO v1.0: Novel multiplayer deployment and infrastructure layer built through the coordinated orchestration of sandboxed subagents (written in Rust).
+#### 5. CELAENO v1.0: Novel multiplayer deployment and infrastructure layer built through the coordinated orchestration of sandboxed subagents (written in Rust). Integrated across the operating system.
 
-#### 6. STEROPE v1.0: Game engine integration.
+#### 6. STEROPE v1.0: Where the game engines live.
 
-#### 7. MEROPE v1.0: Novel NPC cognition engine.
+#### 7. MEROPE v1.0: Novel NPC cognition engine. Integrated with STEROPE.
 
 <br>
 
@@ -75,12 +75,20 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-[IMARC Group. *Gaming Market Size, Industry Share, Growth Report* (2026)](https://www.imarcgroup.com/gaming-market)
+- [IMARC Group. *Gaming Market Size, Industry Share, Growth Report* (2026)](https://www.imarcgroup.com/gaming-market)
 
-[Future Market Insights. *Video Game Market | Global Market Analysis Report* (2026)](https://www.futuremarketinsights.com/reports/video-game-market)
+- [Future Market Insights. *Video Game Market | Global Market Analysis Report* (2026)](https://www.futuremarketinsights.com/reports/video-game-market)
 
-[Mordor Intelligence. *Gaming Market Size & Share, Growth Trends & Industry Analysis* (2026)](https://www.mordorintelligence.com/industry-reports/global-gaming-market)
+- [Mordor Intelligence. *Gaming Market Size & Share, Growth Trends & Industry Analysis* (2026)](https://www.mordorintelligence.com/industry-reports/global-gaming-market)
 
-[Mordor Intelligence. *Indie Game Market Size, Growth Forecast, Demand & Trends* (2026)](https://www.mordorintelligence.com/industry-reports/indie-game-market)
+- [Mordor Intelligence. *Indie Game Market Size, Growth Forecast, Demand & Trends* (2026)](https://www.mordorintelligence.com/industry-reports/indie-game-market)
 
 <br>
+
+---
+
+### Other Posts about NULLSTAR's PleiadesOS
+
+<br>
+
+- [A Fun Ride Through OSS Game Engines](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)

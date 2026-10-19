@@ -30,14 +30,16 @@ The inference stack we'll be learning about is:
 
 <br>
 
- As always, remember the rules:
+ As always, please remember the rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
-##### P.S. Mabon Hapus i chi! and 秋分の日、どうぞ良い一日をお過ごしください。
+##### PS: Mabon Hapus i chi! and 秋分の日、どうぞ良い一日をお過ごしください。
+
+##### PS2: Why did I choose this model from Sakana AI, and what interests me about their work? **[Travel to the future](http://marina.nullstar.fun/pages/post.html?post=paper_intel_2)** and you will understand.
 
 <br>
 
