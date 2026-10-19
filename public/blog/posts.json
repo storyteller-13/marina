@@ -1,5 +1,11 @@
 [
   {
+    "slug": "report_oss_game_engines",
+    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Fun Ride Through OSS Game Engines",
+    "date": "2026; 10; 20",
+    "subtitle": "In which we learn a little bit about the current open-source landscape."
+  },
+  {
     "slug": "book_legg",
     "title": "\ud83d\udcda BOOK \u2192 Machine Super Intelligence (S. Legg, 2008)",
     "date": "2026; 10; 16",
@@ -150,8 +156,8 @@
     "subtitle": "This article launches a series of conversational notes on building secure, AI-native research workflows across various operating systems \u2014 starting with macOS \u2014 by integrating data extraction and automation tools while avoiding unsafe plugins and related threat vectors."
   },
   {
-    "slug": "friday_crazy_week",
-    "title": "\ud83c\udf3a FRIDAY \u2192 Was this the craziest week yet in AI?",
+    "slug": "report_crazy_ai_week",
+    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 Was this the craziest week yet in AI?",
     "date": "2026; 04; 05",
     "subtitle": "We are riding that exponential curve, aren't we?"
   },
