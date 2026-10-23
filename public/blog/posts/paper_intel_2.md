@@ -16,7 +16,7 @@ Happy Friday, dear anon. Today we will review six quintessential papers on one o
 
 You all know I am a big fan of **[Kurt Gödel](https://en.wikipedia.org/wiki/Kurt_G%C3%B6del)**, and that I believe **[Hofstadter’s Gödel, Escher, Bach](https://lore.nullstar.fun/chapters/25_summer.html#2025_june_27)** is one of the greatest books ever written.
 
-Well, it turns out that some fascinating possibilities for AGI emerged from his work: Gödel’s famous [**incompleteness theorems (1931)**](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems) and the remarkable implication that *it is possible to construct a mathematical statement that, under specific conditions, refers to its own provability*.
+Well, it turns out that some fascinating possibilities for AGI/ASI emerged from his work: Gödel’s famous [**incompleteness theorems (1931)**](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems) and the remarkable implication that *it is possible to construct a mathematical statement that, under specific conditions, refers to its own provability*.
 
 In the early 2000s, **[Jürgen Schmidhuber](https://people.idsia.ch/~juergen/recursive-self-improvement.html?utm_source=chatgpt.com)** connected Gödel’s ideas to information theory and the theory of self-improving systems, giving rise to the **Gödel Machine**: *Can an intelligent system prove that changing itself is worthwhile? Can it prove that modifying the machinery it uses to reason will make it more successful? Can reasoning fully understand itself?*
 
@@ -103,7 +103,14 @@ As I read through today's material, below are my highlights — with a moderate 
 
 <br>
 
-- The nature of the six proof-modifying instructions (there are no others) makes it impossible to insert an incorrect theorem into proof, thus trivializing proof verification → 1) `get-axiom(n)` appends the `n`-th possible axiom to the current proof, 2) `apply-rule(k, m, n)` applies the `k`-th inference rule to the `m`-th and `n`-th theorem in the current proof (appending the result), 3) `delete-theorem(m)` deletes the `m`-th theorem in the currently stored proof, thus freeing storage such that proof-storing parts of `s` can be reused and the maximal proof size is not necessarily limited by storage constraints, 4) `set-switchprog(m,n)` sets `switchprog := s^p_{m:n}`, 5) `check()` tests whether the last theorem in proof is a target theorem showing that a self-rewrite through switchprog would be useful, 6) `state2theorem(m, n)` takes two integer arguments `m, n` and tries to transform the current contents of `s_{m:n}` into a theorem.
+The nature of the six proof-modifying instructions (there are no others) makes it impossible to insert an incorrect theorem into proof, thus trivializing proof verification:
+
+1️⃣ `get-axiom(n)` appends the `n`-th possible axiom to the current proof
+2️⃣ `apply-rule(k, m, n)` applies the `k`-th inference rule to the `m`-th and `n`-th theorem in the current proof (appending the result)
+3️⃣ `delete-theorem(m)` deletes the `m`-th theorem in the currently stored proof, thus freeing storage such that proof-storing parts of `s` can be reused and the maximal proof size is not necessarily limited by storage constraints
+4️⃣ `set-switchprog(m,n)` sets `switchprog := s^p_{m:n}`
+5️⃣ `check()` tests whether the last theorem in proof is a target theorem showing that a self-rewrite through switchprog would be useful
+6️⃣ `state2theorem(m, n)` takes two integer arguments `m, n` and tries to transform the current contents of `s_{m:n}` into a theorem
 
 <br>
 
@@ -131,7 +138,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 <br>
 
-- In certain uninteresting environments reward is maximized by becoming dumb. For example, a given task may require to repeatedly and forever execute the same pleasure center-activating action, as quickly as possible. In such cases the G¨odel machine may delete most of its more time-consuming initial software including the proof searcher.
+- In certain uninteresting environments reward is maximized by becoming dumb. For example, a given task may require to repeatedly and forever execute the same pleasure center-activating action, as quickly as possible. In such cases the Gödel machine may delete most of its more time-consuming initial software including the proof searcher.
 
 - There is no reason why a Gödel machine should not augment its own hardware. Suppose its lifetime is known to be 100 years. Given a hard problem and axioms restricting the possible behaviors of the environment, the Gödel machine might find a proof that its expected cumulative reward will increase if it invests 10 years into building faster computational hardware, by exploiting the physical resources of its environment.
 
@@ -330,7 +337,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 ---
 
-### We are now ready for chapter 3️⃣ of this series, where we can connect these ideas to current developments. Thank you to all these brilliant minds for proving that humankind can be truly marvelous. Until next time!
+### We are now ready for [chapter 3️⃣ of this series](https://marina.nullstar.fun/pages/post.html?post=paper_intel_3), where we can connect these ideas to current developments. Thank you to all these brilliant minds for proving that humankind can be truly marvelous. Until next time!
 
 ### ⬛️
 

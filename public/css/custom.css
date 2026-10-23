@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap');
 /* Rounded corners on every <img> (avatars, blog markdown, inline figures) */
 img {
     border-radius: 0.625rem;
@@ -369,61 +370,6 @@ html[data-locale="ja"] .section-title {
 [data-color-mode=dark] .Box-header .highlight-text.news-title-center,
 [data-color-mode=dark] .blog-draft-backlogs-heading .blog-draft-backlogs-title-text {
     color: #ff9ecd;
-}
-
-/* Buy me a Coffee – button below Current Motivation box */
-.coffee-btn {
-    display: inline-block;
-    white-space: nowrap;
-    padding: 0.5rem 1rem;
-    color: rgb(18, 246, 87);
-    background: rgba(18, 246, 87, 0.12);
-    border: 0.5px solid rgb(18, 246, 87);
-    border-radius: 9999px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    box-shadow: 0 0 12px rgba(18, 246, 87, 0.25);
-    font-family: inherit;
-}
-.coffee-btn:hover {
-    background: rgb(18, 246, 87);
-    color: var(--color-canvas-default, #0d1117);
-    box-shadow: 0 0 20px rgba(18, 246, 87, 0.5);
-    transform: scale(1.04);
-}
-.coffee-btn:focus {
-    outline: 0.5px solid rgb(18, 246, 87);
-}
-
-.coffee-btn-wrap {
-    margin-top: 1rem !important;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
-.coffee-btn-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
-.mobile-nav-sticky {
-    z-index: 3;
-}
-
-.code-small {
-    font-size: 0.8em;
-}
-
-.code-large {
-    font-size: 1.2em;
 }
 
 /* Box padding – equal horizontal padding so content sits evenly in the box */
@@ -803,6 +749,13 @@ html[data-locale="ja"] .role-titles a {
 }
 
 /* Long publication / project lines and category headings */
+.markdown-body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
 .markdown-body li,
 .markdown-body h3 .success-text {
     overflow-wrap: anywhere;

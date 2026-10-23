@@ -1,6 +1,6 @@
-.PHONY: setup server test lint blog clean
+.PHONY: install server test lint blog clean
 
-setup:
+install:
 	python3 -m pip install -r requirements-dev.txt
 	npm install
 	pre-commit install
