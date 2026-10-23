@@ -87,8 +87,12 @@ I can't wait to show you what I've been creating!
 
 ---
 
-### Other Posts about NULLSTAR's PleiadesOS
+### Other Posts Directly About NULLSTAR’s PleiadesOS
 
 <br>
 
-- [A Fun Ride Through OSS Game Engines](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)
+- **[OSS Game Engines](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)**
+- **[Entity Component System](https://marina.nullstar.fun/pages/post.html?post=report_ecs)**
+- **[Gödel Machines](https://marina.nullstar.fun/pages/post.html?post=paper_intel_2)**
+- **[Harness RSI](https://marina.nullstar.fun/pages/post.html?post=paper_intel_3)**
+- **[Harness Engineering](http://localhost:8037/pages/post.html?post=book_harness_eng)**

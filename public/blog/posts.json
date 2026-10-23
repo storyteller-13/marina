@@ -1,19 +1,25 @@
 [
   {
     "slug": "paper_intel_3",
-    "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 3\ufe0f\u20e3 of \u267e\ufe0f: Harness RSI",
+    "title": "\ud83d\udcca PAPER \u2192 Collective Intelligence 3\ufe0f\u20e3 of \u267e\ufe0f: Harness RSI",
     "date": "2026; 10; 25",
-    "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's word: Ghost \u30b4\u30fc\u30b9\u30c8 \u00b7 \u05e8\u05d5\u05d7 \u05d8\u05d5\u05d1\u05d4"
+    "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's word: Home \u6545\u90f7 \u00b7 \u05d1\u05d9\u05ea"
   },
   {
     "slug": "paper_intel_2",
-    "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 2\ufe0f\u20e3 of \u267e\ufe0f: G\u00f6del Machines",
+    "title": "\ud83d\udcca PAPER \u2192 Collective Intelligence 2\ufe0f\u20e3 of \u267e\ufe0f: G\u00f6del Machines",
     "date": "2026; 10; 24",
-    "subtitle": "Audience: Intermediate to Advanced AI Scientists | Today's word: Home \u6545\u90f7 \u00b7 \u05d1\u05d9\u05ea"
+    "subtitle": "Audience: Intermediate to Advanced AI Scientists | Today's word: Infinite \u3080\u3052\u3093 \u05d0\u05d9\u05e0\u05e1\u05d5\u05e4\u05d9"
+  },
+  {
+    "slug": "report_ecs",
+    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Ride Through Entity Component System",
+    "date": "2026; 10; 21",
+    "subtitle": "In which all computer code is essentially a series of data transformations."
   },
   {
     "slug": "report_oss_game_engines",
-    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Fun Ride Through OSS Game Engines",
+    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Ride Through OSS Simulation Engines",
     "date": "2026; 10; 17",
     "subtitle": "In which we learn a little bit about the current open-source landscape."
   },
@@ -37,7 +43,7 @@
   },
   {
     "slug": "paper_intel",
-    "title": "\ud83d\udcca PAPER \u2192 Multiplayer Intelligence 1\ufe0f\u20e3 of \u267e\ufe0f: Multi-Agents",
+    "title": "\ud83d\udcca PAPER \u2192 Collective Intelligence 1\ufe0f\u20e3 of \u267e\ufe0f: Multi-Agents",
     "date": "2026; 09; 19",
     "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace"
   },
@@ -151,7 +157,7 @@
   },
   {
     "slug": "book_llm_eng",
-    "title": "\ud83d\udcda  BOOK \u2192 LLM Engineer Handbook (Chaumond et al., 2024)",
+    "title": "\ud83d\udcda  BOOK \u2192 LLM Engineer (Chaumond et al., 2024)",
     "date": "2026; 06; 24",
     "subtitle": "Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers"
   },
@@ -169,7 +175,7 @@
   },
   {
     "slug": "report_crazy_ai_week",
-    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 Was this the craziest week yet in AI?",
+    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Ride Through a Crazy Week in AI",
     "date": "2026; 04; 05",
     "subtitle": "We are riding that exponential curve, aren't we?"
   },

@@ -1,5 +1,5 @@
 ---
-title: 🏄‍♀️ REPORT → A Fun Ride Through OSS Game Engines
+title: 🏄‍♀️ REPORT → A Ride Through OSS Simulation Engines
 subtitle: In which we learn a little bit about the current open-source landscape.
 date: 2026; 10; 17
 ---
@@ -16,6 +16,7 @@ Happy Monday, my dear anon. Today, we will take a quick look at the current open
 
 Ah, and by the way, as we read through today's material, please remember our rules:
 
+**🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
@@ -26,7 +27,7 @@ Ah, and by the way, as we read through today's material, please remember our rul
 
 <br>
 
-One of the reasons we are building [**NULLSTAR**](https://nullstar.games/) is to bring the development of interactive experiences to a remarkably modular agentic paradigm (**["everything is a plugin"](https://arxiv.org/pdf/2608.25512)**). This matters because a game engine renders and simulates *experience worlds*, but does not automatically provide the infrastructure needed to support a persistent MMO with thousands➕ of players. NULLSTAR is a seven-layer operating system being developed to integrate these components. Today, we are discussing more specifically our sixth layer, **[STEROPE](http://localhost:8037/pages/post.html?post=idea_nullstar)**.
+One of the reasons we are building [**NULLSTAR**](https://nullstar.games/) is to bring the development of interactive experiences to a remarkably modular agentic paradigm (**["everything is a plugin"](https://arxiv.org/pdf/2608.25512)**). This matters because a game engine renders and simulates *experience worlds*, but does not automatically provide the infrastructure needed to support a persistent MMO with thousands/millions/billions➕ of players. NULLSTAR is a seven-layer operating system being developed to integrate these components. Today, we are discussing more specifically our sixth layer, **[PleiadesOS:STEROPE](http://marina.nullstar.fun/pages/post.html?post=idea_nullstar)**.
 
 Although several great engine options are available (e.g., browser-first platforms, single-player, 2D), the infrastructure for the experiences we are creating should support the following features:
 
@@ -53,27 +54,21 @@ Therefore, for this report, let us narrow our options to three powerful open-sou
 
 | Criterion                          | Godot                              | Bevy                               | O3DE                         |
 | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------- |
-| 3D graphics                        | Good                               | Good                               | Excellent potential          |
-| Visual editor                      | Excellent                          | Developing                         | Extensive                    |
+| Main language                      | GDScript, C#, C++                  | Rust                               | C++, Lua, Python             |
+| Rust integration                   | [Rust binding](https://github.com/godot-rust/gdext), [The Godot-Rust Book](https://godot-rust.github.io/book/) | Native             | Either by a separate processes over a network API, or building a Rust embedded library, or a custom O3DE Gem |
+| 3D graphics                        | Good                               | Good                               | Excellent                    |
+| Editor workflow                    | Strong integrated editor           | Evolving editor                    | Extensive editor and component tooling |
 | Dedicated server support           | Yes                                | Yes, via custom application        | Yes                          |
 | Built-in multiplayer framework     | Yes                                | Relies on ecosystem libraries      | Yes                          |
 | Server-authoritative networking    | Must architect correctly           | Must architect correctly           | Supported by [Multiplayer Gem](https://docs.o3de.org/docs/user-guide/networking/multiplayer/overview) |
 | Entity replication                 | Available through multiplayer APIs | Depends on chosen networking stack | Built-in framework           |
 | Local prediction                   | Custom implementation/integrations | Depends on networking stack        | Supported                    |
-| Massive-world architecture         | Custom work                        | Custom work                        | Custom work                  |
-| Rust integration                   | [Rust binding](https://github.com/godot-rust/gdext)| Native             | C++-centric                  |
+| Native ECS                         | No ([Godot Entity Component System](https://github.com/csprance/gecs))                              | Yes                                | Yes, entity-component architecture                     |
+| Data-oriented systems              | Optional/custom                    | Core design                        | Component-based, with a different execution model      |
+| Parallel system scheduling         | Not a native ECS scheduler         | Built in                           | Engine-managed; not equivalent to Bevy's ECS scheduler |
+| ECS usable independently           | Requires custom/external approach  | Yes, everything around the [`bevy_ecs` library](https://docs.rs/bevy_ecs/latest/bevy_ecs/) | Tightly integrated with engine architecture            |
 | Development speed for a small team | High                               | Medium – low                       | Medium – low                 |
 | Long-term engine customization     | High                               | Very high                          | Very high                    |
-
-<br>
-
-Additionally:
-
-- O3DE has a notable advantage in built-in multiplayer infrastructure: its official Multiplayer Gem documents server-authoritative networking, entity replication, network inputs, and local prediction.
-
-- Godot also supports dedicated headless servers and multiplayer APIs, but you still need to design the authoritative simulation and production server architecture.
-
-- Bevy offers more freedom to build a Rust-native stack, but its networking capabilities depend on the libraries and architecture you select. Its community maintains networking and replication options, rather than one integrated, MMO-ready networking solution.
 
 <br>
 
@@ -87,8 +82,13 @@ Additionally:
 
 <br>
 
+> *Godot supports dedicated headless servers and multiplayer APIs, but you still need to design the authoritative simulation and production server architecture.*
+
+<br>
+
 **[Godot](https://github.com/godotengine/godot)** is attractive for getting character movement, exploration, quests, inventory, dialogue, and social gameplay into a functioning game quickly. **[Here](https://www.youtube.com/watch?v=7ZwEmxihlw4)** are some examples of games made in 2025. Plus, some of its strongest features are:
 
+- Node-based architecture (i.e., an object-oriented paradigm using a traditional scene tree and node inheritance hierarchy)
 - Mature editor and iteration workflow
 - Dedicated headless server exports
 - Multiplayer APIs that you can use as a foundation
@@ -100,7 +100,7 @@ Additionally:
 
 <br>
 
-Now, here are some things that would need be implemented (integrated with NULLSTAR's TAYGETE and CELAENO):
+Now, here are some things that would need be implemented (integrated with PleiadesOS:TAYGETE and PleiadesOS:CELAENO):
 
 ##### Server-authoritative gameplay
 - movement, combat, cooldowns, damage, and interaction rules on the server
@@ -118,9 +118,13 @@ Now, here are some things that would need be implemented (integrated with NULLST
 
 <br>
 
+> *Bevy offers more freedom to build a Rust-native stack, but its networking capabilities depend on the libraries and architecture you select. Its community maintains networking and replication options, rather than one integrated, MMO-ready networking solution.*
+
+<br>
+
 **[Bevy](https://github.com/bevyengine/bevy)** makes sense if the experience is a long-lived software platform with custom simulation rules, procedural systems, agent behavior, and a Rust-heavy codebase. **[Here](https://github.com/bevyengine/bevy/tree/latest/examples)** are some examples. Plus, some of its strongest features are:
 
-- An **[ECS (Entity Component System)](https://github.com/SanderMertens/ecs-faq)** architecture is a natural fit for large numbers of simulated entities
+- Native **[ECS (Entity Component System)](https://bevy.org/learn/quick-start/getting-started/ecs/)** architecture (a natural fit for large numbers of simulated entities, **[travel to the future to learn more](http://marina.nullstar.fun/pages/post.html?post=report_ecs)**)
 - Game logic can share types and concepts with other Rust services (Rust is our language of choice for performance-sensitive server components)
 - You can choose networking libraries to fit your protocol and deployment model
 - Dual **[MIT and Apache 2.0 licensing](https://github.com/bevyengine/bevy#license)**
@@ -132,7 +136,7 @@ Now, here are some things that would need be implemented (integrated with NULLST
 
 <br>
 
-In addition, these are the things that would need be implemented for this engine (integrated with NULLSTAR's TAYGETE and CELAENO):
+In addition, these are the things that would need be implemented for this engine (integrated with PleiadesOS:TAYGETE and PleiadesOS:CELAENO):
 
 ##### Multiplayer networking and replication
 - which ECS components are replicated, which remain server-only, and which are predicted locally
@@ -148,8 +152,13 @@ In addition, these are the things that would need be implemented for this engine
 
 <br>
 
+> *O3DE has a notable advantage in built-in multiplayer infrastructure: its official Multiplayer Gem documents server-authoritative networking, entity replication, network inputs, and local prediction.*
+
+<br>
+
 **[O3DE](https://github.com/o3de/o3de)** is worth consideration for advanced high-fidelity 3D rendering and a networking framework integrated into the engine (O3DE has the most AAA-style tech). **[Here](https://www.youtube.com/@Open3DEngine/videos)** are some of the good work they are doing. Plus, some of its strongest features are:
 
+- Native entity-component architecture (uses entities composed of reusable components)
 - Dedicated server runtime
 - Multiplayer Gem with replication and server-authoritative networking
 - C++ customization and modular Gems
@@ -162,7 +171,7 @@ In addition, these are the things that would need be implemented for this engine
 
 <br>
 
-In addition, here are some things that would need be implemented for this engine (integrated with NULLSTAR's TAYGETE and CELAENO):
+In addition, here are some things that would need be implemented for this engine (integrated with PleiadesOS:TAYGETE and PleiadesOS:CELAENO):
 
 ##### Network-enabled game entities 
 - using O3DE's auto-component generation where appropriate, then implement the gameplay behavior
@@ -173,7 +182,7 @@ In addition, here are some things that would need be implemented for this engine
 
 <br>
 
-#### ✨ Orchestration and Intelligence, integrated with NULLSTAR's TAYGETE, MEROPE, and CELAENO:
+#### ✨ Orchestration and Intelligence, integrated with PleiadesOS:TAYGETE, PleiadesOS:MEROPE, and PleiadesOS:CELAENO:
 
 ##### Gameplay and AI systems
 - combat, quests, progression, world events, and game-specific rules using the engine's component and scripting systems
@@ -206,7 +215,7 @@ In addition, here are some things that would need be implemented for this engine
 
 <br>
 
-#### ✨ MMO operations, integrated with NULLSTAR's ALCYONE: 
+#### ✨ MMO operations, integrated with PleiadesOS:ALCYONE: 
 
 ##### **Runtime observability**
 - health checks for every server process
@@ -238,13 +247,12 @@ Let's end today's discussion with some eye candy: a diagram of how the infrastru
 
 <br>
 
-And an *ever-growing* list of very good resources on building games and large-scale experiences:
+And an *ever-growing* list of very good (but somehow random) resources on building large-scale experiences:
 
 - **[frozenfractal](https://frozenfractal.com)**
 - **[heredragonsabound](https://heredragonsabound.blogspot.com/)**
-- **[the godot-rust book](https://godot-rust.github.io/book/)**
-- **[ecs-faq](https://github.com/SanderMertens/ecs-faq)**
-- **[Google's Rust Style Guide](https://google.github.io/styleguide/rustguide.html)**
+- **[gameprogrammingpatterns](https://gameprogrammingpatterns.com/)**
+- **[gamesfromwithin](https://gamesfromwithin.com/)**
 
 <br>
 

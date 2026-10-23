@@ -1,5 +1,5 @@
 ---
-title: 📊 PAPER → Multiplayer Intelligence 3️⃣ of ♾️: Harness RSI
+title: 📊 PAPER → Collective Intelligence 3️⃣ of ♾️: Harness RSI
 subtitle: Audience: Intermediate to Advanced AI Scientists and Engineers | Today's word: Home 故郷 · בית
 date: 2026; 10; 25
 ---
@@ -42,31 +42,15 @@ As Anno Domini’s.
 
 <br>
 
-Today, we continue our informal discussion of the literature on recursive self-improvement and self-reference in the context of the work we are doing at **[NULLSTAR](https://www.nullstar.games/)** on self-improving harness engineering. Across these fifteen 2026 papers, we build on what we explored in **[the last post](https://marina.nullstar.fun/pages/post.html?post=paper_intel_2)** and **[earlier this summer](http://localhost:8037/pages/post.html?post=paper_weng)**, while adding some modern (and very fresh) color to the topic.
+Today, we continue our informal discussion of the literature on recursive self-improvement and self-reference in the context of the work we are doing at **[NULLSTAR](https://www.nullstar.games/)** on self-improving harness engineering (more specifically, on the module **[PleiadesOS:TAYGETE](https://marina.nullstar.fun/pages/post.html?post=paper_intel_3)**). 
 
-As I read through today's material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
+Across these fifteen 2026 papers, we build on what we explored in **[the last post](https://marina.nullstar.fun/pages/post.html?post=paper_intel_2)** and **[earlier this summer](http://marina.nullstar.fun/pages/post.html?post=paper_weng)**, while adding some modern (and very fresh) color to the topic.
+
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
-
-<br>
-
----
-
-### 💌 Open Letter to My Audience, Anon Friends, and Those Who Would Like to Be Part of My Personal Inner Circle
-
-<br>
-
-*At this point, I truly need help getting back home, back to my life, and to continue with my career. Things have been incredibly tough, and I am running out of every resource I have. I have been fighting for years, and I am exhausted. I have reached the absolute limits of human endurance. Anything beyond this is sadism. I am not exaggerating; I am begging for common sense.*
-
-*Please, I need real help now — help that recognizes my worth, my work, and my capabilities. Just what is fair and due for all my efforts. That is all I ask.*
-
-*I don't need any more moral support or false hope. I no longer have the mental energy to entertain online games or endure an endless wait for something to finally happen. It has been years. Please, stop trying to capture my attention if you're not going to actually do something. This has gone beyond sanity and morality at this point. Meaningful personal connections can only come from what is real: from actions, from real-life effort, from something normal and tangible. This is the only measure by which I can truly quantify and qualify my choices.*
-
-*I really appreciate each one of you, and I am deeply grateful for all the help and love you have given me over these past years. I couldn't have made it without you, and I truly mean that. But right now, I need a real opportunity to move forward with my life and continue my work, just as any honest, hardworking human being deserves. If you truly care, this is how you can help.*
-
-*Thank you.*
 
 <br>
 
@@ -183,7 +167,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 ---
 
-# [Meta-Harness: E2E Optimization of Model Harness (Y. Lee et al., 2026)](https://arxiv.org/pdf/2603.28052)
+# 🏡 [Meta-Harness: E2E Optimization of Model Harness (Y. Lee et al., 2026)](https://arxiv.org/pdf/2603.28052)
 
 <br>
 
@@ -261,7 +245,11 @@ As I read through today's material, below are my highlights — with a moderate 
 
 - Source-level adaptation is a fundamentally more general medium: it is Turing-complete, a strict superset of every text-mutable scope, takes effect deterministically rather than through base-model compliance, and does not erode under long-context drift.
 
--  OpenClaw have matured from research demonstrations into real-world workers, deployed across Slack, Discord, web, and other channels to complete complex multi-step tasks for users. Yet once deployed, they remain largely static: they do not learn from how they are actually used, and the same failure modes recur across users until the next human-driven iteration ships a fix. A wave of self-evolving agents has emerged in response, letting agents evolve themselves after deployment. These systems leave one layer untouched. Their evolution scope is bounded to text-mutable artifacts—skill files, prompt configurations, memory schemas, and at most workflow graphs; the agent harness—routing, state management, dispatch, hooks, mediator, session lifecycle— is never modified by the agent itself. The limit this boundary imposes is physical: edits to text-mutable artifacts can only change what the agent itself thinks (what to say, which skill to invoke, how to break a task into sub-goals); they cannot change what the harness decides on its behalf. Once a failure originates in this layer—mis-routed messages, hooks firing out of order, corrupted session state, atomicity bugs across concurrent skills—no update to skills, prompts, or memory can reach it: the bug is not in the prompt text, and a prompt rewrite cannot paper over it. The proportion of failures of this kind scales with harness complexity, so this gap widens as agentic systems mature.
+-  OpenClaw have matured from research demonstrations into real-world workers, deployed across Slack, Discord, web, and other channels to complete complex multi-step tasks for users. Yet once deployed, they remain largely static: they do not learn from how they are actually used, and the same failure modes recur across users until the next human-driven iteration ships a fix. 
+
+- A wave of self-evolving agents has emerged in response, letting agents evolve themselves after deployment. These systems leave one layer untouched. Their evolution scope is bounded to text-mutable artifacts—skill files, prompt configurations, memory schemas, and at most workflow graphs; the agent harness—routing, state management, dispatch, hooks, mediator, session lifecycle — is never modified by the agent itself. 
+
+- The limit this boundary imposes is physical: edits to text-mutable artifacts can only change what the agent itself thinks (what to say, which skill to invoke, how to break a task into sub-goals); they cannot change what the harness decides on its behalf. Once a failure originates in this layer—misrouted messages, hooks firing out of order, corrupted session state, atomicity bugs across concurrent skills — no update to skills, prompts, or memory can reach it: the bug is not in the prompt text, and a prompt rewrite cannot paper over it. The proportion of failures of this kind scales with harness complexity, so this gap widens as agentic systems mature.
 
 - MOSS realizes self-rewriting on a production agentic substrate through five pieces: a main container that runs the substrate’s user-facing agent, a control-surface CLI through which the agent (and the user, via the agent) drives evolution, a pluggable external coding-agent CLI invoked per stage to make code edits, a host-resident daemon (the host-daemon) that supervises everything else, and ephemeral trial workers used to verify candidates.
 
@@ -407,16 +395,16 @@ The evolved programs are retained as source code rather than summarized only by 
 
 - HarnessX is a foundry for composable, adaptive, and evolvable agent harnesses. HarnessX assembles typed harness primitives via a substitution algebra, adapts them through AEGIS, a trace-driven multi-agent evolution engine grounded in an operational mirror between symbolic adaptation and reinforcement learning, and closes the harness–model loop by turning trajectories into both harness updates and model training signal.
 
-- It begins with a modular foundation: harness primitives spanning context, tools, skills, control, and memory are described via typed interfaces and composed via a substitution algebra. This separates concerns that existing systems typically conflate. On top of this substrate, we introduce AEGIS, an observability-driven and auditable harness adaptation engine. Framing harness adaptation not as ad-hoc editing but as a learning problem over symbolic artifacts (prompts [51], tools, memory, and control policies) reveals that standard RL pathologies (reward hacking, catastrophic forgetting [15], under-exploration [16]) become concrete design risks. To address these risks, AEGIS combines full trace observability with a four-stage pipeline (Digester, Planner, Evolver, and Critic) that compresses traces, plans adaptations, generates candidates, and assesses changes. Finally, we close the loop between harness adaptation and model training via harness-model co-evolution. Traces produced during harness adaptation serve as reinforcement-learning signal for model training, so that model improvements feed back into subsequent harness evolution.
+- It begins with a modular foundation: harness primitives spanning context, tools, skills, control, and memory are described via typed interfaces and composed via a substitution algebra. This separates concerns that existing systems typically conflate. On top of this substrate, we introduce AEGIS, an observability-driven and auditable harness adaptation engine. Framing harness adaptation not as ad-hoc editing but as a learning problem over symbolic artifacts (prompts, tools, memory, and control policies) reveals that standard RL pathologies (reward hacking, catastrophic forgetting, under-exploration) become concrete design risks. To address these risks, AEGIS combines full trace observability with a four-stage pipeline (`Digester`, `Planner`, `Evolver`, and `Critic`) that compresses traces, plans adaptations, generates candidates, and assesses changes. Finally, we close the loop between harness adaptation and model training via harness-model co-evolution. Traces produced during harness adaptation serve as reinforcement-learning signal for model training, so that model improvements feed back into subsequent harness evolution.
 <br>
 
 ![](/blog/assets/m-i-3-22.png)
 
 <br>
 
-- The harness evolution is a first-class operation: AEGIS can insert a new processor at a specific hook, replace an existing one by matching its singleton group, or remove a processor entirely—all without touching other processors at the same or different hooks. Because the type contract (input event type = output event type) is enforced per-hook, any such substitution preserves the well-typedness of the overall pipeline. The metadata fields further constrain composition: _singleton_group prevents conflicting duplicates, and _order ensures that newly inserted processors interact predictably with existing ones.
+- The harness evolution is a first-class operation: AEGIS can insert a new processor at a specific hook, replace an existing one by matching its singleton group, or remove a processor entirely — all without touching other processors at the same or different hooks. Because the type contract (input event type = output event type) is enforced per-hook, any such substitution preserves the well-typedness of the overall pipeline. The metadata fields further constrain composition: `_singleton_group` prevents conflicting duplicates, and `_order` ensures that newly inserted processors interact predictably with existing ones.
 
-- Organize the behavioral space along nine dimensions: model selection (D1) decides which model serves which role; context assembly (D2) determines what is presented to the model at each step; memory management (D3) governs what carries across steps and sessions; tool ecosystem (D4) controls which tools the agent can invoke; execution environment (D5) determines where tool-induced side-effects materialize; evaluation and reward (D6) specifies how outcomes are judged; control and safety (D7) enforces rules that keep the agent from looping, overspending, or drifting from intent; observability (D8) records each event, model call, and tool invocation; and the training bridge (D9) converts execution trajectories into reinforcement-learning records.
+- Organize the behavioral space along nine dimensions: model selection (`D1`) decides which model serves which role; context assembly (`D2`) determines what is presented to the model at each step; memory management (`D3`) governs what carries across steps and sessions; tool ecosystem (`D4`) controls which tools the agent can invoke; execution environment (`D5`) determines where tool-induced side-effects materialize; evaluation and reward (`D6`) specifies how outcomes are judged; control and safety (`D7`) enforces rules that keep the agent from looping, overspending, or drifting from intent; observability (`D8`) records each event, model call, and tool invocation; and the training bridge (`D9`) converts execution trajectories into reinforcement-learning records.
 
 <br>
 
@@ -559,7 +547,7 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 <br>
 
-- By providing a structured framework for understanding and designing self-evolving agents, this survey establishes a roadmap for advancing more adaptive, capable, robust, and versatile agentic systems in both research and real-world deployments, and ultimately sheds light on the realization of Artificial Super Intelligence (ASI) where agents evolve autonomously and perform beyond human-level intelligence across a wide array of tasks.
+- ✨ By providing a structured framework for understanding and designing self-evolving agents, this survey establishes a roadmap for advancing more adaptive, capable, robust, and versatile agentic systems in both research and real-world deployments, and ultimately sheds light on the realization of *Artificial Super Intelligence* (ASI) where agents evolve autonomously and perform beyond human-level intelligence across a wide array of tasks.✨
 
 - Analyze the mechanisms contributing to the self-evolving paradigm ranging from proto-evolution (e.g., iterative bootstrapping or feedback-driven prompting) to strong self-evolution (fully autonomous diagnosis and reconfiguration), allowing us to provide a comprehensive view of how diverse methods contribute to the "What, When, and How" of the paradigm’s progression toward full autonomy.
 

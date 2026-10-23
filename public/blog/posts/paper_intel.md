@@ -1,5 +1,5 @@
 ---
-title: 📊 PAPER → Multiplayer Intelligence 1️⃣ of ♾️: Multi-Agents
+title: 📊 PAPER → Collective Intelligence 1️⃣ of ♾️: Multi-Agents
 subtitle: Audience: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace
 date: 2026; 09; 19
 ---
