@@ -8,23 +8,23 @@ date: 2026; 06; 07
 
 <br>
 
-## 🌟 Hello, Starlit World
+# 🌟 Hello, Starlit World
 
 <br>
 
-Today I'm excited to talk a little bit about what I've been cooking.
+Today I'm excited to talk a little bit about what I've been cooking:
 
-✨ Introducing NULLSTAR, an agentic-native game and intelligence studio — or as I like to call it, the operating system for collective superintelligence. ✨
+##### ✨ Introducing NULLSTAR, an agentic-native game and intelligence studio — or as I like to call it, the operating system for collective superintelligence. ✨
 
+<br>
 
 What does that mean exactly? I've been building a seven-layer, vertically integrated infrastructure and operating system designed to fundamentally change how multiplayer games, friendship networks, and interactive experiences are created and delivered.
-
 
 This operating system, with the prototype codename **PleiadesOS**, is designed to introduce advanced procedural content generation for rich, non-linear storytelling — dynamic quests, branching outcomes, and evolving world states governed by flexible rules and alternative physics. Non-player characters (NPCs) are modeled as autonomous agents with persistent memory, goals, and decision-making capabilities. They adapt to player behavior, enabling players to co-create their experiences — all built on top of current industry tools and standards.
 
 <br>
 
-## 🌟 A Small Glimpse Under the Hood 
+# 🌟 A Small Glimpse Under the Hood 
 
 <br>
 
@@ -56,7 +56,7 @@ Here is how **PleiadesOS** is currently being developed:
 
 <br>
 
-## 🌟 LOGIC-13: The Flagship Superintelligent Sci-Fi Mystical MMORPG
+# 🌟 LOGIC-13: The Flagship Superintelligent Sci-Fi Mystical MMORPG
 
 <br>
 
@@ -71,28 +71,67 @@ I can't wait to show you what I've been creating!
 
 ----
 
-### References for Gaming Market Data
+## References for Gaming Market Data
 
 <br>
 
-- [IMARC Group. *Gaming Market Size, Industry Share, Growth Report* (2026)](https://www.imarcgroup.com/gaming-market)
-
-- [Future Market Insights. *Video Game Market | Global Market Analysis Report* (2026)](https://www.futuremarketinsights.com/reports/video-game-market)
-
-- [Mordor Intelligence. *Gaming Market Size & Share, Growth Trends & Industry Analysis* (2026)](https://www.mordorintelligence.com/industry-reports/global-gaming-market)
-
-- [Mordor Intelligence. *Indie Game Market Size, Growth Forecast, Demand & Trends* (2026)](https://www.mordorintelligence.com/industry-reports/indie-game-market)
+- **[IMARC Group. Gaming Market Size, Industry Share, Growth Report (2026)](https://www.imarcgroup.com/gaming-market)**
+- **[Future Market Insights. Video Game Market | Global Market Analysis Report (2026)](https://www.futuremarketinsights.com/reports/video-game-market)**
+- **[Mordor Intelligence. Gaming Market Size & Share, Growth Trends & Industry Analysis (2026)](https://www.mordorintelligence.com/industry-reports/global-gaming-market)**
+- **[Mordor Intelligence. Indie Game Market Size, Growth Forecast, Demand & Trends (2026)](https://www.mordorintelligence.com/industry-reports/indie-game-market)**
 
 <br>
 
 ---
 
-### Other Posts Directly About NULLSTAR’s PleiadesOS
+## Other Posts Directly Related to Our Work at NULLSTAR
+
+<br>
+
+### I. PleiadesOS:MAIA
+
+<br>
+
+- **[Harness Engineering](http://marina.nullstar.fun/pages/post.html?post=book_harness_eng)**
+
+<br>
+
+### III. PleiadesOS:TAYGETE
+
+<br>
+
+- **[Gödel Machines](https://marina.nullstar.fun/pages/post.html?post=paper_intel_2)**
+- **[Harness RSI](http://marina.nullstar.fun/pages/post.html?post=paper_weng)**
+- **[Harness RSI II](https://marina.nullstar.fun/pages/post.html?post=paper_intel_3)**
+- **[Harness Engineering II](http://marina.nullstar.fun/pages/post.html?post=report_harness_comp)**
+
+<br>
+
+### V. PleiadesOS:CELAENO
+
+<br>
+
+- **[Multi-Agent Deployment](http://marina.nullstar.fun/pages/post.html?post=paper_intel)**
+- **[Secure Research Pipelines in the Agentic Era](http://marina.nullstar.fun/pages/post.html?post=idea_secure_pipeline)**
+
+<br>
+
+### VI. PleiadesOS:STEROPE
 
 <br>
 
 - **[OSS Game Engines](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)**
 - **[Entity Component System](https://marina.nullstar.fun/pages/post.html?post=report_ecs)**
-- **[Gödel Machines](https://marina.nullstar.fun/pages/post.html?post=paper_intel_2)**
-- **[Harness RSI](https://marina.nullstar.fun/pages/post.html?post=paper_intel_3)**
-- **[Harness Engineering](http://localhost:8037/pages/post.html?post=book_harness_eng)**
+
+<br>
+
+### VII. PleiadesOS:MEROPE
+
+<br>
+
+- **[Superintelligence](http:///marina.nullstar.fun/pages/post.html?post=book_superintel)**
+- **[Machine Super Intelligence](http:///marina.nullstar.fun/pages/post.html?post=book_legg)**
+- **[Build a LLM from Scratch](http:///marina.nullstar.fun/pages/post.html?post=book_build_llm)**
+- **[Post-Training Lectures](http:///marina.nullstar.fun/pages/post.html?post=podcast_nl)**
+- **[Dialogues on AI Inference](http:///marina.nullstar.fun/pages/post.html?post=podcast_inference)**
+- **[Open-Source Tiny Inference](http:///marina.nullstar.fun/pages/post.html?post=idea_webllm_gpu)**

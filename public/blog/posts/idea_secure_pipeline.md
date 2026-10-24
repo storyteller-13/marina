@@ -10,6 +10,8 @@ date: 2026; 04; 11
 
 > 🌟 EDIT 2: This is uber-cool too (**[by the masters, Guido's team](https://github.com/trailofbits/coop)**); and also the one from **[NVIDIA](https://github.com/NVIDIA/OpenShell)** (awesome **[blog post](https://nvidia.github.io/OpenShell-Research/dev-notes/posts/2026-09-10-learning-formal-methods-agent-policy-prover/)**). We all know that Rust is the most serious language for this type of work.
 
+> 🌟 EDIT 3: It turns out that this work is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:CELAENO](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** module.
+
 ---
 
 ## 🦖 TL;DR
