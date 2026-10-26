@@ -14,15 +14,12 @@ In this first post, I cover the first 9 chapters, up to inference in first-order
 
 💡 *From my Ph.D. in Theoretical Physics, I'm well aware that something fascinating happens to your brain when you spend time studying mathematics and logic. It's like going to the gym — but for your mind. You also become fluent in the language and notation of science. That's one of the reasons I believe a Ph.D. in Physics equips you with the analytical tools to tackle virtually any technical problem.*
 
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
-**🤖 Below are my highlights with some attempt, although very moderate, at coherence.**
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
-**🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book.**
+**🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
-
-
-*Thank you, Dr. Russell & Dr. Norvig, for this fun and enlightening journey!*
 
 <br>
 
@@ -1327,6 +1324,8 @@ Greedy(y).
 <br>
 
 ### TO BE CONTINUED... 😄
+
+### *Thank you, Dr. Russell & Dr. Norvig, for this fun and enlightening journey!*
 
 <br>
 

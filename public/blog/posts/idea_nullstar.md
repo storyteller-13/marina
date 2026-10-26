@@ -36,7 +36,7 @@ Here is how **PleiadesOS** is currently being developed:
 
 <br>
 
-#### 1. MAIA v1.0: Minimal, graph-based, multi-agent-oriented harness — featuring guardrails, middleware, and verification loops (written in Rust). This project will be open-sourced in 2027.
+#### 1. MAIA v1.0: Minimal, graph-based, multi-agent-oriented harness — featuring guardrails, middleware, smart model routing, and verification loops (written in Rust). This project will be open-sourced in 2027.
 
 #### 2. ELECTRA v1.0: Multi-layered short- and long-term memory module that manages internal state, vaults, compaction, and summarization, optimized for fast search and intelligent retrieval (written in Rust). Integrated with both MAIA and TAYGETE.
 
@@ -93,6 +93,15 @@ I can't wait to show you what I've been creating!
 <br>
 
 - **[Harness Engineering](http://marina.nullstar.fun/pages/post.html?post=book_harness_eng)**
+- **[Harness Engineering II](http://marina.nullstar.fun/pages/post.html?post=report_harness_comp)**
+
+<br>
+
+### II. PleiadesOS:ELECTRA
+
+<br>
+
+- **[Memory](http://marina.nullstar.fun/pages/post.html?post=paper_intel_4)**
 
 <br>
 
@@ -100,10 +109,18 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[Gödel Machines](https://marina.nullstar.fun/pages/post.html?post=paper_intel_2)**
 - **[Harness RSI](http://marina.nullstar.fun/pages/post.html?post=paper_weng)**
 - **[Harness RSI II](https://marina.nullstar.fun/pages/post.html?post=paper_intel_3)**
-- **[Harness Engineering II](http://marina.nullstar.fun/pages/post.html?post=report_harness_comp)**
+- **[Gödel Machines](https://marina.nullstar.fun/pages/post.html?post=paper_intel_2)**
+
+<br>
+
+### IV. PleiadesOS:ALCYONE
+
+<br>
+
+- **[Superintelligence](http:///marina.nullstar.fun/pages/post.html?post=book_superintel)**
+- **[Evals and Benchmarks](http:///marina.nullstar.fun/pages/post.html?post=report_evals)**
 
 <br>
 
@@ -111,7 +128,11 @@ I can't wait to show you what I've been creating!
 
 <br>
 
+- **[LLM Engineer](http://marina.nullstar.fun/pages/post.html?post=book_llm_eng)**
+- **[AI Engineering](http://marina.nullstar.fun/pages/post.html?post=book_ai_eng)**
+- **[ML Engineering](http://marina.nullstar.fun/pages/post.html?post=book_ml_eng)**
 - **[Multi-Agent Deployment](http://marina.nullstar.fun/pages/post.html?post=paper_intel)**
+- **[Generative AI with LangChain](http://marina.nullstar.fun/pages/post.html?post=book_lanchain)**
 - **[Secure Research Pipelines in the Agentic Era](http://marina.nullstar.fun/pages/post.html?post=idea_secure_pipeline)**
 
 <br>
@@ -120,7 +141,7 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[OSS Game Engines](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)**
+- **[OSS Simulation Engines](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)**
 - **[Entity Component System](https://marina.nullstar.fun/pages/post.html?post=report_ecs)**
 
 <br>
@@ -129,9 +150,18 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[Superintelligence](http:///marina.nullstar.fun/pages/post.html?post=book_superintel)**
-- **[Machine Super Intelligence](http:///marina.nullstar.fun/pages/post.html?post=book_legg)**
+- **[Hands-On LLM](http:///marina.nullstar.fun/pages/post.html?post=book_hands)**
 - **[Build a LLM from Scratch](http:///marina.nullstar.fun/pages/post.html?post=book_build_llm)**
 - **[Post-Training Lectures](http:///marina.nullstar.fun/pages/post.html?post=podcast_nl)**
-- **[Dialogues on AI Inference](http:///marina.nullstar.fun/pages/post.html?post=podcast_inference)**
+- **[Artificial Intelligence](http:///marina.nullstar.fun/pages/post.html?post=book_ai)**
+- **[Machine Super Intelligence](http:///marina.nullstar.fun/pages/post.html?post=book_legg)**
 - **[Open-Source Tiny Inference](http:///marina.nullstar.fun/pages/post.html?post=idea_webllm_gpu)**
+- **[Dialogues on AI Inference](http:///marina.nullstar.fun/pages/post.html?post=podcast_inference)**
+
+<br>
+
+### NULLSTAR: Ethos and Worlds
+
+<br>
+
+* **[The Future is about Friendship](https://matrix.nullstar.fun/?note=friendship)**

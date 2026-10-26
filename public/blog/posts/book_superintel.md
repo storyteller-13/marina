@@ -16,8 +16,13 @@ Back at that time I used to buy many books that would never be read. Unfortunate
 
 So yes — I stand by the claim that this is another must-read for every researcher in the field. I don't think we should *take ourselves serious* before meditating on the ideas Nick discusses with such clarity and mastery.
 
-**🤖 Below are my highlights with some attempt, although very moderate, at coherence.**
-**🤖 If these notes look interesting to you, it's your ✦moral duty✦ to read the original book (or [attend](https://www.youtube.com/watch?v=rfKiTGj-zeQ) the [discussion](https://www.youtube.com/watch?v=8qTZLqY-cnI)).**
+<br>
+
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
+
+**🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
+**🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
+**🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>

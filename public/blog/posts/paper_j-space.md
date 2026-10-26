@@ -10,6 +10,12 @@ The paper is super, uber dense, and I will definitely return to it later (especi
 
 PS: A note to the curious anons. Besides being very familiar with Jacobians from physics, most of the concepts in this paper were completely new to me (unfortunately, I don't know much about neuroscience). I had to stop and think about almost every sentence. You know that feeling when you encounter a concept for the first time, and it seems much harder than every subsequent reading? That's simply the nature of learning intricate subjects. You have to force yourself through that first difficult pass, and then each subsequent pass becomes progressively easier — and much more enjoyable.
 
+<br>
+
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
+
+**🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 

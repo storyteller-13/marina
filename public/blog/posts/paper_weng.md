@@ -8,8 +8,10 @@ A few days ago this article [Harness Engineering for Self-Improvement](https://l
 
 For anyone new here, harness engineering is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:TAYGETE](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** module.
 
-##### 💜🤖 Below are my highlights (with some attempt, although very moderate, at coherence). If they look interesting to you, it's your *moral duty* to read the original articles (and their references).
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
+**🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 

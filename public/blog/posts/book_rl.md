@@ -8,7 +8,12 @@ I had touched a few chapters of this uber-classic a few times before — for ins
 
 But now, as I juggle deep research and the engineering and artistic work, it felt like the right time to read the book. I went through the first eight chapters and, as it turns out, I already knew much of the material from my PhD or industry practice, so this first part was a refreshing read (and also made me feel good about myself because I remembered that I know stuff). In a future post, I'll continue with Part II, Approximate Solution Methods. The glory of being a researcher is that the fun remains ad infinitum.
 
-##### 💜🤖 Below are facts and concepts I particularly enjoyed reading about, organized by topic. If they look interesting to you, it's your *moral* duty to read the original book.
+<br>
+
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
+
+**🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
 

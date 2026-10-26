@@ -6,9 +6,15 @@ date: 2026; 03; 25
 
 A good end-to-end overview of the field.
 
-##### 💜🤖 Below are facts and concepts I particularly enjoyed reading about, organized by topic. If they look interesting to you, it's your *moral* duty to read the original book.
+<br>
+
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
+
+**🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
+**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>
+
 
 ---
 
