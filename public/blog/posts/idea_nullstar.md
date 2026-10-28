@@ -36,7 +36,7 @@ Here is how **PleiadesOS** is currently being developed:
 
 <br>
 
-#### 1. MAIA v1.0: Minimal, graph-based, multi-agent-oriented harness — featuring guardrails, middleware, smart model routing, and verification loops (written in Rust). This project will be open-sourced in 2027.
+#### 1. MAIA v1.0: A minimal, graph-based, multi-agent harness at the core of our vertical operating system, featuring guardrails, middleware, smart model routing, and verification loops (written in Rust). This project will be open-sourced in 2027.
 
 #### 2. ELECTRA v1.0: Multi-layered short- and long-term memory module that manages internal state, vaults, compaction, and summarization, optimized for fast search and intelligent retrieval (written in Rust). Integrated with both MAIA and TAYGETE.
 

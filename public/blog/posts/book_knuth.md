@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → TAOCP 1️⃣ of 6️⃣ (Donald E. Knuth, 2019)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope きぼう
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope · Hoffnung · きぼう · תִּקְוָה
 date: 2026; 08; 22
 ---
 

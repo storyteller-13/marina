@@ -1,6 +1,6 @@
 ---
 title: 📊 PAPER → Collective Intelligence 2️⃣ of ♾️: Gödel Machines
-subtitle: Audience: Intermediate to Advanced AI Scientists | Today's word: Infinite むげん אינסופי
+subtitle: Audience: Intermediate to Advanced AI Scientists | Today's word: Infinite · Unendlich · むげん · אינסופי
 date: 2026; 10; 24
 ---
 

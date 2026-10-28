@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Machine Super Intelligence (S. Legg, 2008)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Future 未来 · עתיד
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Future · Zukunft · 未来 · עתיד
 date: 2026; 10; 16
 ---
 

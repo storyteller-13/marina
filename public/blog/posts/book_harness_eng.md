@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Harness Engineering (I. Wijesiri, 2026)
-subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers | Today's word: Ghost ゴースト · רוח רפאים
+subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers | Today's word: Ghost · Geist · ゴースト · רוח רפאים
 date: 2026; 10; 18
 ---
 

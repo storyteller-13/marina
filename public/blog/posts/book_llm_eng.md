@@ -1,6 +1,6 @@
 ---
 title: 📚  BOOK → LLM Engineer (Chaumond et al., 2024)
-subtitle: Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers
+subtitle: Rating: 9/10 | Audience: Beginner to Intermediate AI Engineers
 date: 2026; 06; 24
 ---
 

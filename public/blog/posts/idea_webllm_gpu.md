@@ -1,6 +1,6 @@
 ---
 title: 🧠 IDEA → WebLLM, WebGPU, Open-Source Tiny Inference
-subtitle: Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold きょうかい
+subtitle: Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold · Schwelle · きょうかい · סַף
 date: 2026; 09; 25
 ---
 
