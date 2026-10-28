@@ -8,7 +8,7 @@ date: 2026; 06; 07
 
 <br>
 
-# 🌟 Hello, Starlit World
+# 🌞 Hello, Starlit World
 
 <br>
 
@@ -24,7 +24,7 @@ This operating system, with the prototype codename **PleiadesOS**, is designed t
 
 <br>
 
-# 🌟 A Small Glimpse Under the Hood 
+# 🌞 A Small Glimpse Under the Hood 
 
 <br>
 
@@ -36,7 +36,7 @@ Here is how **PleiadesOS** is currently being developed:
 
 <br>
 
-#### 1. MAIA v1.0: Minimal, graph-based, multi-agent-oriented harness — featuring guardrails, middleware, smart model routing, and verification loops (written in Rust). This project will be open-sourced in 2027.
+#### 1. MAIA v1.0: A minimal, graph-based, multi-agent harness at the core of our vertical operating system, featuring guardrails, middleware, smart model routing, and verification loops (written in Rust). This project will be open-sourced in 2027.
 
 #### 2. ELECTRA v1.0: Multi-layered short- and long-term memory module that manages internal state, vaults, compaction, and summarization, optimized for fast search and intelligent retrieval (written in Rust). Integrated with both MAIA and TAYGETE.
 
@@ -56,7 +56,7 @@ Here is how **PleiadesOS** is currently being developed:
 
 <br>
 
-# 🌟 LOGIC-13: The Flagship Superintelligent Sci-Fi Mystical MMORPG
+# 🌞 LOGIC-13: The Flagship Superintelligent Sci-Fi Mystical MMORPG
 
 <br>
 
@@ -101,7 +101,7 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[Memory](http://marina.nullstar.fun/pages/post.html?post=paper_intel_4)**
+- **[Memory](http://marina.nullstar.fun/pages/post.html?post=report_memory)**
 
 <br>
 

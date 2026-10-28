@@ -1,6 +1,6 @@
 ---
 title: 📊 PAPER → Collective Intelligence 3️⃣ of ♾️: Harness RSI
-subtitle: Audience: Intermediate to Advanced AI Scientists and Engineers | Today's word: Home 故郷 · בית
+subtitle: Audience: Intermediate to Advanced AI Scientists and Engineers | Today's word: Home · Zuhause · 故郷 · בית
 date: 2026; 10; 25
 ---
 
@@ -167,7 +167,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 ---
 
-# 🏡 [Meta-Harness: E2E Optimization of Model Harness (Y. Lee et al., 2026)](https://arxiv.org/pdf/2603.28052)
+# 🏡 🌟 [Meta-Harness: E2E Optimization of Model Harness (Y. Lee et al., 2026)](https://arxiv.org/pdf/2603.28052)
 
 <br>
 
@@ -365,7 +365,7 @@ The evolved programs are retained as source code rather than summarized only by 
 
 ---
 
-# 🏡 [Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses (J. Lin, 2026)](https://arxiv.org/pdf/2604.25850)
+# 🏡 [Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses (J. Lin et al., 2026)](https://arxiv.org/pdf/2604.25850)
 
 <br>
 

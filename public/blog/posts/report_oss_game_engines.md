@@ -23,7 +23,7 @@ Ah, and by the way, as we read through today's material, please remember our rul
 
 ---
 
-# 🌟 Serving the Infrastructure for MMO Experiences in the Agentic Era
+# 🌞 Serving the Infrastructure for MMO Experiences in the Agentic Era
 
 <br>
 
@@ -48,7 +48,7 @@ Therefore, for this report, let us narrow our options to three powerful open-sou
 
 ----
 
-# 🌟 Head-to-head comparison
+# 🌞 Head-to-head comparison
 
 <br>
 
@@ -74,7 +74,7 @@ Therefore, for this report, let us narrow our options to three powerful open-sou
 
 ---
 
-# 🌟 What each engine means for real-time MMO Experiences
+# 🌞 What each engine means for real-time MMO Experiences
 
 <br>
 
@@ -235,7 +235,7 @@ In addition, here are some things that would need be implemented for this engine
 
 ---
 
-# 🌟 Engine-Architecture Integration
+# 🌞 Engine-Architecture Integration
 
 <br>
 

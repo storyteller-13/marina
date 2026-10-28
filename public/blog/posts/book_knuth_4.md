@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → TAOCP 4️⃣ of 6️⃣ (Donald E. Knuth, 2019)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable ふかひ
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable · Unerbittlich · ふかひ · בִּלְתִּי נִמְנָע
 date: 2026; 08; 27
 ---
 

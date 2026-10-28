@@ -1241,7 +1241,7 @@ probs = softmax(scaled_logits)
 
 ---
 
-# 🎃 RELEVANT RESOURCES
+# 🎃 RESOURCES SUGGESTED IN THE BOOK
 
 <br>
 
@@ -1256,6 +1256,42 @@ probs = softmax(scaled_logits)
 - **[A Survey on Efficient Inference for Large Language Models](https://arxiv.org/abs/2404.14294)**
 - **[A Systems View of LLMs on TPUs](https://jax-ml.github.io/scaling-book/)**
 - **[Common LLM Settings](https://docs.google.com/spreadsheets/d/14vbBbuRMEHoqeuMHkTfw3uiZVmyXNuoSp8s-aHvfvZk/edit?gid=0#gid=0)**
+
+<br>
+
+---
+
+# 🎃 MARINA's ADDITIONAL RESOURCES
+
+<br>
+
+#### ✨ I'll continue adding relevant resources here as I come across them. ✨
+
+<br>
+
+## Great Podcasts on Inference
+
+<br>
+
+- **[Inference Engines Explained in 10 Minutes (Caleb, 2026)](https://www.youtube.com/watch?v=_xM8scs4_x4)**
+- **[Why Inference Matters 12x More Than Training (YC Paper Club, 2026)](https://www.youtube.com/watch?v=mHNKuH-9OxU)**
+- **[The Strange Economics of LLM Inference-as-a-Service (bycloud, 2026)](https://www.youtube.com/watch?v=xP1kjDOisVw)**
+- **[The Future of Inference Markets (20VC, 2026)](https://www.youtube.com/watch?v=1jDCPEHwQfI&list=WL&index=64)**
+
+<br>
+
+## Open-Source Inference Engines
+
+<br>
+
+- **[vLLM](https://github.com/vllm-project/vllm)** (A high-throughput, memory-efficient inference and serving engine for LLMs)
+- **[SGLang](https://github.com/sgl-project/sglang)** (A high-performance serving framework for large language models and multimodal models)
+- **[llama.cpp](https://github.com/ggml-org/llama.cpp)** (LLM inference in C/C++)
+- **[DeepInfer](https://github.com/deepseek-ai/DeepInfer)** (A high-performance, large-scale inference framework for DeepSeek models)
+- **[Transformers](https://github.com/huggingface/transformers)** (A framework for state-of-the-art machine learning models in text, vision, audio, and multimodal applications, supporting both inference and training)
+- **[oMLX](https://github.com/jundot/omlx)** (An LLM inference server with continuous batching and SSD caching for Apple Silicon)
+- **[ComfyUI](https://github.com/Comfy-Org/ComfyUI)** (A node-based interface for generative AI workflows, including local model inference)
+- **[Petals](https://github.com/bigscience-workshop/petals)** (A framework for distributed inference and fine-tuning of large language models)
 
 <br>
 

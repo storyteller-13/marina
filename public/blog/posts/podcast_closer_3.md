@@ -1,6 +1,6 @@
 ---
 title: 📺 PODCAST → O'Connor + Kuhn on Consciousness 3️⃣ of 3️⃣
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Unfolding てんかい הִתְפַּתְּחוּת
+subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Unfolding · Entfaltung · てんかい · הִתְפַּתְּחוּת
 date: 2026; 09; 24
 ---
 

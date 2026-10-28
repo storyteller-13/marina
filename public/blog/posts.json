@@ -1,5 +1,11 @@
 [
   {
+    "slug": "report_harness_comp",
+    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Ride Through Harness Engineering",
+    "date": "2026; 10; 30",
+    "subtitle": "Audience: Beginner to Advanced AI Scientists and Engineers | Today's word: Action \u00b7 Handlung \u00b7 \u884c\u52d5 (\u3053\u3046\u3069\u3046) \u00b7 \u05e4\u05e2\u05d5\u05dc\u05d4"
+  },
+  {
     "slug": "book_ml_eng",
     "title": "\ud83d\udcda BOOK \u2192 ML Engineering (S. Bekman, 2026)",
     "date": "2026; 10; 26",
@@ -9,13 +15,13 @@
     "slug": "paper_intel_3",
     "title": "\ud83d\udcca PAPER \u2192 Collective Intelligence 3\ufe0f\u20e3 of \u267e\ufe0f: Harness RSI",
     "date": "2026; 10; 25",
-    "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's word: Home \u6545\u90f7 \u00b7 \u05d1\u05d9\u05ea"
+    "subtitle": "Audience: Intermediate to Advanced AI Scientists and Engineers | Today's word: Home \u00b7 Zuhause \u00b7 \u6545\u90f7 \u00b7 \u05d1\u05d9\u05ea"
   },
   {
     "slug": "paper_intel_2",
     "title": "\ud83d\udcca PAPER \u2192 Collective Intelligence 2\ufe0f\u20e3 of \u267e\ufe0f: G\u00f6del Machines",
     "date": "2026; 10; 24",
-    "subtitle": "Audience: Intermediate to Advanced AI Scientists | Today's word: Infinite \u3080\u3052\u3093 \u05d0\u05d9\u05e0\u05e1\u05d5\u05e4\u05d9"
+    "subtitle": "Audience: Intermediate to Advanced AI Scientists | Today's word: Infinite \u00b7 Unendlich \u00b7 \u3080\u3052\u3093 \u00b7 \u05d0\u05d9\u05e0\u05e1\u05d5\u05e4\u05d9"
   },
   {
     "slug": "report_ecs",
@@ -27,7 +33,7 @@
     "slug": "book_harness_eng",
     "title": "\ud83d\udcda BOOK \u2192 Harness Engineering (I. Wijesiri, 2026)",
     "date": "2026; 10; 18",
-    "subtitle": "Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers | Today's word: Ghost \u30b4\u30fc\u30b9\u30c8 \u00b7 \u05e8\u05d5\u05d7 \u05e8\u05e4\u05d0\u05d9\u05dd"
+    "subtitle": "Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers | Today's word: Ghost \u00b7 Geist \u00b7 \u30b4\u30fc\u30b9\u30c8 \u00b7 \u05e8\u05d5\u05d7 \u05e8\u05e4\u05d0\u05d9\u05dd"
   },
   {
     "slug": "report_oss_game_engines",
@@ -39,19 +45,19 @@
     "slug": "book_legg",
     "title": "\ud83d\udcda BOOK \u2192 Machine Super Intelligence (S. Legg, 2008)",
     "date": "2026; 10; 16",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Future \u672a\u6765 \u00b7 \u05e2\u05ea\u05d9\u05d3"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Future \u00b7 Zukunft \u00b7 \u672a\u6765 \u00b7 \u05e2\u05ea\u05d9\u05d3"
   },
   {
     "slug": "idea_webllm_gpu",
     "title": "\ud83e\udde0 IDEA \u2192 WebLLM, WebGPU, Open-Source Tiny Inference",
     "date": "2026; 09; 25",
-    "subtitle": "Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold \u304d\u3087\u3046\u304b\u3044"
+    "subtitle": "Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold \u00b7 Schwelle \u00b7 \u304d\u3087\u3046\u304b\u3044 \u00b7 \u05e1\u05b7\u05e3"
   },
   {
     "slug": "podcast_closer_3",
     "title": "\ud83d\udcfa PODCAST \u2192 O'Connor + Kuhn on Consciousness 3\ufe0f\u20e3 of 3\ufe0f\u20e3",
     "date": "2026; 09; 24",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Unfolding \u3066\u3093\u304b\u3044 \u05d4\u05b4\u05ea\u05b0\u05e4\u05bc\u05b7\u05ea\u05b0\u05bc\u05d7\u05d5\u05bc\u05ea"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Unfolding \u00b7 Entfaltung \u00b7 \u3066\u3093\u304b\u3044 \u00b7 \u05d4\u05b4\u05ea\u05b0\u05e4\u05bc\u05b7\u05ea\u05b0\u05bc\u05d7\u05d5\u05bc\u05ea"
   },
   {
     "slug": "paper_intel",
@@ -75,25 +81,25 @@
     "slug": "book_knuth_4",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP 4\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 27",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable \u3075\u304b\u3072"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable \u00b7 Unerbittlich \u00b7 \u3075\u304b\u3072 \u00b7 \u05d1\u05b4\u05bc\u05dc\u05b0\u05ea\u05b4\u05bc\u05d9 \u05e0\u05b4\u05de\u05b0\u05e0\u05b8\u05e2"
   },
   {
     "slug": "book_knuth_3",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP 3\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 26",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Flourishing \u306f\u3093\u3048\u3044"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Flourishing \u00b7 Aufbl\u00fchen \u00b7 \u306f\u3093\u3048\u3044 \u00b7 \u05e9\u05d2\u05e9\u05d5\u05d2"
   },
   {
     "slug": "book_knuth_2",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP 2\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 24",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia \u306a\u3064\u304b\u3057\u3055"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Nostalgia \u00b7 Nostalgie \u00b7 \u306a\u3064\u304b\u3057\u3055 \u00b7 \u05e0\u05d5\u05e1\u05d8\u05dc\u05d2\u05d9\u05d4"
   },
   {
     "slug": "book_knuth",
     "title": "\ud83d\udcda BOOK \u2192 TAOCP 1\ufe0f\u20e3 of 6\ufe0f\u20e3 (Donald E. Knuth, 2019)",
     "date": "2026; 08; 22",
-    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope \u304d\u307c\u3046"
+    "subtitle": "Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Hope \u00b7 Hoffnung \u00b7 \u304d\u307c\u3046 \u00b7 \u05ea\u05b4\u05bc\u05e7\u05b0\u05d5\u05b8\u05d4"
   },
   {
     "slug": "book_ai3",
@@ -171,7 +177,7 @@
     "slug": "book_llm_eng",
     "title": "\ud83d\udcda  BOOK \u2192 LLM Engineer (Chaumond et al., 2024)",
     "date": "2026; 06; 24",
-    "subtitle": "Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers"
+    "subtitle": "Rating: 9/10 | Audience: Beginner to Intermediate AI Engineers"
   },
   {
     "slug": "idea_nullstar",
