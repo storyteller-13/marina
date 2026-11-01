@@ -12,7 +12,7 @@ date: 2026; 10; 24
 
 <br>
 
-Happy Friday, dear anon. Today we will review six quintessential papers on one of our all-time favorite topics, **[RSI](https://en.wikipedia.org/wiki/Recursive_self-improvement)**. More specifically, we will be looking at one of its origins: [**Gödel Machines**](https://en.wikipedia.org/wiki/G%C3%B6del_machine), and how the idea has evolved over the last two decades.
+Happy Friday, dear anon friend. Today we will review six quintessential papers on one of our all-time favorite topics, **[RSI](https://en.wikipedia.org/wiki/Recursive_self-improvement)**. More specifically, we will be looking at one of its origins: [**Gödel Machines**](https://en.wikipedia.org/wiki/G%C3%B6del_machine), and how the idea has evolved over the last two decades.
 
 You all know I am a big fan of **[Kurt Gödel](https://en.wikipedia.org/wiki/Kurt_G%C3%B6del)**, and that I believe **[Hofstadter’s Gödel, Escher, Bach](https://lore.nullstar.fun/chapters/25_summer.html#2025_june_27)** is one of the greatest books ever written.
 

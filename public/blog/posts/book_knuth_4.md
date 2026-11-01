@@ -277,7 +277,7 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 ##### Life is a funny thing. If you live intensively like I did, indulging yourself to maximize experiences and knowledge, you will eventually find no more meaning in certain choices, and you will grow out of past characters. On the other hand, if you don't do it at all — if you never go explore the world, if you never push yourself to the limits, if you never leave "home" for the hero's journey — you will never know. And I am pretty sure you will become one of those people who eventually grow into a resentful character, constantly asking, *"what if?"* (But you might also become super-safe and uber-rich, too, so who knows?).
 
-##### So what's the right answer? To be or not to be? Should we stay or should we go? Nobody will ever be able to answer this question for you, my dear anon. It's your job to live your life. It's your job to let others live their lives without your judgment. And it's your job to own the choices you make in the game of choices — and do it as gracefully and gratefully as you can 🫶🏼.
+##### So what's the right answer? To be or not to be? Should we stay or should we go? Nobody will ever be able to answer this question for you, my dear anon friend. It's your job to live your life. It's your job to let others live their lives without your judgment. And it's your job to own the choices you make in the game of choices — and do it as gracefully and gratefully as you can 🫶🏼.
 
 <br>
 

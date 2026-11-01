@@ -93,7 +93,7 @@ I can't wait to show you what I've been creating!
 <br>
 
 - **[Harness Engineering](http://marina.nullstar.fun/pages/post.html?post=book_harness_eng)**
-- **[Harness Engineering II](http://marina.nullstar.fun/pages/post.html?post=report_harness_comp)**
+- **[Harness Engineering II](http://marina.nullstar.fun/pages/post.html?post=report_harness)**
 
 <br>
 
@@ -151,7 +151,7 @@ I can't wait to show you what I've been creating!
 <br>
 
 - **[Hands-On LLM](http:///marina.nullstar.fun/pages/post.html?post=book_hands)**
-- **[Build a LLM from Scratch](http:///marina.nullstar.fun/pages/post.html?post=book_build_llm)**
+- **[Build an LLM from Scratch](http:///marina.nullstar.fun/pages/post.html?post=book_build_llm)**
 - **[Post-Training Lectures](http:///marina.nullstar.fun/pages/post.html?post=podcast_nl)**
 - **[Artificial Intelligence](http:///marina.nullstar.fun/pages/post.html?post=book_ai)**
 - **[Machine Super Intelligence](http:///marina.nullstar.fun/pages/post.html?post=book_legg)**

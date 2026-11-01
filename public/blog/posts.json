@@ -1,6 +1,12 @@
 [
   {
-    "slug": "report_harness_comp",
+    "slug": "report_memory",
+    "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Ride Through Agentic Memory",
+    "date": "2026; 11; 06",
+    "subtitle": "Audience: Beginner to Advanced AI Scientists and Engineers |  Today's word: Magic \u00b7 Magie \u00b7 \u9b54\u6cd5 (\u307e\u307b\u3046) \u00b7 \u05e7\u05e1\u05dd"
+  },
+  {
+    "slug": "report_harness",
     "title": "\ud83c\udfc4\u200d\u2640\ufe0f REPORT \u2192 A Ride Through Harness Engineering",
     "date": "2026; 10; 30",
     "subtitle": "Audience: Beginner to Advanced AI Scientists and Engineers | Today's word: Action \u00b7 Handlung \u00b7 \u884c\u52d5 (\u3053\u3046\u3069\u3046) \u00b7 \u05e4\u05e2\u05d5\u05dc\u05d4"
@@ -199,7 +205,7 @@
   },
   {
     "slug": "book_build_llm",
-    "title": "\ud83d\udcda BOOK \u2192 Build a LLM from Scratch (Raschka, 2024)",
+    "title": "\ud83d\udcda BOOK \u2192 Build an LLM from Scratch (Raschka, 2024)",
     "date": "2026; 03; 29",
     "subtitle": "Rating: 9/10 | Audience: Beginner to Intermediate AI/Software Engineers"
   },

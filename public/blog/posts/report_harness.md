@@ -16,7 +16,7 @@ date: 2026; 10; 30
 
 #### *Hello there, and Happy Halloween, anon friend!*
 
-#### *Part of this week was dedicated to technical debt and summarization. Today, we're exploring the literature covering the main aspects of the work behind [**NULLSTAR**](https://www.nullstar.games/)'s [**PleiadesOS:MAIA and PleiadesOS:TAYGETE**](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar) modules. We'll take a deep dive into the current landscape of agent harnesses and their integrations with orchestration frameworks.*
+#### *Part of this week was dedicated to technical debt and summarization, and this is the post I of III of the festival. Today, we're exploring the literature covering the main aspects of the work behind [**NULLSTAR**](https://www.nullstar.games/)'s [**PleiadesOS:MAIA and PleiadesOS:TAYGETE**](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar) modules. We'll take a deep dive into the current landscape of agent harnesses and their integrations with orchestration frameworks.*
 
 <br>
 
@@ -348,7 +348,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-## VI. Verification and Evaluation
+## VI. Valirdation, Verification, and Evaluation
 
 <br>
 
@@ -641,43 +641,87 @@ As I read through the material, below are my highlights — with a moderate atte
 
 > Loop engineering adds structures that start an agent loop, verify its results, and start it again over time. It's the practice of designing automated control structures that repeatedly invoke coding agents, triggered on a schedule or by events, with each agent loop bounded by a machine-checkable stop condition. A well-engineered loop persists state across agent loops, verifies results independently of the implementation agents, bounds inference costs, restricts what an unattended agent loop may change without approval, and defines when humans should intervene.
 
-<br>
-
-Each loop pattern should answer:
-
-- What problem it solves
-- How the loop runs
-- Circuit breaker
-- Verification approach
-- Human hand-off strategy
-- Tool-specific notes
-- Failure modes
-- Cost profile
-- Success metrics
+> Most LLM workflows were initially built around single-shot prompts. Production agents, by contrast, operate over hundreds or thousands of steps, often spanning multiple sessions and users. Loop engineering focuses on making these long-running execution cycles reliable, efficient, and consistently aligned with the product's objectives.
 
 <br>
 
-A loop needs:
-
-- Automations that run on a schedule and perform discovery and triage by themselves
-- Worktrees so two agents working in parallel don't step on each other
-- Skills to document the project knowledge that the agent would otherwise just guess
-- Plugins and connectors to plug the agent into the tools you already use
-- Sub-agents so one agent comes up with an idea and a different one checks it
+### Each loop pattern should answer
 
 <br>
 
-### Examples of Coding-Oriented Loops
+➡️ What problem it solves
+➡️ How the loop runs
+➡️ Circuit breaker
+➡️ Verification approach
+➡️ Human hand-off strategy
+➡️ Tool-specific notes
+➡️ Failure modes
+➡️ Cost profile
+➡️ Success metrics
 
 <br>
 
-- Babysitter Loop → Goal: Reduce the human time spent herding a task while keeping the human in the judgment seat.
-- Daily Triage Loop → Goal: Start each day (or active period) with a prioritized, actionable picture of what needs attention.
-- Issue Triage Loop → Goal: Continuously discover, deduplicate, prioritize, and label incoming issues, feature requests, and discussions so the team (and other loops) always have a clean, actionable top of the queue. Pure reporting/proposal mode.
-- CI Sweeper Loop → Goal: React quickly to failing tasks or jobs — diagnose, propose minimal fixes, and escalate when the loop cannot confidently resolve them.
-- Post-Merge Cleanup Loop → Goal: After merges to main, sweep for follow-up work — deprecations, TODOs, tech debt tickets, stale feature flags, and documentation gaps — without blocking the merge itself.
-- Dependency Sweeper Loop → Goal: Discover outdated or vulnerable dependencies, apply the smallest safe updates, verify with tests/builds in isolation, and escalate anything risky (major bumps, breaking changes, or high-severity vulnerabilities) to a human.
-- Changelog Drafter Loop → Goal: Scan merged PRs, commits, and labels since the last release (or on a regular cadence) and produce a high-quality, categorized draft of release notes or CHANGELOG entries.
+### Each loop should have
+
+<br>
+
+1️⃣ Control flow design: How to structure perception, planning, action, and feedback (ReAct-style loops, planning with subgoals, tool-using agents with retriable steps)
+2️⃣ Context management: The policies for what goes into the prompt each step (sliding windows over chat history, summaries instead of raw logs, retrieval-augmented context)
+3️⃣ State and memory design: How the agent stores and reuses information across steps and sessions (persistent user profiles, long-term task state, learned preferences and constraints)
+4️⃣ Evaluation and feedback loops: How the system monitors behavior and adjusts (self-critique prompts, external evaluators, metrics-driven loop tuning)
+
+<br>
+
+### Each multi-agent loop should have
+
+<br>
+
+➡️ Automations that run on a schedule and perform discovery and triage by themselves
+➡️ Worktrees so two agents working in parallel don't step on each other
+➡️ Skills to document the project knowledge that the agent would otherwise just guess
+➡️ Plugins and connectors to plug the agent into the tools you already use
+➡️ Sub-agents so one agent comes up with an idea and a different one checks it
+
+<br>
+
+### Stages of a loop
+
+<br>
+
+1️⃣ Input capture: user message or environment event, metadata such as user id, time, channel
+2️⃣ Context assembly: recent interaction history, retrieved long-term memories, system instructions and tools, task-specific context
+3️⃣ Model inference: LLM call with assembled prompt, optional function/tool call detection
+4️⃣ Action execution: tool calls, API requests, database operations, effects applied to external systems
+5️⃣ Observation and logging: outcome of actions, errors or exceptions, relevant details for future decisions
+6️⃣ Memory update: decide what should be stored, write to short-term and long-term memory, possibly summarize or compress
+
+<br>
+
+### Token costs
+
+<br>
+
+The rough cost problem is:
+
+```
+model cost = requests x (input tokens x input price + output tokens x output price)
+```
+
+<br>
+
+For agents:
+
+```
+repeated context cost = turns x repeated history tokens x model input price
+```
+
+<br>
+
+Persistent memory changes the input side:
+
+```
+memory-assisted input = current task + retrieved relevant memories
+```
 
 <br>
 
@@ -687,7 +731,7 @@ A loop needs:
 
 <br>
 
-#### ✨ Through my own research and by asking the frontier robots, I've read dozens, if not hundreds, of articles on to this subject throughout the year. Today, we'll explore a few seminal resources that illustrate the major advances, concerns, and directions in the field. This list is far from exhaustive, but it should be sufficiently illustrative and enlightening for the purposes of our technical debt week. ✨
+#### ✨ Through my own research and by asking the frontier robots, I've read dozens, if not hundreds, of articles on to this subject throughout the year. Today, we'll explore a few seminal resources that illustrate the major advances, concerns, and directions in the field. This list is far from exhaustive, but it should be sufficiently illustrative and enlightening for the purposes of our technical debt studies. ✨
 
 <br>
 
@@ -752,6 +796,30 @@ A loop needs:
 - This is a design heuristic that engineers around today’s perceived model issues. As models improve, these guardrails will likely be unnecessary, but today helps agents execute correctly and autonomously.
 
 - For the outer loop of improving agents, we’re looking at methods like RLMs to more efficiently mine traces. 
+
+<br>
+
+---
+
+## [Continual learning for AI agents (LangChain, 2026)](https://www.langchain.com/blog/continual-learning-for-ai-agents)
+
+<br>
+
+- Most discussions of continual learning in AI focus on one thing: updating model weights. But for AI agents, learning can happen at three distinct layers: the model, the harness, and the context.
+
+- Model weights update include techniques such as SFT, RL (e.g. GRPO), etc. A central challenge here is catastrophic forgetting — when a model is updated on new data or tasks, it tends to degrade on things it previously knew. This is an open research problem.
+
+- When people do train models for a specific agentic system they largely do this for the agentic system as a whole. In theory, you could do this at a more granular level (e.g. you could have a LORA per user) but in practice this is mostly done at the agent level.
+
+- Meta-harness e2e optimazaion: the agent is running in a loop. You first run it over a bunch of tasks, and then evaluate them. You then store all these logs into a filesystem. You then run a coding agent to look at these traces, and suggest changes to the harness code.
+
+<br>
+
+![](/blog/assets/report_harn_24.png)
+
+<br>
+
+- All of these flows are powered by traces - the full execution path of what an agent did.
 
 <br>
 
@@ -913,6 +981,8 @@ An illustrative example:
 
 - Standardizes how agents discover and communicate with each other.
 - Each A2A agent publishes an Agent Card at a well-known URL that describes its name, capabilities, and endpoints.
+- The protocol data model is binding-agnostic — defined in Protocol Buffers — with official bindings for JSON-RPC 2.0 over HTTP, gRPC, and HTTP/REST. 
+- Implementations surface JSON-RPC 2.0 over HTTP, and the protocol supports synchronous requests, streaming via Server-Sent Events, and asynchronous push notifications.
 
 <br>
 
@@ -1685,7 +1755,7 @@ Any team building production AI agents can benefit:
 
 - LangGraph is the orchestration layer in LangChain's stack, and the most explicitly systems-oriented framework. It describes itself as a low-level framework for stateful agents, and its lineage is unusual for the category. Rather than borrowing from other agent libraries, LangGraph borrows from distributed data processing: its execution model follows Pregel, Google's system for large-scale graph computation, and Apache Beam. Tthe graph advances in discrete supersteps. Every node eligible to run in a given step runs, each producing state updates; those updates are applied together at the end of the step, and only then does the next step begin. The benefit is that progress has clean checkpoint boundaries. Because the runtime knows exactly which step completed and what the state was when it did, it can persist that point and resume from it later. Subgraphs, streaming, and conditional branching round out the control-flow surface, and above LangGraph the vendor now ships Deep Agents, a higher-level layer adding planning, subagents, and a virtual filesystem.
 
-- CrewAI takes the most distinctive conceptual approach in this guide. Where the other frameworks ask you to describe control flow, CrewAI asks you to describe a team. An Agent is defined by a role, a goal, and a backstory; a Task is defined by a description and an expected_output; a Crew binds them together and a Process, either sequential or hierarchical, decides who works when. For a large class of problems, declaring the outcome you want and letting agents negotiate the path is genuinely faster than drawing a graph, and it is the most approachable on-ramp in the category.
+- CrewAI takes the most distinctive conceptual approach in this guide. Where the other frameworks ask you to describe control flow, CrewAI asks you to describe a team. An Agent is defined by a role, a goal, and a backstory; a Task is defined by a description and an expected_output; a Crew binds them together and a Process, either sequential or hierarchical, decides who works when. For a large class of problems, declaring the outcome you want and letting agents negotiate the path is genuinely faster than drawing a graph, and it is the most approachable on-ramp in the category. It architecture uses a unified Memory class with composite scoring: semantic similarity, recency, and importance are combined at retrieval time. The default backend is LanceDB, stored at `./.crewai/memory`. Deduplication fires at a `0.85` cosine similarity threshold, which prevents exact and near-duplicate memories from accumulating.
 
 - The OpenAI Agents SDK is deliberately minimal, and its primitive list is the clearest statement of scope in this guide: Agents, Sandbox agents, Realtime agents, Voice agents, Handoffs, Agents as tools, Tools, Guardrails, Human in the loop, Sessions, and Tracing. There is no graph DSL and no workflow engine. A Runner drives the loop, handoffs delegate between agents, and control flow is largely the model's business. . Sessions handle conversation history automatically across runs, with SQLAlchemy and Redis backends available as extras.
 
@@ -2137,6 +2207,7 @@ let agent = AgentBuilder::new(cwd, None, ToolNotificationHandle::noop())
 <br>
 
 - **[Codex learning docs](https://learn.chatgpt.com/docs)**
+- **[Memory in ChatGPT](https://help.openai.com/en/articles/8590148-memory-in-chatgpt)**
 - **[Codex skills docs](https://learn.chatgpt.com/docs/build-skills)**
 - **[Codex on prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching#structuring-prompts)**
 
@@ -2291,7 +2362,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 <br>
 
-- LangGraph is the graph runtime. LangChain's `create_agent` is a minimal agent harness on top of it. Deep Agents is a more opinionated harness on top of `create_agent` — same building blocks, but with filesystem, sub-agents, context management, and skills bundled in. 
+- LangGraph is the graph runtime and it prioritizes explicit state management and reproducibility: the developer sees exactly what state flows through each node. LangChain's `create_agent` is a minimal agent harness on top of it. Deep Agents is a more opinionated harness on top of `create_agent` — same building blocks, but with filesystem, sub-agents, context management, and skills bundled in. 
 
 - Use Deep Agents when you want the full harness — planning, context management, delegation — out of the box. Use LangChain's `create_agent` when you want a lighter harness without the bundled middleware. Drop to LangGraph when the agent loop itself isn't the right shape and you need a custom graph.
 
@@ -2458,6 +2529,18 @@ if __name__ == "__main__":
 
 <br>
 
+### Memory
+
+<br>
+
+- LangChain provides `ConversationBufferMemory` (stores the full conversation history) and `ConversationSummaryMemory` (stores an LLM-generated summary of prior turns).
+
+- LangGraph's built-in persistence mechanism given by `MemorySaver`, a checkpointer that saves the full graph state at each step. When a workflow is interrupted and resumed, the entire graph state (all node outputs, channel values, pending tasks) is restored. It does not handle user memory. The full graph state from a run is not the same thing as curated facts about the user. Cross-thread memory, where facts from one conversation are available in future conversations for the same user, requires an additional layer beyond `MemorySaver`.
+
+- A typical LangGraph agent looks like a state machine. There is a graph definition that specifies: a set of nodes (each representing a function or tool), edges (defining possible transitions between nodes), and a state object (passed through nodes during execution). For a conversational agent, a simple graph may have: 1) router node that decides the next step, 2) llm node that calls the language model, and 3) A tool node that calls external APIs. Memory integration fits into this pattern as: 1) a `memory_retrieval` node that enriches the state before the LLM call, and 2) a `memory_update` node that writes new memories after the LLM output.
+
+<br>
+
 ### [Nemotron Deep Agent + GPU Skills](https://github.com/langchain-ai/deepagents/tree/main/examples/nvidia_deep_agent)
 
 <br>
@@ -2498,6 +2581,7 @@ create_deep_agent (orchestrator: frontier model)
 - **[Evals](https://github.com/langchain-ai/deepagents/tree/main/libs/evals)** and **[evals.yml](https://github.com/langchain-ai/deepagents/actions/workflows/evals.yml)**
 - **[Server middleware/hooks](https://github.com/langchain-ai/deepagents/blob/main/libs/code/deepagents_code/hooks/server_middleware.py)**
 - **[Going to production (docs)](https://docs.langchain.com/oss/python/deepagents/going-to-production#langsmith-deployments)**
+- **[LangChain's models profiles](https://docs.langchain.com/oss/python/langchain/models#model-profiles)**
 - **[Integration with sandbox providers](https://github.com/langchain-ai/deepagents/tree/main/libs/partners)**
 - **[An example of harness optimization](https://github.com/langchain-ai/deepagents/tree/main/examples/better-harness)** 
 - **[How to Build Agents That Improve Over Time](https://www.youtube.com/watch?v=xy_7SzwsIjM)**
@@ -2542,7 +2626,8 @@ result = agent.run_conversation(
 where
 
 ```
-`run_conversation()`
+run_conversation()
+
   1. Generate task_id if not provided
   2. Append user message to conversation history
   3. Build or reuse cached system prompt (prompt_builder.py)
@@ -2653,6 +2738,29 @@ def register(ctx):
 
 <br>
 
+### Memory
+
+<br>
+
+Hermes stores memory in two files inside `~/.hermes/memories/`:
+
+➡️ `MEMORY.md`: the agent’s notes about the world (char cap of `2,200`)
+➡️ `USER.md`: the agent’s notes about the user (cap of `1,375`)
+
+<br>
+
+- Captures memory once, at session start, and pins it as a frozen block in the system prompt. When the agent calls the memory tool to add or remove entries, changes are written to disk immediately. However, new entries only become visible to the agent at the start of the next session.
+
+- **Prefix caching:** Every major LLM provider caches the beginning of a prompt, allowing subsequent turns to reuse those tokens at a fraction of the cost. As long as the system prompt remains unchanged, the cache stays valid.
+
+- Exposes a single memory tool with three actions: `add`, `replace`, and `remove`. `Add` appends a new entry to either the world-facts file or the user-facts file, rejecting exact duplicates. `Replace` locates an existing entry through a substring match against its text and swaps it with new content. `Remove` uses the same substring-matching approach to delete an entry. There are no entry IDs or UUIDs; the model identifies existing entries by quoting a unique substring of their content.
+
+- Runs an FTS5 index inside `~/.hermes/state.db`, exposed through a separate `session_search` tool. When a user references something from a previous conversation, the agent calls `session_search` to retrieve relevant turns, summarizes them, and proceeds. Built-in memory and session search are two distinct surfaces, exposed through two separate tools.
+
+- **No automatic compaction primitive.** When `MEMORY.md` reaches 2,200 characters, the next write fails with an error, forcing the agent to consolidate entries manually. There is no silent garbage collection, LRU eviction, or sliding window.
+
+<br>
+
 ### Resources
 
 <br>
@@ -2665,6 +2773,8 @@ def register(ctx):
 - **[Hermes' security mode has eight layers](https://hermes-agent.nousresearch.com/docs/user-guide/security)**
 - **[Hermes' `SOUL.md` and `/personality`](https://hermes-agent.nousresearch.com/docs/user-guide/features/personality)**
 - **[Hermes Agent Masterclass, by Tonbi’s Garage](https://www.youtube.com/playlist?list=PLmpUb_PWAkDx-VWjh00tVCji794xAa_IX)**
+- **[Adding Mem0 to Hermes](https://mem0.ai/blog/how-memory-works-in-hermes-agent-(and-how-to-improve-it))**
+- **[Hermes Agent Holographic Memory](https://hindsight.vectorize.io/guides/2026/04/21/guide-hermes-agent-holographic-memory-technical-deep-dive)**
 
 <br>
 
@@ -2922,125 +3032,7 @@ selected input events
 
 <br>
 
-> Another of the big ones, but closed-source. Agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows.
-
-<br>
-
-### Agent Builder
-
-<br>
-
-- Anthropic's claude-code repository has not exposed the full implementation as ordinary, readable source code, but below is an example of how one can interact with its API (i.e., evaluate stop reasons, execute tools, and feed results back iteratively):
-
-<br>
-
-```
-import anthropic
-import subprocess
-import json
-
-# Initialize the official Anthropic client
-client = anthropic.Anthropic()
-
-def run_agent_loop(initial_prompt: str, max_turns: int = 15):
-    """
-    Core agentic run loop managing multi-turn interactions, tool dispatch,
-    and state continuation.
-    """
-    messages = [{"role": "user", "content": initial_prompt}]
-    
-    # Define tools available to the model (e.g., bash execution)
-    tools = [
-        {
-            "name": "bash",
-            "description": "Execute a shell command in the local environment.",
-            "input_schema": {
-                "type": "object",
-                "properties": {
-                    "command": {
-                        "type": "string",
-                        "description": "The bash command line to run."
-                    }
-                },
-                "required": ["command"]
-            }
-        }
-    ]
-
-    for turn in range(max_turns):
-        print(f"\n--- Turn {turn + 1} of {max_turns} ---")
-        
-        # 1. Send conversation history + tools to Claude
-        response = client.messages.create(
-            model="claude-3-5-sonnet-20260228",
-            max_tokens=4096,
-            tools=tools,
-            messages=messages
-        )
-        
-        # 2. Append assistant's response (which may contain text and/or tool calls)
-        messages.append({"role": "assistant", "content": response.content})
-        
-        # Print out any thoughts/text the model generated
-        for content_block in response.content:
-            if content_block.type == "text":
-                print(f"Claude: {content_block.text}")
-
-        # 3. Evaluate the stop reason
-        if response.stop_reason == "end_turn":
-            print("\n[Loop Completed]: Task finished by model.")
-            break
-            
-        elif response.stop_reason == "tool_use":
-            tool_results = []
-            
-            # Extract and process all requested tool calls
-            for content_block in response.content:
-                if content_block.type == "tool_use":
-                    tool_name = content_block.name
-                    tool_inputs = content_block.input
-                    tool_id = content_block.id
-                    
-                    print(f"\n[Executing Tool -> {tool_name}]: {tool_inputs.get('command', '')}")
-                    
-                    # Execute tool in local environment
-                    output = execute_local_tool(tool_name, tool_inputs)
-                    
-                    # Package tool result for the next turn
-                    tool_results.append({
-                        "type": "tool_result",
-                        "tool_use_id": tool_id,
-                        "content": output
-                    })
-            
-            # 4. Feed tool execution outputs back into the conversation history
-            messages.append({"role": "user", "content": tool_results})
-            
-        else:
-            print(f"\n[Loop Interrupted]: Stopped due to {response.stop_reason}")
-            break
-
-def execute_local_tool(name: str, inputs: dict) -> str:
-    """Helper dispatcher for local tool execution."""
-    if name == "bash":
-        try:
-            res = subprocess.run(
-                inputs["command"], 
-                shell=True, 
-                capture_output=True, 
-                text=True, 
-                timeout=60
-            )
-            output = res.stdout if res.returncode == 0 else f"Error: {res.stderr}"
-            return output.strip() if output else "Command executed successfully with no output."
-        except Exception as e:
-            return f"Execution exception: {str(e)}"
-    return f"Error: Unknown tool '{name}'"
-
-
-if __name__ == "__main__":
-    run_agent_loop("Check what files are in the current directory and run git status.")
-```
+> Another of the big ones, but closed-source. Agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows. Here for completeness.
 
 <br>
 
@@ -3099,6 +3091,38 @@ How it fits together
 | `src/agents/harness/`               | Harness registry, selection policy, and lifecycle for the built-in and plugin-registered harnesses.                                                                                                                       |
 | `src/llm/`                          | Model/provider registry, transport helpers, and provider-specific stream implementations (`src/llm/providers/`).                                                                                                          |
 
+<br>
+
+### Memory
+
+<br>
+
+Stores memory in `~/.openclaw/workspace/`:
+
+➡️ `MEMORY.md`: the primary long-term file. Around a 20,000-char soft target; behaviour past that point is not formally specified in the docs
+➡️ `memory/YYYY-MM-DD.md`: daily notes
+➡️ `DREAMS.md` (optional): consolidation summaries
+➡️ `~/.openclaw/memory/<agentId>.sqlite`: a per-agent FTS5 + vector index over everything above
+
+<br>
+
+- `MEMORY.md` is re-injected fresh every turn as part of the system prompt’s “Project Context → Workspace Files” block.
+
+- Mid-session writes are visible immediately on the next turn. Maintainers report 20-30% of every turn’s input is bootstrap files re-shipped each time, and the underlying redundancy (large `MEMORY.md files getting fully injected even when `memory_search` and `memory_get` are available) is tracked.
+
+- Natively exposes two read tools: `memory_search` runs hybrid retrieval that combines vector similarity (semantic meaning) with keyword matching (exact terms like IDs and code symbols); `memory_get` reads a specific memory file or line range.
+
+- Supports multiple search backends (the built-in SQLite, QMD, Honcho, LanceDB) configurable via agents.defaults.memorySearch.
+
+- Optional active memory mode. When enabled, a blocking sub-agent fires before the model generates each reply. It searches stored memory against the current message and injects relevant facts into the context before the main turn begins.
+
+- Has both compaction and consolidation. Auto-compaction is enabled by default. When a session nears the context limit, or the model returns a context-overflow error, OpenClaw summarizes older turns into a compact entry, keeps the recent messages intact, and continues. The split logic is careful about pairing: assistant tool calls stay grouped with their `toolResult` entries even if a chunk boundary would otherwise fall inside the pair. Manual trigger is `/compact`.
+
+- Before summarization actually runs, OpenClaw can fire a silent memory-flush turn that nudges the agent to write durable notes to disk.
+
+- Dreaming is OpenClaw’s optional consolidation mechanism; three phases run in the background: 1) Light Sleep: ingest and stage short-term memories.; 2) REM Sleep: reflect and extract patterns.; 3) Deep Sleep: promote qualified memories to `MEMORY.md`.
+
+- Promotion is gated by three thresholds, all of which must be pass: `minScore`, `minRecallCount` (the memory has been recalled at least `N` times), and `minUniqueQueries` (triggered by at least `N` distinct search queries). A weighted scoring rule combines relevance, frequency, query diversity, recency, consolidation, and conceptual richness; the exact thresholds and weights are configured under `agents.defaults.memory.dreaming` in the OpenClaw memory config.
 
 <br>
 
@@ -3108,10 +3132,13 @@ How it fits together
 
 - **[OpenClaw documentation](https://docs.openclaw.ai)**
 - **[OpenClaw on skills](https://docs.openclaw.ai/tools/skills)**
+- **[Skills from clawhub](https://clawhub.ai/)**
 - **[OpenClaw on plugins](https://docs.openclaw.ai/tools/plugin)**
 - **[OpenClaw on compaction](https://docs.openclaw.ai/concepts/compaction)**
 - **[OpenClaw on memory and dreams](https://docs.openclaw.ai/concepts/memory)**
 - **OpenClaw on memory [architecture](https://docs.openclaw.ai/concepts/memory-architecture)** and **[search](https://docs.openclaw.ai/concepts/memory-search)**
+- **[OpenClaw's Memory LanceDB](https://docs.openclaw.ai/plugins/memory-lancedb)**
+- **[OpenClaw's take on `SOUL.md`](https://docs.openclaw.ai/reference/templates/SOUL)**
 - **[Y combinator + Peter Steinberger](https://www.youtube.com/watch?v=4uzGDAoNOZc)**
 - **[a16z Speedrun + Peter Steinberger](https://www.youtube.com/watch?v=P8iK9ZyhJPM)**
 - **[Lex Fridman + Peter Steinberger](https://www.youtube.com/watch?v=YFjfBk8HI5o)**
@@ -3126,661 +3153,13 @@ How it fits together
 
 > An agent harness associated for supporting agent execution and tool orchestration. Built on an "everything-is-a-plugin" architecture.
 
+> EDIT: A few days after this report, DeepSeek published this interesting [wrapper](https://github.com/deepseek-ai/dsh-superagent-prototype) for a multi-agent archtecture through a router layer ([X review](https://x.com/DeepSeekHarness/status/2116857257245987236)).
+
 <br>
 
 - Every part of the product is a plugin, including the model adapter, the tool registry, the session log, and the agent loop itself, so each is replaceable from configuration. A bundle is a distribution format for **[Cordis config](https://arxiv.org/abs/2608.25512)** rows and the code they mount, so whatever it inserts stays patchable by the layers above it.
 
 - Events are the extension points, and picking the right domain is the first decision in most changes: 1) Session events are durable facts appended to the log and broadcast through session/event. Use one when the fact must survive a reload., 2) Agent events (`agent/`) carry a live Agent: inbox, step, status, request, validation, continuation. Use one to observe or intercept work in flight., 3) Capability events attach policy and adapters to a seam (`fs/`, `tools/`, `telemetry/`) without importing the loop.
-
-<br>
-
-### [Agent Builder and Run Loop](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/core/agent-loop/src/agent.ts#L112)
-
-<br>
-
-```
-/** Drives one session through turn and step boundaries. */
-export class ReactLoopAgent implements Agent {
-  readonly model: AgentModel
-  readonly inbox: ReactLoopInbox
-  private phase: Phase
-  private activityDone: Promise<void> = Promise.resolve()
-
-  /** The agent-scoped registration boundary; the lifecycle owner unwinds it after the driver exits. */
-  readonly scope: Scope
-  readonly ctx: Context
-
-  /** Fused dispatcher, built once in the constructor so hot-path dispatches never allocate. */
-  private readonly dispatch: AgentEventDispatch
-
-  /** Whether this loop instance has appended its initial/resume request anchor. */
-  private requestHeaderLogged = false
-  /** Surface generation at attachment or the preceding built request. */
-  private requestSurfaceGeneration: number
-  private readonly runtimeContext: RuntimeContextProjection
-  /** Process-local revision of assistant frames for this attached Session. */
-  private assistantStreamRevision = 0
-  private assistantAttemptCounter = 0
-  private readonly systemPrompt: SystemPromptProjection
-  /** Identities fully frozen by this loop; weak references do not retain replaced history. */
-  private readonly frozenMessages = new WeakSet<Message>()
-
-  constructor(
-    private loopCtx: Context,
-    public readonly id: SessionId,
-    public readonly options: AgentOptions,
-    public readonly session: Session,
-    projections: LoopProjections,
-    lastTurn: number,
-  ) {
-    this.requestSurfaceGeneration = session.surface.contentGeneration
-    this.dispatch = agentEvents(loopCtx, this)
-    this.scope = createScope(loopCtx, this)
-    this.ctx = this.scope.ctx
-    this.model = new AgentModel(projections.modelSelection, session, options)
-    this.inbox = new ReactLoopInbox(projections.inbox, session, this.dispatch)
-    this.phase = { kind: 'idle', lastTurn }
-    this.runtimeContext = new RuntimeContextProjection(this.ctx, session)
-    this.systemPrompt = new SystemPromptProjection(session)
-  }
-
-  get status(): AgentStatus {
-    return this.phase.kind === 'idle' || this.phase.kind === 'maintenance' ? 'idle' : 'running'
-  }
-
-  /** Commit a phase and publish its externally visible status transition. */
-  private setPhase(next: Phase): void {
-    const previousStatus = this.status
-    this.phase = next
-    const status = this.status
-    if (status !== previousStatus) {
-      this.dispatch.emit('agent/status', { status })
-    }
-  }
-
-  send(message: UserMessage, target: InboxTarget, wakeup: boolean): void {
-    // Waking input cannot join an aborted activity, so it starts the next turn.
-    // Captured before the insertion so a reentrant cancel from a splice observer cannot reclassify it.
-    const wakingAfterAbort = wakeup && this.phase.kind !== 'idle' && this.phase.abort.signal.aborted
-    const resolvedTarget = wakingAfterAbort ? 'next-turn' : target
-    this.inbox.splice(resolvedTarget, Infinity, 0, [message])
-    if (wakeup) this.wakeDriver(wakingAfterAbort)
-  }
-
-  followup(input: UserMessage): void {
-    this.send(input, 'next-turn', true)
-  }
-
-  steer(input: UserMessage): void {
-    this.send(input, 'next-step', true)
-  }
-
-  inject(input: UserMessage): void {
-    this.send(input, 'next-step', false)
-  }
-
-  cancel(cause: AgentCancelCause, options: CancelOptions = {}): void {
-    if (!options.keepInbox) {
-      this.inbox.clear()
-      if (this.phase.kind !== 'idle') this.phase.wakeRequested = false
-    }
-    if (this.phase.kind !== 'idle') this.phase.abort.abort(cause)
-  }
-
-  runMaintenance<T>(job: (signal: AbortSignal) => Promise<T>): Promise<T> {
-    if (this.phase.kind !== 'idle') throw new Error(`agent "${this.id}" already has active work`)
-    const done = Promise.withResolvers<void>()
-    const maintenance: Phase = {
-      kind: 'maintenance',
-      abort: new AbortController(),
-      lastTurn: this.phase.lastTurn,
-      wakeRequested: false,
-    }
-    this.setPhase(maintenance)
-    this.activityDone = done.promise
-    return (async () => {
-      try {
-        return await job(maintenance.abort.signal)
-      } finally {
-        this.setPhase({ kind: 'idle', lastTurn: maintenance.lastTurn })
-        const cause = abortedCancelCause(maintenance.abort.signal)
-        if (cause?.kind !== 'disposed' && maintenance.wakeRequested && this.inbox.hasPending) this.wakeDriver()
-        done.resolve()
-      }
-    })()
-  }
-
-  /**
-   * Start one driver, or latch its wake behind maintenance or an aborted
-   * activity. A wake sent while idle always opens its turn boundary, even
-   * when its message was cleared; only a latched replay is suppressed when
-   * the queue no longer holds the wake.
-   * @param wakeAfterAbort - the {@link send} classification, captured before
-   *   the inbox insertion so a reentrant cancel cannot reclassify it.
-   */
-  private wakeDriver(wakeAfterAbort = false): void {
-    if (this.phase.kind !== 'idle') {
-      // Maintenance and aborted drivers cannot deliver the wake: latch it for
-      // replay at convergence. Live drivers claim queued work themselves;
-      // disposal never latches, so teardown waits on no model turn.
-      const reason = abortedCancelCause(this.phase.abort.signal)
-      if (reason?.kind !== 'disposed' && (this.phase.kind === 'maintenance' || wakeAfterAbort)) {
-        this.phase.wakeRequested = true
-      }
-      return
-    }
-    const driver = Promise.withResolvers<void>()
-    this.activityDone = driver.promise
-    this.setPhase({
-      kind: 'running',
-      abort: new AbortController(),
-      turn: this.phase.lastTurn,
-      step: 0,
-      wakeRequested: false,
-    })
-    this.loopCtx.agents.withInitiator(this, () => this.kick()).then(driver.resolve, driver.reject)
-  }
-
-  async whenIdle(): Promise<void> {
-    let activity: Promise<void>
-    do {
-      await (activity = this.activityDone)
-    } while (activity !== this.activityDone)
-  }
-
-  /** Report one failure at its live boundary, then preserve it for driver containment. */
-  private throwError(error: unknown): never {
-    const turn = this.phase.kind === 'running' ? this.phase.turn : this.phase.lastTurn
-    const step = this.phase.kind === 'running' ? this.phase.step : 0
-    this.dispatch.emit('agent/error', { turn, step, error })
-    throw error
-  }
-
-  private async kick(): Promise<void> {
-    try {
-      while (await this.turn()) {}
-    } catch (_error) {
-      // Reported failures and cancellation are contained at the driver boundary.
-    } finally {
-      /* v8 ignore next -- kick owns a running phase until this driver boundary */
-      if (this.phase.kind === 'running') {
-        const { turn, wakeRequested } = this.phase
-        this.setPhase({ kind: 'idle', lastTurn: turn })
-        if (wakeRequested && this.inbox.hasPending) this.wakeDriver()
-      }
-    }
-  }
-
-  private async preStep(target: InboxTarget, position: { turn: number; step: number }): Promise<PreparedStep> {
-    /* v8 ignore next -- private callers establish the running phase before proposing a step */
-    if (this.phase.kind !== 'running') throw new Error(`agent "${this.id}": pre-step outside running phase`)
-    const signal = this.phase.abort.signal
-    const claimed = this.inbox.claim(target, position.turn)
-    const selection = this.model.current()
-    if (selection === undefined) {
-      throw new Error(`agent "${this.id}" has no provider/model: set AgentOptions.provider and AgentOptions.model or record a model selection`)
-    }
-    const toolSet = await this.loopCtx.tools.resolve({ agent: this, modelSelection: selection, signal })
-    try {
-      const assembly = await this.loopCtx.systemPrompt.assemble({ ...assembleContextFor(this, signal), modelSelection: selection, toolSet })
-      signal.throwIfAborted()
-      const decision = await this.dispatch.waterfall(
-        'agent/pre-step', { messages: claimed, ...position, signal, modelSelection: selection },
-        (): Promise<PreStepDecision> => {
-          const sections = renderContextSections(assembly)
-          const context = this.runtimeContext.project(joinContextSections(sections), sections)
-          return Promise.resolve<PreStepDecision>({
-            kind: 'enter',
-            messages: context === undefined ? claimed : [...claimed, context],
-          })
-        },
-      )
-      signal.throwIfAborted()
-      if (decision.kind === 'reject') {
-        toolSet.dispose()
-        return decision
-      }
-      return { ...decision, assembly, selection, toolSet }
-    } catch (error: unknown) {
-      toolSet.dispose()
-      throw error
-    }
-  }
-
-  /** Whether the assembled tool schemas differ from the logged request header's. */
-  private toolsChanged(tools: PromptAssembly['tools']): boolean {
-    const baseline = this.session.requestHeader()
-    if (baseline === undefined) return false
-    return !headerEquals(baseline, canonicalHeader({ ...baseline, tools: [...tools] }))
-  }
-
-  /** Open one turn before claiming its first proposed step. */
-  private async turn(): Promise<boolean> {
-    if (this.phase.kind !== 'running') {
-      this.throwError(new Error(`agent "${this.id}": turn without driver reservation`))
-    }
-    const phase = this.phase
-    const { signal } = phase.abort
-    signal.throwIfAborted()
-    const turn = phase.turn + 1
-    try {
-      this.session.append('turn/start', { turn })
-    } catch (error: unknown) {
-      this.throwError(error)
-    }
-    phase.turn = turn
-    let turnEnds: TurnEndReason | null = null
-    let target: InboxTarget = 'next-turn'
-    try {
-      while (true) {
-        signal.throwIfAborted()
-        const step = phase.step + 1
-        const decision = await this.preStep(target, { turn, step })
-        if (decision.kind === 'reject') {
-          turnEnds = { kind: 'blocked' }
-          return false
-        }
-        try {
-          if (turnEnds && decision.messages.length === 0) break
-          // A removed waking message or an enter decision rewritten to empty
-          // still owns the initial turn boundary, but it spends no model call.
-          if (phase.step === 0 && decision.messages.length === 0) {
-            turnEnds = { kind: 'completed' }
-            return false
-          }
-          signal.throwIfAborted()
-          this.session.append('step/start', { turn, step })
-          phase.step = step
-          const toolRecovery = new ToolCallRecovery()
-          const stopRecovery = this.ctx.on('session/event', (session, event) => {
-            if (session === this.session) toolRecovery.observe(event)
-          })
-          try {
-            // max-tokens is sticky: once any step hits the ceiling, later steps
-            // that complete normally must not downgrade the turn outcome.
-            const stepEnd = await this.step(decision)
-            // max-tokens stays sticky: a later completed step must not
-            // downgrade the turn outcome.
-            if (turnEnds === null || turnEnds.kind !== 'max-tokens') turnEnds = stepEnd
-          } catch (error: unknown) {
-            try {
-              for (const event of toolRecovery.results()) {
-                this.session.append('tool/result', event.data, {
-                  surfaceOp: 'append',
-                  ...event.sourceEventSeqs === undefined ? {} : { sourceEventSeqs: event.sourceEventSeqs },
-                })
-              }
-            } catch (recoveryError: unknown) {
-              throw new AggregateError([error, recoveryError], 'Step failed and its pending tool results could not be recorded', { cause: error })
-            }
-            throw error
-          } finally {
-            stopRecovery()
-            this.session.append('step/end', { turn, step })
-          }
-        } finally {
-          // Admission closes once the step's tool batch settles or no step opens.
-          decision.toolSet.dispose()
-        }
-        signal.throwIfAborted()
-        if (turnEnds && this.inbox.nextStep.length === 0) {
-          await this.dispatch.serial('agent/turn-stopping', { turn, signal })
-          signal.throwIfAborted()
-        }
-        if (turnEnds && this.inbox.nextStep.length === 0) break
-        target = 'next-step'
-      }
-    } catch (error: unknown) {
-      // A cause is present exactly while the signal is aborted.
-      const cause = abortedCancelCause(signal)
-      if (cause !== undefined) {
-        turnEnds = { kind: 'aborted', reason: cause }
-        throw error
-      }
-      // Every failure is structured: an `LlmError` keeps its facts, a tool
-      // activation failure keeps its code, and anything else flattens to
-      // `errorChain` text under the `UNKNOWN` code.
-      turnEnds = {
-        kind: 'error',
-        error: error instanceof LlmError
-          ? error.failure
-          : { message: errorChain(error), code: error instanceof ToolActivationError ? error.code : 'UNKNOWN' },
-      }
-      this.throwError(error)
-    } finally {
-      try {
-        // oxlint-disable-next-line typescript/no-non-null-assertion -- every exit assigns a turn ending
-        this.session.append('turn/end', { turn, reason: turnEnds! })
-      } catch (error: unknown) {
-        this.throwError(error)
-      }
-    }
-    if (!this.inbox.hasPending) return false
-    phase.abort = new AbortController()
-    // A fresh controller makes a latch set on the old one stale: the live driver claims the queue itself.
-    phase.wakeRequested = false
-    phase.step = 0
-    return true
-  }
-
-  private async step(decision: Extract<PreparedStep, { kind: 'enter' }>): Promise<StepEndReason | null> {
-    /* v8 ignore next -- private callers establish the running phase before executing a step */
-    if (this.phase.kind !== 'running') throw new Error(`agent "${this.id}": step outside running phase`)
-    const { turn, step, abort: { signal } } = this.phase
-    signal.throwIfAborted()
-
-    const { assembly } = decision
-    const renderedPrompt = renderPrompt(assembly)
-    let firstAttempt = true
-    while (true) {
-      const { config, preparedCall } = await this.prepareRequest(turn, step, decision.selection, signal)
-      const currentContext = this.loopCtx.systemPrompt.refreshContext(assembly, {
-        ...assembleContextFor(this, signal), modelSelection: decision.selection,
-      })
-      const sections = renderContextSections(currentContext)
-      const context = this.runtimeContext.project(joinContextSections(sections), sections)
-      signal.throwIfAborted()
-      const startsRequestSeries = firstAttempt && decision.startsRequestSeries === true
-      const commits = this.systemPrompt.project(renderedPrompt, {
-        inHistory: preparedCall?.systemPromptUpdate === 'in-history',
-        startsSeries: startsRequestSeries
-          || this.requestSurfaceGeneration !== this.session.surface.contentGeneration
-          || (preparedCall?.toolUpdate === undefined && this.toolsChanged(assembly.tools)),
-      })
-      for (const { message, intent } of commits) {
-        this.session.append('system/message', { turn, step, message }, intent)
-      }
-      let contextAdmitted = false
-      if (firstAttempt) {
-        for (const message of decision.messages) {
-          if (message.source.kind === 'runtime-context') {
-            if (context !== undefined && !contextAdmitted) {
-              this.session.append('user/message', context, { surfaceOp: 'append' })
-              contextAdmitted = true
-            }
-          } else {
-            this.session.append('user/message', message, { surfaceOp: 'append' })
-          }
-        }
-      }
-      if (context !== undefined && !contextAdmitted) {
-        this.session.append('user/message', context, { surfaceOp: 'append' })
-      }
-      firstAttempt = false
-      const request = this.buildRequest(config, preparedCall, assembly.tools, { turn, step }, startsRequestSeries, signal)
-      const live = new AssistantStreamAttempt(
-        this.session.id,
-        ++this.assistantAttemptCounter,
-        () => ++this.assistantStreamRevision,
-        turn,
-        step,
-        (frame) => { this.dispatch.emit('agent/assistant-stream', { frame }) },
-      )
-      let started = false
-      try {
-        const stream = preparedCall?.stream(request) ?? this.loopCtx.llm.stream(request)
-        signal.throwIfAborted()
-        live.start()
-        started = true
-        for await (const chunk of stream) {
-          signal.throwIfAborted()
-          live.push(chunk)
-        }
-        signal.throwIfAborted()
-      } catch (error: unknown) {
-        if (!started) throw error
-        try {
-          if (signal.aborted) {
-            const content = live.interruptedBlocks()
-            if (content.length > 0) {
-              live.settle('assistant/message', () => this.session.append('assistant/message', {
-                turn,
-                step,
-                message: createAssistantMessage({
-                  content,
-                  source: {
-                    provider: request.provider,
-                    model: request.model,
-                    ...live.replayState === undefined ? {} : { replayState: live.replayState },
-                  },
-                }),
-                interrupted: true,
-                ...live.usage === undefined ? {} : { usage: live.usage },
-                stream: live.stream,
-              }, { surfaceOp: 'append' }).seq)
-            } else {
-              live.settle(
-                'assistant/attempt',
-                () => this.session.append('assistant/attempt', { turn, step, stream: live.stream }).seq,
-              )
-            }
-          } else {
-            live.settle(
-              'assistant/attempt',
-              () => this.session.append('assistant/attempt', { turn, step, stream: live.stream }).seq,
-            )
-          }
-        } catch (settlementError: unknown) {
-          throw new AggregateError(
-            [error, settlementError],
-            'Assistant stream failed and its durable settlement was rejected',
-            { cause: error },
-          )
-        }
-        throw error
-      }
-      try {
-        const finish = live.finish
-        if (finish.kind === 'error' || finish.kind === 'aborted') {
-          live.settle(
-            'assistant/attempt',
-            () => this.session.append('assistant/attempt', { turn, step, stream: live.stream }).seq,
-          )
-          const action = await this.dispatch.waterfall(
-            'agent/request-error', {
-              turn,
-              step,
-              provider: request.provider,
-              failure: finish.failure,
-              retryPolicy: preparedCall?.retryPolicy,
-              signal,
-            },
-            () => Promise.resolve<RequestErrorAction>(undefined),
-          )
-          signal.throwIfAborted()
-          if (action?.kind !== 'retry') {
-            throw new LlmError(finish.failure.message, finish.failure.code, finish.failure)
-          }
-          continue
-        }
-
-        const message = createAssistantMessage({
-          content: live.blocks(),
-          source: {
-            provider: request.provider,
-            model: request.model,
-            ...live.replayState !== undefined ? { replayState: live.replayState } : {},
-          },
-        })
-        live.settle(
-          'assistant/message',
-          () => this.session.append('assistant/message', {
-            turn,
-            step,
-            message,
-            ...live.usage === undefined ? {} : { usage: live.usage },
-            stream: live.stream,
-          }, { surfaceOp: 'append' }).seq,
-        )
-        if (finish.kind === 'max-tokens') return { kind: 'max-tokens' }
-
-        const toolCalls = message.content.filter(block => block.type === 'tool-call')
-        if (toolCalls.length === 0) return { kind: 'completed' }
-        const maxParallelToolCalls = this.loopCtx.agentLoop.config.maxParallelToolCalls.get()
-        try {
-          const result = await this.loopCtx.tools.execute({
-            calls: toolCalls, signal, agent: this, log: { turn, step },
-            maxParallelToolCalls, toolSet: decision.toolSet,
-          })
-          for (const context of result.additionalContexts) {
-            this.inbox.splice('next-step', this.inbox.nextStep.length, 0, [context])
-          }
-          return result.concluded ? { kind: 'completed' } : null
-        } catch (error: unknown) {
-          if (!(error instanceof ToolBatchExecutionError)) throw error
-          for (const context of error.partial.additionalContexts) {
-            this.inbox.splice('next-step', this.inbox.nextStep.length, 0, [context])
-          }
-          throw error.cause
-        }
-      } catch (error: unknown) {
-        if (!live.ended) live.abandon()
-        throw error
-      }
-    }
-  }
-
-  /** Resolve request config for the step's selection and bind its adapter before admitting model-visible input. */
-  private async prepareRequest(
-    turn: number,
-    step: number,
-    selection: Readonly<ModelSelection>,
-    signal: AbortSignal,
-  ): Promise<{ config: LlmCallConfig; preparedCall?: PreparedLlmCall }> {
-    const { session } = this
-
-    // A loop instance seeds output controls from its options until it logs its
-    // own header; later steps re-resolve marked defaults.
-    const maxTokens = this.options.maxTokens
-    const persisted: Partial<LlmCallConfig> = this.requestHeaderLogged
-      // oxlint-disable-next-line typescript/no-non-null-assertion -- the instance logged the header it now folds
-      ? requestProposal(session.requestHeader()!)
-      : maxTokens === undefined ? {} : { maxTokens }
-    const { provider: _provider, model: _model, reasoningEffort: _effort, ...controls } = persisted
-    const seedConfig = deepFreeze(structuredClone({ ...controls, ...selection }))
-    const proposedConfig = await this.dispatch.waterfall(
-      'agent/request', { turn, step, signal },
-      () => Promise.resolve(seedConfig),
-    )
-    signal.throwIfAborted()
-    if (proposedConfig.provider !== selection.provider || proposedConfig.model !== selection.model) {
-      throw new Error(`agent "${this.id}": agent/request proposed "${proposedConfig.provider}/${proposedConfig.model}" after step preparation fixed "${selection.provider}/${selection.model}"; use agent.model.select() before step preparation`)
-    }
-    if (proposedConfig.reasoningEffort !== selection.reasoningEffort) {
-      throw new Error(`agent "${this.id}": agent/request proposed reasoning effort "${proposedConfig.reasoningEffort ?? 'adapter default'}" after step preparation fixed "${selection.reasoningEffort ?? 'adapter default'}"; use agent.model.select() before step preparation`)
-    }
-    let config: LlmCallConfig
-    let preparedCall: PreparedLlmCall | undefined
-    try {
-      preparedCall = await this.loopCtx.llm.prepareCall(proposedConfig, signal)
-      config = preparedCall.config
-    } catch (error: unknown) {
-      // Middleware may serve an unregistered route; terminal dispatch still requires an adapter.
-      if (!(error instanceof LlmError) || error.code !== 'NO_ADAPTER') throw error
-      config = proposedConfig
-    }
-    signal.throwIfAborted()
-    return { config, ...preparedCall === undefined ? {} : { preparedCall } }
-  }
-
-  /** Log the resolved envelope and derive a frozen request from the admitted surface. */
-  private buildRequest(
-    config: LlmCallConfig,
-    preparedCall: PreparedLlmCall | undefined,
-    tools: GenerateOptions['tools'] & object,
-    position: { turn: number; step: number },
-    startsRequestSeries: boolean,
-    signal: AbortSignal,
-  ): GenerateOptions {
-    const { session } = this
-    const surfaceGeneration = session.surface.contentGeneration
-    const header = canonicalHeader({
-      config,
-      ...preparedCall === undefined ? {} : { adapterDefaults: preparedCall.adapterDefaults },
-      ...tools.length > 0 ? { tools } : {},
-    })
-    const baseline = this.session.requestHeader()
-    const startsSeries = startsRequestSeries
-      || this.requestSurfaceGeneration !== surfaceGeneration
-    let headerSeq: SessionSeq | undefined
-    if (!this.requestHeaderLogged) {
-      // Compaction during the first resumed pre-step must still mark a new series.
-      headerSeq = this.session.append('request/header', {
-        header,
-        reason: baseline === undefined ? 'initial' : 'resume',
-        ...startsSeries ? { startsSeries: true } : {},
-      }).seq
-      this.requestHeaderLogged = true
-    } else if (baseline === undefined || !headerEquals(baseline, header)) {
-      headerSeq = this.session.append('request/header', {
-        header,
-        reason: 'change',
-        ...startsSeries ? { startsSeries: true } : {},
-      }).seq
-    } else if (startsSeries) {
-      this.session.append('request/header', { header, reason: 'series' })
-    }
-    if (baseline !== undefined && headerSeq !== undefined) {
-      const previousNames = new Set(baseline.tools?.map(tool => tool.name))
-      const currentNames = new Set(tools.map(tool => tool.name))
-      const additions = tools.filter(tool => !previousNames.has(tool.name))
-        .map(tool => ({ type: 'tool-addition' as const, toolName: tool.name }))
-      const removals = (baseline.tools ?? []).filter(tool => !currentNames.has(tool.name))
-        .map(tool => ({ type: 'tool-removal' as const, toolName: tool.name }))
-      if (additions.length > 0 || removals.length > 0) {
-        session.append('developer/message', {
-          ...position,
-          message: createDeveloperMessage({ source: { kind: 'tool-registry' }, content: [...additions, ...removals] }),
-          ...additions.length > 0 ? { headerSeq } : {},
-        }, { surfaceOp: 'append' })
-      }
-    }
-    this.requestSurfaceGeneration = surfaceGeneration
-
-    const contextWindow = preparedCall?.context?.contextWindow
-    const systemPromptUpdate = preparedCall?.systemPromptUpdate
-    const requestContext: RequestContext = {
-      provider: config.provider,
-      model: config.model,
-      ...contextWindow === undefined ? {} : { contextWindow },
-      ...systemPromptUpdate === undefined ? {} : { systemPromptUpdate },
-    }
-    const previousContext = session.requestContext()
-    if (previousContext?.provider !== requestContext.provider
-      || previousContext.model !== requestContext.model
-      || previousContext.contextWindow !== requestContext.contextWindow
-      || previousContext.systemPromptUpdate !== requestContext.systemPromptUpdate) {
-      session.append('request/context', requestContext)
-    }
-    signal.throwIfAborted()
-
-    // canonicalHeader is shallow; append logs a detached snapshot, not these local values.
-    deepFreeze(header)
-    const boundaryMessages = session.deriveMessages()
-    for (const message of boundaryMessages) {
-      if (this.frozenMessages.has(message)) continue
-      deepFreeze(message)
-      this.frozenMessages.add(message)
-    }
-    Object.freeze(boundaryMessages)
-    const request = markAgentLoopRequest(Object.freeze({
-      ...header.config,
-      messages: boundaryMessages,
-      toolHistory: session.toolHistory(),
-      ...header.tools !== undefined ? { tools: header.tools } : {},
-      sessionId: this.session.id,
-      signal,
-    }))
-    return request
-  }
-}
-```
-
-<br>
-
-> 🧌 NOTE TO READERS: This could have been trolling. Or not.
-
-> 🙄 NOTE TO SELF: **[TypeScript/JavaScript is the ugliest language in the world](https://www.youtube.com/watch?v=lx9Q66VNCW)**.
 
 <br>
 
@@ -3805,6 +3184,7 @@ export class ReactLoopAgent implements Agent {
 <br>
 
 - **[DeepSeek's harness docs](https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart)**
+- **[Agent Builder and Run Loop](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/core/agent-loop/src/agent.ts#L112)**
 
 <br>
 
@@ -3830,6 +3210,8 @@ export class ReactLoopAgent implements Agent {
 
 - 🦀 [microclaw (Rust)](https://github.com/microclaw/microclaw):Self-hosted Rust agent platform with two product surfaces and an embeddable SDK. MicroClaw Server runs continuously for chat channels, Web, APIs, scheduling, and automation.
 
+- 🐍 [ECC (Python)](https://github.com/affaan-m/ECC): The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.
+
 - 🐍 [Hugging Face's smolagents (Python)](https://github.com/huggingface/smolagents): A library that enables you to run powerful agents in a few lines of code. 
 
 - 🐍 [cowagent (Python)](https://github.com/zhayujie/CowAgent): AI assistant that proactively plans tasks, controls your computer and external services, creates and runs Skills, builds a personal knowledge base and long-term memory, forms multi-agent teams, and grows alongside you through self-evolution — a reference implementation of Agent Harness engineering.
@@ -3842,7 +3224,7 @@ export class ReactLoopAgent implements Agent {
 
 - 🟦 [opencode (TypeScript)](https://github.com/anomalyco/opencode): open-source AI coding agent (so you can **[work offline](https://latent.space/p/offline-coding)** with **[open-weights models](https://www.youtube.com/watch?v=79Pnm5hANsA)**). It’s available as a terminal-based interface, desktop app, or web app.
 
-- 🟦 [Letta (TypeScript)](https://github.com/letta-ai/letta-code): Stateful agents that are like people, with memory, identity, and the ability to learn and adapt.
+- 🟦 [Letta (TypeScript)](https://github.com/letta-ai/letta-code): Stateful agents that are like people, with memory, identity, and the ability to learn and adapt. (EDIT: we will look at their memory design in the **[agentic memory report](http://marina.nullstar.fun/pages/post.html?post=report_memory)**)
 
 - 🟦 [Trellis (TypeScript)](https://github.com/mindfold-ai/Trellis): Trellis runs a 4-phase loop with auto-invoked skills and sub-agents: Plan, Implement, Verify, Finish.
 
@@ -3854,7 +3236,7 @@ export class ReactLoopAgent implements Agent {
 
 <br>
 
-#### ✨ For completeness, I've compiled a list of some of the most popular mulfi-agentic frameworks (which sometimes also contain a harness), organized by programming language for easy reference. I'll continue adding relevant resources as I come across them. ✨
+#### ✨ For completeness, I've compiled a list of some of the most popular multi-agentic frameworks (which sometimes also contain a harness), organized by programming language for easy reference. I'll continue adding relevant resources as I come across them. ✨
 
 <br>
 
@@ -3886,7 +3268,7 @@ export class ReactLoopAgent implements Agent {
 
 - 🐍 [Microsoft Agent Framework (Python, C#)](https://github.com/microsoft/agent-framework): Multi-language framework for building production-grade AI agents and multi-agent workflows in .NET and Python.
 
-- 🐍 [Microsoft AutoGen (Python, .NET)](https://github.com/microsoft/autogen): Framework for creating multi-agent AI applications that can act autonomously or work alongside humans.
+- 🐍 [Microsoft AutoGen (Python, .NET)](https://github.com/microsoft/autogen): Framework for creating multi-agent AI applications that can act autonomously or work alongside humans. It defines a Memory protocol with `add`, `query`, `update_context`, and `clear` methods. Built-in implementations include `ListMemory` (in-process only), `ChromaDBVectorMemory`, and `RedisMemory`. The `update_context` method injects retrieved memories into the model context automatically. The limitation is deduplication. There is no conflict resolution, no merging of near-duplicate facts. Stores degrade over time as redundant records accumulate.
 
 - 🐍 [DSPy (Python)](https://github.com/stanfordnlp/dspy): The framework for programming—rather than prompting—language models. It allows you to iterate fast on building modular AI systems and offers algorithms for optimizing their prompts and weights, whether you're building simple classifiers, sophisticated RAG pipelines, or Agent loops.
 
@@ -3921,6 +3303,8 @@ export class ReactLoopAgent implements Agent {
 - ♦️ [Shopify's Roast (Ruby)](https://github.com/Shopify/roast): Structured AI workflows made easy.
 
 - 🦫 [Docker's docker-agent (Go)](https://github.com/docker/docker-agent): AI Agent Builder and Runtime by Docker Engineering. Explores container-based execution as an explicit basis for operational reliability. 
+
+- 🦫 [Multica (Go)](https://github.com/multica-ai/multica): Managed agents platform. Each agent is connected to a skill. Skills aren't retrieved by similarity. No cosine similarity. No top-K. Just a join. Workspace isolation is the actual primitive (built on six relational Postgres tables, all scoped by `workspace_id`).
 
 - ⚙️ [Microsoft's Semantic Kernel (C#)](https://github.com/microsoft/semantic-kernel): Model-agnostic SDK that empowers developers to build, orchestrate, and deploy AI agents and multi-agent systems.
 

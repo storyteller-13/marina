@@ -16,7 +16,7 @@ date: 2026; 10; 21
 
 <br>
 
-Hello there, my dear anon. Continuing our informal discussion from **[earlier this week](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)** about **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:STEROPE](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)**, today we're going to dive a little into a topic we only briefly mentioned: **[Entity Component Systems (ECS)](https://en.wikipedia.org/wiki/Entity_component_system)**.
+Hello there, my dear anon friend. Continuing our informal discussion from **[earlier this week](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)** about **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:STEROPE](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)**, today we're going to dive a little into a topic we only briefly mentioned: **[Entity Component Systems (ECS)](https://en.wikipedia.org/wiki/Entity_component_system)**.
 
 As we read through today's material, please remember our rules:
 

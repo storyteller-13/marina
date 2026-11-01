@@ -12,7 +12,7 @@ date: 2026; 10; 17
 
 <br>
 
-Happy Monday, my dear anon. Today, we will take a quick look at the current open-source landscape for game engines. This is a high-level overview meant to enlighten us all about this *playful* engineering sub-niche. Enjoy!
+Happy Monday, my dear anon friend. Today, we will take a quick look at the current open-source landscape for game engines. This is a high-level overview meant to enlighten us all about this *playful* engineering sub-niche. Enjoy!
 
 Ah, and by the way, as we read through today's material, please remember our rules:
 
