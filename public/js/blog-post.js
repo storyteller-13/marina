@@ -1,26 +1,6 @@
 "use strict";
 
-/** Resolve /blog/... against site root (parent of /pages/) so fetches work under subpaths. */
-function assetUrl(pathFromSiteRoot) {
-  const clean = pathFromSiteRoot.replace(/^\//, "");
-  return new URL(clean, new URL("../", window.location.href)).href;
-}
-
-function escapeHtml(text) {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function tx(key, fallback) {
-  if (window.MarinaI18n && typeof window.MarinaI18n.t === "function") {
-    return window.MarinaI18n.t(key);
-  }
-  return fallback;
-}
+/* global assetUrl, escapeHtml, tx, parseFrontMatter -- from blog-common.js, loaded first */
 
 /** Placeholder so literal `<br>` in markdown survives escapeHtml and becomes a line break. */
 const INLINE_BR_TOKEN = "@@MARINA_INLINE_BR@@";
@@ -48,31 +28,6 @@ function parseInline(text) {
   html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   html = html.split(INLINE_BR_TOKEN).join("<br>");
   return html;
-}
-
-function parseFrontMatter(markdown) {
-  const normalized = markdown.replace(/\r\n/g, "\n");
-  if (!normalized.startsWith("---\n")) {
-    return { meta: {}, body: markdown };
-  }
-
-  const end = normalized.indexOf("\n---\n", 4);
-  if (end === -1) {
-    return { meta: {}, body: markdown };
-  }
-
-  const rawMeta = normalized.slice(4, end).split("\n");
-  const meta = {};
-  rawMeta.forEach((line) => {
-    const idx = line.indexOf(":");
-    if (idx === -1) return;
-    const key = line.slice(0, idx).trim();
-    const value = line.slice(idx + 1).trim();
-    if (key) meta[key] = value;
-  });
-
-  const body = normalized.slice(end + 5);
-  return { meta, body };
 }
 
 /** The last line of the "our rules" disclaimer; the post summary goes right after it. */

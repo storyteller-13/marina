@@ -38,51 +38,34 @@ def slug_to_title(slug: str) -> str:
     return slug.replace("-", " ").strip().title()
 
 
-def main() -> None:
-    posts = []
-    for md_file in sorted(POSTS_DIR.glob("*.md")):
-        slug = md_file.stem
-        meta = parse_front_matter(md_file.read_text(encoding="utf-8"))
-        posts.append(
-            {
+def collect_entries(directory: Path, extra_keys: tuple[str, ...] = ()) -> list[dict[str, str]]:
+    """Index entries for every markdown file in directory, newest first (undated last)."""
+    entries = []
+    if directory.is_dir():
+        for md_file in sorted(directory.glob("*.md")):
+            slug = md_file.stem
+            meta = parse_front_matter(md_file.read_text(encoding="utf-8"))
+            entry = {
                 "slug": slug,
                 "title": meta.get("title", slug_to_title(slug)),
                 "date": meta.get("date", ""),
                 "subtitle": meta.get("subtitle", ""),
             }
-        )
+            entry.update({key: meta.get(key, "") for key in extra_keys})
+            entries.append(entry)
 
-    # Newest first if date exists; otherwise keep stable at the end.
-    posts.sort(key=lambda p: (p["date"] != "", p["date"]), reverse=True)
+    entries.sort(key=lambda e: (e["date"] != "", e["date"]), reverse=True)
+    return entries
 
-    INDEX_FILE.write_text(
-        json.dumps(posts, indent=2, ensure_ascii=True) + "\n",
-        encoding="utf-8",
-    )
-    print(f"Synced {len(posts)} posts -> {INDEX_FILE}")
 
-    drafts = []
-    if DRAFTS_DIR.is_dir():
-        for md_file in sorted(DRAFTS_DIR.glob("*.md")):
-            slug = md_file.stem
-            meta = parse_front_matter(md_file.read_text(encoding="utf-8"))
-            drafts.append(
-                {
-                    "slug": slug,
-                    "title": meta.get("title", slug_to_title(slug)),
-                    "date": meta.get("date", ""),
-                    "subtitle": meta.get("subtitle", ""),
-                    "status": meta.get("status", ""),
-                }
-            )
+def write_index(index_file: Path, entries: list[dict[str, str]], label: str) -> None:
+    index_file.write_text(json.dumps(entries, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+    print(f"Synced {len(entries)} {label} -> {index_file}")
 
-    drafts.sort(key=lambda d: (d["date"] != "", d["date"]), reverse=True)
 
-    DRAFTS_INDEX_FILE.write_text(
-        json.dumps(drafts, indent=2, ensure_ascii=True) + "\n",
-        encoding="utf-8",
-    )
-    print(f"Synced {len(drafts)} drafts -> {DRAFTS_INDEX_FILE}")
+def main() -> None:
+    write_index(INDEX_FILE, collect_entries(POSTS_DIR), "posts")
+    write_index(DRAFTS_INDEX_FILE, collect_entries(DRAFTS_DIR, ("status",)), "drafts")
 
 
 if __name__ == "__main__":  # pragma: no cover

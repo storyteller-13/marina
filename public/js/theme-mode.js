@@ -1,13 +1,6 @@
-// Used from HTML (e.g. onclick). eslint-disable-next-line no-unused-vars
+// Called from HTML (onclick).
 function switchTheme() {
-  const currentStyle = currentTheme();
-
-  if (currentStyle === 'light') {
-    setTheme('dark');
-  }
-  else {
-    setTheme('light');
-  }
+  setTheme(currentTheme() === 'light' ? 'dark' : 'light');
 }
 
 function setTheme(style) {
@@ -24,9 +17,7 @@ function currentTheme() {
   return localStyle || systemStyle;
 }
 
-(() => {
-  setTheme(currentTheme());
-})();
+setTheme(currentTheme());
 
 globalThis.switchTheme = switchTheme;
 globalThis.setTheme = setTheme;

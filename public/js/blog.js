@@ -1,50 +1,6 @@
 "use strict";
 
-/** Resolve /blog/... against site root (parent of /pages/) so fetches work under subpaths. */
-function assetUrl(pathFromSiteRoot) {
-  const clean = pathFromSiteRoot.replace(/^\//, "");
-  return new URL(clean, new URL("../", window.location.href)).href;
-}
-
-function escapeHtml(text) {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function tx(key, fallback) {
-  if (window.MarinaI18n && typeof window.MarinaI18n.t === "function") {
-    return window.MarinaI18n.t(key);
-  }
-  return fallback;
-}
-
-function parseFrontMatter(markdown) {
-  const normalized = markdown.replace(/\r\n/g, "\n");
-  if (!normalized.startsWith("---\n")) {
-    return { meta: {}, body: markdown };
-  }
-
-  const end = normalized.indexOf("\n---\n", 4);
-  if (end === -1) {
-    return { meta: {}, body: markdown };
-  }
-
-  const rawMeta = normalized.slice(4, end).split("\n");
-  const meta = {};
-  rawMeta.forEach((line) => {
-    const idx = line.indexOf(":");
-    if (idx === -1) return;
-    const key = line.slice(0, idx).trim();
-    const value = line.slice(idx + 1).trim();
-    if (key) meta[key] = value;
-  });
-
-  return { meta, body: normalized.slice(end + 5) };
-}
+/* global assetUrl, escapeHtml, tx, parseFrontMatter -- from blog-common.js, loaded first */
 
 /** Parse post dates, including site format "YYYY; MM; DD". */
 function parsePostDate(dateStr) {
@@ -83,6 +39,20 @@ function compareByDateThenSlug(a, b, aSlug, bSlug) {
   return String(bSlug || "").localeCompare(String(aSlug || ""));
 }
 
+/** Front matter of a markdown file, or {} when it can't be loaded (the index entry is the fallback). */
+async function fetchMeta(path) {
+  try {
+    const response = await fetch(assetUrl(path), { cache: "no-store" });
+    return response.ok ? parseFrontMatter(await response.text()).meta : {};
+  } catch {
+    return {};
+  }
+}
+
+function emptyDraftsHtml() {
+  return `<p class="blog-draft-empty" data-i18n="blog.draftsEmpty">${escapeHtml(tx("blog.draftsEmpty", "Nothing listed here yet."))}</p>`;
+}
+
 async function loadBlog() {
   const listRoot = document.getElementById("blog-post-list");
 
@@ -105,22 +75,12 @@ async function loadBlog() {
     const rendered = await Promise.all(posts.map(async (post) => {
       const slug = post.slug || "";
       const safeSlug = encodeURIComponent(slug);
-      let title = post.title || slug.replace(/-/g, " ");
-      let date = post.date || "";
-
-      try {
-        const postResponse = await fetch(assetUrl(`blog/posts/${safeSlug}.md`), { cache: "no-store" });
-        if (postResponse.ok) {
-          const markdown = await postResponse.text();
-          const { meta } = parseFrontMatter(markdown);
-          title = meta.title || title;
-          date = meta.date || date;
-        }
-      } catch {
-        // keep fallback title/date from posts index
-      }
-
-      return { safeSlug, title, date };
+      const meta = await fetchMeta(`blog/posts/${safeSlug}.md`);
+      return {
+        safeSlug,
+        title: meta.title || post.title || slug.replace(/-/g, " "),
+        date: meta.date || post.date || "",
+      };
     }));
 
     rendered.sort((a, b) => compareByDateThenSlug(a.date, b.date, a.safeSlug, b.safeSlug));
@@ -154,7 +114,7 @@ async function loadDrafts() {
 
     const indexEntries = await response.json();
     if (!Array.isArray(indexEntries) || indexEntries.length === 0) {
-      draftRoot.innerHTML = `<p class="blog-draft-empty" data-i18n="blog.draftsEmpty">${escapeHtml(tx("blog.draftsEmpty", "Nothing listed here yet."))}</p>`;
+      draftRoot.innerHTML = emptyDraftsHtml();
       return;
     }
 
@@ -165,34 +125,17 @@ async function loadDrafts() {
       }
 
       const slug = entry.slug || "";
-      const safeSlug = encodeURIComponent(slug);
-      let title = entry.title || slug.replace(/-/g, " ");
-      let date = entry.date || "";
-      let status = entry.status || "";
-
-      if (slug) {
-        try {
-          const draftResponse = await fetch(assetUrl(`blog/drafts/${safeSlug}.md`), { cache: "no-store" });
-          if (draftResponse.ok) {
-            const markdown = await draftResponse.text();
-            const { meta } = parseFrontMatter(markdown);
-            title = meta.title || title;
-            date = meta.date || date;
-            status = meta.status || status;
-          }
-        } catch {
-          // keep fallback fields from drafts index
-        }
-      }
-
-      const statusLabel = status || date || "wip";
+      const meta = slug ? await fetchMeta(`blog/drafts/${encodeURIComponent(slug)}.md`) : {};
+      const title = meta.title || entry.title || slug.replace(/-/g, " ");
+      const date = meta.date || entry.date || "";
+      const statusLabel = meta.status || entry.status || date || "wip";
       return { statusLabel, title, date, slug };
     }));
 
     const rows = rendered.filter((row) => row && row.title.trim());
     rows.sort((a, b) => compareByDateThenSlug(a.date, b.date, a.slug, b.slug));
     if (rows.length === 0) {
-      draftRoot.innerHTML = `<p class="blog-draft-empty" data-i18n="blog.draftsEmpty">${escapeHtml(tx("blog.draftsEmpty", "Nothing listed here yet."))}</p>`;
+      draftRoot.innerHTML = emptyDraftsHtml();
       return;
     }
 

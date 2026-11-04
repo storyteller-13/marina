@@ -21,6 +21,7 @@ function textResponse(body, ok = true) {
 beforeEach(() => {
   resetDom();
   jest.resetModules();
+  require("../../public/js/blog-common.js"); // the pages load it before blog.js / blog-post.js
   window.fetch = jest.fn();
 });
 
