@@ -1,4 +1,4 @@
-.PHONY: install server test lint blog clean
+.PHONY: install server test lint grammar blog clean
 
 install:
 	python3 -m pip install -r requirements-dev.txt
@@ -18,6 +18,10 @@ lint:
 	pre-commit run eslint --all-files
 	pre-commit run html-br --all-files
 	pre-commit run stylelint --all-files
+
+# Advisory grammar check (Harper) of every blog post; lists suggestions, never fails.
+grammar:
+	node scripts/check-grammar.js
 
 # Rebuild public/blog/posts.json and public/blog/drafts.json from markdown under posts/ and drafts/.
 blog:

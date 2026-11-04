@@ -22,5 +22,6 @@ make server
 ```bash
 make test
 make lint
+make grammar
 make blog
 ```

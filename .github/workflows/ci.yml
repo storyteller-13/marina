@@ -1,4 +1,5 @@
-# Run tests (100% coverage) and linter (same as pre-commit: test, html-br, ruff, eslint, stylelint)
+# Run tests (100% coverage) and linter (same as pre-commit: test, html-br, grammar, ruff, eslint, stylelint)
+# The grammar check is advisory: its suggestions show up as notices on the changed files and never fail the build.
 name: CI
 
 on:

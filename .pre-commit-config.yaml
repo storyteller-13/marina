@@ -1,5 +1,5 @@
 # See https://pre-commit.com for usage
-# On each commit: tests+coverage (pytest, jest), html <br> lint, Python linter (ruff), JS linter (eslint), CSS linter (stylelint)
+# On each commit: tests+coverage (pytest, jest), html <br> lint, grammar (advisory), Python linter (ruff), JS linter (eslint), CSS linter (stylelint)
 # Setup: pip install -r requirements-dev.txt && npm install && pre-commit install
 repos:
   - repo: local
@@ -14,6 +14,13 @@ repos:
         entry: node scripts/lint-html-br.js
         language: system
         pass_filenames: false
+      - id: grammar
+        name: grammar (Harper, advisory — never blocks)
+        entry: node scripts/check-grammar.js
+        language: system
+        files: ^public/blog/posts/.*\.md$
+        pass_filenames: true
+        verbose: true
       - id: stylelint
         name: stylelint (CSS)
         entry: npx --no-install stylelint
