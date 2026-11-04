@@ -36,17 +36,17 @@ Here is how **PleiadesOS** is currently being developed:
 
 <br>
 
-#### 1. MAIA v1.0: A minimal, graph-based, multi-agent harness at the core of our vertical operating system, featuring guardrails, middleware, smart model routing, and verification loops (written in Rust). This project will be open-sourced in 2027.
+#### 1. MAIA v1.0: A minimal, graph-based, adaptive and self-improving, multi-agentic harness at the core of our vertical operating system. It features guardrails, middleware, smart model routing, and verification loops (written in Rust). This project will be open-sourced in 2027.
 
 #### 2. ELECTRA v1.0: Multi-layered short- and long-term memory module that manages internal state, vaults, compaction, and summarization, optimized for fast search and intelligent retrieval (written in Rust). Integrated with both MAIA and TAYGETE.
 
-#### 3. TAYGETE v1.0: Secondary customizable, composable, adaptive and self-improving harness wrapper (written in Rust and Python). It contains our own observability-driven adaptation engine and provides native support for several additional tools and optional features, including monetization, multimodal integration, and advanced caching. This project is expected to be open-sourced in the future.
+#### 3. TAYGETE v1.0: An extensible, customizable, composable, adaptive and self-improving harness wrapper (written in Rust and Python). It allows agents to modify the own runtime and incorporates our observability-driven adaptation engine. It also provides native support for several additional tools and optional features, including monetization, multimodal integration, and advanced caching. This project is planned for future open-source release.  
 
 #### 4. ALCYONE v1.0: Evals, observability, benchmarking, testing, security hardening, compliance, and dashboards. Integrated across the operating system.
 
 #### 5. CELAENO v1.0: Novel multiplayer deployment and infrastructure layer built through the coordinated orchestration of sandboxed subagents (written in Rust). Integrated across the operating system.
 
-#### 6. STEROPE v1.0: Where the game engines live.
+#### 6. STEROPE v1.0: Where the game engines live. Integrated with MAIA and TAYGETE.
 
 #### 7. MEROPE v1.0: Novel NPC cognition engine. Integrated with STEROPE.
 

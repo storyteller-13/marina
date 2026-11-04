@@ -309,3 +309,18 @@ test("DOMContentLoaded loads the post", async () => {
   await new Promise((resolve) => setTimeout(resolve, 0));
   expect(document.getElementById("post-title").textContent).toBe("x");
 });
+
+test("post images load lazily", () => {
+  require("../../public/js/blog-post.js");
+  const { markdownToHtml, parseInline } = window.MarinaBlogPost;
+  expect(markdownToHtml("![a](https://img.test/a.png)")).toContain('loading="lazy"');
+  expect(parseInline("see ![a](https://img.test/a.png) here")).toContain('loading="lazy"');
+});
+
+test("code blocks do not start with a blank line", () => {
+  require("../../public/js/blog-post.js");
+  const { markdownToHtml, enhanceCodeBlocks } = window.MarinaBlogPost;
+  document.body.innerHTML = markdownToHtml("```js\nconst a = 1;\n```");
+  enhanceCodeBlocks(document.body);
+  expect(document.querySelector("code").textContent).toBe("const a = 1;");
+});

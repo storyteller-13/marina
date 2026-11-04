@@ -19,7 +19,7 @@ function parseInline(text) {
   imagePlaceholders.forEach((img, i) => {
     const safeSrc = escapeHtml(img.src);
     const safeAlt = escapeHtml(img.alt);
-    html = html.split(`@@MARINA_IMG_${i}@@`).join(`<img src="${safeSrc}" alt="${safeAlt}">`);
+    html = html.split(`@@MARINA_IMG_${i}@@`).join(`<img src="${safeSrc}" alt="${safeAlt}" loading="lazy" decoding="async">`);
   });
 
   html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
@@ -180,7 +180,7 @@ function markdownToHtml(markdown) {
     if (standaloneImage) {
       const alt = standaloneImage[1];
       const src = standaloneImage[2].trim();
-      out.push(`<p><img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}"></p>`);
+      out.push(`<p><img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async"></p>`);
       i += 1;
       continue;
     }
@@ -278,6 +278,9 @@ function enhanceCodeBlocks(root) {
     if (!code) {
       return;
     }
+
+    // The markdown renderer leaves a newline on each side of the code; it would show as a blank line.
+    code.textContent = code.textContent.replace(/^\n|\n$/g, "");
 
     const wrap = document.createElement("div");
     wrap.className = "blog-code-wrap";

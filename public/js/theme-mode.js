@@ -9,6 +9,8 @@ function setTheme(style) {
   });
   document.documentElement.setAttribute('data-color-mode', style);
   localStorage.setItem('data-color-mode', style);
+  // Keep the mobile browser's toolbar in step with the page background.
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', style === 'dark' ? '#0d1117' : '#ffffff');
 }
 
 function currentTheme() {

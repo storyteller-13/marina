@@ -189,6 +189,44 @@
 	color: #ff8a8a;
 }
 
+/* Phones: smaller badges and padding so the text keeps most of the width */
+@media (max-width: 767.98px) {
+	.qa-page-wrap h1 {
+		font-size: 1.85rem;
+	}
+	.qa-page-wrap .qa-list {
+		gap: 2rem;
+	}
+	.markdown-body .qa-routine {
+		width: 100%;
+	}
+}
+@media (max-width: 480px) {
+	.qa-question,
+	.qa-answer {
+		gap: 0.6rem;
+		padding: 1rem 0.85rem;
+	}
+	.qa-q-badge,
+	.qa-a-badge {
+		width: 28px;
+		height: 28px;
+		border-radius: 8px;
+	}
+	.qa-q-badge svg,
+	.qa-a-badge svg {
+		width: 16px;
+		height: 16px;
+	}
+	.qa-question-text {
+		font-size: 1.05rem !important;
+		line-height: 1.4;
+	}
+	.markdown-body .qa-routine {
+		padding: 0.2rem 0.7rem;
+	}
+}
+
 /* Sidebar "Connect Professionally" title – same pink as newsletter subscription title */
 .Box-header .highlight-text.news-title-center {
 	color: HotPink;

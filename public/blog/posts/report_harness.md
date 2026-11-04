@@ -3216,7 +3216,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 - 🐍 [cowagent (Python)](https://github.com/zhayujie/CowAgent): AI assistant that proactively plans tasks, controls your computer and external services, creates and runs Skills, builds a personal knowledge base and long-term memory, forms multi-agent teams, and grows alongside you through self-evolution — a reference implementation of Agent Harness engineering.
 
-- 🐍 [strands (Python)](https://github.com/strands-agents/harness-sdk): SDK for building and running AI agents in Python and TypeScript. Choose Strands when you would otherwise write your own agent loop: it runs in your process with no hosted control plane, and it covers the jobs a hand-rolled loop grows into.
+- 🐍 [AWS's strands (Python)](https://github.com/strands-agents/harness-sdk): SDK for building and running AI agents in Python and TypeScript. Choose Strands when you would otherwise write your own agent loop: it runs in your process with no hosted control plane, and it covers the jobs a hand-rolled loop grows into.
 
 - 🐍 [raven (Python)](https://github.com/EverMind-AI/Raven): The harness of harnesses, built for recursive self-improvement (RSI). As a Host Agent, it brings built-in and third-party agents together to carry out complex tasks. Its modular architecture supports iterative improvement of Raven's own harness: proposing changes to how agents plan and act, evaluating those changes, and adopting improvements that pass validation.
 
@@ -3241,6 +3241,8 @@ Stores memory in `~/.openclaw/workspace/`:
 <br>
 
 - 🦀 [NVIDIA's OpenShell (Rust)](https://github.com/NVIDIA/OpenShell): Safe, private runtime for fleets of autonomous AI agents. Agents are most useful when they can read files, install packages, call APIs, and use credentials. OpenShell gives them that capability without giving them unrestricted access to your data, secrets, or network. You declare what each agent can touch in a policy, and OpenShell enforces it.
+
+- 🦀 [Rivet (Rust)](http://github.com/rivet-dev/rivet): The orchestrator for agentic workloads. A fast, high-density and scalable orchestrator for every workload an agent needs.
 
 - 🐍 [LangChain / LangGraph (Python, TypeScript)](https://github.com/langchain-ai/langchain): A framework for building agents and LLM-powered applications. It helps you chain together interoperable components and third-party integrations with simplify AI application development — all while future-proofing decisions as the underlying technology evolves. LangChain provides components, integrations, and abstractions for building LLM applications and agents. LangGraph is its complementary orchestration runtime for stateful, long-running agents, with cycles, persistence, durable execution, and human-in-the-loop workflows.
 

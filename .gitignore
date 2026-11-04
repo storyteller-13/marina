@@ -29,4 +29,5 @@ htmlcov/
 # pre-commit (local env cache when running outside CI)
 .pre-commit-cache/
 
+.claude
 NOTES

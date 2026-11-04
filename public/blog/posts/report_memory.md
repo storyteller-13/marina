@@ -4,9 +4,13 @@ subtitle: Audience: Beginner to Advanced AI Scientists and Engineers |  Today's 
 date: 2026; 11; 06
 ---
 
+> [🎶](https://www.youtube.com/watch?v=xA43JUXgc1k) *"Personality is my medium."* — Gibson on Neuromancer
+
 > [🎧](https://www.youtube.com/watch?v=mu0KNo8ULHE) *"The soul becomes dyed with the color of its thoughts."* — Marcus Aurelius on Mindset
 
-> [🎵](https://www.youtube.com/watch?v=usQvdsTRVgE) *"I am yet to find a greater pleasure than the pleasure of creating and bringing something new into the world."* — Marina von Steinkirch
+> [🎵](https://www.youtube.com/watch?v=usQvdsTRVgE) *"I am yet to find a greater pleasure than the pleasure of creating and bringing something new into the world."* — Marina von Steinkirch on Thus Spoke the Cockroach
+
+> [🎼](https://www.youtube.com/watch?v=rp8cImqAIPg) *"Yes: I am a dreamer. For a dreamer is one who can only find his way by moonlight, and his punishment is that he sees the dawn before the rest of the world."* — Oscar Wilde on The Critic as Artist
 
 <br>
 
@@ -16,7 +20,7 @@ date: 2026; 11; 06
 
 #### *Hello there, my anon friend!*
 
-#### *This is the Part II of III of our technical debt festival (check out **[Part I here](https://marina.nullstar.fun/pages/post.html?post=report_harness)**). Continuing our research for **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:ELECTRA](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** module, today we'll take a deep dive into the current landscape of agentic memory. We'll be reading a selection of reserch and industry articles and examining the code of some of the most prominent projects.*
+#### *This is Part II of III of our technical debt festival (check out **[Part I here](https://marina.nullstar.fun/pages/post.html?post=report_harness)**). Continuing our research for **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:ELECTRA](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** module, today we'll take a deep dive into the current landscape of agentic memory. We'll be reading a selection of research and industry articles and examining the code of some of the most prominent projects.*
 
 <br>
 
@@ -57,14 +61,14 @@ As I read through the material, below are my highlights — with a moderate atte
 | Semantic memory             | Yes, native (user and global memory)                                                                     | Yes, through extracted entities, relationships, and knowledge graphs     | Yes, via Graphiti's temporal knowledge graph                                                         | Yes, via tiered core/archival/recall memory model                                  | Yes (facts and user profiles)                                                                                          | Yes, through World and Observation networks                                                                | Yes, through extracted knowledge and profile chunks                                                                                   | Yes, through automatically maintained peer representations and facts                        | Yes; curated project knowledge, decisions, rules, and relationships                                              | Yes; profile, preferences, entities, identity, and other extracted memories                                         | Yes; associative key-value memory and semantic document retrieval                                                    |
 | Episodic memory             | Yes, via defined episodic/semantic hierarchy and metadata consolidation                                  | Episodic ingestion via documents, conversations, and data points         | Partial; event tracking within the graph with explicit temporal validities                           | Yes; agent self-manages what moves between archival memory on disk and core RAM    | Yes; past interactions surfaced via memory stores or few-shot examples                                                 | Yes; Experience network stores agent actions and interaction history                                       | Yes; session messages and conversation history retention                                                                              | Yes; session-level message logs and conversation history                                    | Partial; persistent knowledge entries and session-derived project context, but no explicit episodic memory model | Yes; session archives, conversation history, events, and extracted experiences                                      | Partial; conversation memory with source provenance, but not explicitly categorized as episodic memory               |
 | Procedural memory           | Architecture supports concept; dedicated tooling is early-stage                                          | Not explicitly categorized as procedural memory                          | Not a dedicated feature                                                                              | Yes, conceptually through editable core memory blocks                              | Yes, via self-updating instruction layers / prompt optimizer (a standout LangMem feature)                              | Not explicitly categorized as procedural memory                                                            | Not explicitly categorized as procedural memory                                                                                       | Not explicitly categorized as procedural memory                                             | Yes, through reusable project rules, workflows, and agent instructions                                           | Yes, through reusable Skills and task trajectories                                                                  | Not explicitly categorized as procedural memory                                                                      |
-| License / open source       | Apache 2.0                                                                                               | Apache 2.0                                                               | Graphiti: Apache 2.0 (open source). Zep platform: managed-only; Community Edition deprecated         | Apache 2.0 (core development has moved to the letta-code repo)                     | Open-source (LangChain ecosystem license; LangMem license not independently verified)                                  | MIT open-source library                                                                                    | MIT for the public repo (SDKs and components); the self-hosted server is a separate non-open-source binary under a lite license limit | AGPL-3.0 open-source Python/TS SDK and server                                               | Elastic License 2.0 (source-available, not OSI open source)                                                      | AGPL-3.0 for the core; CLI and examples Apache 2.0; some framework adapters AGPL-3.0 or MIT                         | Apache 2.0                                                                                                           |
-| Self-hosting                | Yes; pip, npm, Docker, and local installs                                                                | Yes; embedded defaults require no external infra to start                | Graphiti: yes, against Neo4j, FalkorDB, Kuzu, or Neptune. Zep core: managed-only                     | Yes, local/Docker deployment supported                                             | Yes, developer provides and manages the underlying store                                                               | Yes, local stack or self-hosted FastAPI server                                                             | Yes; local self-hosted server binary (not open source, lite license limit)                                                            | Yes, local stack or self-hosted FastAPI server via Docker Compose                           | Yes; local-first CLI and filesystem storage                                                                      | Yes; standalone server, CLI, and local deployment                                                                   | Yes; local-first Rust engine and local persistent storage                                                            |
+| License / open-source       | Apache 2.0                                                                                               | Apache 2.0                                                               | Graphiti: Apache 2.0 (open-source). Zep platform: managed-only; Community Edition deprecated         | Apache 2.0 (core development has moved to the letta-code repo)                     | Open-source (LangChain ecosystem license; LangMem license not independently verified)                                  | MIT open-source library                                                                                    | MIT for the public repo (SDKs and components); the self-hosted server is a separate non-open-source binary under a lite license limit | AGPL-3.0 open-source Python/TS SDK and server                                               | Elastic License 2.0 (source-available, not OSI open-source)                                                      | AGPL-3.0 for the core; CLI and examples Apache 2.0; some framework adapters AGPL-3.0 or MIT                         | Apache 2.0                                                                                                           |
+| Self-hosting                | Yes; pip, npm, Docker, and local installs                                                                | Yes; embedded defaults require no external infra to start                | Graphiti: yes, against Neo4j, FalkorDB, Kuzu, or Neptune. Zep core: managed-only                     | Yes, local/Docker deployment supported                                             | Yes, developer provides and manages the underlying store                                                               | Yes, local stack or self-hosted FastAPI server                                                             | Yes; local self-hosted server binary (not open-source, lite license limit)                                                            | Yes, local stack or self-hosted FastAPI server via Docker Compose                           | Yes; local-first CLI and filesystem storage                                                                      | Yes; standalone server, CLI, and local deployment                                                                   | Yes; local-first Rust engine and local persistent storage                                                            |
 | Managed cloud / service     | Yes (Mem0 Cloud)                                                                                         | Yes (Cognee Cloud)                                                       | Yes (Zep Cloud)                                                                                      | Yes (Letta Cloud)                                                                  | No (managed via LangGraph Platform)                                                                                    | Yes (Hindsight Cloud, pay-as-you-go; Enterprise tier available)                                            | Yes (Supermemory Cloud)                                                                                                               | Yes (Honcho managed API at `api.honcho.dev`)                                                | Optional cloud synchronization and team sharing                                                                  | Yes; Volcengine-hosted OpenViking Service (SaaS) and a licensed self-managed/BYOC edition                           | No managed service found; local-first engine                                                                         |
 | Multi-agent support         | Yes, via `agent_id` scoping alongside `user_id`                                                          | Supported through agent integrations and workspace organization          | Not a native architectural concept                                                                   | Yes, shared memory blocks between agents are core                                  | Depends on LangGraph orchestration                                                                                     | Not natively optimized for multi-agent peer tracking                                                       | Not explicitly structured for multi-agent routing                                                                                     | Yes, native peer-based multi-agent architecture (tracks peers, groups, agents)              | Yes; shared project context with selective agent and teammate access                                             | Yes; agent-specific contexts, shared skills, and multi-agent integrations                                           | Not explicitly documented as a native multi-agent architecture                                                       |
 | Memory scopes               | Session, user, agent, organization, and custom scopes                                                    | Datasets, users, sessions, and workspace isolation                       | Graphs organized by subjects, users, teams, and topics                                               | Core/archival namespaces and shared memory blocks                                  | Namespaces, users, agents, and application-defined scopes                                                              | Agent-specific memory banks and entity-level isolation                                                     | Namespaces, containers, and user profiles                                                                                             | Workspaces, peers, and sessions                                                             | Project workspaces, context trees, agents, and selectively shared folders                                        | Resources, users, agents, peers, sessions, and skills                                                               | Local store, per-project namespaces, and document-level identifiers; tenant-scoped server stores                     |
 | Multi-tenant support        | Built-in scopes (user, organization, agent)                                                              | Yes, Cognee Cloud supports isolated multi-tenant workspaces              | Yes, enterprise context infrastructure                                                               | Organization-level shared memory and agent isolation                               | Depends on underlying store and application implementation                                                             | Application-managed isolation (Hindsight Cloud is multi-tenant)                                            | Namespace-based organization; enterprise options available                                                                            | Workspace and peer-based isolation                                                          | Project-level isolation; team sharing with access controls                                                       | Yes; account, user, peer, and ACL-based isolation                                                                   | Yes; tenant-scoped HTTP server storage (single node, no TLS, shared key)                                             |
 | Framework agnostic          | Yes                                                                                                      | Yes                                                                      | Yes                                                                                                  | Yes                                                                                | Partial; core memory managers and prompt optimizer work standalone, stateful storage is built on LangGraph `BaseStore` | Yes                                                                                                        | Yes                                                                                                                                   | Yes                                                                                         | Yes                                                                                                              | Yes                                                                                                                 | Yes                                                                                                                  |
-| Graph memory support        | Yes; graph relationships and entity linking (paid tiers on the hosted platform, included in open source) | Yes; native and central to architecture                                  | Yes; core architectural differentiator                                                               | No; archival memory is vector-based                                                | No                                                                                                                     | Yes; temporal entity graph and traversal                                                                   | Yes; knowledge graph of facts (vendor-stated)                                                                                         | Not a primary native knowledge graph architecture                                           | Hierarchical file-based knowledge graph with cross-references; no native graph database                          | Context hierarchy and knowledge graph compilation; no native graph database as core storage                         | Yes; vector-symbolic triple store and multi-hop associative queries                                                  |
+| Graph memory support        | Yes; graph relationships and entity linking (paid tiers on the hosted platform, included in open-source) | Yes; native and central to architecture                                  | Yes; core architectural differentiator                                                               | No; archival memory is vector-based                                                | No                                                                                                                     | Yes; temporal entity graph and traversal                                                                   | Yes; knowledge graph of facts (vendor-stated)                                                                                         | Not a primary native knowledge graph architecture                                           | Hierarchical file-based knowledge graph with cross-references; no native graph database                          | Context hierarchy and knowledge graph compilation; no native graph database as core storage                         | Yes; vector-symbolic triple store and multi-hop associative queries                                                  |
 | Vector memory support       | Yes                                                                                                      | Yes                                                                      | Yes                                                                                                  | Yes; archival retrieval                                                            | Yes                                                                                                                    | Yes; vector search with pgvector                                                                           | Yes                                                                                                                                   | Yes; semantic retrieval and indexed search                                                  | No; file-based BM25 retrieval without a vector database                                                          | Yes; vector indexing and semantic retrieval                                                                         | Yes; hypervector associative memory and exact-cosine document retrieval                                              |
 | Hierarchical memory         | Yes; user / session / agent                                                                              | Yes; graph, document, and summary organization                           | Yes; entity, relationship, and episodic layers                                                       | Yes; core vs. archival                                                             | Yes; profiles and collections                                                                                          | Yes; four logical memory networks                                                                          | Yes; profiles, memories, and documents                                                                                                | Yes; peer representations, sessions, and messages                                           | Yes; Domain → Topic → Subtopic → Entry context tree                                                              | Yes; directory hierarchy with L0/L1/L2 progressive context layers                                                   | Limited; associative vector composition rather than conventional hierarchical memory                                 |
 | Automatic memory extraction | Yes                                                                                                      | Yes                                                                      | Yes                                                                                                  | Yes                                                                                | Yes; background memory manager                                                                                         | Yes; retain pipeline                                                                                       | Yes                                                                                                                                   | Yes; background reasoning and profile generation                                            | Yes; agent-driven curation, extraction, and organization                                                         | Yes; session-based extraction, compression, merging, and deduplication                                              | Not explicitly documented as automatic conversational memory extraction                                              |
@@ -96,7 +100,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 ---
 
-# 1️⃣🪄 Production Memory Systems
+# 1️⃣🪄 Open-Source Production Memory Systems
 
 <br>
 
@@ -105,7 +109,11 @@ As I read through the material, below are my highlights — with a moderate atte
 <br>
 <br>
 
-## 🟪 [mem0.ai](https://mem0.ai/research) 
+## 🟪 [mem0 (Python)](https://mem0.ai/research) 
+
+<br>
+
+> *Mem0 is a memory architecture built to scale, which pulls out the important information from ongoing conversations, consolidates it, and retrieves it later. Its pipeline runs in two phases. In the **extraction phase**, Mem0 looks at a conversation summary together with the most recent messages and produces candidate memories. In the **update phase**, it checks those candidates against what is already stored, and an LLM decides which of four operations to apply: add a new memory when it is entirely different from anything stored, update an existing memory by enriching or extending it, delete memories that conflict with the new one, or make no change at all. Because of this consolidation step, Mem0 doesn't simply keep appending memories, so its store stays coherent as facts change over time. The base version stores memories as natural-language entries in a vector database. An enhanced variant, Mem0g, stores memories as a directed labeled graph to capture more complex relationships between the elements of a conversation, and it adds a Conflict Detector that flags overlapping or contradictory nodes and edges, plus an Update Resolver that decides whether to merge, invalidate, or skip them. The result is a memory layer that agents can plug into to stay consistent across many sessions without carrying their full conversation history in context.*
 
 <br>
 
@@ -143,9 +151,9 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-1. The extraction phase initiates upon ingestion of a new message pair (the current and the preceding one). This pair consists of a user message and an assistant response, capturing a complete interaction unit. To establish appropriate context for memory extraction, the system employs two complementary sources: 1) a conversation summary retrieved from the database that encapsulates the semantic content of the entire conversation history, and 2) a sequence of recent messages from the conversation history, where m is a hyperparameter controlling the recency window. To support context-aware memory extraction, we implement an asynchronous summary generation module that periodically refreshes the conversation summary (which operates independently of the main processing pipeline).
+1️⃣ The extraction phase initiates upon ingestion of a new message pair (the current and the preceding one). This pair consists of a user message and an assistant response, capturing a complete interaction unit. To establish appropriate context for memory extraction, the system employs two complementary sources: 1) a conversation summary retrieved from the database that encapsulates the semantic content of the entire conversation history, and 2) a sequence of recent messages from the conversation history, where m is a hyperparameter controlling the recency window. To support context-aware memory extraction, we implement an asynchronous summary generation module that periodically refreshes the conversation summary (which operates independently of the main processing pipeline).
 
-2. The update phase evaluates each candidate fact against existing memories to maintain consistency and avoid redundancy. It determines the appropriate memory management operation for each extracted fact. For each fact, the system first retrieves the top s semantically similar memories using vector embeddings from the database. The retrieved memories and the candidate fact are presented to the LLM. The LLM determines which of four distinct operations to execute: `ADD`, `UPDATE`, `DELETE`, `NOOP`.
+2️⃣ The update phase evaluates each candidate fact against existing memories to maintain consistency and avoid redundancy. It determines the appropriate memory management operation for each extracted fact. For each fact, the system first retrieves the top s semantically similar memories using vector embeddings from the database. The retrieved memories and the candidate fact are presented to the LLM. The LLM determines which of four distinct operations to execute: `ADD`, `UPDATE`, `DELETE`, `NOOP`.
 
 <br>
 
@@ -165,7 +173,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 ```
 1. Nodes V are entities
-2. Edges E are relationship between entities
+2. Edges E are relationships between entities
 3. Labels L are semantic types to nodes
 ```
 
@@ -460,8 +468,8 @@ File-based memory fails because files can't do the seven things a growing memory
 
 - The four eviction strategies:
 
-1️⃣ Age-based / TTL: The simplest. Drop entries older than N days regardless of how often they have been accessed. The cognitive analogue of trace decay.
-2️⃣ LRU / recency: Drop entries unused for N days. Each access resets the clock. This is the closest analogue to Bjork's retrieval-strength decay. LRU works well for high-churn assistants where the relevant context shifts quickly.
+1️⃣ Age-based / TTL: The simplest. Drop entries older than `N` days regardless of how often they have been accessed. The cognitive analogue of trace decay.
+2️⃣ LRU / recency: Drop entries unused for `N` days. Each access resets the clock. This is the closest analogue to Bjork's retrieval-strength decay. LRU works well for high-churn assistants where the relevant context shifts quickly.
 3️⃣ Salience scoring: Attach an importance score at extraction time, set either by the LLM that pulled the fact out of conversation or by explicit user signals. Drop entries whose score falls below a threshold.
 4️⃣ Semantic supersession / update: When a new fact contradicts an old one, replace or mark the old as superseded. Most useful for preference and profile data, where what changes is not the topic but the value.
 
@@ -477,8 +485,6 @@ File-based memory fails because files can't do the seven things a growing memory
 <br>
 
 ---
-
-<br>
 
 ### [The Modal Model of Memory](https://mem0.ai/library/agent-memory/the-modal-model-of-memory-what-ai-agents-can-learn-from-cognitive-science)
 
@@ -525,11 +531,11 @@ mem_client = MemoryClient()
 
 <br>
 
-- Mem0 stores each memory as a small, self contained document that sits between structured database records and raw text logs. The core fields follow a common pattern:
+- Mem0 stores each memory as a small, self-contained document that sits between structured database records and raw text logs. The core fields follow a common pattern:
 
 ➡️ `id`: unique identifier for the memory
 ➡️ `content`: actual text of the memory
-➡️ `metadata`: JSON object that can include user ID, tags, source, timestamps, and domain specific fields
+➡️ `metadata`: JSON object that can include user ID, tags, source, timestamps, and domain-specific fields
 ➡️ `created_at` and `updated_at`: temporal boundaries
 ➡️ `embedding` or `vector` field: for semantic search
 ➡️ `score` or similarity indicators: returned in search results
@@ -643,7 +649,7 @@ def soft_delete_memory(memory_id: str):
 
 <br>
 
-- Memory Stream: is a comprehensive list of an agent's experiences and Reflections are periodic, high-level abstract thoughts generated by the agent. The agent does not just retrieve raw observations, it synthesizes them into insights.
+- Memory Stream is a comprehensive list of an agent's experiences and Reflections are periodic, high-level abstract thoughts generated by the agent. The agent does not just retrieve raw observations, it synthesizes them into insights.
 
 <br>
 
@@ -657,12 +663,12 @@ def soft_delete_memory(memory_id: str):
 
 <br>
 
-| Feature / Dimension | [Pinecone](https://github.com/pinecone-io?utm_source=chatgpt.com) | [Qdrant](https://github.com/qdrant/qdrant?utm_source=chatgpt.com) | [Weaviate](https://github.com/weaviate/weaviate?utm_source=chatgpt.com) | [Milvus](https://github.com/milvus-io/milvus?utm_source=chatgpt.com) | [Chroma](https://github.com/chroma-core/chroma?utm_source=chatgpt.com) | [LanceDB](https://github.com/lancedb/lancedb?utm_source=chatgpt.com) | [pgvector (PostgreSQL)](https://github.com/pgvector/pgvector?utm_source=chatgpt.com) | [Redis (Redis Vector Search)](https://github.com/redis/redis?utm_source=chatgpt.com) |
+| Feature / Dimension | [Pinecone](https://github.com/pinecone-io) | [Qdrant](https://github.com/qdrant/qdrant) | [Weaviate](https://github.com/weaviate/weaviate) | [Milvus](https://github.com/milvus-io/milvus) | [Chroma](https://github.com/chroma-core/chroma) | [LanceDB](https://github.com/lancedb/lancedb) | [pgvector (PostgreSQL)](https://github.com/pgvector/pgvector) | [Redis (Redis Vector Search)](https://github.com/redis/redis) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Category** | Dedicated & Managed | Dedicated & Managed | Dedicated & Managed | Dedicated & Managed | Embedded & Lightweight | Embedded & Lightweight | Extension Solution (Relational) | Extension Solution (In-Memory) |
 | **Deployment Type** | Managed Cloud SaaS | Open-source / Managed Cloud | Open-source / Managed Cloud | Open-source / Managed Cloud (Zilliz) | Embedded / Local / In-memory | Embedded / Serverless | Database Extension | In-Memory / Managed |
 | **Best For** | Fully managed cloud SaaS, rapid prototyping, hands-off scaling | High performance, custom metadata filtering, self-hosting or managed cloud | Hybrid search (vectors + keyword BM25), rich multi-modal memory | Enterprise-scale deployments with billions of memory vectors | Local prototyping, single-agent apps, Python-native environments | Disk-based storage, multi-modal memories, embedded serverless agents | Teams already running PostgreSQL wanting unified transactional & vector memory | Ultra-fast sub-millisecond short-term context & active agent session state |
-| **Why it fits Agent Memory** | Serverless model (separates compute/storage) that auto-scales; strong native metadata filtering (`user_id`, `session_id`, `timestamp`); built-in namespace isolation | Built in Rust; famous for **payload-based filtering** and memory efficiency; handles complex logical filters fast without sacrificing recall; supports local embedded via `Qdrant Edge` | Object-oriented; natively handles hybrid search out of the box, combining semantic similarity with exact keyword lookup (dates, names, codes) | Open-source, cloud-native; completely decouples storage and compute; handles massive throughput & distributed tenant sharding efficiently | Extremely simple `pip install chromadb` setup; runs in-memory or persisted to disk locally; default choice for AutoGen, CrewAI, LangChain experimentation | Serverless/embedded engine backed by Apache Arrow/Lance format; queries disk directly with zero-copy reads; drastically reduces RAM overhead for desktop/edge agents | Eliminates need to sync external vector DB with main DB; relational user tables, structured logs, & vector embeddings live together in one `ACID`-compliant system | Combines ephemeral cache (working memory), key-value operational state, and vector similarity search into a single high-speed in-memory engine |
+| **Why it fits Agent Memory** | Serverless model (separates compute/storage) that auto-scales; strong native metadata filtering (`user_id`, `session_id`, `timestamp`); built-in namespace isolation | Built with Rust; famous for **payload-based filtering** and memory efficiency; handles complex logical filters fast without sacrificing recall; supports local embedded via `Qdrant Edge` | Object-oriented; natively handles hybrid search out of the box, combining semantic similarity with exact keyword lookup (dates, names, codes) | Open-source, cloud-native; completely decouples storage and compute; handles massive throughput & distributed tenant sharding efficiently | Extremely simple `pip install chromadb` setup; runs in-memory or persisted to disk locally; default choice for AutoGen, CrewAI, LangChain experimentation | Serverless/embedded engine backed by Apache Arrow/Lance format; queries disk directly with zero-copy reads; drastically reduces RAM overhead for desktop/edge agents | Eliminates need to sync external vector DB with main DB; relational user tables, structured logs, & vector embeddings live together in one `ACID`-compliant system | Combines ephemeral cache (working memory), key-value operational state, and vector similarity search into a single high-speed in-memory engine |
 | **Tradeoffs** | Proprietary closed-source engine; cost can escalate under heavy payload mutations | Self-hosting at massive cluster scales requires Rust/Kubernetes devops maturity | Higher memory usage per node compared to pure vector-only systems like Qdrant | High setup complexity for self-hosted instances compared to simpler engines | Not natively designed for high-concurrency production or multi-node clusters out of the box | Younger ecosystem for cloud-native orchestration compared to Pinecone or Qdrant | Pure HNSW vector indexing scale and latency lag behind dedicated engines at high vector counts | RAM-intensive storage makes ultra-long-term cold memory retention expensive |
 | **Primary Strengths** | Zero-management serverless, simple setup | Payload filtering, Rust performance, edge support | Hybrid search (Vector + BM25 keyword) | Enterprise scale, decoupled storage/compute, distributed sharding | Python native, instant local setup | Disk-backed zero-copy reads, low RAM footprint | Single database for relational metadata & vectors | Lowest latency, unifies cache, state & memory |
 | **Best Suited Scenario** | Production agent apps scaling on cloud | Multi-tenant user memory with strict filtering | Knowledge-heavy agents requiring exact matches | Enterprise deployments with billions of vectors | Local dev, prototypes, single-user desktop agents | Desktop/edge embedded agents with disk-based storage | Startups wanting operational simplicity | Real-time voice/chat agents needing high speed |
@@ -763,6 +769,8 @@ score = similarity
 <br>
 
 > *Graph databases approach memory from a structural perspective. Instead of embedding text into dense vectors, graphs encode explicit relationships between entities. Graphs are particularly effective for relationship traversal, entity disambiguation, dependency resolution, and structured queries. However, graph systems require careful schema design, edge weighting logic, and traversal optimization. They also lack the fuzzy semantic flexibility of vector embeddings unless paired with text-based indexing.*
+
+<br>
 
 - Vector stores struggle with structured relationships and multi-hop reasoning. GraphRAG (Graph Retrieval-Augmented Generation) solves this by combining the unstructured strength of vectors with the structured rigidness of Knowledge Graphs.
 
@@ -995,7 +1003,7 @@ hits = mem.search(
 
 - Semantic memory is the deepest layer, scoped by `user_id`. It holds durable facts, relationships, preferences, and learned knowledge that does not expire with a session. 
 
-- For the agent's persona,`agent_id`, `app_id `for the product surface, and `run_id` for a single session or ticket.
+- For the agent's persona, `agent_id`, `app_id `for the product surface, and `run_id` for a single session or ticket.
 
 - The graph memory approach uses an entity extractor to identify nodes and a relations generator to infer labeled edges. A conflict detector flags contradictory information. The result is a memory store that can reason about relationships between things, not just retrieve isolated facts.
 
@@ -1297,7 +1305,7 @@ Patterns:
 
 1️⃣ Session-start scan (one extra search call at session open).
 2️⃣ Context-trigger scan (monitors the calls for context shifts such as file reference, error detected, tool invocation, topic shift, etc. - and runs a targeted memory search then).
-3️⃣ scheduled reflection scan (it changes how memory is stored rather than just how it’s retrieved – a background worker runs after sessions end or on a schedule; the work happens asynchronously)
+3️⃣ Scheduled reflection scan (it changes how memory is stored rather than just how it’s retrieved – a background worker runs after sessions end or on a schedule; the work happens asynchronously)
 
 <br>
 
@@ -1431,7 +1439,7 @@ Common failure modes:
 
 ---
 
-### [Open Source Agents with Memory](https://mem0.ai/library/agent-memory/open-source-ai-agents-with-built-in-memory)
+### [Agents with Memory](https://mem0.ai/library/agent-memory/open-source-ai-agents-with-built-in-memory)
 
 <br>
 
@@ -1443,14 +1451,14 @@ Common failure modes:
 | Long-term summarization | Manual via ad-hoc prompts | Rarely implemented consistently | Custom logic per project | Encouraged pattern with shared primitives |
 | Multi-tenant isolation | N/A | Possible but fragile | Possible, requires discipline | First-class via metadata scopes |
 | Ecosystem and composability | Framework-specific | DB/vendor-specific | Application-specific | Framework-agnostic memory API |
-| Auditability of decisions | Hard as history is partial | Hard as retrieval is opaque | Possible with extra work | Easier via inspectable memory records |
+| Auditability of decisions | Hard as history is partial | Hard as retrieval is opaque | Possible with extra work | Easier via inspectable memory records |`
 | Dev effort for new agents | Low for prototypes, high for production | Medium plus tuning | High, repeated per project | Medium, reusable across agents |
 
 <br>
 
 - Key points when in a real deployment: 
 
-1️⃣ Data residency and self-hosting: Mem0 is open source and can be self-hosted, which allows data to remain within a VPC or specific region.
+1️⃣ Data residency and self-hosting: Mem0 is open-source and can be self-hosted, which allows data to remain within a VPC or specific region.
 2️⃣ Access control and tenancy: The combination of infrastructure isolation and Mem0 metadata (for user_id, tenant_id, etc.) should enforce both physical and logical separation of memories.
 3️⃣ PII and retention policies: Projects that handle PII should implement retention and deletion workflows. 
 4️⃣ Observability and debugging: Inspecting what memories are retrieved for a given query can explain agent actions and help tune memory filters or schemas.
@@ -1473,7 +1481,6 @@ Common failure modes:
 - [sbx-kits-mem0](https://github.com/ajeetraina/sbx-kits-mem0) gives any agent a Mem0 memory layer, runs fully local with no cloud keys, and boxes the agent inside a microVM.
 
 <br>
-
 
 ![](/blog/assets/report_mem_7.webp)
 
@@ -1573,26 +1580,157 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 | Memory durability | Backed by disk or managed services | Same as CPU stack, GPUs used only for compute |
 
 <br>
-<br>
 
----
-
-## 🟪 [Cognee](https://github.com/topoteretes/cognee)
+### Additional Resources
 
 <br>
 
-> Cognee turns documents, code and conversations into a knowledge graph that agents can search, with remember, recall, improve and forget operations and support for custom data models and ontologies. It's made to build a company's brain.
+- [Mem0 docs](https://docs.mem0.ai)
+- [Mem0 Benchmarks](https://mem0.ai/research) ([GitHub repo](https://github.com/mem0ai/memory-benchmarks))
 
 <br>
 <br>
 
 ---
 
-## 🟪 [Zep](https://github.com/getzep/zep)
+## 🟪 [Cognee (Python, TypeScript, Rust)](https://github.com/topoteretes/cognee)
 
 <br>
 
-> Zep is an open-source memory store for LLM applications centered on conversation-history ingestion, through a distinguishing piece is called **[Graphiti](https://github.com/getzep/graphiti)** (a temporal knowledge graph engine that tracks how facts evolve over time). As a graph‑centric memory infrastructure is backed by graph databases such as Neo4j (or similar). 
+>  *Open-source AI memory platform that turns raw data into persistent knowledge graphs for AI agents. Its design is a pipeline. First, **add** converts content to plain text, hashes it to remove duplicates, and groups it into datasets with ownership and permissions. Next, **cognify** does the core work: it classifies documents, splits them into chunks, uses an LLM to extract entities and relationships, writes summaries, and stores the results in both the graph and vector databases. A temporal_cognify mode can also extract events with timestamps to build a knowledge graph that is aware of time. Then **memify** runs over the existing knowledge graph to enrich it, for example by attaching domain or coding rules to nodes.*
+
+> *Under the hood, Cognee combines three stores in a single memory layer: a vector store for semantic search, a graph store for entities and relationships, and a relational store for provenance. Every graph node has a matching embedding, so a query can move between semantic similarity and relationship traversal without losing coherence.*
+
+> *Cognee also separates memory into two layers. Session memory acts as short-term working memory for the agent, while permanent memory holds long-term knowledge such as user data, interaction traces, external documents, and the relationships derived from them. For retrieval, it offers 14 modes, ranging from classic RAG to chain-of-thought graph traversal.*
+
+<br>
+
+![](/blog/assets/report_mem_32.png)
+
+<br>
+
+### Architecture
+
+<br>
+
+- Write path as an ECL pipeline. Extract ingests raw input (text, files, turns, tool output). Cognify runs the middle of the write path: chunking, entity and relation extraction, resolution against the existing graph, optional ontology alignment. Load persists into a knowledge graph, a vector index and relational metadata in one operation, so a fact is never in one store and missing from another. 
+
+- Graph, vector and relational in one engine. Backends are pluggable: Neo4j, Kuzu or FalkorDB for the graph, LanceDB or pgvector for vectors, Postgres for relational data.
+
+- Four verbs. The Cognee 1.0 API exposes `remember` (ingest and cognify), `recall` (hybrid retrieval with ranking and a token budget), `improve` (the feedback loop) and `forget` (remove a fact and its derived artifacts), mapping to the write path, read path, feedback loop and forgetting operation in the diagram.
+
+<br>
+
+| Command | Purpose | Shared flags |
+| ------------------ | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `remember <data…>` | add + cognify (+ improve) | `-d/--dataset-name`, `--session-id`, `--no-improve`, `--tenant-id` |
+| `recall <query>` | smart search (auto-routes) | `-d/--datasets`, `-t/--query-type`, `-k/--top-k` (10), `--session-id`, `-f/--output-format`, `--tenant-id` |
+| `improve` | reinforce graph from feedback | `-d/--dataset-name`, `--session-id`, `--node-name` (deprecated, ignored), `--feedback-alpha` (default: `improve.feedback_alpha`, 0.1), `--tenant-id` |
+| `forget` | delete memory | one of `--all` / `-d` / `--data-id`+`--dataset-name`, `--tenant-id` |
+
+<br>
+
+### [AI Agent Memory Architecture](https://www.cognee.ai/ai-agent-memory-architecture)
+
+<br>
+
+- An AI agent memory architecture is the arrangement of stores, pipelines and interfaces that lets an agent remember things across turns, sessions and tasks instead of starting every call from zero. It’s a is a system design, not a single database.
+
+<br>
+
+![](/blog/assets/report_mem_40.svg)
+
+<br>
+
+| Memory Type | What it holds                                                | Lifetime                        | Typical storage                            | Written by                  |
+| ----------- | ------------------------------------------------------------ | ------------------------------- | ------------------------------------------ | --------------------------- |
+| Working     | System prompt, recent turns, tool results, injected memories | One model call                  | The prompt itself                          | Harness, every turn         |
+| Episodic    | Message log, tool traces, session summaries                  | Days to months, then summarized | Relational or document store               | Harness, automatically      |
+| Semantic    | Facts, entities, relationships, with validity windows        | Until superseded or forgotten   | Vector index plus knowledge graph          | Write path after extraction |
+| Procedural  | Instruction files, skills, tools, retrieval weights          | Until revised                   | Repo files, skills registry, policy tables | Humans, plus feedback loop  |
+
+<br>
+
+- Episodic memory is cheap to write and expensive to read, so most architectures summarize episodes into semantic facts. 
+
+- Semantic memory is where the hard engineering is, and it benefits most from a graph: "who owns this service" and "what was true in March" are relationship and time queries, not similarity queries. 
+
+- Procedural memory is the least automated: `CLAUDE.md`, `AGENTS.md` and `.cursor/rules` are written by humans, and the feedback loop is what lets the system write some of it.
+
+<br>
+
+![](/blog/assets/report_mem_41.svg)
+
+<br>
+
+| Option                      | Strengths                                                         | Weaknesses                                                                             | Use when                                    |
+| --------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------- |
+| Vector store only           | Simplest write path; good semantic recall; mature managed options | No relationships or temporal validity; duplicates accumulate; multi-hop questions fail | Prototypes, single-user assistants          |
+| Knowledge graph only        | Entities, relations, provenance, and time are native; explainable | Needs an extraction pipeline; fuzzy queries weak without embeddings                    | Relationship- and history-heavy domains     |
+| Relational / document only  | Transactions, retention, and multi-tenancy are solved             | Neither similarity nor traversal is natural                                            | Episodic log, session state, audit trail    |
+| All three, separate systems | Each store does what it is best at; independent scaling           | Three systems to keep consistent; deletes must succeed in all                          | Large deployments with infrastructure teams |
+| All three, one engine       | One transaction, one permission model, one backup                 | Bound by the engine's weakest store; fewer hosting options                             | Full architecture without three databases   |
+
+<br>
+
+### ✨ Design checklist for your own agent memory architecture ✨
+
+<br>
+
+1️⃣ Working memory budget. How many tokens are reserved for injected memories, and what is evicted first?
+2️⃣ Write trigger. Every turn, end of session, explicit remember calls, or a background job?
+3️⃣ Extraction schema and entity resolution. Free-form facts, triples, or a typed ontology; what makes two mentions the same entity?
+4️⃣ Conflict policy. Overwrite, append or supersede with validity windows? Only the third answers "what did we believe in March".
+5️⃣ Episodic retention. How long raw logs are kept and when they are summarized.
+6️⃣ Retrieval routing and ranking. Which query types go to vector, lexical, graph or episodic search; which signals rank them; are weights learned from feedback?
+7️⃣ Source attribution. Does every injected memory carry provenance?
+8️⃣ Forgetting. Can one forget call remove a fact from graph, vector index and log together, within tenant scope?
+9️⃣ Scopes, permissions and interface. Which scopes exist, are read, write, delete and share separate rights, and is memory exposed as native tools, MCP, or both?
+🔟 Evaluation. Task success with and without memory, retrieval precision, p95 latency.
+
+<br>
+
+### Additional Resources
+
+<br>
+
+- [Cognee docs](https://docs.cognee.ai/getting-started/introduction)
+- [Cognee examples](https://github.com/topoteretes/cognee/blob/main/examples/README.md)
+- [Cognee in Rust](https://github.com/topoteretes/cognee-rs)
+- [Cognee Benchmarks](https://www.cognee.ai/research-and-evaluation-results)
+
+<br>
+<br>
+
+---
+
+## 🟪 [Zep (Python, TypeScript, Go)](https://github.com/getzep/zep)
+
+<br>
+
+> *A memory layer service built on **[Graphiti](https://github.com/getzep/graphiti)**, a knowledge graph engine that keeps track of time, and it takes in both unstructured messages and structured business data.*
+
+> *The graph has three levels. **Episodes** store the raw input (messages, text, or JSON) and are never discarded, which makes them the base of everything else. A **semantic entity layer** sits above them, holding entities extracted from episodes and merged with entities already in the graph. At the top, **communities** are groups of closely connected entities that Graphiti finds with label propagation and summarizes in a summary node for each group.*
+
+> *Its most distinctive feature is a bi-temporal model: one timeline records when events actually happened, and a second records when Zep ingested the data. When a new fact contradicts an older one, Zep marks the old edge with an invalid_at timestamp instead of deleting it, so the history survives while current facts stay correct.*
+
+> *For retrieval, it uses a hybrid search that combines cosine similarity, BM25 full-text search, and breadth-first graph traversal, which lets agents reason over facts that change over time and across many sessions.*
+
+<br>
+
+### [Zep: A Temporal Knowledge Graph Architecture for Agent Memory (P. Rasmussen et al., 2025)](https://arxiv.org/pdf/2501.13956)
+
+<br>
+
+-  While existing retrieval-augmented generation frameworks for LLM-based agents are limited to static document retrieval, enterprise applications demand dynamic knowledge integration from diverse sources including ongoing conversations and business data. Zep addresses this fundamental limitation through its core component Graphiti—a temporally-aware knowledge graph engine that dynamically synthesizes both unstructured conversational data and structured business data while maintaining historical relationships.
+
+- Memory is powered by a temporally-aware dynamic knowledge graph `G = (N , E, φ)`, where `N` represents nodes, `E` represents edges, and `φ : E → N × N` represents a formal incidence function. This graph comprises three hierarchical tiers of subgraphs: an episode subgraph, a semantic entity subgraph, and a community subgraph.
+
+- The dual storage of both raw episodic data and derived semantic entity information mirrors psychological models of human memory.
+
+- Zep graph search API implements a function that accepts a text-string query as input and returns a text-string context as output. The output contains formatted data from nodes and edges required for an LLM agent to generate an accurate response to query. The process comprises three distinct steps: 1) Search, 2) Reranker, 3) Constructor.
+
+- Zep implements three search functions: cosine semantic similarity search, Okapi BM25 full-text search, and breadth-first search. The first two functions utilize Neo4j’s implementation of Lucene.
 
 <br>
 
@@ -1616,30 +1754,317 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 - A context graph costs more to build than a store of raw text, because an LLM has to extract the entities and relationships. The cost pays off over time. Without a graph, the expensive model reads raw text for every question, including text it has already read many times. With a graph, extraction happens once, when the data arrives, and every later question reuses the facts.
 
 <br>
+
+### [How Zep Tracks Provenance in Agent Memory](https://www.getzep.com/blog/how-zep-tracks-provenance-in-agent-memory/)
+
+<br>
+
+> Provenance is the record of where a piece of information came from and how it was produced. In agent memory, that means being able to take any fact an agent retrieves and name the raw sources behind it: which chat message, document, or record it was derived from, and what has happened to it since.
+
+<br>
+
+- When building memory, LLM extraction breaks source tracking. Several sources produce one fact whose wording matches none of them, entities merge, and new data invalidates old facts. A scalar `source_id` on the fact cannot represent any of this. Every agent memory system built on LLM extraction has this problem.
+
+- Zep records provenance as graph structure. Raw sources are kept verbatim as episodes. Every derived node and edge is associated with the episodes that produced it, written at construction time. Tracing a fact to its source is a graph traversal.
+
+- The associations are maintained through mutation. When entities merge, the merged node keeps the episode associations from both sides. A fact accumulates every episode that extracted, reaffirmed, or invalidated it, with `valid_at` and `invalid_at` timestamps.
+
+- Provenance enables access control. A metadata tag applied to an episode at ingestion is readable on every fact derived from it. Zep's attribute-based access control and search filters evaluate these projected attributes, so retrieval can be scoped by source without a separate access system.
+
+- Deletion propagates along the same associations. Graphiti's `remove_episode` removes a fact or node only when no remaining episode supports it, which is the propagation behavior a right-to-be-forgotten implementation needs.
+
+<br>
+
+An ETL pipeline copies or transforms one value deterministically, lineage is one-to-one, and a single pointer records it exactly. LLM extraction breaks the assumptions behind that pointer in three ways:
+
+➡️ Many sources, one fact.
+➡️ Entities merge.
+➡️ Facts invalidate.
+
+<br>
+
+Lineage must be set-valued, survive mutation, answer queries. Set-valued links between facts and sources, maintained through mutation and exposed to queries, are relationships, and Zep models them on the graph itself. Three primitives carry the design:
+
+➡️ Episodes are the raw sources: a chat message, a document chunk, a JSON record. Zep keeps them byte-for-byte as ingested, and they remain retrievable. 
+➡️ Entities are the nodes the LLM extracts across episodes. 
+➡️ Facts are time-stamped relationships on the edges between entities.
+
+<br>
+
+### [Defending Agent Memory Against Poisoning](https://www.getzep.com/blog/defending-agent-memory-poisoning/)
+
+<br>
+
+- Memory poisoning is prompt injection with persistence. Agent memory persists across sessions or users. One poisoned input, such as a message or a fetched web page, can influence answers and tool calls long after the attacker's session ends.
+
+- Retrieval must consider source, not similarity alone. A search that ranks on relevance serves poisoned content as readily as real content. Zep can filter by source metadata inside the service, before results return, through filtered search or access policies.
+
+- Provenance and retained history make repair possible.
+
+<br>
+
+| Control | Application layer | Zep |
+|---|---|---|
+| Write admission | Validates content, decides what to store | Ingestion APIs, per-user graph isolation |
+| Identity scoping | Derives `user_id` / `graph_id` from auth state | User graphs, standalone graphs |
+| Provenance | Labels sources at ingestion | Episode metadata, projection onto derived facts |
+| Conflicting claims | Decides which sources may update which fields | Bi-temporal facts; invalidation keeps the prior fact |
+| Scoped retrieval | Declares eligible sources per request | Server-side metadata and search filters |
+| Least privilege | Issues one key per agent | ABAC policies on API keys (Enterprise) |
+| Instruction isolation | Prompt assembly, message roles | Returns context as data |
+| Action authorization | Deterministic gate, systems of record | Provides cited evidence, never authority |
+| Detection | Alerts on write and retrieval behavior | API and audit logs (Enterprise), time-filtered listing |
+| Investigation and repair | Decides what to exclude or delete | Episode associations, deletion APIs |
+
+<br>
+
+### [Evaluating Nemotron 3 Embed for Agent Memory](https://www.getzep.com/blog/evaluating-nemotron-3-embed-for-agent-memory/)
+
+<br>
+
+- Recall errors compound in Zep's graph retrieval: Semantic and BM25 full-text search select the entrypoints into a Context Graph; traversal expands from those nodes, so a fact missed at the entrypoint is unreachable downstream.
+
+- We benchmarked NVIDIA's Nemotron 3 Embed 1B. Each task probes a different retrieval shape: 1) facts — short edge-fact sentences (30,093 documents), 2) fact concatenations — deterministic per-entity strings joining an entity's extracted facts (34,467 documents), 3) summaries — abstractive entity summaries written by an LLM from the source episodes (34,923 documents).
+
+- Nemotron 3 Embed 1B is the strongest embedding model we have tested on our workload: first on all three tasks and statistically significant against every alternative, with a quantized serving path that addresses encode cost at scale.
+
+<br>
+
+### [Markdown is not Agent Memory](https://www.getzep.com/blog/markdown-is-not-agent-memory/)
+
+<br>
+
+- Markdown memory is a legitimate pattern. Manus runs "filesystem as context" at millions of users; Claude Code and Letta's MemFS keep agent memory in markdown files. For a single agent and a single user it is simple and runs with no infrastructure.
+
+- The best implementations are more disciplined than a single growing file. Anthropic calls the principle progressive disclosure: the context window is finite, so the agent pulls in only the context a step needs. Letta's MemFS keeps a `system/` directory always in context and exposes the rest as filenames and descriptions, and loads contents only when needed. Manus keeps state restorable rather than resident: it drops a web page's content from context as long as it keeps the URL. The filesystem is disk to the context window's RAM, and the agent pages in what it needs.
+
+- Errors compound. A file records what was written, not what it replaced or why, so later turns build on bad facts. Git tracks line edits, not a fact's validity or source, and doesn't reconcile contradictions.
+
+- Concurrent agents diverge. Without git, writes to one file race; with git, related files diverge logically with nothing to reconcile them against the source.
+
+- The fixes turn memory into a system. Recording when a fact was true and where it came from is more than a file holds, and it is the point where a database or a temporal graph earns its place.
+
+- Multiple agents sharing one memory hit two problems. Without git, two agents writing the same file at once have no reliable lock. File locking is inconsistent across platforms and breaks on network filesystems, so the writes race and clobber each other.
+
+<br>
+
+| Concern | Markdown Memory | What a Fix Requires |
+| --- | --- | --- |
+| **Retrieval at scale** | Whole-file selection; degrades as it grows | Ranked retrieval that stays fast |
+| **Changing facts** | Overwrites or piles up; no history | Validity intervals; point-in-time queries |
+| **Provenance** | None; git logs commits, not facts | Each fact linked to its source |
+| **Concurrent agents** | Races without git; diverges with it | Reconciliation against source and timeline |
+| **Governance** | File permissions; manual deletes | Isolation, retention, and audit below the layer |
+
+<br>
+
+### [Why We Built a Graph Database Service for Agent Memory](https://www.getzep.com/blog/why-we-built-a-graph-database-service-for-agent-memory/)
+
+<br>
+
+- Konig is Zep's purpose-built graph database for agent memory: millions of knowledge graphs, one per user, team, or project, most in cold storage and all temporal and governed.
+
+- Retrieval latency holds near-constant as the number of graphs grows: p95 retrieval stays under 100ms from a thousand graphs to tens of millions, and Zep's full end-to-end retrieval stays under 200ms at that scale. Cost tracks activity, not capacity: hot graphs serve from RAM and idle graphs are evicted to object storage.
+
+- A single query fuses vector, full-text, graph, and pattern signals into one ranked answer. Graph analytics that normally run offline as batch jobs, like PageRank, run inline in milliseconds.
+
+- Every graph has its own full-text and vector indexes inside its snapshot: exact kNN with SIMD kernels by default, an IVF index with SPFresh/LIRE incremental maintenance as graphs grow. There's no shared search cluster to operate.
+
+- A graph is the right structure for this data. Relationships are first-class, so traversal replaces the joins a relational or document store would require. Provenance is built in: each fact is an edge that references the source data it was extracted from, so tracing why an agent holds a belief is a traversal. Time fits the model as well, since an edge can store when a relationship held in the world and when the system recorded it.
+
+- Security: isolation between graphs and customer-controlled encryption, in a deployment model that matches the customer's compliance requirements.
+
+- General-purpose graph databases often assume one large graph: mostly resident in memory, traversed by complex queries, against a schema fixed in advance. Agent context is the inverse workload: millions of smaller graphs, most cold at any moment, each temporal and governed independently. Graphs have a reputation for being slow and hard to scale. In our case the cause was the database's fit to this workload, not the graph model itself.
+
+- The query interface is the clearest example. Konig exposes a gRPC API: mutate, search, traverse, and a small set of lookups. It has no general-purpose query language such as Cypher. That removes a large part of what makes a database hard to build. There is no grammar to parse and no query optimizer to keep fast across arbitrary queries. The parsing and planning layer that consumes significant effort in a general-purpose database does not exist in Konig.
+
+- Hot graphs live in RAM and serve most queries at microsecond latency. Snapshots are periodically written to both local ephemeral NVMe and object storage. A graph evicted from RAM due to inactivity stays warm while its snapshot remains on local NVMe, where it reloads in low milliseconds. After longer idleness the local copy is pruned and the graph goes cold, leaving only the snapshot in object storage.
+
+- A cold graph costs almost nothing to retain and reloads from object storage on its next request. After optimizing how we use our cloud provider's object storage, we've gotten cold load down to low hundreds of milliseconds. Promotion to hot is lazy; no background process warms graphs that are not in use.
+- Cost tracks active graphs, not total graphs. A deployment with a million graphs and one percent hot pays for one percent of the memory; the rest is in object storage at object-storage prices. This is the data-lake pattern applied to agent context: the working set stays in fast storage and the long tail costs little.
+
+<br>
+
+![](/blog/assets/report_mem_37.avif)
+
+<br>
+
+- Konig offers several approaches to context retrieval from the graph. These include lexical relevance via BM25 and vector similarity for semantic meaning. These lexical and semantic search results may function as seeds to graph-structural queries such as BFS (Breadth-First Search) and Personalized PageRank. Doing so optimizes these operations by narrowing them to subgraphs. No separate search cluster, such as Elastic or OpenSearch, is needed.
+
+- Every graph has its own set of full-text and vector indexes, stored as companion structures inside its snapshot. The indexes are tiered, snapshotted, replicated, and deleted together with the graph they serve. BM25 runs against the per-graph full-text indexes; vector search runs against the per-graph vector indexes, one per embedding model.
+
+- An adjacency list is the standard structure for a graph that changes. Each node keeps a list of its own edges, so adding a relationship appends one entry to one node's list, and traversal from a node reads only that node's neighbors. Konig holds each graph in RAM this way: integer-indexed arrays of nodes, each with its edge list. Mutation and traversal, the operations the in-memory workload runs constantly, are cheap.
+
+- Adjacency lists are a poor fit for linear-algebra workloads such as PageRank and motif finding, an approach to identifying graph patterns. Those algorithms process every edge in bulk, and they run fastest over a compressed-sparse-row (CSR) matrix: all edges packed into one contiguous array, with an offset index marking where each node's edges begin. The layout is compact, and because the CPU reads memory in cache lines, a scan over a packed array uses every byte it fetches; the whole graph streams through the CPU in order.
+
+<br>
+
+![](/blog/assets/report_mem_38.webp)
+
+<br>
+
+- A key Zep innovation is the use of bi-temporal facts. Every edge, on which a fact is materialized, has four timestamps. Two record the world: when the relationship became true and when it stopped being true. Two record the system's knowledge: when Zep first recorded the fact and when it learned the fact was no longer valid. Truth and knowledge are separate timelines, and Konig natively tracks both.
+
+- Snapshots compact the log periodically: they collapse tombstones and compress the result, with a checksum to detect corruption. Each snapshot persists to multi-AZ object storage, with a local NVMe copy for fast warm loads. Recovery loads the latest snapshot and replays the log written since; the graph is then current. If a snapshot is missing, Konig rebuilds from the log alone.
+
+- Failover needs no central coordinator. Shards write heartbeats. A leader-elected reconciler removes a shard from membership when its heartbeats stop, and rendezvous hashing re-derives the new owners. gRPC requests may hit any shard and then be routed to a graph owner. Surviving shards usually discover a shard is lost in the course of a request: forwarded requests hit a dead peer and the connection fails. The surviving shard refreshes membership, and the retry reaches the new owner, which cold-loads the graph from object storage and the log. No data is lost, because durability never depended on any single shard.
+
+<br>
+
+### Additional Resources
+
+<br>
+
+- [Zep Documentation](https://help.getzep.com/overview)
+- [Zep's Context Lake](https://help.getzep.com/context-lake)
+- [Zep Benchmarks](https://www.getzep.com/blog/tag/benchmarks/)
+
+<br>
 <br>
 
 ---
 
-## 🟪 [Letta](https://github.com/letta-ai/letta)
+## 🟪 [Letta (TypeScript)](https://github.com/letta-ai/letta-code)
 
 <br>
 
-> The MemGPT paper framed the limited context window as an operating-systems problem: give the agent tools to page information in and out of its own context, and let it decide what to hold. In Letta, the agent edits its own memory blocks, deciding what is important enough to keep resident, what to archive, and when to fetch information back. Consequently, memory functions as an internal agent behavior rather than an external service called by the application.
+> *Letta (formerly MemGPT) borrows its memory design from operating systems, letting an LLM act like an OS that manages its own context window through paging, tool calls, and archival search.*
+
+> *Its memory is split into tiers. **Core memory** works like RAM: it sits inside the context window at all times and holds labeled memory blocks, such as the agent's persona and facts about the user, alongside the system instructions. Each block has a character limit, so the agent has to manage that space itself. **Recall memory** stores older conversation history outside the context window, which the agent can query with a `conversation_search` tool. **Archival memory** acts like disk: it is a vector database for long-term facts and external data sources, read and written with `archival_memory_search` and `archival_memory_insert`.*
+
+> *What makes Letta distinctive is that the agent manages its memory on its own. It edits its memory blocks with tools, and it decides what to keep in view, what to archive, and when to search. The drawback is cost, because every memory operation uses LLM tokens, which can break prompt caching and add latency.*
+
+<br>
+
+### [MemGPT: Towards LLMs as Operating Systems (C. Packer et al., 2024)](https://arxiv.org/pdf/2310.08560)
+
+<br>
+
+> MemGPT (MemoryGPT) intelligently manages different storage tiers in order to effectively provide extended context within the LLM’s limited context window.
+
+> MemGPT’s OS-inspired multi-level memory architecture delineates between two primary memory types: main context (analogous to main memory/physical memory/RAM) and external context (analogous to disk memory/disk storage).
+
+<br>
+
+- Directly extending the context length of transformers incurs a quadratic increase in computational time and memory cost due to the transformer architecture’s self-attention mechanism, making the design of new long-context architectures a pressing research challenge.
+
+- To enable using context beyond limited context windows, we propose virtual context management, a technique drawing inspiration from hierarchical memory systems in traditional operating systems which provide the illusion of an extended virtual memory via paging between physical memory and disk. 
+
+- The FIFO queue stores a rolling history of messages, including messages between the agent and user, as well as system messages (e.g. memory warnings) and function call inputs and outputs. The first index in the FIFO queue stores a system message containing a recursive summary of messages that have been evicted from the queue.
+
+<br>
+
+![](/blog/assets/report_mem_33.webp)
+
+<br>
+
+- MemGPT orchestrates data movement between main context and external context via function calls that are generated by the LLM processor.
+
+<br>
+
+
+### MemFS
+
+<br>
+
+- MemFS is how a Letta agent works with its long-term memory. The memory itself is part of the agent’s state, held in a git repository that belongs to the agent — hosted by Letta for cloud agents, alongside its conversations and configuration.
+
+```
+$MEMORY_DIR/
+├── MEMORY.md
+├── persona.md
+├── human.md
+├── reference/
+│   ├── MEMORY.md
+│   └── project-notes.md
+└── skills/
+    └── my-skill/
+        └── SKILL.md
+```
+
+<br>
+
+### [RAG Is Not Agent Memory](https://www.letta.com/blog/rag-vs-agent-memory/)
+
+<br>
+
+- RAG often places irrelevant data into the context window, resulting in context pollution and degraded performance (especially for newer reasoning models).
+
+- RAG rose in popularity because of its simplicity: you embed a document in your LLM workflow, use an algorithm to find the top-K-related snippets of that document, and then deposit those snippets into the context window.
+
+- RAG is single step. LLMs get “one shot” at retrieving the most relevant data and generating a response. While that can work, it often doesn’t. T
+
+- RAG is purely reactive. RAG isn't going to retrieve personalization information that isn’t semantically similar.
+
+- Multi-step reasoning with tools is “agentic RAG,” and it’s the underlying foundation of Letta. 
+
+- Agentic RAG’s iterative methodology updates results each time it retrieves and reviews more information, generating a more holistic and accurate response than if it retrieved information and generated responses only once.
+
+<br>
+
+### [Dynamic workflows for stateful agents and decision models](https://www.letta.com/blog/dynamic-workflows/)
+
+<br>
+
+- Dynamic workflows: agents can write scripts that orchestrate many subagents at once. They can spawn many subagents, so per-call cost adds up fast. Low-cost models with strong coding ability, such as DeepSeek V4.1 Flash and GPT-6 Luna, make large fan-outs practical. 
+
+- They are built from a small set of primitives: `agent()`, `parallel()`, `pipeline()`, and `decide()`.
+
+ - Context Repositories are git-backed, so every change to memory is automatically versioned with informative commit messages. Git tracking also enables concurrent, collaborative work across multiple subagents, which can manage divergence and conflicts between learned context through standard git operations.
+
+- Files in the context repository are designed for progressive disclosure, similar to patterns recommended for agent skills.
+
+- By giving each subagent an isolated worktree, multiple subagents can process and write to memory concurrently, then merge their changes back through git-based conflict resolution.
+
+- Memory repositories are agnostic to the mechanism for memory management, but open up more possibilities for how memory and context engineering can be designed. 
+
+<br>
+
+### [Introducing Mods: Enabling Agents to Self-Improve through Harness-Level Adaptation](https://www.letta.com/blog/introducing-mods/)
+
+<br>
+
+- An agent-friendly way to extend and adapt the Letta Code harness. Mods let an agent modify the runtime it executes in — adding tools, commands, and UI, or changing how context is fed into the model — so that the harness itself becomes something an agent can learn.
+
+- Letta Code agents are designed to self-adapt through context using skill and system-prompt learning. Every agent has a built-in MemFS that versions and stores all of the context available to it, including prompts and skills. Both background memory agents and the agent itself can revise this context, so the agent learns and improves with experience and feedback.
+
+<br>
+
+Harness-level modifications let an agent self-improve in ways that learned context alone cannot:
+
+➡️ Modify context: An agent that keeps losing track of time in a use case that depends on it can modify the harness to attach a timestamp to every user message — rather than trying to infer or remember the current time on each turn.
+➡️ Extend capabilities: Instead of (or alongside) learning a skill, the agent can add new tools to the harness, or add features like automated secret scanning or plan mode.
+➡️ Compact: The agent can change the method or prompt used for compaction so that it better fits the environment it runs in.
+
+<br>
+
+### Additional Resources
+
+<br>
+
+- [Letta docs](https://docs.letta.com/)
+- [Letta Benchmarks](https://www.letta.com/blog/letta-leaderboard/)
 
 <br>
 <br>
 
 ---
 
-## 🟪 [Hindsight](https://github.com/vectorize-io/hindsight)
+## 🟪 [Hindsight (Python)](https://github.com/vectorize-io/hindsight)
 
 <br>
 
-> Hindsight is a style of memory architecture implemented by many teams: log every interaction, then periodically summarize or distill those logs into a compressed representation that can be re-injected into the model prompt.
+> *Hindsight treats agent memory as a structured foundation for reasoning in its own right, rather than as an external, unstructured layer added onto the model. At its center is a memory bank divided into four logical networks (world, experience, opinion, and observation) along with three core operations: retain, recall, and reflect.*
+
+> *The world and experience networks hold objective facts about the outside world and about the agent's own experiences. The opinion network holds subjective beliefs with confidence scores that change as new evidence comes in, and the observation network holds neutral summaries of entities built from the underlying facts. Keeping these networks separate lets the agent tell evidence apart from inference, and lets developers check why it answered the way it did.*
+
+> *Two components handle the operations. TEMPR covers retain and recall: it extracts narrative facts with time ranges, resolves entities, links them in a graph, and retrieves memories using several search strategies. Those strategies run in parallel: semantic vector search, BM25 keyword search, graph traversal over entity, causal, and temporal links, and explicit filtering by time. CARA covers reflect: it combines the retrieved memories with an agent profile (a name, a background, and parameters that shape the agent's disposition) to produce responses shaped by the agent's preferences, and to form and strengthen its opinions over time.*
 
 <br>
 
-Components:
+### Components
+
+<br>
 
 ➡️ Continuous logging: Store every user and assistant message in a database or vector store.
 ➡️ Periodic summarization: Use an LLM to create a summary of the last N interactions, or of the full conversation, and persist that summary as a “hindsight” artifact.
@@ -1647,19 +2072,103 @@ Components:
 ➡️ Prompt rehydration: Construct a final prompt combining system instructions, the user query, recent messages, and summaries.
 
 <br>
+
+### Memory Types
+
+<br>
+
+Hindsight uses biomimetic data structures to organize agent memories in a way that is more like how human memory works:
+
+➡️ World facts: facts about the world ("The stove gets hot")
+➡️ Experiences: the agent's own experiences ("I touched the stove and it really hurt")
+➡️ Observations: consolidated, evidence-backed beliefs formed from many memories
+➡️ Mental models: learned understanding of the agent's world, synthesized from observations and facts
+➡️ Knowledge page: a living document the bank writes about itself
+
+<br>
+
+### Multi-Strategy Retrieval
+
+<br>
+
+`recall()` runs four searches in parallel, because no single one handles every question:
+
+➡️ Semantic: meaning rather than wording
+➡️ Keyword (BM25): the names and technical terms an embedding blurs together; five pluggable Postgres backends, including one that works on a Citus cluster
+➡️ Graph: entity links, so a fact reachable in two hops comes back even when it shares no words with the query
+➡️ Temporal: time expressions parsed into a window, then filled by relevance and spread across the range
+
+<br>
+
+Then the part that matters more than any single arm:
+
+➡️ Fused by rank, not score — a memory several strategies agree on wins, and no arm's scoring scale can dominate the others
+➡️ Re-ranked by a cross-encoder that reads the query and the memory together
+➡️ Cut to a token budget, not a top-k — you say how much context you can afford and Hindsight fills it, because agents budget in tokens and not in result counts
+
+<br>
+
+### Agentic Wrapper
+
+<br>
+
+```
+from openai import OpenAI
+from hindsight_litellm import wrap_openai
+
+# Wrap your existing LLM client and you're done.
+# Defaults to Hindsight Cloud; pass hindsight_api_url for a self-hosted server.
+client = wrap_openai(
+    OpenAI(),
+    bank_id="user-123",
+    hindsight_api_url="http://localhost:8888",
+)
+
+# Hindsight recalls relevant memories before the call
+# and retains the conversation after it.
+response = client.chat.completions.create(
+    model="gpt-5-mini",
+    messages=[{"role": "user", "content": "What do you know about me?"}],
+)
+```
+
+<br>
+
+### Additional Resources
+
+<br>
+
+- [Hindsight docs](https://hindsight.vectorize.io/)
+- [Hindsight + Hermes](https://hindsight.vectorize.io/blog/2026/09/25/hindsight-hermes-plugin-catalog)
+- [hs-decide-1-flash (0.8B decision model)](https://huggingface.co/hindsight-ai/hs-decide-1-flash) ([blog post](https://hindsight.vectorize.io/blog/2026/11/03/hindsight-models))
+- [Hindsight Benchmarks](https://benchmarks.hindsight.vectorize.io/) and for [Agent Memory](https://agentmemorybenchmark.ai/)
+
+<br>
 <br>
 
 ---
 
-## 🟪 [Supermemory](https://supermemory.ai)
+## 🟪 [Supermemory (TypeScript, Python)](https://supermemory.ai)
 
 <br>
 
-> Supermemory targets a broader surface area: memory, user profiles, RAG, and external connectors in a single platform. It is well-suited for knowledge-heavy applications where memory is one part of the broader stack.
+> *A memory and context engine that sits between an AI application and whichever model it calls. At its core, the engine has three main parts: a `Memory Engine` that extracts facts and resolves contradictions, `User Profiles` that maintain static and dynamic context about each user, and `Hybrid Search` that combines RAG with memory retrieval.* 
+
+> *Text, files, chats, and connector data all flow in through two paths. The RAG path handles search over documents, while the user memory path builds a memory graph that tracks how facts change over time. When content is ingested, a 50-page PDF, for example, is broken into hundreds of interconnected memories, each linked to its context and to other knowledge. Those memories are connected through typed relationships.*
+
+> *When new information contradicts or updates something already stored, Supermemory records an "update" relationship and uses an `isLatest` field so searches return the current version. When new information adds to existing knowledge without replacing it, it records an "extends" relationship instead. The system also applies decay, so that, much as people forget where they parked weeks ago but remember yesterday's important meeting, older and less relevant memories fade.*
+
+> *The backend (the API server, ingestion pipeline, and memory engine) is closed source, and the open-source repository contains the client SDKs, framework integrations, MCP server, and web app.*
 
 <br>
 
-Capabilities:
+![](/blog/assets/report_mem_34.webp)
+
+<br>
+
+### Capabilities
+
+<br>
 
 ➡️ Connectors and ingestion: Index documents, web pages, and third-party data sources.
 ➡️ Profiles and traits: Store user attributes and traits inferred from interactions.
@@ -1667,48 +2176,268 @@ Capabilities:
 ➡️ Unified API: Provide a single endpoint that handles both memory and document retrieval.
 
 <br>
+
+### [How AI Memory Actually Works](https://supermemory.ai/blog/how-ai-memory-works/)
+
+<br>
+
+![](/blog/assets/report_mem_36.webp)
+
+<br>
+
+- A 100-turn chat is only about 50k tokens long, but every turn resends everything before it, so by the end your app has sent about 2.5M tokens.
+
+<br>
+
+What a memory system has:
+
+➡️ A search step. This can be RAG, grep or semantic search, and something always has to find the relevant pieces. 
+➡️ Chunking. The data gets split into pieces, because it can't all fit into one model call. That goes for search and for learning. 
+➡️ Learning outside the main conversation. The agent you're talking to usually isn't the one deciding what to remember. Learning runs on a schedule or after a trigger. 
+➡️ Code in the app that puts what was found back into the model's context. 
+
+<br>
+
+![](/blog/assets/report_mem_35.webp)
+
+<br>
+
+- Dreaming: we do the arranging with learner-1, a model we built for the job. It reads what you send, pulls out facts and links them to the ones it already has.
+
+```
+import { Supermemory } from "supermemory" // npm i supermemory
+
+const client = new Supermemory({ apiKey: process.env.SUPERMEMORY_API_KEY })
+
+// 1. Write: send a conversation. Facts get extracted and
+//    linked in the background, so they aren't searchable right away.
+await client.add("user_123", {
+  content: "user: I just moved from Google to Stripe as a PM",
+})
+
+// 2. Recall: the profile, plus memories relevant to this question
+const { profile } = await client.profile("user_123")
+const { results } = await client.search("user_123", {
+  query: "Suggest a talk I should give",
+})
+
+// 3. Inject: put it in the system prompt of any model
+const context = [
+  ...profile.static.map((m) => m.memory),
+  ...profile.dynamic.map((m) => m.memory),
+  ...results.map((r) => r.memory ?? r.chunk),
+].filter(Boolean).join("\n")
+```
+
+<br>
+
+### Additional Resources
+
+<br>
+
+- [Supermemory docs](https://supermemory.ai/docs)
+- [Supermemory benchmarks](https://github.com/supermemoryai/memorybench)
+
+<br>
 <br>
 
 ---
 
-## 🟪 [Honcho](https://github.com/plastic-labs/honcho)
+## 🟪 [Honcho (Python, TypeScript)](https://github.com/plastic-labs/honcho)
 
 <br>
 
-> Honcho provides a managed memory service for AI agents. It focuses on storing conversations, extracting salient facts, and retrieving them for later use. Its goal is to abstract away the complexities of embedding stores, retrieval logic, and persistence so that agents can add “remembering” capabilities with minimal code.
+> *Memory infrastructure that keeps reasoning about incoming data to build up rich representations of peers, meaning users, agents, or any other entity, over time. Its design is peer-centric: peers are the most important entity in Honcho, and everything revolves around them and their representations. Peers take part in sessions, which hold messages.*
+
+> *Honcho also accepts other inputs, such as user actions (clicks and reactions) and file uploads (PDFs, text files, and JSON documents). Instead of only storing what comes in, Honcho queues background jobs for each new message across three reasoning pipelines: the deriver extracts atomic facts, the summary pipeline keeps rolling summaries of session themes, and the dialectic reasons over what has been learned. The deriver is central here, since it takes the new messages peers send and reasons over them to pull out facts, insights, and context.*
+
+> *The results form two kinds of representation: a global one, which synthesizes insights about a peer across all its sessions, and a local one, which holds context formed from specific interactions it has observed. To read from memory, developers can use the Dialectic API, a natural-language endpoint (`/peers/{peer_id}/chat`) that lets them ask Honcho about any peer, much like consulting an oracle, to fill in prompts or get personalized insights. In Honcho 3, that endpoint is backed by a Dialectic Agent that replaced the earlier fixed-path design.*
+
+<br>
+
+### Architecture
+
+<br>
+
+Honcho organises everything around peers — humans and AI agents alike are first-class entities. The peer model enables:
+
+➡️ Multi-participant sessions with mixed human and AI agents
+➡️ Configurable observation settings (which peers observe which others)
+➡️ Flexible identity management for all participants
+➡️ Support for complex multi-agent interactions
+
+<br>
+
+Peers exchange messages within sessions; Honcho reasons over those messages to build a representation of each peer that you can query.
+
+➡️ Workspace (formerly App): top-level container; isolates data between use cases.
+➡️ Peer (formerly User): any participant — human user or AI agent.
+➡️ Session: a conversation context; many-to-many with peers.
+➡️ Scope: a named grouping of sessions that bounds recall (chat, representation, search) to those members.
+➡️ Message: an atomic data unit (peer-to-peer communication or ingested document chunk).
+
+<br>
+
+- Honcho splits into two services: `Storage` (workspaces, peers, sessions, scopes, messages, internal collections) and `Insights` (reasoning, conclusions, representations, summaries, the chat endpoint). 
+
+- Storage is synchronous via the API; Insights is asynchronous via a background queue consumed by the deriver worker process.
+
+<br>
+
+| Need                               | API                                                             |
+| ---------------------------------- | --------------------------------------------------------------- |
+| Save interaction history           | `session.add_messages(...)`                                     |
+| Ask what Honcho knows about a peer | `peer.chat(...)`                                                |
+| Ask across the whole workspace     | `honcho.chat(...)` / `honcho.chat_stream(...)`                  |
+| Get prompt-ready context           | `session.context(...).to_openai(...)` / `.to_anthropic(...)`    |
+| Hybrid search (BM25 + vector)      | `peer.search(...)`, `session.search(...)`, `honcho.search(...)` |
+| Low-latency static representations | `peer.representation(...)`, `session.representation(...)`       |
+| Import documents                   | `session.upload_file(...)`                                      |
+| Inspect background processing      | `honcho.queue_status(...)`                                      |
+
+<br>
+
+### Formal Logic Framework
+
+<br>
+
+- Honcho’s memory system is powered by custom models trained to perform formal logical reasoning. The system extracts what was explicitly stated, draws certain conclusions from those, identifies patterns across multiple conclusions, and infers the simplest explanations for behavior.
+
+- LLMs are uniquely well-suited for this reasoning task—it’s well-represented in the pretraining data. LLMs can maintain consistent reasoning across thousands of conclusions without cognitive fatigue or belief resistance—which is extremely hard for humans to do reliably. The outputs are also composable, meaning logical conclusions can be stored, retrieved, and combined programmatically for dynamic context assembly.
+
+<br>
+
+![](/blog/assets/report_mem_39.avif)
+
+<br>
+
+### [Memory as Reasoning](https://honcho.dev/blog/blog/memory-as-reasoning)
+
+<br>
+
+- Memory in agentic systems has historically focused on static storage, but we propose treating it as a dynamic reasoning task. Humans evolved to leverage prediction & surprisal-based reasoning systems to deal with resource constraints. LLMs and agents, however, don’t have these limitations, so we make the argument for logical reasoning as a trainable task to produce memory models that exceed human performance on several axes. Scaffolding reasoning traces using this approach allows us to get more out of user and agent data and form more useful representations of personal identity.
+
+<br>
+
+Common storage solutions include, but are not limited to, the following:
+
+➡️ Relational Databases: Reliable, familiar, optimizable. Good for almost everything. We’ve found developers often wish they started here, but they try out fancy new frameworks and quickly find their limits. 
+➡️ Vector Databases: Newer, well understood, supported by most relational databases. Allows developers to “embed” their text sequences--meaning they get run through a special LLM that produces a high-dimensional vector representation that you can do math on. Cosine distance is a popular way to compute “semantic” similarity, meaning you can search on ideas rather than just strings. Fuzzy, but still useful. 
+➡️ Graph Databases: Organize data via nodes and edges. The associations are the product. Great for human legibility, hard to scale. 
+
+<br>
+
+- Human cognitive systems evolved under energy, information, and computation constraints. They therefore evolved elegant ways of taking incomplete data flowing over sensory organs and constructing representations or models of reality. Cognitive science tells us that the brain employs sophisticated prediction and surprisal strategies to build models under such constraints. Remembering everything with perfect fidelity just isn’t realistic for a system evolving in a competitive, under-resourced environment. So memory is not simply the encoding of perfect static data about the world and surfacing it when needed. Instead, it’s making predictions about the environment based on incomplete data and checking at the margins for errors thrown by sensory inputs to improve the next round of predictions. In this way, an internal model of reality is born.
+
+- Two ideas were combined--reinforcement learning was (and is being) applied to the chain-of-thought reasoning traces directly, computing rewards based on whether or not the reasoning led to the correct answers. The first demonstration of this concept was OpenAI’s o1 series of models, which hid the “thinking” trace and served the response once it was done. DeepSeek open-sourced their R1 series of models, which effectively reverse engineered the o1 methodology, exposed the “thinking” of the model for all to see, and demonstrated the cost benefits of scaling post-training.
+
+- Logical reasoning is the process by which we derive conclusions based on premises that serve as evidence to support that conclusion. We’ve all encountered these terms before, but deductive conclusions are certain statements supported by premises that were explicitly stated or observed. Inductive conclusions form general statements based on observed patterns, and abductive conclusions seek the best explanation for behaviors in the simplest way possible.
+
+- This tree of logical reasoning is far superior to static storage. It can be entered and traversed anywhere to scaffold reasoning and answer any query, a capability not true of any other method. And it can be computed over asynchronously or on the fly to improve the representation.
+
+- The question isn’t how best to store your data as it exists for prediction later, but rather how best to reason over it to get the most accurate topological representation of identity upon which to run simulation. We can transcend mere good guessing and black box inference and replace it with reaching certainty and making high-fidelity, traceable predictions.
+
+<br>
+
+### [Neuromancer](https://plasticlabs.ai/neuromancer)
+
+<br>
+
+- The first collection of models dedicated to AI-native memory and social cognition. They're trained specifically to do formal logical reasoning over user and agent data to form representations of any entity's personal identity.
+
+- Neuromancer XR - A model for explicit reasoning, excelling at deduction & factual derivation. XR is a fine-tuned Qwen3-8B model trained on a manually curated dataset of social reasoning traces. It achieves state-of-the art results on memory benchmarks and reasons toward certain conclusions.
+
+- Neuromancer MR (in training) - A model for meta-reasoning--reasoning about reasoning. MR focuses on reaching predictive conclusions, like inductions & abductions, to scaffold patterns & hypotheses over XR traces.
+
+<br>
+
+![](/blog/assets/report_mem_45.webp)
+
+<br>
+
+### Additional Resources
+
+<br>
+
+- [Honcho docs](https://honcho.dev/docs/v3/documentation/introduction/overview)
+- [Honcho Benchmarks](https://honcho.dev/evals)
+- [Honcho on OpenClaw](https://docs.openclaw.ai/concepts/memory-honcho)
+- [Tonbi on Hermes, Memory, Honcho](https://www.youtube.com/watch?v=ZKZLko9kLm4)
 
 <br>
 <br>
 
 ---
 
-## 🟪 [ByteRover](https://www.byterover.dev/)
+## 🟪 [OpenViking (Python)](https://openviking.ai/)
 
 <br>
 
-> ByteRover is an agent-native memory and collaboration layer that acts as a company brain for development teams. It uses LLM-curated hierarchical context trees to sync project memory, code decisions, and workflows selectively across agents and teammates.
+> *Context database for AI agents that rather than treating memory as a separate module, it puts every kind of context (memories, resources, and skills) into one directory structure, with semantic retrieval and progressive loading of content. These three types have different lifecycles: resources are static knowledge that users add, memory is extracted by the agent and updated over time, and skills are callable capabilities with fixed definitions.*
 
-<br>
-<br>
+> *Everything is laid out as a virtual filesystem addressed with `viking:// URIs`, so agents can navigate context with familiar commands like ls, find, and grep. These directories are virtual, though, backed by a file system layer and a vector index, so the "filesystem" is really a presentation layer over a database rather than actual files on disk. To save tokens, each piece of context is automatically processed into three levels of detail when it is written, labeled `L0`, `L1`, and `L2`, with the full content loaded only when needed.*
 
----
-
-## 🟪 [OpenViking](https://openviking.ai/)
+> *Retrieval works recursively through directories instead of relying on a single flat vector search. Memory builds up through sessions: after a session is committed, OpenViking asynchronously extracts user preferences and agent experience into long-term memory, sorting it into six categories (profile, preferences, entities, events, cases, and patterns) and using an LLM to decide what is a duplicate.*
 
 <br>
 
-> OpenViking is an open-source context database for AI agents designed to unify agent memory, knowledge RAG, and skills. It acts as a single structured filesystem for everything an agent knows, avoiding opaque black-box vector stores.
-
-<br>
-<br>
-
----
-
-## 🟪 [Holographic](https://github.com/writerslogic/holographic-memory)
+### Architecture 
 
 <br>
 
-> Holographic Memory is a local-first associative memory and vector search engine for AI agents. It leverages Vector Symbolic Architectures and Binary Spatter Code to enable lightning-fast, zero-dependency semantic search, associative recall, and analogical reasoning.
+```
+viking://
+├── resources/              # Resources: project docs, repos, web pages, etc.
+│   └── my_project/
+│       ├── docs/
+│       │   ├── api/
+│       │   └── tutorials/
+│       └── src/
+└── user/
+    └── {user_id}/
+        ├── memories/
+        │   └── preferences/
+        │       ├── writing_style
+        │       └── coding_habits
+        ├── resources/
+        │   └── private_project/
+        ├── skills/
+        │   ├── search_code
+        │   └── analyze_data
+        └── peers/
+            └── web-visitor-alice/
+```
+
+<br>
+
+With 3 Loading Tiers:
+
+➡️ L0 (Abstract): a one-sentence summary for quick relevance checks.
+➡️ L1 (Overview): core information and usage scenarios for planning.
+➡️ L2 (Details): the full original data, read only when needed.
+
+<br>
+
+```
+viking://resources/my_project/
+├── .abstract.md           # L0: quick relevance check
+├── .overview.md           # L1: structure and key points
+└── docs/
+    ├── .abstract.md
+    ├── .overview.md
+    └── api/
+        ├── auth.md         # L2: full content, loaded on demand
+        └── endpoints.md
+```
+
+<br>
+
+### Additional Resources
+
+<br>
+
+- [OpenViking docs](https://docs.openviking.ai/en/)
+- [OpenViking Benchmarks](https://blog.openviking.ai/post/openviking-benchmark-results/) (and [code](https://github.com/volcengine/OpenViking/tree/main/benchmark))
 
 <br>
 <br>
@@ -1876,7 +2605,7 @@ const memorizerSubagent: SubAgent = {
 ---
 
 
-## [AI Memory Systems with MongoDB Atlas, AWS and Claude (MongDB, 2025)](https://www.mongodb.com/company/blog/technical/build-ai-memory-systems-mongodb-atlas-aws-claude)
+## [AI Memory Systems with MongoDB Atlas, AWS and Claude (MongoDB, 2025)](https://www.mongodb.com/company/blog/technical/build-ai-memory-systems-mongodb-atlas-aws-claude)
 
 
 <br>
@@ -2021,7 +2750,7 @@ Short-term memory: To create an event, you typically need 3 identifiers.
 
 Memory consolidation:
 
-➡️ Parameter expansion & continuum memory hierarchy: To prevent catastrophic forgetting, the model dynamically scales its capacity during sleep. Using a Mixture of Experts (MoE) and Hope architecture , newly unlocked, low-rank experts are integrated into stable, lower-frequency memory blocks to store incoming knowledge without disrupting older parameters.
+➡️ Parameter expansion & continuum memory hierarchy: To prevent catastrophic forgetting, the model dynamically scales its capacity during sleep. Using a Mixture of Experts (MoE) and Hope architecture, newly unlocked, low-rank experts are integrated into stable, lower-frequency memory blocks to store incoming knowledge without disrupting older parameters.
 ➡️ Knowledge seeding (upward distillation): Fragile short-term memories stored in high-frequency layers (e.g., in-context memory) are transferred into the newly expanded long-term parameters. This is achieved through Generalized Knowledge Distillation (GKD) combined with reinforcement learning (RL)-based imitation learning.
 ➡️ Synaptic pruning: Once the memory consolidation into lower-frequency modules is complete, the high-frequency temporary parameters are reset, freeing up capacity for future active sessions.
 
@@ -2065,7 +2794,7 @@ Dreaming for self-improvement
 
 - Memory scaling is the property that an agent's performance improves as its external memory grows. Here "memory" refers to a persistent store of information the agent can interact with at inference time, distinct from the model's weights or the current context window.
 
-- **[MemAlign](https://www.databricks.com/blog/memalign-building-better-llm-judges-human-feedback-scalable-memory)** is our exploration into what a simple memory framework can look like for AI agents. It stores past interactions as episodic memories, uses an LLM to distill them into generalized rules and patterns (semantic memories), and retrieves the most relevant entries at inference time to guide the agen.
+- **[MemAlign](https://www.databricks.com/blog/memalign-building-better-llm-judges-human-feedback-scalable-memory)** is our exploration into what a simple memory framework can look like for AI agents. It stores past interactions as episodic memories, uses an LLM to distill them into generalized rules and patterns (semantic memories), and retrieves the most relevant entries at inference time to guide the agent.
 
 - Standalone vector databases handle semantic search well but lack relational capabilities like joins and filtering. Modern PostgreSQL-based systems offer a more unified alternative: they natively support structured queries, full-text search, and vector similarity search in a single engine.
 
@@ -2122,7 +2851,7 @@ Dreaming for self-improvement
 
 - Context engineering refers to the set of strategies for curating and maintaining the optimal set of tokens (information) during LLM inference, including all the other information that may land there outside of the prompts.
 
-- This attention scarcity stems from architectural constraints of LLMs. LLMs are based on the transformer architecture, which enables every token to attend to every other token across the entire context. This results in n² pairwise relationships for n tokens.
+- This attention scarcity stems from architectural constraints of LLMs. LLMs are based on the transformer architecture, which enables every token to attend to every other token across the entire context. This results in `n²` pairwise relationships for `n` tokens.
 
 - As its context length increases, a model's ability to capture these pairwise relationships gets stretched thin, creating a natural tension between context size and attention focus. Additionally, models develop their attention patterns from training data distributions where shorter sequences are typically more common than longer ones. This means models have less experience with, and fewer specialized parameters for, context-wide dependencies.
 
@@ -2147,26 +2876,57 @@ Dreaming for self-improvement
 
 <br>
 
-#### ✨ Let's conclude our readings with a curated collection of the latest research and developments in agentic memory, which we shall explore in future posts in our *Collective Intelligence Series* (on some weekend, if time allows... 🥲). Until then, I'll keep adding relevant resources as I come across them. ✨
+#### ✨ Let's wrap up our readings with a few survey papers from 2026, followed by a curated collection of the latest research and developments in agentic memory. We'll explore these in future posts in our *Collective Intelligence* series (on some weekend, if time allows... 🥲). Until then, I'll keep adding relevant resources as I come across them. ✨
 
 <br>
 
-### 2026's Quintessential Surveys and Guides
+---
+
+## [A Survey of Agent Memory in the Second Half ( W. Huang et al., 2026)](https://arxiv.org/pdf/2602.06052)
 
 <br>
 
-* [A Survey of Agent Memory in the Second Half](https://arxiv.org/pdf/2602.06052) — W. Huang et al. (2026).
-* [A Survey on the Evolution of LLM Agent Memory Mechanisms](https://arxiv.org/pdf/2605.06716) — J. Luo et al. (2026).
-* [Memory in the Age of AI Agents: A Survey](https://arxiv.org/pdf/2512.13564) — Y. Hu et al. (2026).
-* [Advances in Memory Mechanisms for LLMs](https://arxiv.org/pdf/2610.35089) — C. Han et al. (2026).
-* [Memory as Infrastructure](https://arxiv.org/pdf/2609.05510) — M. Helwig (2026).
-* [Harness the Memory](https://arxiv.org/pdf/2608.15008) — W. Huang et al. (2026).
-* [A Unified Review of Memory, Skills, Protocols and Harness Engineering](https://arxiv.org/pdf/2604.08224) — C. Zhou et al. (2026).
-* [Memory for Autonomous LLM Agents](https://arxiv.org/pdf/2603.07670) — P. Dug (2026).
-* [Anatomy of Agentic Memory](https://arxiv.org/pdf/2602.19320) — D. Jiang et al. (2026).
-* [A Survey on the Memory Mechanism of LLM-Based Agents](https://arxiv.org/pdf/2404.13501) — Z. Zhang et al. (2024).
-* [M*⋆: Every Task Deserves Its Own Memory Harness](https://arxiv.org/pdf/2604.11811) — W. Pan et al. (2026).
-* [A Survey on Long-Term Memory Security in LLM Agents](https://arxiv.org/pdf/2604.16548) — Z. Lin et al. (2026).
+![](/blog/assets/report_mem_42.webp)
+
+<br>
+
+- As the field enters the “second half,” the central challenge becomes real utility in long-horizon, dynamic, and user-dependent settings such as agentic coding, deep research, and computer use, where LLM-based agents face context explosion beyond fixed context windows and must continuously accumulate, manage, and selectively reuse large volumes of information across extended interactions.
+
+- We provide a unified view of foundation agent memory along three dimensions: memory substrate (internal parametric state and external retrieval-augmented stores), cognitive mechanism (sensory, working, episodic, semantic, and procedural), and memory subject (user-centric personalization and agent-centric experience). 
+
+<br>
+
+![](/blog/assets/report_mem_43.webp)
+
+<br>
+
+- A growing line of work further frames foundation agents as self-evolving systems that improve from their own execution experience at deployment time, rather than solely through offline training, and emerging benchmarks have begun to directly evaluate such experience-driven test-time learning over self-evolving memory. 
+
+- Memory is the substrate that makes this self-evolution possible: without mechanisms to record, consolidate, and reuse experience, every episode leaves the agent unchanged,and long-horizon interaction degenerates into a sequence of isolated one-shot tasks. 
+
+- Multi-agent systems extend this paradigm by assigning specialized roles and memories to multiple agents that communicate and coordinate.
+
+<br>
+
+![](/blog/assets/report_mem_44.webp)
+
+<br>
+
+### Memory Routing
+
+<br>
+
+- Orchestrator-based Routing. This refers to a setting where a centralized orchestrator makes routing decisions in a unified way. It maintains the global task state and collaboration progress, breaks a complex goal into subtasks, and then assigns subtasks to different worker agents based on their roles and abilities, while also distributing the required memory and deciding the execution order. These decisions can be updated dynamically as the task state changes. This method emphasizes a centralized global workflow, but the cost is that the orchestrator may become a bottleneck for performance and robustness, creating a single point of load and failure risks.
+
+- Agent-Initiated Routing. Compared with orchestrator-based routing, in this method routing decisions are not assigned by a centralized orchestrator. Instead, each agent initiates them locally based on its role and task. Information is usually published into a shared memory pool first, and then agents use constraint mechanisms to select the memories they need, forming their own memory views. This method is often more flexible, but it also depends more on good filtering design to avoid noise, conflict, or missing important information in the shared pool.
+
+- Memory-driven Routing. Different from the above two, routing here is mostly done by retrieval from the memory store. The system represents the current task as a query, and then performs “retrieval, scoring and reranking, selection” in the memory store to obtain the most relevant subset of memories and inject it into the context. Sometimes it can also use structured links between memories (like graph-based expansion) to extend the retrieved results into a more complete set of experience pieces
+
+<br>
+
+---
+
+## In the backlog...
 
 <br>
 
@@ -2174,21 +2934,26 @@ Dreaming for self-improvement
 
 <br>
 
-* [A-Mem: Agentic Memory for LLM Agents](https://arxiv.org/pdf/2502.12110) — W. Xu et al. (2025).
-- [AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents](https://arxiv.org/abs/2610.02163) — Xuan Zhang et al. (2026).
-- [ACM: Agentic Context Management for Long Horizon Tasks](https://arxiv.org/abs/2607.23809) — Xiaochuan Li, Ryan Ming, Meng Chu, Shuai Shao, Rong Jin, Chenyan Xiong (2026).
-- [PRO-LONG: Programmatic Memory Enables Long-Horizon Reasoning](https://arxiv.org/abs/2607.20064) — Alexis Fox, Junlin Wang, Paul Rosu, Bhuwan Dhingra (2026).
-- [Beyond Semantic Organization: Memory as Execution State Management for Long-Horizon Agents](https://arxiv.org/abs/2606.06090) — Yaoqi Chen et al. (2026).
-- [Context Pruning for Coding Agents via Multi-Rubric Latent Reasoning](https://arxiv.org/abs/2605.15315) — Jingjing Wang et al. (2026).
-- [ClawVM: Harness-Managed Virtual Memory for Stateful Tool-Using LLM Agents](https://arxiv.org/abs/2604.10352) — Mofasshara Rafique, Laurent Bindschaedler (2026)..
-- [GAAMA: Graph Augmented Associative Memory for Agents](https://arxiv.org/abs/2603.27910) — Swarna Kamal Paul, Shubhendu Sharma, Nitin Sareen (2026).
-- [MemArchitect: A Policy Driven Memory Governance Layer](https://arxiv.org/abs/2603.18330) — Lingavasan Suresh Kumar, Yang Ba, Rong Pan (2026).
+- [Harness the Memory: A Holistic Evaluation of Memory Substrates in Memory Agents]() — W. Huang et al. (2026)
+- [Learning to Remember: Advances in Memory Mechanisms for Large Language Models](https://arxiv.org/pdf/2610.35089) — C. Ha et al.(2026)
+- [Memory in the Age of Agents](https://arxiv.org/pdf/2512.13564) — Y. Hu et al. (2026)
+- [M*⋆: Every Task Deserves Its Own Memory Harness](https://arxiv.org/pdf/2604.11811) — W. Pan et al. (2026).
+- [A-Mem: Agentic Memory for LLM Agents](https://arxiv.org/pdf/2502.12110) — W. Xu et al. (2025).
+- [AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents](https://arxiv.org/abs/2610.02163) — X. Zhang et al. (2026).
+- [ACM: Agentic Context Management for Long Horizon Tasks](https://arxiv.org/abs/2607.23809) — X. Li et al. (2026).
+- [PRO-LONG: Programmatic Memory Enables Long-Horizon Reasoning](https://arxiv.org/abs/2607.20064) — A. Fox et al. (2026).
+- [Beyond Semantic Organization: Memory as Execution State Management for Long-Horizon Agents](https://arxiv.org/abs/2606.06090) — Y. Chen et al. (2026).
+- [Context Pruning for Coding Agents via Multi-Rubric Latent Reasoning](https://arxiv.org/abs/2605.15315) — J. Wang et al. (2026).
+- [ClawVM: Harness-Managed Virtual Memory for Stateful Tool-Using LLM Agents](https://arxiv.org/abs/2604.10352) — Mofasshara Rafique, Laurent Bindschaedler (2026).
+- [GAAMA: Graph Augmented Associative Memory for Agents](https://arxiv.org/abs/2603.27910) — S. Kamal Paul et al. (2026).
+- [MemArchitect: A Policy Driven Memory Governance Layer](https://arxiv.org/abs/2603.18330) — L. Suresh Kumar et al. (2026).
 - [Facts as First Class Objects: Knowledge Objects for Persistent LLM Memory](https://arxiv.org/abs/2603.17781) — Oliver Zahn, Simran Chana (2026).
-- [Graph-Native Cognitive Memory for AI Agents: Formal Belief Revision Semantics for Versioned Memory Architectures](https://arxiv.org/abs/2603.17244) — Young Bin Park (2026).
-- [Codified Context: Infrastructure for AI Agents in a Complex Codebase](https://arxiv.org/abs/2602.20478) — Aristidis Vasilopoulos (2026).
+- [Graph-Native Cognitive Memory for AI Agents: Formal Belief Revision Semantics for Versioned Memory Architectures](https://arxiv.org/abs/2603.17244) — Y. Bin Park (2026).
+- [Codified Context: Infrastructure for AI Agents in a Complex Codebase](https://arxiv.org/abs/2602.20478) — A. Vasilopoulos (2026).
 - [Active Context Compression: Autonomous Memory Management in LLM Agents](https://arxiv.org/abs/2601.07190) — Nikhil Verma (2026).
-- [MAGMA: A Multi-Graph based Agentic Memory Architecture for AI Agents](https://arxiv.org/abs/2601.03236) — Dongming Jiang, Yi Li, Guanpeng Li, Bingzhe Li (2026).
-- [Beyond Static Summarization: Proactive Memory Extraction for LLM Agents](https://arxiv.org/abs/2601.04463) — Chengyuan Yang, Zequn Sun, Wei Wei, Wei Hu (2026).
+- [MAGMA: A Multi-Graph based Agentic Memory Architecture for AI Agents](https://arxiv.org/abs/2601.03236) — D. Jiang et al. (2026).
+- [Beyond Static Summarization: Proactive Memory Extraction for LLM Agents](https://arxiv.org/abs/2601.04463) — C. Yang et al. (2026).
+- [Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering](https://arxiv.org/pdf/2604.08224) — C. Zhou et al. (2026)
 
 <br>
 
@@ -2196,9 +2961,9 @@ Dreaming for self-improvement
 
 <br>
 
-- [QSAF: A Novel Mitigation Framework for Cognitive Degradation in Agentic AI](https://arxiv.org/abs/2507.15330) — Hammad Atta et al. (2025).
-- [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120) — Philippe Laban, Hiroaki Hayashi, Yingbo Zhou, Jennifer Neville (2025).
-- [It's All Connected: A Journey Through Test-Time Memorization, Attentional Bias, Retention, and Online Optimization](https://arxiv.org/abs/2504.13173) — Ali Behrouz, Meisam Razaviyayn, Peilin Zhong, Vahab Mirrokni (2025).
+- [QSAF: A Novel Mitigation Framework for Cognitive Degradation in Agentic AI](https://arxiv.org/abs/2507.15330) — H. Atta et al. (2025).
+- [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120) — P. Laban et al. (2025).
+- [It's All Connected: A Journey Through Test-Time Memorization, Attentional Bias, Retention, and Online Optimization](https://arxiv.org/abs/2504.13173) — A. Behrouz et al. (2025).
 - [Towards Economical Inference: Enabling DeepSeek's Multi-Head Latent Attention in Any Transformer-based LLMs](https://arxiv.org/abs/2502.14837) — Tao Ji et al. (2025).
 - [MemEvolve: Meta-Evolution of Agent Memory Systems](https://arxiv.org/pdf/2512.18746) — OPPO AI Team (2025)
 
@@ -2208,10 +2973,11 @@ Dreaming for self-improvement
 
 <br>
 
-- [Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427) — Theodore R. Sumers, Shunyu Yao, Karthik Narasimhan, Thomas L. Griffiths (2023).
-- [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) — Nelson F. Liu, Kevin Lin, John Hewitt, Ashwin Paranjape, Michele Bevilacqua, Fabio Petroni, Percy Liang (2023).
-- [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) — Joon Sung Park, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, Michael S. Bernstein (2023).
-- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) — Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela (2020).
+- [A Survey on the Memory Mechanism of LLM-Based Agents](https://arxiv.org/pdf/2404.13501) — Z. Zhang et al. (2024).
+- [Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427) — T. R. Sumers et al. (2023).
+- [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) — N. F. Liu et al. (2023).
+- [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) — J. S. Park et al. (2023).
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) — P. Lewis et al. (2020).
 
 <br>
 <br>
@@ -2224,7 +2990,6 @@ Dreaming for self-improvement
 
 #### ✨ For completeness, I've compiled a list of other popular open-source projects focused on agentic memory, organized by programming language for easy reference. I'll continue to expand the list as I discover additional relevant resources. ✨
 
-<br>
 <br>
 
 * 🦀 [memvid (Rust)](https://github.com/memvid/memvid): Memory layer for AI agents. Replace complex RAG pipelines with a serverless, single-file memory layer. Give your agents instant retrieval and long-term memory.
@@ -2244,6 +3009,8 @@ Dreaming for self-improvement
 * 🦀 [Chroma (Rust)](https://github.com/chroma-core/chroma): Data infrastructure for AI. Powers serverless vector, hybrid, and full-text search. It's extremely fast, cost-effective, scalable and painless. Create a DB and try it out in under 30 seconds.
 
 * 🦀 [Warm (Rust)](https://github.com/writerslogic/warm): Local memory for agents and apps: full-text and vector search, a memory API and a vector-symbolic fact store in one embeddable Rust engine that makes no network calls.
+
+* 🦀 [Qdrant (Rust)](https://github.com/qdrant/qdrant): High-performance, massive-scale Vector Database and Vector Search Engine for the next generation of AI.
 
 * 🐍 [NVIDIA's Auto-Ontology (Python)](https://github.com/NVIDIA/auto-ontology): Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows.
 
@@ -2277,14 +3044,14 @@ Dreaming for self-improvement
 
 * 🟦 [MemOS (TypeScript)](https://github.com/MemTensor/MemOS): Self-evolving memory OS for LLMs and AI agents: ultra-persistent memory, hybrid retrieval, and cross-task skill reuse, with 35.24% token savings and DeepSeek Harness support.
 
+* 🟦 [RetainDB (TypeScript)](https://github.com/RetainDB/RetainDB): Memory infrastructure for AI agents, from local coding-agent recall to hosted product memory. 
+
 * ⚙️ [nebula (C++)](https://github.com/vesoft-inc/nebula): A distributed, fast, open-source graph database featuring horizontal scalability and high availability.
 
 <br>
 <br>
 
 ---
-
-<br>
 
 ### That's it for today. I hope you had as much fun reading as I had conducting this research. Thank you for reading, and until next time, my friends!
 

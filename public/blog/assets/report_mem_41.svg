@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-labelledby="title desc" font-family="Inter, Arial, sans-serif">
+  <title id="title">Agent memory write and read lifecycle</title>
+  <desc id="desc">Top row: the write path turns raw input into stored memory through extraction, entity resolution, conflict handling with temporal validity, and persistence. Bottom row: the read path turns a query into injected context through hybrid retrieval, ranking, and budgeting. Feedback from task outcomes flows back into the stores.</desc>
+  <defs>
+    <marker id="arrow-w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B45309"/>
+    </marker>
+    <marker id="arrow-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1D4ED8"/>
+    </marker>
+    <marker id="arrow-f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#047857"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="360" fill="#FFFFFF"/>
+  <text x="600" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#111111">Agent memory lifecycle: write path and read path</text>
+
+  <!-- Write path row -->
+  <text x="40" y="78" font-size="14" font-weight="700" fill="#B45309">WRITE</text>
+  <rect x="100" y="56" width="150" height="56" rx="10" ry="10" fill="#FFFFFF" stroke="#111111" stroke-width="1.5"/>
+  <text x="175" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Raw input</text>
+  <text x="175" y="98" text-anchor="middle" font-size="12" fill="#444444">turns, docs, tool output</text>
+  <line x1="250" y1="84" x2="278" y2="84" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-w)"/>
+
+  <rect x="280" y="56" width="170" height="56" rx="10" ry="10" fill="#FFF7ED" stroke="#B45309" stroke-width="1.5"/>
+  <text x="365" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Extract</text>
+  <text x="365" y="98" text-anchor="middle" font-size="12" fill="#444444">entities, facts, events</text>
+  <line x1="450" y1="84" x2="478" y2="84" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-w)"/>
+
+  <rect x="480" y="56" width="170" height="56" rx="10" ry="10" fill="#FFF7ED" stroke="#B45309" stroke-width="1.5"/>
+  <text x="565" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Resolve</text>
+  <text x="565" y="98" text-anchor="middle" font-size="12" fill="#444444">dedupe, link to known nodes</text>
+  <line x1="650" y1="84" x2="678" y2="84" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-w)"/>
+
+  <rect x="680" y="56" width="190" height="56" rx="10" ry="10" fill="#FFF7ED" stroke="#B45309" stroke-width="1.5"/>
+  <text x="775" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Reconcile</text>
+  <text x="775" y="98" text-anchor="middle" font-size="12" fill="#444444">supersede, set valid_from / valid_to</text>
+  <line x1="870" y1="84" x2="898" y2="84" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-w)"/>
+
+  <rect x="900" y="56" width="260" height="56" rx="10" ry="10" fill="#FFFFFF" stroke="#111111" stroke-width="1.5"/>
+  <text x="1030" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Persist</text>
+  <text x="1030" y="98" text-anchor="middle" font-size="12" fill="#444444">graph + vector index + episodic log</text>
+
+  <!-- Shared stores (middle) -->
+  <rect x="400" y="150" width="400" height="60" rx="12" ry="12" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="600" y="175" text-anchor="middle" font-size="14" font-weight="700" fill="#111111">Memory stores</text>
+  <text x="600" y="195" text-anchor="middle" font-size="12" fill="#444444">episodic &#183; semantic (graph + vectors) &#183; procedural</text>
+  <path d="M 1030 112 L 1030 130 Q 1030 142 1018 142 L 812 142 Q 800 142 800 154 L 800 160" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-w)"/>
+  <path d="M 400 200 L 394 200 Q 382 200 382 212 L 382 254 Q 382 266 394 266 L 398 266" fill="none" stroke="#1D4ED8" stroke-width="2" marker-end="url(#arrow-r)"/>
+
+  <!-- Read path row -->
+  <text x="40" y="288" font-size="14" font-weight="700" fill="#1D4ED8">READ</text>
+  <rect x="100" y="238" width="150" height="56" rx="10" ry="10" fill="#FFFFFF" stroke="#111111" stroke-width="1.5"/>
+  <text x="175" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Query</text>
+  <text x="175" y="280" text-anchor="middle" font-size="12" fill="#444444">current task or turn</text>
+  <line x1="250" y1="266" x2="278" y2="266" stroke="#1D4ED8" stroke-width="2" marker-end="url(#arrow-r)"/>
+
+  <rect x="280" y="238" width="170" height="56" rx="10" ry="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="365" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Rewrite and embed</text>
+  <text x="365" y="280" text-anchor="middle" font-size="12" fill="#444444">classify query type</text>
+  <line x1="450" y1="266" x2="478" y2="266" stroke="#1D4ED8" stroke-width="2" marker-end="url(#arrow-r)"/>
+
+  <rect x="480" y="238" width="170" height="56" rx="10" ry="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="565" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Hybrid retrieve</text>
+  <text x="565" y="280" text-anchor="middle" font-size="12" fill="#444444">vector + BM25 + graph hops</text>
+  <line x1="650" y1="266" x2="678" y2="266" stroke="#1D4ED8" stroke-width="2" marker-end="url(#arrow-r)"/>
+
+  <rect x="680" y="238" width="190" height="56" rx="10" ry="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="775" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Rank and budget</text>
+  <text x="775" y="280" text-anchor="middle" font-size="12" fill="#444444">relevance, recency, validity, weight</text>
+  <line x1="870" y1="266" x2="898" y2="266" stroke="#1D4ED8" stroke-width="2" marker-end="url(#arrow-r)"/>
+
+  <rect x="900" y="238" width="260" height="56" rx="10" ry="10" fill="#FFFFFF" stroke="#111111" stroke-width="1.5"/>
+  <text x="1030" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#111111">Inject into context</text>
+  <text x="1030" y="280" text-anchor="middle" font-size="12" fill="#444444">bounded token budget, with sources</text>
+
+  <!-- Feedback -->
+  <path d="M 1030 294 L 1030 318 Q 1030 330 1018 330 L 612 330 Q 600 330 600 318 L 600 212" fill="none" stroke="#047857" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-f)"/>
+  <text x="815" y="346" text-anchor="middle" font-size="12" fill="#047857">feedback: task outcome reweights or corrects stored memories</text>
+</svg>

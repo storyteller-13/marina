@@ -18,7 +18,7 @@ You all know I am a big fan of **[Kurt Gödel](https://en.wikipedia.org/wiki/Kur
 
 Well, it turns out that some fascinating possibilities for AGI/ASI emerged from his work: Gödel’s famous [**incompleteness theorems (1931)**](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems) and the remarkable implication that *it is possible to construct a mathematical statement that, under specific conditions, refers to its own provability*.
 
-In the early 2000s, **[Jürgen Schmidhuber](https://people.idsia.ch/~juergen/recursive-self-improvement.html?utm_source=chatgpt.com)** connected Gödel’s ideas to information theory and the theory of self-improving systems, giving rise to the **Gödel Machine**: *Can an intelligent system prove that changing itself is worthwhile? Can it prove that modifying the machinery it uses to reason will make it more successful? Can reasoning fully understand itself?*
+In the early 2000s, **[Jürgen Schmidhuber](https://people.idsia.ch/~juergen/recursive-self-improvement.html)** connected Gödel’s ideas to information theory and the theory of self-improving systems, giving rise to the **Gödel Machine**: *Can an intelligent system prove that changing itself is worthwhile? Can it prove that modifying the machinery it uses to reason will make it more successful? Can reasoning fully understand itself?*
 
 The Gödel Machine is a theoretical, self-referential problem-solving system with a formal description of its environment, its goals, and its own operation. It searches for a proof that a particular self-modification will improve its expected utility enough to justify making the change. It’s an honor and a pleasure to spend a little of my time learning more about this fascinating topic, and I hope you enjoy exploring it as much as I do.
 
@@ -317,7 +317,6 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 ![](/blog/assets/gm9.webp)
 
 <br>
-
 
 - A child harness has to earn its place: it must measurably improve on at least one task without giving up more than a small tolerance of what its parent solved. A verifier decides whether the evidence is strong enough to trust, and only a re-tested child may steer later rounds, so a lucky result cannot redirect the search.
 

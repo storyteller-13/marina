@@ -383,34 +383,65 @@ html[data-locale="ja"] .section-title {
     padding-right: 1.5rem !important;
 }
 
-/* Extra horizontal padding for the main content box */
+/* Horizontal padding of the main content box: grows with the viewport, 1rem on phones to 5rem from 1280px */
 .Box.mt-4 .Box-body {
-    padding-left: 5rem !important;
-    padding-right: 5rem !important;
+    padding-left: clamp(1rem, 10.9vw - 60px, 5rem) !important;
+    padding-right: clamp(1rem, 10.9vw - 60px, 5rem) !important;
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
 }
 
 /* Responsive padding - Adjust for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
     .Box-body {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
 
-    .Box.mt-4 .Box-body {
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
-    }
-
     /* Profile header: name beside avatar must be allowed to shrink */
     .h-card .clearfix.d-flex {
-        gap: 0.5rem;
-        align-items: flex-start;
+        gap: 0.75rem;
+        align-items: center;
+        margin-bottom: 0 !important;
+    }
+
+    /* Avatar-only header (blog, Q&A): centered rather than stranded on the left */
+    .h-card .clearfix.d-flex:not(:has(.vcard-names-container)) {
+        justify-content: center;
+    }
+
+    .h-card .avatar-z-index {
+        flex: 0 0 72px;
+        width: 72px;
+        max-width: 72px;
+        margin-right: 0 !important;
+    }
+
+    .profile-card-margin {
+        margin-top: 1rem;
+    }
+
+    .sidebar-margin-right {
+        margin-bottom: 0.75rem !important;
+    }
+
+    .sidebar-margin-right > br,
+    .vcard-names br {
+        display: none;
+    }
+
+    .vcard-names h3,
+    .vcard-names h4 {
+        margin: 0;
+    }
+
+    .vcard-names h4 {
+        margin-top: 0.35rem;
     }
 
     .vcard-names-container {
-        flex: 1 1 auto;
+        flex: 1 1 0;
+        min-width: 0;
         width: auto !important;
         max-width: 100%;
         padding-top: 0.15rem;
@@ -425,8 +456,8 @@ html[data-locale="ja"] .section-title {
     }
 
     .role-plus {
-        font-size: 1.35em;
-        margin: 0.15rem 0;
+        font-size: 1.1em;
+        margin: 0;
     }
 }
 
@@ -434,11 +465,6 @@ html[data-locale="ja"] .section-title {
     .Box-body {
         padding-left: 0.75rem !important;
         padding-right: 0.75rem !important;
-    }
-
-    .Box.mt-4 .Box-body {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
     }
 
     .vcard-fullname .success-text {
@@ -805,12 +831,42 @@ html[data-locale="ja"] .role-titles a {
 
 .neon-toggle:hover .neon-toggle-thumb {
     animation: neon-toggle-thumb-glow 0.5s infinite alternate;
-    box-shadow: 
+    box-shadow:
         0 0 20px rgba(191, 0, 255, 0.8),
         0 0 40px rgba(191, 0, 255, 0.6),
         0 0 60px rgba(191, 0, 255, 0.4),
         inset 0 0 20px rgba(191, 0, 255, 0.3);
     transform: scale(1.05);
+}
+
+/* Keep the thumb on the dark side while hovered (touch screens hold :hover after a tap) */
+[data-color-mode=dark] .neon-toggle:hover .neon-toggle-thumb {
+    transform: translateX(18px) scale(1.05);
+}
+
+/* Theme toggle in the phone nav bar */
+.profile-color-modes-toggle.mobile-theme-toggle {
+    position: relative;
+    top: auto;
+    right: auto;
+    flex-shrink: 0;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-theme-toggle > span {
+    display: block;
+}
+
+/* 44px+ tap area around the 42x24 switch */
+.mobile-theme-toggle::after {
+    content: "";
+    position: absolute;
+    inset: -10px -8px;
 }
 
 @keyframes neon-toggle-glow {
@@ -938,16 +994,24 @@ body.error-404 {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+}
+
+@supports (min-height: 100svh) {
+    body.error-404 {
+        min-height: 100svh;
+    }
 }
 
 .error-404 .container {
     text-align: center;
     z-index: 1;
+    padding: 1rem;
 }
 
 .error-404 .error-code {
-    font-size: 12rem;
+    /* Five monospace digits span about 3em: fit the width, and the height on landscape phones */
+    font-size: clamp(3.5rem, min(27vw, 38vh), 12rem);
     font-weight: bold;
     color: #ff00ff;
     text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
@@ -982,7 +1046,9 @@ body.error-404 {
 }
 
 .error-404 .glow {
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
@@ -1406,13 +1472,13 @@ html[data-locale="ja"] .error-404 .home-link {
     }
 }
 
-/* Blog & notes — mobile readability */
-@media (max-width: 768px) {
-    /* Clear fixed bottom ticker (blog index, etc.) without affecting post pages */
-    html:has(.neon-slider-container) .application-main {
-        padding-bottom: 48px;
-    }
+/* Clear the fixed bottom ticker (Q&A) at every width */
+html:has(.neon-slider-container) .application-main {
+    padding-bottom: 48px;
+}
 
+/* Blog & notes — mobile readability */
+@media (max-width: 767.98px) {
     .section-title {
         font-size: 1.85rem;
         line-height: 1.2;
@@ -1439,13 +1505,16 @@ html[data-locale="ja"] .error-404 .home-link {
         margin-bottom: 2rem;
     }
 
+    /* Edge to edge, so content scrolling underneath never shows around a floating bar */
     .mobile-nav-sticky {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
-        width: 100%;
+        margin-left: -16px !important;
+        margin-right: -16px !important;
+        padding-left: 1rem !important;
+        padding-right: 1.25rem !important;
+        width: auto;
         box-sizing: border-box;
+        z-index: 3;
+        overflow: visible;
     }
 
     .mobile-nav-sticky .UnderlineNav-body {
@@ -1455,9 +1524,74 @@ html[data-locale="ja"] .error-404 .home-link {
     }
 
     .mobile-nav-sticky .UnderlineNav-item {
-        font-size: 13px !important;
-        padding-left: 0.35rem !important;
-        padding-right: 0.35rem !important;
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-size: 15px !important;
+        padding: 0 0.75rem !important;
+    }
+
+    /* Body copy at a comfortable phone size, with room between tappable rows */
+    .markdown-body p,
+    .markdown-body li {
+        font-size: 1rem;
+    }
+
+    .markdown-body li {
+        margin-bottom: 0.6rem;
+        line-height: 1.55;
+    }
+
+    .markdown-body ul,
+    .markdown-body ol {
+        padding-left: 1.25em;
+    }
+
+    .markdown-body blockquote {
+        padding: 0 0.75em;
+    }
+
+    .blog-back-row {
+        margin-bottom: 0;
+    }
+
+    .blog-back-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .post-summary li a {
+        display: inline-block;
+        padding: 0.2rem 0;
+    }
+
+    .blog-post-content table {
+        font-size: 0.875rem;
+        line-height: 1.45;
+    }
+
+    .blog-post-content th,
+    .blog-post-content td {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .blog-code-wrap pre {
+        padding: 0.85rem;
+        font-size: 0.8rem;
+    }
+
+    .blog-code-copy {
+        min-height: 36px;
+        padding: 0 0.9rem;
+    }
+
+    .blog-line {
+        margin-bottom: 0.85rem;
+    }
+
+    .blog-ps p {
+        font-size: 0.8rem;
     }
 
     html[data-locale="ja"] .section-title {
@@ -1471,13 +1605,18 @@ html[data-locale="ja"] .error-404 .home-link {
     }
 
     .blog-draft-line-list {
-        padding-left: 1rem;
+        padding-left: 0;
+    }
+
+    .blog-draft-line-list .blog-line {
+        margin-bottom: 0.7rem;
     }
 
     .blog-line-link {
         display: inline-block;
         max-width: 100%;
         overflow-wrap: anywhere;
+        line-height: 1.4;
     }
 
     .blog-draft-section {
@@ -1552,7 +1691,68 @@ html[data-locale="ja"] .error-404 .home-link {
     height: auto;
 }
 
-@media (hover: hover) and (pointer: fine) {
+/* Hover-to-zoom only exists on large screens, so figures get more room as the screen shrinks */
+@media (max-width: 1023.98px) {
+    .blog-post-content p:has(> img:only-child) img,
+    .blog-shell .markdown-body p:has(> img:only-child) img {
+        width: 80%;
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .blog-post-content p:has(> img:only-child) img,
+    .blog-shell .markdown-body p:has(> img:only-child) img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Stop the layout stretching on ultra-wide monitors (the sidebar avatar scales with it) */
+.container-xl {
+    max-width: 1920px;
+}
+
+/* Post pages have no sidebar: hold them to a readable line length */
+.flex-shrink-0.blog-post-column {
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* A gutter row needs its full width to cancel its negative margins; capped, the content sits off-center.
+   Lifted for the stacked phone layout and the sidebar-less post page (the desktop sidebar row relies on the cap). */
+.gutter-condensed.d-flex:has(> .blog-post-column) {
+    max-width: none;
+}
+
+@media (max-width: 767.98px) {
+    .gutter-condensed.d-flex {
+        max-width: none;
+    }
+}
+
+/* Tablets: even out the gutters beside the two columns */
+@media (min-width: 768px) and (max-width: 1011.98px) {
+    .sidebar-margin-right {
+        margin-right: 1rem;
+    }
+
+    .nav-margin-left {
+        margin-left: 1rem;
+    }
+}
+
+/* Landscape phones: a pinned bar would take too much of the short screen */
+@media (max-height: 500px) {
+    .header-sticky,
+    .mobile-nav-sticky {
+        position: static !important;
+    }
+}
+
+/* The zoom needs room around the image, so narrow windows skip it */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
     .blog-post-content img,
     .blog-shell .markdown-body img {
         transition: transform 0.28s ease, box-shadow 0.28s ease;
