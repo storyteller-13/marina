@@ -1,5 +1,5 @@
 ---
-title: 🏄‍♀️ REPORT → A Ride Through Agentic Memory
+title: 🏄‍♀️ REPORT → A Ride Through AI Agentic Memory
 subtitle: Audience: Beginner to Advanced AI Scientists and Engineers |  Today's word: Magic · Magie · 魔法 (まほう) · קסם
 date: 2026; 11; 06
 ---
@@ -10,7 +10,7 @@ date: 2026; 11; 06
 
 <br>
 
-![](/blog/assets/dali.jpg)
+![](/blog/assets/dali.webp)
 
 <br>
 
@@ -38,12 +38,12 @@ As I read through the material, below are my highlights — with a moderate atte
 <br>
 <br>
 
-![](/blog/assets/report_mem_00.png)
+![](/blog/assets/report_mem_00.webp)
 
 <br>
 <br>
 
-![](/blog/assets/report_mem_0.png)
+![](/blog/assets/report_mem_0.webp)
 
 <br>
 <br>
@@ -139,7 +139,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_mem_1.png)
+![](/blog/assets/report_mem_1.webp)
 
 <br>
 
@@ -153,7 +153,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_mem_2.png)
+![](/blog/assets/report_mem_2.webp)
 
 <br>
 
@@ -207,7 +207,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_mem_3.png)
+![](/blog/assets/report_mem_3.webp)
 
 <br>
 
@@ -215,7 +215,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_mem_4.png)
+![](/blog/assets/report_mem_4.webp)
 
 <br>
 
@@ -436,7 +436,7 @@ File-based memory fails because files can't do the seven things a growing memory
 
 <br>
 
-![](/blog/assets/report_mem_17.avif)
+![](/blog/assets/report_mem_17.webp)
 
 <br>
 
@@ -536,7 +536,7 @@ mem_client = MemoryClient()
       
 <br>
 
-![](/blog/assets/report_mem_5.avif)
+![](/blog/assets/report_mem_5.webp)
 
 <br>
 
@@ -566,7 +566,7 @@ From an API perspective, production agents usually need six concrete behaviors:
 
 <br>
 
-![](/blog/assets/report_mem_10.avif)
+![](/blog/assets/report_mem_10.webp)
 
 <br>
 
@@ -657,7 +657,7 @@ def soft_delete_memory(memory_id: str):
 
 <br>
 
-| Feature / Dimension | **Pinecone** | **Qdrant** | **Weaviate** | **Milvus** | **Chroma** | **LanceDB** | **pgvector (PostgreSQL)** | **Redis (Redis Vector Search)** |
+| Feature / Dimension | [Pinecone](https://github.com/pinecone-io?utm_source=chatgpt.com) | [Qdrant](https://github.com/qdrant/qdrant?utm_source=chatgpt.com) | [Weaviate](https://github.com/weaviate/weaviate?utm_source=chatgpt.com) | [Milvus](https://github.com/milvus-io/milvus?utm_source=chatgpt.com) | [Chroma](https://github.com/chroma-core/chroma?utm_source=chatgpt.com) | [LanceDB](https://github.com/lancedb/lancedb?utm_source=chatgpt.com) | [pgvector (PostgreSQL)](https://github.com/pgvector/pgvector?utm_source=chatgpt.com) | [Redis (Redis Vector Search)](https://github.com/redis/redis?utm_source=chatgpt.com) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Category** | Dedicated & Managed | Dedicated & Managed | Dedicated & Managed | Dedicated & Managed | Embedded & Lightweight | Embedded & Lightweight | Extension Solution (Relational) | Extension Solution (In-Memory) |
 | **Deployment Type** | Managed Cloud SaaS | Open-source / Managed Cloud | Open-source / Managed Cloud | Open-source / Managed Cloud (Zilliz) | Embedded / Local / In-memory | Embedded / Serverless | Database Extension | In-Memory / Managed |
@@ -754,7 +754,7 @@ score = similarity
 
 <br>
 
-![](/blog/assets/report_mem_21.avif)
+![](/blog/assets/report_mem_21.webp)
 
 <br>
 
@@ -1013,7 +1013,7 @@ hits = mem.search(
 
 <br>
 
-![](/blog/assets/report_mem_20.avif)
+![](/blog/assets/report_mem_20.webp)
 
 <br>
 
@@ -1320,7 +1320,7 @@ Common failure modes:
 
 <br>
 
-![](/blog/assets/report_mem_13.avif)
+![](/blog/assets/report_mem_13.webp)
 
 <br>
 
@@ -1475,7 +1475,7 @@ Common failure modes:
 <br>
 
 
-![](/blog/assets/report_mem_7.avif)
+![](/blog/assets/report_mem_7.webp)
 
 <br>
 
@@ -1483,7 +1483,7 @@ Common failure modes:
 
 <br>
 
-![](/blog/assets/report_mem_8.avif)
+![](/blog/assets/report_mem_8.webp)
 
 <br>
 
@@ -1541,7 +1541,7 @@ When GPUs enter the picture, three parts of this pipeline become especially impo
 
 <br>
 
-![](/blog/assets/report_mem_16.avif)
+![](/blog/assets/report_mem_16.webp)
 
 <br>
 
@@ -1780,7 +1780,7 @@ Capabilities:
 
 <br>
 
-![](/blog/assets/report_mem_22.png)
+![](/blog/assets/report_mem_22.webp)
 
 <br>
 
@@ -1802,7 +1802,7 @@ Capabilities:
 
 <br>
 
-![](/blog/assets/report_mem_23.png)
+![](/blog/assets/report_mem_23.webp)
 
 <br>
 
@@ -1857,7 +1857,7 @@ const memorizerSubagent: SubAgent = {
 
 <br>
 
-![](/blog/assets/report_mem_25.png)
+![](/blog/assets/report_mem_25.webp)
 
 <br>
 
@@ -1886,7 +1886,7 @@ const memorizerSubagent: SubAgent = {
 
 <br>
 
-![](/blog/assets/report_mem_28.png)
+![](/blog/assets/report_mem_28.webp)
 
 <br>
 
@@ -1894,7 +1894,7 @@ const memorizerSubagent: SubAgent = {
 
 <br>
 
-![](/blog/assets/report_mem_29.png)
+![](/blog/assets/report_mem_29.webp)
 
 <br>
 
@@ -1954,7 +1954,7 @@ const memorizerSubagent: SubAgent = {
 
 <br>
 
-![](/blog/assets/report_mem_24.png)
+![](/blog/assets/report_mem_24.webp)
 
 <br>
 
@@ -1987,7 +1987,7 @@ The service is built on five key design principles:
 
 <br>
 
-![](/blog/assets/report_mem_31.png)
+![](/blog/assets/report_mem_31.webp)
 
 <br>
 
@@ -2077,7 +2077,7 @@ Dreaming for self-improvement
 
 <br>
 
-![](/blog/assets/report_mem_30.png)
+![](/blog/assets/report_mem_30.webp)
 
 <br>
 
@@ -2155,19 +2155,18 @@ Dreaming for self-improvement
 
 <br>
 
-* [A Survey of Agent Memory in the Second Half](https://arxiv.org/pdf/2602.06052) — W. Huang et al. (2026)
-* [A Survey on the Evolution of LLM Agent Memory Mechanisms](https://arxiv.org/pdf/2605.06716) — J. Luo et al. (2026)
-* [Memory in the Age of AI Agents: A Survey](https://arxiv.org/pdf/2512.13564) — Y. Hu et al. (2026)
-* [Advances in Memory Mechanisms for LLMs](https://arxiv.org/pdf/2610.35089) — C. Han et al. (2026)
-* [Memory as Infrastructure](https://arxiv.org/pdf/2609.05510) — M. Helwig (2026)
-* [Harness the Memory](https://arxiv.org/pdf/2608.15008) — W. Huang et al. (2026)
-* [A Unified Review of Memory, Skills, Protocols and Harness Engineering](https://arxiv.org/pdf/2604.08224) — C. Zhou et al. (2026)
-* [Memory for Autonomous LLM Agents](https://arxiv.org/pdf/2603.07670) — P. Dug (2026)
-* [Anatomy of Agentic Memory](https://arxiv.org/pdf/2602.19320) — D. Jiang et al. (2026)
-* [A Survey on the Memory Mechanism of LLM-Based Agents](https://arxiv.org/pdf/2404.13501) — Z. Zhang et al. (2024)
-* [M*⋆: Every Task Deserves Its Own Memory Harness](https://arxiv.org/pdf/2604.11811) — W. Pan et al. (2026)
-* [A-Mem: Agentic Memory for LLM Agents](https://arxiv.org/pdf/2502.12110) — W. Xu et al. (2025)
-* [A Survey on Long-Term Memory Security in LLM Agents](https://arxiv.org/pdf/2604.16548) — Z. Lin et al. (2026)
+* [A Survey of Agent Memory in the Second Half](https://arxiv.org/pdf/2602.06052) — W. Huang et al. (2026).
+* [A Survey on the Evolution of LLM Agent Memory Mechanisms](https://arxiv.org/pdf/2605.06716) — J. Luo et al. (2026).
+* [Memory in the Age of AI Agents: A Survey](https://arxiv.org/pdf/2512.13564) — Y. Hu et al. (2026).
+* [Advances in Memory Mechanisms for LLMs](https://arxiv.org/pdf/2610.35089) — C. Han et al. (2026).
+* [Memory as Infrastructure](https://arxiv.org/pdf/2609.05510) — M. Helwig (2026).
+* [Harness the Memory](https://arxiv.org/pdf/2608.15008) — W. Huang et al. (2026).
+* [A Unified Review of Memory, Skills, Protocols and Harness Engineering](https://arxiv.org/pdf/2604.08224) — C. Zhou et al. (2026).
+* [Memory for Autonomous LLM Agents](https://arxiv.org/pdf/2603.07670) — P. Dug (2026).
+* [Anatomy of Agentic Memory](https://arxiv.org/pdf/2602.19320) — D. Jiang et al. (2026).
+* [A Survey on the Memory Mechanism of LLM-Based Agents](https://arxiv.org/pdf/2404.13501) — Z. Zhang et al. (2024).
+* [M*⋆: Every Task Deserves Its Own Memory Harness](https://arxiv.org/pdf/2604.11811) — W. Pan et al. (2026).
+* [A Survey on Long-Term Memory Security in LLM Agents](https://arxiv.org/pdf/2604.16548) — Z. Lin et al. (2026).
 
 <br>
 
@@ -2175,6 +2174,7 @@ Dreaming for self-improvement
 
 <br>
 
+* [A-Mem: Agentic Memory for LLM Agents](https://arxiv.org/pdf/2502.12110) — W. Xu et al. (2025).
 - [AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents](https://arxiv.org/abs/2610.02163) — Xuan Zhang et al. (2026).
 - [ACM: Agentic Context Management for Long Horizon Tasks](https://arxiv.org/abs/2607.23809) — Xiaochuan Li, Ryan Ming, Meng Chu, Shuai Shao, Rong Jin, Chenyan Xiong (2026).
 - [PRO-LONG: Programmatic Memory Enables Long-Horizon Reasoning](https://arxiv.org/abs/2607.20064) — Alexis Fox, Junlin Wang, Paul Rosu, Bhuwan Dhingra (2026).
@@ -2222,7 +2222,7 @@ Dreaming for self-improvement
 
 <br>
 
-#### ✨ For completeness, I've compiled a list of some of the other popular open-source projects in agentic memory, organized by programming language for easy reference. I'll continue adding relevant resources as I come across them. ✨
+#### ✨ For completeness, I've compiled a list of other popular open-source projects focused on agentic memory, organized by programming language for easy reference. I'll continue to expand the list as I discover additional relevant resources. ✨
 
 <br>
 <br>

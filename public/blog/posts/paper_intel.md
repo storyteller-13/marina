@@ -8,7 +8,7 @@ date: 2026; 09; 19
 
 <br>
 
-![](/blog/assets/kusama.jpg)
+![](/blog/assets/kusama.webp)
 
 <br>
 
@@ -35,7 +35,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-![](/blog/assets/ma_5.png)
+![](/blog/assets/ma_5.webp)
 
 <br>
 
@@ -50,7 +50,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-![](/blog/assets/ma_3.png)
+![](/blog/assets/ma_3.webp)
 
 <br>
 
@@ -69,7 +69,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-![](/blog/assets/ma_1.png)
+![](/blog/assets/ma_1.webp)
 
 <br>
 
@@ -81,7 +81,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-![](/blog/assets/ma_2.png)
+![](/blog/assets/ma_2.webp)
 
 <br>
 
@@ -123,7 +123,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-![](/blog/assets/ma_4.png)
+![](/blog/assets/ma_4.webp)
 
 <br>
 
@@ -371,7 +371,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-![](/blog/assets/ma_6.png)
+![](/blog/assets/ma_6.webp)
 
 <br>
 

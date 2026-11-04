@@ -12,7 +12,7 @@ date: 2026; 10; 21
 
 <br>
 
-![](/blog/assets/wade.jpg)
+![](/blog/assets/wade.webp)
 
 <br>
 
@@ -187,7 +187,7 @@ Things to note:
 
 <br>
 
-![](/blog/assets/ecs.png)
+![](/blog/assets/ecs.webp)
 
 <br>
 

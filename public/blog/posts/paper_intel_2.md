@@ -8,7 +8,7 @@ date: 2026; 10; 24
 
 <br>
 
-![](/blog/assets/echer.jpg)
+![](/blog/assets/echer.webp)
 
 <br>
 
@@ -37,7 +37,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 <br>
 
-![](/blog/assets/gm1.png)
+![](/blog/assets/gm1.webp)
 
 <br>
 
@@ -190,7 +190,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm2.png)
+![](/blog/assets/gm2.webp)
 
 <br>
 
@@ -204,7 +204,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm3.png)
+![](/blog/assets/gm3.webp)
 
 <br>
 
@@ -216,7 +216,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm4.png)
+![](/blog/assets/gm4.webp)
 
 <br>
 
@@ -234,7 +234,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm5.png)
+![](/blog/assets/gm5.webp)
 
 <br>
 
@@ -254,7 +254,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm6.png)
+![](/blog/assets/gm6.webp)
 
 <br>
 
@@ -286,7 +286,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm7.png)
+![](/blog/assets/gm7.webp)
 
 <br>
 
@@ -302,7 +302,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm8.png)
+![](/blog/assets/gm8.webp)
 
 <br>
 
@@ -314,7 +314,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm9.png)
+![](/blog/assets/gm9.webp)
 
 <br>
 
@@ -327,7 +327,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 <br>
 
-![](/blog/assets/gm10.png)
+![](/blog/assets/gm10.webp)
 
 <br>
 

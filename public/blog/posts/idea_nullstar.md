@@ -32,7 +32,7 @@ My vision is to move gaming beyond static, developer-limited experiences toward 
 
 Here is how **PleiadesOS** is currently being developed:
 
-![pleiadesOS](/blog/assets/pleiadesOS.png)
+![pleiadesOS](/blog/assets/pleiadesOS.webp)
 
 <br>
 

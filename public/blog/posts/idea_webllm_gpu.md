@@ -10,7 +10,7 @@ date: 2026; 09; 25
 
 <br>
 
-![](/blog/assets/duff.jpeg)
+![](/blog/assets/duff.webp)
 
 <br>
 
@@ -26,7 +26,7 @@ The inference stack we'll be learning about is:
 
 <br>
 
-![](/blog/assets/webllm_stack.png)
+![](/blog/assets/webllm_stack.webp)
 
 <br>
 
@@ -49,7 +49,7 @@ The inference stack we'll be learning about is:
 
 <br>
 
-![](/blog/assets/local_inference.png)
+![](/blog/assets/local_inference.webp)
 
 <br>
 
@@ -63,7 +63,7 @@ The inference stack we'll be learning about is:
 
 <br>
 
-![](/blog/assets/webllm_stack_paper.png)
+![](/blog/assets/webllm_stack_paper.webp)
 
 <br>
 
@@ -100,7 +100,7 @@ The inference stack we'll be learning about is:
 
 <br>
 
-![](/blog/assets/webllm_stack_2.png)
+![](/blog/assets/webllm_stack_2.webp)
 
 <br>
 
@@ -117,7 +117,7 @@ The inference stack we'll be learning about is:
 
 <br>
 
-![](/blog/assets/mlc.png)
+![](/blog/assets/mlc.webp)
 
 <br>
 
@@ -178,7 +178,7 @@ for await (const chunk of stream) {
 
 <br>
 
-![](/blog/assets/tvm.png)
+![](/blog/assets/tvm.webp)
 
 <br>
 
@@ -186,7 +186,7 @@ for await (const chunk of stream) {
 
 <br>
 
-![](/blog/assets/tensorir.png)
+![](/blog/assets/tensorir.webp)
 
 <br>
 
@@ -259,7 +259,7 @@ for await (const chunk of stream) {
 
 <br>
 
-![](/blog/assets/gpudevice.png)
+![](/blog/assets/gpudevice.webp)
 
 <br>
 
@@ -295,7 +295,7 @@ const device = await adapter.requestDevice();
 
 <br>
 
-![](/blog/assets/opengl.png)
+![](/blog/assets/opengl.webp)
 
 <br>
 
@@ -329,7 +329,7 @@ const device = await adapter.requestDevice();
 
 <br>
 
-![](/blog/assets/js_orc.png)
+![](/blog/assets/js_orc.webp)
 
 <br>
 

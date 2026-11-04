@@ -4,7 +4,7 @@ subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | T
 date: 2026; 08; 24
 ---
 
-![](/blog/assets/magritte2.jpg)
+![](/blog/assets/magritte2.webp)
 
 <br>
 
@@ -46,7 +46,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth5.png)
+![](/blog/assets/knuth5.webp)
 
 <br>
 
@@ -64,7 +64,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth4.png)
+![](/blog/assets/knuth4.webp)
 
 <br>
 
@@ -74,7 +74,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth7.png)
+![](/blog/assets/knuth7.webp)
 
 <br>
 * Numerical subroutines should deliver results that satisfy simple, useful mathematical laws whenever possible. 
@@ -85,7 +85,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth6.png)
+![](/blog/assets/knuth6.webp)
 
 <br>
 
@@ -103,7 +103,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/gcd.png)
+![](/blog/assets/gcd.webp)
 
 <br>
 
@@ -121,7 +121,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/euclid.png)
+![](/blog/assets/euclid.webp)
 
 <br>
 
@@ -154,7 +154,7 @@ e = 2 + //1,2,1,1,4,1,1,6,1,1,8,1,1,10,1,1,12,1,1,14,1,1,16,1,1,18,1,...//;
 
 <br>
 
-![](/blog/assets/factoring.png)
+![](/blog/assets/factoring.webp)
 
 <br>
 
@@ -179,7 +179,7 @@ N = x^2 − y^2, 0 ≤ y < x ≤ N
 
 <br>
 
-![](/blog/assets/primes.png)
+![](/blog/assets/primes.webp)
 
 <br>
 
@@ -196,7 +196,7 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 <br>
 
-![](/blog/assets/primes2.png)
+![](/blog/assets/primes2.webp)
 
 <br>
 
@@ -224,7 +224,7 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 <br>
 
-![](/blog/assets/primitive.png)
+![](/blog/assets/primitive.webp)
 
 <br>
 
@@ -232,7 +232,7 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 <br>
 
-![](/blog/assets/primitive2.png)
+![](/blog/assets/primitive2.webp)
 
 <br>
 
@@ -254,7 +254,7 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 <br>
 
-![](/blog/assets/starchains.png)
+![](/blog/assets/starchains.webp)
 
 <br>
 
@@ -266,7 +266,7 @@ ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
 
 <br>
 
-![](/blog/assets/nasa.png)
+![](/blog/assets/nasa.webp)
 
 <br>
 

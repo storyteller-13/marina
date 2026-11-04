@@ -4,7 +4,7 @@ subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | T
 date: 2026; 08; 22
 ---
 
-![](/blog/assets/monet.jpg)
+![](/blog/assets/monet.webp)
 
 <br>
 
@@ -37,7 +37,7 @@ In this post, I worked through Volume 1️⃣, *Fundamental Algorithms*, and the
 
 <br>
 
-![](/blog/assets/nerd.png)
+![](/blog/assets/nerd.webp)
 
 <br>
 
@@ -73,7 +73,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth8.png)
+![](/blog/assets/knuth8.webp)
 
 <br>
 
@@ -113,11 +113,11 @@ iii) x ⪯ x. (Reflexivity.)
 
 <br>
 
-![](/blog/assets/knuth1.png)
+![](/blog/assets/knuth1.webp)
 
 <br>
 
-![](/blog/assets/knuth2.png)
+![](/blog/assets/knuth2.webp)
 
 <br>
 
@@ -169,7 +169,7 @@ iii) x ⪯ x. (Reflexivity.)
 
 <br>
 
-![](/blog/assets/knuth3.png)
+![](/blog/assets/knuth3.webp)
 
 <br>
 

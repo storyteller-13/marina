@@ -83,7 +83,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth_bs.png)
+![](/blog/assets/knuth_bs.webp)
 
 <br>
 
@@ -109,7 +109,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth_fib.png)
+![](/blog/assets/knuth_fib.webp)
 
 <br>
 
@@ -157,7 +157,7 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 
 <br>
 
-![](/blog/assets/knuth_bs2.png)
+![](/blog/assets/knuth_bs2.webp)
 
 <br>
 
@@ -165,7 +165,7 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 
 <br>
 
-![](/blog/assets/knuth_bs3.png)
+![](/blog/assets/knuth_bs3.webp)
 
 <br>
 
@@ -175,7 +175,7 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 
 <br>
 
-![](/blog/assets/knuth_bs4.png)
+![](/blog/assets/knuth_bs4.webp)
 
 <br>
 
@@ -189,9 +189,9 @@ C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
 
 <br>
 
-![](/blog/assets/knuth_garsia_wachs_2.png)
-![](/blog/assets/knuth_garsia-wachs.png)
-![](/blog/assets/knuth_opt_tree.png)
+![](/blog/assets/knuth_garsia_wachs_2.webp)
+![](/blog/assets/knuth_garsia-wachs.webp)
+![](/blog/assets/knuth_opt_tree.webp)
 
 <br>
 
@@ -217,7 +217,7 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 <br>
 
-![](/blog/assets/knuth_balanced_tree.png)
+![](/blog/assets/knuth_balanced_tree.webp)
 
 <br>
 
@@ -237,7 +237,7 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 <br>
 
-![](/blog/assets/knuth_patricia.png)
+![](/blog/assets/knuth_patricia.webp)
 
 <br>
 
@@ -249,7 +249,7 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 <br>
 
-![](/blog/assets/knuth_bytegirl.png)
+![](/blog/assets/knuth_bytegirl.webp)
 
 <br>
 
@@ -263,7 +263,7 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 <br>
 
-![](/blog/assets/summer.png)
+![](/blog/assets/summer.webp)
 
 <br>
 
@@ -281,7 +281,7 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 <br>
 
-![](/blog/assets/searching_dopamine.png)
+![](/blog/assets/searching_dopamine.webp)
 
 <br>
 

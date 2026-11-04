@@ -4,7 +4,7 @@ subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists
 date: 2026; 08; 02
 ---
 
-![](/blog/assets/princess.png)
+![](/blog/assets/princess.webp)
 
 <br>
 

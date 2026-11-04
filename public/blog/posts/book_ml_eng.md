@@ -8,7 +8,7 @@ date: 2026; 10; 26
 
 <br>
 
-![](/blog/assets/halloween_26.png)
+![](/blog/assets/halloween_26.webp)
 
 <br>
 
@@ -133,7 +133,7 @@ Also, in general, most ML code could be compiled into cross-platform formats lik
 
 <br>
 
-![](/blog/assets/ml_eng1.png)
+![](/blog/assets/ml_eng1.webp)
 
 <br>
 
@@ -846,7 +846,7 @@ Integer formats used in quantization:
 
 <br>
 
-![](/blog/assets/ml_eng2.png)
+![](/blog/assets/ml_eng2.webp)
 
 <br>
 
@@ -861,7 +861,7 @@ Integer formats used in quantization:
 
 <br>
 
-![](/blog/assets/ml_eng3.png)
+![](/blog/assets/ml_eng3.webp)
 
 <br>
 
@@ -981,7 +981,7 @@ Example: Meta-Llama-3.1-8B in `bf16` will need 2 (`bf16` bytes) * 8B (num of par
 
 <br>
 
-![](/blog/assets/ml_eng4.png)
+![](/blog/assets/ml_eng4.webp)
 
 <br>
 
@@ -1015,7 +1015,7 @@ Examples:
 
 <br>
 
-![](/blog/assets/ml_eng5.png)
+![](/blog/assets/ml_eng5.webp)
 
 <br>
 

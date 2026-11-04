@@ -8,7 +8,7 @@ date: 2026; 10; 17
 
 <br>
 
-![](/blog/assets/the_idea_maze.jpeg)
+![](/blog/assets/the_idea_maze.webp)
 
 <br>
 
@@ -243,7 +243,7 @@ Let's end today's discussion with some eye candy: a diagram of how the infrastru
 
 <br>
 
-![](/blog/assets/sterope_1.png)
+![](/blog/assets/sterope_1.webp)
 
 <br>
 
@@ -264,6 +264,6 @@ And an *ever-growing* list of very good (but somehow random) resources on buildi
 
 <br>
 
-![](/blog/assets/goat.png)
+![](/blog/assets/goat.webp)
 
 <br>

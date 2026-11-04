@@ -1,5 +1,5 @@
 ---
-title: 🏄‍♀️ REPORT → A Ride Through Harness Engineering
+title: 🏄‍♀️ REPORT → A Ride Through AI Harness Engineering
 subtitle: Audience: Beginner to Advanced AI Scientists and Engineers | Today's word: Action · Handlung · 行動 (こうどう) · פעולה
 date: 2026; 10; 30
 ---
@@ -10,7 +10,7 @@ date: 2026; 10; 30
 
 <br>
 
-![](/blog/assets/rubens.jpg)
+![](/blog/assets/rubens.webp)
 
 <br>
 
@@ -20,7 +20,7 @@ date: 2026; 10; 30
 
 <br>
 
-![](/blog/assets/report_harn_0.png)
+![](/blog/assets/report_harn_0.webp)
 
 <br>
 
@@ -41,7 +41,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_harn_1.png)
+![](/blog/assets/report_harn_1.webp)
 
 <br>
 
@@ -57,7 +57,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_harn_2.png)
+![](/blog/assets/report_harn_2.webp)
 
 <br>
 
@@ -79,7 +79,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_harn_3.png)
+![](/blog/assets/report_harn_3.webp)
 
 <br>
 
@@ -180,7 +180,7 @@ As I read through the material, below are my highlights — with a moderate atte
 - After each compaction step that cleared the main conversation history, the agent read its own notes and continued multi-hour training sequences without losing coherence. The key insight is that note-taking externalizes working memory. Rather than relying on conversation history to carry task state, the agent writes what matters to an external store and reads it back on demand.
 <br>
 
-![](/blog/assets/report_harn_5.png)
+![](/blog/assets/report_harn_5.webp)
 
 <br>
 - Task state, specifications, intermediate results, and dependency graphs are written to the filesystem at each milestone and loaded selectively at the start of the next run, bypassing the context window entirely for content that is not immediately relevant.
@@ -318,7 +318,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_harn_6.png)
+![](/blog/assets/report_harn_6.webp)
 
 <br>
 
@@ -372,7 +372,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_harn_7.png)
+![](/blog/assets/report_harn_7.webp)
 
 <br>
 
@@ -619,7 +619,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/report_harn_4.png)
+![](/blog/assets/report_harn_4.webp)
 
 <br>
 
@@ -785,7 +785,7 @@ memory-assisted input = current task + retrieved relevant memories
 
 <br>
 
-![](/blog/assets/report_harn_11.png)
+![](/blog/assets/report_harn_11.webp)
 
 <br>
 
@@ -815,7 +815,7 @@ memory-assisted input = current task + retrieved relevant memories
 
 <br>
 
-![](/blog/assets/report_harn_24.png)
+![](/blog/assets/report_harn_24.webp)
 
 <br>
 
@@ -884,7 +884,7 @@ memory-assisted input = current task + retrieved relevant memories
 
 <br>
 
-![](/blog/assets/report_harn_9.png)
+![](/blog/assets/report_harn_9.webp)
 
 <br>
 
@@ -959,7 +959,7 @@ An illustrative example:
 
 <br>
 
-![](/blog/assets/report_harn_21.png)
+![](/blog/assets/report_harn_21.webp)
 
 <br>
 
@@ -1214,7 +1214,7 @@ export default defineAgent({
 
 <br>
 
-![](/blog/assets/report_harn_8.png)
+![](/blog/assets/report_harn_8.webp)
 
 <br>  ­
  
@@ -1427,7 +1427,7 @@ export default defineAgent({
 
 <br>
 
-![](/blog/assets/report_harn_10.png)
+![](/blog/assets/report_harn_10.webp)
 
 <br>
 
@@ -1541,7 +1541,7 @@ Any team building production AI agents can benefit:
 
 <br>
 
-![](/blog/assets/report_harn_13.png)
+![](/blog/assets/report_harn_13.webp)
 
 <br>
 
@@ -1595,7 +1595,7 @@ Any team building production AI agents can benefit:
 
 <br>
 
-![](/blog/assets/report_harn_12.png)
+![](/blog/assets/report_harn_12.webp)
 
 <br>
 
@@ -1640,7 +1640,7 @@ Any team building production AI agents can benefit:
 
 <br>
 
-![](/blog/assets/report_harn_14.png)
+![](/blog/assets/report_harn_14.webp)
 
 <br>
 
@@ -1889,7 +1889,7 @@ goose-server: the server that supports the desktop (electron) app. also known as
 
 <br>
 
-![](/blog/assets/report_harn_19.png)
+![](/blog/assets/report_harn_19.webp)
 
 <br>
 

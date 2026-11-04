@@ -36,7 +36,7 @@ Since I didn’t have a traditional computer science background, I decided it wa
 
 <br>
 
-![](/blog/assets/buffy2.png)
+![](/blog/assets/buffy2.webp)
 
 <br>
 
@@ -46,7 +46,7 @@ Ah, yes. That was the first time in my life when I actually tried to implement *
 
 <br>
 
-![](/blog/assets/knuth_infinite.png)
+![](/blog/assets/knuth_infinite.webp)
 
 <br>
 
@@ -54,7 +54,7 @@ A deep sense of worthiness. I think I made it. I think I became the amazing comp
 
 <br>
 
-![](/blog/assets/br.png)
+![](/blog/assets/br.webp)
 
 <br>
 
@@ -94,7 +94,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth9.png)
+![](/blog/assets/knuth9.webp)
 
 <br>
 
@@ -135,7 +135,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth10.png)
+![](/blog/assets/knuth10.webp)
 
 <br>
 
@@ -147,7 +147,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth11.png)
+![](/blog/assets/knuth11.webp)
 
 <br>
 
@@ -155,7 +155,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/eulerian.png)
+![](/blog/assets/eulerian.webp)
 
 <br>
 
@@ -177,7 +177,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth_witchcraft.png)
+![](/blog/assets/knuth_witchcraft.webp)
 
 <br>
 
@@ -197,7 +197,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/steinkirch_tableau.png)
+![](/blog/assets/steinkirch_tableau.webp)
 
 <br>
 
@@ -211,23 +211,23 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth_is_the_king.png)
+![](/blog/assets/knuth_is_the_king.webp)
 
 <br>
 
-![](/blog/assets/knuth_bubble.png)
+![](/blog/assets/knuth_bubble.webp)
 
 <br>
 
-![](/blog/assets/knuth_heap.png)
+![](/blog/assets/knuth_heap.webp)
 
 <br>
 
-![](/blog/assets/knuth_merge.png)
+![](/blog/assets/knuth_merge.webp)
 
 <br>
 
-![](/blog/assets/knuth_quick.png)
+![](/blog/assets/knuth_quick.webp)
 
 <br>
 
@@ -245,7 +245,7 @@ As always, below are a few highlights (for personal inventory), with a moderate 
 
 <br>
 
-![](/blog/assets/knuth_graph_eff.png)
+![](/blog/assets/knuth_graph_eff.webp)
 
 <br>
 
@@ -358,7 +358,7 @@ TAPE[j], 1 ≤ j ≤ T: Number of the physical tape unit corresponding to logica
 
 <br>
 
-![](/blog/assets/buffy.png)
+![](/blog/assets/buffy.webp)
 
 
 <br>

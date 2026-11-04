@@ -37,7 +37,7 @@ As I read through most of the material, I wrote down a few highlights — with a
 
 <br>
 
-![](/blog/assets/julia_set.png)
+![](/blog/assets/julia_set.webp)
 
 <br>
 
@@ -115,7 +115,7 @@ Even though they could also be highly enlightening, we will be skipping the more
 
 <br>
 
-![](/blog/assets/nova.png)
+![](/blog/assets/nova.webp)
 
 <br>
 
@@ -164,7 +164,7 @@ Even though they could also be highly enlightening, we will be skipping the more
 
 <br>
 
-![](/blog/assets/mandelbrot.png)
+![](/blog/assets/mandelbrot.webp)
 
 <br>
 
@@ -641,7 +641,7 @@ Even though they could also be highly enlightening, we will be skipping the more
 
 <br>
 
-![](/blog/assets/mandelbrot2.png)
+![](/blog/assets/mandelbrot2.webp)
 
 <br>
 
@@ -705,7 +705,7 @@ Even though they could also be highly enlightening, we will be skipping the more
 
 <br>
 
-![](/blog/assets/burning_ship.png)
+![](/blog/assets/burning_ship.webp)
 
 <br>
 

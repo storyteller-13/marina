@@ -16,7 +16,7 @@ date: 2026; 10; 25
 
 <br>
 
-![](/blog/assets/gogh.jpg)
+![](/blog/assets/gogh.webp)
 
 <br>
 
@@ -60,7 +60,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-1.png)
+![](/blog/assets/m-i-3-1.webp)
 
 <br>
 
@@ -74,7 +74,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-2.png)
+![](/blog/assets/m-i-3-2.webp)
 
 <br>
 
@@ -145,7 +145,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-17.png)
+![](/blog/assets/m-i-3-17.webp)
 
 <br>
 
@@ -161,7 +161,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-16.png)
+![](/blog/assets/m-i-3-16.webp)
 
 <br>
 
@@ -171,7 +171,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-20.png)
+![](/blog/assets/m-i-3-20.webp)
 
 <br>
 
@@ -197,7 +197,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-8.png)
+![](/blog/assets/m-i-3-8.webp)
 
 <br>
 
@@ -205,7 +205,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-9.png)
+![](/blog/assets/m-i-3-9.webp)
 
 <br>
 
@@ -215,7 +215,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-11.png)
+![](/blog/assets/m-i-3-11.webp)
 
 <br>
 
@@ -223,7 +223,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-10.png)
+![](/blog/assets/m-i-3-10.webp)
 
 <br>
 
@@ -233,7 +233,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-18.png)
+![](/blog/assets/m-i-3-18.webp)
 
 <br>
 
@@ -257,7 +257,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-19.png)
+![](/blog/assets/m-i-3-19.webp)
 
 <br>
 
@@ -297,7 +297,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-4.png)
+![](/blog/assets/m-i-3-4.webp)
 
 <br>
 
@@ -335,7 +335,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-![](/blog/assets/m-i-3-3.png)
+![](/blog/assets/m-i-3-3.webp)
 
 <br>
 
@@ -387,7 +387,7 @@ The evolved programs are retained as source code rather than summarized only by 
 
 <br>
 
-![](/blog/assets/m-i-3-21.png)
+![](/blog/assets/m-i-3-21.webp)
 
 <br>
 
@@ -398,7 +398,7 @@ The evolved programs are retained as source code rather than summarized only by 
 - It begins with a modular foundation: harness primitives spanning context, tools, skills, control, and memory are described via typed interfaces and composed via a substitution algebra. This separates concerns that existing systems typically conflate. On top of this substrate, we introduce AEGIS, an observability-driven and auditable harness adaptation engine. Framing harness adaptation not as ad-hoc editing but as a learning problem over symbolic artifacts (prompts, tools, memory, and control policies) reveals that standard RL pathologies (reward hacking, catastrophic forgetting, under-exploration) become concrete design risks. To address these risks, AEGIS combines full trace observability with a four-stage pipeline (`Digester`, `Planner`, `Evolver`, and `Critic`) that compresses traces, plans adaptations, generates candidates, and assesses changes. Finally, we close the loop between harness adaptation and model training via harness-model co-evolution. Traces produced during harness adaptation serve as reinforcement-learning signal for model training, so that model improvements feed back into subsequent harness evolution.
 <br>
 
-![](/blog/assets/m-i-3-22.png)
+![](/blog/assets/m-i-3-22.webp)
 
 <br>
 
@@ -408,7 +408,7 @@ The evolved programs are retained as source code rather than summarized only by 
 
 <br>
 
-![](/blog/assets/m-i-3-23.png)
+![](/blog/assets/m-i-3-23.webp)
 
 <br>
 
@@ -416,7 +416,7 @@ The evolved programs are retained as source code rather than summarized only by 
 
 <br>
 
-![](/blog/assets/m-i-3-24.png)
+![](/blog/assets/m-i-3-24.webp)
 
 <br>
 
@@ -426,7 +426,7 @@ The evolved programs are retained as source code rather than summarized only by 
 
 <br>
 
-![](/blog/assets/m-i-3-12.png)
+![](/blog/assets/m-i-3-12.webp)
 
 <br>
 
@@ -438,7 +438,7 @@ The evolved programs are retained as source code rather than summarized only by 
 
 <br>
 
-![](/blog/assets/m-i-3-13.png)
+![](/blog/assets/m-i-3-13.webp)
 
 <br>
 
@@ -472,7 +472,7 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 <br>
 
-![](/blog/assets/m-i-3-14.png)
+![](/blog/assets/m-i-3-14.webp)
 
 <br>
 
@@ -482,7 +482,7 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 <br>
 
-![](/blog/assets/m-i-3-15.png)
+![](/blog/assets/m-i-3-15.webp)
 
 <br>
 
@@ -496,7 +496,7 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 <br>
 
-![](/blog/assets/m-i-3-5.png)
+![](/blog/assets/m-i-3-5.webp)
 
 <br>
 
@@ -508,7 +508,7 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 <br>
 
-![](/blog/assets/m-i-3-6.png)
+![](/blog/assets/m-i-3-6.webp)
 
 <br>
 
@@ -530,7 +530,7 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 <br>
 
-![](/blog/assets/m-i-3-7.png)
+![](/blog/assets/m-i-3-7.webp)
 
 <br>
 
@@ -543,7 +543,7 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 <br>
 
-![](/blog/assets/m-i-3-26.png)
+![](/blog/assets/m-i-3-26.webp)
 
 <br>
 
@@ -555,7 +555,7 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 <br>
 
-![](/blog/assets/m-i-3-25.png)
+![](/blog/assets/m-i-3-25.webp)
 
 <br>
 

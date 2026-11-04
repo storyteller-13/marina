@@ -241,7 +241,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 <br>
 
-![](/blog/assets/self-opt-agents.png)
+![](/blog/assets/self-opt-agents.webp)
 
 <br>
 
@@ -303,7 +303,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 <br>
 
-![](/blog/assets/intel_tests.png)
+![](/blog/assets/intel_tests.webp)
 
 <br>
 
@@ -375,7 +375,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 <br>
 
-![](/blog/assets/all_algos.png)
+![](/blog/assets/all_algos.webp)
 
 <br>
 
@@ -432,6 +432,6 @@ As I read through today's material, below are my highlights — with a moderate 
 
 <br>
 
-![](/blog/assets/planet_database_2x.png)
+![](/blog/assets/planet_database_2x.webp)
 
 <br>

@@ -6,7 +6,7 @@ date: 2026; 03; 29
 
 <br>
 
-![](/blog/assets/3.png)
+![](/blog/assets/3.webp)
 
 <br>
 
@@ -32,7 +32,7 @@ As I read through the material, below are my highlights — with a moderate atte
 <br>
 
 
-![LLM-from-scratch pipeline overview](/blog/assets/llm_time.png)
+![LLM-from-scratch pipeline overview](/blog/assets/llm_time.webp)
 
 <br>
 
@@ -109,7 +109,7 @@ GPT-2 model sizes for reference (their weigths are open):
 
 <br>
 
-![](/blog/assets/training.png)
+![](/blog/assets/training.webp)
 
 <br>
 

@@ -10,7 +10,7 @@ date: 2026; 09; 16
 
 <br>
 
-![](/blog/assets/rousseau.png)
+![](/blog/assets/rousseau.webp)
 
 <br>
 

@@ -8,7 +8,7 @@ date: 2026; 10; 18
 
 <br>
 
-![](/blog/assets/gats.jpg)
+![](/blog/assets/gats.webp)
 
 <br>
 
@@ -73,7 +73,7 @@ Here are the three terms that matter most:
 
 <br>
 
-![](/blog/assets/he1.png)
+![](/blog/assets/he1.webp)
 
 <br>
 
@@ -232,7 +232,7 @@ Classic accidental cache-busters:
 
 <br>
 
-![](/blog/assets/he2.png)
+![](/blog/assets/he2.webp)
 
 <br>
 
@@ -264,7 +264,7 @@ Classic accidental cache-busters:
 
 <br>
 
-![](/blog/assets/he3.png)
+![](/blog/assets/he3.webp)
 
 <br>
 
@@ -378,7 +378,7 @@ Types of triggers for task completion:
 
 <br>
 
-![](/blog/assets/he4.png)
+![](/blog/assets/he4.webp)
 
 <br>
 
@@ -457,7 +457,7 @@ Ask four questions:
 
 <br>
 
-![](/blog/assets/he5.png)
+![](/blog/assets/he5.webp)
 
 <br>
 
@@ -579,7 +579,7 @@ The famous machinery all lives inside that `search()` call:
 
 <br>
 
-![](/blog/assets/he6.png)
+![](/blog/assets/he6.webp)
 
 <br>
 
@@ -597,7 +597,7 @@ The famous machinery all lives inside that `search()` call:
 
 <br>
 
-![](/blog/assets/he7.png)
+![](/blog/assets/he7.webp)
 
 <br>
 
@@ -609,7 +609,7 @@ The famous machinery all lives inside that `search()` call:
 
 <br>
 
-![](/blog/assets/he8.png)
+![](/blog/assets/he8.webp)
 
 <br>
 
@@ -639,7 +639,7 @@ Plus these features:
 
 <br>
 
-![](/blog/assets/he9.png)
+![](/blog/assets/he9.webp)
 
 <br>
 
@@ -694,7 +694,7 @@ Plus these features:
 
 <br>
 
-![](/blog/assets/he10.png)
+![](/blog/assets/he10.webp)
 
 <br>
 

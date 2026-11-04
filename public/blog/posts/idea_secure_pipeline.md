@@ -4,7 +4,7 @@ subtitle: This article launches a series of conversational notes on building sec
 date: 2026; 04; 11
 ---
 
-![](/blog/assets/agents.png)
+![](/blog/assets/agents.webp)
 
 > 🌟 EDIT: **[this project started one day after this post](https://github.com/LobsterTrap/tank-os)** and it implements the ideas discussed here. I love seeing this conversation!
 
@@ -389,7 +389,7 @@ Beyond that, the possibilities are vast: integrating multiple LLMs for private d
 
 <br>
 
-![](/blog/assets/rag.png)
+![](/blog/assets/rag.webp)
 
 <br>
 
