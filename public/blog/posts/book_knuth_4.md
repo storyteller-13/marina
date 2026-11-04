@@ -255,7 +255,7 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 ---
 
-### TO BE CONTINUED... 🫪
+#### TO BE CONTINUED... 🫪
 
 ##### Talking about searching, would a 💕 **binary** *soul* **search** 💕 be the answer to the meaning of life? Nowadays, I believe so, but I had to try many other types of searches to come to this conclusion. This is a story for **nostalgia, part 3️⃣** — illustrated by the picture below of me snowboarding at **[Woodward Tahoe](https://www.rideboreal.com/explore/who-we-are/woodward-tahoe/)**, circa 2019. This one is long.
 
@@ -287,4 +287,4 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 ##### PS: When I look back at this picture, I think, "It's so epic — why am I not wearing something better?" 😅. That’s a little quirk of mine: I never really cared about pictures or how I looked to others. I was the classic nerd who needed to wear comfortable clothes because, "I'm too busy and that's really what matters". See why I have never been interested in or cared about social media? These days, as maturity pushes me to embrace my lifelong role of a scholar and a leader (and, soon, a mother and wife), I've become more mindful of my wardrobe. When I'm working, I mostly wear black and suits; for personal activities, I enjoy floral, colorful, and elegant dresses.
 
-### ⬛️
+#### ⬛️

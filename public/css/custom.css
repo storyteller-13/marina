@@ -1120,6 +1120,14 @@ html[data-locale="ja"] .error-404 .home-link {
     margin-top: 0.35rem;
 }
 
+/* "Summary" title of the auto-generated section links below the disclaimer (h2-sized) */
+.post-summary > p:first-child {
+    margin-bottom: 0.7rem;
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
 .blog-post-content p {
     line-height: 1.7;
 }

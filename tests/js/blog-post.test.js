@@ -80,7 +80,7 @@ test("helpers and markdown conversion cover every syntax path", () => {
     ].join("\n"),
   );
 
-  expect(html).toContain("<h1>");
+  expect(html).toContain('<h1 id="h1-with-pic-and-and-code-and-link-and-b-and-i">');
   expect(html).toContain("<img src=\"https://img.test/a.png\"");
   expect(html).toContain("<br>");
   expect(html).toContain("<blockquote>");
@@ -91,8 +91,93 @@ test("helpers and markdown conversion cover every syntax path", () => {
   expect(html).toContain("<tbody>");
   expect(html).toContain("language-js");
   expect(html).toContain("<p>still a para<br>and another line</p>");
-  expect(html).toContain("<h2>Next heading</h2>");
+  expect(html).toContain('<h2 id="next-heading">Next heading</h2>');
+  expect(html).not.toContain("post-summary");
   expect(html).toContain("</code></pre>");
+});
+
+const DISCLAIMER = [
+  "As always, please remember our rules:",
+  "",
+  "**🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**",
+  "**🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**",
+];
+
+test("adds a summary of the main sections right below the disclaimer", () => {
+  require("../../public/js/blog-post.js");
+  const api = window.MarinaBlogPost;
+
+  const html = api.markdownToHtml([
+    "# Before the rules",
+    "",
+    ...DISCLAIMER,
+    "",
+    "<br>",
+    "",
+    "# 👻 Part I — The [Wire](https://ex.test)",
+    "## detail",
+    "# Part II & *more*",
+    "## detail",
+    "##### P.S. not a main section",
+  ].join("\n"));
+
+  const [before, after] = html.split("living notes that I change as I fancy.</strong></p>");
+  expect(before).not.toContain("post-summary");
+  expect(after.startsWith('\n<br><br>\n<nav class="post-summary" aria-label="Summary">')).toBe(true);
+  expect(after).toContain(
+    '<ul><li><a href="#part-i-the-wire">👻 Part I — The Wire</a></li>'
+    + '<li><a href="#part-ii-more">Part II &amp; more</a></li></ul></nav>\n<br><br>\n<p><br></p>',
+  );
+  // repeated headings get unique ids, and every summary link has a target
+  expect(after).toContain('<h2 id="detail">');
+  expect(after).toContain('<h2 id="detail-2">');
+  expect(html).toContain('<h1 id="before-the-rules">');
+  expect(html.match(/post-summary/g)).toHaveLength(1);
+});
+
+test("summary uses the first heading level with two or more sections, or is skipped", () => {
+  require("../../public/js/blog-post.js");
+  const api = window.MarinaBlogPost;
+
+  const nested = api.markdownToHtml([...DISCLAIMER, "## Only one", "### A", "### B"].join("\n"));
+  expect(nested).toContain('<li><a href="#a">A</a></li><li><a href="#b">B</a></li>');
+  expect(nested).not.toContain('href="#only-one"');
+
+  expect(api.markdownToHtml([...DISCLAIMER, "## Lonely"].join("\n"))).not.toContain("post-summary");
+  expect(api.markdownToHtml(["## A", "## B"].join("\n"))).not.toContain("post-summary");
+
+  window.MarinaI18n = { t: (key) => (key === "blog.summary" ? "まとめ" : key) };
+  expect(api.markdownToHtml([...DISCLAIMER, "## A", "## B"].join("\n"))).toContain("<strong>まとめ</strong>");
+});
+
+test("heading text helpers strip markdown and html, with a fallback id", () => {
+  require("../../public/js/blog-post.js");
+  const api = window.MarinaBlogPost;
+
+  expect(api.plainHeadingText(" ![x](a.png) [y](https://b) <br> **z** `c` ")).toBe("x y  z c");
+  expect(api.slugify("Chapter 1. An Introduction!")).toBe("chapter-1-an-introduction");
+  expect(api.slugify("ゴースト ✦ 幽霊")).toBe("ゴースト-幽霊");
+  expect(api.slugify("✦ ✦")).toBe("section");
+  expect(api.renderSummary([])).toBe("");
+});
+
+test("scrollToHashTarget scrolls to a rendered heading from the url hash", () => {
+  require("../../public/js/blog-post.js");
+  const api = window.MarinaBlogPost;
+  document.body.innerHTML = '<h2 id="ゴースト">x</h2>';
+  const target = document.getElementById("ゴースト");
+  target.scrollIntoView = jest.fn();
+
+  window.location.hash = "";
+  api.scrollToHashTarget();
+  window.location.hash = "#missing";
+  api.scrollToHashTarget();
+  expect(target.scrollIntoView).not.toHaveBeenCalled();
+
+  window.location.hash = `#${encodeURIComponent("ゴースト")}`;
+  api.scrollToHashTarget();
+  expect(target.scrollIntoView).toHaveBeenCalledTimes(1);
+  window.location.hash = "";
 });
 
 test("enhanceCodeBlocks wraps, copies, and skips already wrapped / empty pre", async () => {

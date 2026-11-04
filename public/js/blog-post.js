@@ -75,12 +75,64 @@ function parseFrontMatter(markdown) {
   return { meta, body };
 }
 
+/** The last line of the "our rules" disclaimer; the post summary goes right after it. */
+const DISCLAIMER_MARKER = "living notes that I change as I fancy";
+
+/** Heading text without markdown/html syntax: links and images keep their label, tags and emphasis marks are dropped. */
+function plainHeadingText(text) {
+  return text
+    .replace(/!\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/<[^>]+>/g, "")
+    .replace(/[*_`]/g, "")
+    .trim();
+}
+
+/** URL-safe id for a heading; keeps letters and digits in any script (e.g. japanese). */
+function slugify(text) {
+  return plainHeadingText(text)
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, "-")
+    .replace(/^-+|-+$/g, "") || "section";
+}
+
+/**
+ * Links to the post's main sections: the highest heading level after the disclaimer
+ * that has at least two headings (some posts use # for parts, others start at ##).
+ */
+function renderSummary(headings) {
+  const levels = [...new Set(headings.map((h) => h.level))].sort((a, b) => a - b);
+  const level = levels.find((l) => headings.filter((h) => h.level === l).length >= 2);
+  if (!level) return "";
+
+  const items = headings
+    .filter((h) => h.level === level)
+    .map((h) => `<li><a href="#${h.id}">${escapeHtml(plainHeadingText(h.text))}</a></li>`)
+    .join("");
+  const label = escapeHtml(tx("blog.summary", "Summary"));
+  return [
+    "<br><br>",
+    `<nav class="post-summary" aria-label="${label}"><p><strong>${label}</strong></p><ul>${items}</ul></nav>`,
+    "<br><br>",
+  ].join("\n");
+}
+
 function markdownToHtml(markdown) {
   const lines = markdown.replace(/\r\n/g, "\n").split("\n");
   const out = [];
   let i = 0;
   let inCode = false;
   let codeLang = "";
+  const headings = [];
+  const usedIds = new Map();
+  let summaryAt = -1;
+
+  function uniqueId(text) {
+    const base = slugify(text);
+    const count = usedIds.get(base) || 0;
+    usedIds.set(base, count + 1);
+    return count ? `${base}-${count + 1}` : base;
+  }
 
   function splitTableRow(row) {
     const trimmedRow = row.trim();
@@ -125,7 +177,9 @@ function markdownToHtml(markdown) {
     if (/^#{1,6}\s+/.test(trimmed)) {
       const level = trimmed.match(/^#+/)[0].length;
       const text = trimmed.replace(/^#{1,6}\s+/, "");
-      out.push(`<h${level}>${parseInline(text)}</h${level}>`);
+      const id = uniqueId(text);
+      if (summaryAt !== -1) headings.push({ level, id, text });
+      out.push(`<h${level} id="${escapeHtml(id)}">${parseInline(text)}</h${level}>`);
       i += 1;
       continue;
     }
@@ -222,9 +276,16 @@ function markdownToHtml(markdown) {
     }
     // Preserve author line breaks inside paragraphs in rendered posts.
     out.push(`<p>${parseInline(paragraphLines.join("\n")).replace(/\n/g, "<br>")}</p>`);
+    if (summaryAt === -1 && paragraphLines.some((l) => l.includes(DISCLAIMER_MARKER))) {
+      summaryAt = out.length;
+    }
   }
 
   if (inCode) out.push("</code></pre>");
+  if (summaryAt !== -1) {
+    const summary = renderSummary(headings);
+    if (summary) out.splice(summaryAt, 0, summary);
+  }
   return out.join("\n");
 }
 
@@ -299,6 +360,14 @@ function enhanceCodeBlocks(root) {
   });
 }
 
+/** Posts render after page load, so a shared #section link has to be scrolled to by hand. */
+function scrollToHashTarget() {
+  const id = decodeURIComponent(window.location.hash.slice(1));
+  if (!id) return;
+  const target = document.getElementById(id);
+  if (target) target.scrollIntoView();
+}
+
 async function loadPost() {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("post");
@@ -330,6 +399,7 @@ async function loadPost() {
     }
     contentRoot.innerHTML = markdownToHtml(body);
     enhanceCodeBlocks(contentRoot);
+    scrollToHashTarget();
   } catch (error) {
     contentRoot.innerHTML = `<p class="blog-error">${escapeHtml(error.message)}</p>`;
   }
@@ -344,6 +414,10 @@ globalThis.MarinaBlogPost = {
   parseInline,
   parseFrontMatter,
   markdownToHtml,
+  plainHeadingText,
+  slugify,
+  renderSummary,
+  scrollToHashTarget,
   copyToClipboard,
   enhanceCodeBlocks,
   loadPost,

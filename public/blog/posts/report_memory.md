@@ -1715,7 +1715,7 @@ Capabilities:
 
 ---
 
-# 🪄2️⃣  How Leading AI Projects Think About Memory
+# 2️⃣🪄  How Leading AI Projects Think About Memory
 
 <br>
 
@@ -2143,7 +2143,7 @@ Dreaming for self-improvement
 
 ---
 
-# 🪄3️⃣ Notable Research Papers on Agentic Memory
+# 3️⃣🪄 Notable Research Papers on Agentic Memory
 
 <br>
 
@@ -2218,7 +2218,7 @@ Dreaming for self-improvement
 
 ---
 
-# 🪄4️⃣ Notable Open-Source Projects on Agentic Memory
+# 4️⃣🪄 Notable Open-Source Projects on Agentic Memory
 
 <br>
 

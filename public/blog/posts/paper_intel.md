@@ -361,7 +361,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 ----
 
-## [Recursive Harness Self-Improvement (Lee et al., 2026)](https://arxiv.org/pdf/2607.15524)
+## 🪂 [Recursive Harness Self-Improvement (Lee et al., 2026)](https://arxiv.org/pdf/2607.15524)
 
 <br>
 
