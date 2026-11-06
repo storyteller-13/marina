@@ -261,8 +261,8 @@ With the following rules:
 
 ---
 
-### TO BE CONTINUED... 😄
+#### TO BE CONTINUED... 😄
 
 <br>
 
-### ⬛️
+#### ⬛️

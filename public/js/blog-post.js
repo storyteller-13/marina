@@ -54,15 +54,24 @@ function slugify(text) {
 /**
  * Links to the post's main sections: the highest heading level after the disclaimer
  * that has at least two headings (some posts use # for parts, others start at ##).
+ * Each one lists the headings exactly one level below it as indented subitems.
  */
 function renderSummary(headings) {
   const levels = [...new Set(headings.map((h) => h.level))].sort((a, b) => a - b);
   const level = levels.find((l) => headings.filter((h) => h.level === l).length >= 2);
   if (!level) return "";
 
-  const items = headings
-    .filter((h) => h.level === level)
-    .map((h) => `<li><a href="#${h.id}">${escapeHtml(plainHeadingText(h.text))}</a></li>`)
+  const link = (h) => `<a href="#${h.id}">${escapeHtml(plainHeadingText(h.text))}</a>`;
+  const sections = [];
+  for (const h of headings) {
+    if (h.level === level) sections.push({ heading: h, subitems: [] });
+    else if (h.level === level + 1 && sections.length) sections.at(-1).subitems.push(h);
+  }
+  const items = sections
+    .map(({ heading, subitems }) => {
+      const nested = subitems.map((h) => `<li>${link(h)}</li>`).join("");
+      return `<li>${link(heading)}${nested && `<ul>${nested}</ul>`}</li>`;
+    })
     .join("");
   const label = escapeHtml(tx("blog.summary", "Summary"));
   return [

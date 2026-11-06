@@ -715,5 +715,5 @@ function MONTE-CARLO-LOCALIZATION(a, z, N, P(X′|X, v, ω), P(z|z∗), m) retur
 #### *Thank you again, for the 3rd time, Dr. Russell & Dr. Norvig, for this awesome journey.*
 
 
-### ⬛️
+#### ⬛️
 

@@ -126,14 +126,42 @@ test("adds a summary of the main sections right below the disclaimer", () => {
   expect(before).not.toContain("post-summary");
   expect(after.startsWith('\n<br><br>\n<nav class="post-summary" aria-label="Summary">')).toBe(true);
   expect(after).toContain(
-    '<ul><li><a href="#part-i-the-wire">👻 Part I — The Wire</a></li>'
-    + '<li><a href="#part-ii-more">Part II &amp; more</a></li></ul></nav>\n<br><br>\n<p><br></p>',
+    '<ul><li><a href="#part-i-the-wire">👻 Part I — The Wire</a><ul><li><a href="#detail">detail</a></li></ul></li>'
+    + '<li><a href="#part-ii-more">Part II &amp; more</a><ul><li><a href="#detail-2">detail</a></li></ul></li></ul></nav>'
+    + '\n<br><br>\n<p><br></p>',
   );
   // repeated headings get unique ids, and every summary link has a target
   expect(after).toContain('<h2 id="detail">');
   expect(after).toContain('<h2 id="detail-2">');
   expect(html).toContain('<h1 id="before-the-rules">');
   expect(html.match(/post-summary/g)).toHaveLength(1);
+});
+
+test("summary nests only the headings one level below each main section", () => {
+  require("../../public/js/blog-post.js");
+  const api = window.MarinaBlogPost;
+
+  const html = api.markdownToHtml([
+    ...DISCLAIMER,
+    "### Orphan",
+    "## Before any part",
+    "# One",
+    "## One.a",
+    "### Too deep",
+    "## One.b",
+    "# Two",
+    "### Skipped level",
+  ].join("\n"));
+
+  expect(html).toContain(
+    '<ul><li><a href="#one">One</a><ul>'
+    + '<li><a href="#one-a">One.a</a></li><li><a href="#one-b">One.b</a></li></ul></li>'
+    + '<li><a href="#two">Two</a></li></ul></nav>',
+  );
+  expect(html).not.toContain('href="#too-deep"');
+  expect(html).not.toContain('href="#skipped-level"');
+  expect(html).not.toContain('href="#before-any-part"');
+  expect(html).not.toContain('href="#orphan"');
 });
 
 test("summary uses the first heading level with two or more sections, or is skipped", () => {

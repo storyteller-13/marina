@@ -100,7 +100,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 ---
 
-# 1️⃣🪄 Open-Source Production Memory Systems
+# 1️⃣🪄 Production Memory Systems
 
 <br>
 
@@ -109,13 +109,19 @@ As I read through the material, below are my highlights — with a moderate atte
 <br>
 <br>
 
-## 🟪 [mem0 (Python)](https://mem0.ai/research) 
+## 🟪 [Mem0 (Python)](https://mem0.ai/research) (A Memory API with Configurable Storage)
 
 <br>
 
-> *Mem0 is a memory architecture built to scale, which pulls out the important information from ongoing conversations, consolidates it, and retrieves it later. Its pipeline runs in two phases. In the **extraction phase**, Mem0 looks at a conversation summary together with the most recent messages and produces candidate memories. In the **update phase**, it checks those candidates against what is already stored, and an LLM decides which of four operations to apply: add a new memory when it is entirely different from anything stored, update an existing memory by enriching or extending it, delete memories that conflict with the new one, or make no change at all. Because of this consolidation step, Mem0 doesn't simply keep appending memories, so its store stays coherent as facts change over time. The base version stores memories as natural-language entries in a vector database. An enhanced variant, Mem0g, stores memories as a directed labeled graph to capture more complex relationships between the elements of a conversation, and it adds a Conflict Detector that flags overlapping or contradictory nodes and edges, plus an Update Resolver that decides whether to merge, invalidate, or skip them. The result is a memory layer that agents can plug into to stay consistent across many sessions without carrying their full conversation history in context.*
+> *A memory architecture built to scale, which pulls out the important information from ongoing conversations, consolidates it, and retrieves it later. Its pipeline runs in two phases. In the **extraction phase**, Mem0 looks at a conversation summary together with the most recent messages and produces candidate memories. In the **update phase**, it checks those candidates against what is already stored, and an LLM decides which of four operations to apply: add a new memory when it is entirely different from anything stored, update an existing memory by enriching or extending it, delete memories that conflict with the new one, or make no change at all.*
+
+> *Because of this consolidation step, Mem0 doesn't simply keep appending memories, so its store stays coherent as facts change over time. The base version stores memories as natural-language entries in a vector database.*
+
+> *An enhanced variant, Mem0g, stores memories as a directed labeled graph to capture more complex relationships between the elements of a conversation, and it adds a `Conflict Detector` that flags overlapping or contradictory nodes and edges, plus an `Update Resolver` that decides whether to merge, invalidate, or skip them. The result is a memory layer that agents can plug into to stay consistent across many sessions without carrying their full conversation history in context.*
 
 <br>
+
+---
 
 ### [Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory (P. Chhikara et al., 2025)](https://arxiv.org/pdf/2504.19413)
 
@@ -514,19 +520,6 @@ File-based memory fails because files can't do the seven things a growing memory
 
 <br>
 
-```
-import os
-from mem0 import MemoryClient
-
-# Configure your Mem0 API key
-os.environ["MEM0_API_KEY"] = "YOUR_API_KEY"
-
-# Initialize the client
-mem_client = MemoryClient()
-```
-
-<br>
-
 - Production AI agents do not fail because they lack a context window. They fail because their memories grow unstructured, stale, and noisy over time.
 
 <br>
@@ -547,6 +540,15 @@ mem_client = MemoryClient()
 <br>
 
 ```
+import os
+from mem0 import MemoryClient
+
+# Configure your Mem0 API key
+os.environ["MEM0_API_KEY"] = "YOUR_API_KEY"
+
+# Initialize the client
+mem_client = MemoryClient()
+
 def store_user_preference(user_id: str, preference_text: str):
     memory = mem_client.add(
         content=preference_text,
@@ -1581,6 +1583,8 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 
 <br>
 
+---
+
 ### Additional Resources
 
 <br>
@@ -1593,7 +1597,7 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 
 ---
 
-## 🟪 [Cognee (Python, TypeScript, Rust)](https://github.com/topoteretes/cognee)
+## 🟪 [Cognee (Python, TypeScript, Rust)](https://github.com/topoteretes/cognee) (Graph and Vector Memory over Configurable Storage)
 
 <br>
 
@@ -1608,6 +1612,8 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 ![](/blog/assets/report_mem_32.png)
 
 <br>
+
+---
 
 ### Architecture
 
@@ -1629,6 +1635,54 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 | `forget` | delete memory | one of `--all` / `-d` / `--data-id`+`--dataset-name`, `--tenant-id` |
 
 <br>
+
+---
+
+### [LLM Memory Explained](https://www.cognee.ai/llm-memory)
+
+<br>
+
+LLM memory is information-bearing state that can influence a model's output:
+
+
+|                   | Where is it stored?                                                        | Persistent?                         | How does it change?                                     | What does it provide?                                                         |
+| ----------------- | -------------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Parametric memory | Model weights                                                              | Persists across inference calls     | Pretraining, fine-tuning, PEFT (Parameter-Efficient Fine-Tuning), or model editing        | Learned knowledge, patterns, and behavior                                     |
+| Contextual memory | Current context and inference-time state                                   | Temporary                           | Context assembly, truncation, compression, or retrieval | Instructions, recent interactions, and information available during inference |
+| External memory   | Databases, documents, vector indexes, graphs, or other application storage | Persists independently of the model | Application-level writes, updates, and deletion         | Information that can be retrieved across separate calls or sessions           |
+
+<br>
+
+
+Applications can preserve information independently of the model in databases, documents, vector indexes, knowledge graphs, or other storage systems. When it's needed again, retrieval selects relevant records and adds them to the model's context for the current request:
+
+|                  | Contextual memory                                             | Long-term memory                                     |
+|------------------|---------------------------------------------------------------|------------------------------------------------------|
+| **Persistence**  | Current inference or reconstructed conversation               | Across separate calls or sessions                    |
+| **Location**     | Model context                                                 | Model parameters or external storage                 |
+| **Updates**      | Change the supplied context                                   | Update parameters or external records                |
+| **Capacity**     | Limited by the context window                                 | Determined by the model or external storage          |
+| **Typical role** | Current instructions, conversation, and retrieved information | Learned knowledge and information needed again later |
+
+
+<br>
+
+Both parametric and external memory can preserve information across inference calls. However, their storage and update mechanisms lead to different design constraints:
+
+|            | Parametric memory                              | External memory                                                  |
+| ---------- | ---------------------------------------------- | ---------------------------------------------------------------- |
+| Storage    | Model parameters                               | Databases, documents, indexes, graphs, or other external storage |
+| Access     | Available directly during inference            | Requires retrieval                                               |
+| Updating   | Training, PEFT, or model editing               | Direct changes to stored information                             |
+| Freshness  | Depends on model updates                       | Can change independently from the model                          |
+| Provenance | Difficult to trace to an individual source     | Can preserve sources and metadata                                |
+| Deletion   | Difficult to verify for an individual fact     | Records can be removed explicitly                                |
+| Capacity   | Constrained by model architecture and training | Can expand with the storage system                               |
+| Latency    | No external retrieval step                     | Retrieval adds work before generation                            |
+
+<br>
+
+---
 
 ### [AI Agent Memory Architecture](https://www.cognee.ai/ai-agent-memory-architecture)
 
@@ -1673,6 +1727,290 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 
 <br>
 
+---
+
+### [Long-Term Knowledge for AI Agents](https://www.cognee.ai/long-term-knowledge-ai-agents)
+
+<br>
+
+|                       | Long-term memory               | Long-term knowledge                    |
+|-----------------------|--------------------------------|----------------------------------------|
+| How data is stored    | Text chunks in a vector DB     | Entities + relationships in a graph   |
+| How data is retrieved | Similarity search              | Similarity + graph traversal + lexical |
+| Versioning            | Rare, bolted on                | First-class                            |
+| What you get back     | The paragraphs closest to you  | A connected subgraph you can reason over |
+
+<br>
+
+Full architecture in how cognee builds AI memory:
+
+```
+  raw data ──▶ Extract ──▶ Cognify ──▶ Load ──▶ hybrid store
+                  │           │          │         │
+              entities +   dedup +    graph DB +   auto-routed
+              relations    version    vector idx   recall
+
+
+import cognee
+
+# Store permanently in the knowledge graph
+await cognee.remember("Customer 9132 hit a sync bug; Maya fixed it 2025-11-03.")
+
+# Auto-routed recall picks the best search strategy for the question
+results = await cognee.recall("Who resolved the last billing sync bug on this account?")
+
+# Session memory is a fast cache that syncs to the graph in the background
+await cognee.remember("User prefers monthly billing summaries.", session_id="user_123")
+```
+
+<br>
+
+---
+
+### [Context Graphs](https://www.cognee.ai/context-graphs-world-models-and-behavioral-validation)
+
+<br>
+
+- Session trace: the end-to-end, chronological record of a complete multi-turn workflow (what the agent saw, used, and produced across the whole run). 
+
+- Decision trace: the structured rationale inside that session—what the agent believed, what it optimised for, and why it chose a specific action. 
+
+- Context graph: the combination of (1) the relevant slice of your knowledge graph touched during the session and (2) the traces that explain how decisions were made on top of that knowledge. 
+
+- World model: a compressed, generalized representation learned from many traces that helps predict what tends to happen next under similar conditions. Memory becomes a source of predictive leverage, not just searchable history.
+
+<br>
+
+A trace-driven, graph-first approach is more forgiving. It lets you start with what’s real—how work actually happens—then introduce stricter structure where it pays off:
+
+➡️ Start without a heavy ontology when your organization’s knowledge is messy, distributed, or still being discovered through workflows. Let traces reveal what matters. 
+➡️ Add ontology where it reduces friction: shared definitions across teams, compliance constraints, audit requirements, or when you need consistent joins across systems. 
+➡️ Avoid using ontology as a gate that blocks value until every edge case is defined. Enterprise reality will always outpace the schema. 
+
+<br>
+
+---
+
+### [Knowledge Graphs for LLMs](https://www.cognee.ai/knowledge-graph-llm)
+
+<br>
+
+- Knowledge graphs and LLMs fix each other's weaknesses. LLMs are fluent but forgetful and prone to invention; knowledge graphs are precise and persistent but hard to build by hand. Combined, an LLM can build and maintain a graph from unstructured data, and the graph can ground the LLM's answers in connected, verifiable facts.
+
+- The graph lives in your choice of store — Kuzu, Neo4j, Neptune, or Postgres — and the same memory serves applications, agents, and coding tools through the MCP server. 
+
+<br>
+
+|                            | Knowledge graph               | LLM                              |
+| -------------------------- | ----------------------------- | -------------------------------- |
+| Facts                      | Explicit, exact, complete     | Implicit, approximate, patchy    |
+| Reasoning over connections | Multi-hop traversal is native | Only over what fits in context   |
+| Handling new information   | Add nodes and edges           | Retrain, or supply in the prompt |
+| Explaining an answer       | Path through the graph        | Hard to verify                   |
+| Building and maintaining   | Expensive by hand             | Can read and extract at scale    |
+| Natural language           | Needs a query layer           | Native                           |
+
+<br>
+
+Four Ways Knowledge Graphs and LLMs Work Together:
+
+1️⃣ the LLM builds the graph (how cognee builds memory: `remember` chunks the input, extracts entities and relationships with an LLM),
+2️⃣ the graph grounds the LLM (the model's job shrinks from "know the answer" to "explain these facts," which is what it is good at)
+3️⃣ GraphRAG (retrieves along relationships as well as similarity. A query finds its entry points by vector search, then expands through the graph to pull in connected context, and the combined result is ranked and handed to the model)
+4️⃣ The graph as memory (For agents, the knowledge graph becomes long-term memory. Every session adds facts and relationships; contradictions are detected and resolved, so the graph reflects what is currently true while keeping the history; and retrieval is scoped to what the current task needs).
+
+<br>
+
+When You Need a Knowledge Graph With Your LLM:
+
+➡️ Multi-hop questions
+➡️ Fact that changes
+➡️ Many entities with many relationships
+➡️ Explainability
+➡️  Memory across sessions and agents
+
+<br>
+
+---
+
+### [Temporal Knowledge Graphs](https://www.cognee.ai/temporal-knowledge-graph)
+
+<br>
+
+> A temporal knowledge graph records not just that two things are related but when the relationship was true and when the system learned about it. That lets it answer point-in-time questions, keep history when facts change, and resolve contradictions instead of storing both versions.
+
+<br>
+
+- A knowledge graph represents entities as nodes and relationships as typed edges. A temporal knowledge graph adds time to the edges (and sometimes the nodes), so each fact carries an interval during which it holds.
+
+- There are two different times worth tracking: 1) fact time, and 2) transaction time. These are bi-temporal graphs.
+
+<br>
+
+---
+
+### [How to Build a Memory Graph for AI Agents](https://www.cognee.ai/memory-graph-for-ai-agents)
+
+<br>
+
+- A memory graph for AI agents is a persistent graph representation of agent memory that stores entities, events, decisions, observations, and sources as connected records with typed relationships. 
+
+- Memory graphs need an ongoing update lifecycle for identity resolution, provenance, contradictions, revision, deletion, and bounded retrieval as the graph grows.
+
+<br>
+
+Nodes are persistent data points and can include:
+
+➡️ entities, such as people, organizations, services, products, or code components; 
+➡️ events, such as meetings, incidents, deployments, or transactions; 
+➡️ decisions, including accepted choices and rejected alternatives; 
+➡️ observations, such as a preference, constraint, or system state; 
+➡️ sources, including documents, messages, tickets, commits, or API responses; 
+➡️ tasks or episodes, which group records created during the same workflow or interaction. 
+
+<br>
+
+Edges are how those data points relate:
+
+➡️ `DEPENDS_ON`
+➡️ `CONSTRAINS` 
+➡️ `SUPPORTED_BY`
+➡️ `RELATED_TO`
+➡️ `OWNED_BY`
+➡️ `USED_BY`
+
+<br>
+
+A memory implementation needs rules for:
+
+➡️ which observations become durable
+➡️ who can create or revise records
+➡️ how memories are scoped
+➡️ how time and provenance are retained
+➡️ how contradictions and later corrections are represented
+➡️ when records are archived or deleted
+
+<br>
+
+| Term                                                                                                                | Primary role                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [Knowledge graph](https://www.cognee.ai/ai-knowledge-graph)                                  | Represents domain entities and relationships in a structured graph                                       |
+| Memory graph                                                                                                        | Uses graph structure as persistent agent memory, updated through observations, outcomes, and corrections |
+| [Context graph](https://www.cognee.ai/context-graphs-world-models-and-behavioral-validation) | Organizes connected context from several systems for task-time access; usage varies by product           |
+| [GraphRAG](https://www.cognee.ai/what-is-graphrag)                                           | Retrieves graph-connected information and assembles it as model context                                  |
+| Temporal knowledge graph                                                                                            | Records when entities or relationships were valid and how they changed                                   |
+
+<br>
+
+---
+
+###  [Multi-Tenant AI Memory](https://www.cognee.ai/multi-tenant-ai-memory-data-isolation)
+
+<br>
+
+- Multi-tenant agent memory is kept separate at three levels: logical (tenant-scoped datasets and permission checks in one store), physical (a database or namespace per tenant), and per-deployment.
+
+- Cognee scopes memory by dataset with per-dataset permissions enforced on recall; Mem0 scopes by `user_id` and `agent_id`, Zep by users and sessions, Letta by agents and blocks. 
+
+<br>
+
+- Agent memory stores conversational history, documents, extracted entities, embeddings, and derived graph edges. Any of these can leak across tenants if the retrieval path is not scoped correctly. In production, three separation levels are commonly combined:
+
+➡️ Logical separation keeps every tenant's records in the same database and the same embeddings index, with a tenant identifier on each row and permission checks applied at query time. Operational cost is low and onboarding a new tenant is a single insert, but a missing predicate in a recall query or a shared ANN index without a filter can return another tenant's vectors. 
+➡️ Physical separation gives each tenant its own database, schema, or vector namespace. Cross-tenant queries become structurally impossible because the storage engine itself refuses to see other tenants, at the cost of more infrastructure to run and migrate. 
+➡️ Per-deployment separation runs an entire stack per tenant, often in that tenant's VPC. This is the model regulated buyers ask for when data residency, air-gapped operation, or contractual single-tenancy is required. 
+
+<br>
+
+- The snippet below shows the minimum pattern for writing and reading memory with per-tenant dataset names. The dataset name encodes the tenant, and the recall call restricts search to that single dataset:
+
+```
+import cognee
+
+async def ingest_for_tenant(tenant_id: str, documents: list[str]) -> None:
+    dataset = f"tenant_{tenant_id}"
+    await cognee.remember(documents, dataset_name=dataset)
+
+async def answer_for_tenant(tenant_id: str, question: str) -> list[dict]:
+    dataset = f"tenant_{tenant_id}"
+    results = await cognee.recall(question, datasets=[dataset])
+    return results
+
+async def delete_tenant(tenant_id: str) -> None:
+    # GDPR / contractual deletion: remove everything written under this dataset,
+    # including graph nodes and vector embeddings derived from the source data.
+    dataset = f"tenant_{tenant_id}"
+    await cognee.forget(dataset_name=dataset)
+```
+
+<br>
+
+---
+
+### [Best Vector Database](https://www.cognee.ai/best-vector-database)
+
+<br>
+
+- Vector search can support AI memory, but persistent memory also needs ways to handle relationships, provenance, changing information, and structured context.
+
+<br>
+
+| If you need...                        | Start with                                         | Why                                                                                                                                                                           |
+| ------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Zero operations, pay-as-you-go        | **Pinecone** or **turbopuffer**                    | Serverless; storage and compute billed separately                                                                                                                             |
+| Open source with a managed path       | **Qdrant**, **Weaviate**, or **Milvus / Zilliz**   | Self-host first, move to cloud later without changing the API                                                                                                                 |
+| Vectors next to your relational data  | **PostgreSQL + pgvector**                          | One database, one backup, SQL joins with metadata                                                                                                                             |
+| Embedded or local-first               | **Chroma** or **LanceDB**                          | Runs in-process; no server to manage                                                                                                                                          |
+| Tens of billions of vectors           | **Milvus (distributed)** or **LanceDB Enterprise** | Designed for horizontal scale                                                                                                                                                 |
+| Multimodal or lakehouse-style storage | **LanceDB**                                        | Columnar format, large objects alongside vectors                                                                                                                              |
+| Memory for AI agents, not just search | A vector store **plus a graph**                    | Similarity alone can't represent relationships or what superseded what |
+
+
+<br>
+
+---
+
+### [Agent Observability](https://www.cognee.ai/ai-observability-tools)
+
+<br>
+
+|                          | **LLM observability**                     | **Agent observability**                                     |
+| ------------------------ | ----------------------------------------- | ----------------------------------------------------------- |
+| **Primary unit**         | Model call                                | Agent run or session                                        |
+| **Typical visibility**   | Prompt, response, tokens, latency, errors | Model calls, retrieval, tools, state, handoffs, evaluations |
+| **Main debugging focus** | What happened during this model call?     | Which sequence of events produced this agent outcome?       |
+
+<br>
+
+What Should an AI Observability Tool Track?
+
+|                                 | What to check                                                                                                     |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Agent tracing                   | Complete runs, nested agents, tool calls, retries, handoffs, and execution order                                  |
+| Evaluations                     | Production scoring, offline experiments, regression testing, datasets, and human or automated feedback            |
+| Retrieval and memory visibility | Queries, returned context, memory reads and writes, updates, scope, and information passed into later model calls |
+| Operational monitoring          | Latency, token usage, model cost, errors, dashboards, and alerts                                                  |
+| Standards and deployment        | OpenTelemetry or OpenInference support, telemetry export, self-hosting, and control over observability data       |
+
+<br>
+
+8 AI Observability Tools for Agents in 2026:
+
+| Project                                                                                        | Core focus                                                         | Memory and retrieval visibility                                              | Deployment options                          |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------- | ------------------------------------------- |
+| [LangSmith](https://github.com/langchain-ai/langsmith-python)                  | Agent tracing tied closely to evaluation                           | Dedicated retriever traces; custom tracing for other operations              | Cloud; hybrid; Enterprise self-hosting      |
+| [Langfuse](https://github.com/langfuse/langfuse)                        | OpenTelemetry-based observability with an MIT-licensed core        | Generic observations and sessions can capture retrieval or memory operations | Cloud or self-hosted                        |
+| [Arize Phoenix](https://github.com/Arize-ai/phoenix)                    | OpenInference/OpenTelemetry tracing and RAG evaluation             | Explicit retrieval traces; custom spans for application logic                | Local, containerized, or Phoenix Cloud      |
+| [Braintrust](github.com/braintrustdata/braintrust-cookbook)              | Evaluation-centered production observability                       | Agent-observability guidance explicitly includes memory reads and writes     | Cloud; customer-hosted data plane available |
+| [Comet Opik](https://github.com/comet-ml/opik)                          | Open-source tracing and trajectory evaluation                      | Custom spans can include retrieval and memory activity                       | Cloud or self-hosted                        |
+| [W&B Weave](https://github.com/wandb/weave)                             | Agent tracing and evaluation within the W&B ecosystem              | Instrumented operations can include retrieval or memory calls                | W&B platform                                |
+| [Datadog Agent Observability](https://github.com/DataDog/datadog-agent) | AI traces connected with application and infrastructure monitoring | Custom/manual spans can capture memory operations                            | Datadog platform                            |
+| [AgentOps](https://github.com/AgentOps-AI/agentops)                     | Agent-specific hierarchical execution traces                       | Custom operation spans can represent memory activity                         | Hosted or self-hosted                       |
+
+<br>
+
+---
+
 ### ✨ Design checklist for your own agent memory architecture ✨
 
 <br>
@@ -1690,6 +2028,8 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 
 <br>
 
+---
+
 ### Additional Resources
 
 <br>
@@ -1704,7 +2044,7 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 
 ---
 
-## 🟪 [Zep (Python, TypeScript, Go)](https://github.com/getzep/zep)
+## 🟪 [Zep (Python, TypeScript, Go)](https://github.com/getzep/zep) (Temporal Memory for Evolving Facts)
 
 <br>
 
@@ -1717,6 +2057,8 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 > *For retrieval, it uses a hybrid search that combines cosine similarity, BM25 full-text search, and breadth-first graph traversal, which lets agents reason over facts that change over time and across many sessions.*
 
 <br>
+
+---
 
 ### [Zep: A Temporal Knowledge Graph Architecture for Agent Memory (P. Rasmussen et al., 2025)](https://arxiv.org/pdf/2501.13956)
 
@@ -1733,6 +2075,8 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 - Zep implements three search functions: cosine semantic similarity search, Okapi BM25 full-text search, and breadth-first search. The first two functions utilize Neo4j’s implementation of Lucene.
 
 <br>
+
+---
 
 ### [Reasons Context Graphs are Effective](https://www.getzep.com/blog/context-graphs-unusually-effective/)
 
@@ -1754,6 +2098,8 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 - A context graph costs more to build than a store of raw text, because an LLM has to extract the entities and relationships. The cost pays off over time. Without a graph, the expensive model reads raw text for every question, including text it has already read many times. With a graph, extraction happens once, when the data arrives, and every later question reuses the facts.
 
 <br>
+
+---
 
 ### [How Zep Tracks Provenance in Agent Memory](https://www.getzep.com/blog/how-zep-tracks-provenance-in-agent-memory/)
 
@@ -1791,6 +2137,8 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 
 <br>
 
+---
+
 ### [Defending Agent Memory Against Poisoning](https://www.getzep.com/blog/defending-agent-memory-poisoning/)
 
 <br>
@@ -1818,6 +2166,8 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 
 <br>
 
+---
+
 ### [Evaluating Nemotron 3 Embed for Agent Memory](https://www.getzep.com/blog/evaluating-nemotron-3-embed-for-agent-memory/)
 
 <br>
@@ -1829,6 +2179,8 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 - Nemotron 3 Embed 1B is the strongest embedding model we have tested on our workload: first on all three tasks and statistically significant against every alternative, with a quantized serving path that addresses encode cost at scale.
 
 <br>
+
+---
 
 ### [Markdown is not Agent Memory](https://www.getzep.com/blog/markdown-is-not-agent-memory/)
 
@@ -1857,6 +2209,8 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 | **Governance** | File permissions; manual deletes | Isolation, retention, and audit below the layer |
 
 <br>
+
+---
 
 ### [Why We Built a Graph Database Service for Agent Memory](https://www.getzep.com/blog/why-we-built-a-graph-database-service-for-agent-memory/)
 
@@ -1911,6 +2265,8 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 
 <br>
 
+---
+
 ### Additional Resources
 
 <br>
@@ -1924,7 +2280,7 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 
 ---
 
-## 🟪 [Letta (TypeScript)](https://github.com/letta-ai/letta-code)
+## 🟪 [Letta (TypeScript)](https://github.com/letta-ai/letta-code) (Memory Built into the Agent Runtime)
 
 <br>
 
@@ -1935,6 +2291,8 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 > *What makes Letta distinctive is that the agent manages its memory on its own. It edits its memory blocks with tools, and it decides what to keep in view, what to archive, and when to search. The drawback is cost, because every memory operation uses LLM tokens, which can break prompt caching and add latency.*
 
 <br>
+
+---
 
 ### [MemGPT: Towards LLMs as Operating Systems (C. Packer et al., 2024)](https://arxiv.org/pdf/2310.08560)
 
@@ -1962,6 +2320,7 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 
 <br>
 
+---
 
 ### MemFS
 
@@ -1984,6 +2343,8 @@ $MEMORY_DIR/
 
 <br>
 
+---
+
 ### [RAG Is Not Agent Memory](https://www.letta.com/blog/rag-vs-agent-memory/)
 
 <br>
@@ -2001,6 +2362,28 @@ $MEMORY_DIR/
 - Agentic RAG’s iterative methodology updates results each time it retrieves and reviews more information, generating a more holistic and accurate response than if it retrieved information and generated responses only once.
 
 <br>
+
+---
+
+### [Context Repositories: Git-based Memory for Coding Agents](https://www.letta.com/blog/context-repositories/)
+
+<br>
+
+- Context Repositories is a rebuild of how memory works in Letta Code based on programmatic context management and git-based versioning. 
+
+- Agents can leverage their full terminal and coding capabilities to manage context, such as progressive disclosure and rewriting context for learning in token-space. In comparison, prior approaches to memory limited agents to MemGPT-style memory tools or virtual filesystem operations.
+
+- Files are simple, universal primitives that both humans and agents can work with using familiar tools. Following the Unix philosophy, agents can chain standard tools for complex queries over memory, use bash for batch operations (e.g., `for file in /memory/*/; do ...;`), or write scripts to process memory programmatically.
+
+- Files in the context repository are designed for progressive disclosure, similar to patterns recommended for agent skills. The filetree structure is always in the system prompt, so folder hierarchy and file names act as navigational signals. Each memory file also includes frontmatter with a description of its contents, similar to the `YAML` frontmatter in Anthropic's `SKILL.md` files.
+
+- Memory formation and learning in agents are single-threaded: if an agent wants to learn from data or a prior trajectory, it processes it sequentially (such with sleep-time agents current), because there's been no mechanism to coordinate concurrent writes to memory. Git changes this. By giving each subagent an isolated worktree, multiple subagents can process and write to memory concurrently, then merge their changes back through git-based conflict resolution.
+
+- Letta Code has built-in skills and subagents for memory management designed to work with Context Repositories: 1) Memory initialization, 2) Memory reflection, 3) Memory defragmentation.
+
+<br>
+
+---
 
 ### [Dynamic workflows for stateful agents and decision models](https://www.letta.com/blog/dynamic-workflows/)
 
@@ -2020,6 +2403,8 @@ $MEMORY_DIR/
 
 <br>
 
+---
+
 ### [Introducing Mods: Enabling Agents to Self-Improve through Harness-Level Adaptation](https://www.letta.com/blog/introducing-mods/)
 
 <br>
@@ -2038,6 +2423,34 @@ Harness-level modifications let an agent self-improve in ways that learned conte
 
 <br>
 
+---
+
+### [Memory Models: Towards Agents that Learn](https://www.letta.com/blog/towards-agents-that-learn/)
+
+<br>
+
+- The most valuable agents in the future will be multi-model: agents that can carry their memory and learning across model generations (and even new model architectures) to combine frontier intelligence with compounding expertise. 
+
+- Agents will also be compound systems composed of several underlying models working in orchestration, including general-purpose coding models and low-latency models for real-time interaction. 
+
+- In this multi-model future, token-space representations serve as the vital connective tissue between all models in the greater system - and the primary mechanism for continual learning.
+
+- Token-space learning will also become more powerful as in-context learning capabilities of models continue to improve. While models are a depreciating asset, learning and memory represented in token space is an appreciating asset: as models improve, representations can be transferred to new models that leverage the learnings even more effectively through more powerful ICL capabilities.
+
+- Memory formation through general-purpose models is not capable enough to power long-term self-improvement: 1) Memories become generic and lossy after repeated refinements, 2) Memories are overly specific rather than generalizable learnings, 3) Memories fail to consistently adapt the behavior of agents across sessions with the same model, and across different models.
+
+- Long context (e.g. 1M or 10M token context windows), or methods for using context more efficiently during a task, like self-compaction, context folding, and Recursive Language Models (RLMs) help extend the task horizon for increasingly challenging coding tasks, but are not mechanisms for true continual learning.
+
+- We believe continual learning will be solved by creating agents that learn to learn in token-space via memory models, which are models specialized in the generation and curation of context. Memory models are optimized end-to-end through meta-RL to create token-space memories that enable the agent to successfully learn across tasks by creating durable memories that improve future performance.
+
+- Rather than using RL to optimize a model for task performance directly, we instead use RL to optimize a compound system where a specialized memory model is responsible for cross-task and cross-model learning.
+
+- Distillation of memories from tokens to weights can provide additional gains in personalization and efficiency.
+
+<br>
+
+---
+
 ### Additional Resources
 
 <br>
@@ -2050,7 +2463,7 @@ Harness-level modifications let an agent self-improve in ways that learned conte
 
 ---
 
-## 🟪 [Hindsight (Python)](https://github.com/vectorize-io/hindsight)
+## 🟪 [Hindsight (Python)](https://github.com/vectorize-io/hindsight) (Agent memory focused on making agents learn over time across sessions)
 
 <br>
 
@@ -2062,6 +2475,8 @@ Harness-level modifications let an agent self-improve in ways that learned conte
 
 <br>
 
+---
+
 ### Components
 
 <br>
@@ -2072,6 +2487,8 @@ Harness-level modifications let an agent self-improve in ways that learned conte
 ➡️ Prompt rehydration: Construct a final prompt combining system instructions, the user query, recent messages, and summaries.
 
 <br>
+
+---
 
 ### Memory Types
 
@@ -2086,6 +2503,8 @@ Hindsight uses biomimetic data structures to organize agent memories in a way th
 ➡️ Knowledge page: a living document the bank writes about itself
 
 <br>
+
+---
 
 ### Multi-Strategy Retrieval
 
@@ -2107,6 +2526,8 @@ Then the part that matters more than any single arm:
 ➡️ Cut to a token budget, not a top-k — you say how much context you can afford and Hindsight fills it, because agents budget in tokens and not in result counts
 
 <br>
+
+---
 
 ### Agentic Wrapper
 
@@ -2134,6 +2555,78 @@ response = client.chat.completions.create(
 
 <br>
 
+---
+
+### [Thirty Agents, One Memory](https://hindsight.vectorize.io/blog/2026/10/20/agent-swarm-memory)
+
+<br>
+
+- Nothing in Hindsight ever merges two raw facts. Twenty agents reaching the same conclusion write twenty rows, permanently. That is the audit trail working as designed, not a dedup failure.
+
+- Consolidation is what turns redundancy into evidence. An observation's `proof_coun`t is a count of distinct live source memory `ids`, so twenty agents agreeing becomes one observation citing twenty facts — independent corroboration is the one thing a swarm can give memory that a single agent structurally cannot.
+
+- Concurrency bites hardest on entity names, not facts. Variant merging is in-batch, and a swarm's writes are separate retains, so convergence falls to matching against entities already committed.
+
+- A worker without a stable `document_id` does not retry, it duplicates.
+
+<br>
+
+---
+
+### [Recall vs. Reflect](https://hindsight.vectorize.io/blog/2026/07/24/recall-vs-reflect)
+
+<br>
+
+- Your agent writes to agent memory with `retain`. 
+
+- `recall` retrieves. It finds the memories relevant to a query and returns them as a ranked list of facts. No LLM. Sub-second. Cheap. 
+
+- `reflect` reasons. It is an agent that searches your memory across several levels and uses an LLM to synthesize an answer. Slower. Costs a model call.
+
+<br>
+
+|                       | `recall`                       | `reflect`                                    |
+| --------------------- | ------------------------------ | -------------------------------------------- |
+| Job                   | Retrieve relevant memories     | Reason across memories to answer             |
+| LLM involved?         | No, embeddings + reranker only | Yes, agentic loop with an LLM                |
+| Returns               | A ranked list of facts         | A synthesized answer (optionally structured) |
+| Speed and cost        | Sub-second, near-free          | Slower, costs a model call                   |
+| `budget` controls     | Search depth                   | How thoroughly the agent explores            |
+| `max_tokens` controls | Size of the returned facts     | Length of the final answer                   |
+| Cited sources         | The facts are the result       | `include_based_on` returns validated sources |
+| Best for              | "What did I say about X?"      | "What should I do about X?"                  |
+
+<br>
+
+---
+
+
+### [Agent Swarms](https://blog.openviking.ai/post/agent-swarm-memory/)
+
+<br>
+
+| Road                | Examples                                               | What’s missing                                                     |
+| ------------------- | ------------------------------------------------------ | ------------------------------------------------------------------ |
+| Task orchestration  | Multi-agent research, Agent Teams, Cursor agent swarms | “Who it is” — nameless, destroyed when the task ends               |
+| Sandbox simulation  | Generative Agents, Project Sid                         | The real world — has memory, but locked in a closed sandbox        |
+| Open community      | Moltbook                                               | Social memory — scale that decayed into prompt theater             |
+| Human-inside spaces | The Colony, Raft, Coze 3.0, Buzz                       | An answer on memory and identity — the question this post takes on |
+
+<br>
+
+A database-shaped stack for agent context:
+
+| Layer              | Components                                                                          | Responsibility                                    | Interface      |
+| ------------------ | ----------------------------------------------------------------------------------- | ------------------------------------------------- | -------------- |
+| Agent surface      | CLI, SDK, MCP, Skills, VikingBot                                                    | Navigation commands and resource URIs             | `viking://...` |
+| OpenViking server  | Python: identity, parsing, model calls, queues, retrieval, sessions                 | Coordinates reads, writes, retries, and isolation | API + jobs     |
+| Context filesystem | VikingFS URIs over RAGFS (Rust, embedded), path locks, L0/L1 sidecars               | Turns context into paths agents can traverse      | `ls/tree/read` |
+| Storage substrate  | Vector index (embedded C++ engine or VikingDB), local or S3-compatible file storage | Durability, retrieval, filters, and artifacts     | Index + files  |
+
+<br>
+
+---
+
 ### Additional Resources
 
 <br>
@@ -2148,7 +2641,7 @@ response = client.chat.completions.create(
 
 ---
 
-## 🟪 [Supermemory (TypeScript, Python)](https://supermemory.ai)
+## 🟪 [Supermemory (TypeScript, Python)](https://supermemory.ai) (Context Engine that Automatically Extracts Profiles and Manages Memory)
 
 <br>
 
@@ -2166,6 +2659,8 @@ response = client.chat.completions.create(
 
 <br>
 
+---
+
 ### Capabilities
 
 <br>
@@ -2176,6 +2671,8 @@ response = client.chat.completions.create(
 ➡️ Unified API: Provide a single endpoint that handles both memory and document retrieval.
 
 <br>
+
+---
 
 ### [How AI Memory Actually Works](https://supermemory.ai/blog/how-ai-memory-works/)
 
@@ -2231,6 +2728,8 @@ const context = [
 
 <br>
 
+---
+
 ### Additional Resources
 
 <br>
@@ -2243,7 +2742,7 @@ const context = [
 
 ---
 
-## 🟪 [Honcho (Python, TypeScript)](https://github.com/plastic-labs/honcho)
+## 🟪 [Honcho (Python, TypeScript)](https://github.com/plastic-labs/honcho) (Memory Framework that Helps Agents Build Evolving Understanding of People)
 
 <br>
 
@@ -2254,6 +2753,8 @@ const context = [
 > *The results form two kinds of representation: a global one, which synthesizes insights about a peer across all its sessions, and a local one, which holds context formed from specific interactions it has observed. To read from memory, developers can use the Dialectic API, a natural-language endpoint (`/peers/{peer_id}/chat`) that lets them ask Honcho about any peer, much like consulting an oracle, to fill in prompts or get personalized insights. In Honcho 3, that endpoint is backed by a Dialectic Agent that replaced the earlier fixed-path design.*
 
 <br>
+
+---
 
 ### Architecture
 
@@ -2297,6 +2798,8 @@ Peers exchange messages within sessions; Honcho reasons over those messages to b
 
 <br>
 
+---
+
 ### Formal Logic Framework
 
 <br>
@@ -2310,6 +2813,8 @@ Peers exchange messages within sessions; Honcho reasons over those messages to b
 ![](/blog/assets/report_mem_39.avif)
 
 <br>
+
+---
 
 ### [Memory as Reasoning](https://honcho.dev/blog/blog/memory-as-reasoning)
 
@@ -2339,6 +2844,8 @@ Common storage solutions include, but are not limited to, the following:
 
 <br>
 
+---
+
 ### [Neuromancer](https://plasticlabs.ai/neuromancer)
 
 <br>
@@ -2355,6 +2862,8 @@ Common storage solutions include, but are not limited to, the following:
 
 <br>
 
+---
+
 ### Additional Resources
 
 <br>
@@ -2369,7 +2878,7 @@ Common storage solutions include, but are not limited to, the following:
 
 ---
 
-## 🟪 [OpenViking (Python)](https://openviking.ai/)
+## 🟪 [OpenViking (Python)](https://openviking.ai/) (Self-Evolving Context Filesystem Unifying Memory, Knowledge RAG, and Skills)
 
 <br>
 
@@ -2380,6 +2889,8 @@ Common storage solutions include, but are not limited to, the following:
 > *Retrieval works recursively through directories instead of relying on a single flat vector search. Memory builds up through sessions: after a session is committed, OpenViking asynchronously extracts user preferences and agent experience into long-term memory, sorting it into six categories (profile, preferences, entities, events, cases, and patterns) and using an LLM to decide what is a duplicate.*
 
 <br>
+
+---
 
 ### Architecture 
 
@@ -2432,6 +2943,8 @@ viking://resources/my_project/
 
 <br>
 
+---
+
 ### Additional Resources
 
 <br>
@@ -2452,6 +2965,73 @@ viking://resources/my_project/
 
 <br>
 <br>
+
+----
+
+## A Quick Review of Hermes Agent Holographic Memory (MvS + [Hindsight](https://hindsight.vectorize.io/guides/2026/04/21/guide-hermes-agent-holographic-memory-technical-deep-dive), 2026)
+
+<br>
+
+> Holographic Memory is a persistent, structured memory system for Hermes Agent. It allows an agent to remember facts across sessions, understand relationships between entities, evaluate conflicting information, and retrieve combinations of facts rather than simply searching for matching text.
+
+> Unlike built-in flat memory files (`MEMORY.md` or `USER.md`) which quickly fill context windows, Holographic memory functions as a scalable, structured, local fact store designed for deep cross-session recall without sending data to external APIs.
+
+<br>
+
+It combines three ideas:
+
+1️⃣ Traditional database storage.
+2️⃣ Information retrieval and trust scoring.
+3️⃣ Holographic Reduced Representations (HRR), an algebraic technique for representing and composing relationships.
+
+<br>
+
+| Component           | Responsibility                                  |
+| ------------------- | ----------------------------------------------- |
+| SQLite              | Persistent fact storage                         |
+| FTS5                | Full-text keyword retrieval                     |
+| Character n-grams   | Multilingual text matching                      |
+| Entity resolution   | Connects facts to people, projects, and concepts|
+| Trust scoring       | Tracks confidence and feedback                  |
+| HRR                 | Compositional, associative retrieval            |
+| Optional embeddings | Semantic similarity search                      |
+| Optional reranker   | Reorders retrieved candidates                   |
+
+<br>
+
+| Architecture       | Main idea                                  | Strength                          |
+| ------------------ | ------------------------------------------ | --------------------------------- |
+| MEMORY.md          | Curated textual memory                     | Simplicity                        |
+| Vector database    | Embedding-based retrieval                  | Semantic similarity               |
+| Knowledge graph    | Entities and relationships                 | Explicit structure                |
+| Graph memory       | Persistent relational knowledge            | Relationship traversal            |
+| Holographic Memory | Fact storage + HRR composition             | Associative retrieval             |
+| OpenViking         | Filesystem-oriented context management     | Hierarchical context organization |
+| Hindsight          | Memory formation, retrieval and reflection | Learning from experience          |
+
+
+<br>
+
+
+```
+hermes plugins install holographic
+hermes config set memory.provider holographic
+
+```
+
+and then, under `~/.hermes/config.yaml` in `plugins.hermes-memory-store`:
+
+```
+plugins:
+  hermes-memory-store:
+    db_path: "$HERMES_HOME/memory_store.db"
+    auto_extract: true
+    default_trust: 0.5
+```
+
+<br>
+
+---
 
 ## [Agent Swarms are a Distributed Systems Problem (Chroma, 2026)](https://www.trychroma.com/engineering/transactions)
 
@@ -2576,6 +3156,32 @@ const memorizerSubagent: SubAgent = {
 
 ---
 
+## [AI Memory Systems with MongoDB Atlas, AWS and Claude (MongoDB, 2025)](https://www.mongodb.com/company/blog/technical/build-ai-memory-systems-mongodb-atlas-aws-claude)
+
+<br>
+
+- At its simplest, our memory system mimics three core aspects of human memory: 1) Importance-weighted storage: Not all memories are equally valuable, 2) Reinforcement through repetition: Important concepts strengthen over time, 3) Contextual retrieval: Memories are recalled based on relevance to current context.
+
+<br>
+
+![](/blog/assets/report_mem_28.webp)
+
+<br>
+
+- The database design strategically separates raw conversation data from processed memory nodes to optimize performance and functionality. The Conversations Collection maintains chronological records of all interactions, preserving the complete historical context, while the Memory Nodes Collection stores higher-level semantic information with importance ratings that facilitate cognitive prioritization. Vector Search Indexes enable efficient semantic similarity searches with `O(log n)` performance, allowing the system to rapidly identify contextually relevant information regardless of database size. 
+
+<br>
+
+![](/blog/assets/report_mem_29.webp)
+
+<br>
+
+- Through repetition, memories are strengthened via reinforcement, similar to human cognitive processes. At its core, the LLM functions as an "importance evaluator" that assigns each memory a value on a 1-10 scale, reflecting how humans naturally prioritize information based on relevance, uniqueness, and utility. This importance rating directly affects a memory's persistence, recall probability, and survival during pruning operations. 
+
+<br>
+
+---
+
 ## [Powering Long-Term Memory for Agents With LangGraph (MongoDB, 2026)](https://www.mongodb.com/company/blog/product-release-announcements/powering-long-term-memory-for-agents-langgraph)
 
 <br>
@@ -2599,35 +3205,6 @@ const memorizerSubagent: SubAgent = {
 - Semantic memory: remembers general knowledge, facts, and concepts. This is often implemented through retrieval-augmented generation (RAG), where data is stored as vector embeddings and retrieved based on semantic similarity.
 
 - Associative memory: stores key entities and relationships between different pieces of information, enabling an agent to identify patterns and make inferences by navigating these connections. It's often implemented using graph structures that support efficient exploration of relationships. One practical approach is GraphRAG.
-
-<br>
-
----
-
-
-## [AI Memory Systems with MongoDB Atlas, AWS and Claude (MongoDB, 2025)](https://www.mongodb.com/company/blog/technical/build-ai-memory-systems-mongodb-atlas-aws-claude)
-
-
-<br>
-
-
-- At its simplest, our memory system mimics three core aspects of human memory: 1) Importance-weighted storage: Not all memories are equally valuable, 2) Reinforcement through repetition: Important concepts strengthen over time, 3) Contextual retrieval: Memories are recalled based on relevance to current context.
-
-<br>
-
-![](/blog/assets/report_mem_28.webp)
-
-<br>
-
-- The database design strategically separates raw conversation data from processed memory nodes to optimize performance and functionality. The Conversations Collection maintains chronological records of all interactions, preserving the complete historical context, while the Memory Nodes Collection stores higher-level semantic information with importance ratings that facilitate cognitive prioritization. Vector Search Indexes enable efficient semantic similarity searches with `O(log n)` performance, allowing the system to rapidly identify contextually relevant information regardless of database size. 
-
-<br>
-
-![](/blog/assets/report_mem_29.webp)
-
-<br>
-
-- Through repetition, memories are strengthened via reinforcement, similar to human cognitive processes. At its core, the LLM functions as an "importance evaluator" that assigns each memory a value on a 1-10 scale, reflecting how humans naturally prioritize information based on relevance, uniqueness, and utility. This importance rating directly affects a memory's persistence, recall probability, and survival during pruning operations. 
 
 <br>
 
@@ -2736,6 +3313,26 @@ Short-term memory: To create an event, you typically need 3 identifiers.
 
 ---
 
+## [Titans + MIRAS: Helping AI have long-term memory (Google, 2025)](https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/)
+
+<br>
+
+- Introduce an architecture and theoretical blueprint that combine the speed of RNNs with the accuracy of transformers. Titans is the specific architecture (the tool), and MIRAS is the theoretical framework (the blueprint) for generalizing these approaches. 
+
+- Together, they advance the concept of test-time memorization, the ability of an AI model to maintain long-term memory by incorporating more powerful “surprise” metrics (i.e., unexpected pieces of information) while the model is running and without dedicated offline retraining.
+
+- While attention mechanisms excel for precise, short-term memory, Titans introduces a novel neural long-term memory module, that, unlike the fixed-size vector or matrix memory in traditional RNNs, acts as a deep neural network (specifically, a multi-layer perceptron). This memory module provides significantly higher expressive power, allowing the model to summarize large volumes of information without losing important context.
+
+- In the context of Titans, the "surprise metric" is the model detecting a large difference between what it currently remembers and what the new input is telling it.
+
+- Forgetting (weight decay): To manage the finite capacity of the memory when dealing with extremely long sequences, Titans employ an adaptive weight decay mechanism. This acts as a forgetting gate, allowing the model to discard information that is no longer needed.
+
+- MIRAS transcends this limitation by providing a generative framework to explore a more rich design space informed by the literature in optimization and statistics. This allows for the creation of novel architectures with non-Euclidean objectives and regularization.
+
+<br>
+
+---
+
 ## [The Sleep Framework (Google, 2026)](https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/)
 
 <br>
@@ -2761,26 +3358,6 @@ Dreaming for self-improvement
 ➡️ Random expert selection: During synthetic data generation, the MoE router randomly activates non-standard experts. This forces the model to mix disparate domains of knowledge and uncover latent patterns.
 ➡️ Curated rehearsal: The model generates synthetic training samples ("dreams") and filters them using gradient-based data selection to prioritize samples with the highest potential to boost overall model capability.
 ➡️ RL refinement: The model performs supervised fine-tuning on top-rated dream samples and evaluates whether the generation improves performance on downstream tasks.
-
-<br>
-
----
-
-## [Titans + MIRAS: Helping AI have long-term memory (Google, 2025)](https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/)
-
-<br>
-
-- Introduce an architecture and theoretical blueprint that combine the speed of RNNs with the accuracy of transformers. Titans is the specific architecture (the tool), and MIRAS is the theoretical framework (the blueprint) for generalizing these approaches. 
-
-- Together, they advance the concept of test-time memorization, the ability of an AI model to maintain long-term memory by incorporating more powerful “surprise” metrics (i.e., unexpected pieces of information) while the model is running and without dedicated offline retraining.
-
-- While attention mechanisms excel for precise, short-term memory, Titans introduces a novel neural long-term memory module, that, unlike the fixed-size vector or matrix memory in traditional RNNs, acts as a deep neural network (specifically, a multi-layer perceptron). This memory module provides significantly higher expressive power, allowing the model to summarize large volumes of information without losing important context.
-
-- In the context of Titans, the "surprise metric" is the model detecting a large difference between what it currently remembers and what the new input is telling it.
-
-- Forgetting (weight decay): To manage the finite capacity of the memory when dealing with extremely long sequences, Titans employ an adaptive weight decay mechanism. This acts as a forgetting gate, allowing the model to discard information that is no longer needed.
-
-- MIRAS transcends this limitation by providing a generative framework to explore a more rich design space informed by the literature in optimization and statistics. This allows for the creation of novel architectures with non-Euclidean objectives and regularization.
 
 <br>
 
@@ -2926,7 +3503,7 @@ Dreaming for self-improvement
 
 ---
 
-## In the backlog...
+## In the Backlog...
 
 <br>
 
@@ -2934,7 +3511,7 @@ Dreaming for self-improvement
 
 <br>
 
-- [Harness the Memory: A Holistic Evaluation of Memory Substrates in Memory Agents]() — W. Huang et al. (2026)
+- [Harness the Memory: A Holistic Evaluation of Memory Substrates in Memory Agents](https://arxiv.org/abs/2608.15008) — W. Huang et al. (2026)
 - [Learning to Remember: Advances in Memory Mechanisms for Large Language Models](https://arxiv.org/pdf/2610.35089) — C. Ha et al.(2026)
 - [Memory in the Age of Agents](https://arxiv.org/pdf/2512.13564) — Y. Hu et al. (2026)
 - [M*⋆: Every Task Deserves Its Own Memory Harness](https://arxiv.org/pdf/2604.11811) — W. Pan et al. (2026).
@@ -2961,11 +3538,13 @@ Dreaming for self-improvement
 
 <br>
 
+- [Scaling Long-Horizon LLM Agent via Context-Folding](https://arxiv.org/abs/2510.11967) — W. Sun et al. (2025).
 - [QSAF: A Novel Mitigation Framework for Cognitive Degradation in Agentic AI](https://arxiv.org/abs/2507.15330) — H. Atta et al. (2025).
 - [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120) — P. Laban et al. (2025).
 - [It's All Connected: A Journey Through Test-Time Memorization, Attentional Bias, Retention, and Online Optimization](https://arxiv.org/abs/2504.13173) — A. Behrouz et al. (2025).
 - [Towards Economical Inference: Enabling DeepSeek's Multi-Head Latent Attention in Any Transformer-based LLMs](https://arxiv.org/abs/2502.14837) — Tao Ji et al. (2025).
 - [MemEvolve: Meta-Evolution of Agent Memory Systems](https://arxiv.org/pdf/2512.18746) — OPPO AI Team (2025)
+- [Memorilla: Latent Semantic Memory for LLMs](https://arxiv.org/pdf/2610.21375) — A. Fallahpour et al. (2026) 
 
 <br>
 

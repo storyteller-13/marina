@@ -546,7 +546,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 ---
 
-## PRELUDE I: [Agentic Patterns (philschmid, 2025)](https://www.philschmid.de/agentic-pattern)
+## 🟪 [Agentic Patterns (philschmid, 2025)](https://www.philschmid.de/agentic-pattern)
 
 <br>
 
@@ -635,7 +635,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 ---
 
-## PRELUDE II: [Loop Patterns (cobusgreyling, 2026)](https://github.com/cobusgreyling/loop-engineering/)
+## 🟪 [Loop Patterns (cobusgreyling, 2026)](https://github.com/cobusgreyling/loop-engineering/)
 
 <br>
 
@@ -1767,7 +1767,7 @@ Any team building production AI agents can benefit:
 
 ---
 
-# 5️⃣🐯 Appendix I: Open-Source Agentic Harnesses
+# 5️⃣🐯 Open-Source Agentic Harnesses
 
 <br>
 
@@ -3190,7 +3190,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 ---
 
-### Other Notable Projects
+## Other Notable Projects
 
 <br>
 
@@ -3232,7 +3232,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 ---
 
-# 6️⃣🐯 Appendix II: Open-Source Orchestration and Integration Layer
+# 6️⃣🐯 Open-Source Orchestration and Integration Layer
 
 <br>
 
