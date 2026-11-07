@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Generative AI with LangChain (Auffarth, 2023)
-subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers
+subtitle: Rating: 8/10 | Beginner to Intermediate AI Engineers
 date: 2026; 07; 23
 ---
 
@@ -95,7 +95,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### Gen LLM TL;DR
+#### Gen LLM TL;DR
 
 * Stochastic parrots refers to LLMs that can produce convincing language but lack any true comprehension of the meaning behind words. Coined by researchers Emily Bender, Timnit Gebru, Margaret Mitchell, and Angelina McMillan-Major in their influential paper On the Dangers of Stochastic Parrots (2021), the term critiques models that mindlessly mimic linguistic patterns.
 

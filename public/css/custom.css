@@ -16,6 +16,16 @@ img {
     border-bottom-color: #e85a4f !important;
 }
 
+/* "work" / "blog" are <code> labels, which the framework sets to 12px: one larger size on every page and screen */
+.UnderlineNav-item code {
+    font-size: 18px !important;
+}
+
+/* Homepage text a little larger: .f5 fixes the article at 14px (!important), and its text is em-based */
+.markdown-body.home-content.f5 {
+    font-size: 15.5px !important;
+}
+
 /* Content organization */
 .content-section {
     margin-bottom: 2rem;
@@ -115,158 +125,11 @@ p.journey-footnote {
     overflow: visible;
 }
 
-.lang-color-modes-illu {
-    position: absolute;
-    top: 0;
-    left: -160px;
-    width: 106px;
-    height: 60px;
-    pointer-events: none;
-}
-
-.lang-color-modes-illu-group {
-    stroke: var(--color-auto-gray-3);
-}
-
-.lang-color-modes-illu-frame {
-    opacity: 0;
-}
-
 .profile-color-modes-toggle {
     z-index: 1;
 }
 
-.profile-color-modes-toggle.lang-toggle {
-    right: auto;
-    left: -64px;
-    cursor: pointer;
-}
-
-.profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb,
-[data-color-mode="dark"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb,
-[data-color-mode="auto"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb {
-    transform: none;
-}
-
-.profile-color-modes-toggle.lang-toggle:hover .profile-color-modes-toggle-thumb {
-    transform: scale(1.05);
-}
-
-html[data-locale="ja"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb,
-html[data-locale="ja"][data-color-mode="dark"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb,
-html[data-locale="ja"][data-color-mode="auto"] .profile-color-modes-toggle.lang-toggle .profile-color-modes-toggle-thumb {
-    transform: translateX(18px);
-}
-
-html[data-locale="ja"] .profile-color-modes-toggle.lang-toggle:hover .profile-color-modes-toggle-thumb {
-    transform: translateX(18px) scale(1.05);
-}
-
 /* Dog illu: same wake/sleep frames as the theme cat, driven by locale */
-:root .lang-color-modes-illu-frame:nth-child(8),
-html:not([data-locale="ja"]) .lang-color-modes-illu-frame:nth-child(8) {
-    animation: profile-light-color-modes-illu-anim-frame-show 0s forwards,
-        profile-light-color-modes-illu-anim-frame-hide 0s 0.3s forwards;
-}
-
-:root .lang-color-modes-illu-frame:nth-child(9),
-html:not([data-locale="ja"]) .lang-color-modes-illu-frame:nth-child(9) {
-    animation: profile-light-color-modes-illu-anim-frame-show 0s 0.3s forwards,
-        profile-light-color-modes-illu-anim-frame-hide 0s 0.36s forwards;
-}
-
-:root .lang-color-modes-illu-frame:nth-child(10),
-html:not([data-locale="ja"]) .lang-color-modes-illu-frame:nth-child(10) {
-    animation: profile-light-color-modes-illu-anim-frame-show 0s 0.36s forwards;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-red {
-    stroke: var(--color-scale-red-5);
-    animation-delay: 0.4s;
-    animation-duration: 0.1s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-orange {
-    stroke: var(--color-scale-orange-3);
-    animation-delay: 0.5s;
-    animation-duration: 0.1s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-purple {
-    stroke: var(--color-scale-purple-5);
-    animation-delay: 0.6s;
-    animation-duration: 0.1s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-green {
-    stroke: var(--color-scale-green-3);
-    animation-delay: 0.8s;
-    animation-duration: 0.2s;
-    animation-timing-function: cubic-bezier(0.47, 2.92, 0.84, -1.5);
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-blue {
-    stroke: var(--color-scale-blue-4);
-    animation-delay: 0.7s;
-    animation-duration: 0.1s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-group {
-    animation: profile-color-modes-illu-anim 0.2s cubic-bezier(0.72, 0.08, 1, 0.68) backwards;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame {
-    animation: profile-color-modes-illu-anim-frame-show 0s forwards,
-        profile-color-modes-illu-anim-frame-hide 0s forwards;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:first-child {
-    opacity: 1;
-    animation: profile-color-modes-illu-anim-frame-hide 0s forwards;
-    animation-delay: 1.8s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(8) {
-    animation: profile-color-modes-illu-anim-frame-show 0s forwards;
-    animation-delay: 3.56s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(2) {
-    animation-delay: 1.8s, 2.58s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(3) {
-    animation-delay: 2.58s, 2.66s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(4) {
-    animation-delay: 2.66s, 2.78s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(5) {
-    animation-delay: 2.78s, 2.84s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(6) {
-    animation-delay: 2.84s, 3.44s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(7) {
-    animation-delay: 3.44s, 3.56s;
-}
-
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(9),
-html[data-locale="ja"] .lang-color-modes-illu-frame:nth-child(10) {
-    animation: none;
-}
-
-.lang-color-modes-illu.isInitialLang .lang-color-modes-illu-frame,
-.lang-color-modes-illu.isInitialLang .lang-color-modes-illu-group,
-html .lang-color-modes-illu.isInitialLang .lang-color-modes-illu-frame:first-child,
-html .lang-color-modes-illu.isInitialLang .lang-color-modes-illu-frame:nth-child(n) {
-    animation-duration: 0s;
-    animation-delay: 0s;
-}
 
 @media (max-width: 767.98px) {
     .mobile-nav-sticky {
@@ -281,12 +144,6 @@ html .lang-color-modes-illu.isInitialLang .lang-color-modes-illu-frame:nth-child
         width: 42px;
         height: 24px;
     }
-
-    .lang-slot--mobile .lang-toggle {
-        right: 0;
-        left: auto;
-        top: 0;
-    }
 }
 
 .lang-slot--404 {
@@ -296,35 +153,6 @@ html .lang-color-modes-illu.isInitialLang .lang-color-modes-illu-frame:nth-child
     z-index: 5;
     width: 42px;
     height: 24px;
-}
-
-.lang-slot--404 .lang-toggle {
-    right: 0;
-    left: auto;
-    top: 0;
-}
-
-html[data-locale="ja"] body,
-html[data-locale="ja"] .markdown-body,
-html[data-locale="ja"] .qa-answer-text,
-html[data-locale="ja"] .blog-subtitle,
-html[data-locale="ja"] .vcard-username {
-    font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
-}
-
-html[data-locale="ja"] .section-title,
-html[data-locale="ja"] .font-orbitron,
-html[data-locale="ja"] .success-text,
-html[data-locale="ja"] .qa-question-text,
-html[data-locale="ja"] .qa-page-wrap h1,
-html[data-locale="ja"] .code-large,
-html[data-locale="ja"] .code-small {
-    font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
-}
-
-html[data-locale="ja"] .section-title {
-    font-size: 2rem;
-    letter-spacing: 0.04em;
 }
 
 .sidebar-margin-right {
@@ -389,6 +217,13 @@ html[data-locale="ja"] .section-title {
     padding-right: clamp(1rem, 10.9vw - 60px, 5rem) !important;
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
+}
+
+/* Q&A and the blog list: less side padding, so the Q&A cards and the post titles get more width */
+.Box.mt-4 .Box-body:has(.qa-list),
+.Box.mt-4 .Box-body:has(#blog-post-list) {
+    padding-left: clamp(0.75rem, 3.5vw, 2.25rem) !important;
+    padding-right: clamp(0.75rem, 3.5vw, 2.25rem) !important;
 }
 
 /* Responsive padding - Adjust for smaller screens */
@@ -470,10 +305,6 @@ html[data-locale="ja"] .section-title {
     .vcard-fullname .success-text {
         font-size: clamp(0.82rem, 4.2vw, 1.1rem);
     }
-
-    html[data-locale="ja"] .vcard-fullname .success-text {
-        font-size: clamp(0.75rem, 3.6vw, 1rem);
-    }
 }
 
 /* Theme toggle SVG styles */
@@ -483,7 +314,6 @@ html[data-locale="ja"] .section-title {
 }
 
 /* Neon theme animations and effects */
-
 
 /* Neon flicker animation */
 @keyframes neon-flicker {
@@ -507,7 +337,6 @@ html[data-locale="ja"] .section-title {
             0 0 32px #bf00ff;
     }
 }
-
 
 /* Neon avatar effects */
 .neon-avatar {
@@ -741,12 +570,6 @@ html[data-locale="ja"] .section-title {
     box-sizing: border-box;
 }
 
-html[data-locale="ja"] .vcard-fullname .success-text {
-    overflow-wrap: anywhere;
-    font-size: clamp(0.82rem, 0.45rem + 1.8vw, 1.35rem);
-    letter-spacing: 0.02em;
-}
-
 .role-titles {
     display: flex;
     flex-direction: column;
@@ -760,10 +583,6 @@ html[data-locale="ja"] .vcard-fullname .success-text {
     overflow-wrap: break-word;
     text-align: center;
     line-height: 1.35;
-}
-
-html[data-locale="ja"] .role-titles a {
-    overflow-wrap: anywhere;
 }
 
 .role-plus {
@@ -1055,12 +874,6 @@ body.error-404 {
     pointer-events: none;
 }
 
-html[data-locale="ja"] body.error-404,
-html[data-locale="ja"] .error-404 .message,
-html[data-locale="ja"] .error-404 .home-link {
-    font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
-}
-
 /* Blog page */
 .blog-shell {
     margin-top: 0;
@@ -1076,17 +889,29 @@ html[data-locale="ja"] .error-404 .home-link {
 .blog-post-page > .section-title {
     margin-bottom: 0.65rem;
     padding-bottom: 0.5rem;
+    font-size: 3rem;
+    line-height: 1.2;
 }
 
+/* Sizes live here, not on .blog-post-meta / .blog-post-subtitle: ".markdown-body p" (0.87em) outranks a bare class */
 .blog-post-page > p.blog-post-subtitle {
-    margin-top: -0.15rem;
-    margin-bottom: 2.35rem;
+    font-size: 1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 3.25rem;
     padding-bottom: 1rem;
 }
 
 .blog-post-page.blog-post-page--no-subtitle > .section-title {
     margin-bottom: 2rem;
     padding-bottom: 0.85rem;
+}
+
+/* Post date, at the very top of the post, above the title */
+.blog-post-page > p.blog-post-meta {
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    text-align: right;
 }
 
 .blog-subtitle {
@@ -1145,23 +970,97 @@ html[data-locale="ja"] .error-404 .home-link {
     font-family: 'Orbitron', monospace;
 }
 
+/* Date and subtitle take the orange and green of the cat by the theme switch (github.min.css
+   draws it with --color-scale-orange-3 / --color-scale-green-3), so they follow the theme too.
+   Light mode: those two are pale on white (1.9:1 and 1.5:1), so it uses deeper shades of each. */
 .blog-post-meta {
-    color: rgb(148, 97, 199);
+    color: var(--color-scale-orange-5);
     margin-bottom: 3.25rem;
-    font-size: 1.02rem;
     font-weight: 700;
     font-family: 'Orbitron', monospace;
     letter-spacing: 0.02em;
 }
 
 .blog-post-subtitle {
-    color: rgb(148, 97, 199);
-    font-size: 1.35rem;
+    /* green-6 in light mode: readable (4.6:1 on white) at this smaller size */
+    color: var(--color-scale-green-6);
     margin-top: -0.25rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
     font-family: 'Orbitron', monospace;
     line-height: 1.35;
+}
+
+[data-color-mode="dark"] .blog-post-meta {
+    color: var(--color-scale-orange-3);
+}
+
+[data-color-mode="dark"] .blog-post-subtitle,
+[data-color-mode="dark"] .post-summary > p:first-child {
+    color: var(--color-scale-green-3);
+}
+
+/* Post headings (#, ##, ###), larger than the stock markdown sizes (30.6 / 25.5 / 21.3px) */
+.blog-post-page .blog-post-content h1 {
+    font-size: 2.4rem;
+}
+
+.blog-post-page .blog-post-content h2 {
+    font-size: 2rem;
+}
+
+.blog-post-page .blog-post-content h3 {
+    font-size: 1.6rem;
+}
+
+.blog-post-page .blog-post-content h4 {
+    font-size: 1.3rem;
+}
+
+/* Bullets: purple dots, orange rings one level down, purple squares below that; bold purple numbers */
+.blog-post-page .blog-post-content ul > li::marker {
+    color: rgb(148, 97, 199);
+    font-size: 1.15em;
+}
+
+.blog-post-page .blog-post-content ul ul > li {
+    list-style-type: circle;
+}
+
+.blog-post-page .blog-post-content ul ul > li::marker {
+    color: var(--color-scale-orange-5);
+}
+
+.blog-post-page .blog-post-content ul ul ul > li {
+    list-style-type: square;
+}
+
+.blog-post-page .blog-post-content ul ul ul > li::marker {
+    color: rgb(148, 97, 199);
+    font-size: 0.9em;
+}
+
+.blog-post-page .blog-post-content ol > li::marker {
+    color: rgb(148, 97, 199);
+    font-weight: 700;
+}
+
+.blog-post-page .blog-post-content li + li {
+    margin-top: 0.3rem;
+}
+
+/* ...but the Summary stays a plain list, with no markers */
+.blog-post-page .blog-post-content .post-summary li {
+    list-style: none;
+}
+
+[data-color-mode="dark"] .blog-post-page .blog-post-content ul > li::marker,
+[data-color-mode="dark"] .blog-post-page .blog-post-content ol > li::marker {
+    color: #c084fc;
+}
+
+[data-color-mode="dark"] .blog-post-page .blog-post-content ul ul > li::marker {
+    color: var(--color-scale-orange-3);
 }
 
 .blog-post-content h1,
@@ -1186,24 +1085,107 @@ html[data-locale="ja"] .error-404 .home-link {
     margin-top: 0.35rem;
 }
 
+/* Summary: a soft card centered on the page; heading in the title font, green like the subtitle; entries left-aligned */
+.post-summary {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 0.9rem;
+    border: 1px solid rgba(148, 97, 199, 0.22);
+    border-radius: 14px;
+    background: rgba(148, 97, 199, 0.04);
+}
+
+[data-color-mode="dark"] .post-summary {
+    border-color: rgba(191, 0, 255, 0.25);
+    background: rgba(191, 0, 255, 0.05);
+}
+
 .post-summary > p:first-child {
-    margin-bottom: 0.7rem;
+    color: var(--color-scale-green-6);
+    margin-bottom: 1.4rem;
+    font-family: 'Orbitron', monospace;
     font-size: 1.5em;
     font-weight: 700;
     line-height: 1.25;
+    text-align: center;
+}
+
+.markdown-body .post-summary ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.markdown-body .post-summary li {
+    margin: 0 0 0.75rem;
+    font-weight: 700;
+}
+
+/* Sub-sections: a step smaller, still bold */
+/* Sub-sections sit indented under their section, along a thin guide line */
+.markdown-body .post-summary ul ul {
+    margin: 0.5rem 0 0 0.4rem;
+    padding-left: 1.6rem;
+    border-left: 2px solid rgba(148, 97, 199, 0.3);
+}
+
+.markdown-body .post-summary li li {
+    margin-bottom: 0.4rem;
+    font-size: 0.92em;
+    font-weight: 600;
 }
 
 .blog-post-content p {
     line-height: 1.7;
 }
 
+/* Quotes (markdown "> "): a soft card with the site's purple accent bar */
+.blog-post-page .blog-post-content blockquote {
+    margin: 1rem 0;
+    padding: 0.8rem 1.15rem;
+    color: var(--color-fg-default);
+    background: rgba(148, 97, 199, 0.07);
+    border-left: 4px solid rgb(148, 97, 199);
+    border-radius: 0 10px 10px 0;
+}
+
+.blog-post-page .blog-post-content blockquote + blockquote {
+    margin-top: -0.35rem;
+}
+
+.blog-post-page .blog-post-content blockquote > :last-child {
+    margin-bottom: 0;
+}
+
+.blog-post-page .blog-post-content blockquote em {
+    color: var(--color-fg-muted);
+}
+
+[data-color-mode="dark"] .blog-post-page .blog-post-content blockquote {
+    background: rgba(191, 0, 255, 0.08);
+    border-left-color: #bf00ff;
+}
+
 /* Fenced code blocks: toolbar, copy, readable block */
 .blog-code-wrap {
-    margin: 1.35rem 0;
-    border-radius: 10px;
-    border: 1px solid var(--color-border-default, #d0d7de);
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 97, 199, 0.28);
     overflow: hidden;
     background: var(--color-canvas-subtle, #f6f8fa);
+    box-shadow: 0 1px 2px rgba(31, 35, 40, 0.06), 0 8px 24px rgba(148, 97, 199, 0.1);
+}
+
+/* Three window dots at the left of the toolbar */
+.blog-code-toolbar::before {
+    content: "";
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    margin-right: 34px;
+    border-radius: 50%;
+    background: #ff5f57;
+    box-shadow: 16px 0 0 #febc2e, 32px 0 0 #28c840;
 }
 
 .blog-code-toolbar {
@@ -1211,8 +1193,8 @@ html[data-locale="ja"] .error-404 .home-link {
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    padding: 0.4rem 0.75rem;
-    border-bottom: 1px solid var(--color-border-default, #d0d7de);
+    padding: 0.5rem 0.85rem;
+    border-bottom: 1px solid rgba(148, 97, 199, 0.18);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -1225,6 +1207,8 @@ html[data-locale="ja"] .error-404 .home-link {
     font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
     text-transform: none;
     letter-spacing: 0.02em;
+    color: rgb(148, 97, 199);
+    font-weight: 700;
 }
 
 .blog-code-copy {
@@ -1236,8 +1220,8 @@ html[data-locale="ja"] .error-404 .home-link {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     cursor: pointer;
-    padding: 0.28rem 0.7rem;
-    border-radius: 6px;
+    padding: 0.28rem 0.8rem;
+    border-radius: 999px;
     border: 1px solid var(--color-border-default, #d0d7de);
     color: var(--color-fg-default, #24292f);
     background: var(--color-btn-bg, #f6f8fa);
@@ -1246,7 +1230,8 @@ html[data-locale="ja"] .error-404 .home-link {
 
 .blog-code-copy:hover {
     background: var(--color-btn-hover-bg, #f3f4f6);
-    border-color: var(--color-btn-hover-border, #d0d7de);
+    border-color: rgb(148, 97, 199);
+    color: rgb(148, 97, 199);
 }
 
 .blog-code-copy:focus {
@@ -1256,7 +1241,7 @@ html[data-locale="ja"] .error-404 .home-link {
 
 .blog-code-wrap pre {
     margin: 0;
-    padding: 1rem 1rem 1.15rem;
+    padding: 1.05rem 1.15rem 1.2rem;
     border: none;
     border-radius: 0;
     background: transparent;
@@ -1268,14 +1253,34 @@ html[data-locale="ja"] .error-404 .home-link {
     font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
+/* Syntax colours (code-highlight.js), from the theme's own GitHub palette, so light and dark both work */
+.blog-code-wrap .tok-kw { color: var(--color-prettylights-syntax-keyword); }
+.blog-code-wrap .tok-str { color: var(--color-prettylights-syntax-string); }
+.blog-code-wrap .tok-com { color: var(--color-prettylights-syntax-comment); font-style: italic; }
+.blog-code-wrap .tok-num,
+.blog-code-wrap .tok-const,
+.blog-code-wrap .tok-builtin,
+.blog-code-wrap .tok-flag { color: var(--color-prettylights-syntax-constant); }
+.blog-code-wrap .tok-fn { color: var(--color-prettylights-syntax-entity); }
+.blog-code-wrap .tok-title { color: var(--color-prettylights-syntax-entity); font-weight: 700; }
+.blog-code-wrap .tok-type,
+.blog-code-wrap .tok-var { color: var(--color-prettylights-syntax-variable); }
+.blog-code-wrap .tok-dec,
+.blog-code-wrap .tok-key { color: var(--color-prettylights-syntax-entity-tag); }
+
 [data-color-mode="dark"] .blog-code-wrap {
     background: var(--color-canvas-inset, #010409);
-    border-color: var(--color-border-muted, #30363d);
+    border-color: rgba(191, 0, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 14px rgba(191, 0, 255, 0.1);
 }
 
 [data-color-mode="dark"] .blog-code-toolbar {
     background: var(--color-canvas-default, #0d1117);
-    border-bottom-color: var(--color-border-muted, #30363d);
+    border-bottom-color: rgba(191, 0, 255, 0.2);
+}
+
+[data-color-mode="dark"] .blog-code-lang {
+    color: #d68cff;
 }
 
 [data-color-mode="dark"] .blog-code-copy {
@@ -1286,6 +1291,8 @@ html[data-locale="ja"] .error-404 .home-link {
 
 [data-color-mode="dark"] .blog-code-copy:hover {
     background: var(--color-canvas-inset, #010409);
+    border-color: #d68cff;
+    color: #d68cff;
 }
 
 .blog-back-row {
@@ -1358,7 +1365,7 @@ html[data-locale="ja"] .error-404 .home-link {
 .blog-ps p {
     margin: 0;
     color: var(--color-fg-muted);
-    font-size: 0.7rem;
+    font-size: 0.82rem;
     font-style: italic;
     line-height: 1.65;
 }
@@ -1412,7 +1419,7 @@ html[data-locale="ja"] .error-404 .home-link {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    max-width: 760px;
+    max-width: 900px;
 }
 
 .blog-line {
@@ -1426,7 +1433,7 @@ html[data-locale="ja"] .error-404 .home-link {
     border-bottom: 1px dotted transparent;
     transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
     font-family: 'Orbitron', monospace;
-    font-size: 1rem;
+    font-size: 1.12rem;
     font-weight: 900;
     line-height: 1.55;
 }
@@ -1495,14 +1502,42 @@ html:has(.neon-slider-container) .application-main {
         line-height: 1.6;
     }
 
-    .blog-post-subtitle {
-        font-size: 1.15rem;
-        line-height: 1.4;
+    .blog-post-page > .section-title {
+        font-size: 2.15rem;
     }
 
-    .blog-post-meta {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
+    .blog-post-page > p.blog-post-subtitle {
+        font-size: 0.98rem;
+        line-height: 1.4;
+        margin-bottom: 2.5rem;
+    }
+
+    .blog-post-page > p.blog-post-meta {
+        font-size: 1.25rem;
+    }
+
+    .blog-post-page .blog-post-content h1 {
+        font-size: 1.9rem;
+    }
+
+    .blog-post-page .blog-post-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .blog-post-page .blog-post-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .blog-post-page .blog-post-content h4 {
+        font-size: 1.15rem;
+    }
+
+    .markdown-body .post-summary ul ul {
+        padding-left: 1.1rem;
+    }
+
+    .post-summary {
+        padding: 1.2rem 1rem 0.6rem;
     }
 
     /* Edge to edge, so content scrolling underneath never shows around a floating bar */
@@ -1542,6 +1577,11 @@ html:has(.neon-slider-container) .application-main {
         line-height: 1.55;
     }
 
+    .markdown-body.home-content p,
+    .markdown-body.home-content li {
+        font-size: 1.06rem;
+    }
+
     .markdown-body ul,
     .markdown-body ol {
         padding-left: 1.25em;
@@ -1549,6 +1589,10 @@ html:has(.neon-slider-container) .application-main {
 
     .markdown-body blockquote {
         padding: 0 0.75em;
+    }
+
+    .blog-post-page .blog-post-content blockquote {
+        padding: 0.7rem 0.9rem;
     }
 
     .blog-back-row {
@@ -1561,19 +1605,19 @@ html:has(.neon-slider-container) .application-main {
         min-height: 44px;
     }
 
+    /* Block, not inline-block: an inline-block sits on its last line, which drops the bullet there when the entry wraps */
     .post-summary li a {
-        display: inline-block;
+        display: block;
         padding: 0.2rem 0;
     }
 
-    .blog-post-content table {
-        font-size: 0.875rem;
-        line-height: 1.45;
+    .blog-post-page .blog-post-content table {
+        font-size: 0.78rem;
     }
 
-    .blog-post-content th,
-    .blog-post-content td {
-        padding: 0.5rem 0.6rem;
+    .blog-post-page .blog-post-content th,
+    .blog-post-page .blog-post-content td {
+        padding: 0.4rem 0.55rem;
     }
 
     .blog-code-wrap pre {
@@ -1591,11 +1635,7 @@ html:has(.neon-slider-container) .application-main {
     }
 
     .blog-ps p {
-        font-size: 0.8rem;
-    }
-
-    html[data-locale="ja"] .section-title {
-        font-size: 1.45rem;
+        font-size: 0.85rem;
     }
 
     .blog-line-list {
@@ -1645,6 +1685,10 @@ html:has(.neon-slider-container) .application-main {
         font-size: 1.45rem;
     }
 
+    .blog-post-page > .section-title {
+        font-size: 1.8rem;
+    }
+
     .blog-draft-backlogs-heading .blog-draft-backlogs-title-text {
         font-size: 1rem;
     }
@@ -1669,6 +1713,26 @@ html:has(.neon-slider-container) .application-main {
     max-width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+}
+
+/* Tables: smaller type and tighter cells, so wide comparison tables fit more per screen */
+.blog-post-page .blog-post-content table {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    /* The table box sits centered on the page; text inside the cells keeps its own alignment.
+       Wider than the page, it still fills the width and scrolls sideways. */
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-post-page .blog-post-content th,
+.blog-post-page .blog-post-content td {
+    padding: 0.4rem 0.65rem;
+}
+
+.blog-post-page .blog-post-content table code {
+    font-size: 0.92em;
 }
 
 .blog-post-content img,
@@ -1715,7 +1779,7 @@ html:has(.neon-slider-container) .application-main {
 
 /* Post pages have no sidebar: hold them to a readable line length */
 .flex-shrink-0.blog-post-column {
-    max-width: 60rem;
+    max-width: 75rem;
     margin-left: auto;
     margin-right: auto;
 }

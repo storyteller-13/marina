@@ -20,11 +20,6 @@ test("helpers and markdown conversion cover every syntax path", () => {
 
   expect(api.assetUrl("blog/x.md")).toBe("http://localhost/blog/x.md");
   expect(api.escapeHtml("&")).toBe("&amp;");
-  expect(api.tx("blog.copy", "Copy")).toBe("Copy");
-  window.MarinaI18n = { t: 1 };
-  expect(api.tx("blog.copy", "Copy")).toBe("Copy");
-  window.MarinaI18n = { t: (key) => `i:${key}` };
-  expect(api.tx("blog.copy", "Copy")).toBe("i:blog.copy");
 
   expect(api.parseFrontMatter("x")).toEqual({ meta: {}, body: "x" });
   expect(api.parseFrontMatter("---\nno-end")).toEqual({ meta: {}, body: "---\nno-end" });
@@ -174,9 +169,7 @@ test("summary uses the first heading level with two or more sections, or is skip
 
   expect(api.markdownToHtml([...DISCLAIMER, "## Lonely"].join("\n"))).not.toContain("post-summary");
   expect(api.markdownToHtml(["## A", "## B"].join("\n"))).not.toContain("post-summary");
-
-  window.MarinaI18n = { t: (key) => (key === "blog.summary" ? "まとめ" : key) };
-  expect(api.markdownToHtml([...DISCLAIMER, "## A", "## B"].join("\n"))).toContain("<strong>まとめ</strong>");
+  expect(api.markdownToHtml([...DISCLAIMER, "## A", "## B"].join("\n"))).toContain("<strong>Summary</strong>");
 });
 
 test("heading text helpers strip markdown and html, with a fallback id", () => {
@@ -303,6 +296,8 @@ test("loadPost handles missing nodes, missing slug, fetch errors, and success", 
   });
   await loadPost();
   expect(document.getElementById("post-title").textContent).toBe("Hello");
+  expect(document.title).toBe("Hello · Marina von Steinkirch");
+  expect(window.fetch).toHaveBeenLastCalledWith("http://localhost/blog/posts/hello.md", { cache: "no-cache" });
   expect(document.getElementById("post-subtitle").style.display).toBe("block");
   expect(document.querySelector(".blog-post-page--no-subtitle")).toBeNull();
   expect(document.querySelector(".blog-code-wrap")).not.toBeNull();
@@ -319,6 +314,59 @@ test("loadPost handles missing nodes, missing slug, fetch errors, and success", 
   await loadPost();
   expect(document.getElementById("post-title").textContent).toBe("hello");
   expect(document.getElementById("post-subtitle").style.display).toBe("none");
+});
+
+test("the post date shows under the title, with a machine-readable datetime", async () => {
+  require("../../public/js/blog-post.js");
+  const { isoDate, renderPostDate, loadPost } = window.MarinaBlogPost;
+
+  expect(isoDate("2026; 11; 6")).toBe("2026-11-06");
+  expect(isoDate(" 2026-10-01 ")).toBe("2026-10-01");
+  expect(isoDate("2026/1/2")).toBe("2026-01-02");
+  expect(isoDate("someday")).toBe("");
+
+  document.body.innerHTML = `
+    <h1 id="post-title"></h1>
+    <p id="post-date" hidden><time></time></p>
+    <p id="post-subtitle"></p>
+    <div id="post-content"></div>
+  `;
+  const dateRoot = document.getElementById("post-date");
+  const time = dateRoot.querySelector("time");
+  window.history.replaceState({}, "", "/pages/post.html?post=dated");
+  window.fetch.mockResolvedValueOnce({ ok: true, text: () => Promise.resolve("---\ntitle: T\ndate: 2026; 11; 13\n---\nbody") });
+  await loadPost();
+  expect(dateRoot.hidden).toBe(false);
+  expect(time.textContent).toBe("2026; 11; 13");
+  expect(time.getAttribute("datetime")).toBe("2026-11-13");
+
+  // A date that isn't a calendar date is still shown, without a datetime.
+  renderPostDate(dateRoot, "soon");
+  expect(time.textContent).toBe("soon");
+  expect(time.hasAttribute("datetime")).toBe(false);
+  expect(dateRoot.hidden).toBe(false);
+
+  // No date: the line is hidden.
+  renderPostDate(dateRoot, undefined);
+  expect(dateRoot.hidden).toBe(true);
+
+  // Pages without the date element still load.
+  renderPostDate(null, "2026; 1; 1");
+});
+
+test("a generated post page names its post in a meta tag", async () => {
+  require("../../public/js/blog-post.js");
+  document.head.innerHTML = '<meta name="post-slug" content="from_meta">';
+  document.body.innerHTML = `
+    <h1 id="post-title"></h1>
+    <p id="post-subtitle"></p>
+    <div id="post-content"></div>
+  `;
+  window.history.replaceState({}, "", "/blog/from_meta.html?post=ignored");
+  window.fetch.mockResolvedValueOnce({ ok: true, text: () => Promise.resolve("---\ntitle: Meta\n---\nbody") });
+  await window.MarinaBlogPost.loadPost();
+  expect(window.fetch).toHaveBeenLastCalledWith("http://localhost/blog/posts/from_meta.md", { cache: "no-cache" });
+  expect(document.getElementById("post-title").textContent).toBe("Meta");
 });
 
 test("DOMContentLoaded loads the post", async () => {
@@ -351,4 +399,72 @@ test("code blocks do not start with a blank line", () => {
   document.body.innerHTML = markdownToHtml("```js\nconst a = 1;\n```");
   enhanceCodeBlocks(document.body);
   expect(document.querySelector("code").textContent).toBe("const a = 1;");
+});
+
+test("parseInline leaves code spans, link targets and image alts unparsed", () => {
+  require("../../public/js/blog-post.js");
+  const { parseInline } = window.MarinaBlogPost;
+
+  expect(parseInline("use `a*b*c` and `__init__`")).toBe("use <code>a*b*c</code> and <code>__init__</code>");
+  expect(parseInline("see `[x](https://y.com)`")).toBe("see <code>[x](https://y.com)</code>");
+  expect(parseInline("`<b>`")).toBe("<code>&lt;b&gt;</code>");
+  expect(parseInline("[docs](https://ex.com/a*b*c)")).toBe(
+    '<a target="_blank" rel="noopener noreferrer" href="https://ex.com/a*b*c">docs</a>'
+  );
+  expect(parseInline("**[`c` *l*](https://c.d)**")).toBe(
+    '<strong><a target="_blank" rel="noopener noreferrer" href="https://c.d"><code>c</code> <em>l</em></a></strong>'
+  );
+  expect(parseInline("![alt `x` *y*](/a.png)")).toBe('<img src="/a.png" alt="alt x *y*" loading="lazy" decoding="async">');
+  expect(parseInline("a<br>b <BR /> c")).toBe("a<br>b <br> c");
+  // A private-use slot marker in the text can't be used to forge or loop placeholders.
+  expect(parseInline("x \uE0000\uE000 `\uE0000\uE000`")).toBe("x 0 <code>0</code>");
+});
+
+test("markdownToHtml nests indented list items", () => {
+  require("../../public/js/blog-post.js");
+  const { markdownToHtml } = window.MarinaBlogPost;
+
+  const html = markdownToHtml(
+    ["- one", "  - nested", "    - deeper", "  - nested2", "- two", "", "1. a", "2. b", "\t- sub", "- after ol"].join("\n")
+  );
+  expect(html).toBe([
+    "<ul>",
+    "<li>one<ul><li>nested<ul><li>deeper</li></ul></li><li>nested2</li></ul></li>",
+    "<li>two</li>",
+    "</ul>",
+    "<ol>",
+    "<li>a</li>",
+    "<li>b<ul><li>sub</li></ul></li>",
+    "</ol>",
+    "<ul>",
+    "<li>after ol</li>",
+    "</ul>",
+  ].join("\n"));
+
+  // A list indented as a whole stays one flat list.
+  expect(markdownToHtml("    1. x\n    2. y")).toBe("<ol>\n<li>x</li>\n<li>y</li>\n</ol>");
+});
+
+test("code blocks are coloured by their tag, or by detecting the language when untagged", () => {
+  require("../../public/js/code-highlight.js");
+  require("../../public/js/blog-post.js");
+  const { markdownToHtml, enhanceCodeBlocks } = window.MarinaBlogPost;
+  document.body.innerHTML = markdownToHtml([
+    "```bash", "npm ci", "```",
+    "```", "from mem0 import MemoryClient", "client = MemoryClient()", "```",
+    "```💡", "- a note, not code", "```",
+    "```", "score = (0.4 * similarity)", "```",
+  ].join("\n"));
+  enhanceCodeBlocks(document.body);
+
+  const blocks = [...document.querySelectorAll(".blog-code-wrap")];
+  const label = (b) => b.querySelector(".blog-code-lang")?.textContent ?? null;
+  expect(blocks.map(label)).toEqual(["bash", "python", "💡", null]);
+  expect(blocks[0].querySelector('.tok-fn').textContent).toBe("npm");
+  expect(blocks[1].querySelector("code").classList.contains("blog-code-highlighted")).toBe(true);
+  expect(blocks[1].querySelector(".tok-kw").textContent).toBe("from");
+  // The copied text is the original code, not the markup.
+  expect(blocks[1].querySelector("code").textContent).toBe("from mem0 import MemoryClient\nclient = MemoryClient()");
+  expect(blocks[2].querySelector("[class^=tok-]")).toBeNull();
+  expect(blocks[3].querySelector("[class^=tok-]")).toBeNull();
 });

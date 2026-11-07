@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → TAOCP 4️⃣ of 6️⃣ (Donald E. Knuth, 2019)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Inexorable · Unerbittlich · ふかひ · בִּלְתִּי נִמְנָע
+subtitle: Rating: 10/10 | Beginner to Advanced Computer Scientists | Today's Word: Inexorable · Unerbittlich · ふかひ · בִּלְתִּי נִמְנָע
 date: 2026; 08; 27
 ---
 
@@ -24,7 +24,7 @@ And one cool quote from my studies this week:
 
 <br>
 
-In this third post, I continue the *brain-marathon* I began in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth), [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth_2), and [**Part 3️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth_3), savoring [**our luminal reality**](https://www.youtube.com/watch?v=dtW-AFYpH_A).
+In this third post, I continue the *brain-marathon* I began in [**Part 1️⃣**](https://marina.nullstar.fun/blog/book_knuth.html), [**Part 2️⃣**](https://marina.nullstar.fun/blog/book_knuth_2.html), and [**Part 3️⃣**](https://marina.nullstar.fun/blog/book_knuth_3.html), savoring [**our luminal reality**](https://www.youtube.com/watch?v=dtW-AFYpH_A).
 
 Today, we **[dive](https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/)** into the **Searching** chapter. If you think of 💕 binary search 💕 when someone says "search", you’re like me — it's **[nice](https://pollen-robotics.com/microduck/)** and binaryly **[pretty](https://apod.nasa.gov/apod/ap260820.html)**. This time, though, I learned there’s much more **[color](https://apod.nasa.gov/apod/ap260827.html)** to it. And, funny enough, I learned this through the zodiacs on a **[tree](https://www.youtube.com/watch?v=DAzVVp9lmis)**. Read on if you want to understand what I mean!
 

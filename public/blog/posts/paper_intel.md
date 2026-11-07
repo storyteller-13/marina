@@ -1,6 +1,6 @@
 ---
 title: 📊 PAPER → Collective Intelligence 1️⃣ of ♾️: Multi-Agents
-subtitle: Audience: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace
+subtitle: Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace
 date: 2026; 09; 19
 ---
 
@@ -14,7 +14,7 @@ date: 2026; 09; 19
 
 Saturdays are a great day to review a few papers related to one of my main areas of interest (for **[many](https://github.com/cypherpunk-symposium)** **[years](https://github.com/urani-trade)**): collective (super)intelligence and multiplayer agents. The backlog is large, but this is fun (and we have our whole lives ahead of us).
 
-For anyone new here, multi-agent deployment is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:CELAENO](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** module.
+For anyone new here, multi-agent deployment is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:CELAENO](https://marina.nullstar.fun/blog/idea_nullstar.html)** module.
 
 As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory and delight (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:
 
@@ -91,7 +91,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 ---
 
-## 🪂  [Learning to Orchestrate Agents in Natural Language with the Conductor (Nielsen et al., 2026)](https://arxiv.org/pdf/2512.04388)
+## 🪂  [Learning to Orchestrate Agents in Natural Language (Nielsen et al., 2026)](https://arxiv.org/pdf/2512.04388)
 
 <br>
 
@@ -163,7 +163,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-### Related Work
+#### Related Work
 
 <br>
 
@@ -183,7 +183,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-### Sakana Fugu
+#### Sakana Fugu
 
 <br>
 
@@ -207,7 +207,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### SFT on Single-step Tasks
+##### SFT on Single-step Tasks
 
 <br>
 
@@ -221,7 +221,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### Applying Evolutionary Strategies on E2E Tasks
+##### Applying Evolutionary Strategies on E2E Tasks
 
 <br>
 
@@ -239,7 +239,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-### Fugu Ultra
+#### Fugu Ultra
 
 <br>
 
@@ -253,7 +253,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### Workflow Execution
+##### Workflow Execution
 
 <br>
 
@@ -269,7 +269,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### Function Calling Agentic Worfklows
+##### Function Calling Agentic Worfklows
 
 <br>
 
@@ -279,7 +279,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### Intra-Workflow Agent Isolation
+##### Intra-Workflow Agent Isolation
 
 <br>
 
@@ -289,7 +289,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### Persistent Shared Memory
+##### Persistent Shared Memory
 
 <br>
 
@@ -299,7 +299,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### Training Setup
+##### Training Setup
 
 <br>
 
@@ -309,11 +309,11 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-### Capabilities
+#### Capabilities
 
 <br>
 
-#### Benchmarking
+##### Benchmarking
 
 <br>
 
@@ -335,7 +335,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### Autonomous ML Research Workflow
+##### Autonomous ML Research Workflow
 
 <br>
 
@@ -349,7 +349,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-#### Optimal Strategies & Topologies
+##### Optimal Strategies & Topologies
 
 <br>
 

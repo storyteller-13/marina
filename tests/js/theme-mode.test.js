@@ -53,3 +53,38 @@ test("keeps the browser theme-color in step with the theme", () => {
   expect(meta.getAttribute("content")).toBe("#ffffff");
   document.head.innerHTML = "";
 });
+
+test("data-theme-toggle elements switch the theme by click and keyboard", () => {
+  resetDom(`
+    <span id="span-toggle" tabindex="0" role="button" data-theme-toggle><b id="inner">x</b></span>
+    <button id="btn-toggle" type="button" data-theme-toggle></button>
+    <p id="other">no</p>`);
+  localStorage.setItem("data-color-mode", "light");
+  require("../../public/js/theme-mode.js");
+  const mode = () => document.documentElement.getAttribute("data-color-mode");
+  const key = (id, k) => {
+    const e = new KeyboardEvent("keydown", { key: k, bubbles: true, cancelable: true });
+    document.getElementById(id).dispatchEvent(e);
+    return e;
+  };
+
+  document.getElementById("inner").click();
+  expect(mode()).toBe("dark");
+  document.getElementById("btn-toggle").click();
+  expect(mode()).toBe("light");
+
+  expect(key("span-toggle", "Enter").defaultPrevented).toBe(true);
+  expect(mode()).toBe("dark");
+  key("span-toggle", " ");
+  expect(mode()).toBe("light");
+  key("span-toggle", "a");
+  expect(mode()).toBe("light");
+
+  // Buttons get Enter/Space as a click from the browser; don't toggle twice.
+  key("btn-toggle", "Enter");
+  expect(mode()).toBe("light");
+
+  document.getElementById("other").click();
+  document.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
+  expect(mode()).toBe("light");
+});

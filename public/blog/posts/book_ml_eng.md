@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → ML Engineering (S. Bekman, 2026)
-subtitle: Rating: 10/10 | Audience: Intermediate to Advanced AI Engineers | Today's word: Halloween · ハロウィン · ליל כל הקדושים
+subtitle: Rating: 10/10 | Intermediate to Advanced AI Engineers | Today's word: Halloween · ハロウィン · ליל כל הקדושים
 date: 2026; 10; 26
 ---
 
@@ -1276,7 +1276,7 @@ probs = softmax(scaled_logits)
 - **[Inference Engines Explained in 10 Minutes (Caleb, 2026)](https://www.youtube.com/watch?v=_xM8scs4_x4)**
 - **[Why Inference Matters 12x More Than Training (YC Paper Club, 2026)](https://www.youtube.com/watch?v=mHNKuH-9OxU)**
 - **[The Strange Economics of LLM Inference-as-a-Service (bycloud, 2026)](https://www.youtube.com/watch?v=xP1kjDOisVw)**
-- **[The Future of Inference Markets (20VC, 2026)](https://www.youtube.com/watch?v=1jDCPEHwQfI&list=WL&index=64)**
+- **[The Future of Inference Markets (20VC, 2026)](https://www.youtube.com/watch?v=1jDCPEHwQfI)**
 
 <br>
 

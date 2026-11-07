@@ -46,10 +46,10 @@
 								class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
 								<nav class="UnderlineNav-body">
 									<a class="UnderlineNav-item" href="/">
-										<code class="code-large" data-i18n="nav.work">work</code>
+										<code class="code-large">work</code>
 									</a>
 									<a class="UnderlineNav-item selected" href="/pages/blog.html">
-										<code class="code-large" data-i18n="nav.blog">blog</code>
+										<code class="code-large">blog</code>
 									</a>
 								</nav>
 								<div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -145,7 +145,7 @@
 									</svg>
 									<span
 										class="profile-color-modes-toggle js-promo-color-modes-toggle no-select neon-toggle"
-										tabindex="0" onclick="switchTheme()">
+										tabindex="0" role="button" aria-label="Switch between light and dark theme" data-theme-toggle>
 										<div class="profile-color-modes-toggle-track no-select neon-toggle-track"></div>
 										<div
 											class="profile-color-modes-toggle-thumb js-promo-color-modes-thumb neon-toggle-thumb">
@@ -213,14 +213,14 @@
 							class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
 							<nav class="UnderlineNav-body">
 								<a class="UnderlineNav-item" href="/">
-									<code class="code-large" data-i18n="nav.work">work</code>
+									<code class="code-large">work</code>
 								</a>
 								<a class="UnderlineNav-item selected" href="/pages/blog.html">
-									<code class="code-large" data-i18n="nav.blog">blog</code>
+									<code class="code-large">blog</code>
 								</a>
 							</nav>
 							<button type="button" class="profile-color-modes-toggle mobile-theme-toggle neon-toggle no-select"
-				aria-label="Switch between light and dark theme" onclick="switchTheme()">
+				aria-label="Switch between light and dark theme" data-theme-toggle>
 				<span class="profile-color-modes-toggle-track neon-toggle-track"></span>
 				<span class="profile-color-modes-toggle-thumb neon-toggle-thumb">
 					<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13" aria-hidden="true"
@@ -238,12 +238,12 @@
 								<article class="markdown-body entry-content container-lg f5 blog-shell">
 									<div class="qa-page-wrap">
 										<br>
-										<h1><span class="section-title" data-i18n="blog.title">just another tech
+										<h1><span class="section-title">just another tech
 												blog</span></h1>
 										<br>
 										<div id="blog-post-list" class="blog-line-list"
 											aria-label="Technical Notes posts">
-											<p class="blog-subtitle blog-draft-summary" data-i18n="blog.intro">
+											<p class="blog-subtitle blog-draft-summary page-intro">
 												Here, usually on Fridays or over the weekends, I share some of my ideas,
 												pay
 												homage to the technical research and work that have made me smile, and
@@ -253,11 +253,10 @@
 										</div>
 										<section class="blog-draft-section" aria-labelledby="blog-drafts-heading">
 											<h2 id="blog-drafts-heading" class="blog-draft-backlogs-heading"><span
-													class="section-title blog-draft-backlogs-title-text"
-													data-i18n="blog.drafts.title">Backlog of Personal Long Term
+													class="section-title blog-draft-backlogs-title-text">Backlog of Personal Long Term
 													Projects</span>
 											</h2>
-											<p class="blog-subtitle blog-draft-summary" data-i18n="blog.drafts.intro">
+											<p class="blog-subtitle blog-draft-summary">
 												A queue of things I'm playing with in my spare time — each of which
 												might eventually become a review.
 											</p>
@@ -265,7 +264,7 @@
 												aria-label="Draft backlog entries"></div>
 										</section>
 										<aside class="blog-ps" aria-label="P.S.">
-											<p data-i18n="blog.ps">
+											<p>
 												<span class="blog-ps-label">P.S.</span>
 												Everything published here is written by me, based on my own research and
 												direct reading of the original sources. For this particular side project,

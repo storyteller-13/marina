@@ -52,10 +52,10 @@
 								class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
 								<nav class="UnderlineNav-body">
 									<a class="UnderlineNav-item" href="/">
-										<code class="code-large" data-i18n="nav.work">work</code>
+										<code class="code-large">work</code>
 									</a>
 									<a class="UnderlineNav-item" href="/pages/blog.html">
-										<code class="code-large" data-i18n="nav.blog">blog</code>
+										<code class="code-large">blog</code>
 									</a>
 								</nav>
 								<div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -151,7 +151,8 @@
 									</svg>
 									<span
 										class="profile-color-modes-toggle js-promo-color-modes-toggle no-select neon-toggle"
-										tabindex="0" onclick="switchTheme()">
+										tabindex="0" role="button" aria-label="Switch between light and dark theme"
+										data-theme-toggle>
 										<div class="profile-color-modes-toggle-track no-select neon-toggle-track"></div>
 										<div
 											class="profile-color-modes-toggle-thumb js-promo-color-modes-thumb neon-toggle-thumb">
@@ -220,24 +221,25 @@
 							class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
 							<nav class="UnderlineNav-body">
 								<a class="UnderlineNav-item" href="/">
-									<code class="code-large" data-i18n="nav.work">work</code>
+									<code class="code-large">work</code>
 								</a>
 								<a class="UnderlineNav-item" href="/pages/blog.html">
-									<code class="code-large" data-i18n="nav.blog">blog</code>
+									<code class="code-large">blog</code>
 								</a>
 							</nav>
-							<button type="button" class="profile-color-modes-toggle mobile-theme-toggle neon-toggle no-select"
-				aria-label="Switch between light and dark theme" onclick="switchTheme()">
-				<span class="profile-color-modes-toggle-track neon-toggle-track"></span>
-				<span class="profile-color-modes-toggle-thumb neon-toggle-thumb">
-					<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13" aria-hidden="true"
-						xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" clip-rule="evenodd"
-							d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
-						</path>
-					</svg>
-				</span>
-			</button>
+							<button type="button"
+								class="profile-color-modes-toggle mobile-theme-toggle neon-toggle no-select"
+								aria-label="Switch between light and dark theme" data-theme-toggle>
+								<span class="profile-color-modes-toggle-track neon-toggle-track"></span>
+								<span class="profile-color-modes-toggle-thumb neon-toggle-thumb">
+									<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13"
+										aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+										</path>
+									</svg>
+								</span>
+							</button>
 						</div>
 						<div>
 							<div class="position-relative">
@@ -247,9 +249,9 @@
 										<article class="markdown-body entry-content container-lg f5">
 											<div class="qa-page-wrap">
 												<br>
-												<h1><span class="section-title" data-i18n="qa.title">Q & A</span></h1>
+												<h1><span class="section-title">Q & A</span></h1>
 												<br>
-												<p class="blog-subtitle" data-i18n="qa.intro">This page offers
+												<p class="blog-subtitle page-intro">This page offers
 													colleagues a glimpse into the human behind the work.</p>
 
 												<ul class="qa-list">
@@ -264,8 +266,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#day-to-day"
-																	data-i18n="qa.q1">What does your day-to-day look
+															<p class="qa-question-text"><a href="#day-to-day">What does
+																	your day-to-day look
 																	like?</a></p>
 														</div>
 
@@ -276,7 +278,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<div class="qa-answer-text" data-i18n-html="qa.a1">
+															<div class="qa-answer-text">
 																<p>I love routines, and my career and family are my
 																	greatest priorities. As a result, my mornings tend
 																	to follow this protocol (even when I am traveling):
@@ -286,10 +288,9 @@
 																			aria-hidden="true">☀️</span><span>Wake up +
 																			shower + spa</span></li>
 																	<li><span class="qa-routine-mark"
-																			aria-hidden="true">☀️</span><span><a
-																				target="_blank"
-																				href="https://gist.github.com/von-steinkirch/454e3771e45fa1129f5eb2478764f183">Journal</a>
-																			+ Hatha yoga or Kung Fu + Run</span></li>
+																			aria-hidden="true">☀️</span><span>Journal
+																			+ Hatha yoga or Kung Fu + go for a
+																			run</span></li>
 																	<li><span class="qa-routine-mark"
 																			aria-hidden="true">☀️</span><span>Coffee +
 																			vitamins + protein-based breakfast</span>
@@ -307,16 +308,17 @@
 																			aria-hidden="true">☀️</span><span>Start
 																			working! 😎</span></li>
 																</ul>
+																<br>
 																<p>In the evenings, I usually:</p>
 																<ul class="qa-routine qa-routine--night">
 																	<li><span class="qa-routine-mark"
 																			aria-hidden="true">🌙</span><span><a
 																				target="_blank"
-																				href="https://matrix.nullstar.fun/?list=books-2026">Read</a>,
+																				href="https://matrix.nullstar.fun/?folder=books">Read</a>,
 																			<a target="_blank"
-																				href="https://gist.github.com/von-steinkirch/2f6c82155253bf9fc113fbc966037a7d">watch
+																				href="http://matrix.nullstar.fun/?folder=movies">watch
 																				movies</a>, <a
-																				href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e"
+																				href="http://matrix.nullstar.fun/?folder=games"
 																				target="_blank">play</a>, dance, or work
 																			out</span></li>
 																	<li><span class="qa-routine-mark"
@@ -329,8 +331,7 @@
 																			day</span></li>
 																	<li><span class="qa-routine-mark"
 																			aria-hidden="true">🌙</span><span>Shower +
-																			spa + <a target="_blank"
-																				href="https://gist.github.com/von-steinkirch/f4fce2f49fa582e8fe458539ece20a93">pray</a></span>
+																			spa + pray</a></span>
 																	</li>
 																	<li><span class="qa-routine-mark"
 																			aria-hidden="true">🌙</span><span>Sleep and
@@ -351,8 +352,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#coding"
-																	data-i18n="qa.q2">What's your story with coding?</a>
+															<p class="qa-question-text"><a href="#coding">What's your
+																	story with coding?</a>
 															</p>
 														</div>
 
@@ -363,20 +364,20 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a2">
+															<p class="qa-answer-text">
 
 																The first time I used a terminal, I was around 7 years
 																old. It was <a target="_blank"
 																	href="https://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a>
 																running on an <a target="_blank"
-																	href="/images/8086.png">i386</a> machine. I started
+																	href="/images/8086.webp">i386</a> machine. I started
 																coding in middle school, working with (very old)
 																languages such as BASIC and Pascal/Delphi. In high
 																school, I discovered C/C++. In grad school, Python.
 
 																<br><br>
 																Python has since become my primary <span
-																	style="color: #b392f0;"> computer language</span> —
+																	class="qa-accent"> computer language</span> —
 																I even <a target="_blank"
 																	href="https://github.com/cypherpunk-symposium/master-algorithms-py"
 																	rel="noopener noreferrer">published a book on it in
@@ -486,8 +487,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#linux"
-																	data-i18n="qa.q3">What's your story with Linux?</a>
+															<p class="qa-question-text"><a href="#linux">What's your
+																	story with Linux?</a>
 															</p>
 														</div>
 
@@ -498,7 +499,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a3">
+															<p class="qa-answer-text">
 
 																I discovered and learned Linux back in high school, when
 																I was studying at
@@ -552,11 +553,11 @@
 																<br><br>
 																Nowadays, all my machines run Linux (and I've been using
 																<a target="_blank"
-																	href="https://gist.github.com/von-steinkirch/845e383a1605a926ae43b742274eadd5">Omarchy</a>
+																	href="https://github.com/future-ai-org/omarchy_stuff">Omarchy</a>
 																since 2025, together with another private setup). My
 																mobile devices are either disposable or run <a
 																	target="_blank"
-																	href="https://gist.github.com/von-steinkirch/bdb4f9ef6e3dbf863f44a1fa5fc7d6fd">GrapheneOS</a>
+																	href="https://github.com/cypherpunk-symposium/shell-whiz-toolkit/blob/master/rooting/grapheneos.md">GrapheneOS</a>
 																and <a target="_blank"
 																	href="https://en.wikipedia.org/wiki/LineageOS">LineageOS</a>.
 															</p>
@@ -573,8 +574,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#videogames"
-																	data-i18n="qa.q4">What's your story with
+															<p class="qa-question-text"><a href="#videogames">What's
+																	your story with
 																	videogames?</a></p>
 														</div>
 
@@ -585,7 +586,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a4">
+															<p class="qa-answer-text">
 
 																When I was 5 or so, my dad brought an <a target="_blank"
 																	href="https://en.wikipedia.org/wiki/Atari">Atari</a>
@@ -600,7 +601,7 @@
 																<br><br>
 
 																I have <a target="_blank"
-																	href="https://gist.github.com/von-steinkirch/49efc13bf9e6b13ee9ccb69683ba832e">too
+																	href="http://matrix.nullstar.fun/?folder=games">too
 																	many favorite games</a>, but in terms of hours
 																played, I would highlight all the old-school PC LAN
 																games and the SNES and PS1 classics, with a sweet spot
@@ -632,8 +633,9 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#astronomy-astrology"
-																	data-i18n="qa.q5">What's your story with astronomy
+															<p class="qa-question-text"><a
+																	href="#astronomy-astrology">What's your story with
+																	astronomy
 																	and astrology?</a></p>
 														</div>
 
@@ -644,7 +646,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a5">
+															<p class="qa-answer-text">
 
 																I grew up absolutely fascinated by science and
 																computers, and I could never decide which one I loved
@@ -758,8 +760,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#traveling"
-																	data-i18n="qa.q6">What's your story with traveling
+															<p class="qa-question-text"><a href="#traveling">What's your
+																	story with traveling
 																	and languages?</a></p>
 														</div>
 
@@ -770,11 +772,11 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a6">
+															<p class="qa-answer-text">
 
 																I have spent my life navigating multiple cultural
 																contexts and
-																<span style="color: #b392f0;">human language</span> has
+																<span class="qa-accent">human language</span> has
 																fascinated me for decades. From Chomsky’s theories to
 																the cultural and social dimensions of how humans
 																communicate. Born and raised in Brazil in a
@@ -797,14 +799,14 @@
 																travel through my research. Over the last decade, my
 																work as an engineer has paid reasonably well and allowed
 																me to work remotely, which has enabled me to pursue <a
-																	href="https://gist.github.com/von-steinkirch/538484386a269e1ab6703ffa11480007"
+																	href="http://matrix.nullstar.fun/?folder=adventures"
 																	target="_blank">this objective</a> consistently.
 																<br><br>
 																I’ve been to 30+ countries, lived in dozens of cities,
 																and visited almost every state in the U.S. One of my
 																goals for the second part of my life is to continue
 																traveling with my family and <a
-																	href="https://matrix.nullstar.fun/"
+																	href="http://matrix.nullstar.fun/?note=hi"
 																	target="_blank">telling beautiful, compelling
 																	stories</a> about these experiences and the things
 																I've seen. There are still dozens of countries, hundreds
@@ -826,8 +828,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#religions"
-																	data-i18n="qa.q7">What's your story with
+															<p class="qa-question-text"><a href="#religions">What's your
+																	story with
 																	religions?</a></p>
 														</div>
 
@@ -838,7 +840,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a7">
+															<p class="qa-answer-text">
 
 																My family is German and Italian, with a Jewish side, but
 																I was raised Catholic (and I am confirmed). In my 20s, I
@@ -875,8 +877,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#religions"
-																	data-i18n="qa.q7">Are you a Doctor?</a></p>
+															<p class="qa-question-text"><a href="#religions">Are you a
+																	Doctor?</a></p>
 														</div>
 
 														<div class="qa-answer">
@@ -886,7 +888,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a7">
+															<p class="qa-answer-text">
 																Yes, I am. But not your usual snobby academic, full of
 																peer-reviewed publications and diplomas on the wall.
 																I am the real, hardcore, Newtonian, Bohrian,
@@ -1025,8 +1027,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#mind"
-																	data-i18n="qa.q10">What's your story with
+															<p class="qa-question-text"><a href="#mind">What's your
+																	story with
 																	mind-altering substances?</a></p>
 														</div>
 
@@ -1037,7 +1039,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a10">
+															<p class="qa-answer-text">
 
 																The first time I ever experimented with anything other
 																than alcohol was with cannabis, when I was 30 years old.
@@ -1088,8 +1090,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#bitcoin"
-																	data-i18n="qa.q8">What's your story with
+															<p class="qa-question-text"><a href="#bitcoin">What's your
+																	story with
 																	bitcoin?</a></p>
 														</div>
 
@@ -1100,7 +1102,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<p class="qa-answer-text" data-i18n-html="qa.a8">
+															<p class="qa-answer-text">
 
 																It's not very fashionable to say this today, but <i>we
 																	are all Satoshi</i>.
@@ -1189,8 +1191,8 @@
 																	<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
 																	<path d="M12 17h.01" />
 																</svg></span>
-															<p class="qa-question-text"><a href="#privacy"
-																	data-i18n="qa.q9">Do you have Instagram, OF, or any
+															<p class="qa-question-text"><a href="#privacy">Do you have
+																	Instagram, OF, or any
 																	other form of personal online engagement?</a></p>
 														</div>
 
@@ -1201,7 +1203,7 @@
 																	<path
 																		d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 																</svg></span>
-															<div class="qa-answer-text" data-i18n-html="qa.a9">
+															<div class="qa-answer-text">
 																<aside class="qa-warning">
 																	<p>No. Obviously not. Never did, never will. My
 																		career and studies as an engineer and scientist
@@ -1296,7 +1298,7 @@
 	<div class="neon-slider-container">
 		<div class="neon-slider">
 			<div class="neon-slider-track">
-				<span class="neon-text" data-i18n-html="qa.slider">
+				<span class="neon-text">
 					impossible is a state of
 					mind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					it always seems impossible until it's

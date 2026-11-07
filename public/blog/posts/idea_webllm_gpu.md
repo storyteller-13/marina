@@ -1,6 +1,6 @@
 ---
 title: 🧠 IDEA → WebLLM, WebGPU, Open-Source Tiny Inference
-subtitle: Audience: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold · Schwelle · きょうかい · סַף
+subtitle: Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold · Schwelle · きょうかい · סַף
 date: 2026; 09; 25
 ---
 
@@ -39,7 +39,7 @@ The inference stack we'll be learning about is:
 
 ##### PS: Mabon Hapus i chi! and 秋分の日、どうぞ良い一日をお過ごしください。
 
-##### PS2: Why did I choose this model from Sakana AI, and what interests me about their work? **[Travel to the future](http://marina.nullstar.fun/pages/post.html?post=paper_intel_2)** and you will understand.
+##### PS2: Why did I choose this model from Sakana AI, and what interests me about their work? **[Travel to the future](https://marina.nullstar.fun/blog/paper_intel_2.html)** and you will understand.
 
 <br>
 

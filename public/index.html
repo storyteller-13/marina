@@ -55,10 +55,10 @@
 								class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
 								<div class="UnderlineNav-body">
 									<a class="UnderlineNav-item selected" href="/">
-										<code class="code-small" data-i18n="nav.work">work</code>
+										<code class="code-small">work</code>
 									</a>
 									<a class="UnderlineNav-item" href="/pages/blog.html">
-										<code class="code-small" data-i18n="nav.blog">blog</code>
+										<code class="code-small">blog</code>
 									</a>
 								</div>
 								<div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -165,7 +165,7 @@
 									</svg>
 									<span
 										class="profile-color-modes-toggle js-promo-color-modes-toggle no-select neon-toggle"
-										tabindex="0" onclick="switchTheme()">
+										tabindex="0" role="button" aria-label="Switch between light and dark theme" data-theme-toggle>
 										<div class="profile-color-modes-toggle-track no-select neon-toggle-track">
 										</div>
 										<div
@@ -237,8 +237,7 @@
 							<h1 class="vcard-names">
 								<span class="p-name vcard-fullname d-block">
 									<h3>
-										<br><span class="success-text text-1_6 font-orbitron"
-											data-i18n="profile.name">Marina von Steinkirch</span>
+										<br><span class="success-text text-1_6 font-orbitron">Marina von Steinkirch</span>
 									</h3>
 								</span>
 								<span class="p-nickname vcard-username d-block">
@@ -246,14 +245,11 @@
 										<h4 class="text-1">
 											<br>
 											<span class="role-titles">
-												<a target="_blank" href="https://www.astro.sunysb.edu/steinkirch"
-													data-i18n="role.physicist">Theoretical Astrophysicist</a>
+												<a target="_blank" href="https://www.astro.sunysb.edu/steinkirch">Theoretical Astrophysicist</a>
 												<span class="role-plus" aria-hidden="true">+</span>
-												<a target="_blank" href="https://github.com/von-steinkirch"
-													data-i18n="role.engineer">Principal Software Engineer</a>
+												<a target="_blank" href="https://github.com/von-steinkirch">Principal Software Engineer</a>
 												<span class="role-plus" aria-hidden="true">+</span>
-												<a target="_blank" href="https://www.nullstar.games"
-													data-i18n="role.engineer">CEO @ NULLSTAR.games</a>
+												<a target="_blank" href="https://www.nullstar.games">CEO @ NULLSTAR.games</a>
 											</span>
 										</h4>
 									</strong>
@@ -275,14 +271,14 @@
 					class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
 					<div class="UnderlineNav-body">
 						<a class="UnderlineNav-item selected" href="/">
-							<code class="code-large" data-i18n="nav.work">work</code>
+							<code class="code-large">work</code>
 						</a>
 						<a class="UnderlineNav-item" href="/pages/blog.html">
-							<code class="code-large" data-i18n="nav.blog">blog</code>
+							<code class="code-large">blog</code>
 						</a>
 					</div>
 							<button type="button" class="profile-color-modes-toggle mobile-theme-toggle neon-toggle no-select"
-				aria-label="Switch between light and dark theme" onclick="switchTheme()">
+				aria-label="Switch between light and dark theme" data-theme-toggle>
 				<span class="profile-color-modes-toggle-track neon-toggle-track"></span>
 				<span class="profile-color-modes-toggle-thumb neon-toggle-thumb">
 					<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13" aria-hidden="true"
@@ -299,15 +295,15 @@
 				<div class="position-relative">
 					<div class="Box mt-4">
 						<div class="Box-body p-4">
-							<article class="markdown-body entry-content container-lg f5 mb-4 mt-4">
+							<article class="markdown-body entry-content container-lg f5 mb-4 mt-4 home-content">
 								<!-- Specialization Section -->
 								<section class="content-section">
 
-									<h1 class="section-title" data-i18n="home.bio.title">Professional Bio</h1>
+									<h1 class="section-title">Professional Bio</h1>
 
 									<br>
 
-									<div data-i18n-html="home.bio">
+									<div>
 										I am a <b><a target="_blank"
 												href="https://www.astro.sunysb.edu/steinkirch/">theoretical
 												physicist</a></b> by training (B.Sc. from the University of São Paulo;
@@ -338,7 +334,7 @@
 												moments</a></b> throughout my engineering career.
 										<br><br>
 										For the years ahead, I am <b><a
-												href="https://marina.nullstar.fun/pages/post.html?post=idea_nullstar"
+												href="https://marina.nullstar.fun/blog/idea_nullstar.html"
 												target="_blank">building</a> <a target="_blank"
 												href="https://www.nullstar.games/">NULLSTAR</a></b>, coming in 2027 for
 										<b><a href="https://matrix.nullstar.fun/?note=friendship" target="_blank">real
@@ -347,21 +343,21 @@
 									</div>
 									<br><br>
 
-									<h1 class="section-title" data-i18n="home.interests.title">Lifelong Skills &
+									<h1 class="section-title">Lifelong Skills &
 										Intellectual Interests</h1>
 									<br>
 									<ol>
-										<li><strong data-i18n-html="home.interests.ai"><span
+										<li><strong><span
 													class="highlight-text font-orbitron">AI && ML</span> → <a
 													href="https://github.com/future-ai-org/mlnet-complex-networks-py"
 													target="_blank">Graphs</a>; <a target="_blank"
-													href="https://marina.nullstar.fun/pages/post.html?post=report_harness"
+													href="https://marina.nullstar.fun/blog/report_harness.html"
 													target="_blank">Multiplayer
 													Agents</a>; <a target="_blank"
-													href="https://marina.nullstar.fun/pages/post.html?post=report_memory">Memory</a>;
+													href="https://marina.nullstar.fun/blog/report_memory.html">Memory</a>;
 												Mech Interpretability; Local; Robots;
 												ASI+AGI</strong> </li>
-										<li><strong data-i18n-html="home.interests.physics"><span
+										<li><strong><span
 													class="highlight-text font-orbitron">Physics</span> → <a
 													target="_blank"
 													href="https://www.astro.sunysb.edu/steinkirch/books/qi.pdf">Quantum</a>
@@ -377,13 +373,13 @@
 													href="https://www.youtube.com/watch?v=1Fp6ibfOQ4Y">Qubits</a>; Game
 												Theory; Astronomy
 											</strong> </li>
-										<li><strong data-i18n-html="home.interests.story"><span
+										<li><strong><span
 													class="highlight-text font-orbitron">Philosophy</span> → <a
 													href="https://matrix.nullstar.fun" target="_blank">Storytelling</a>;
 												<a target="_blank" href="https://choices.vonsteinkirch.com/">The Hero's
 													Journey</a>; Logic; Theology; Consciousness; History; Agape
 											</strong> </li>
-										<li><strong data-i18n-html="home.interests.code"><span
+										<li><strong><span
 													class="highlight-text font-orbitron">Clean Code</span> → <a
 													target="_blank"
 													href="https://github.com/future-ai-org/master-algorithms-py">Python</a>;
@@ -397,13 +393,12 @@
 								<!-- Publications Section -->
 								<section class="content-section">
 
-									<h1 class="section-title" data-i18n="home.pubs.title">Public Technical Research I
+									<h1 class="section-title">Public Technical Research I
 										Published</h1>
 
 									<br>
 
-									<h3><span class="success-text text-1 font-orbitron"
-											data-i18n="home.cat.physics">Theoretical Physics || Astrophysics || Quantum
+									<h3><span class="success-text text-1 font-orbitron">Theoretical Physics || Astrophysics || Quantum
 											Computing</span></h3>
 									<br>
 									<ul>
@@ -547,8 +542,7 @@
 									</ul>
 									<br>
 
-									<h3><span class="success-text text-1 font-orbitron"
-											data-i18n="home.cat.ai">Artificial Intelligence || Machine Learning ||
+									<h3><span class="success-text text-1 font-orbitron">Artificial Intelligence || Machine Learning ||
 											Robotics</span></h3>
 									<br>
 									<ul>
@@ -627,7 +621,7 @@
 									</ul>
 									<br>
 
-									<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.sec">Privacy
+									<h3><span class="success-text text-1 font-orbitron">Privacy
 											|| Security || Infrastructure</span></h3>
 									<br>
 									<ul>
@@ -787,8 +781,7 @@
 									</ul>
 									<br>
 
-									<h3><span class="success-text text-1 font-orbitron"
-											data-i18n="home.cat.chain">Blockchains || Decentralized Finance</span></h3>
+									<h3><span class="success-text text-1 font-orbitron">Blockchains || Decentralized Finance</span></h3>
 									<br>
 									<ul>
 										<li><a target="_blank"
@@ -886,12 +879,11 @@
 
 									<br>
 
-									<h1 class="section-title" data-i18n="home.oss.title">Open-Source Projects I Authored
+									<h1 class="section-title">Open-Source Projects I Authored
 									</h1>
 									<br>
 
-									<h3><span class="success-text text-1 font-orbitron"
-											data-i18n="home.cat.physics">Theoretical Physics || Astrophysics || Quantum
+									<h3><span class="success-text text-1 font-orbitron">Theoretical Physics || Astrophysics || Quantum
 											Computing</span></h3>
 									<br>
 									<ul>
@@ -934,8 +926,7 @@
 									</ul>
 									<br>
 
-									<h3><span class="success-text text-1 font-orbitron"
-											data-i18n="home.cat.ai">Artificial Intelligence || Machine Learning ||
+									<h3><span class="success-text text-1 font-orbitron">Artificial Intelligence || Machine Learning ||
 											Robotics</span></h3>
 									<br>
 									<ul>
@@ -993,7 +984,7 @@
 											complex networks (python, shell)</li>
 									</ul>
 									<br>
-									<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.sec">Privacy
+									<h3><span class="success-text text-1 font-orbitron">Privacy
 											|| Security || Infrastructure</span></h3>
 									<br>
 									<ul>
@@ -1043,8 +1034,7 @@
 									</ul>
 									<br>
 
-									<h3><span class="success-text text-1 font-orbitron"
-											data-i18n="home.cat.chain">Blockchains || Decentralized Finance</span></h3>
+									<h3><span class="success-text text-1 font-orbitron">Blockchains || Decentralized Finance</span></h3>
 									<br>
 									<ul>
 										<li><strong><a target="_blank"
@@ -1133,7 +1123,7 @@
 											proof-of-concept (python)</li>
 									</ul>
 									<br>
-									<h3><span class="success-text text-1 font-orbitron" data-i18n="home.cat.fun">Just
+									<h3><span class="success-text text-1 font-orbitron">Just
 											for Fun || Frontend Creative Projects</span></h3>
 
 									<br>
@@ -1171,7 +1161,7 @@
 									<br>
 									<br>
 
-									<h1 class="section-title" data-i18n="home.contrib.title">Third-Party Projects I've
+									<h1 class="section-title">Third-Party Projects I've
 										Contributed To</h1>
 									<br>
 									<ul>
@@ -1213,7 +1203,7 @@
 									<br>
 									<br>
 									<h3>
-										<span class="text-1 font-orbitron" data-i18n="home.easter">easter egg →</span>
+										<span class="text-1 font-orbitron">easter egg →</span>
 										<a class="easter-egg" href="/pages/ARXIV/qa.html" aria-label="easter egg">🎮</a>
 									</h3>
 

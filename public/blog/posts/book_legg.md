@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Machine Super Intelligence (S. Legg, 2008)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Future · Zukunft · 未来 · עתיד
+subtitle: Rating: 10/10 | Beginner to Advanced AI Scientists | Today's Word: Future · Zukunft · 未来 · עתיד
 date: 2026; 10; 16
 ---
 
@@ -26,7 +26,7 @@ Spend time to come, when once our days are done.
 ```
 <br>
 
-**[Happy friday](https://www.youtube.com/watch?v=rqKgGwqLotE)**, my dear anon friend. We’re back for another weekend’s collective research into human and machine superintelligence. Today, we’ll explore **[the thesis of one of DeepMind’s co-founders](https://www.vetta.org/documents/Machine_Super_Intelligence.pdf)**, which concerns the “optimal behavior of agents in unknown computable environments,” also known as universal artificial intelligence. Very well written. It was a **[delightful](https://www.youtube.com/watch?v=uLu1cTKBspI&list=LL)** journey through the nature and measurement of intelligence, the concept and measure of universal artificial intelligence, the optimality of AIXI, the limits of computational agents, and the fundamental temporal difference learning. At another time, we might review **[Legg's full publication list as well](https://www.vetta.org/publications/).**
+**Happy friday, my dear anon friend. We’re back for another weekend’s collective research into human and machine superintelligence. Today, we’ll explore **[the thesis of one of DeepMind’s co-founders](https://www.vetta.org/documents/Machine_Super_Intelligence.pdf)**, which concerns the “optimal behavior of agents in unknown computable environments,” also known as universal artificial intelligence. Very well written. It was a **[delightful](https://www.youtube.com/watch?v=uLu1cTKBspI)** journey through the nature and measurement of intelligence, the concept and measure of universal artificial intelligence, the optimality of AIXI, the limits of computational agents, and the fundamental temporal difference learning. At another time, we might review **[Legg's full publication list as well](https://www.vetta.org/publications/).**
 
 As I read through today's material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:
 

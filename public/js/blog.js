@@ -1,6 +1,6 @@
 "use strict";
 
-/* global assetUrl, escapeHtml, tx, parseFrontMatter -- from blog-common.js, loaded first */
+/* global assetUrl, escapeHtml -- from blog-common.js, loaded first */
 
 /** Parse post dates, including site format "YYYY; MM; DD". */
 function parsePostDate(dateStr) {
@@ -39,18 +39,17 @@ function compareByDateThenSlug(a, b, aSlug, bSlug) {
   return String(bSlug || "").localeCompare(String(aSlug || ""));
 }
 
-/** Front matter of a markdown file, or {} when it can't be loaded (the index entry is the fallback). */
-async function fetchMeta(path) {
-  try {
-    const response = await fetch(assetUrl(path), { cache: "no-store" });
-    return response.ok ? parseFrontMatter(await response.text()).meta : {};
-  } catch {
-    return {};
-  }
-}
+const EMPTY_DRAFTS_HTML = '<p class="blog-draft-empty">Nothing listed here yet.</p>';
 
-function emptyDraftsHtml() {
-  return `<p class="blog-draft-empty" data-i18n="blog.draftsEmpty">${escapeHtml(tx("blog.draftsEmpty", "Nothing listed here yet."))}</p>`;
+/**
+ * Fetch one of the JSON indexes that `make blog` builds from the posts' front matter.
+ * "no-cache" revalidates with the server (ETag) on every visit instead of re-downloading.
+ */
+async function fetchIndex(path) {
+  const response = await fetch(assetUrl(path), { cache: "no-cache" });
+  if (!response.ok) return null;
+  const entries = await response.json();
+  return Array.isArray(entries) ? entries : [];
 }
 
 async function loadBlog() {
@@ -61,27 +60,23 @@ async function loadBlog() {
   }
 
   try {
-    const response = await fetch(assetUrl("blog/posts.json"), { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(tx("blog.indexError", "Could not load Technical Notes index."));
+    const posts = await fetchIndex("blog/posts.json");
+    if (!posts) {
+      throw new Error("Could not load Technical Notes index.");
     }
-
-    const posts = await response.json();
-    if (!Array.isArray(posts) || posts.length === 0) {
-      listRoot.innerHTML = `<p class="color-fg-muted" data-i18n="blog.empty">${escapeHtml(tx("blog.empty", "No posts yet."))}</p>`;
+    if (posts.length === 0) {
+      listRoot.innerHTML = '<p class="color-fg-muted">No posts yet.</p>';
       return;
     }
 
-    const rendered = await Promise.all(posts.map(async (post) => {
+    const rendered = posts.map((post) => {
       const slug = post.slug || "";
-      const safeSlug = encodeURIComponent(slug);
-      const meta = await fetchMeta(`blog/posts/${safeSlug}.md`);
       return {
-        safeSlug,
-        title: meta.title || post.title || slug.replace(/-/g, " "),
-        date: meta.date || post.date || "",
+        safeSlug: encodeURIComponent(slug),
+        title: post.title || slug.replace(/-/g, " "),
+        date: post.date || "",
       };
-    }));
+    });
 
     rendered.sort((a, b) => compareByDateThenSlug(a.date, b.date, a.safeSlug, b.safeSlug));
 
@@ -90,7 +85,7 @@ async function loadBlog() {
       line.className = "blog-line";
       const safeDate = escapeHtml(post.date);
       const safeTitle = escapeHtml(post.title);
-      line.innerHTML = `<a class="blog-line-link" href="post.html?post=${post.safeSlug}"><span class="blog-line-date">${safeDate}</span>; ${safeTitle}</a>`;
+      line.innerHTML = `<a class="blog-line-link" href="/blog/${post.safeSlug}.html"><span class="blog-line-date">${safeDate}</span>; ${safeTitle}</a>`;
       listRoot.appendChild(line);
     });
   } catch (error) {
@@ -106,36 +101,30 @@ async function loadDrafts() {
   }
 
   try {
-    const response = await fetch(assetUrl("blog/drafts.json"), { cache: "no-store" });
-    if (!response.ok) {
-      draftRoot.innerHTML = `<p class="blog-draft-empty" data-i18n="blog.draftsError">${escapeHtml(tx("blog.draftsError", "Could not load drafts list."))}</p>`;
+    const indexEntries = await fetchIndex("blog/drafts.json");
+    if (!indexEntries) {
+      draftRoot.innerHTML = '<p class="blog-draft-empty">Could not load drafts list.</p>';
       return;
     }
 
-    const indexEntries = await response.json();
-    if (!Array.isArray(indexEntries) || indexEntries.length === 0) {
-      draftRoot.innerHTML = emptyDraftsHtml();
-      return;
-    }
-
-    const rendered = await Promise.all(indexEntries.map(async (entry) => {
-      if (typeof entry === "string") {
-        const title = entry.trim();
-        return title ? { statusLabel: "wip", title, date: "", slug: "" } : null;
-      }
-
-      const slug = entry.slug || "";
-      const meta = slug ? await fetchMeta(`blog/drafts/${encodeURIComponent(slug)}.md`) : {};
-      const title = meta.title || entry.title || slug.replace(/-/g, " ");
-      const date = meta.date || entry.date || "";
-      const statusLabel = meta.status || entry.status || date || "wip";
-      return { statusLabel, title, date, slug };
-    }));
-
-    const rows = rendered.filter((row) => row && row.title.trim());
+    const rows = indexEntries
+      .map((entry) => {
+        if (typeof entry === "string") {
+          return { statusLabel: "wip", title: entry.trim(), date: "", slug: "" };
+        }
+        const slug = entry.slug || "";
+        const date = entry.date || "";
+        return {
+          statusLabel: entry.status || date || "wip",
+          title: entry.title || slug.replace(/-/g, " "),
+          date,
+          slug,
+        };
+      })
+      .filter((row) => row.title.trim());
     rows.sort((a, b) => compareByDateThenSlug(a.date, b.date, a.slug, b.slug));
     if (rows.length === 0) {
-      draftRoot.innerHTML = emptyDraftsHtml();
+      draftRoot.innerHTML = EMPTY_DRAFTS_HTML;
       return;
     }
 
@@ -161,8 +150,6 @@ window.addEventListener("DOMContentLoaded", () => {
 globalThis.MarinaBlog = {
   assetUrl,
   escapeHtml,
-  tx,
-  parseFrontMatter,
   parsePostDate,
   compareByDateThenSlug,
   loadBlog,

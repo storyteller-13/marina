@@ -1,6 +1,6 @@
 ---
 title: 🏄‍♀️ REPORT → A Ride Through AI Harness Engineering
-subtitle: Audience: Beginner to Advanced AI Scientists and Engineers | Today's word: Action · Handlung · 行動 (こうどう) · פעולה
+subtitle: Beginner to Advanced AI Scientists and Engineers | Today's word: Action · Handlung · 行動 (こうどう) · פעולה
 date: 2026; 10; 30
 ---
 
@@ -16,7 +16,7 @@ date: 2026; 10; 30
 
 #### *Hello there, and Happy Halloween, anon friend!*
 
-#### *Part of this week was dedicated to technical debt and summarization, and this is the post I of III of the festival. Today, we're exploring the literature covering the main aspects of the work behind [**NULLSTAR**](https://www.nullstar.games/)'s [**PleiadesOS:MAIA and PleiadesOS:TAYGETE**](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar) modules. We'll take a deep dive into the current landscape of agent harnesses and their integrations with orchestration frameworks.*
+#### *Part of this week was dedicated to technical debt and summarization, and this is the post I of III of the festival. Today, we're exploring the literature covering the main aspects of the work behind [**NULLSTAR**](https://www.nullstar.games/)'s [**PleiadesOS:MAIA and PleiadesOS:TAYGETE**](https://marina.nullstar.fun/blog/idea_nullstar.html) modules. We'll take a deep dive into the current landscape of agent harnesses and their integrations with orchestration frameworks.*
 
 <br>
 
@@ -125,7 +125,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-> 💡 NOTE: We will be looking at Memory in the future (**[travel here](http://marina.nullstar.fun/pages/post.html?post=report_memory)**).
+> 💡 NOTE: We will be looking at Memory in the future (**[travel here](https://marina.nullstar.fun/blog/report_memory.html)**).
 
 <br>
 
@@ -326,7 +326,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-> 💡 NOTE: We will be looking at Observability and Evals in the future (**[travel here](http://marina.nullstar.fun/pages/post.html?post=report_evals)**).
+> 💡 NOTE: We will be looking at Observability and Evals in the future (**[travel here](https://marina.nullstar.fun/blog/report_evals.html)**).
 
 <br>
 
@@ -2844,7 +2844,7 @@ async with runtime:
 
 > Pi is a minimal, extensible agent harness that you can make your own.
 
-> 💡 **[NULLSTAR](https://www.nullstar.games/)**'s first module, **[PleiadesOS:MAIA](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)**, is written in Rust but it was inspired by Pi's beautiful, minimalist design (and heavily based on primitives and customized extensions wrappers).
+> 💡 **[NULLSTAR](https://www.nullstar.games/)**'s first module, **[PleiadesOS:MAIA](https://marina.nullstar.fun/blog/idea_nullstar.html)**, is written in Rust but it was inspired by Pi's beautiful, minimalist design (and heavily based on primitives and customized extensions wrappers).
 
 <br>
 
@@ -3020,7 +3020,7 @@ selected input events
 - **[Pi's providers docs](https://github.com/earendil-works/pi/tree/main/packages/ai)**
 - **[Pi's chords docs](https://github.com/earendil-works/pi/tree/main/packages/chord)**
 - **[Pi's durable harness](https://github.com/earendil-works/pi/tree/main/packages/durable)**
-- **[Pi durable explained by Hugging Face](https://www.youtube.com/watch?v=ti3vVYwzW4A&list=WL&index=104)**
+- **[Pi durable explained by Hugging Face](https://www.youtube.com/watch?v=ti3vVYwzW4A)**
 - **[Run Pi with NVIDIA RTX and llama.cpp](https://pi.dev/docs/latest/nvidia-rtx-llama-cpp)**
 - **[Earendil blog](https://earendil.com/posts/)**
 
@@ -3147,7 +3147,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 ---
 
-## 🟦 [DeepSeek's harness (TypeScript)](https://github.com/deepseek-ai/deepseek-harness)
+## 🟦 [DeepSeek's Harness (TypeScript)](https://github.com/deepseek-ai/deepseek-harness)
 
 <br>
 
@@ -3224,7 +3224,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 - 🟦 [opencode (TypeScript)](https://github.com/anomalyco/opencode): open-source AI coding agent (so you can **[work offline](https://latent.space/p/offline-coding)** with **[open-weights models](https://www.youtube.com/watch?v=79Pnm5hANsA)**). It’s available as a terminal-based interface, desktop app, or web app.
 
-- 🟦 [Letta (TypeScript)](https://github.com/letta-ai/letta-code): Stateful agents that are like people, with memory, identity, and the ability to learn and adapt. (EDIT: we will look at their memory design in the **[agentic memory report](http://marina.nullstar.fun/pages/post.html?post=report_memory)**)
+- 🟦 [Letta (TypeScript)](https://github.com/letta-ai/letta-code): Stateful agents that are like people, with memory, identity, and the ability to learn and adapt. (EDIT: we will look at their memory design in the **[agentic memory report](https://marina.nullstar.fun/blog/report_memory.html)**)
 
 - 🟦 [Trellis (TypeScript)](https://github.com/mindfold-ai/Trellis): Trellis runs a 4-phase loop with auto-invoked skills and sub-agents: Plan, Implement, Verify, Finish.
 
@@ -3287,6 +3287,8 @@ Stores memory in `~/.openclaw/workspace/`:
 - 🐍 [Llama Stack (Python)](https://github.com/llamastack/llama-stack): Agentic API server for building AI applications. OpenAI-compatible. Any model, any infrastructure.
 
 - 🐍 [A2A (Python)](https://github.com/a2aproject/A2A): open protocol enabling communication and interoperability between opaque agentic applications.
+
+- 🐍 [OpenSandbox (Python)](https://github.com/opensandbox-group/OpenSandbox): gives AI applications isolated environments to execute code, run commands, manage files, and operate browsers or desktops. Start locally with Docker and deploy on Kubernetes through a unified sandbox API.
 
 - 🟦 [OpenHands (TypeScript)](https://github.com/OpenHands/openhands): The self-hosted developer control center for coding agents and automations. Emphasizes repository integration and execution support for software-development agents.
 

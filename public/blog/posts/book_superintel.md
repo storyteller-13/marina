@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Superintelligence (Bostrom, 2014)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists/Engineers
+subtitle: Rating: 10/10 | Beginner to Advanced AI Scientists/Engineers
 date: 2026; 08; 03
 ---
 
@@ -12,7 +12,7 @@ Back at that time, I fully embraced my *nerdy aspie* way of life. I dressed shar
 
 Back at that time,  I was working on a team called "Internal Tools" within the Core OS organization, writing a lot of **[Swift](https://en.wikipedia.org/wiki/Swift_(programming_language))** and reviewing lots of **[Objective-C](https://en.wikipedia.org/wiki/Objective-C)** code. For my current work, though, the relevant *byte* is that one day per week I was able to work with another team, and I chose to help the group developing Apple's internal deep learning toolkit. This was around the same time **[TensorFlow](https://en.wikipedia.org/wiki/TensorFlow)** was open-sourced, and Apple's project focused on image augmentation and media training pipelines. My contributions were modest — I mostly learned a bit of **[CUDA](https://en.wikipedia.org/wiki/CUDA)** and wrote a few kernels (**[this repo](https://github.com/cypherpunk-symposium/cuda-for-deep-learning-c)** contains some of my notes from my first days working on that project).
 
-Back at that time I used to buy many books that would never be read. Unfortunately I never had the chance to read my copy of Superintelligence back then. A shame, but at the same time, I am actually glad I didn't. Reading it now, a decade later, gives me a completely different perspective on it. More broadly, this book is very relevant to the conversations we're having about AI today. On a personal level, many of its ideas are also directly relevant to the research and code I've been writting (e.g., the **[NULLSTAR](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** project — for instance, regarding certain design choices).
+Back at that time I used to buy many books that would never be read. Unfortunately I never had the chance to read my copy of Superintelligence back then. A shame, but at the same time, I am actually glad I didn't. Reading it now, a decade later, gives me a completely different perspective on it. More broadly, this book is very relevant to the conversations we're having about AI today. On a personal level, many of its ideas are also directly relevant to the research and code I've been writting (e.g., the **[NULLSTAR](https://marina.nullstar.fun/blog/idea_nullstar.html)** project — for instance, regarding certain design choices).
 
 So yes — I stand by the claim that this is another must-read for every researcher in the field. I don't think we should *take ourselves serious* before meditating on the ideas Nick discusses with such clarity and mastery.
 

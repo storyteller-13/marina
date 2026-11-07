@@ -1,4 +1,9 @@
-.PHONY: install server test lint grammar blog clean
+.PHONY: setup install server test lint grammar blog clean
+
+PORT ?= 8037
+PYTHON := python3
+
+setup: install
 
 install:
 	python3 -m pip install -r requirements-dev.txt
@@ -6,24 +11,22 @@ install:
 	pre-commit install
 
 server:
-	@echo "server running at http://localhost:8037"
-	cd public && python3 -m http.server 8037
+	@echo "👾 starting development server on http://localhost:$(PORT)"
+	cd public && $(PYTHON) -m http.server $(PORT) --bind 127.0.0.1
 
 test:
 	python3 -m pytest tests/ -v
 	npm test
 
 lint:
-	pre-commit run ruff --all-files
+	pre-commit run ruff-check --all-files
 	pre-commit run eslint --all-files
 	pre-commit run html-br --all-files
 	pre-commit run stylelint --all-files
 
-# Advisory grammar check (Harper) of every blog post; lists suggestions, never fails.
 grammar:
 	node scripts/check-grammar.js
 
-# Rebuild public/blog/posts.json and public/blog/drafts.json from markdown under posts/ and drafts/.
 blog:
 	python3 scripts/sync-blog-posts.py
 

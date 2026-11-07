@@ -1,0 +1,57 @@
+{
+  "redirects": [
+    {
+      "source": "/pages/post.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "post",
+          "value": "(?<slug>[A-Za-z0-9_-]+)"
+        }
+      ],
+      "destination": "/blog/:slug.html",
+      "permanent": true
+    },
+    {
+      "source": "/images/8086.png",
+      "destination": "/images/8086.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/eclipse_26_08_27.png",
+      "destination": "/images/eclipse_26_08_27.webp",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self' https://matrix.nullstar.fun; form-action 'self'"
+        }
+      ]
+    }
+  ]
+}

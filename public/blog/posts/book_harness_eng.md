@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Harness Engineering (I. Wijesiri, 2026)
-subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers | Today's word: Ghost · Geist · ゴースト · רוח רפאים
+subtitle: Rating: 8/10 | Beginner to Intermediate AI Engineers | Today's word: Ghost · Geist · ゴースト · רוח רפאים
 date: 2026; 10; 18
 ---
 
@@ -14,7 +14,7 @@ date: 2026; 10; 18
 
 Today, we'll take a look at a fresh (and delightfully opinionated) **[open-source book on harness engineering by Isuru Wijesiri](https://isuruwijesiri.com/harness-engineering-101/)**. This is a valuable exercise for everyone just getting started, as well as for people like me, who simply love the craft and never shy away from a good resource — whether it's 101-level material or something at the postdoctoral level. 
 
-For anyone new here, harness engineering is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:MAIA and PleiadesOS:TAYGETE](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** modules.
+For anyone new here, harness engineering is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:MAIA and PleiadesOS:TAYGETE](https://marina.nullstar.fun/blog/idea_nullstar.html)** modules.
 
 As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 

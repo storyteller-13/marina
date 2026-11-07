@@ -1,6 +1,6 @@
 ---
 title: 📺 PODCAST → O'Connor + Kuhn on Consciousness 1️⃣ of 3️⃣
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Integrity
+subtitle: Rating: 10/10 | Beginner to Advanced AI Scientists | Today's Word: Integrity
 date: 2026; 09; 06
 ---
 
@@ -16,7 +16,7 @@ date: 2026; 09; 06
 
 <br>
 
-Last week, I was delighted to come accross a discussion among some of our **[favorite](https://www.youtube.com/channel/UC7kIy8fZavEni8Gzl8NLjOQ)** **[atheists](https://www.youtube.com/channel/UCl9StMQ79LtEvlrskzjoYbQ)** about **[a landscape of 444 theories of consciousness](https://www.youtube.com/watch?v=xHeT466-hxY)**. When I explored the material — namely, **[Closer To Truth’s Landscape of Consciousness](https://loc.closertotruth.com/)** — I was absolutely struck by its quality. This work is highly relevant to **[my ongoing research](http://marina.nullstar.fun/pages/post.html?post=idea_nullstar)**, one of whose goal is to better understand how we might *quantify the unquantifiable* through bytes && bits.
+Last week, I was delighted to come accross a discussion among some of our **[favorite](https://www.youtube.com/channel/UC7kIy8fZavEni8Gzl8NLjOQ)** **[atheists](https://www.youtube.com/channel/UCl9StMQ79LtEvlrskzjoYbQ)** about **[a landscape of 444 theories of consciousness](https://www.youtube.com/watch?v=xHeT466-hxY)**. When I explored the material — namely, **[Closer To Truth’s Landscape of Consciousness](https://loc.closertotruth.com/)** — I was absolutely struck by its quality. This work is highly relevant to **[my ongoing research](https://marina.nullstar.fun/blog/idea_nullstar.html)**, one of whose goal is to better understand how we might *quantify the unquantifiable* through bytes && bits.
 
 The material is dense, so I have divided this study into three parts. In this first post, I go over several selected subclasses of materialism, including, for instance, neurobiological and language theories, that I believe are relevant to my research. In the second post, we will look at the remaining relevant subclass of materialism (i.e., **[Computational & Functionalism](https://loc.closertotruth.com/theories/computational-and-functionalism)**, **[Electromagnetic Field](https://loc.closertotruth.com/theories/electromagnetic-field)**, and **[Relational](https://loc.closertotruth.com/theories/relational)**. Finally, in the third post, we will touch on the **[Quantum & Dimensions](https://loc.closertotruth.com/theory?category=quantum-dimensions)** approaches, as well as **[Information](https://loc.closertotruth.com/theory?category=information)** classes.
 
@@ -111,7 +111,7 @@ Even though they could also be highly enlightening, we will be skipping the more
 
 ---
 
- ## 🦀 [INTERLUDE] The Hard Problem of Consciousness (Chalmers, 1995, summarized by robot CG)
+ ## 🦀 The Hard Problem of Consciousness (Chalmers, 1995, summarized by robot CG)
 
 <br>
 
@@ -221,7 +221,7 @@ Even though they could also be highly enlightening, we will be skipping the more
 
 <br>
 
-> 💡 Note to self: How exciting is it that I finally get to learn more about **[some of the things](https://marina.nullstar.fun/pages/post.html?post=papers_j-space)** I said I knew nothing about just two months ago! 🙃
+> 💡 Note to self: How exciting is it that I finally get to learn more about **[some of the things](https://marina.nullstar.fun/blog/paper_j-space.html)** I said I knew nothing about just two months ago! 🙃
 
 <br>
 

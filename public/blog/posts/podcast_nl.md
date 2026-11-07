@@ -1,6 +1,6 @@
 ---
 title: 📺 PODCAST → Nathan Lambert's Post-Training Lectures
-subtitle: Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists/Engineers
+subtitle: Rating: 10/10 | Intermediate to Advanced AI Scientists/Engineers
 date: 2026; 08; 13
 ---
 
@@ -14,7 +14,7 @@ I discovered his work **[early last year](https://www.youtube.com/watch?v=_1f-o0
 
 He also just released a **[book on RLHF](https://www.amazon.com/Reinforcement-Learning-Human-Feedback-post-training/dp/1633434303?tag=ustxtaddt-20)**, which is in my reading list and will certainly become a post eventually.
 
-For anyone new here, post-training is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:MEROPE](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** module.
+For anyone new here, post-training is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:MEROPE](https://marina.nullstar.fun/blog/idea_nullstar.html)** module.
 
 <br>
 

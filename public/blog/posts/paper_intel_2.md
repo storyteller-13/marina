@@ -1,6 +1,6 @@
 ---
 title: 📊 PAPER → Collective Intelligence 2️⃣ of ♾️: Gödel Machines
-subtitle: Audience: Intermediate to Advanced AI Scientists | Today's word: Infinite · Unendlich · むげん · אינסופי
+subtitle: Intermediate to Advanced AI Scientists | Today's word: Infinite · Unendlich · むげん · אינסופי
 date: 2026; 10; 24
 ---
 
@@ -336,7 +336,7 @@ The nature of the six proof-modifying instructions (there are no others) makes i
 
 ---
 
-### We are now ready for [chapter 3️⃣ of this series](https://marina.nullstar.fun/pages/post.html?post=paper_intel_3), where we can connect these ideas to current developments. Thank you to all these brilliant minds for proving that humankind can be truly marvelous. Until next time!
+### We are now ready for [chapter 3️⃣ of this series](https://marina.nullstar.fun/blog/paper_intel_3.html), where we can connect these ideas to current developments. Thank you to all these brilliant minds for proving that humankind can be truly marvelous. Until next time!
 
 ### ⬛️
 

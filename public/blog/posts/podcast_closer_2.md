@@ -1,6 +1,6 @@
 ---
 title: 📺 PODCAST → O'Connor + Kuhn on Consciousness 2️⃣ of 3️⃣
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Alive
+subtitle: Rating: 10/10 | Beginner to Advanced AI Scientists | Today's Word: Alive
 date: 2026; 09; 16
 ---
 
@@ -14,7 +14,7 @@ date: 2026; 09; 16
 
 <br>
 
-A few days ago, I started **[Part 1️⃣](https://marina.nullstar.fun/pages/post.html?post=podcast_closer)** of another parallel side quest of mine: studying the various theories of consciousness from **[Closer To Truth’s Landscape of Consciousness](https://loc.closertotruth.com/)**, with the goal of better understanding how we might *quantify the unquantifiable* through bytes && bits.
+A few days ago, I started **[Part 1️⃣](https://marina.nullstar.fun/blog/podcast_closer.html)** of another parallel side quest of mine: studying the various theories of consciousness from **[Closer To Truth’s Landscape of Consciousness](https://loc.closertotruth.com/)**, with the goal of better understanding how we might *quantify the unquantifiable* through bytes && bits.
 
 Today, we look at the remaining relevant subclasses of materialism: **[Computational & Functionalism](https://loc.closertotruth.com/theories/computational-and-functionalism)**, **[Electromagnetic Field](https://loc.closertotruth.com/theories/electromagnetic-field)**, and **[Relational](https://loc.closertotruth.com/theories/relational)**.
 
@@ -26,8 +26,6 @@ As I read through the material, I wrote down a few highlights — with a moderat
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
-
-##### P.S. [גמר חתימה טובה](https://gist.github.com/von-steinkirch/f4fce2f49fa582e8fe458539ece20a93#9%EF%B8%8F%E2%83%A3-yom-kippur-prayer)
 
 <br>
 
@@ -167,7 +165,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-> 💖 Check out my post about **[his book](https://marina.nullstar.fun/pages/post.html?post=book_superintel)**.
+> 💖 Check out my post about **[his book](https://marina.nullstar.fun/blog/book_superintel.html)**.
 
 <br>
 

@@ -1,33 +1,37 @@
 "use strict";
 
-/* global assetUrl, escapeHtml, tx, parseFrontMatter -- from blog-common.js, loaded first */
+/* global assetUrl, escapeHtml, parseFrontMatter -- from blog-common.js, loaded first */
 
-/** Placeholder so literal `<br>` in markdown survives escapeHtml and becomes a line break. */
-const INLINE_BR_TOKEN = "@@MARINA_INLINE_BR@@";
+/** Emphasis inside a fragment that has already been escaped. */
+function applyEmphasis(html) {
+  return html
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
 
+/**
+ * Inline markdown -> HTML. Code spans, images and links are swapped for placeholders before
+ * anything else runs, so their contents are never re-parsed: `a*b*` stays literal inside code,
+ * and a `*` in a URL can't put <em> into an href.
+ */
 function parseInline(text) {
-  const imagePlaceholders = [];
-  const withImageSlots = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
-    const id = imagePlaceholders.length;
-    imagePlaceholders.push({ alt, src: src.trim() });
-    return `@@MARINA_IMG_${id}@@`;
-  });
+  // Slot tokens use a private-use character that is stripped from the input, so text can't forge one.
+  const MARK = "\uE000";
+  const slots = [];
+  const slot = (html, raw = "") => `${MARK}${slots.push({ html, raw }) - 1}${MARK}`;
+  const SLOT = new RegExp(`${MARK}(\\d+)${MARK}`, "g");
+  const resolve = (html) => html.replace(SLOT, (_, n) => slots[Number(n)].html);
+  const plain = (text) => text.replace(SLOT, (_, n) => slots[Number(n)].raw);
 
-  const withBrSlots = withImageSlots.replace(/<br\s*\/?>/gi, INLINE_BR_TOKEN);
+  let src = text.replaceAll(MARK, "");
+  src = src.replace(/`([^`]+)`/g, (_, code) => slot(`<code>${escapeHtml(code)}</code>`, code));
+  src = src.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, imgSrc) =>
+    slot(`<img src="${escapeHtml(imgSrc.trim())}" alt="${escapeHtml(plain(alt))}" loading="lazy" decoding="async">`));
+  src = src.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (_, label, href) =>
+    slot(`<a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}">${resolve(applyEmphasis(escapeHtml(label)))}</a>`));
+  src = src.replace(/<br\s*\/?>/gi, () => slot("<br>"));
 
-  let html = escapeHtml(withBrSlots);
-  imagePlaceholders.forEach((img, i) => {
-    const safeSrc = escapeHtml(img.src);
-    const safeAlt = escapeHtml(img.alt);
-    html = html.split(`@@MARINA_IMG_${i}@@`).join(`<img src="${safeSrc}" alt="${safeAlt}" loading="lazy" decoding="async">`);
-  });
-
-  html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
-  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a target="_blank" rel="noopener noreferrer" href="$2">$1</a>');
-  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-  html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-  html = html.split(INLINE_BR_TOKEN).join("<br>");
-  return html;
+  return resolve(applyEmphasis(escapeHtml(src)));
 }
 
 /** The last line of the "our rules" disclaimer; the post summary goes right after it. */
@@ -73,7 +77,7 @@ function renderSummary(headings) {
       return `<li>${link(heading)}${nested && `<ul>${nested}</ul>`}</li>`;
     })
     .join("");
-  const label = escapeHtml(tx("blog.summary", "Summary"));
+  const label = escapeHtml("Summary");
   return [
     "<br><br>",
     `<nav class="post-summary" aria-label="${label}"><p><strong>${label}</strong></p><ul>${items}</ul></nav>`,
@@ -81,12 +85,50 @@ function renderSummary(headings) {
   ].join("\n");
 }
 
+/** A list item line: indentation, marker ("-", "*" or "1."), text. */
+const LIST_ITEM = /^(\s*)([-*]|\d+\.)\s+(.*)$/;
+
+/**
+ * Consume consecutive list item lines starting at `start`. Deeper-indented items nest
+ * inside the item above them; a top-level item of the other list type ends the block.
+ * Returns the HTML lines and the index of the first line after the block.
+ */
+function parseListBlock(lines, start) {
+  const items = [];
+  let i = start;
+  while (i < lines.length) {
+    const m = lines[i].match(LIST_ITEM);
+    if (!m) break;
+    const item = { indent: m[1].replace(/\t/g, "    ").length, ordered: /\d/.test(m[2]), text: m[3].trim() };
+    if (items.length && item.indent <= items[0].indent && item.ordered !== items[0].ordered) break;
+    items.push(item);
+    i += 1;
+  }
+
+  // Render items[from, to) that sit at items[from]'s depth; anything deeper nests under the item above it.
+  function render(from, to) {
+    const parts = [];
+    let k = from;
+    while (k < to) {
+      const item = items[k];
+      let end = k + 1;
+      while (end < to && items[end].indent > item.indent) end += 1;
+      const nested = end > k + 1 ? render(k + 1, end).join("") : "";
+      parts.push(`<li>${parseInline(item.text)}${nested}</li>`);
+      k = end;
+    }
+    const tag = items[from].ordered ? "ol" : "ul";
+    return [`<${tag}>`, ...parts, `</${tag}>`];
+  }
+
+  return { html: render(0, items.length), next: i };
+}
+
 function markdownToHtml(markdown) {
   const lines = markdown.replace(/\r\n/g, "\n").split("\n");
   const out = [];
   let i = 0;
   let inCode = false;
-  let codeLang = "";
   const headings = [];
   const usedIds = new Map();
   let summaryAt = -1;
@@ -115,7 +157,7 @@ function markdownToHtml(markdown) {
 
     if (trimmed.startsWith("```")) {
       if (!inCode) {
-        codeLang = trimmed.slice(3).trim();
+        const codeLang = trimmed.slice(3).trim();
         const cls = codeLang ? ` class="language-${escapeHtml(codeLang)}"` : "";
         out.push(`<pre><code${cls}>`);
         inCode = true;
@@ -155,27 +197,10 @@ function markdownToHtml(markdown) {
       continue;
     }
 
-    if (/^(-|\*)\s+/.test(trimmed)) {
-      const items = [];
-      while (i < lines.length && /^(-|\*)\s+/.test(lines[i].trim())) {
-        items.push(lines[i].trim().replace(/^(-|\*)\s+/, ""));
-        i += 1;
-      }
-      out.push("<ul>");
-      for (const item of items) out.push(`<li>${parseInline(item)}</li>`);
-      out.push("</ul>");
-      continue;
-    }
-
-    if (/^\d+\.\s+/.test(trimmed)) {
-      const items = [];
-      while (i < lines.length && /^\d+\.\s+/.test(lines[i].trim())) {
-        items.push(lines[i].trim().replace(/^\d+\.\s+/, ""));
-        i += 1;
-      }
-      out.push("<ol>");
-      for (const item of items) out.push(`<li>${parseInline(item)}</li>`);
-      out.push("</ol>");
+    if (LIST_ITEM.test(line)) {
+      const block = parseListBlock(lines, i);
+      out.push(...block.html);
+      i = block.next;
       continue;
     }
 
@@ -297,7 +322,20 @@ function enhanceCodeBlocks(root) {
     toolbar.className = "blog-code-toolbar";
 
     const langMatch = code.className.match(/language-(\S+)/);
-    const lang = langMatch ? langMatch[1] : "";
+    let lang = langMatch ? langMatch[1] : "";
+
+    // Colour the code (code-highlight.js): by its fence tag, or by detecting Python / TypeScript / ... when
+    // untagged. Emoji tags (notes, math) and unknown tags stay plain. The detected language becomes the label.
+    const highlighter = globalThis.MarinaHighlight;
+    if (highlighter) {
+      const kind = lang ? highlighter.normalizeLanguage(lang) : highlighter.detectLanguage(code.textContent);
+      if (kind) {
+        code.innerHTML = highlighter.highlightCode(code.textContent, kind);
+        code.classList.add("blog-code-highlighted");
+        lang = lang || kind;
+      }
+    }
+
     if (lang) {
       const label = document.createElement("span");
       label.className = "blog-code-lang";
@@ -308,16 +346,14 @@ function enhanceCodeBlocks(root) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "blog-code-copy";
-    btn.setAttribute("aria-label", tx("blog.copyAria", "Copy code to clipboard"));
-    btn.setAttribute("data-i18n-aria", "blog.copyAria");
-    btn.setAttribute("data-i18n", "blog.copy");
-    btn.textContent = tx("blog.copy", "Copy");
+    btn.setAttribute("aria-label", "Copy code to clipboard");
+    btn.textContent = "Copy";
 
     btn.addEventListener("click", async () => {
       const ok = await copyToClipboard(code.textContent);
-      btn.textContent = ok ? tx("blog.copied", "Copied!") : tx("blog.copyFailed", "Copy failed");
+      btn.textContent = ok ? "Copied!" : "Copy failed";
       setTimeout(() => {
-        btn.textContent = tx("blog.copy", "Copy");
+        btn.textContent = "Copy";
       }, 2200);
     });
 
@@ -335,30 +371,52 @@ function scrollToHashTarget() {
   if (target) target.scrollIntoView();
 }
 
+/** "2026; 11; 6" or "2026-11-06" -> "2026-11-06" (for <time datetime>), or "" if unparseable. */
+function isoDate(date) {
+  const m = date.trim().match(/^(\d{4})[;\-/]\s*(\d{1,2})[;\-/]\s*(\d{1,2})$/);
+  return m ? `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}` : "";
+}
+
+/** Show the post's date under its title, written as in the front matter; hide the line when there is none. */
+function renderPostDate(dateRoot, date) {
+  if (!dateRoot) return;
+  const time = dateRoot.querySelector("time");
+  const text = (date || "").trim();
+  time.textContent = text;
+  const iso = isoDate(text);
+  if (iso) time.setAttribute("datetime", iso);
+  else time.removeAttribute("datetime");
+  dateRoot.hidden = !text;
+}
+
 async function loadPost() {
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get("post");
+  // Generated per-post pages (blog/<slug>.html) name their post in a meta tag; pages/post.html takes ?post=.
+  const slug = document.querySelector('meta[name="post-slug"]')?.content
+    || new URLSearchParams(window.location.search).get("post");
   const titleRoot = document.getElementById("post-title");
   const subtitleRoot = document.getElementById("post-subtitle");
   const contentRoot = document.getElementById("post-content");
   const articleRoot = titleRoot?.closest(".blog-post-page");
 
   if (!slug || !titleRoot || !subtitleRoot || !contentRoot) {
-    if (contentRoot) contentRoot.innerHTML = `<p data-i18n="blog.missingSlug">${tx("blog.missingSlug", "Missing post slug.")}</p>`;
+    if (contentRoot) contentRoot.innerHTML = `<p>${"Missing post slug."}</p>`;
     return;
   }
 
   const mdPath = assetUrl(`blog/posts/${encodeURIComponent(slug)}.md`);
 
   try {
-    const postResponse = await fetch(mdPath, { cache: "no-store" });
+    // "no-cache": revalidate (ETag) on each visit rather than re-download the post.
+    const postResponse = await fetch(mdPath, { cache: "no-cache" });
     if (!postResponse.ok) {
-      throw new Error(tx("blog.loadError", "Could not load post content."));
+      throw new Error("Could not load post content.");
     }
     const markdown = await postResponse.text();
     const { meta, body } = parseFrontMatter(markdown);
 
     titleRoot.textContent = meta.title || slug.replace(/-/g, " ");
+    document.title = `${titleRoot.textContent} · Marina von Steinkirch`;
+    renderPostDate(document.getElementById("post-date"), meta.date);
     subtitleRoot.textContent = meta.subtitle || "";
     subtitleRoot.style.display = meta.subtitle ? "block" : "none";
     if (articleRoot) {
@@ -377,7 +435,6 @@ window.addEventListener("DOMContentLoaded", loadPost);
 globalThis.MarinaBlogPost = {
   assetUrl,
   escapeHtml,
-  tx,
   parseInline,
   parseFrontMatter,
   markdownToHtml,
@@ -387,5 +444,7 @@ globalThis.MarinaBlogPost = {
   scrollToHashTarget,
   copyToClipboard,
   enhanceCodeBlocks,
+  isoDate,
+  renderPostDate,
   loadPost,
 };

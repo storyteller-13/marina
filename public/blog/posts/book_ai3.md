@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Artificial Intel 3️⃣ of 3️⃣ (Russell & Norvig, 2010) 
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists
+subtitle: Rating: 10/10 | Beginner to Advanced AI Scientists
 date: 2026; 08; 14
 ---
 
@@ -8,7 +8,7 @@ date: 2026; 08; 14
 
 <br>
 
-In this third and final post, I continue the work started in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_ai) and [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_ai2), studying the chapters on learning, natural language, perception, and robotics, and thinking about the problems I have been tackling.
+In this third and final post, I continue the work started in [**Part 1️⃣**](https://marina.nullstar.fun/blog/book_ai.html) and [**Part 2️⃣**](https://marina.nullstar.fun/blog/book_ai2.html), studying the chapters on learning, natural language, perception, and robotics, and thinking about the problems I have been tackling.
 
 
 Below are my highlights (for personal inventory), with a moderate attempt at coherence. And, as always, remember the rules:
@@ -28,7 +28,7 @@ Below are my highlights (for personal inventory), with a moderate attempt at coh
 
 > *An agent is learning if it improves its performance on future tasks after making observations about the world.*
 
-> ❗️ PS: This chapter introduces the very basic concepts of ML, which **[we have known for decades](https://github.com/future-ai-org/ml-classifiers-and-experiments-py)**, but somehow I still find it fun to read. It’s like rewatching a favorite movie for the 10th time just because it feels familiar and nice, and then finding that one little thing you missed or never really thought about (call me a weirdo). Plus, it’s always nice to rest the brain after **[an intense thinking sesh](http://marina.nullstar.fun/pages/post.html?post=podcast_nl)**. Plus, perhaps someone reading this will learn something new, too.
+> ❗️ PS: This chapter introduces the very basic concepts of ML, which **[we have known for decades](https://github.com/future-ai-org/ml-classifiers-and-experiments-py)**, but somehow I still find it fun to read. It’s like rewatching a favorite movie for the 10th time just because it feels familiar and nice, and then finding that one little thing you missed or never really thought about (call me a weirdo). Plus, it’s always nice to rest the brain after **[an intense thinking sesh](https://marina.nullstar.fun/blog/podcast_nl.html)**. Plus, perhaps someone reading this will learn something new, too.
 
 > ❗️ PS2: Why do I write “PS:” instead of “P.S.”? Autistic brain that sees everything as an incremental to-do list, so the formatting is more appropriate if I want to add ordinality to it.
 

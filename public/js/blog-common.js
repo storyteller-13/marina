@@ -20,13 +20,6 @@ function escapeHtml(text) {
     .replace(/'/g, "&#39;");
 }
 
-function tx(key, fallback) {
-  if (window.MarinaI18n && typeof window.MarinaI18n.t === "function") {
-    return window.MarinaI18n.t(key);
-  }
-  return fallback;
-}
-
 function parseFrontMatter(markdown) {
   const normalized = markdown.replace(/\r\n/g, "\n");
   if (!normalized.startsWith("---\n")) {
@@ -50,4 +43,4 @@ function parseFrontMatter(markdown) {
 }
 
 // Page-wide, like top-level functions in a classic script (also when loaded as a module in tests).
-Object.assign(globalThis, { assetUrl, escapeHtml, tx, parseFrontMatter });
+Object.assign(globalThis, { assetUrl, escapeHtml, parseFrontMatter });

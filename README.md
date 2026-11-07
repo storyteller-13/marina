@@ -7,7 +7,7 @@
 <br>
 
 ```bash
-make setup
+make install
 make server
 ```
 

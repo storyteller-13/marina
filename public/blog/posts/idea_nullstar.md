@@ -92,8 +92,8 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[Harness Engineering](http://marina.nullstar.fun/pages/post.html?post=book_harness_eng)**
-- **[Harness Engineering II](http://marina.nullstar.fun/pages/post.html?post=report_harness)**
+- **[Harness Engineering](https://marina.nullstar.fun/blog/book_harness_eng.html)**
+- **[Harness Engineering II](https://marina.nullstar.fun/blog/report_harness.html)**
 
 <br>
 
@@ -101,7 +101,7 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[Memory](http://marina.nullstar.fun/pages/post.html?post=report_memory)**
+- **[Memory](https://marina.nullstar.fun/blog/report_memory.html)**
 
 <br>
 
@@ -109,9 +109,9 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[Harness RSI](http://marina.nullstar.fun/pages/post.html?post=paper_weng)**
-- **[Harness RSI II](https://marina.nullstar.fun/pages/post.html?post=paper_intel_3)**
-- **[Gödel Machines](https://marina.nullstar.fun/pages/post.html?post=paper_intel_2)**
+- **[Harness RSI](https://marina.nullstar.fun/blog/paper_weng.html)**
+- **[Harness RSI II](https://marina.nullstar.fun/blog/paper_intel_3.html)**
+- **[Gödel Machines](https://marina.nullstar.fun/blog/paper_intel_2.html)**
 
 <br>
 
@@ -119,8 +119,8 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[Superintelligence](http:///marina.nullstar.fun/pages/post.html?post=book_superintel)**
-- **[Evals and Benchmarks](http:///marina.nullstar.fun/pages/post.html?post=report_evals)**
+- **[Superintelligence](https://marina.nullstar.fun/blog/book_superintel.html)**
+- **[Evals and Benchmarks](https://marina.nullstar.fun/blog/report_evals.html)**
 
 <br>
 
@@ -128,12 +128,12 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[LLM Engineer](http://marina.nullstar.fun/pages/post.html?post=book_llm_eng)**
-- **[AI Engineering](http://marina.nullstar.fun/pages/post.html?post=book_ai_eng)**
-- **[ML Engineering](http://marina.nullstar.fun/pages/post.html?post=book_ml_eng)**
-- **[Multi-Agent Deployment](http://marina.nullstar.fun/pages/post.html?post=paper_intel)**
-- **[Generative AI with LangChain](http://marina.nullstar.fun/pages/post.html?post=book_lanchain)**
-- **[Secure Research Pipelines in the Agentic Era](http://marina.nullstar.fun/pages/post.html?post=idea_secure_pipeline)**
+- **[LLM Engineer](https://marina.nullstar.fun/blog/book_llm_eng.html)**
+- **[AI Engineering](https://marina.nullstar.fun/blog/book_ai_eng.html)**
+- **[ML Engineering](https://marina.nullstar.fun/blog/book_ml_eng.html)**
+- **[Multi-Agent Deployment](https://marina.nullstar.fun/blog/paper_intel.html)**
+- **[Generative AI with LangChain](https://marina.nullstar.fun/blog/book_lanchain.html)**
+- **[Secure Research Pipelines in the Agentic Era](https://marina.nullstar.fun/blog/idea_secure_pipeline.html)**
 
 <br>
 
@@ -141,8 +141,8 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[OSS Simulation Engines](https://marina.nullstar.fun/pages/post.html?post=report_oss_game_engines)**
-- **[Entity Component System](https://marina.nullstar.fun/pages/post.html?post=report_ecs)**
+- **[OSS Simulation Engines](https://marina.nullstar.fun/blog/report_oss_game_engines.html)**
+- **[Entity Component System](https://marina.nullstar.fun/blog/report_ecs.html)**
 
 <br>
 
@@ -150,13 +150,12 @@ I can't wait to show you what I've been creating!
 
 <br>
 
-- **[Hands-On LLM](http:///marina.nullstar.fun/pages/post.html?post=book_hands)**
-- **[Build an LLM from Scratch](http:///marina.nullstar.fun/pages/post.html?post=book_build_llm)**
-- **[Post-Training Lectures](http:///marina.nullstar.fun/pages/post.html?post=podcast_nl)**
-- **[Artificial Intelligence](http:///marina.nullstar.fun/pages/post.html?post=book_ai)**
-- **[Machine Super Intelligence](http:///marina.nullstar.fun/pages/post.html?post=book_legg)**
-- **[Open-Source Tiny Inference](http:///marina.nullstar.fun/pages/post.html?post=idea_webllm_gpu)**
-- **[Dialogues on AI Inference](http:///marina.nullstar.fun/pages/post.html?post=podcast_inference)**
+- **[Hands-On LLM](https://marina.nullstar.fun/blog/book_hands.html)**
+- **[Build an LLM from Scratch](https://marina.nullstar.fun/blog/book_build_llm.html)**
+- **[Post-Training Lectures](https://marina.nullstar.fun/blog/podcast_nl.html)**
+- **[Artificial Intelligence](https://marina.nullstar.fun/blog/book_ai.html)**
+- **[Machine Super Intelligence](https://marina.nullstar.fun/blog/book_legg.html)**
+- **[Open-Source Tiny Inference](https://marina.nullstar.fun/blog/idea_webllm_gpu.html)**
 
 <br>
 

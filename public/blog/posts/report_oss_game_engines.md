@@ -27,7 +27,7 @@ Ah, and by the way, as we read through today's material, please remember our rul
 
 <br>
 
-One of the reasons we are building [**NULLSTAR**](https://nullstar.games/) is to bring the development of interactive experiences to a remarkably modular agentic paradigm (**["everything is a plugin"](https://arxiv.org/pdf/2608.25512)**). This matters because a game engine renders and simulates *experience worlds*, but does not automatically provide the infrastructure needed to support a persistent MMO with thousands/millions/billions➕ of players. NULLSTAR is a seven-layer operating system being developed to integrate these components. Today, we are discussing more specifically our sixth layer, **[PleiadesOS:STEROPE](http://marina.nullstar.fun/pages/post.html?post=idea_nullstar)**.
+One of the reasons we are building [**NULLSTAR**](https://nullstar.games/) is to bring the development of interactive experiences to a remarkably modular agentic paradigm (**["everything is a plugin"](https://arxiv.org/pdf/2608.25512)**). This matters because a game engine renders and simulates *experience worlds*, but does not automatically provide the infrastructure needed to support a persistent MMO with thousands/millions/billions➕ of players. NULLSTAR is a seven-layer operating system being developed to integrate these components. Today, we are discussing more specifically our sixth layer, **[PleiadesOS:STEROPE](https://marina.nullstar.fun/blog/idea_nullstar.html)**.
 
 Although several great engine options are available (e.g., browser-first platforms, single-player, 2D), the infrastructure for the experiences we are creating should support the following features:
 
@@ -124,7 +124,7 @@ Now, here are some things that would need be implemented (integrated with Pleiad
 
 **[Bevy](https://github.com/bevyengine/bevy)** makes sense if the experience is a long-lived software platform with custom simulation rules, procedural systems, agent behavior, and a Rust-heavy codebase. **[Here](https://github.com/bevyengine/bevy/tree/latest/examples)** are some examples. Plus, some of its strongest features are:
 
-- Native **[ECS (Entity Component System)](https://bevy.org/learn/quick-start/getting-started/ecs/)** architecture (a natural fit for large numbers of simulated entities, **[travel to the future to learn more](http://marina.nullstar.fun/pages/post.html?post=report_ecs)**)
+- Native **[ECS (Entity Component System)](https://bevy.org/learn/quick-start/getting-started/ecs/)** architecture (a natural fit for large numbers of simulated entities, **[travel to the future to learn more](https://marina.nullstar.fun/blog/report_ecs.html)**)
 - Game logic can share types and concepts with other Rust services (Rust is our language of choice for performance-sensitive server components)
 - You can choose networking libraries to fit your protocol and deployment model
 - Dual **[MIT and Apache 2.0 licensing](https://github.com/bevyengine/bevy#license)**

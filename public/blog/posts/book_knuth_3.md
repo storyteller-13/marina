@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → TAOCP 3️⃣ of 6️⃣ (Donald E. Knuth, 2019)
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced Computer Scientists | Today's Word: Flourishing · Aufblühen · はんえい · שגשוג
+subtitle: Rating: 10/10 | Beginner to Advanced Computer Scientists | Today's Word: Flourishing · Aufblühen · はんえい · שגשוג
 date: 2026; 08; 26
 ---
 
@@ -24,7 +24,7 @@ And two cool quotes from my studies this week:
 
 <br>
 
-In this third post, I continue the *brain-gymnastics* I began in [**Part 1️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth) and in [**Part 2️⃣**](https://marina.nullstar.fun/pages/post.html?post=book_knuth_2), all within this [**luminal spacetime of ours**](https://www.youtube.com/watch?v=DqjWFZN82_A). Today we go through the entire **Sorting** chapter, and I must say, this might be one of my favorites. Call me a *weirdo*, but there is a **[sublime](https://www.youtube.com/watch?v=G5BIhjXCJOY)** pleasure in trying *to optimize the order of a set of things*. Every algorithm traces a different pathway through the brain, a series of braidings (or multidimensions?) that makes it itch in a **[peculiar](https://www.youtube.com/watch?v=2f9bBlGOuX4)** way.
+In this third post, I continue the *brain-gymnastics* I began in [**Part 1️⃣**](https://marina.nullstar.fun/blog/book_knuth.html) and in [**Part 2️⃣**](https://marina.nullstar.fun/blog/book_knuth_2.html), all within this [**luminal spacetime of ours**](https://www.youtube.com/watch?v=DqjWFZN82_A). Today we go through the entire **Sorting** chapter, and I must say, this might be one of my favorites. Call me a *weirdo*, but there is a **[sublime](https://www.youtube.com/watch?v=G5BIhjXCJOY)** pleasure in trying *to optimize the order of a set of things*. Every algorithm traces a different pathway through the brain, a series of braidings (or multidimensions?) that makes it itch in a **[peculiar](https://www.youtube.com/watch?v=2f9bBlGOuX4)** way.
 
 Speaking of **[funny, pleasant](https://blog.archive.org/2026/08/16/vintage-artificial-intelligence-before-it-got-awkward/)** ways the brain can be itched, it’s story time.
 
@@ -42,7 +42,7 @@ Since I didn’t have a traditional computer science background, I decided it wa
 
 Why am I telling this story? 
 
-Ah, yes. That was the first time in my life when I actually tried to implement *almost* every type of sorting algorithm imaginable, and when I learned I had to love **[merge sort](https://en.wikipedia.org/wiki/Merge_sort)** and disapprove of **[bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)**. Now, more than a decade later, as I return to these problems under the voice of **[the Master](https://en.wikipedia.org/wiki/Donald_Knuth)**, and one day before a final **[eclipse](https://marina.nullstar.fun/images/eclipse_26_08_27.png)** **[cycle](https://apod.nasa.gov/apod/ap260825.html)** in my **[2nd house](https://choices.vonsteinkirch.com/choices/choose-your-adventure/astrology/usd/undefined-1/eclipses)**, I feel a beautiful sense of having come **[full circle](https://en.wikipedia.org/wiki/Ouroboros)**. 
+Ah, yes. That was the first time in my life when I actually tried to implement *almost* every type of sorting algorithm imaginable, and when I learned I had to love **[merge sort](https://en.wikipedia.org/wiki/Merge_sort)** and disapprove of **[bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)**. Now, more than a decade later, as I return to these problems under the voice of **[the Master](https://en.wikipedia.org/wiki/Donald_Knuth)**, and one day before a final **[eclipse](https://marina.nullstar.fun/images/eclipse_26_08_27.webp)** **[cycle](https://apod.nasa.gov/apod/ap260825.html)** in my **[2nd house](https://choices.vonsteinkirch.com/choices/choose-your-adventure/astrology/usd/undefined-1/eclipses)**, I feel a beautiful sense of having come **[full circle](https://en.wikipedia.org/wiki/Ouroboros)**. 
 
 <br>
 

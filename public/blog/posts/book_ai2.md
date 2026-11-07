@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Artificial Intel 2️⃣ of 3️⃣ (Russell & Norvig, 2010) 
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists
+subtitle: Rating: 10/10 | Beginner to Advanced AI Scientists
 date: 2026; 08; 07
 ---
 
@@ -8,7 +8,7 @@ date: 2026; 08; 07
 
 <br>
 
-In this second post, I continue **[the work started in Part 1️⃣](https://marina.nullstar.fun/pages/post.html?post=book_ai)**, studying inference in first-order logic, planning, searching, uncertainty, reasoning, making decisions, and a bit of the superintelligence discussion from the last post.
+In this second post, I continue **[the work started in Part 1️⃣](https://marina.nullstar.fun/blog/book_ai.html)**, studying inference in first-order logic, planning, searching, uncertainty, reasoning, making decisions, and a bit of the superintelligence discussion from the last post.
 
 The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and acting` are closer to the applied side of ML and Robotics (which I studied during my PhD, or over the years...). I'll cover them in the final post, Part 3️⃣.
 

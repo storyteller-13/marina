@@ -27,6 +27,14 @@ repos:
         language: system
         types: [css]
         pass_filenames: true
+      # ESLint runs from package.json's devDependencies (the mirrors-eslint repo is archived, and it
+      # installed a second copy of ESLint and its plugins).
+      - id: eslint
+        name: eslint (JS)
+        entry: npx --no-install eslint
+        language: system
+        types: [javascript]
+        pass_filenames: true
       # HTML validation disabled (requires Java). Run manually: html5validator public/
       # - id: html5validator
       #   name: html5validator (lint HTML)
@@ -35,16 +43,7 @@ repos:
       #   types: [html]
       #   additional_dependencies: [html5validator]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.4
+    rev: v0.17.4
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix]
-  - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v9.39.1
-    hooks:
-      - id: eslint
-        types: [javascript]
-        additional_dependencies:
-          - eslint@^9.39.1
-          - "@eslint/js@^9.39.1"
-          - "globals@^15.14.0"

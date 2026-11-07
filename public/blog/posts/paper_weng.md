@@ -1,12 +1,12 @@
 ---
 title: 📊 PAPER → A Mnemonic Walk Through Weng's AI Research
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI/Software Engineers/Scientists
+subtitle: Rating: 10/10 | Beginner to Advanced AI/Software Engineers/Scientists
 date: 2026; 07; 18
 ---
 
 A few days ago this article [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/) came up in my feed. Since a great part of my work revolves around designing the *perfect* harnesses and skills for the problems I am solving, it immediately caught my attention. To my delight, the article was exactly the kind of read I enjoy: deep enough to be intellectually satisfying, well written, and packed with relevant citations presented through a thoughtful historical overview. After finishing it, my immediate thought was: *"Who is the author, and what else can I learn from them?"*
 
-For anyone new here, harness engineering is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:TAYGETE](https://marina.nullstar.fun/pages/post.html?post=idea_nullstar)** module.
+For anyone new here, harness engineering is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:TAYGETE](https://marina.nullstar.fun/blog/idea_nullstar.html)** module.
 
 As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
@@ -265,7 +265,7 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 <br>
 
-### Mitigations
+#### Mitigations
 
 - RL algorithm improvement: 1) adversarial reward function; 2) model lookahead (give reward based on future antecipated states); 3) adversarial blinding (blind the model with certain variables so the agent cannot learn information that leads to hacking); 4) sandboxing; 5) reward capping; 6) counterexample resistance (improvement on adversarial robustness should benefit the robustness of the reward function); 7) combination of multiple rewards; 8) reward pretraining; 9) variable indifference (ask the agent to optimize only some variables); 10) trip wires (intentionally introduce some vulnerabilities and setup monitoring if it gets reward hacked).
 

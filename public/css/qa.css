@@ -2,19 +2,28 @@
  * Q&A page styles
  */
 
+/* The Q&A cards use the full width of the page card */
 .qa-page-wrap {
-	max-width: 42rem;
+	max-width: none;
 	margin: 0 auto;
 	text-align: center;
 }
+/* Page headings, "Q & A" and "just another tech blog": one size on both pages (as large as post titles) */
 .qa-page-wrap h1 {
 	font-family: 'Orbitron', monospace;
-	font-size: 2.5rem;
+	font-size: 3rem;
+	line-height: 1.2;
 }
+.qa-page-wrap h1 .section-title {
+	font-size: inherit;
+	line-height: inherit;
+}
+/* The Q&A cards: a comfortable reading width, centered (the blog list shares .qa-page-wrap and stays wide) */
 .qa-page-wrap .qa-list {
 	list-style: none;
 	padding: 0;
-	margin: 2rem 0 0;
+	margin: 2rem auto 0;
+	max-width: 46rem;
 	text-align: left;
 	display: flex;
 	flex-direction: column;
@@ -65,7 +74,7 @@
 	font-weight: 900;
 	line-height: 1.55;
 	margin: 0;
-	font-size: 1.2rem !important;
+	font-size: 1.38rem !important;
 	color: #1cffb3;
 }
 .qa-answer {
@@ -104,12 +113,21 @@
 	line-height: inherit;
 	color: inherit;
 }
+/* Intro line under the page heading, the same on the Q&A page and the blog list */
+.markdown-body p.page-intro {
+	max-width: 42rem;
+	margin: 0 auto 2.75rem;
+	font-size: 1.2rem;
+	line-height: 1.6;
+	text-align: center;
+}
+/* Routine lists (☀️ / 🌙): as wide as their text, centered in the answer */
 .markdown-body .qa-routine {
 	list-style: none;
-	margin: 0.85rem 0 1.25rem;
-	padding: 0.2rem 0.95rem;
-	width: 78%;
-	max-width: 30rem;
+	margin: 0.85rem auto 1.25rem;
+	padding: 0.2rem 1rem;
+	width: fit-content;
+	max-width: 100%;
 	background: rgba(191, 0, 255, 0.07);
 	border: 1px solid rgba(191, 0, 255, 0.16);
 	border-radius: 10px;
@@ -192,16 +210,19 @@
 /* Phones: smaller badges and padding so the text keeps most of the width */
 @media (max-width: 767.98px) {
 	.qa-page-wrap h1 {
-		font-size: 1.85rem;
+		font-size: 2.25rem;
 	}
 	.qa-page-wrap .qa-list {
 		gap: 2rem;
 	}
-	.markdown-body .qa-routine {
-		width: 100%;
+	.markdown-body p.page-intro {
+		font-size: 1.05rem;
 	}
 }
 @media (max-width: 480px) {
+	.qa-page-wrap h1 {
+		font-size: 1.95rem;
+	}
 	.qa-question,
 	.qa-answer {
 		gap: 0.6rem;
@@ -219,7 +240,7 @@
 		height: 16px;
 	}
 	.qa-question-text {
-		font-size: 1.05rem !important;
+		font-size: 1.15rem !important;
 		line-height: 1.4;
 	}
 	.markdown-body .qa-routine {
@@ -233,4 +254,9 @@
 }
 [data-color-mode=dark] .Box-header .highlight-text.news-title-center {
 	color: #ff9ecd;
+}
+
+/* Highlighted words in answers (was an inline style) */
+.qa-accent {
+    color: #b392f0;
 }

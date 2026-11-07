@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → RL AI 1️⃣ of 2️⃣ (Sutton & Barto, 2018)
-subtitle: Rating: 10/10 | Audience: Intermediate to Advanced AI Scientists
+subtitle: Rating: 10/10 | Intermediate to Advanced AI Scientists
 date: 2026; 07; 04
 ---
 
@@ -49,7 +49,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### A k-armed Bandit Problem (a slot machine with k levers)
+#### A k-armed Bandit Problem (a slot machine with k levers)
 
 <br>
 

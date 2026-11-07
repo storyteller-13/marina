@@ -13,7 +13,7 @@ module.exports = [
   {
     files: ["public/**/*.js"],
     languageOptions: {
-      globals: { ...globals.browser, marked: "readonly" },
+      globals: { ...globals.browser },
       ecmaVersion: 2022,
     },
   },

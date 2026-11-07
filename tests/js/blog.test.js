@@ -10,14 +10,6 @@ function jsonResponse(body, ok = true) {
   });
 }
 
-function textResponse(body, ok = true) {
-  return Promise.resolve({
-    ok,
-    json: () => Promise.resolve({}),
-    text: () => Promise.resolve(body),
-  });
-}
-
 beforeEach(() => {
   resetDom();
   jest.resetModules();
@@ -29,20 +21,13 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-test("helpers: assetUrl, escapeHtml, tx, parseFrontMatter", () => {
+test("helpers: assetUrl, escapeHtml, parseFrontMatter", () => {
   require("../../public/js/blog.js");
-  const { assetUrl, escapeHtml, tx, parseFrontMatter, parsePostDate } = window.MarinaBlog;
+  const { assetUrl, escapeHtml, parsePostDate } = window.MarinaBlog;
+  const { parseFrontMatter } = globalThis; // shared helper from blog-common.js
 
   expect(assetUrl("/blog/posts.json")).toBe("http://localhost/blog/posts.json");
   expect(escapeHtml(`&<>"'`)).toBe("&amp;&lt;&gt;&quot;&#39;");
-  expect(tx("blog.empty", "fallback")).toBe("fallback");
-
-  window.MarinaI18n = { t: 1 };
-  expect(tx("blog.empty", "fallback")).toBe("fallback");
-
-  window.MarinaI18n = { t: (key) => `t:${key}` };
-  expect(tx("blog.empty", "fallback")).toBe("t:blog.empty");
-
   expect(parseFrontMatter("hello")).toEqual({ meta: {}, body: "hello" });
   expect(parseFrontMatter("---\ntitle only")).toEqual({
     meta: {},
@@ -65,50 +50,36 @@ test("loadBlog and loadDrafts return when roots are missing", async () => {
   expect(window.fetch).not.toHaveBeenCalled();
 });
 
-test("loadBlog renders sorted posts and fetch fallbacks", async () => {
+test("loadBlog renders the index alone, sorted, with one revalidating request", async () => {
   document.body.innerHTML = '<div id="blog-post-list"></div>';
-  window.fetch.mockImplementation((url) => {
-    if (String(url).endsWith("posts.json")) {
-      return jsonResponse([
-        { slug: "10", title: "from-index", date: "2020-01-01" },
-        { slug: "2", title: "two", date: "2020-01-01" },
-        { slug: "zeta", title: "z", date: "" },
-        { slug: "alpha", title: "a", date: "" },
-        { slug: "fresh", title: "old-title", date: "2021-01-01" },
-        { slug: "", title: "empty-slug", date: "2019-01-01" },
-        { slug: "untitled-post", date: "2018-01-01" },
-        { slug: "keep-meta", title: "keep", date: "2017-01-01" },
-        { slug: "semicolon-old", title: "old semi", date: "2026; 09; 06" },
-        { slug: "semicolon-new", title: "new semi", date: "2026; 09; 16" },
-      ]);
-    }
-    if (String(url).includes("fresh.md")) {
-      return textResponse("---\ntitle: Fresh\ndate: 2024-01-01\n---\n");
-    }
-    if (String(url).includes("keep-meta.md")) {
-      return textResponse("---\nsubtitle: only\n---\n");
-    }
-    if (String(url).includes("10.md")) {
-      return Promise.reject(new Error("network"));
-    }
-    return textResponse("nope", false);
-  });
+  window.fetch.mockImplementation(() => jsonResponse([
+    { slug: "10", title: "ten", date: "2020-01-01" },
+    { slug: "2", title: "two", date: "2020-01-01" },
+    { slug: "zeta", title: "z", date: "" },
+    { slug: "alpha", title: "a", date: "" },
+    { slug: "fresh", title: "Fresh <b>", date: "2024-01-01" },
+    { title: "empty-slug", date: "2019-01-01" },
+    { slug: "untitled-post", date: "2018-01-01" },
+    { slug: "semicolon-old", title: "old semi", date: "2026; 09; 06" },
+    { slug: "semicolon-new", title: "new semi", date: "2026; 09; 16" },
+  ]));
 
   require("../../public/js/blog.js");
   await window.MarinaBlog.loadBlog();
 
+  // Titles and dates come from posts.json; the posts themselves are not downloaded.
+  expect(window.fetch).toHaveBeenCalledTimes(1);
+  expect(window.fetch).toHaveBeenCalledWith("http://localhost/blog/posts.json", { cache: "no-cache" });
+
   const hrefs = [...document.querySelectorAll(".blog-line-link")].map((a) => a.getAttribute("href"));
-  expect(hrefs[0]).toBe("post.html?post=semicolon-new");
-  expect(hrefs.indexOf("post.html?post=semicolon-new")).toBeLessThan(
-    hrefs.indexOf("post.html?post=semicolon-old")
-  );
-  expect(hrefs).toContain("post.html?post=fresh");
-  expect(hrefs.indexOf("post.html?post=fresh")).toBeLessThan(hrefs.indexOf("post.html?post=10"));
-  expect(hrefs.indexOf("post.html?post=10")).toBeLessThan(hrefs.indexOf("post.html?post=2"));
-  expect(hrefs.indexOf("post.html?post=zeta")).toBeLessThan(hrefs.indexOf("post.html?post=alpha"));
-  expect(document.body.innerHTML).toContain("Fresh");
+  expect(hrefs[0]).toBe("/blog/semicolon-new.html");
+  expect(hrefs.indexOf("/blog/semicolon-new.html")).toBeLessThan(hrefs.indexOf("/blog/semicolon-old.html"));
+  expect(hrefs.indexOf("/blog/fresh.html")).toBeLessThan(hrefs.indexOf("/blog/10.html"));
+  expect(hrefs.indexOf("/blog/10.html")).toBeLessThan(hrefs.indexOf("/blog/2.html"));
+  expect(hrefs.indexOf("/blog/zeta.html")).toBeLessThan(hrefs.indexOf("/blog/alpha.html"));
+  expect(document.body.innerHTML).toContain("Fresh &lt;b&gt;");
   expect(document.body.innerHTML).toContain("untitled post");
-  expect(document.body.innerHTML).toContain("keep");
+  expect(document.body.innerHTML).toContain("empty-slug");
 
   window.fetch.mockResolvedValueOnce({
     ok: true,
@@ -142,43 +113,31 @@ test("loadBlog empty index, http error, and json throw", async () => {
   expect(root().textContent).toContain("boom");
 });
 
-test("loadDrafts covers string entries, meta fetch, empty and errors", async () => {
+test("loadDrafts covers string entries, index fields, empty and errors", async () => {
   document.body.innerHTML = '<div id="blog-draft-list"></div>';
   const root = () => document.getElementById("blog-draft-list");
 
-  window.fetch.mockImplementation((url) => {
-    if (String(url).endsWith("drafts.json")) {
-      return jsonResponse([
-        "  listed draft  ",
-        "   ",
-        { slug: "alpha", title: "A", date: "2020-01-01", status: "" },
-        { slug: "beta", title: "B", date: "2024-01-01" },
-        { slug: "gamma", title: "G", date: "2024-01-01" },
-        { slug: "untitled-draft" },
-        { title: "no-slug" },
-        { slug: "throws" },
-        { slug: "empty-meta", title: "keep-draft", date: "2019-01-01", status: "queued" },
-      ]);
-    }
-    if (String(url).includes("beta.md")) {
-      return textResponse("---\ntitle: Beta\ndate: 2025-01-01\nstatus: editing\n---\n");
-    }
-    if (String(url).includes("empty-meta.md")) {
-      return textResponse("---\n---\n");
-    }
-    if (String(url).includes("throws.md")) {
-      return Promise.reject(new Error("nope"));
-    }
-    return textResponse("missing", false);
-  });
+  window.fetch.mockImplementation(() => jsonResponse([
+    "  listed draft  ",
+    "   ",
+    { slug: "alpha", title: "A", date: "2020-01-01", status: "" },
+    { slug: "beta", title: "Beta", date: "2025-01-01", status: "editing" },
+    { slug: "gamma", title: "G", date: "2024-01-01" },
+    { slug: "untitled-draft" },
+    { title: "no-slug" },
+    { slug: "queued-one", title: "keep-draft", date: "2019-01-01", status: "queued" },
+  ]));
 
   require("../../public/js/blog.js");
   await window.MarinaBlog.loadDrafts();
-  expect(document.body.innerHTML).toContain("untitled draft");
-  expect(document.body.innerHTML).toContain("Beta");
-  expect(document.body.innerHTML).toContain("editing");
-  expect(document.body.innerHTML).toContain("keep-draft");
-  expect(document.body.innerHTML).toContain("queued");
+  expect(window.fetch).toHaveBeenCalledTimes(1);
+  const text = root().textContent;
+  expect(text).toContain("wip; listed draft");
+  expect(text).toContain("untitled draft");
+  expect(text).toContain("editing; Beta");
+  expect(text).toContain("2020-01-01; A");
+  expect(text).toContain("queued; keep-draft");
+  expect(text.indexOf("Beta")).toBeLessThan(text.indexOf("G"));
 
   window.fetch.mockResolvedValueOnce({ ok: false });
   await window.MarinaBlog.loadDrafts();

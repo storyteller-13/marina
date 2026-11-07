@@ -1,6 +1,6 @@
 ---
 title: 📺 PODCAST → Tim Roughgarden + Ergo on Computation
-subtitle: Rating: 10/10 | Audience: Beginner to Intermediate Computer Scientists
+subtitle: Rating: 10/10 | Beginner to Intermediate Computer Scientists
 date: 2026; 07; 12
 ---
 

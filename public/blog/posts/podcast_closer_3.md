@@ -1,6 +1,6 @@
 ---
 title: 📺 PODCAST → O'Connor + Kuhn on Consciousness 3️⃣ of 3️⃣
-subtitle: Rating: 10/10 | Audience: Beginner to Advanced AI Scientists | Today's Word: Unfolding · Entfaltung · てんかい · הִתְפַּתְּחוּת
+subtitle: Rating: 10/10 | Beginner to Advanced AI Scientists | Today's Word: Unfolding · Entfaltung · てんかい · הִתְפַּתְּחוּת
 date: 2026; 09; 24
 ---
 
@@ -14,7 +14,7 @@ date: 2026; 09; 24
 
 <br>
     
-Early this month, I started **[Part 1️⃣](https://marina.nullstar.fun/pages/post.html?post=podcast_closer)** and **[Part 2️⃣](https://marina.nullstar.fun/pages/post.html?post=podcast_closer_2)** of one of my side quests: studying the various theories of consciousness from **[Closer To Truth’s Landscape of Consciousness](https://loc.closertotruth.com/)**, with the goal of better understanding how we might *quantify the unquantifiable* through bytes && (qu)bits.
+Early this month, I started **[Part 1️⃣](https://marina.nullstar.fun/blog/podcast_closer.html)** and **[Part 2️⃣](https://marina.nullstar.fun/blog/podcast_closer_2.html)** of one of my side quests: studying the various theories of consciousness from **[Closer To Truth’s Landscape of Consciousness](https://loc.closertotruth.com/)**, with the goal of better understanding how we might *quantify the unquantifiable* through bytes && (qu)bits.
 
 Today, we review the last (qu)bit: **[Quantum & Dimensions](https://loc.closertotruth.com/theory?category=quantum-dimensions)** and **[Information](https://loc.closertotruth.com/theory?category=information)**.
 

@@ -1,6 +1,6 @@
 ---
 title: 📚 BOOK → Hands-On LLM (Alammar & Grootendorst, 2024)
-subtitle: Rating: 8/10 | Audience: Beginner to Intermediate AI Engineers
+subtitle: Rating: 8/10 | Beginner to Intermediate AI Engineers
 date: 2026; 07; 27
 ---
 
