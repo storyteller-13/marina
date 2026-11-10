@@ -10,8 +10,9 @@ date: 2026; 08; 14
 
 In this third and final post, I continue the work started in [**Part 1️⃣**](https://marina.nullstar.fun/blog/book_ai.html) and [**Part 2️⃣**](https://marina.nullstar.fun/blog/book_ai2.html), studying the chapters on learning, natural language, perception, and robotics, and thinking about the problems I have been tackling.
 
+<br>
 
-Below are my highlights (for personal inventory), with a moderate attempt at coherence. And, as always, remember the rules:
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
@@ -28,9 +29,9 @@ Below are my highlights (for personal inventory), with a moderate attempt at coh
 
 > *An agent is learning if it improves its performance on future tasks after making observations about the world.*
 
-> ❗️ PS: This chapter introduces the very basic concepts of ML, which **[we have known for decades](https://github.com/future-ai-org/ml-classifiers-and-experiments-py)**, but somehow I still find it fun to read. It’s like rewatching a favorite movie for the 10th time just because it feels familiar and nice, and then finding that one little thing you missed or never really thought about (call me a weirdo). Plus, it’s always nice to rest the brain after **[an intense thinking sesh](https://marina.nullstar.fun/blog/podcast_nl.html)**. Plus, perhaps someone reading this will learn something new, too.
-
-> ❗️ PS2: Why do I write “PS:” instead of “P.S.”? Autistic brain that sees everything as an incremental to-do list, so the formatting is more appropriate if I want to add ordinality to it.
+:::ps
+This chapter introduces the very basic concepts of ML, which **[we have known for decades](https://github.com/future-ai-org/ml-classifiers-and-experiments-py)**, but somehow I still find it fun to read. It’s like rewatching a favorite movie for the 10th time just because it feels familiar and nice, and then finding that one little thing you missed or never really thought about (call me a weirdo). Plus, it’s always nice to rest the brain after **[an intense thinking sesh](https://marina.nullstar.fun/blog/podcast_nl.html)**. Plus, perhaps someone reading this will learn something new, too.
+:::
 
 <br>
 
@@ -92,7 +93,9 @@ Below are my highlights (for personal inventory), with a moderate attempt at coh
 
 <br>
 
-> ❗️ PS3: I love **[information theory](http://www.astro.sunysb.edu/steinkirch/books/qi.pdf)** and thinking about all things entropy, both in Computer Science and in Physics.
+:::ps
+I love **[information theory](http://www.astro.sunysb.edu/steinkirch/books/qi.pdf)** and thinking about all things entropy, both in Computer Science and in Physics.
+:::
 
 <br>
 
@@ -190,7 +193,9 @@ Below are my highlights (for personal inventory), with a moderate attempt at coh
 
 <br>
 
-> ❗️ PS4: I remember deriving in detail all those equations *in gory* back in my Ph.D., and I must say, those were good times...
+:::ps
+I remember deriving in detail all those equations *in gory* back in my Ph.D., and I must say, those were good times...
+:::
 
 <br>
 
@@ -596,7 +601,7 @@ function EXTEND-EXAMPLE(example, literal) returns a set of examples
 
 ----
 
-## 🪻 23. NATURAL LANGUAGE FOR COMMUNCATION 
+## 🪻 23. NATURAL LANGUAGE FOR COMMUNICATION 
 
 <br>
 

@@ -468,3 +468,43 @@ test("code blocks are coloured by their tag, or by detecting the language when u
   expect(blocks[2].querySelector("[class^=tok-]")).toBeNull();
   expect(blocks[3].querySelector("[class^=tok-]")).toBeNull();
 });
+
+test("poems (:::poem) render as stanzas with an attribution and keep code fences unchanged", () => {
+  require("../../public/js/blog-post.js");
+  const { markdownToHtml } = window.MarinaBlogPost;
+
+  const poem = markdownToHtml([":::poem", "one *line*", "two", "", "three", "", "— Someone", ":::", "after"].join("\n"));
+  expect(poem).toBe(
+    '<div class="blog-poem">\n' +
+      '<p class="blog-poem-stanza">one <em>line</em><br>two</p>\n' +
+      '<p class="blog-poem-stanza">three</p>\n' +
+      '<p class="blog-poem-attribution">— Someone</p>\n' +
+      "</div>\n<p>after</p>",
+  );
+
+  // A paragraph directly above a poem is not swallowed into it.
+  expect(markdownToHtml(["text", ":::poem", "v", ":::"].join("\n"))).toContain("<p>text</p>\n<div class=\"blog-poem\">");
+
+  // Code fences keep their plain rendering, even when their lines look like a poem.
+  expect(markdownToHtml(["```", ":::poem", "x", ":::", "```"].join("\n"))).toBe(
+    "<pre><code>\n:::poem\nx\n:::\n</code></pre>",
+  );
+});
+
+test("several P.S. notes in one post are numbered PS1, PS2; code fences are not counted", () => {
+  require("../../public/js/blog-post.js");
+  const { markdownToHtml } = window.MarinaBlogPost;
+  const html = markdownToHtml([":::ps", "a", ":::", "", ":::ps", "b", ":::"].join("\n"));
+  expect(html).toContain('<span class="blog-ps-label">PS1</span> a');
+  expect(html).toContain('<span class="blog-ps-label">PS2</span> b');
+  const fenced = markdownToHtml(["```", ":::ps", "x", "```", "", ":::ps", "y", ":::"].join("\n"));
+  expect(fenced).toContain('<span class="blog-ps-label">P.S.</span> y');
+});
+
+test(":::ps renders the same P.S. markup as the blog list footer", () => {
+  require("../../public/js/blog-post.js");
+  const { markdownToHtml } = window.MarinaBlogPost;
+  expect(markdownToHtml([":::ps", "one **two**", "three", ":::"].join("\n"))).toBe(
+    '<aside class="blog-ps" aria-label="P.S.">\n<p><span class="blog-ps-label">P.S.</span> one <strong>two</strong> three</p>\n</aside>',
+  );
+});

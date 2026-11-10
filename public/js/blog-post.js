@@ -124,6 +124,76 @@ function parseListBlock(lines, start) {
   return { html: render(0, items.length), next: i };
 }
 
+/**
+ * Poems sit between a ":::poem" line and a ":::" line. Unlike code fences they are prose: each line is
+ * inline markdown, line breaks are kept, a blank line starts a new stanza, and a "— Author" line is the
+ * attribution. Returns the HTML lines and the index of the first line after the block.
+ */
+const POEM_OPEN = ":::poem";
+const POEM_CLOSE = ":::";
+
+function parsePoemBlock(lines, start) {
+  const stanzas = [[]];
+  const attribution = [];
+  let i = start + 1;
+  while (i < lines.length && lines[i].trim() !== POEM_CLOSE) {
+    const text = lines[i].trim();
+    if (!text) {
+      if (stanzas.at(-1).length) stanzas.push([]);
+    } else if (/^(—|--)\s*/.test(text)) {
+      attribution.push(text.replace(/^(—|--)\s*/, ""));
+    } else {
+      stanzas.at(-1).push(text);
+    }
+    i += 1;
+  }
+
+  const html = ['<div class="blog-poem">'];
+  for (const stanza of stanzas.filter((s) => s.length)) {
+    html.push(`<p class="blog-poem-stanza">${stanza.map(parseInline).join("<br>")}</p>`);
+  }
+  for (const name of attribution) {
+    html.push(`<p class="blog-poem-attribution">— ${parseInline(name)}</p>`);
+  }
+  html.push("</div>");
+  return { html, next: Math.min(i + 1, lines.length) };
+}
+
+/**
+ * A P.S. note sits between a ":::ps" line and a ":::" line. It renders with the same markup as the P.S.
+ * at the bottom of the blog list (aside.blog-ps), so every post's P.S. looks identical.
+ */
+const PS_OPEN = ":::ps";
+
+/** How many P.S. blocks a post has, ignoring any that sit inside a code fence. */
+function countPsBlocks(lines) {
+  let count = 0;
+  let inCode = false;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith("```")) inCode = !inCode;
+    else if (!inCode && trimmed === PS_OPEN) count += 1;
+  }
+  return count;
+}
+
+/** A single P.S. is labelled "P.S."; when a post has several they are numbered PS1, PS2, ... */
+function parsePsBlock(lines, start, label) {
+  const text = [];
+  let i = start + 1;
+  while (i < lines.length && lines[i].trim() !== POEM_CLOSE) {
+    if (lines[i].trim()) text.push(lines[i].trim());
+    i += 1;
+  }
+  const body = parseInline(text.join(" "));
+  const html = [
+    '<aside class="blog-ps" aria-label="P.S.">',
+    `<p><span class="blog-ps-label">${label}</span> ${body}</p>`,
+    "</aside>",
+  ];
+  return { html, next: Math.min(i + 1, lines.length) };
+}
+
 function markdownToHtml(markdown) {
   const lines = markdown.replace(/\r\n/g, "\n").split("\n");
   const out = [];
@@ -132,6 +202,8 @@ function markdownToHtml(markdown) {
   const headings = [];
   const usedIds = new Map();
   let summaryAt = -1;
+  const psCount = countPsBlocks(lines);
+  let psSeen = 0;
 
   function uniqueId(text) {
     const base = slugify(text);
@@ -177,6 +249,22 @@ function markdownToHtml(markdown) {
 
     if (!trimmed) {
       i += 1;
+      continue;
+    }
+
+    if (trimmed === PS_OPEN) {
+      psSeen += 1;
+      const label = psCount > 1 ? `PS${psSeen}` : "P.S.";
+      const ps = parsePsBlock(lines, i, label);
+      out.push(...ps.html);
+      i = ps.next;
+      continue;
+    }
+
+    if (trimmed === POEM_OPEN) {
+      const poem = parsePoemBlock(lines, i);
+      out.push(...poem.html);
+      i = poem.next;
       continue;
     }
 
@@ -258,7 +346,7 @@ function markdownToHtml(markdown) {
     while (
       i < lines.length &&
       lines[i].trim() &&
-      !/^(#{1,6}\s+|>\s+|(-|\*)\s+|\d+\.\s+|```|---+$)/.test(lines[i].trim())
+      !/^(#{1,6}\s+|>\s+|(-|\*)\s+|\d+\.\s+|```|:::|---+$)/.test(lines[i].trim())
     ) {
       paragraphLines.push(lines[i].trim());
       i += 1;

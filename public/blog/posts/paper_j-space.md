@@ -8,7 +8,9 @@ A week ago, one of Anthropic's research groups published a paper titled [Verbali
 
 The paper is super, uber dense, and I will definitely return to it later (especially to take a closer look at the mathematics in the appendix). On top of that, its references introduced me to a dozen new papers on consciousness and interpretability, all of which have now made their way onto my reading list. For now, though, I wanted to write down my initial notes, which are presented below (and, conveniently, polished by — who else? — Claude, of course).
 
-PS: A note to the curious anons. Besides being very familiar with Jacobians from physics, most of the concepts in this paper were completely new to me (unfortunately, I don't know much about neuroscience). I had to stop and think about almost every sentence. You know that feeling when you encounter a concept for the first time, and it seems much harder than every subsequent reading? That's simply the nature of learning intricate subjects. You have to force yourself through that first difficult pass, and then each subsequent pass becomes progressively easier — and much more enjoyable.
+:::ps
+A note to the curious anons. Besides being very familiar with Jacobians from physics, most of the concepts in this paper were completely new to me (unfortunately, I don't know much about neuroscience). I had to stop and think about almost every sentence. You know that feeling when you encounter a concept for the first time, and it seems much harder than every subsequent reading? That's simply the nature of learning intricate subjects. You have to force yourself through that first difficult pass, and then each subsequent pass becomes progressively easier — and much more enjoyable.
+:::
 
 <br>
 

@@ -199,7 +199,7 @@ In addition, here are some things that would need be implemented for this engine
 ##### Accounts and sessions
 - integration of account authentication and authorization
 - handling server discovery, matchmaking, party management, and session assignment
-- hadling reconnections, duplicate logins, server transfers, and session expiration
+- handling reconnections, duplicate logins, server transfers, and session expiration
 - maintaining the relationship between a player's account, character, active session, and current world server
 
 ##### Persistent world and character services

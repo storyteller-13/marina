@@ -16,6 +16,8 @@ Today, we'll take a look at a fresh (and delightfully opinionated) **[open-sourc
 
 For anyone new here, harness engineering is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:MAIA and PleiadesOS:TAYGETE](https://marina.nullstar.fun/blog/idea_nullstar.html)** modules.
 
+<br>
+
 As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**

@@ -37,9 +37,13 @@ The inference stack we'll be learning about is:
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
-##### PS: Mabon Hapus i chi! and 秋分の日、どうぞ良い一日をお過ごしください。
+:::ps
+Mabon Hapus i chi! and 秋分の日、どうぞ良い一日をお過ごしください。
+:::
 
-##### PS2: Why did I choose this model from Sakana AI, and what interests me about their work? **[Travel to the future](https://marina.nullstar.fun/blog/paper_intel_2.html)** and you will understand.
+:::ps
+Why did I choose this model from Sakana AI, and what interests me about their work? **[Travel to the future](https://marina.nullstar.fun/blog/paper_intel_2.html)** and you will understand.
+:::
 
 <br>
 

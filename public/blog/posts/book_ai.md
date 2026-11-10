@@ -14,6 +14,8 @@ In this first post, I cover the first 9 chapters, up to inference in first-order
 
 💡 *From my Ph.D. in Theoretical Physics, I'm well aware that something fascinating happens to your brain when you spend time studying mathematics and logic. It's like going to the gym — but for your mind. You also become fluent in the language and notation of science. That's one of the reasons I believe a Ph.D. in Physics equips you with the analytical tools to tackle virtually any technical problem.*
 
+<br>
+
 As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
@@ -908,7 +910,7 @@ OPERATOR PRECEDENCE : ¬, ∧, ∨, ⇒, ⇔
 
 <br>
 
-* Inference rules that can be applied to derive a proof -> a chain of concluions that leads to the desired goal.
+* Inference rules that can be applied to derive a proof -> a chain of conclusions that leads to the desired goal.
 
 * The best-known rule is called Modus Ponens (Latin for mode that affirms) -> whenever any sentences of the form α ⇒β and α are given, then the sentence β can be inferred.
 

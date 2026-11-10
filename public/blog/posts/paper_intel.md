@@ -16,6 +16,8 @@ Saturdays are a great day to review a few papers related to one of my main areas
 
 For anyone new here, multi-agent deployment is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:CELAENO](https://marina.nullstar.fun/blog/idea_nullstar.html)** module.
 
+<br>
+
 As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory and delight (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
@@ -99,7 +101,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * By learning optimal coordination strategies over pools of powerful worker LLMs, a 7B conductor achieves significant performance grains beyond any individual worker.
 
-* By training with randomized agent pools, the conductor effectivelly adapts to arbitrary sets of open and closed source agents. -> allowing the conductor to select itself as a worker gives rise to recursive topologies, elevating performance with a new form of dynamic test-time scaling through online iterative adaptation.
+* By training with randomized agent pools, the conductor effectively adapts to arbitrary sets of open and closed source agents. -> allowing the conductor to select itself as a worker gives rise to recursive topologies, elevating performance with a new form of dynamic test-time scaling through online iterative adaptation.
 
 * RL conductor -> a new kind of reasoning model trained with RL to dynamically divide challeging problems, delete targeted subtasks, design communication topologies for a set of worker LLM agents -> our model itself is a LLM tasked to output a sequence of workflow steps, each defined by a natural language instruction focusing on some aspect of the overall task.
 
@@ -107,7 +109,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * RL conductor -> a language model trained through e2e RL to divide challeging problems, delegate targeted subtasks, and design communication topologies for a set of worker LLMs.
 
-* RL reasoning paradigm (introduced by DeepSeek R1) -> optimize an LLM policy using a custom system prompt, by making ti genereate its own completions oi to a set of verifiable problems -> the reward ri for each output of the model are determined by two conditions: 1) the format condition, setting ri to -1 for any model that does not adhere to <think>/<solution>, 2) the correctness, setting ri to 1 in case the model's correctly formatted outputs match the solution si and to -0.5. 
+* RL reasoning paradigm (introduced by DeepSeek R1) -> optimize an LLM policy using a custom system prompt, by making it generate its own completions on a set of verifiable problems -> the reward ri for each output of the model are determined by two conditions: 1) the format condition, setting ri to -1 for any model that does not adhere to <think>/<solution>, 2) the correctness, setting ri to 1 in case the model's correctly formatted outputs match the solution si and to -0.5. 
 
 * The model is trained with GRPO.
 
@@ -147,7 +149,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * Sakana Fugu is a family of learned LLM orchestrators that expose multi-agent intelligence through a single model interface:
 
-➡️ Fugu models learn to construct query-adaptative workflows over a pool of expert LLM workers a model orchestration can serve as practical scalling axis
+➡️ Fugu models learn to construct query-adaptive workflows over a pool of expert LLM workers a model orchestration can serve as practical scaling axis
 ➡️ It composes models at the behavioral level rather than the parameter level
 ➡️ Treating orchestration as a first class scaling axis may distibute the benefits of frontier AI more broadly
 
@@ -157,9 +159,9 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * Agent scaffolds augment autoregressive generation with: 1) structured prompting, 2) external tool use and function calling, 3) environment feedback, and 4) memory management.
 
-* The growing range of languages models with diverse capabilities and the impact of domain-specific agentic scaffolds motivate the development of systems that can orchestrate collective intelligence: dynamically choosing which models to evolve, how they should communicate, use tools, and interact with the environmnet.
+* The growing range of language models with diverse capabilities and the impact of domain-specific agentic scaffolds motivate the development of systems that can orchestrate collective intelligence: dynamically choosing which models to evolve, how they should communicate, use tools, and interact with the environment.
 
-* The scaffold is generated by a trained orchestrator at inference time. Rather than applying a fixed interaction pattern or relying a task-specific harness, Fugu dynamically decided how to reason about each request, which frontier agents to invovle, how they should communicate, and how the output should be synthesized into a final answer.
+* The scaffold is generated by a trained orchestrator at inference time. Rather than applying a fixed interaction pattern or relying on a task-specific harness, Fugu dynamically decided how to reason about each request, which frontier agents to involve, how they should communicate, and how the output should be synthesized into a final answer.
 
 <br>
 
@@ -169,7 +171,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * A growing body of work studies how to coordinate groups of LLM agents through communication protocols, voting mechanisms, routing policies, and learned collaboration structures.
 
-* Multi-agent LLM systems often rely on hand-designed collaboration patterns: orchestrating multiple agents across sucessive discussion or reasoning rounds, using fixed interaction structures to improve final answers -> other works move toward learned or adaptative conditions and coordination, mapping queries to suitable agents -> collaboration as learned graphs.
+* Multi-agent LLM systems often rely on hand-designed collaboration patterns: orchestrating multiple agents across sucessive discussion or reasoning rounds, using fixed interaction structures to improve final answers -> other works move toward learned or adaptive conditions and coordination, mapping queries to suitable agents -> collaboration as learned graphs.
 
 * Shaping the models's reasoning through prompting and decoding strategies, including CoT prompting, self-consistency, and structured search over reasoning paths such as Tree of Thoughts.
 
@@ -179,7 +181,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * More recent work introduces optimization-based merging, evolutionary search over merging recipes showing that learned strategies can outperform hand-designed ones.
 
-* Other methods improve the reliability of parameter-space fusion by resolving task conflicts, sparsifying parameter updates, or preserving important directions. -> however, parameter-space merging operates directly on weights -> a complementary family of methods composes models in the data-flow or representation space. instead of averaging all weights, these approaches stitch layers, mix blocks, route hidden states, or construct hybrid archtectures from existing components.
+* Other methods improve the reliability of parameter-space fusion by resolving task conflicts, sparsifying parameter updates, or preserving important directions. -> however, parameter-space merging operates directly on weights -> a complementary family of methods composes models in the data-flow or representation space. instead of averaging all weights, these approaches stitch layers, mix blocks, route hidden states, or construct hybrid architectures from existing components.
 
 <br>
 
@@ -191,7 +193,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-* Family of learned orchestrators that expose a multi-agent system through a single model interface. -> Given a user query, a Fugu Model constructs an agentic scaffold over a pool of frontier LLM workers. -> The system can route, delegate, coordinate accross multiple specialized agents.
+* Family of learned orchestrators that expose a multi-agent system through a single model interface. -> Given a user query, a Fugu Model constructs an agentic scaffold over a pool of frontier LLM workers. -> The system can route, delegate, coordinate across multiple specialized agents.
 
 * Builds on TRINITY, but scale and adapt the learned-orchestration idea to a production setting in which the orchestrator must make fast reliable routing decisions.
 
@@ -199,11 +201,11 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * Fine-tune the singular-value scales of selected parameter matrices in the LM's layer. -> concretely, given a pool of `L` worker models, we attach a lightweight prediction head after the final hidden layer of the orchestrator backbone.
 
-* For a hidden state `h`, the head outputs `L` logits that score which worker model should be selected for the input. -> Unlike TRINITY, Fugu always dispatches the query to the selected model as a worker. -> Removing role assigment narrows the coordination space to model selection alone.
+* For a hidden state `h`, the head outputs `L` logits that score which worker model should be selected for the input. -> Unlike TRINITY, Fugu always dispatches the query to the selected model as a worker. -> Removing role assignment narrows the coordination space to model selection alone.
 
-* To improve the representation used by this lightweigth head without full fine-tuning, we adapt a small subset of the backbone parameters using singular-value fine tuning. -> Together with the lightweight prediciton head, this yields a small trainable parameter set while allowing the orchestrator representation to adapt to the routing problem.
+* To improve the representation used by this lightweight head without full fine-tuning, we adapt a small subset of the backbone parameters using singular-value fine tuning. -> Together with the lightweight prediction head, this yields a small trainable parameter set while allowing the orchestrator representation to adapt to the routing problem.
 
-* A key design choice is that Fugu uses the orchestrator logits rather than its generated text -> since prompting and task execution are delegated to the selected frontier model, the orchestrator only needs to produce a worker-selection decision -> Inference becomes cheaper -> the system computes a hidden state and an early token position, apply the selection head, and dispatch the query to the selected worker, without the expensive autoregressive decoding process -> This decision-only parametrization is central to Fugu's latecy profile and makes evolutionary optimization practical.
+* A key design choice is that Fugu uses the orchestrator logits rather than its generated text -> since prompting and task execution are delegated to the selected frontier model, the orchestrator only needs to produce a worker-selection decision -> Inference becomes cheaper -> the system computes a hidden state and an early token position, apply the selection head, and dispatch the query to the selected worker, without the expensive autoregressive decoding process -> This decision-only parametrization is central to Fugu's latency profile and makes evolutionary optimization practical.
 
 <br>
 
@@ -225,7 +227,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-* After SFT on single-step tasks, we optimize Fugu with evolutionary strategies on E2E tasks -> collect real-world multi-turn trajectories from different coding-assistant environments context, iterative editing, tool calls, execution feedback. -> expand trainding distribution from static questions to agentic workflows.
+* After SFT on single-step tasks, we optimize Fugu with evolutionary strategies on E2E tasks -> collect real-world multi-turn trajectories from different coding-assistant environments context, iterative editing, tool calls, execution feedback. -> expand training distribution from static questions to agentic workflows.
 
 <br>
 
@@ -243,13 +245,13 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-* Most complex workflows -> add extensions to accomodate long-horizon function calling and multi-agent workflows through adaptative agent memory.
+* Most complex workflows -> add extensions to accommodate long-horizon function calling and multi-agent workflows through adaptive agent memory.
 
 * The conductor's objective is to solve tasks indirectly by designing agentic workflows specific to any input question `qi`.
 
 * Each agentic workflow is a sequence of workflow steps whose final output is returned as the actual conductor response `oi`.
 
-* Each step specifies a string with a natural-language subtask, an integer ID corresponding to the assigned worker agent for the subtask, and an access list indexing which subtask solutions from the prvious steps to include in the worker's context.
+* Each step specifies a string with a natural-language subtask, an integer ID corresponding to the assigned worker agent for the subtask, and an access list indexing which subtask solutions from the previous steps to include in the worker's context.
 
 <br>
 
@@ -257,25 +259,25 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-* The reward `ri` for each response from conductor model is determined by two condictions: 1) the conductor format condition (list that cannot be parsed), 2) the conductor correctness (the final output from executing a well-formatted agentic workflow).
+* The reward `ri` for each response from conductor model is determined by two conditions: 1) the conductor format condition (list that cannot be parsed), 2) the conductor correctness (the final output from executing a well-formatted agentic workflow).
 
 * Trained Fugu ultra with GRPO, using the grouped completions to compute a Monte-Carlo advantage function.
 
-* The conductor framework allows to specify the orchestrator itself as a worker, further extending the range of topologies.
+* The conductor framework allows one to specify the orchestrator itself as a worker, further extending the range of topologies.
 
 <br>
 
-> *Emergence of problem decompositions and prompt-enginered subtasks leveraging the differing strengths and skills of each agent.*
+> *Emergence of problem decompositions and prompt-engineered subtasks leveraging the differing strengths and skills of each agent.*
 
 <br>
 
-##### Function Calling Agentic Worfklows
+##### Function Calling Agentic Workflows
 
 <br>
 
 * Function calling within a multi-agentic workflow poses a challenge in terms of memory.
 
-* To honor the function call loop and enable any agent to interact freely with the environment, the system must retain which agent emmited each call, along with where the agent sits in the conductor workflow, so inter-agent communication topology is maintaned -> Track the conductor's workflow state containing the selected models, communication topology, and assigned subtasks.
+* To honor the function call loop and enable any agent to interact freely with the environment, the system must retain which agent emitted each call, along with where the agent sits in the conductor workflow, so inter-agent communication topology is maintained -> Track the conductor's workflow state containing the selected models, communication topology, and assigned subtasks.
 
 <br>
 
@@ -285,7 +287,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * In order to fully leverage the differing specialities of the agent team, we isolate each agent's workflow and function's calling trajectory from each other -> This intra-workflow isolation is necessary to prevent orchestration collapses.
 
-* An agent observes the actions and outputs of another only through the access list -> avoid conditioning subsequent agent's solution trajactories on the work done by previous agents.
+* An agent observes the actions and outputs of another only through the access list -> avoid conditioning subsequent agent's solution trajectories on the work done by previous agents.
 
 <br>
 
@@ -293,9 +295,9 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-* Complete isolaton from all function calling over a multi-turn conversation history is suboptimal -> agents must retain some memory of their interactions with the environment in order to not make repeated tool calls to rediscover the same artifacts and accrue the background context to solve the task.
+* Complete isolation from all function calling over a multi-turn conversation history is suboptimal -> agents must retain some memory of their interactions with the environment in order to not make repeated tool calls to rediscover the same artifacts and accrue the background context to solve the task.
 
-* Inter-workflow shared memory accross agents, allowing them to observe tool calling from previous workflows -> grant agents full memory over ongoing state of a multi-turn conversation -> background context of each agent.
+* Inter-workflow shared memory across agents, allowing them to observe tool calling from previous workflows -> grant agents full memory over ongoing state of a multi-turn conversation -> background context of each agent.
 
 <br>
 
@@ -341,11 +343,11 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * Autoresearch -> an agent iteratively edits a small GPT training pipeline, executes each change, and retains modifications that reduce validation bits-per-byte.
 
-* Success depends not on single coding step but on sustained exploration of optimizer settings, beatching, archtecture scale, and schedule choices over many sequential experiments.
+* Success depends not on single coding step but on sustained exploration of optimizer settings, batching, architecture scale, and schedule choices over many sequential experiments.
 
-* Fugu-Ultra is competitive early in the run and pulls ahead after mid-training, suggesting that orchestration is most valuable once the search space shifts from coarse configuration changes to finer optimizer and schedule tunning.
+* Fugu-Ultra is competitive early in the run and pulls ahead after mid-training, suggesting that orchestration is most valuable once the search space shifts from coarse configuration changes to finer optimizer and schedule tuning.
 
-* Fugu-Ultra improves both peak performance and consistence (multi-model orchestration can outpeform any individual frontier agent on an agentic training-optimization benchmark).
+* Fugu-Ultra improves both peak performance and consistency (multi-model orchestration can outperform any individual frontier agent on an agentic training-optimization benchmark).
 
 <br>
 

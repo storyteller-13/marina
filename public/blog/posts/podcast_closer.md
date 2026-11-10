@@ -16,9 +16,11 @@ date: 2026; 09; 06
 
 <br>
 
-Last week, I was delighted to come accross a discussion among some of our **[favorite](https://www.youtube.com/channel/UC7kIy8fZavEni8Gzl8NLjOQ)** **[atheists](https://www.youtube.com/channel/UCl9StMQ79LtEvlrskzjoYbQ)** about **[a landscape of 444 theories of consciousness](https://www.youtube.com/watch?v=xHeT466-hxY)**. When I explored the material — namely, **[Closer To Truth’s Landscape of Consciousness](https://loc.closertotruth.com/)** — I was absolutely struck by its quality. This work is highly relevant to **[my ongoing research](https://marina.nullstar.fun/blog/idea_nullstar.html)**, one of whose goal is to better understand how we might *quantify the unquantifiable* through bytes && bits.
+Last week, I was delighted to come across a discussion among some of our **[favorite](https://www.youtube.com/channel/UC7kIy8fZavEni8Gzl8NLjOQ)** **[atheists](https://www.youtube.com/channel/UCl9StMQ79LtEvlrskzjoYbQ)** about **[a landscape of 444 theories of consciousness](https://www.youtube.com/watch?v=xHeT466-hxY)**. When I explored the material — namely, **[Closer To Truth’s Landscape of Consciousness](https://loc.closertotruth.com/)** — I was absolutely struck by its quality. This work is highly relevant to **[my ongoing research](https://marina.nullstar.fun/blog/idea_nullstar.html)**, one of whose goal is to better understand how we might *quantify the unquantifiable* through bytes && bits.
 
 The material is dense, so I have divided this study into three parts. In this first post, I go over several selected subclasses of materialism, including, for instance, neurobiological and language theories, that I believe are relevant to my research. In the second post, we will look at the remaining relevant subclass of materialism (i.e., **[Computational & Functionalism](https://loc.closertotruth.com/theories/computational-and-functionalism)**, **[Electromagnetic Field](https://loc.closertotruth.com/theories/electromagnetic-field)**, and **[Relational](https://loc.closertotruth.com/theories/relational)**. Finally, in the third post, we will touch on the **[Quantum & Dimensions](https://loc.closertotruth.com/theory?category=quantum-dimensions)** approaches, as well as **[Information](https://loc.closertotruth.com/theory?category=information)** classes.
+
+<br>
 
 As I read through most of the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory. Plus, as always, remember the rules:
 
@@ -27,7 +29,9 @@ As I read through most of the material, I wrote down a few highlights — with a
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
-##### P.S. Can you guess the name of the famous fractals?
+:::ps
+Can you guess the name of the famous fractals?
+:::
 
 <br>
 
@@ -239,7 +243,7 @@ Even though they could also be highly enlightening, we will be skipping the more
 
 <br>
 
-> *“This framework postulates that, at any given time, many modular cerebral networks are active in parallel and process information in an unconscious manner. An information becomes conscious, however, if the neural population that represents it is mobilized by top-down attentional amplification into a brain-scale state of coherent activity that involves many neurons distributed throughout the brain. The long-distance connectivity of these ‘workspace neurons’ can, when they are active for a minimal duration, make the information available to a variety of processes including perceptual categorization, long-term memorization, evaluation, and intentional action. We postulate that this global availability of information through the workspace is what we subjectively experience as a conscious state”*
+> *“This framework postulates that, at any given time, many modular cerebral networks are active in parallel and process information in an unconscious manner. Information becomes conscious, however, if the neural population that represents it is mobilized by top-down attentional amplification into a brain-scale state of coherent activity that involves many neurons distributed throughout the brain. The long-distance connectivity of these ‘workspace neurons’ can, when they are active for a minimal duration, make the information available to a variety of processes including perceptual categorization, long-term memorization, evaluation, and intentional action. We postulate that this global availability of information through the workspace is what we subjectively experience as a conscious state”*
 
 <br>
 

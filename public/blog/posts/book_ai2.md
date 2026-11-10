@@ -12,7 +12,9 @@ In this second post, I continue **[the work started in Part 1️⃣](https://mar
 
 The remaining chapters for `V. Learning` and `VI. Communicating, perceiving, and acting` are closer to the applied side of ML and Robotics (which I studied during my PhD, or over the years...). I'll cover them in the final post, Part 3️⃣.
 
-Below are my highlights (for personal inventory), with a moderate attempt at coherence. And the rules:
+<br>
+
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
@@ -308,7 +310,7 @@ function GRAPHPLAN(problem) returns solution or failure
 
 <br>
 
-* Situation calculus represents actions and their effects, but it’s is limited in its applicability: it was designed to describe a world in which actions are discrete, instantaneous, and happen one at a time. It also can’t describe two actions happening at the same time.
+* Situation calculus represents actions and their effects, but it’s limited in its applicability: it was designed to describe a world in which actions are discrete, instantaneous, and happen one at a time. It also can’t describe two actions happening at the same time.
 
 * Event calculus is based on points of time rather than on situations.
 
@@ -494,7 +496,7 @@ Decision theory = probability theory + utility theory
 
 * Usually, such a relationships are describable by a canonical distribution.
 
-* The simplest example is provided by deterministic nodes -> has has value specified exactly by the values of its parents, with no uncertainty.
+* The simplest example is provided by deterministic nodes -> has a value specified exactly by the values of its parents, with no uncertainty.
 
 * Uncertain relationships can often be characterized by so-called noisy logical relationships. The standard example is the noisy-OR relation, which is a generalization of the logical `OR`.
 
@@ -558,7 +560,7 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 <br>
 
-* In a polytree network, one would need to issue queries costing `O(n)` each, for a total of `O(time)` time. Using clustering algorithms (also known as join algorithmsithms), the time can be reduced to `O(n)`. For this reason, these algorithms are widely used in commercial Bayesian network tools.
+* In a polytree network, one would need to issue queries costing `O(n)` each, for a total of `O(time)` time. Using clustering algorithms (also known as join algorithms), the time can be reduced to `O(n)`. For this reason, these algorithms are widely used in commercial Bayesian network tools.
 
 <br>
 
@@ -596,7 +598,7 @@ function ENUMERATE-ALL(vars, e) returns a real number
 
 * If we can find a way to combine probability theory with the expressive power of first-order representations, we expect to be able to increase dramatically the range of problems that can be handled.
 
-* A a major part of human cognition seems to require learning what objects exist and being able to connect observations—which almost never come with unique IDs attached—to hypothesized objects in the world. -> we need to be able to write so-called open-universe probability models.
+* A major part of human cognition seems to require learning what objects exist and being able to connect observations—which almost never come with unique IDs attached—to hypothesized objects in the world. -> we need to be able to write so-called open-universe probability models.
 
 <br>
 

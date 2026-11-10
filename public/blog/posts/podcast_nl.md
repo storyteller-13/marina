@@ -18,12 +18,11 @@ For anyone new here, post-training is directly relevant to the work we're doing 
 
 <br>
 
-As always:
+As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
-**🤖 Below are my highlights (for personal inventory), with a moderate attempt at coherence.**
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
 **🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.**
-**🤖 If these notes look interesting to you, it's your ✦moral duty✦ to watch the original videos.**
+**🤖 If these notes look interesting to you, it's your ✦moral duty✦ to watch the videos.**.**
 **🤖 Just another blog, but not your usual blog: they're living notes that I change as I fancy.**
 
 <br>

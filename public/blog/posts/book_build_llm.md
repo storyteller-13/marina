@@ -12,7 +12,7 @@ date: 2026; 03; 29
 
 This book walks through the full lifecycle of building a large language model: from raw text tokenization all the way to classical fine-tuning examples. 
 
-I enjoyed this read: althought it's introductory, it has great explanations, great pictures (visual learners winning here), and fun Python exercises. I read it in 3 days, and it helped me refresh some key concepts in my mind. 
+I enjoyed this read: although it's introductory, it has great explanations, great pictures (visual learners winning here), and fun Python exercises. I read it in 3 days, and it helped me refresh some key concepts in my mind. 
 
 The journey is structured as the following:
 
@@ -55,7 +55,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 ---
 
-## Attention Attention
+## Attention
 
 <br>
 
@@ -92,7 +92,7 @@ The full GPT model stacks transformer blocks repeatedly:
     - Residual connections give gradients a shortcut, preserving signal and enabling much deeper networks to train
 ```
 
-GPT-2 model sizes for reference (their weigths are open):
+GPT-2 model sizes for reference (their weights are open):
 
 | Variant | Parameters | Attention Heads | Embedding Dim | Context Length |
 |---|---|---|---|---|

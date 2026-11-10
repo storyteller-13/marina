@@ -1166,6 +1166,58 @@ body.error-404 {
     border-left-color: #bf00ff;
 }
 
+/* Poems (":::poem" ... ":::"): centred verse, stanzas spaced apart, attribution right-aligned */
+.blog-post-page .blog-post-content .blog-poem {
+    margin: 1.5rem auto;
+    padding: 1rem 1.5rem;
+    max-width: 36rem;
+    text-align: center;
+    font-style: italic;
+    color: #f09ac0;
+    border-top: 1px solid rgba(240, 154, 192, 0.45);
+    border-bottom: 1px solid rgba(148, 97, 199, 0.35);
+}
+
+.blog-post-page .blog-post-content .blog-poem-stanza {
+    margin: 0 0 1.1rem;
+    line-height: 1.8;
+}
+
+.blog-post-page .blog-post-content .blog-poem-stanza:last-of-type {
+    margin-bottom: 0.6rem;
+}
+
+.blog-post-page .blog-post-content .blog-poem-attribution {
+    margin: 0;
+    text-align: right;
+    font-size: 0.9em;
+    color: var(--color-fg-muted);
+}
+
+/* P.S. notes inside posts fill the post width, justified, a little larger (the blog list keeps its centred footer) */
+.blog-post-page .blog-post-content .blog-ps {
+    max-width: 100%;
+    margin: 1rem 0 0;
+    padding: 0.4rem 0 0;
+    text-align: justify;
+}
+
+.blog-post-page .blog-post-content .blog-ps p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.blog-post-page .blog-post-content .blog-ps + .blog-ps {
+    margin-top: 0.35rem;
+    padding-top: 0;
+}
+
+[data-color-mode="dark"] .blog-post-page .blog-post-content .blog-poem {
+    color: #ffc2dc;
+    border-color: rgba(255, 194, 220, 0.4);
+}
+
 /* Fenced code blocks: toolbar, copy, readable block */
 .blog-code-wrap {
     margin: 1.5rem 0;

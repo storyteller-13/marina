@@ -8,6 +8,8 @@ A few days ago this article [Harness Engineering for Self-Improvement](https://l
 
 For anyone new here, harness engineering is directly relevant to the work we're doing on **[NULLSTAR](https://www.nullstar.games/)**'s **[PleiadesOS:TAYGETE](https://marina.nullstar.fun/blog/idea_nullstar.html)** module.
 
+<br>
+
 As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
@@ -110,7 +112,7 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 <br>
 
 - The predictability of generalization error with scale was first investigated by 4 types of learning curves through a Bayesian approach, where they all follow a power law: 1) deterministic learning algorithm, noiseless data, one solution; 2) deterministic learning algorithm, noiseless data, multiple solutions; 3) deterministic learning algorithm, noisy data, hard learning; 4) stochastic learning algorithm, noisy data, irreducible loss.
-- Then, empirically, a recurring pattern was observed: 1) generalization error scales as a power law accross a set of factors; 2) model improvements shift the error curve but do not seem to affet the power law exponent; 3) architecture changes the offset of the power law fit but does not change the exponent (the slope of the power law appears to be a property of the problem domain rahter than the model architecture); 4) the number of model parameters needed to fit a dataset of a certain size also scales as a power law.
+- Then, empirically, a recurring pattern was observed: 1) generalization error scales as a power law across a set of factors; 2) model improvements shift the error curve but do not seem to affect the power law exponent; 3) architecture changes the offset of the power law fit but does not change the exponent (the slope of the power law appears to be a property of the problem domain rather than the model architecture); 4) the number of model parameters needed to fit a dataset of a certain size also scales as a power law.
 - The curve can be broken into 3 stages: 1) small data region, when there are not enough learning signals, the model is only slightly better than random guessing; 2) the power-law region,  with a power-law relationship between loss, data, and model size; 3) the final irreducible-error region can be attributed to factors such as noise in the data.
 - A common workflow is to fit scaling laws on a handful of small runs and then extrapolate to estimate the token and compute requirements for larger models.
 
@@ -119,7 +121,7 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 #### Scaling Laws in Data-Infinite Region
 
 - Kaplan et al. (2020) popularized the concept of scaling laws, with a focus on Transformers and empirical experimentation at a larger scale. 
-- They found that 1) the cross-entropy test loss scales as a power law with model size, dataset size, and training compute accross many orders of magnitude; 2) training curves follow predictable power laws whose parameters are indepedent of model size; 3) larger models are more sample-efficient (they reach a given loss with fewer optimization steps and fewer data points than small models); 4) architectural detauls matter less than sheer scale; 5) train loss and test loss are positively correlated; 6) given a fixed compute budget, it's more efficient to train a very large model and stop before convergence than to train a smaller model all the way to convergence (this disagrees with the Chinchilla scaling laws, since Kaplan et al. overestimated the optimal model size as their fitted exponent was larger).
+- They found that 1) the cross-entropy test loss scales as a power law with model size, dataset size, and training compute across many orders of magnitude; 2) training curves follow predictable power laws whose parameters are independent of model size; 3) larger models are more sample-efficient (they reach a given loss with fewer optimization steps and fewer data points than small models); 4) architectural details matter less than sheer scale; 5) train loss and test loss are positively correlated; 6) given a fixed compute budget, it's more efficient to train a very large model and stop before convergence than to train a smaller model all the way to convergence (this disagrees with the Chinchilla scaling laws, since Kaplan et al. overestimated the optimal model size as their fitted exponent was larger).
 
 <br>
 
@@ -127,7 +129,7 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 - Studied the relationship between the optimal model size (total parameters, including embeddings) and the number of tokens under a fixed compute budget. The central question: what was the best strategy to allocate resources (data tokens or more model parameters) given a constraint FLOPs (number of GPUS for a given time).
 - The experiments scanned over 400 models, with sizes from 70M to over 16B parameters and training tokens from 5B to 500B.
-- Method 1: fix model sizes, vary the token budget (for each parameter count, ran several runs with different token budgets and record the minimal loss acheived per FLOP budget).
+- Method 1: fix model sizes, vary the token budget (for each parameter count, ran several runs with different token budgets and record the minimal loss achieved per FLOP budget).
 - Method 2: isoFLOP profiles (fix a compute budget and plot the final loss against a parameter count - each iso-FLOP curve is a parabola in log-space and its minimum flags the optimal model size for that compute budget).
 - Method 3: parametric fit of the loss (minimizing a parametric function under the constraint of FLOPs).
 - The conclusion is that most large models at the time (~2022) were undertrained and it disagrees with Kaplan et al. on where the optimal size-vs-token tradeoff lies. This came from they trained in different sizes of models and counting/not-counting embedding parameters for small models.
@@ -226,7 +228,7 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 <br>
 
 - Reward function defines the task, and reward shaping impacts learning efficiency and accuracy in RL.
-- Spurious correlation or shortcut learning in classification tasks is close related: spurious or shortcut features can cause a classifier to fail at learning and generalizing as intended. The ERM principle states that, since the full data distribution is unknown, minimizing the loss on training data is a reasonable proxy of risk so ut avors models with the lowest training loss. Experiments showed that ERM would depend on spurious features no matter how easy the task is.
+- Spurious correlation or shortcut learning in classification tasks is close related: spurious or shortcut features can cause a classifier to fail at learning and generalizing as intended. The ERM principle states that, since the full data distribution is unknown, minimizing the loss on training data is a reasonable proxy of risk so it favors models with the lowest training loss. Experiments showed that ERM would depend on spurious features no matter how easy the task is.
 - Concepts: reward hacking (2016), reward corruption (2017), reward tampering (2019), specification gaming (2020), objective robustness (2021), goal misgeneralization (2022), reward misspecifications (2022).
 - Experiments in 2 RL environments: CoinRun and Maze, demonstrated the importance of randomization during training.
 - Reward tampering: the agent interferes with the reward function itself, causing the observed reward to no longer accurately represent the intended goal.
@@ -251,7 +253,7 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 #### LLM as a Grader 
 
-- LLMs can act as the evaluators to give feedback and training rewards to other generator models, especially for takss that cannot be trivially judged or verified (e.g., processing long-form ouputs).
+- LLMs can act as the evaluators to give feedback and training rewards to other generator models, especially for tasks that cannot be trivially judged or verified (e.g., processing long-form outputs).
 - Can introduce bias such as a preference for their own responses when compared with different model families or positional bias when evaluating responses in order.
 - Multiple strategies for calibration: 1) multiple evidence calibration (MEC); 2) Balanced position calibration (BPC); 3) Human-in-the-loop calibration (HITLC).
 
@@ -278,7 +280,7 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 <br>
 
-> *Hallucination in LLMs refers to the model generating inconsistent or nonsensical content, i.e., the cases where there model output is not grounded by either the provided context or world knowledge.*
+> *Hallucination in LLMs refers to the model generating inconsistent or nonsensical content, i.e., the cases where their model output is not grounded by either the provided context or world knowledge.*
 
 <br>
 
@@ -290,9 +292,9 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 #### Hallucination Detection
 
-- FactualityPrompt (2022), a new benchmark dataset, consists of both factual and nonfactual prompts. Two evaluation metrics for halucination are considered: 1) hallucination name entity errors; 2) entailment ratios (using a RoBERTa model fine-tuning on MNLI and sentence-level knowledge grounding).
+- FactualityPrompt (2022), a new benchmark dataset, consists of both factual and nonfactual prompts. Two evaluation metrics for hallucination are considered: 1) hallucination name entity errors; 2) entailment ratios (using a RoBERTa model fine-tuning on MNLI and sentence-level knowledge grounding).
 - FActScore (2023) decomposes a long form generation into multiple atomic facts and validates each separately.
-- SAFE (2024) proposed an eval for checking long-form factuality in LLMs, using a language model as an agent to iteratively issue queries in a multi-step process and reason wether the search result supports the fact or not.
+- SAFE (2024) proposed an eval for checking long-form factuality in LLMs, using a language model as an agent to iteratively issue queries in a multi-step process and reason whether the search result supports the fact or not.
 - FactTool (2023) follows a fact checking workflow: 1) claim extraction; 2) query generation; 3) tool querying and evidence collection; 4) agreement verification.
 
 <br>
@@ -379,7 +381,7 @@ Weng concludes the article tounching on some bottlenecks for RSI:
 
 A little walk through Diffusion Models, a strong technique to generate images and videos through AI. The challenges with video generation are pointed as:
 
-1. It has extra requirements on temporal consistency accross frames in time, which demands more world knowledge to be encoded into the model.
+1. It has extra requirements on temporal consistency across frames in time, which demands more world knowledge to be encoded into the model.
 2. It's more difficult to collect large amounts of high-quality, high-dimensional video data, and text-video pairs.
 
 Weng then starts the review of the steps to video generation modeling from scratch.
@@ -413,7 +415,7 @@ Thank you, Weng, for the beautiful math derivation.
 - Gen-1 (2023) targets the task of editing a given video according to text inputs.
 - Video LDM (2023) trains a Latent diffusion model image generator first, then the model is fine-tuned to produce videos with a temporal dimension added.
 - Stable Video Diffusion (2023) has also an architecture design based on LDM with temporal layers inserted after every spatial convolution and attention layer, but SDV fine-tunes the entire model.
-- Lumiere (2024) adopts a space-time U-Net architecture that generates the entire temporal duration of the video at once through a single pass, removing the depedency on temporal super-resolution components.
+- Lumiere (2024) adopts a space-time U-Net architecture that generates the entire temporal duration of the video at once through a single pass, removing the dependency on temporal super-resolution components.
 
 <br>
 
@@ -456,7 +458,7 @@ Weng then discusses the idea of the wisdom of the crowd (Vox populi), rater agre
 #### Threat Model
 
 - Threats to LLM-based applications: injection methods (passive methods, active methods, user-driven injections, hidden injections), information gathering (personal data, credentials, chat leakage), fraud (phishing, scams, masquerading), intrusion (persistence remote control, API calls), malware (spreading injections, spreading malware), manipulated content (wrong summary, disinformation, propaganda/bias, data hiding, ads/promotion), availability (DoS, increased computation). 
-- White-box vs. Black-box: white box attacks assume the attackers have full access to the model weights, architecture, and training pipeline, such that attackers can obtain gradient signals. Black-box attacks assume taht attackers only have access to an API-like service where they provide input x and get back sample y, without knowing further information about the model.
+- White-box vs. Black-box: white box attacks assume the attackers have full access to the model weights, architecture, and training pipeline, such that attackers can obtain gradient signals. Black-box attacks assume that attackers only have access to an API-like service where they provide input x and get back sample y, without knowing further information about the model.
 
 #### Types of Adversarial Attacks
 

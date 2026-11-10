@@ -285,6 +285,8 @@ v) A nonleaf node with k children contains k − 1 keys.
 
 <br>
 
-##### PS: When I look back at this picture, I think, "It's so epic — why am I not wearing something better?" 😅. That’s a little quirk of mine: I never really cared about pictures or how I looked to others. I was the classic nerd who needed to wear comfortable clothes because, "I'm too busy and that's really what matters". See why I have never been interested in or cared about social media? These days, as maturity pushes me to embrace my lifelong role of a scholar and a leader (and, soon, a mother and wife), I've become more mindful of my wardrobe. When I'm working, I mostly wear black and suits; for personal activities, I enjoy floral, colorful, and elegant dresses.
+:::ps
+When I look back at this picture, I think, "It's so epic — why am I not wearing something better?" 😅. That’s a little quirk of mine: I never really cared about pictures or how I looked to others. I was the classic nerd who needed to wear comfortable clothes because, "I'm too busy and that's really what matters". See why I have never been interested in or cared about social media? These days, as maturity pushes me to embrace my lifelong role of a scholar and a leader (and, soon, a mother and wife), I've become more mindful of my wardrobe. When I'm working, I mostly wear black and suits; for personal activities, I enjoy floral, colorful, and elegant dresses.
+:::
 
 ##### ⬛️

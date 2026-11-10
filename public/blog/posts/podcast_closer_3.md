@@ -18,6 +18,8 @@ Early this month, I started **[Part 1️⃣](https://marina.nullstar.fun/blog/po
 
 Today, we review the last (qu)bit: **[Quantum & Dimensions](https://loc.closertotruth.com/theory?category=quantum-dimensions)** and **[Information](https://loc.closertotruth.com/theory?category=information)**.
 
+<br>
+
 As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory. Plus, as always, remember the rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
@@ -28,7 +30,9 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-##### P.S. Go watch **[Andrew Huberman and Michael Pollan's very fresh discussion](https://www.youtube.com/watch?v=nk15CT41MFc)** on this topic.
+:::ps
+Go watch **[Andrew Huberman and Michael Pollan's very fresh discussion](https://www.youtube.com/watch?v=nk15CT41MFc)** on this topic.
+:::
 
 <br>
 
@@ -144,7 +148,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 * Turing machines have become intelligent but may never become conscious"; sentience, on this view, requires "a quantum Turing machine".
 
-* Propose an experimental frameworw: an “expansion protocol” that seeks to physically link a human brain to a quantum computer via quantum entanglement. This requires coupling N qubits in a subject's brain to M qubits in a processor to form an N+M superposition.
+* Propose an experimental framework: an “expansion protocol” that seeks to physically link a human brain to a quantum computer via quantum entanglement. This requires coupling N qubits in a subject's brain to M qubits in a processor to form an N+M superposition.
 
 * Neven and collaborators speculate that psychedelic, mystical, and near-death experiences may involve increased numbers of entangled qubits within the brain.
 

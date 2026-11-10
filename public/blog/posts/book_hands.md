@@ -6,6 +6,8 @@ date: 2026; 07; 27
 
 A good end-to-end overview of the subject.
 
+<br>
+
 As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
 **🤖 If these notes look cool to you, it's your ✦moral duty✦ to read the original resources.**
@@ -120,7 +122,7 @@ vector = model.encode("Best movie ever!")
 
 <br>
 
-* Imagine if we treated each song as we would a word or token, and we treated each playlist like a sentence. These bembeddings can then be used to recommend similar songs that often appear together in playlists.
+* Imagine if we treated each song as we would a word or token, and we treated each playlist like a sentence. These embeddings can then be used to recommend similar songs that often appear together in playlists.
 
 <br>
 

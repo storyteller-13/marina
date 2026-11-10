@@ -20,7 +20,7 @@ date: 2026; 10; 25
 
 <br>
 
-```
+:::poem
 Forever is composed of Nows —
 ’Tis not a different time,
 Except for infiniteness
@@ -38,13 +38,15 @@ As infinite our years would be
 As Anno Domini’s.
 
 — Emily Dickinson 
-```
+:::
 
 <br>
 
 Today, we continue our informal discussion of the literature on recursive self-improvement and self-reference in the context of the work we are doing at **[NULLSTAR](https://www.nullstar.games/)** on self-improving harness engineering (more specifically, on the module **[PleiadesOS:TAYGETE](https://marina.nullstar.fun/blog/paper_intel_3.html)**). 
 
 Across these fifteen 2026 papers, we build on what we explored in **[the last post](https://marina.nullstar.fun/blog/paper_intel_2.html)** and **[earlier this summer](https://marina.nullstar.fun/blog/paper_weng.html)**, while adding some modern (and very fresh) color to the topic.
+
+<br>
 
 As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 

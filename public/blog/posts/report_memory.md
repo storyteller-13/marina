@@ -312,7 +312,7 @@ def route_memory(content: str, user_id: str, session_id: str) -> str:
 
 - Within-session metrics: 1) constraint adherence rate by turn depth, 2) exact value accuracy, 3) working memory token footprint over time.
 
-- Cross-session metrics: 1) preference persistence rate, 2) constraing survival after compression.
+- Cross-session metrics: 1) preference persistence rate, 2) constraint survival after compression.
 
 <br>
 
@@ -2980,7 +2980,7 @@ It combines three ideas:
 
 1️⃣ Traditional database storage.
 2️⃣ Information retrieval and trust scoring.
-3️⃣ Holographic Reduced Representations (HRR) — an algebraic framework for encoding, binding, and composing relationships between distributed representations (technical references: [1](https://redwood.berkeley.edu/wp-content/uploads/2020/08/Plate-HRR-IEEE-TransNN.pdf), [2](https://arxiv.org/pdf/2001.11797v4), [3](https://cs.uwaterloo.ca/~jhoey/teaching/cogsci600/papers/Kanerva09.pdf), [4](https://arxiv.org/abs/cs/0412059), [5](https://arxiv.org/abs/2111.06077), [6](https://arxiv.org/abs/2010.07426), [7](https://proceedings.neurips.cc/paper_files/paper/1993/file/edfbe1afcf9246bb0d40eb4d8027d90f-Paper.pdf))
+3️⃣ Holographic Reduced Representations (HRR) — an algebraic framework for encoding, binding, and composing relationships between distributed representations
 
 <br>
 
@@ -3007,9 +3007,7 @@ It combines three ideas:
 | OpenViking         | Filesystem-oriented context management     | Hierarchical context organization |
 | Hindsight          | Memory formation, retrieval and reflection | Learning from experience          |
 
-
 <br>
-
 
 ```
 hermes plugins install holographic
@@ -3026,6 +3024,10 @@ plugins:
     auto_extract: true
     default_trust: 0.5
 ```
+
+<br>
+
+> HRR deserves a post of its own (so we can all learn together). For now, here are some technical references gathered from the robots: [0](https://ijcai.org/proceedings/1991/0005.pdf) [1](https://redwood.berkeley.edu/wp-content/uploads/2020/08/Plate-HRR-IEEE-TransNN.pdf), [2](https://arxiv.org/pdf/2001.11797v4), [3](https://cs.uwaterloo.ca/~jhoey/teaching/cogsci600/papers/Kanerva09.pdf), [4](https://arxiv.org/abs/cs/0412059), [5](https://arxiv.org/abs/2111.06077), [6](https://arxiv.org/abs/2010.07426), [7](https://proceedings.neurips.cc/paper_files/paper/1993/file/edfbe1afcf9246bb0d40eb4d8027d90f-Paper.pdf) [8](https://arxiv.org/pdf/1602.03032) [9](https://github.com/itpartypattaya/hermes-plugin-holographic/tree/main)
 
 <br>
 
@@ -3443,6 +3445,120 @@ Dreaming for self-improvement
 - Sub-agent architectures provide another way around context limitations. Rather than one agent attempting to maintain state across an entire project, specialized sub-agents can handle focused tasks with clean context windows. The main agent coordinates with a high-level plan while subagents perform deep technical work or use tools to find relevant information. Each subagent might explore extensively, using tens of thousands of tokens or more, but returns only a condensed, distilled summary of its work (often 1,000-2,000 tokens).
 
 <br>
+
+---
+
+## [The Components of Agent Memory (Anthropic, 2026)](https://www.anthropic.com/research/components-of-agent-memory)
+
+<br>
+
+> **Note:** In an interesting coincidence, two days after I released this report, Anthropic published this article on how they are approaching dreaming, joining the many other AI projects exploring this topic, which has been a major theme this summer. I'm adding it as a post-addition because it's well-written.
+
+<br>
+
+![](/blog/assets/report_mem_46.webp)
+
+<br>
+
+- As humans, we encode memory constantly as we go about our lives. The hippocampus plays a central role in this, capturing experiences in the moment so that memories form quickly and are immediately available. But only some experiences are consolidated into long-term knowledge. Much of that consolidation appears to happen when our brains are offline. As we sleep, and during quiet rest, the hippocampus replays our recent experiences.
+
+- Agent memory can use a similar division of labor. Agents capture much of their work in logs or transcripts. Researchers at Letta and UC Berkeley proposed sleep-time compute as a way for models to use idle time between interactions to reorganize their existing context. The same idea can help agents organize their memory by reflecting on logs to fix mistakes or produce new notes and representations. This process is often called dreaming.
+
+- Claude can tag salient events in a session log as they happen, so they’re easier to find later, or it can write them to a memory store, such as a folder of memory notes.
+
+- On CL-Bench, we told Claude that a memory folder was available. That general guidance was enough for Opus 4.7 and Opus 5 to use memory effectively, and it gave both a noticeable boost in performance.
+
+<br>
+
+![](/blog/assets/report_mem_47.webp)
+
+<br>
+
+- With dreaming, Claude can build representations to help navigate memory (Figure 9). One type of memory representation it uses is called a wiki, a collection of pages written and maintained by Claude that gathers what Claude knows about one subject and links it to other notes.
+
+- Promoting memories into a new session (a form of context injection) must be done carefully. Injected memories use up valuable tokens, and an incorrect note can be carried into every session.
+
+- Claude Code’s auto memory keeps its injected layer small in the same way, with Claude maintaining it during the session. It loads only the first 200 lines or 25 KB of `MEMORY.md`.
+
+- When Claude works on a task, it can write to a memory store (e.g., a folder, file, or database), capturing salience at the source and making important details immediately available for future turns or sessions. But logging notes in the moment inevitably draws Claude’s attention away from its main task. In contrast, dreaming can push memory creation to the background, but any outputs from dreaming may not be immediately accessible to Claude.
+
+- Another question is how to keep memory reliably up to date. Claude can make incorrect predictions or write rules to memory that are wrong from the start. Memory can also drift and become irrelevant as the environment changes.
+
+<br>
+
+---
+
+## [Agent memory needs its OpenTelemetry moment (lorekit.io, 2026)](https://www.lorekit.io/blog/open-agent-memory-format)
+
+<br>
+
+- Every place your coding tools keep something they "remember":
+
+➡️ an `AGENTS.md` or `CLAUDE.md` in most repos, and `.cursor/rules/*.mdc` in a few
+➡️ an agent writing files to a `/memories` directory through Anthropic's memory tool
+➡️ Copilot keeping facts about each repo on GitHub's side
+➡️ a memory MCP server keeping a `JSONL` knowledge graph
+
+<br>
+
+What mattered was what the vendors agreed to stop competing on:
+
+➡️ A data model: what a span, a metric and a log record are.
+➡️ Semantic conventions: shared names like `service.name and http.*`.
+➡️ A protocol: `OTLP`, one way to send the data.
+➡️ Reference implementations: shared SDKs and the `Collector`.
+
+<br>
+
+- Who writes the memory? In instruction files it's a person. In the memory tool, Letta and LoreKit, it's the model. In Mem0 and Graphiti, a service extracts facts from the conversation. A spec doesn't need to pick one. It needs to record which, so a reader knows how much to trust what it reads.
+
+
+```
+---
+spec: agent-memory/0.1
+id: 8f0c2a6e-4b1d-4c7a-9e2f-3a5b6c7d8e9f
+address: { level: repo, value: github.com/acme/checkout }
+key: tests-need-local-postgres
+kind: lesson
+version: 3
+supersedes: 41b9e0c2-7d3a-4f15-8c6e-0a9b8c7d6e5f
+written_by: { type: agent, name: claude-code }
+content_type: text/markdown
+lifecycle: { expires_at: null, extended_by: write }
+attributes: { vcs.pr: 482, ci.run_url: "https://ci.example/runs/123" }
+---
+Integration tests fail with `ECONNREFUSED 127.0.0.1:5432` unless Postgres
+is already running. Start it before `pnpm test`:
+
+    docker compose up -d db
+
+The test setup does not start it for you.
+
+```
+
+<br>
+
+Around that record, a spec would mirror OpenTelemetry's layers:
+
+➡️ Conventions: shared names for address levels (global, project, repo, branch, and whatever monorepos need), for kinds, and for attribute namespaces (vcs.*, ci.*, agent.*), in one versioned registry.
+➡️ A contract: a few operations (write, read, list, search, archive) with fixed inputs and outputs, exposed over MCP. Many memory servers now offer an MCP interface, but each exposes different tools with different meanings.
+➡️ Conformance tests in place of a reference implementation: round-trip a record and check nothing was lost, check that unknown attributes survive a rewrite, check that expiry behaves as stated, check that a superseded record reads as superseded.
+
+<br>
+
+| Family              | Example                                       | The unit of memory                        | Addressed by                                 | Forgetting                                                  |
+| ------------------- | --------------------------------------------- | ----------------------------------------- | -------------------------------------------- | ----------------------------------------------------------- |
+| Instruction files   | `AGENTS.md`, `CLAUDE.md`, Cursor `.mdc` rules | A whole Markdown file                     | File path (plus `globs` for Cursor)          | Never. A person edits it                                    |
+| Agent-managed files | Anthropic's memory tool                       | A file under `/memories`                  | A path the model picks                       | Never, unless the model deletes it                          |
+| Hosted repo facts   | GitHub Copilot Memory                         | A fact with code citations                | One repository                               | Deleted after 28 days unused                                |
+| Context blocks      | Letta core memory                             | A labeled block with a character `limit`  | A `label` on an agent                        | Never. Always in context                                    |
+| Extracted facts     | Mem0                                          | A fact the service extracts from messages | `user_id` / `agent_id` / `run_id` / `app_id` | Optional expiration date                                    |
+| Namespaced store    | LangGraph `BaseStore`                         | A JSON `value` dict                       | A `namespace` tuple + `key`                  | Optional TTL, reset when the item is read (by default)      |
+| Knowledge graph     | MCP reference memory server                   | Entities, relations, observations         | Entity name                                  | Never                                                       |
+| Temporal graph      | Graphiti / Zep                                | A fact on a graph edge                    | Entities + edge                              | Facts are invalidated rather than deleted, on two timelines |
+| Addressed record    | LoreKit                                       | A record with a scope, key and lifecycle  | A scope string + `key`                       | Never, unless a TTL is set                                  |
+
+<br>
 <br>
 
 ---
@@ -3477,7 +3593,7 @@ Dreaming for self-improvement
 
 - A growing line of work further frames foundation agents as self-evolving systems that improve from their own execution experience at deployment time, rather than solely through offline training, and emerging benchmarks have begun to directly evaluate such experience-driven test-time learning over self-evolving memory. 
 
-- Memory is the substrate that makes this self-evolution possible: without mechanisms to record, consolidate, and reuse experience, every episode leaves the agent unchanged,and long-horizon interaction degenerates into a sequence of isolated one-shot tasks. 
+- Memory is the substrate that makes this self-evolution possible: without mechanisms to record, consolidate, and reuse experience, every episode leaves the agent unchanged, and long-horizon interaction degenerates into a sequence of isolated one-shot tasks. 
 
 - Multi-agent systems extend this paradigm by assigning specialized roles and memories to multiple agents that communicate and coordinate.
 
@@ -3536,6 +3652,7 @@ Dreaming for self-improvement
 
 <br>
 
+- [Adaptive Memory Selection for LLM Agents](https://arxiv.org/pdf/2611.05636) — Z. Fang et al. (2026)
 - [Scaling Long-Horizon LLM Agent via Context-Folding](https://arxiv.org/abs/2510.11967) — W. Sun et al. (2025).
 - [QSAF: A Novel Mitigation Framework for Cognitive Degradation in Agentic AI](https://arxiv.org/abs/2507.15330) — H. Atta et al. (2025).
 - [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120) — P. Laban et al. (2025).
@@ -3550,6 +3667,7 @@ Dreaming for self-improvement
 
 <br>
 
+- [Sleep-time Compute: Beyond Inference Scaling at Test-time](https://arxiv.org/pdf/2504.13171) — L. Lin et al., 2025
 - [A Survey on the Memory Mechanism of LLM-Based Agents](https://arxiv.org/pdf/2404.13501) — Z. Zhang et al. (2024).
 - [Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427) — T. R. Sumers et al. (2023).
 - [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) — N. F. Liu et al. (2023).

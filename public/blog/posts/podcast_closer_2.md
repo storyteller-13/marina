@@ -20,6 +20,8 @@ Today, we look at the remaining relevant subclasses of materialism: **[Computati
 
 In the third and final post, we will review **[Quantum & Dimensions](https://loc.closertotruth.com/theory?category=quantum-dimensions)** and **[Information](https://loc.closertotruth.com/theory?category=information)**.
 
+<br>
+
 As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory. Plus, as always, remember the rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**
@@ -640,7 +642,7 @@ As I read through the material, I wrote down a few highlights — with a moderat
 
 <br>
 
-> *EM waves now contain the information about the pain that was previously encoded in the action potentials. In other words, the pain information was transferred from action potentials to LFPs to EM waves, which could influence nearby circuits, such as those for attention. Theese EM waves contribute to consciousness. Assuming information from other senses is also transformed into EM waves, it also might help solve the “binding/combination problem,” because integrating information from all the waves could explain how individual sensory inputs combine to create “a unified, coherent version of the world.”*
+> *EM waves now contain the information about the pain that was previously encoded in the action potentials. In other words, the pain information was transferred from action potentials to LFPs to EM waves, which could influence nearby circuits, such as those for attention. These EM waves contribute to consciousness. Assuming information from other senses is also transformed into EM waves, it also might help solve the “binding/combination problem,” because integrating information from all the waves could explain how individual sensory inputs combine to create “a unified, coherent version of the world.”*
 
 <br>
 

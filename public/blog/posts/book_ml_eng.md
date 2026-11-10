@@ -16,6 +16,8 @@ Happy Monday, my dear anon friend.
 
 This weekend, I had the chance to check out another very good (and delightfully opinionated) open-source book: **[Stas Bekman's Machine Learning Engineering](https://github.com/stas00/ml-engineering)**. He is really smart, and I learned a lot from this book. His explanations of the details and advanced techniques involved in setting up hardware pipelines for training and inference are remarkably thorough and well-written. I must confess, though, that a good part of it was a bit advanced for my current level of knowledge. Still, it was worth reading for the general exposure (plus, I learned more about **[SLURM](https://slurm.schedmd.com/quickstart.html)**!), and I definitely intend to revisit this text later on.
 
+<br>
+
 As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:
 
 **🤖 If you see a 👾, it means I found something particularly cool or learned something new.**

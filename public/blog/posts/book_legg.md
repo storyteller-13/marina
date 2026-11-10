@@ -12,7 +12,7 @@ date: 2026; 10; 16
 
 <br>
 
-```
+:::poem
 If men could only see the cause, and why
 This mountain of distress weighs down the mind,
 They’d drop all else and study to find out
@@ -23,10 +23,16 @@ Brief hour — the state in which all mortals must
 Spend time to come, when once our days are done.
 
 — Lucretius
-```
+:::
 <br>
 
-**Happy friday, my dear anon friend. We’re back for another weekend’s collective research into human and machine superintelligence. Today, we’ll explore **[the thesis of one of DeepMind’s co-founders](https://www.vetta.org/documents/Machine_Super_Intelligence.pdf)**, which concerns the “optimal behavior of agents in unknown computable environments,” also known as universal artificial intelligence. Very well written. It was a **[delightful](https://www.youtube.com/watch?v=uLu1cTKBspI)** journey through the nature and measurement of intelligence, the concept and measure of universal artificial intelligence, the optimality of AIXI, the limits of computational agents, and the fundamental temporal difference learning. At another time, we might review **[Legg's full publication list as well](https://www.vetta.org/publications/).**
+#### Happy friday, my dear anon friend. 
+
+#### We’re back for another weekend’s collective research into human and machine superintelligence. Today, we’ll explore [the thesis of one of DeepMind’s co-founders](https://www.vetta.org/documents/Machine_Super_Intelligence.pdf), which concerns the “optimal behavior of agents in unknown computable environments,” also known as universal artificial intelligence. Very well written. 
+
+#### It was a [delightful](https://www.youtube.com/watch?v=uLu1cTKBspI) journey through the nature and measurement of intelligence, the concept and measure of universal artificial intelligence, the optimality of AIXI, the limits of computational agents, and the fundamental temporal difference learning. At another time, we might review [Legg's full publication list as well](https://www.vetta.org/publications/).
+
+<br>
 
 As I read through today's material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:
 
@@ -47,7 +53,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 - The main theoretical limitation of Solomonoff induction is that it only addresses the problem of passive inductive learning, in particular sequence prediction. Whether the agent’s predictions are correct or not has no effect on the future observed sequence. Thus the agent is passive in the sense that it is unable to influence the future.
 
-- In the late 1990’s Marcus Hutter extended Solomonoff’s passive induction model to the active case by combining it with sequential decision theory. This produced a theory of universal agents, and in particular a universal agent for a very general class of interactive environments, known as the AIXI agent. Hutter was able to prove that the behaviour of universal agents converges to optimal in any setting where this is at all possible for a general agent, and that these agents are Pareto optimal in the sense that no agent can perform as well in all environments and strictly better in at least one. These are the strongest known results for a completely general purpose agent. Given that AIXI has such generality and extreme performance characteristics, it can be considered to be a theoretical model of a super intelligent agent. Unfortunately, even stronger results showing that AIXI converges to optimal behaviour rapidly, similar to Solomonoff’s convergence result, have been shown to be impossible in some settings, and remain open questions in others.
+- In the late 1990s Marcus Hutter extended Solomonoff’s passive induction model to the active case by combining it with sequential decision theory. This produced a theory of universal agents, and in particular a universal agent for a very general class of interactive environments, known as the AIXI agent. Hutter was able to prove that the behaviour of universal agents converges to optimal in any setting where this is at all possible for a general agent, and that these agents are Pareto optimal in the sense that no agent can perform as well in all environments and strictly better in at least one. These are the strongest known results for a completely general purpose agent. Given that AIXI has such generality and extreme performance characteristics, it can be considered to be a theoretical model of a super intelligent agent. Unfortunately, even stronger results showing that AIXI converges to optimal behaviour rapidly, similar to Solomonoff’s convergence result, have been shown to be impossible in some settings, and remain open questions in others.
 
 <br>
 
@@ -60,7 +66,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 -  A recently popular approach is Gardner’s “multiple intelligences” where he argues that the components of human intelligence are sufficiently separate that they are actually different “intelligences”(Gardner, 1993). Based on the structure of the human brain he identifies these intelligences to be linguistic, musical, logical-mathematical, spatial, bodily kinaesthetic, intra-personal and inter-personal intelligence. Although Gardner’s theory of multiple intelligences has certainly captured the imagination of the public, it remains to be seen to what degree it will have a lasting impact in professional circles.
 
-- At the other end of the spectrum is the work of Spearman and those that have followed in his approach. Here intelligence is seen as a very general mental ability that underlies and contributes to all other mental abilities. As evidence they point to the fact that an individual’s performance levels in reasoning, association, linguistic, spatial thinking, pattern identification etc. are positively correlated. Spearman called this positive statistical correlation beween different mental abilities the “g-factor”, where g stands for “general intelligence” (Spearman, 1927). 
+- At the other end of the spectrum is the work of Spearman and those that have followed in his approach. Here intelligence is seen as a very general mental ability that underlies and contributes to all other mental abilities. As evidence they point to the fact that an individual’s performance levels in reasoning, association, linguistic, spatial thinking, pattern identification etc. are positively correlated. Spearman called this positive statistical correlation between different mental abilities the “g-factor”, where g stands for “general intelligence” (Spearman, 1927). 
 
 - Perhaps the most elementary common feature of these definitions is that intelligence is seen as a property of an individual who is interacting with an external environment, problem or situation.
 
@@ -149,7 +155,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 <br>
 
-- Besides the prior described in the previous section, Solomonoff also suggested to define a universal prior by taking a mixture of distributions (Solomonoff, 1964). In the 1970’s this alternate approach was generalised and further developed (Zvonkin and Levin, 1970; Levin, 1974). (…) The Solomonoff prior `M` and Solomonoff-Levin prior `ξ` lie within a multiplicative constant of each other.
+- Besides the prior described in the previous section, Solomonoff also suggested to define a universal prior by taking a mixture of distributions (Solomonoff, 1964). In the 1970s this alternate approach was generalised and further developed (Zvonkin and Levin, 1970; Levin, 1974). (…) The Solomonoff prior `M` and Solomonoff-Levin prior `ξ` lie within a multiplicative constant of each other.
 
 - Intuitively one may think of a semi-measure that is not a probability measure as being a kind of defective probability measure whose probabilities do not quite add up as they should. This defect can be fixed in the sense that a semi-measure can be built up to be a probability measure by appropriately normalising things.
 
@@ -167,7 +173,7 @@ As I read through today's material, below are my highlights — with a moderate 
 
 - When approaching an inductive inference problem from a Bayesian perspective, the first step is to define `H`. The most obvious consideration is that `H` should be large enough to contain the correct hypothesis, or at least a sufficiently close one. Having selected `H`, the next problem is to define a good prior distribution over this space. The standard solution is to select a prior that is in some sense neutral about the relative likelihood of different hypotheses. This is known as the indifference principle.
 
-- The standard Bayesian approach is to try to find a symmetry group for the problem and a prior that is invariant under group transformations. However, in some cases there may be no obvious symmetry, and even if there is the resulting prior may be improper, meaning that the area under the distribution is no longer 1. Invariance under group transformations is a highly desirable but difficult property to attain. Remarkably, under simple group transformations `PMe` can be proven to be invariant, again up to a small  ultiplicative constant. For a proof of this, as well as further powerful properties of the universial prior distribution, see the paper that this section is based on (Hutter, 2007a).
+- The standard Bayesian approach is to try to find a symmetry group for the problem and a prior that is invariant under group transformations. However, in some cases there may be no obvious symmetry, and even if there is the resulting prior may be improper, meaning that the area under the distribution is no longer 1. Invariance under group transformations is a highly desirable but difficult property to attain. Remarkably, under simple group transformations `PMe` can be proven to be invariant, again up to a small  ultiplicative constant. For a proof of this, as well as further powerful properties of the universal prior distribution, see the paper that this section is based on (Hutter, 2007a).
 
 <br>
 

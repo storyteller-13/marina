@@ -348,7 +348,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-## VI. Valirdation, Verification, and Evaluation
+## VI. Validation, Verification, and Evaluation
 
 <br>
 
@@ -464,7 +464,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 - Three design questions recur most often in this dimension: how tools are registered, how they are surfaced for selection or discovery, and how execution is bounded. 
 
-- The registration spectrum ranges from hard-coded, decorator-driven, explicity registry, declarative/DSL, protocol-based (MCP), plugin ecosystem, and delegation/proxy approaches.
+- The registration spectrum ranges from hard-coded, decorator-driven, explicit registry, declarative/DSL, protocol-based (MCP), plugin ecosystem, and delegation/proxy approaches.
 
 - Tool-execution security also varies widely. Some frameworks execute tools in-process with minimal checks, while others add command filtering, process isolation, containerization, or external delegation. 
 
@@ -811,7 +811,7 @@ memory-assisted input = current task + retrieved relevant memories
 
 - When people do train models for a specific agentic system they largely do this for the agentic system as a whole. In theory, you could do this at a more granular level (e.g. you could have a LORA per user) but in practice this is mostly done at the agent level.
 
-- Meta-harness e2e optimazaion: the agent is running in a loop. You first run it over a bunch of tasks, and then evaluate them. You then store all these logs into a filesystem. You then run a coding agent to look at these traces, and suggest changes to the harness code.
+- Meta-harness e2e optimization: the agent is running in a loop. You first run it over a bunch of tasks, and then evaluate them. You then store all these logs into a filesystem. You then run a coding agent to look at these traces, and suggest changes to the harness code.
 
 <br>
 
@@ -2198,7 +2198,7 @@ let agent = AgentBuilder::new(cwd, None, ToolNotificationHandle::noop())
 
 1. **[CLI entry point — main.rs](https://github.com/openai/codex/blob/main/codex-rs/cli/src/main.rs#L1039)**
 2. **[Interactive startup — `run_main`](https://github.com/openai/codex/blob/main/codex-rs/tui/src/lib.rs#L1145)**
-3. **[Non-interative agent startup — `run_main`](https://github.com/openai/codex/blob/main/codex-rs/exec/src/lib.rs#L266)**
+3. **[Non-interactive agent startup — `run_main`](https://github.com/openai/codex/blob/main/codex-rs/exec/src/lib.rs#L266)**
 
 <br>
 
@@ -3153,7 +3153,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 > An agent harness associated for supporting agent execution and tool orchestration. Built on an "everything-is-a-plugin" architecture.
 
-> EDIT: A few days after this report, DeepSeek published this interesting [wrapper](https://github.com/deepseek-ai/dsh-superagent-prototype) for a multi-agent archtecture through a router layer ([X review](https://x.com/DeepSeekHarness/status/2116857257245987236)).
+> EDIT: A few days after this report, DeepSeek published this interesting [wrapper](https://github.com/deepseek-ai/dsh-superagent-prototype) for a multi-agent architecture through a router layer ([X review](https://x.com/DeepSeekHarness/status/2116857257245987236)).
 
 <br>
 
