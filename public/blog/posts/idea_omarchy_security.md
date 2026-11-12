@@ -32,9 +32,9 @@ The crownless again shall be king.
 
 #### Hello and happy friday the 13th, my dear anon friend.
 
-#### Today, we'll walk through the steps I take to harden one of my Linux machines: my Omarchy box. This is an ever-evolving effort. Some of these steps came from long debugging sessions I had to go through (looking at you, [AppArmor](https://wiki.archlinux.org/title/AppArmor) and [Secure Boot](https://en.wikipedia.org/wiki/Secure_Boot)).
+#### Today, we'll walk through the steps I take to harden one of my Linux machines: my Omarchy box. I've called this an "ever-evolving" project because, for now, my focus is on establishing the fundamentals. That said, some of these steps came out of rather lengthy debugging sessions (I'm looking at you, [AppArmor](https://wiki.archlinux.org/title/AppArmor) and [Secure Boot](https://en.wikipedia.org/wiki/Secure_Boot)).
 
-#### I’ve called it "ever-evolving" because, for now, my focus is on establishing the fundamentals. Security hardening, however, is an ongoing process. There are plenty of additional monitoring mechanisms, forensic inspections, and security tests that I may incorporate into this work over time, alongside new measures as they become available. The source code for this project, along with some of my other opinionated configurations, is maintained in **[this GitHub repository](https://github.com/future-ai-org/omarchy_stuff)**.
+#### Security hardening is an ongoing process. There are plenty of additional monitoring mechanisms, forensic inspections, and security tests that I may incorporate into this work over time, alongside new measures as they become available. The source code for this project, along with some of my other opinionated configurations, is maintained in [**this GitHub repository**](https://github.com/future-ai-org/omarchy_stuff).
 
 <br>
 
@@ -1939,6 +1939,6 @@ sudo lynis audit system
 
 ---
 
-#### That's it for today. See you in the next update!
+##### That's it for today. See you in the next update!
 
-#### ⬛️
+##### ⬛️
