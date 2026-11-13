@@ -369,6 +369,24 @@ test("a generated post page names its post in a meta tag", async () => {
   expect(document.getElementById("post-title").textContent).toBe("Meta");
 });
 
+test("a statically rendered post does not fetch Markdown again", async () => {
+  require("../../public/js/blog-post.js");
+  document.head.innerHTML = '<meta name="post-slug" content="static-post">';
+  document.body.innerHTML = `
+    <article class="blog-post-page">
+      <h1 id="post-title">Static title</h1>
+      <p id="post-subtitle">Static subtitle</p>
+      <div id="post-content" data-rendered="true"><pre><code class="language-js">const value = 1;</code></pre></div>
+    </article>
+  `;
+
+  await window.MarinaBlogPost.loadPost();
+
+  expect(window.fetch).not.toHaveBeenCalled();
+  expect(document.querySelector(".blog-code-wrap")).not.toBeNull();
+  expect(document.getElementById("post-title").textContent).toBe("Static title");
+});
+
 test("DOMContentLoaded loads the post", async () => {
   document.body.innerHTML = `
     <h1 id="post-title"></h1>

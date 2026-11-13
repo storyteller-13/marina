@@ -491,6 +491,13 @@ async function loadPost() {
     return;
   }
 
+  // Generated post pages are fully rendered at build time; keep the fetch fallback for /pages/post.html?post=.
+  if (contentRoot.dataset.rendered === "true") {
+    enhanceCodeBlocks(contentRoot);
+    scrollToHashTarget();
+    return;
+  }
+
   const mdPath = assetUrl(`blog/posts/${encodeURIComponent(slug)}.md`);
 
   try {

@@ -215,6 +215,6 @@ Let's end today's discussion with an *ever-growing* list of good resources on bu
 
 ---
 
-### Until next time, my friend!
+### Until next time, my anon friend!
 
 ### ⬛

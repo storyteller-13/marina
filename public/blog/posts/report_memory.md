@@ -1011,7 +1011,7 @@ hits = mem.search(
 
 ---
 
-### [Stateless vs. Stateful](https://mem0.ai/library/agent-memory/short-term-vs-long-term-memory-in-ai)
+### [Stateless vs. Stateful](https://mem0.ai/library/agent-memory/stateless-vs-stateful-ai-agents)
 
 <br>
 
@@ -1107,7 +1107,7 @@ A stateful system follows the same loop on every request:
 
 ---
 
-### [Short-Term vs. Long-Term Memory](https://mem0.ai/library/agent-memory/stateless-vs-stateful-ai-agents)
+### [Short-Term vs. Long-Term Memory](https://mem0.ai/library/agent-memory/short-term-vs-long-term-memory-in-ai)
 
 <br>
 
@@ -1365,7 +1365,7 @@ Common failure modes:
 
 <br>
 
-- HyperAgents is a self-referential agent that combines the task agent and the meta agent into a single editable program, one that can improve not just how it solves tasks but how it generates future improvements. 
+- [HyperAgents](https://github.com/facebookresearch/HyperAgents) is a self-referential agent that combines the task agent and the meta agent into a single editable program, one that can improve not just how it solves tasks but how it generates future improvements. 
 
 - The meta-level modification procedure is itself editable, enabling what the paper calls metacognitive self-modification.
 
@@ -1451,7 +1451,7 @@ Common failure modes:
 | Long-term summarization | Manual via ad-hoc prompts | Rarely implemented consistently | Custom logic per project | Encouraged pattern with shared primitives |
 | Multi-tenant isolation | N/A | Possible but fragile | Possible, requires discipline | First-class via metadata scopes |
 | Ecosystem and composability | Framework-specific | DB/vendor-specific | Application-specific | Framework-agnostic memory API |
-| Auditability of decisions | Hard as history is partial | Hard as retrieval is opaque | Possible with extra work | Easier via inspectable memory records |`
+| Auditability of decisions | Hard as history is partial | Hard as retrieval is opaque | Possible with extra work | Easier via inspectable memory records |
 | Dev effort for new agents | Low for prototypes, high for production | Medium plus tuning | High, repeated per project | Medium, reusable across agents |
 
 <br>
@@ -1607,7 +1607,7 @@ Several patterns make clear use of GPUs and TPUs alongside memory:
 
 <br>
 
-![](/blog/assets/report_mem_32.png)
+![](/blog/assets/report_mem_32.webp)
 
 <br>
 
@@ -1686,11 +1686,11 @@ Both parametric and external memory can preserve information across inference ca
 
 <br>
 
-- An AI agent memory architecture is the arrangement of stores, pipelines and interfaces that lets an agent remember things across turns, sessions and tasks instead of starting every call from zero. It’s a is a system design, not a single database.
+- An AI agent memory architecture is the arrangement of stores, pipelines and interfaces that lets an agent remember things across turns, sessions and tasks instead of starting every call from zero. It’s a system design, not a single database.
 
 <br>
 
-![](/blog/assets/report_mem_40.svg)
+![](/blog/assets/report_mem_40.webp)
 
 <br>
 
@@ -1711,7 +1711,7 @@ Both parametric and external memory can preserve information across inference ca
 
 <br>
 
-![](/blog/assets/report_mem_41.svg)
+![](/blog/assets/report_mem_41.webp)
 
 <br>
 
@@ -1999,7 +1999,7 @@ What Should an AI Observability Tool Track?
 | [LangSmith](https://github.com/langchain-ai/langsmith-python)                  | Agent tracing tied closely to evaluation                           | Dedicated retriever traces; custom tracing for other operations              | Cloud; hybrid; Enterprise self-hosting      |
 | [Langfuse](https://github.com/langfuse/langfuse)                        | OpenTelemetry-based observability with an MIT-licensed core        | Generic observations and sessions can capture retrieval or memory operations | Cloud or self-hosted                        |
 | [Arize Phoenix](https://github.com/Arize-ai/phoenix)                    | OpenInference/OpenTelemetry tracing and RAG evaluation             | Explicit retrieval traces; custom spans for application logic                | Local, containerized, or Phoenix Cloud      |
-| [Braintrust](github.com/braintrustdata/braintrust-cookbook)              | Evaluation-centered production observability                       | Agent-observability guidance explicitly includes memory reads and writes     | Cloud; customer-hosted data plane available |
+| [Braintrust](https://github.com/braintrustdata/braintrust-cookbook)              | Evaluation-centered production observability                       | Agent-observability guidance explicitly includes memory reads and writes     | Cloud; customer-hosted data plane available |
 | [Comet Opik](https://github.com/comet-ml/opik)                          | Open-source tracing and trajectory evaluation                      | Custom spans can include retrieval and memory activity                       | Cloud or self-hosted                        |
 | [W&B Weave](https://github.com/wandb/weave)                             | Agent tracing and evaluation within the W&B ecosystem              | Instrumented operations can include retrieval or memory calls                | W&B platform                                |
 | [Datadog Agent Observability](https://github.com/DataDog/datadog-agent) | AI traces connected with application and infrastructure monitoring | Custom/manual spans can capture memory operations                            | Datadog platform                            |
@@ -2237,7 +2237,7 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 
 <br>
 
-![](/blog/assets/report_mem_37.avif)
+![](/blog/assets/report_mem_37.webp)
 
 <br>
 
@@ -2278,7 +2278,7 @@ Lineage must be set-valued, survive mutation, answer queries. Set-valued links b
 
 ---
 
-## 🟪 [Letta (TypeScript)](https://github.com/letta-ai/letta-code) (Memory Built into the Agent Runtime)
+## 🟪 [Letta (Python, TypeScript)](https://github.com/letta-ai/letta) (Memory Built into the Agent Runtime)
 
 <br>
 
@@ -2351,7 +2351,7 @@ $MEMORY_DIR/
 
 - RAG rose in popularity because of its simplicity: you embed a document in your LLM workflow, use an algorithm to find the top-K-related snippets of that document, and then deposit those snippets into the context window.
 
-- RAG is single step. LLMs get “one shot” at retrieving the most relevant data and generating a response. While that can work, it often doesn’t. T
+- RAG is single step. LLMs get “one shot” at retrieving the most relevant data and generating a response. While that can work, it often doesn’t.
 
 - RAG is purely reactive. RAG isn't going to retrieve personalization information that isn’t semantically similar.
 
@@ -2373,7 +2373,7 @@ $MEMORY_DIR/
 
 - Files are simple, universal primitives that both humans and agents can work with using familiar tools. Following the Unix philosophy, agents can chain standard tools for complex queries over memory, use bash for batch operations (e.g., `for file in /memory/*/; do ...;`), or write scripts to process memory programmatically.
 
-- Files in the context repository are designed for progressive disclosure, similar to patterns recommended for agent skills. The filetree structure is always in the system prompt, so folder hierarchy and file names act as navigational signals. Each memory file also includes frontmatter with a description of its contents, similar to the `YAML` frontmatter in Anthropic's `SKILL.md` files.
+- Files in the context repository are designed for progressive disclosure, similar to patterns recommended for [agent skills](https://agentskills.io/home). The filetree structure is always in the system prompt, so folder hierarchy and file names act as navigational signals. Each memory file also includes frontmatter with a description of its contents, similar to the `YAML` frontmatter in Anthropic's `SKILL.md` files.
 
 - Memory formation and learning in agents are single-threaded: if an agent wants to learn from data or a prior trajectory, it processes it sequentially (such with sleep-time agents current), because there's been no mechanism to coordinate concurrent writes to memory. Git changes this. By giving each subagent an isolated worktree, multiple subagents can process and write to memory concurrently, then merge their changes back through git-based conflict resolution.
 
@@ -2393,7 +2393,7 @@ $MEMORY_DIR/
 
  - Context Repositories are git-backed, so every change to memory is automatically versioned with informative commit messages. Git tracking also enables concurrent, collaborative work across multiple subagents, which can manage divergence and conflicts between learned context through standard git operations.
 
-- Files in the context repository are designed for progressive disclosure, similar to patterns recommended for agent skills.
+- Files in the context repository are designed for progressive disclosure, similar to patterns recommended for [agent skills](https://agentskills.io/home).
 
 - By giving each subagent an isolated worktree, multiple subagents can process and write to memory concurrently, then merge their changes back through git-based conflict resolution.
 
@@ -2437,7 +2437,7 @@ Harness-level modifications let an agent self-improve in ways that learned conte
 
 - Memory formation through general-purpose models is not capable enough to power long-term self-improvement: 1) Memories become generic and lossy after repeated refinements, 2) Memories are overly specific rather than generalizable learnings, 3) Memories fail to consistently adapt the behavior of agents across sessions with the same model, and across different models.
 
-- Long context (e.g. 1M or 10M token context windows), or methods for using context more efficiently during a task, like self-compaction, context folding, and Recursive Language Models (RLMs) help extend the task horizon for increasingly challenging coding tasks, but are not mechanisms for true continual learning.
+- Long context (e.g. 1M or 10M token context windows), or methods for using context more efficiently during a task, like self-compaction, context folding, and [Recursive Language Models](https://arxiv.org/abs/2512.24601) (RLMs) help extend the task horizon for increasingly challenging coding tasks, but are not mechanisms for true continual learning.
 
 - We believe continual learning will be solved by creating agents that learn to learn in token-space via memory models, which are models specialized in the generation and curation of context. Memory models are optimized end-to-end through meta-RL to create token-space memories that enable the agent to successfully learn across tasks by creating durable memories that improve future performance.
 
@@ -2470,19 +2470,6 @@ Harness-level modifications let an agent self-improve in ways that learned conte
 > *The world and experience networks hold objective facts about the outside world and about the agent's own experiences. The opinion network holds subjective beliefs with confidence scores that change as new evidence comes in, and the observation network holds neutral summaries of entities built from the underlying facts. Keeping these networks separate lets the agent tell evidence apart from inference, and lets developers check why it answered the way it did.*
 
 > *Two components handle the operations. TEMPR covers retain and recall: it extracts narrative facts with time ranges, resolves entities, links them in a graph, and retrieves memories using several search strategies. Those strategies run in parallel: semantic vector search, BM25 keyword search, graph traversal over entity, causal, and temporal links, and explicit filtering by time. CARA covers reflect: it combines the retrieved memories with an agent profile (a name, a background, and parameters that shape the agent's disposition) to produce responses shaped by the agent's preferences, and to form and strengthen its opinions over time.*
-
-<br>
-
----
-
-### Components
-
-<br>
-
-➡️ Continuous logging: Store every user and assistant message in a database or vector store.
-➡️ Periodic summarization: Use an LLM to create a summary of the last N interactions, or of the full conversation, and persist that summary as a “hindsight” artifact.
-➡️ Heuristic retrieval: At inference time, choose a mix of the most recent messages, one or more long-term summaries, or a few semantically similar snippets.
-➡️ Prompt rehydration: Construct a final prompt combining system instructions, the user query, recent messages, and summaries.
 
 <br>
 
@@ -2561,7 +2548,7 @@ response = client.chat.completions.create(
 
 - Nothing in Hindsight ever merges two raw facts. Twenty agents reaching the same conclusion write twenty rows, permanently. That is the audit trail working as designed, not a dedup failure.
 
-- Consolidation is what turns redundancy into evidence. An observation's `proof_coun`t is a count of distinct live source memory `ids`, so twenty agents agreeing becomes one observation citing twenty facts — independent corroboration is the one thing a swarm can give memory that a single agent structurally cannot.
+- Consolidation is what turns redundancy into evidence. An observation's `proof_count` is a count of distinct live source memory `ids`, so twenty agents agreeing becomes one observation citing twenty facts — independent corroboration is the one thing a swarm can give memory that a single agent structurally cannot.
 
 - Concurrency bites hardest on entity names, not facts. Variant merging is in-batch, and a swarm's writes are separate retains, so convergence falls to matching against entities already committed.
 
@@ -2593,33 +2580,6 @@ response = client.chat.completions.create(
 | `max_tokens` controls | Size of the returned facts     | Length of the final answer                   |
 | Cited sources         | The facts are the result       | `include_based_on` returns validated sources |
 | Best for              | "What did I say about X?"      | "What should I do about X?"                  |
-
-<br>
-
----
-
-
-### [Agent Swarms](https://blog.openviking.ai/post/agent-swarm-memory/)
-
-<br>
-
-| Road                | Examples                                               | What’s missing                                                     |
-| ------------------- | ------------------------------------------------------ | ------------------------------------------------------------------ |
-| Task orchestration  | Multi-agent research, Agent Teams, Cursor agent swarms | “Who it is” — nameless, destroyed when the task ends               |
-| Sandbox simulation  | Generative Agents, Project Sid                         | The real world — has memory, but locked in a closed sandbox        |
-| Open community      | Moltbook                                               | Social memory — scale that decayed into prompt theater             |
-| Human-inside spaces | The Colony, Raft, Coze 3.0, Buzz                       | An answer on memory and identity — the question this post takes on |
-
-<br>
-
-A database-shaped stack for agent context:
-
-| Layer              | Components                                                                          | Responsibility                                    | Interface      |
-| ------------------ | ----------------------------------------------------------------------------------- | ------------------------------------------------- | -------------- |
-| Agent surface      | CLI, SDK, MCP, Skills, VikingBot                                                    | Navigation commands and resource URIs             | `viking://...` |
-| OpenViking server  | Python: identity, parsing, model calls, queues, retrieval, sessions                 | Coordinates reads, writes, retries, and isolation | API + jobs     |
-| Context filesystem | VikingFS URIs over RAGFS (Rust, embedded), path locks, L0/L1 sidecars               | Turns context into paths agents can traverse      | `ls/tree/read` |
-| Storage substrate  | Vector index (embedded C++ engine or VikingDB), local or S3-compatible file storage | Durability, retrieval, filters, and artifacts     | Index + files  |
 
 <br>
 
@@ -2808,7 +2768,7 @@ Peers exchange messages within sessions; Honcho reasons over those messages to b
 
 <br>
 
-![](/blog/assets/report_mem_39.avif)
+![](/blog/assets/report_mem_39.webp)
 
 <br>
 
@@ -2940,6 +2900,34 @@ viking://resources/my_project/
 ```
 
 <br>
+
+---
+
+### [Agent Swarms](https://blog.openviking.ai/post/agent-swarm-memory/)
+
+<br>
+
+| Road                | Examples                                               | What’s missing                                                     |
+| ------------------- | ------------------------------------------------------ | ------------------------------------------------------------------ |
+| Task orchestration  | Multi-agent research, Agent Teams, Cursor agent swarms | “Who it is” — nameless, destroyed when the task ends               |
+| Sandbox simulation  | Generative Agents, Project Sid                         | The real world — has memory, but locked in a closed sandbox        |
+| Open community      | Moltbook                                               | Social memory — scale that decayed into prompt theater             |
+| Human-inside spaces | The Colony, Raft, Coze 3.0, Buzz                       | An answer on memory and identity — the question this post takes on |
+
+<br>
+
+A database-shaped stack for agent context:
+
+| Layer              | Components                                                                          | Responsibility                                    | Interface      |
+| ------------------ | ----------------------------------------------------------------------------------- | ------------------------------------------------- | -------------- |
+| Agent surface      | CLI, SDK, MCP, Skills, VikingBot                                                    | Navigation commands and resource URIs             | `viking://...` |
+| OpenViking server  | Python: identity, parsing, model calls, queues, retrieval, sessions                 | Coordinates reads, writes, retries, and isolation | API + jobs     |
+| Context filesystem | VikingFS URIs over RAGFS (Rust, embedded), path locks, L0/L1 sidecars               | Turns context into paths agents can traverse      | `ls/tree/read` |
+| Storage substrate  | Vector index (embedded C++ engine or VikingDB), local or S3-compatible file storage | Durability, retrieval, filters, and artifacts     | Index + files  |
+
+<br>
+
+---
 
 ---
 
@@ -3617,6 +3605,9 @@ Around that record, a spec would mirror OpenTelemetry's layers:
 
 ---
 
+
+---
+
 ## In the Backlog for the Future...
 
 <br>
@@ -3645,6 +3636,8 @@ Around that record, a spec would mirror OpenTelemetry's layers:
 - [MAGMA: A Multi-Graph based Agentic Memory Architecture for AI Agents](https://arxiv.org/abs/2601.03236) — D. Jiang et al. (2026).
 - [Beyond Static Summarization: Proactive Memory Extraction for LLM Agents](https://arxiv.org/abs/2601.04463) — C. Yang et al. (2026).
 - [Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering](https://arxiv.org/pdf/2604.08224) — C. Zhou et al. (2026)
+- [OpenHands: An Open Platform for AI Software Developers as Generalist Agents](https://arxiv.org/abs/2407.16741) — X. Wang et al. (2024).
+- [From Unstructured Recall to Schema-Grounded Memory](https://arxiv.org/pdf/2604.27906) — A. Petrov et al. (2026)
 
 <br>
 
@@ -3652,14 +3645,22 @@ Around that record, a spec would mirror OpenTelemetry's layers:
 
 <br>
 
+- [Tracing Hierarchical Memory for Multi-Agent Systems](https://arxiv.org/abs/2506.07398) — G. Zhang et al. (2025)
+- [Can Scale Save Us From Plasticity Loss in Large Language Models?](https://arxiv.org/abs/2606.24752) — J. Fernando Hernandez-Garcia, T. Figliolia, B. Millidge (2026)
+- [In-Place Test-Time Training](https://arxiv.org/abs/2604.06169) — G. Feng et al. (2026)
+- [Do Language Models Need Sleep? Offline Recurrence for Improved Online Inference](https://arxiv.org/abs/2605.26099) — S. Lee, S. McLeish, T. Goldstein, G. Fanti (2026)
+- [Language Models Need Sleep: Learning to Self-Modify and Consolidate Memories](https://arxiv.org/abs/2606.03979) — A. Behrouz, F. Hashemi, A. Javanmard, V. Mirrokni (2026)
 - [Adaptive Memory Selection for LLM Agents](https://arxiv.org/pdf/2611.05636) — Z. Fang et al. (2026)
+- [Recursive Language Models](https://arxiv.org/abs/2512.24601) — A. L. Zhang, T. Kraska, O. Khattab (2025).
 - [Scaling Long-Horizon LLM Agent via Context-Folding](https://arxiv.org/abs/2510.11967) — W. Sun et al. (2025).
 - [QSAF: A Novel Mitigation Framework for Cognitive Degradation in Agentic AI](https://arxiv.org/abs/2507.15330) — H. Atta et al. (2025).
 - [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120) — P. Laban et al. (2025).
 - [A Journey Through Test-Time Memorization, Attentional Bias, Retention, and Online Optimization](https://arxiv.org/abs/2504.13173) — A. Behrouz et al. (2025).
 - [Enabling DeepSeek's Multi-Head Latent Attention in Any Transformer-based LLMs](https://arxiv.org/abs/2502.14837) — Tao Ji et al. (2025).
 - [MemEvolve: Meta-Evolution of Agent Memory Systems](https://arxiv.org/pdf/2512.18746) — OPPO AI Team (2025)
-- [Memorilla: Latent Semantic Memory for LLMs](https://arxiv.org/pdf/2610.21375) — A. Fallahpour et al. (2026) 
+- [Memorilla: Latent Semantic Memory for LLMs](https://arxiv.org/pdf/2610.21375) — A. Fallahpour et al. (2026)
+- [Know Me, Respond to Me: Benchmarking LLMs for Dynamic User Profiling and Personalized Responses at Scale (PersonaMem)](https://arxiv.org/abs/2504.14225) — B. Jiang et al. (2025)
+- [Oolong: Evaluating Long Context Reasoning and Aggregation Capabilities](https://arxiv.org/abs/2511.02817) — A. Bertsch et al. (2025) 
 
 <br>
 
@@ -3673,6 +3674,9 @@ Around that record, a spec would mirror OpenTelemetry's layers:
 - [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) — N. F. Liu et al. (2023).
 - [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) — J. S. Park et al. (2023).
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) — P. Lewis et al. (2020).
+- [World Models](https://arxiv.org/abs/1803.10122) — D. Ha, J. Schmidhuber (2018).
+- [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) — G. Wang et al. (2023).
+- [Agent Workflow Memory](https://arxiv.org/abs/2409.07429) — Z. Z. Wang et al. (2024).
 
 <br>
 <br>
@@ -3701,7 +3705,7 @@ Around that record, a spec would mirror OpenTelemetry's layers:
 
 * 🦀 [icm (Rust)](https://github.com/rtk-ai/icm): Permanent memory for AI agents. Single binary, zero dependencies, MCP-native.
 
-* 🦀 [Chroma (Rust)](https://github.com/chroma-core/chroma): Data infrastructure for AI. Powers serverless vector, hybrid, and full-text search. It's extremely fast, cost-effective, scalable and painless. Create a DB and try it out in under 30 seconds.
+* 🦀 [Chroma (Rust)](https://github.com/chroma-core/chroma): Data infrastructure for AI. Powers serverless vector, hybrid, and full-text search. It's extremely fast, cost-effective, scalable and painless. Create a DB and try it out in under 30 seconds. See also how its **[hierarchical SPANN index](https://www.trychroma.com/engineering/hierarchical-spann)** builds and searches 100 million vectors.
 
 * 🦀 [Warm (Rust)](https://github.com/writerslogic/warm): Local memory for agents and apps: full-text and vector search, a memory API and a vector-symbolic fact store in one embeddable Rust engine that makes no network calls.
 
@@ -3748,7 +3752,7 @@ Around that record, a spec would mirror OpenTelemetry's layers:
 
 ---
 
-### That's it for today. I hope you had as much fun reading as I had conducting this research. Thank you for reading, and until next time, my friends!
+### That's it for today. I hope you had as much fun reading as I had conducting this research. Thank you for reading, and until next time, my anon friend!
 
 ### ⬛️
 

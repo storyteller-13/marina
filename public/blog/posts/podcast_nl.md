@@ -563,7 +563,7 @@ Cross-entropy(p, q) = Entropy (p) + KL_Divergence(p, q)
 
 <br>
 
-* GRPO → PPO for the reasoning/RLVR era → introduced in DeepSeekMath for math reasoning and became the go-to algorithm for RL on LMs → it keeps PPO’s clipped objective but drops the value function.
+* GRPO → PPO for the reasoning/RLVR era → introduced in [DeepSeekMath](https://arxiv.org/abs/2402.03300) for math reasoning and became the go-to algorithm for RL on LMs → it keeps PPO’s clipped objective but drops the value function.
 
 * Core idea → generate `G` completions per prompt, use the group’s reward statistics as the baseline → no learned critic needed → simpler to implement and debug than PPO → naturally fit for RLVR as you have a clear verification and higher-variance rewards → popularized with DeepSeek R1.
 
@@ -1682,6 +1682,38 @@ Cross-entropy(p, q) = Entropy (p) + KL_Divergence(p, q)
 
 <br>
 
+
+## 🐶 Bonus ➡️ My Backlog of Papers to Read in the Future
+
+<br>
+
+* **[Language Models are Few-Shot Learners](https://arxiv.org/pdf/2005.14165)** (Brown et al., 2020) → the GPT-3 paper. Scale alone gives task-agnostic few-shot behavior with no gradient updates → the origin of the "base model + prompt" era that post-training later had to fix.
+
+* **[FireAct: Toward Language Agent Fine-tuning](https://arxiv.org/abs/2310.05915)** (Chen et al., 2023) → argues that agents should be fine-tuned rather than only prompted → training on GPT-4-generated agent trajectories improves results across models and tasks → the trajectory-SFT idea from Lecture 11.
+
+* **[STaR: Bootstrapping Reasoning With Reasoning](https://arxiv.org/abs/2203.14465v2)** (Zelikman et al., 2022) → generate rationales, retry the failures with the correct answer as a hint, fine-tune on the rationales that led to correct answers, and repeat → an early, self-generated version of rejection sampling and the seed of today's reasoning-data loops (Lecture 2 and Lecture 5).
+
+* **[DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines](https://arxiv.org/pdf/2310.03714)** (Khattab et al., 2023) → LM pipelines as declarative, parameterized modules, optimized against a metric by bootstrapping demonstrations → compiled pipelines beat few-shot prompting, so the "prompt" becomes something you optimize, not write by hand.
+
+* **[Large Language Models as Optimizers](https://arxiv.org/pdf/2309.03409)** (Yang et al., 2023) → OPRO: the LLM proposes new candidates from a history of earlier candidates and their scores → the best prompts it finds beat human-designed ones on GSM8K and Big-Bench Hard → an optimizer that needs no gradients, which is a useful contrast to the policy-gradient lectures.
+
+* **[GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning](https://arxiv.org/pdf/2507.19457)** (Agrawal et al., 2025) → the model reflects in natural language on its own trajectories to diagnose failures and update prompts, keeping a Pareto frontier of lessons → reports beating GRPO by about 6% on average with up to 35x fewer rollouts → 👾 a direct challenge to the "RL is needed" default from Lectures 3 and 4.
+
+* **[DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)** (DeepSeek-AI, 2025) → reasoning emerges from pure RL with verifiable rewards and no human-labeled traces, with self-reflection and verification showing up on their own → the paper behind Lectures 5 and 10, and the one that made RLVR the default recipe.
+
+* **[OpenThoughts-Agent: Data Recipes for Agentic Models](https://arxiv.org/pdf/2606.24855)** (Raoof et al., 2026) → a fully open data-curation pipeline for generalist agents, with over 100 controlled ablations on task sources and diversity → fine-tuning Qwen3-32B on a 100K-example set reaches 44.8% average across seven agentic benchmarks → ✨ a good companion to Lecture 11, since it turns "what data should an agent learn from?" into measured ablations.
+
+* **[Fine-Tuning and Prompt Optimization: Two Great Steps that Work Better Together](https://aclanthology.org/2024.emnlp-main.597.pdf)** (Soylu et al., 2024) → alternates between optimizing a modular LM pipeline's weights and its prompt templates, so the same model effectively teaches itself → across multi-hop QA, math reasoning, and classification with 7B and 8B open models, the combined approach beats weight-only and prompt-only optimization on average → the "BetterTogether" optimizer is released in DSPy, which ties back to the DSPy paper above.
+
+* **[On-Policy Distillation](https://thinkingmachines.ai/blog/on-policy-distillation/)** (Lu and Thinking Machines Lab, 2025) → the student samples its own rollouts and a teacher grades each token by reverse KL → it combines RL's on-policy relevance with distillation's dense per-token signal → the post reports RL-level reasoning at a fraction of the compute → ✨ the blog behind Lecture 7's on-policy distillation section.
+
+* **[Evidence that Recent AI Gains are Mostly from Inference-Scaling](https://www.tobyord.com/writing/mostly-inference-scaling)** (Ord, 2025) → splits the gains of base-vs-reasoning models on MATH level 5, GPQA Diamond, and Mock AIME into an RL-training part and an inference-scaling part → most of the gain comes from inference-scaling → 👾 RL mostly teaches models to think longer, which costs more on every query, and it ties back to the log-linear test-time scaling point in Lecture 1.
+
+<br>
+
+---
+
+<br>
 
 #### *Thank you, Dr. Lambert, for a highly relevant journey (and a special thank you for all the math derivations and for reminding me how awesome partition functions are — a great tool from any physicist's toolkit).*
 

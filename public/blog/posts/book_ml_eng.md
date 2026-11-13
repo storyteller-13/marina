@@ -1271,7 +1271,7 @@ probs = softmax(scaled_logits)
 
 <br>
 
-## Great Podcasts on Inference
+## Great Resources on Inference
 
 <br>
 
@@ -1279,6 +1279,10 @@ probs = softmax(scaled_logits)
 - **[Why Inference Matters 12x More Than Training (YC Paper Club, 2026)](https://www.youtube.com/watch?v=mHNKuH-9OxU)**
 - **[The Strange Economics of LLM Inference-as-a-Service (bycloud, 2026)](https://www.youtube.com/watch?v=xP1kjDOisVw)**
 - **[The Future of Inference Markets (20VC, 2026)](https://www.youtube.com/watch?v=1jDCPEHwQfI)**
+- **[Archon: An Architecture Search Framework for Inference-Time Techniques (Saad-Falcon et al., 2024)](https://arxiv.org/pdf/2409.15254)**
+- **[An Open Field Guide to Inference Engineering (Modelplane, 2026)](https://docs.modelplane.ai/guides/inference-guide)**
+
+<br>
 
 <br>
 
@@ -1299,7 +1303,7 @@ probs = softmax(scaled_logits)
 
 ---
 
-### Thank you, Stas, for sharing your experience with us! Until next time, my friends!
+### Thank you, Stas, for sharing your experience with us! Until next time, my anon friend!
 
 ### ⬛️
 

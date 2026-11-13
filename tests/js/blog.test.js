@@ -23,7 +23,7 @@ afterEach(() => {
 
 test("helpers: assetUrl, escapeHtml, parseFrontMatter", () => {
   require("../../public/js/blog.js");
-  const { assetUrl, escapeHtml, parsePostDate } = window.MarinaBlog;
+  const { assetUrl, escapeHtml } = window.MarinaBlog;
   const { parseFrontMatter } = globalThis; // shared helper from blog-common.js
 
   expect(assetUrl("/blog/posts.json")).toBe("http://localhost/blog/posts.json");
@@ -37,10 +37,6 @@ test("helpers: assetUrl, escapeHtml, parseFrontMatter", () => {
   expect(parsed.meta).toEqual({ title: "Hi" });
   expect(parsed.body).toBe("body");
 
-  expect(Number.isNaN(parsePostDate(""))).toBe(true);
-  expect(Number.isNaN(parsePostDate("not-a-date"))).toBe(true);
-  expect(parsePostDate("2026; 09; 16")).toBe(Date.UTC(2026, 8, 16));
-  expect(parsePostDate("2024-01-01")).toBe(Date.parse("2024-01-01"));
 });
 
 test("loadBlog and loadDrafts return when roots are missing", async () => {
@@ -50,7 +46,7 @@ test("loadBlog and loadDrafts return when roots are missing", async () => {
   expect(window.fetch).not.toHaveBeenCalled();
 });
 
-test("loadBlog renders the index alone, sorted, with one revalidating request", async () => {
+test("loadBlog renders the generated index order with one revalidating request", async () => {
   document.body.innerHTML = '<div id="blog-post-list"></div>';
   window.fetch.mockImplementation(() => jsonResponse([
     { slug: "10", title: "ten", date: "2020-01-01" },
@@ -58,7 +54,6 @@ test("loadBlog renders the index alone, sorted, with one revalidating request", 
     { slug: "zeta", title: "z", date: "" },
     { slug: "alpha", title: "a", date: "" },
     { slug: "fresh", title: "Fresh <b>", date: "2024-01-01" },
-    { title: "empty-slug", date: "2019-01-01" },
     { slug: "untitled-post", date: "2018-01-01" },
     { slug: "semicolon-old", title: "old semi", date: "2026; 09; 06" },
     { slug: "semicolon-new", title: "new semi", date: "2026; 09; 16" },
@@ -72,21 +67,20 @@ test("loadBlog renders the index alone, sorted, with one revalidating request", 
   expect(window.fetch).toHaveBeenCalledWith("http://localhost/blog/posts.json", { cache: "no-cache" });
 
   const hrefs = [...document.querySelectorAll(".blog-line-link")].map((a) => a.getAttribute("href"));
-  expect(hrefs[0]).toBe("/blog/semicolon-new.html");
-  expect(hrefs.indexOf("/blog/semicolon-new.html")).toBeLessThan(hrefs.indexOf("/blog/semicolon-old.html"));
-  expect(hrefs.indexOf("/blog/fresh.html")).toBeLessThan(hrefs.indexOf("/blog/10.html"));
-  expect(hrefs.indexOf("/blog/10.html")).toBeLessThan(hrefs.indexOf("/blog/2.html"));
-  expect(hrefs.indexOf("/blog/zeta.html")).toBeLessThan(hrefs.indexOf("/blog/alpha.html"));
+  expect(hrefs).toEqual([
+    "/blog/10.html", "/blog/2.html", "/blog/zeta.html", "/blog/alpha.html",
+    "/blog/fresh.html", "/blog/untitled-post.html", "/blog/semicolon-old.html",
+    "/blog/semicolon-new.html",
+  ]);
   expect(document.body.innerHTML).toContain("Fresh &lt;b&gt;");
   expect(document.body.innerHTML).toContain("untitled post");
-  expect(document.body.innerHTML).toContain("empty-slug");
 
   window.fetch.mockResolvedValueOnce({
     ok: true,
     json: () => Promise.resolve({ not: "array" }),
   });
   await window.MarinaBlog.loadBlog();
-  expect(document.getElementById("blog-post-list").textContent).toContain("No posts yet.");
+  expect(document.getElementById("blog-post-list").textContent).toContain("Index response must be an array.");
 });
 
 test("loadBlog empty index, http error, and json throw", async () => {
@@ -111,6 +105,20 @@ test("loadBlog empty index, http error, and json throw", async () => {
   });
   await window.MarinaBlog.loadBlog();
   expect(root().textContent).toContain("boom");
+
+  window.fetch.mockResolvedValueOnce({
+    ok: true,
+    json: () => Promise.resolve([null]),
+  });
+  await window.MarinaBlog.loadBlog();
+  expect(root().textContent).toContain("Technical Notes index contains an invalid entry.");
+
+  window.fetch.mockResolvedValueOnce({
+    ok: true,
+    json: () => Promise.resolve([{ slug: "../unsafe", title: "unsafe" }]),
+  });
+  await window.MarinaBlog.loadBlog();
+  expect(root().textContent).toContain("Technical Notes index contains an invalid entry.");
 });
 
 test("loadDrafts covers string entries, index fields, empty and errors", async () => {
@@ -148,7 +156,7 @@ test("loadDrafts covers string entries, index fields, empty and errors", async (
     json: () => Promise.resolve({ not: "array" }),
   });
   await window.MarinaBlog.loadDrafts();
-  expect(root().textContent).toContain("Nothing listed here yet.");
+  expect(root().textContent).toContain("Index response must be an array.");
 
   window.fetch.mockResolvedValueOnce({
     ok: true,
@@ -163,6 +171,13 @@ test("loadDrafts covers string entries, index fields, empty and errors", async (
   });
   await window.MarinaBlog.loadDrafts();
   expect(root().textContent).toContain("Nothing listed here yet.");
+
+  window.fetch.mockResolvedValueOnce({
+    ok: true,
+    json: () => Promise.resolve([null]),
+  });
+  await window.MarinaBlog.loadDrafts();
+  expect(root().textContent).toContain("Drafts index contains an invalid entry.");
 
   window.fetch.mockResolvedValueOnce({
     ok: true,

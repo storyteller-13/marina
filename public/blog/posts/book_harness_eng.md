@@ -711,7 +711,7 @@ Plus these features:
 
 ---
 
-### Thank you, Isuru, for sharing all your experience with us! Until next time, my friends!
+### Thank you, Isuru, for sharing all your experience with us! Until next time, my anon friend!
 
 ### ⬛️
 

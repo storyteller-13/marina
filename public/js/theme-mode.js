@@ -8,6 +8,9 @@ function setTheme(style) {
   });
   document.documentElement.setAttribute('data-color-mode', style);
   localStorage.setItem('data-color-mode', style);
+  document.querySelectorAll("[data-theme-toggle]").forEach(toggle => {
+    toggle.setAttribute("aria-pressed", String(style === "dark"));
+  });
   // Keep the mobile browser's toolbar in step with the page background.
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', style === 'dark' ? '#0d1117' : '#ffffff');
 }
@@ -19,6 +22,9 @@ function currentTheme() {
 }
 
 setTheme(currentTheme());
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => setTheme(currentTheme()), { once: true });
+}
 
 // Any element marked data-theme-toggle switches the theme. This script runs in <head> before the
 // toggles exist, so listen on the document. Enter/Space make the non-<button> toggle keyboard-operable.

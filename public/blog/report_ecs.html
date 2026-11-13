@@ -8,6 +8,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="description" content="In which all computer code is essentially a series of data transformations.">
 	<meta property="og:description" content="In which all computer code is essentially a series of data transformations.">
+	<meta name="twitter:description" content="In which all computer code is essentially a series of data transformations.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#1e2327">
 	<meta name="robots" content="noodp">
@@ -16,9 +17,11 @@
 	<meta property="og:url" content="https://marina.nullstar.fun/blog/report_ecs.html">
 	<meta property="og:site_name" content="Technical Notes">
 	<meta property="og:image" content="https://marina.nullstar.fun/blog/assets/wade.webp">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="🏄‍♀️ REPORT → A Ride Through Entity Component System">
+	<meta name="twitter:image" content="https://marina.nullstar.fun/blog/assets/wade.webp">
 	<title>🏄‍♀️ REPORT → A Ride Through Entity Component System · Marina von Steinkirch</title>
-	<link rel="icon"
-		href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>👾</text></svg>">
+	<link rel="icon" type="image/webp" href="/images/favicon.webp">
 	<link rel="canonical" href="https://marina.nullstar.fun/blog/report_ecs.html">
 	<link rel="stylesheet" href="/css/frameworks.min.css">
 	<link rel="stylesheet" href="/css/github.min.css">
@@ -47,7 +50,7 @@
 						<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
 							<div
 								class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
-								<nav class="UnderlineNav-body">
+								<nav class="UnderlineNav-body" aria-label="Primary">
 									<a class="UnderlineNav-item" href="/"><code class="code-small">work</code></a>
 									<a class="UnderlineNav-item selected" href="/pages/blog.html"><code
 											class="code-small">blog</code></a>
@@ -81,71 +84,57 @@
 										</g>
 										<g class="profile-color-modes-illu-group profile-color-modes-illu-blue">
 											<g class="profile-color-modes-illu-frame">
-												<path
-													d="M40.6983 31.5C40.5387 29.6246 40.6456 28.0199 41.1762 27.2317C42.9939 24.5312 49.7417 26.6027 52.5428 30.2409C54.2551 29.8552 56.0796 29.6619 57.9731 29.6619C59.8169 29.6619 61.5953 29.8452 63.2682 30.211C66.0833 26.5913 72.799 24.5386 74.6117 27.2317C75.6839 28.8246 75.0259 33.7525 73.9345 37.5094C74.2013 37.9848 74.4422 38.4817 74.6555 39">
-												</path>
+												<path d="M57.5 34C55.8 34 54.1 34.1 52.5 34.4C51 30.8 48 26.5 44.5 23.8C43.25 26.31 42.31 29.64 41.89 32.98"></path>
+												<path d="M57.5 34C59.2 34 60.9 34.1 62.5 34.4C64 30.8 67 26.5 70.5 23.8C72.53 27.85 73.71 34.05 73.26 38.97"></path>
 											</g>
 											<g class="profile-color-modes-illu-frame">
-												<path
-													d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39">
-												</path>
-												<path d="M49.4996 33V35.6757"></path>
-												<path d="M67.3375 33V35.6757"></path>
+												<path d="M57.5 26C55.8 26 54.1 26.1 52.5 26.4C51 22.8 48 18.5 44.5 15.8C42.4 20 41.2 26.5 41.8 31.5C41.74 32 41.72 32.49 41.73 32.97"></path>
+												<path d="M57.5 26C59.2 26 60.9 26.1 62.5 26.4C64 22.8 67 18.5 70.5 15.8C72.6 20 73.8 26.5 73.2 31.5C73.54 34.36 72.61 36.9 70.81 38.97"></path>
+												<path d="M50.3 33.4V35.2"></path>
+												<path d="M64.7 33.4V35.2"></path>
 											</g>
 											<g class="profile-color-modes-illu-frame">
-												<path
-													d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39">
-												</path>
+												<path d="M57.5 26C55.8 26 54.1 26.1 52.5 26.4C51 22.8 48 18.5 44.5 15.8C42.4 20 41.2 26.5 41.8 31.5C41.74 32 41.72 32.49 41.73 32.97"></path>
+												<path d="M57.5 26C59.2 26 60.9 26.1 62.5 26.4C64 22.8 67 18.5 70.5 15.8C72.6 20 73.8 26.5 73.2 31.5C73.54 34.36 72.61 36.9 70.81 38.97"></path>
 											</g>
 											<g class="profile-color-modes-illu-frame">
-												<path
-													d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39">
-												</path>
-												<path d="M49.4996 33V35.6757"></path>
-												<path d="M67.3375 33V35.6757"></path>
+												<path d="M57.5 26C55.8 26 54.1 26.1 52.5 26.4C51 22.8 48 18.5 44.5 15.8C42.4 20 41.2 26.5 41.8 31.5C41.74 32 41.72 32.49 41.73 32.97"></path>
+												<path d="M57.5 26C59.2 26 60.9 26.1 62.5 26.4C64 22.8 67 18.5 70.5 15.8C72.6 20 73.8 26.5 73.2 31.5C73.54 34.36 72.61 36.9 70.81 38.97"></path>
+												<path d="M50.3 33.4V35.2"></path>
+												<path d="M64.7 33.4V35.2"></path>
 											</g>
 											<g class="profile-color-modes-illu-frame">
-												<path
-													d="M73.4999 40.2236C74.9709 38.2049 75.8108 35.5791 75.8108 32.2283C75.8108 29.2229 75.1351 26.6488 73.9344 24.5094C75.0258 20.7525 75.6838 15.8246 74.6116 14.2317C72.7989 11.5386 66.0832 13.5913 63.2681 17.211C61.5952 16.8452 59.8167 16.6619 57.973 16.6619C56.0795 16.6619 54.2549 16.8552 52.5427 17.2409C49.7416 13.6027 42.9938 11.5312 41.176 14.2317C40.0859 15.8512 40.7843 20.9182 41.9084 24.6968C41.003 26.3716 40.4146 28.3065 40.2129 30.5">
-												</path>
-												<path d="M82.9458 30.5471L76.8413 31.657"></path>
-												<path d="M76.2867 34.4319L81.8362 37.7616"></path>
-												<path d="M49.4995 27.8242V30.4999"></path>
-												<path d="M67.3374 27.8242V30.4998"></path>
+												<path d="M57.5 19C55.8 19 54.1 19.1 52.5 19.4C51 15.8 48 11.5 44.5 8.8C42.4 13 41.2 19.5 41.8 24.5C41.2 29.5 44.5 33.5 49.5 35.8C50.4 37 50.6 38.5 50.6 39.8C50.6 39.94 50.61 40.07 50.62 40.2"></path>
+												<path d="M57.5 19C59.2 19 60.9 19.1 62.5 19.4C64 15.8 67 11.5 70.5 8.8C72.6 13 73.8 19.5 73.2 24.5C73.8 29.5 70.5 33.5 65.5 35.8C64.6 37 64.4 38.5 64.4 39.8C64.4 39.94 64.39 40.07 64.38 40.2"></path>
+												<path d="M50.3 26.4V28.2"></path>
+												<path d="M64.7 26.4V28.2"></path>
+												<path d="M56.5 38.2H58.5"></path>
 											</g>
 											<g class="profile-color-modes-illu-frame">
-												<path
-													d="M45.3697 34.2658C41.8877 32.1376 39.7113 28.6222 39.7113 23.2283C39.7113 20.3101 40.3483 17.7986 41.4845 15.6968C40.3605 11.9182 39.662 6.85125 40.7522 5.23168C42.5699 2.53117 49.3177 4.6027 52.1188 8.24095C53.831 7.85521 55.6556 7.66186 57.5491 7.66186C59.3929 7.66186 61.1713 7.84519 62.8442 8.21095C65.6593 4.59134 72.375 2.5386 74.1877 5.23168C75.2599 6.82461 74.6019 11.7525 73.5105 15.5094C74.7112 17.6488 75.3869 20.2229 75.3869 23.2283C75.3869 28.6222 73.2105 32.1376 69.7285 34.2658C70.8603 35.5363 72.6057 38.3556 73.3076 40">
-												</path>
-												<path d="M49.0747 19.8242V22.4999"></path>
-												<path
-													d="M54.0991 28C54.6651 29.0893 55.7863 30.0812 57.9929 30.0812C59.0642 30.0812 59.8797 29.8461 60.5 29.4788">
-												</path>
-												<path d="M66.9126 19.8242V22.4999"></path>
-												<path d="M33.2533 20.0237L39.0723 22.1767"></path>
-												<path d="M39.1369 25.0058L33.0935 27.3212"></path>
-												<path d="M81.8442 19.022L76.0252 21.1751"></path>
-												<path d="M75.961 24.0041L82.0045 26.3196"></path>
+												<path d="M57.5 12C55.8 12 54.1 12.1 52.5 12.4C51 8.8 48 4.5 44.5 1.8C42.4 6 41.2 12.5 41.8 17.5C41.2 22.5 44.5 26.5 49.5 28.8C50.4 30 50.6 31.5 50.6 32.8C50.6 36 53.6 37.2 57.5 37.2"></path>
+												<path d="M57.5 12C59.2 12 60.9 12.1 62.5 12.4C64 8.8 67 4.5 70.5 1.8C72.6 6 73.8 12.5 73.2 17.5C73.8 22.5 70.5 26.5 65.5 28.8C64.6 30 64.4 31.5 64.4 32.8C64.4 36 61.4 37.2 57.5 37.2"></path>
+												<path d="M50.3 19.4V21.2"></path>
+												<path d="M64.7 19.4V21.2"></path>
+												<path d="M56.5 31.2H58.5"></path>
+												<path d="M68.4 30.6C70.4 33.2 72 37 72.8 40"></path>
+												<path d="M77.5 40C81.5 39.6 84.6 36.2 84.2 31.6"></path>
 											</g>
 											<g class="profile-color-modes-illu-frame">
-												<path
-													d="M73.4999 40.2236C74.9709 38.2049 75.8108 35.5791 75.8108 32.2283C75.8108 29.2229 75.1351 26.6488 73.9344 24.5094C75.0258 20.7525 75.6838 15.8246 74.6116 14.2317C72.7989 11.5386 66.0832 13.5913 63.2681 17.211C61.5952 16.8452 59.8167 16.6619 57.973 16.6619C56.0795 16.6619 54.2549 16.8552 52.5427 17.2409C49.7416 13.6027 42.9938 11.5312 41.176 14.2317C40.0859 15.8512 40.7843 20.9182 41.9084 24.6968C41.003 26.3716 40.4146 28.3065 40.2129 30.5">
-												</path>
-												<path d="M82.9458 30.5471L76.8413 31.657"></path>
-												<path d="M76.2867 34.4319L81.8362 37.7616"></path>
-												<path d="M49.4995 27.8242V30.4999"></path>
-												<path d="M67.3374 27.8242V30.4998"></path>
+												<path d="M57.5 19C55.8 19 54.1 19.1 52.5 19.4C51 15.8 48 11.5 44.5 8.8C42.4 13 41.2 19.5 41.8 24.5C41.2 29.5 44.5 33.5 49.5 35.8C50.4 37 50.6 38.5 50.6 39.8C50.6 39.94 50.61 40.07 50.62 40.2"></path>
+												<path d="M57.5 19C59.2 19 60.9 19.1 62.5 19.4C64 15.8 67 11.5 70.5 8.8C72.6 13 73.8 19.5 73.2 24.5C73.8 29.5 70.5 33.5 65.5 35.8C64.6 37 64.4 38.5 64.4 39.8C64.4 39.94 64.39 40.07 64.38 40.2"></path>
+												<path d="M50.3 26.4V28.2"></path>
+												<path d="M64.7 26.4V28.2"></path>
+												<path d="M56.5 38.2H58.5"></path>
 											</g>
 											<g class="profile-color-modes-illu-frame">
-												<path
-													d="M40.6983 31.5C40.5387 29.6246 40.6456 28.0199 41.1762 27.2317C42.9939 24.5312 49.7417 26.6027 52.5428 30.2409C54.2551 29.8552 56.0796 29.6619 57.9731 29.6619C59.8169 29.6619 61.5953 29.8452 63.2682 30.211C66.0833 26.5913 72.799 24.5386 74.6117 27.2317C75.6839 28.8246 75.0259 33.7525 73.9345 37.5094C74.2013 37.9848 74.4422 38.4817 74.6555 39">
-												</path>
+												<path d="M57.5 34C55.8 34 54.1 34.1 52.5 34.4C51 30.8 48 26.5 44.5 23.8C43.25 26.31 42.31 29.64 41.89 32.98"></path>
+												<path d="M57.5 34C59.2 34 60.9 34.1 62.5 34.4C64 30.8 67 26.5 70.5 23.8C72.53 27.85 73.71 34.05 73.26 38.97"></path>
 											</g>
 										</g>
 									</svg>
 									<span
 										class="profile-color-modes-toggle js-promo-color-modes-toggle no-select neon-toggle"
-										tabindex="0" role="button" aria-label="Switch between light and dark theme" data-theme-toggle>
+										tabindex="0" role="button" aria-label="Switch between light and dark theme" aria-pressed="false" data-theme-toggle>
 										<div class="profile-color-modes-toggle-track no-select neon-toggle-track"></div>
 										<div
 											class="profile-color-modes-toggle-thumb js-promo-color-modes-thumb neon-toggle-thumb">
@@ -169,7 +158,7 @@
 					<div class="flex-shrink-0 col-12 blog-post-column mb-4 mb-md-0">
 						<div
 							class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
-							<nav class="UnderlineNav-body">
+							<nav class="UnderlineNav-body" aria-label="Mobile">
 								<a class="UnderlineNav-item" href="/">
 									<code class="code-large">work</code>
 								</a>
@@ -178,7 +167,7 @@
 								</a>
 							</nav>
 							<button type="button" class="profile-color-modes-toggle mobile-theme-toggle neon-toggle no-select"
-				aria-label="Switch between light and dark theme" data-theme-toggle>
+				aria-label="Switch between light and dark theme" aria-pressed="false" data-theme-toggle>
 				<span class="profile-color-modes-toggle-track neon-toggle-track"></span>
 				<span class="profile-color-modes-toggle-thumb neon-toggle-thumb">
 					<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13" aria-hidden="true"
@@ -198,10 +187,174 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-10-21">2026; 10; 21</time></p>
+									<h1 id="post-title" class="section-title">🏄‍♀️ REPORT → A Ride Through Entity Component System</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">In which all computer code is essentially a series of data transformations.</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=xWF2IuEO2nw">🎶</a> <em>&quot;Fantasy is escapist, and that is its glory.&quot;</em> — Ursula K. Le Guin on The Language of the Night</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=-7IPRCHlkyc">🎧</a> <em>&quot;In every real man a child is hidden that wants to play.&quot;</em> — Friedrich Nietzsche on Thus Spoke Zarathustra</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=ndXbWP_cgKU">🎼</a> <em>&quot;I have a binary rule for publishing writings: either you take your time to make sure it&#39;s perfect, or you put it out fast and iterate publicly, like in open-source development. The first is perfectionism; the second is pragmatism.&quot;</em> — Marina von Steinkirch</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/wade.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Hello there, my dear anon friend. Continuing our informal discussion from <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/report_oss_game_engines.html">earlier this week</a></strong> about <strong><a target="_blank" rel="noopener noreferrer" href="https://www.nullstar.games/">NULLSTAR</a></strong>&#39;s <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/idea_nullstar.html">PleiadesOS:STEROPE</a></strong>, today we&#39;re going to dive a little into a topic we only briefly mentioned: <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Entity_component_system">Entity Component Systems (ECS)</a></strong>.</p>
+<p>As we read through today&#39;s material, please remember our rules:</p>
+<p><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#a-general-mental-model">🦴 A General Mental Model</a></li><li><a href="#a-rusty-example">🦴 A Rusty Example</a></li><li><a href="#further-references">🦴 Further References</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h1 id="a-general-mental-model">🦴 A General Mental Model</h1>
+<p><br></p>
+<p>From <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/SanderMertens/ecs-faq">ecs-faq</a></strong>, <em>ECS describes a design approach which promotes code reusability by separating data from behavior. Data is often stored in cache-friendly ways which benefit performance, so that ECS can typically support larger numbers of simulation objects.</em></p>
+<p>More specifically, ECS separates three things that <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Object-oriented_programming">object-oriented programming</a></strong> often bundles together:</p>
+<p>1️⃣ Entity: identity (a unique identifier for something in the world; the behavior of an entity can be changed at runtime; it can contain zero or more components)<br>2️⃣ Component: data without logic (a small piece of state attached to an entity; such as position, velocity, inventory, etc.; implementations typically use structs, classes, or associative arrays)<br>3️⃣ System: logic for behavior (code that processes entities with the relevant components)</p>
+<p><br></p>
+<p>This means that:</p>
+<ul>
+<li>The behavior comes from composition (over inheritance), and it can be changed at runtime by adding or removing components. This avoids deep class hierarchies and <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem">the diamond problem</a></strong>.</li>
+<li>For example, instead of a class <code>Troll</code> extends <code>Monster</code> extends <code>Entity</code>, a troll is an <code>ID</code> with <code>Position</code> + <code>Velocity</code> + <code>AI</code>...</li>
+<li>Components of the same type are stored contiguously, so systems iterate over tightly packed arrays (maximizes CPU cache locality and decouples data from behavior). This is data-oriented design, making it ideal for multiplayer and high-performance simulations.</li>
+</ul>
+<p><br></p>
+<blockquote><p>💡 <em>ECS is commonly associated with <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=0_Byw9UMn9g">data-oriented design (DOD)</a></strong>, a software design philosophy that emphasizes data layout and memory access patterns as primary design concerns. DOD focuses on how data is laid out in RAM: when components of the same type are stored contiguously in memory arrays, the CPU loads them into its cache efficiently, drastically reducing cache misses during iteration.</em></p></blockquote>
+<p><br></p>
+<hr>
+<h1 id="a-rusty-example">🦴 A Rusty Example</h1>
+<p><br></p>
+<p>Let&#39;s model a very simple simulation <em>from one of the main robots</em>, with a player and an NPC using <strong><a target="_blank" rel="noopener noreferrer" href="https://docs.rs/bevy_ecs/latest/bevy_ecs/">bevy_ecs API</a></strong>. Both entities have positions and velocities, but only the player has a mutable quantity called <code>entropy</code>.</p>
+<p>First, components are normal Rust structs. Specific instances of components correlate to entities:</p>
+<pre><code>
+use bevy_ecs::prelude::*;
+
+#[derive(Component, Debug)]
+struct Position {
+    x: f32,
+    y: f32,
+}
+
+#[derive(Component)]
+struct Velocity {
+    x: f32,
+    y: f32,
+}
+
+#[derive(Component)]
+struct Entropy(u32);
+
+#[derive(Component)]
+struct Player;
+
+#[derive(Component)]
+struct Npc;
+</code></pre>
+<p><br></p>
+<p>Systems are normal Rust functions that run in parallel with each other:</p>
+<pre><code>
+// Processes every entity that has Position + Velocity.
+fn movement_system(mut query: Query&lt;(&amp;mut Position, &amp;Velocity)&gt;) {
+    for (mut position, velocity) in &amp;mut query {
+        position.x += velocity.x;
+        position.y += velocity.y;
+    }
+}
+
+// Processes only entities that have Entropy.
+fn entropy_system(query: Query&lt;(Entity, &amp;Entropy)&gt;) {
+    for (entity, entropy) in &amp;query {
+        println!(&quot;Entity {:?}: Entropy = {}&quot;, entity, entropy.0);
+    }
+}
+</code></pre>
+<p><br></p>
+<p>Entities, components, and resources are stored in a <code>World</code>, which are like <code>std::collections</code>’s <code>HashSet</code> and <code>Vec</code>, and they expose operations to insert, read, write, and remove the data they store:</p>
+<pre><code>
+fn main() {
+    let mut world = World::new();
+
+    (all the code below)
+}
+</code></pre>
+<p><br></p>
+<p>Entities are unique identifiers that correlate to zero or more components:</p>
+<pre><code>
+// An entity is an ID with a collection of components.
+let player = world
+        .spawn((
+            Player,
+            Position { x: 0.0, y: 0.0 },
+            Velocity { x: 1.0, y: 0.5 },
+            Entropy(100),
+        ))
+        .id();
+
+let npc = world
+        .spawn((
+            Npc,
+            Position { x: 10.0, y: 10.0 },
+            Velocity { x: -1.0, y: 0.0 },
+        ))
+        .id();
+</code></pre>
+<p><br></p>
+<p>Schedules run a set of systems according to some execution strategy (built in &quot;parallel executor&quot;, running as many of them in parallel as possible):</p>
+<pre><code>
+// A Schedule executes systems against the World.
+let mut schedule = Schedule::default();
+schedule.add_systems((movement_system, entropy_system));
+
+// Run one simulation tick.
+schedule.run(&amp;mut world);
+
+// Inspect the updated state.
+let position = world.get::&lt;&amp;Position&gt;(player).unwrap();
+println!(&quot;Player position: ({}, {})&quot;, position.x, position.y);
+
+let position = world.get::&lt;&amp;Position&gt;(npc).unwrap();
+println!(&quot;NPC position: ({}, {})&quot;, position.x, position.y);
+</code></pre>
+<p><br></p>
+<p>Things to note:</p>
+<ul>
+<li>There is no inheritance: the NPC and the player share movement capabilities without a common base class.</li>
+<li>Queries define membership: adding or removing a component changes which systems match an entity.</li>
+<li>The schedule defines execution: systems can run independently and if one system depends on another’s output, the ordering requirement must be expressed.</li>
+</ul>
+<p><br></p>
+<p><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/SanderMertens/ecs-faq#how-do-i-design-for-ecs">How do I design for ECS?</a></strong></p>
+<ul>
+<li>How many instances of the data will exist?</li>
+<li>How often is data accessed?</li>
+<li>How often is the data mutated?</li>
+<li>When does data need to be accessed/mutated?</li>
+<li>Which data is accessed/mutated together?</li>
+<li>What is the cardinality of the data (the number of entities, components, component instances, or possible combinations of component types in the world)?</li>
+<li>Do the components and systems have single responsibilities?</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/ecs.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h1 id="further-references">🦴 Further References</h1>
+<p><br></p>
+<p>Let&#39;s end today&#39;s discussion with an <em>ever-growing</em> list of good resources on building ECS:</p>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/jslee02/awesome-entity-component-system">Awesome ECS</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://www.dataorienteddesign.com/dodbook/">Data Oriented Design Book</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/dbartolini/data-oriented-design">Data Oriented Design Resources</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/leudz/shipyard">shipyard: ECS focused on usability and speed (Rust)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/Ralith/hecs">hecs: a high-performance, minimalist ECS world (Rust)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/amethyst/specs">specs: ECS for easy parallelism, high flexibility, high performance (Rust)</a></strong> (<strong><a target="_blank" rel="noopener noreferrer" href="https://amethyst.github.io/specs/docs/tutorials/">book</a></strong>)</li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/amethyst/legion">legion: feature rich high performance ECS library (Rust)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/skypjack/entt">entt: fast and reliable ECS (C++)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/SanderMertens/flecs">flecs: fast ECS to build simulations with millions of entities (C/C++)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">Unity&#39;s Entity Component System Samples</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://google.github.io/styleguide/rustguide.html">Google&#39;s Rust Style Guide</a></strong></li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="until-next-time-my-anon-friend">Until next time, my anon friend!</h3>
+<h3 id="section">⬛</h3></div>
 								</article>
 							</div>
 						</div>

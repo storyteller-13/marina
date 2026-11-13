@@ -11,16 +11,6 @@
       ],
       "destination": "/blog/:slug.html",
       "permanent": true
-    },
-    {
-      "source": "/images/8086.png",
-      "destination": "/images/8086.webp",
-      "permanent": true
-    },
-    {
-      "source": "/images/eclipse_26_08_27.png",
-      "destination": "/images/eclipse_26_08_27.webp",
-      "permanent": true
     }
   ],
   "headers": [

@@ -4,9 +4,7 @@ subtitle: Intermediate to Advanced Engineers | Today's Word: Safety · Sicherhei
 date: 2026; 11; 13
 ---
 
-> [🎧](https://www.youtube.com/watch?v=bduQfCPSnLQ) *“Love is the desire for the perpetual possession of the good.”* — Plato on *Symposium*
-
-> [🎵](https://www.youtube.com/watch?v=5NckzRLftkU) *"One must still have chaos in oneself to be able to give birth to a dancing star."* — Friedrich Nietzsche on *Thus Spoke Zarathustra*
+> [🎧](https://www.youtube.com/watch?v=5NckzRLftkU) *"One must still have chaos in oneself to be able to give birth to a dancing star."* — Friedrich Nietzsche on *Thus Spoke Zarathustra*
 
 <br>
 
@@ -30,11 +28,11 @@ The crownless again shall be king.
 
 <br>
 
-#### Hello and happy friday the 13th, my dear anon friend.
+#### Hello and happy [Friday the 13th](https://www.science.org/doi/10.1126/science.132.3436.1291), my dear anon friend.
 
-#### Today, we'll walk through the steps I take to harden one of my Linux machines: my Omarchy box. This is an ever-evolving effort. Some of these steps came from long debugging sessions I had to go through (looking at you, [AppArmor](https://wiki.archlinux.org/title/AppArmor) and [Secure Boot](https://en.wikipedia.org/wiki/Secure_Boot)).
+#### Today, we'll walk through the steps I take to harden one of my Linux machines: my Omarchy box. I've called this an "ever-evolving" project because, for now, my focus is on establishing the fundamentals. That said, some of these steps came out of rather lengthy debugging sessions (I'm looking at you, [AppArmor](https://wiki.archlinux.org/title/AppArmor) and [Secure Boot](https://en.wikipedia.org/wiki/Secure_Boot)).
 
-#### I’ve called it "ever-evolving" because, for now, my focus is on establishing the fundamentals. Security hardening, however, is an ongoing process. There are plenty of additional monitoring mechanisms, forensic inspections, and security tests that I may incorporate into this work over time, alongside new measures as they become available. The source code for this project, along with some of my other opinionated configurations, is maintained in **[this GitHub repository](https://github.com/future-ai-org/omarchy_stuff)**.
+#### Security hardening is **[an ongoing process](https://github.com/cypherpunk-symposium/security-pentesting-toolkit)**. There are plenty of additional monitoring mechanisms, forensic inspections, and security tests that I may incorporate into this work over time, alongside new measures as they become available. The source code for this project, along with some of my other opinionated configurations, is maintained in [**this GitHub repository**](https://github.com/future-ai-org/omarchy_stuff).
 
 <br>
 
@@ -43,7 +41,7 @@ This work is the result of an ongoing collaboration with all my frontier robot f
 :::
 
 :::ps
-On a quick note, [**this**](https://www.kitp.ucsb.edu/sites/default/files/YM_working_group.pdf) is pretty exciting to me for several reasons. First, this group has close ties to my alma mater, Stony Brook, through its Yang-Mills Theoretical Institute and the Simons Institute. Second, during my PhD, I briefly collaborated with [**Nikita Nekrasov**](https://www.astro.sunysb.edu/steinkirch/#research) on graph-theoretical approaches to mathematical problems that could potentially connect to string theory. He is incredibly smart, and it's awesome to see these folks achieving such solid results with AI. Third, this is [**pretty impressive progress**](https://www.youtube.com/watch?v=sfKc2uoA9pA), and I can't wait for the second half, which tackles the **[mass gap problem](https://en.wikipedia.org/wiki/Yang%E2%80%93Mills_existence_and_mass_gap)**.
+On a quick note, [**this**](https://www.kitp.ucsb.edu/sites/default/files/YM_working_group.pdf) is pretty exciting to me for several reasons. First, this group has close ties to my alma mater, Stony Brook, through its C.N. Yang Theoretical Institute and the Simons Institute. Second, during my PhD, I briefly collaborated with [**Nikita Nekrasov**](https://www.astro.sunysb.edu/steinkirch/#research) on graph-theoretical approaches to mathematical problems that could potentially connect to string theory. He is incredibly smart, and it's awesome to see these folks achieving such solid results with AI. Third, this is [**pretty impressive progress**](https://www.youtube.com/watch?v=sfKc2uoA9pA), and I can't wait for the second half, which tackles the **[mass gap problem](https://en.wikipedia.org/wiki/Yang%E2%80%93Mills_existence_and_mass_gap)**.
 :::
 
 <br>
@@ -61,7 +59,7 @@ As I go through the material, please remember our rules:
 
 <br>
 
-This section establishes a baseline by reviewing the operating system, firewall configuration, network exposure, security services, failed system services, mandatory access controls, Linux Security Modules, auditing, kernel hardening parameters, network routing, and disk encryption. Each check is explained below.
+This section establishes a baseline by reviewing the operating system, firewall configuration, network exposure, security services, failed system services, mandatory access controls, Linux Security Modules, auditing, kernel hardening parameters, network routing, and disk encryption.
 
 <br>
 
@@ -89,12 +87,12 @@ sudo ufw status verbose
 sudo ufw status numbered
 ```
 
+<br>
+
 For a hardened desktop machine, a typical configuration would use:
 
 ```
-  - Incoming: deny
-  - Outgoing: allow
-  - Routed: disabled or an appropriately restricted policy.
+Default: deny (incoming), allow (outgoing), disabled (routed)
 ```
 
 <br>
@@ -110,6 +108,7 @@ This command inspects network sockets currently listening for incoming connectio
 ```bash
 sudo ss -lntup
 ```
+<br>
 
 The arguments specify what we want to inspect:
 
@@ -140,6 +139,8 @@ systemctl is-active \
   sshd.service
 ```
 
+<br>
+
 The output reports one of the following states:
 
 ```
@@ -165,6 +166,8 @@ systemctl is-enabled \
   <YOUR VPN>.VPN.service
 ```
 
+<br>
+
 Typical results include:
 
 ```
@@ -186,6 +189,8 @@ This command inspects systemd for services that have entered a failed state.
 ```bash
 systemctl --failed --no-pager
 ```
+
+<br>
 
 This can reveal:
 
@@ -210,6 +215,8 @@ This command inspects the current state of [AppArmor](https://en.wikipedia.org/w
 sudo aa-status
 ```
 
+<br>
+
 `sudo aa-status` reports information such as:
 
 ```
@@ -220,6 +227,8 @@ sudo aa-status
 - How many profiles are operating in complain mode.
 - Which processes are currently confined by AppArmor.
 ```
+
+<br>
 
 Two particularly important profile modes are:
 
@@ -239,6 +248,8 @@ This command displays the [Linux Security Modules](https://en.wikipedia.org/wiki
 ```bash
 cat /sys/kernel/security/lsm
 ```
+
+<br>
 
 Depending on the kernel configuration, the output may contain entries such as:
 
@@ -263,6 +274,8 @@ This command queries the current status of the [Linux Audit](https://en.wikipedi
 sudo auditctl -s
 ```
 
+<br>
+
 `auditctl -s` displays the current audit subsystem status:
 
 ```
@@ -286,6 +299,8 @@ This command displays the audit rules currently loaded into the kernel.
 ```bash
 sudo auditctl -l
 ```
+
+<br>
 
 Depending on the configuration, these rules can monitor:
 
@@ -337,6 +352,8 @@ sysctl fs.suid_dumpable
 sysctl kernel.core_pattern
 cat /sys/kernel/security/lockdown
 ```
+
+<br>
 
 `kernel.unprivileged_userns_clone` should stay enabled, since browser sandboxes and containers depend on it. The lockdown file shows the active mode, where `[none]` means lockdown is off.
 
@@ -474,6 +491,8 @@ This command displays block devices and their associated filesystem information.
 lsblk -f
 ```
 
+<br>
+
 When inspecting an encrypted Linux installation, you may encounter entries such as:
 
 ```
@@ -508,11 +527,15 @@ sudo ufw logging on
 sudo ufw enable
 ```
 
+<br>
+
 Then check that it is active:
 
-```
+```bash
 sudo ufw status verbose
 ```
+
+<br>
 
 The output should show:
 
@@ -523,11 +546,15 @@ Default: deny (incoming), allow (outgoing)
 
 > **Note:** Keep the outgoing policy at `allow`. The VPN client must reach its servers through the physical interface, and a restrictive outgoing policy can prevent reconnection. The VPN routing and kill switch provide the fail-closed behavior instead.
 
+<br>
+
 Block inbound traffic to a suspicious port:
 
 ```bash
-sudo ufw deny in PORT-NUMBER-HERE/udp
+sudo ufw deny in <PORT>/udp
 ```
+
+<br>
 
 Review the allow rules and remove any you do not recognize. Confirm that nothing uses the port first, then delete the rule for both protocols:
 
@@ -549,11 +576,15 @@ Install `lsof` (used below to map ports to processes):
 sudo pacman -S lsof
 ```
 
+<br>
+
 Check listening ports:
 
 ```bash
 sudo ss -tulpn
 ```
+
+<br>
 
 All listening sockets, including process ownership:
 
@@ -561,11 +592,15 @@ All listening sockets, including process ownership:
 sudo ss -tulpne
 ```
 
+<br>
+
 Listening TCP ports:
 
 ```bash
 sudo ss -lntp
 ```
+
+<br>
 
 Listening UDP ports:
 
@@ -573,11 +608,15 @@ Listening UDP ports:
 sudo ss -lnup
 ```
 
+<br>
+
 Processes listening on network interfaces:
 
 ```bash
 sudo lsof -i -P -n | grep LISTEN
 ```
+
+<br>
 
 Check active network connections:
 
@@ -593,6 +632,8 @@ nmcli connection show --active
 ```bash
 sudo grep -RniE 'DNSStubListenerExtra' /etc/systemd/resolved.conf /etc/systemd/resolved.conf.d/ 2>/dev/null
 ```
+
+<br>
 
 Remove the stale setting only after confirming that nothing uses it. Then restart the resolver and verify that only the loopback listeners remain:
 
@@ -660,6 +701,8 @@ for i in /proc/sys/net/ipv6/conf/*/disable_ipv6; do
 done
 ```
 
+<br>
+
 For a physical connection, you can also disable IPv6 in its NetworkManager profile, which persists across reconnects:
 
 ```bash
@@ -667,6 +710,8 @@ sudo nmcli connection modify "<CONNECTION-NAME>" ipv6.method disabled
 ```
 
 > **Note:** Do not disable IPv6 on the VPN's virtual interfaces without checking the VPN's requirements first. The VPN may use them for its kill switch and routing.
+
+<br>
 
 Test IPv4 and IPv6 connectivity:
 
@@ -691,6 +736,8 @@ systemctl is-enabled <YOUR VPN>.VPN.service
 nmcli -f NAME,TYPE,DEVICE connection show --active
 ```
 
+<br>
+
 Check IPv4 routing, including the VPN server endpoints and the local gateway:
 
 ```bash
@@ -702,6 +749,8 @@ ip -4 route show table <TABLE-NUMBER>
 ip -4 route show table main
 ```
 
+<br>
+
 In a healthy setup, general internet traffic uses the VPN interface. Only the VPN server endpoints use the physical interface, because the tunnel has to reach its server through the local network. The local gateway stays reachable for local network access.
 
 Check DNS, the firewall, and the VPN processes:
@@ -712,6 +761,8 @@ sudo ufw status verbose
 pgrep -a -i vpn
 ```
 
+<br>
+
 Check the routing of marked traffic. The VPN client marks its own traffic with a firewall mark, so marked packets bypass the VPN routing table and use the kill-switch route instead. Use the mark that your VPN client reports:
 
 ```bash
@@ -720,6 +771,8 @@ ip route get 1.1.1.1 mark <FWMARK>
 ip route show table main
 ip -details link show <KILL-SWITCH-INTERFACE>
 ```
+
+<br>
 
 The unmarked route should use the VPN tunnel. The marked route should use the kill-switch interface. The kill-switch interface is a dummy device that carries no traffic of its own. The main table should prefer it over the Wi-Fi default route. The only expected physical-network route is the exception for the VPN server's address.
 
@@ -733,9 +786,11 @@ Check the VPN application's settings before you test:
 - **Split tunneling:** disabled, so no application bypasses the tunnel by accident.
 - **DNS:** leave NetworkManager on automatic DNS. Do not add third-party DNS servers to the Wi-Fi profile. In Firefox, turn DNS over HTTPS off, so that the system resolver handles lookups through the VPN.
 
+<br>
+
 Routing output alone does not prove that the kill switch works. Run a controlled disconnect test:
 
-1Note your current public IPv4 address: `curl -4 --connect-timeout 5 https://api.ipify.org`.
+1. Note your current public IPv4 address: `curl -4 --connect-timeout 5 https://api.ipify.org`.
 2. Disconnect the VPN in its application. Leave the firewall and the kill switch enabled.
 3. Run the same request, and check the route and the kill-switch interface:
 
@@ -744,6 +799,8 @@ curl -4 --connect-timeout 5 https://api.ipify.org
 ip route get 1.1.1.1
 ip -br addr show <KILL-SWITCH-INTERFACE>
 ```
+
+<br>
 
 Reconnect the VPN immediately afterward.
 
@@ -758,6 +815,8 @@ while true; do
     sleep 2
 done
 ```
+
+<br>
 
 The expected result is that the request fails rather than returning your ISP address. On this system, the test passed. Traffic did not fall back to Wi-Fi during the disconnect. The test covers this one failure scenario, not a reboot, a daemon crash, or an interface change, so verify those separately.
 
@@ -786,6 +845,8 @@ for module in dccp sctp rds tipc; do
 done
 ```
 
+<br>
+
 Check for active sockets and existing module configuration:
 
 ```bash
@@ -796,11 +857,12 @@ grep -RniE 'dccp|sctp|rds|tipc' \
     /etc/modprobe.d/ /etc/modules-load.d/ 2>/dev/null || true
 ```
 
+<br>
+
 Disable unused network protocol modules (modprobe file):
 
 ```bash
 sudo tee /etc/modprobe.d/disable-unused-protocols.conf <<'EOF'
-# Disable unused network protocols (Lynis NETW-3200)
 install sctp /usr/bin/false
 install rds /usr/bin/false
 install tipc /usr/bin/false
@@ -809,6 +871,8 @@ blacklist rds
 blacklist tipc
 EOF
 ```
+
+<br>
 
 Verify the resulting configuration and module behavior:
 
@@ -856,23 +920,29 @@ ip -brief address
 ip route
 ```
 
+<br>
+
 Inspect the UDP tables and socket ownership:
 
 ```bash
 sudo cat /proc/net/udp
 sudo cat /proc/net/udp6
 
-sudo grep -R "PORT-NUMBER-HERE" /proc/*/net/udp /proc/*/net/udp6 2>/dev/null
+sudo grep -R "<PORT>" /proc/*/net/udp /proc/*/net/udp6 2>/dev/null
 
 sudo ls -l /proc/$(pidof NetworkManager)/fd
 ```
+
+<br>
 
 Replace the inode number in the following command with the one found in the previous output:
 
 ```bash
 sudo find /proc/[0-9]*/fd \
-    -lname 'socket:[INODE-NUMBER-HERE]' 2>/dev/null
+    -lname 'socket:[<INODE>]' 2>/dev/null
 ```
+
+<br>
 
 Inspect network namespaces and NetworkManager service restrictions:
 
@@ -889,23 +959,27 @@ systemctl show NetworkManager \
     -p RestrictAddressFamilies
 ```
 
+<br>
+
 Check which process owns a port:
 
 ```bash
-sudo lsof -i :PORT-NUMBER-HERE
-sudo ss -ulpn | grep PORT-NUMBER-HERE
-sudo ss -lunp 'sport = :PORT-NUMBER-HERE'
-sudo ss -ulpne 'sport = :PORT-NUMBER-HERE'
-sudo fuser -v PORT-NUMBER-HERE/udp
+sudo lsof -i :<PORT>
+sudo ss -ulpn | grep <PORT>
+sudo ss -lunp 'sport = :<PORT>'
+sudo ss -ulpne 'sport = :<PORT>'
+sudo fuser -v <PORT>/udp
 ```
+
+<br>
 
 Search NetworkManager configuration and logs for the port:
 
 ```bash
-sudo grep -R "PORT-NUMBER-HERE" /etc/NetworkManager /usr/lib/NetworkManager 2>/dev/null
+sudo grep -R "<PORT>" /etc/NetworkManager /usr/lib/NetworkManager 2>/dev/null
 
 sudo journalctl -u NetworkManager -b --no-pager |
-    grep -iE 'dns|dhcp|connectivity|PORT-NUMBER-HERE'
+    grep -iE 'dns|dhcp|connectivity|<PORT>'
 ```
 
 <br>
@@ -930,11 +1004,15 @@ Check running services:
 systemctl list-units --type=service --state=running
 ```
 
+<br>
+
 Check enabled services:
 
 ```bash
 systemctl list-unit-files --state=enabled
 ```
+
+<br>
 
 Check for processes consuming unusual amounts of CPU:
 
@@ -950,6 +1028,8 @@ Check the user-level services. They run under your account and can execute progr
 systemctl --user list-unit-files --type=service --state=enabled
 systemctl --user list-units --type=service --state=running
 ```
+
+<br>
 
 Inspect an unfamiliar service before you disable it. Identify its executable, its definition file, and the user it runs as:
 
@@ -997,7 +1077,7 @@ pacman -Qs blue
 
 Blacklist the Bluetooth kernel modules in a modprobe file:
 
-```
+```bash
 sudo nvim /etc/modprobe.d/disable-bluetooth.conf
 ```
 
@@ -1029,6 +1109,8 @@ Use `systemd-analyze security` to see which sandboxing options a unit uses. A lo
 SYSTEMD_PAGER=cat systemd-analyze security --no-pager <UNIT>.service
 systemctl show <UNIT>.service -p User -p NoNewPrivileges -p ProtectSystem -p ProtectHome -p CapabilityBoundingSet
 ```
+
+<br>
 
 Compare what the process could acquire (`CapBnd`) with what it actually uses (`CapEff`) before you restrict anything:
 
@@ -1067,7 +1149,7 @@ sysctl kernel.unprivileged_bpf_disabled
 
 Create the hardening configuration file:
 
-```
+```bash
 sudo nvim /etc/sysctl.d/99-hardening.conf
 ```
 
@@ -1076,23 +1158,32 @@ with:
 ```
 # Restrict kernel pointer exposure
 kernel.kptr_restrict = 2
+
 # Restrict TTY line discipline autoloading
 dev.tty.ldisc_autoload = 0
+
 # Protect FIFOs and regular files in world-writable sticky directories
 fs.protected_fifos = 2
 fs.protected_regular = 2
+
 # Prevent suid processes from dumping core
 fs.suid_dumpable = 0
+
 # Disable kernel module loading after boot (uncomment only if you do not load modules post-boot)
 # kernel.modules_disabled = 1
+
 # Restrict Magic SysRq key functions
 kernel.sysrq = 0
+
 # Harden BPF Just-In-Time compiler
 net.core.bpf_jit_harden = 2
+
 # Log martian packets (packets with impossible routing addresses) on all interfaces
 net.ipv4.conf.all.log_martians = 1
 net.ipv4.conf.default.log_martians = 1
 ```
+
+<br>
 
 Apply the changes:
 
@@ -1135,7 +1226,7 @@ This section controls who and what can access the system: user privileges, remot
 
 Harden the SSH daemon configuration:
 
-```
+```bash
 sudo nvim /etc/ssh/sshd_config
 ```
 
@@ -1151,11 +1242,11 @@ AllowAgentForwarding no
 AllowUsers yourusername
 ```
 
+<br>
+
 or disable SSH entirely:
 
 ```bash
-sudo systemctl stop sshd
-sudo systemctl disable sshd
 sudo systemctl stop sshd.socket sshd.service
 sudo systemctl disable sshd.socket sshd.service
 ```
@@ -1168,24 +1259,24 @@ sudo systemctl disable sshd.socket sshd.service
 
 Confirm the Hyprland packages and open the configuration file:
 
-```
+```bash
 pacman -Q hyprland hyprland-guiutils
-sudo nvim ~/.config/hypr/hyprland.lua
+nvim ~/.config/hypr/hyprland.lua
 ```
 
 <br>
 
-Add the following rules to require approval for screen capture, input capture, plugin loading, and cursor tracking:
+Add the following rules to deny screen capture, input capture, and cursor tracking by default, and to require approval for plugin loading:
 
 ```lua
--- Screen capture: require approval
+-- Screen capture: deny by default
 hl.permission({
     binary = ".*",
     type = "screencopy",
     mode = "deny"
 })
 
--- Keyboard and mouse input capture: require approval
+-- Keyboard and mouse input capture: deny by default
 hl.permission({
     binary = ".*",
     type = "input-capture",
@@ -1199,7 +1290,7 @@ hl.permission({
     mode = "ask"
 })
 
--- Cursor tracking: require approval
+-- Cursor tracking: deny by default
 hl.permission({
     binary = ".*",
     type = "cursorpos",
@@ -1237,11 +1328,15 @@ sudo pacman -S apparmor
 sudo systemctl enable --now apparmor
 ```
 
+<br>
+
 Verify kernel support:
 
 ```bash
 zgrep CONFIG_SECURITY_APPARMOR /proc/config.gz
 ```
+
+<br>
 
 Check for profiles that do not confine their applications, and for processes running without confinement:
 
@@ -1252,6 +1347,8 @@ sudo aa-unconfined
 
 > **Note:** A profile with `flags=(unconfined)` only gives the application a name; it does not confine it. Proper confinement requires application-specific rules, which we will build and test in a future post.
 
+<br>
+
 Check the order in which the Linux Security Modules are initialized. AppArmor should be initialized before BPF, so check the active order and the boot parameters that set it:
 
 ```bash
@@ -1261,6 +1358,8 @@ sudo grep -n 'KERNEL_CMDLINE' /etc/default/limine
 ```
 
 > **Note:** During testing, the active order placed BPF before AppArmor, and the kernel logged `audit: error in audit_log_subj_ctx` while audit rules were loaded. The fix is to place AppArmor before BPF in the kernel parameters. Confirm the active order with `cat /sys/kernel/security/lsm` after reboot.
+
+<br>
 
 Review the profiles before changing any of them. Count the profiles in each mode, then list the profiles in complain mode and the unconfined profiles:
 
@@ -1276,7 +1375,8 @@ systemctl status apparmor.service --no-pager
 
 > **Note:** Complain mode logs violations without blocking them. Unconfined profiles have no effective confinement. On this version of `aa-status`, the `--unconfined` option is not available, so use the `--filter.mode` filter instead.
 
-Prioritize the review. Start with browsers, password managers, and other network-facing applications, then development tools, terminals, and AI agents, then desktop services. Do not switch a profile to enforce mode until you know which files, processes, and network access the application needs. An incorrect profile can break a workflow without making the system meaningfully safer.
+<br>
+
 
 ## Profile Findings
 
@@ -1291,15 +1391,6 @@ sudo ls -la /etc/apparmor.d/local/
 sudo aa-status --show=profiles --filter.profiles=<PROFILE>
 ```
 
-The findings on this system are:
-
-- **Transmission:** four profiles are in complain mode, but Transmission is not installed or running. They stay unchanged.
-- **Discord, Slack, Element, and MongoDB Compass:** their profiles are unconfined, and the applications are not installed. Their package-owned files stay unchanged.
-- **1Password:** the profile is deliberately unconfined, and there are no local overrides. Eight running processes have the profile but are unconfined. A generic policy could break desktop access, browser integration, or vault access, so the profile stays unchanged until a tested policy exists.
-- **Brave and Firefox:** both are installed and running, and both profiles are unconfined. They are the next candidates, and we will test one browser at a time.
-
-> **Note:** Profiles owned by the `apparmor` package are replaced during updates. Put site-specific changes in `/etc/apparmor.d/local/` instead.
-
 <br>
 
 ## Secure Boot
@@ -1308,7 +1399,7 @@ The findings on this system are:
 
 > Set a BIOS/UEFI password and enable Secure Boot.
 
-> **Note:** We will go over the details of how to set up Secure Boot in a future post. It is very important because it makes sure only trusted, signed boot code runs, which protects the system from bootkits and tampered bootloaders. It also takes a little time to get right, so we'll take it step by step.
+> **Note:** Secure Boot is very important because it makes sure only trusted, signed boot code runs, which protects the system from bootkits and tampered bootloaders.
 
 <br>
 
@@ -1319,11 +1410,15 @@ sudo pacman -S sbctl
 sudo sbctl status
 ```
 
+<br>
+
 Verify the EFI binaries:
 
 ```bash
 sudo sbctl verify
 ```
+
+<br>
 
 > **Important:** Back up your existing UEFI keys before you enroll your own keys. Do not replace firmware keys or enable Secure Boot until you have verified that every boot component is signed.
 
@@ -1333,6 +1428,8 @@ Inspect bootloader and kernel parameters:
 bootctl status
 cat /proc/cmdline
 ```
+
+<br>
 
 Update the Limine configuration:
 
@@ -1359,12 +1456,16 @@ getent group wheel adm disk
 sudo visudo -c
 ```
 
+<br>
+
 List the SUID and SGID binaries, and the file capabilities:
 
 ```bash
 sudo find /usr/bin /usr/sbin /bin /sbin /usr/local/bin -xdev -type f -perm /6000 -printf '%m %u:%g %p\n' 2>/dev/null | sort
 sudo getcap -r /usr/bin /usr/sbin /usr/local/bin /opt 2>/dev/null
 ```
+
+<br>
 
 For each entry, confirm the owning package and its purpose:
 
@@ -1374,15 +1475,7 @@ pacman -Qo /usr/bin/<BINARY>
 getcap -v /usr/bin/<BINARY>
 ```
 
-Findings on this system:
-
-- **Root accounts:** only `root` has UID 0. The regular user is in `wheel`, and the `disk` group is empty, and `adm` contains only the system `daemon` user. Sudo rules validate without errors.
-- **Sudo:** the user has full sudo access, which is expected on a single-user workstation. Credentials stay cached for ten minutes (`timestamp_timeout=10`). The Omarchy `NOPASSWD` entries are limited to specific commands and should be reviewed periodically.
-- **`gpu-screen-recorder`:** `gsr-kms-server` has `cap_sys_admin`, which allows monitor capture without a password prompt. Keep it only if you use direct monitor capture.
-- **`btop`:** `cap_dac_read_search` and `cap_perfmon` enable CPU wattage and GPU monitoring. Keep them while `show_cpu_watts` is enabled.
-- **`inetutils`:** the legacy `rcp`, `rlogin`, and `rsh` clients have `cap_net_bind_service`, but they are not used here. The package is removed in the Applications section.
-- **Root password:** `root` has a password set, and SSH is disabled and inactive. Consider locking direct root password login only after you have confirmed a recovery path.
-- **Other SUID binaries:** each one belongs to a recognizable package, such as `pkexec` (Polkit), `mount.cifs`, `nvidia-modprobe`, and `ksu`. They stay in place for now.
+<br>
 
 > **Note:** Remove a capability or an SUID bit only after you identify the package's purpose. Some of them are required for hardware and monitoring features.
 
@@ -1402,9 +1495,11 @@ pkaction --action-id org.freedesktop.NetworkManager.settings.modify.system --ver
 nmcli -g connection.permissions connection show "<CONNECTION-NAME>"
 ```
 
+<br>
+
 The vendor policy requires administrator authentication for system-wide connection changes. A distribution rule file can override that default, and it should be checked for any unconditional grant to the `wheel` group. Connections restricted to one user, such as a VPN profile, are not affected by a system-wide grant.
 
-To require administrator authentication without changing the vendor files, add a local rule. Polkit evaluates rule files in filename order, and the first rule that returns a result wins. `AUTH_ADMIN` requires administrator authentication without the temporary caching of `AUTH_ADMIN_KEEP`:
+To require administrator authentication without changing the vendor files, add a local rule. Polkit evaluates rule files in filename order, and the first rule that returns a result wins. `AUTH_ADMIN` requires administrator authentication without the temporary caching of `AUTH_ADMIN_KEEP`. To undo this change, remove `/etc/polkit-1/rules.d/00-networkmanager-auth.rules` and restart `polkit.service`. Test the authorization behavior after either change:
 
 ```bash
 sudo tee /etc/polkit-1/rules.d/00-networkmanager-auth.rules > /dev/null <<'EOF'
@@ -1415,6 +1510,8 @@ polkit.addRule(function(action, subject) {
 });
 EOF
 ```
+
+<br>
 
 Verify the file permissions, the service, and any rule errors in the log:
 
@@ -1442,11 +1539,15 @@ pacman -Qi bolt | grep -E '^(Name|Version|Install Reason)'
 lspci -nn | grep -i thunderbolt || true
 ```
 
+<br>
+
 On this system, the Thunderbolt controller is present and the Bolt daemon is running. Since no Thunderbolt peripherals are used, the package is removed, which also removes its `wheel` rule:
 
 ```bash
 sudo pacman -Rns bolt
 ```
+
+<br>
 
 Review the removal list before you confirm it. Do not force the removal. Verify the result:
 
@@ -1455,6 +1556,8 @@ pacman -Q bolt 2>&1
 ls -l /usr/share/polkit-1/rules.d/*bolt* 2>&1
 pgrep -a boltd || echo "No Bolt daemon running"
 ```
+
+<br>
 
 Removing a package does not stop a process that is already running. If `boltd` is still running after the removal, stop it by its process ID:
 
@@ -1573,11 +1676,15 @@ Look at the SSH logs:
 sudo journalctl -u sshd
 ```
 
+<br>
+
 Check recent login sessions:
 
 ```bash
 last -a
 ```
+
+<br>
 
 Check recent authentication records:
 
@@ -1611,6 +1718,8 @@ for path in /etc/passwd /etc/group /etc/shadow /etc/gshadow /etc/sudoers /etc/su
     fi
 done
 ```
+
+<br>
 
 Create a conservative baseline ruleset. It monitors security-sensitive configuration changes without auditing every system call:
 
@@ -1651,12 +1760,16 @@ sudo tee /etc/audit/rules.d/10-security-baseline.rules > /dev/null <<'EOF'
 EOF
 ```
 
+<br>
+
 Review the rules file and validate the ruleset:
 
 ```bash
 sudo cat /etc/audit/rules.d/10-security-baseline.rules
 sudo augenrules --check
 ```
+
+<br>
 
 > **Note:** Until the rules are loaded, `augenrules --check` reports that the rules have changed. This is expected. It does not validate the rule syntax, so check the output of the load step below for errors.
 
@@ -1668,6 +1781,8 @@ sudo auditctl -l
 sudo auditctl -s
 ```
 
+<br>
+
 > **Note:** On the first attempt, `auditctl -l` reported `No rules`, and `audit-rules.service` failed. Use the following commands to find the cause. Clear existing rules with `sudo auditctl -D` before any manual reload.
 
 Check the service status and its log:
@@ -1677,12 +1792,16 @@ systemctl status audit-rules.service --no-pager
 sudo journalctl -u audit-rules.service -b --no-pager
 ```
 
+<br>
+
 Load the compiled file directly and check the exit code:
 
 ```bash
 sudo auditctl -R /etc/audit/audit.rules
 echo "exit code: $?"
 ```
+
+<br>
 
 Test the basic directives one at a time to find the one that fails:
 
@@ -1693,12 +1812,16 @@ sudo auditctl -w /etc/passwd -p wa -k identity
 sudo auditctl -l
 ```
 
+<br>
+
 Test a watch rule on its own. If each watch is accepted individually, the problem lies in loading the complete file rather than in a single rule:
 
 ```bash
 sudo auditctl -w /etc/sysctl.d/ -p wa -k sysctl
 sudo auditctl -l
 ```
+
+<br>
 
 > **Note:** `auditctl` may print `Old style watch rules are slower` for `-w` rules. The `-w` syntax still works, and it is used here for readability. For higher event volumes, check `auditctl(8)` for the newer rule syntax.
 
@@ -1711,6 +1834,8 @@ Check the kernel log for audit errors:
 ```bash
 sudo journalctl -k -b --no-pager | grep -i audit | tail -40
 ```
+
+<br>
 
 > **Note:** Errors such as `audit: error in audit_log_subj_ctx` indicate a kernel-level problem, not a rule problem. Do not treat the audit setup as healthy until these errors stop. See the LSM order check in the AppArmor section.
 
@@ -1727,12 +1852,16 @@ sudo install -m 600 /dev/null /etc/audit/.audit-validation-test
 sudo rm /etc/audit/.audit-validation-test
 ```
 
+<br>
+
 Search the audit log for the recent events and check the counters:
 
 ```bash
 sudo ausearch -k audit -ts recent -i | tail -60
 sudo auditctl -s
 ```
+
+<br>
 
 A successful test shows three events: the file creation (`nametype=CREATE`), the permission change (`fchmodat`), and the deletion (`nametype=DELETE`). Each event records the login identity (`auid`), the effective user, the process, and the executable. `lost 0` means that no records were dropped.
 
@@ -1753,6 +1882,8 @@ sudo grep -nE '^(log_file|log_group|log_format|flush|freq|write_logs|max_log_fil
 df -hT /var/log/audit
 ```
 
+<br>
+
 Auditd manages its own rotation, so no logrotate entry is expected for the audit log.
 
 > **Note:** With the default settings, the log keeps roughly 40 to 48 MB of history, and the disk-space warnings trigger only when space is critically low. The `SUSPEND` actions stop audit logging when the disk is full. This is preferable to silently losing records.
@@ -1772,6 +1903,8 @@ sudo sed -i -E \
 sudo grep -nE '^(max_log_file|num_logs|space_left|admin_space_left)[[:space:]]*=' /etc/audit/auditd.conf
 ```
 
+<br>
+
 Keep the existing `ROTATE`, `SYSLOG`, and `SUSPEND` actions. They provide a controlled response when space runs out.
 
 <br>
@@ -1789,6 +1922,8 @@ sudo grep -Rns 'pam_loginuid' /etc/pam.d/
 loginctl list-sessions
 ```
 
+<br>
+
 Check the processes of the user session:
 
 ```bash
@@ -1796,13 +1931,15 @@ ps -p $$ -o pid,ppid,user,comm,luid
 ps -u "$USER" -o pid,ppid,comm,luid --sort=pid | head -30
 ```
 
-Your shell and user processes should report your UID. PID 1 reports `4294967295`, which means that no login UID is set, and that is normal for system initialization. On this system, all inspected user-session processes reported UID 1000, and no container runtime was active.
+<br>
 
 Check whether an immutability rule already exists:
 
 ```bash
 sudo grep -Rns -- '--loginuid-immutable' /etc/audit/rules.d/ /etc/audit/audit.rules 2>/dev/null
 ```
+
+<br>
 
 > **Note:** `--loginuid-immutable` prevents changes to login UIDs once they are set. Once enabled, it cannot be turned off at runtime; only a reboot clears it. It can also break software that changes its login UID, and some container setups.
 
@@ -1813,6 +1950,8 @@ sudo auditctl --loginuid-immutable
 sudo auditctl -s
 ```
 
+<br>
+
 Then make it persistent in its own rules file, so it stays separate from the security baseline:
 
 ```bash
@@ -1822,12 +1961,17 @@ EOF
 sudo augenrules --load
 ```
 
+<br>
+
+
 After the next reboot, verify that the setting is active and that all watches are still loaded:
 
 ```bash
 sudo auditctl -s
 sudo auditctl -l | wc -l
 ```
+
+<br>
 
 Look for `loginuid_immutable 1`, `lost 0`, and `backlog 0`. The watch count should match the number of rules in the baseline.
 
@@ -1883,7 +2027,11 @@ arch-audit -u
 
 <br>
 
-> **Note:** The tools below ([ClamAV](https://en.wikipedia.org/wiki/ClamAV), rkhunter, and Lynis) are a first pass only. Later, we will review their reports in detail and add more information to this section.
+> **Note:** The tools below ([ClamAV](https://en.wikipedia.org/wiki/ClamAV), [rkhunter](https://en.wikipedia.org/wiki/Rkhunter), [Lynis](https://en.wikipedia.org/wiki/Lynis), etc.) are a first pass only. Later, we will review their reports in detail and add more information to this section.
+
+<br>
+
+### ClamAV
 
 <br>
 
@@ -1891,14 +2039,67 @@ Install ClamAV, update its virus signatures, and scan the home directory and the
 
 ```bash
 sudo pacman -S clamav
-sudo freshclam
-clamscan -r -i "$HOME"
-sudo clamscan -r -i / \
-  --exclude-dir="^/sys" \
-  --exclude-dir="^/proc" \
-  --exclude-dir="^/dev" \
-  --log="/var/log/clamscan_full.log"
 ```
+<br>
+
+Update virus signatures manually:
+
+```bash
+sudo freshclam
+```
+
+<br>
+
+Enable the ClamAV daemon, socket activation, and automatic virus signature updates:
+
+```bash
+# Enable and start the ClamAV daemon and socket
+sudo systemctl enable --now clamav-daemon.service
+
+# Enable automatic virus database updates
+sudo systemctl enable --now clamav-freshclam.service
+```
+
+<br>
+
+Verify the services:
+
+```bash
+systemctl status clamav-daemon.service
+systemctl status clamav-daemon.socket
+systemctl status clamav-freshclam.service
+```
+
+<br>
+
+Test the daemon with a scan:
+
+```bash
+clamdscan --fdpass /etc/hostname
+```
+
+<br>
+
+Run a scan of home directories:
+
+```bash
+clamdscan --fdpass --multiscan --infected /home
+```
+
+<br>
+
+Recommended configuration:
+
+```
+- clamav-daemon.service: enabled
+- clamav-daemon.socket: enabled
+- clamav-freshclam.service: enabled
+- clamav-clamonacc.service: disabled (optional on-access scanning not enabled)
+```
+
+<br>
+
+### rkhunter
 
 <br>
 
@@ -1918,6 +2119,8 @@ If rkhunter flags a legitimate script, whitelist it in the configuration file:
 sudo nvim /etc/rkhunter.conf
 ```
 
+<br>
+
 Add:
 
 ```
@@ -1925,6 +2128,10 @@ SCRIPTWHITELIST="/usr/bin/egrep"
 SCRIPTWHITELIST="/usr/bin/fgrep"
 SCRIPTWHITELIST="/usr/bin/ldd"
 ```
+
+<br>
+
+### Lynis
 
 <br>
 
@@ -1937,8 +2144,303 @@ sudo lynis audit system
 
 <br>
 
+### AIDE — Advanced Intrusion Detection Environment
+
+<br>
+
+Host-based file integrity monitoring. AIDE creates a baseline of filesystem attributes and detects unexpected changes to files, permissions, ownership, and checksums.
+
+<br>
+
+```bash
+sudo pacman -S aide
+sudo aide -i
+```
+
+<br>
+
+Check filesystem integrity:
+
+```bash
+sudo aide -C
+```
+
+<br>
+
+Update the baseline after reviewing legitimate changes:
+
+```bash
+sudo aide -u
+```
+
+<br>
+
+### YARA — Malware Identification
+
+<br>
+
+A pattern-matching engine for identifying and classifying malware. YARA rules describe characteristics of files or processes that can indicate known threats or suspicious patterns.
+
+
+```bash
+sudo pacman -S --needed yara
+yara --version
+```
+
+<br>
+
+Create and test a rule file (I have an example [here](https://github.com/future-ai-org/omarchy_stuff)):
+
+```bash
+mkdir -p ~/yara/rules
+nvim ~/yara/rules/omarchy.yar
+yarac ~/yara/rules/omarchy.yar /tmp/omarchy.yarc
+```
+<br>
+
+Scan a file using a rule file:
+
+```bash
+yara ~/yara/rules/omarchy.yar /path/to/suspicious-file
+```
+
+<br>
+
+Scan a directory recursively:
+
+```bash
+yara -r ~/yara/rules/omarchy.yar /path/to/directory
+```
+
+<br>
+
+### Archcanary — Arch Linux Security Scanner
+
+<br>
+
+An experimental Arch-specific security scanner designed to inspect potential persistence mechanisms, suspicious system changes, package integrity, and other security concerns.
+
+```bash
+yay -S archcanary
+sudo archcanary --full
+```
+
+<br>
+
+### Suricata — Network Intrusion Detection
+
+<br>
+
+An open-source network threat detection engine. Suricata analyzes network traffic and can identify suspicious connections, exploit attempts, and known attack signatures.
+
+```bash
+yay -S --needed suricata
+suricata --build-info
+```
+
+<br>
+
+Download detection rules:
+
+```bash
+sudo /home/$USER/suricata-venv/bin/suricata-update
+```
+
+<br>
+
+Validate configuration:
+
+```bash
+sudo suricata -T -c /etc/suricata/suricata.yaml
+```
+
+Inspect available network interfaces:
+
+```bash
+ip -br link
+```
+
+<br>
+
+with:
+
+```bash
+sudo suricata -c /etc/suricata/suricata.yaml -i <INTERFACE>
+```
+
+<br>
+
+View security alerts:
+
+```bash
+sudo tail -f /var/log/suricata/fast.log
+```
+
+<br>
+
+### chkrootkit — Rootkit Detection
+
+<br>
+
+A lightweight rootkit scanner that checks system binaries, suspicious processes, hidden directories, network interfaces, and indicators of known rootkits. It provides an independent second opinion alongside rkhunter.
+
+```bash
+yay -S chkrootkit
+sudo pacman -S net-tools
+sudo chkrootkit
+```
+
+<br>
+
+Display available options:
+
+```bash
+chkrootkit -h
+```
+
+<br>
+
+### Unhide — Hidden Process Detection
+
+<br>
+
+A forensic utility designed to detect hidden processes, suspicious kernel modules, and processes that may be concealed by rootkits. It complements conventional rootkit scanners by using alternative process-discovery techniques.
+
+```bash
+sudo pacman -S --needed unhide
+unhide --help
+```
+
+<br>
+
+Check for hidden processes:
+
+```bash
+sudo unhide proc
+```
+
+<br>
+
+Check additional detection modes:
+
+```bash
+sudo unhide sys
+sudo unhide brute
+```
+
+<br>
+
+### Linux Malware Detect — Maldet
+
+<br>
+
+A malware scanner focused on suspicious files, malware signatures, and common web-based malware. Originally developed for shared hosting environments, it can provide an additional file-scanning layer.
+
+```bash
+yay -S maldet
+```
+
+<br>
+
+Update malware signatures:
+
+```bash
+sudo maldet -u
+sudo maldet -d
+```
+
+<br>
+
+Scan a directory:
+
+```bash
+sudo maldet -a /home
+```
+
+<br>
+
+Display recent scan reports:
+
+```bash
+sudo maldet --report list
+```
+
+<br>
+
+## Firmware Updates
+
+<br>
+
+> Firmware sits below the operating system, so none of the checks above can see it. 
+
+<br>
+
+[fwupd](https://fwupd.org/) lists the firmware on the machine and the updates published for it:
+
+```bash
+sudo pacman -S fwupd
+fwupdmgr get-devices
+fwupdmgr get-updates
+```
+
+> **Note:** Not every vendor publishes BIOS updates through fwupd. If the BIOS shows up under "Devices with no available firmware updates", check the vendor's support site instead.
+
+<br>
+
+On some machines, the only updates offered are for the Secure Boot signature database (`db`) and the revocation list (`dbx`). Both only matter once Secure Boot is enabled:
+
+```bash
+fwupdmgr update
+```
+
+<br>
+
+Installing fwupd creates two system users, `fwupd` and `passim`, which rkhunter reports as new accounts on its next run. Once you have confirmed they came from the package, store them in the rkhunter baseline:
+
+```bash
+sudo rkhunter --propupd
+```
+
+<br>
+
+## Loaded eBPF Programs
+
+<br>
+
+[eBPF](https://en.wikipedia.org/wiki/EBPF) programs run inside the kernel and can observe system calls, network traffic, and input events, which makes them a quiet place for a keylogger or a network tap to hide. They do not show up in the process list, so they need their own check. On Arch, `bpftool` ships in the `bpf` package:
+
+```bash
+sudo pacman -S bpf
+sudo bpftool prog show
+```
+
+<br>
+
+Most of the list comes from systemd and is expected:
+
+- `restrict_filesystems` (type `lsm`): systemd's filesystem restriction hook.
+- `sd_fw_ingress` and `sd_fw_egress` (type `cgroup_skb`): systemd's per-service network filtering.
+- `sd_devices` (type `cgroup_device`): systemd's per-service device access policy.
+- `split_tunnel` (type `cgroup_sock`): Proton VPN's split tunneling.
+
+<br>
+
+What deserves a closer look is anything of type `kprobe`, `tracepoint`, `raw_tracepoint`, `tracing`, or `perf_event` that you did not load yourself, since those are the types that can watch what the system is doing:
+
+```bash
+sudo bpftool prog show | grep -E 'kprobe|tracepoint|tracing|perf_event'
+```
+
+<br>
+
 ---
 
 #### That's it for today. See you in the next update!
 
 #### ⬛️
+
+<br>
+
+![](/blog/assets/batman.webp)
+
+<br>

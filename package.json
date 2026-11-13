@@ -3,13 +3,15 @@
   "private": true,
   "scripts": {
     "test": "jest --coverage",
-    "lint": "eslint . && stylelint \"public/css/**/*.css\""
+    "lint": "eslint . && stylelint \"public/css/**/*.css\" && npm run lint:html",
+    "lint:html": "html-validate --ext html --rule=no-dup-id:error --rule=no-dup-attr:error --rule=attr-quotes:error --rule=no-raw-characters:error --rule=wcag/h37:error public"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.14.0",
     "globals": "^17.14.0",
     "harper.js": "3.0.0",
+    "html-validate": "^11.21.1",
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
     "stylelint": "^18.0.0",

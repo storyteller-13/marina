@@ -1,6 +1,3 @@
-# macOS
-.DS_Store
-
 # Python
 __pycache__/
 *.py[cod]
@@ -11,11 +8,6 @@ __pycache__/
 .eggs/
 dist/
 build/
-
-# Virtual envs (optional; uncomment if you use one in-repo)
-# .venv/
-# venv/
-# env/
 
 # Node
 node_modules/
@@ -29,5 +21,3 @@ htmlcov/
 # pre-commit (local env cache when running outside CI)
 .pre-commit-cache/
 
-.claude
-NOTES

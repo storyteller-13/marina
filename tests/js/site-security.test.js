@@ -50,3 +50,14 @@ test("pages have no inline scripts, handlers, styles or javascript: URLs", () =>
     }
   }
 });
+
+test("blog index exposes absolute canonical and social preview metadata", () => {
+  const html = fs.readFileSync(path.join(ROOT, "public/pages/blog.html"), "utf8");
+  expect(html).toContain('<link rel="canonical" href="https://marina.nullstar.fun/pages/blog.html">');
+  expect(html).toContain('<meta property="og:url" content="https://marina.nullstar.fun/pages/blog.html">');
+  expect(html).toContain('<meta property="og:image" content="https://marina.nullstar.fun/images/steinkirch.webp">');
+  expect(html).toContain('<meta property="og:image:width" content="460">');
+  expect(html).toContain('<meta property="og:image:height" content="460">');
+  expect(html).toContain('<meta name="twitter:card" content="summary_large_image">');
+  expect(html).toContain('<meta name="description" content="Technical notes by Marina von Steinkirch');
+});

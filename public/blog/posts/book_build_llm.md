@@ -14,7 +14,7 @@ This book walks through the full lifecycle of building a large language model: f
 
 I enjoyed this read: although it's introductory, it has great explanations, great pictures (visual learners winning here), and fun Python exercises. I read it in 3 days, and it helped me refresh some key concepts in my mind. 
 
-The journey is structured as the following:
+The journey is structured as follows:
 
 | Stage | Focus |
 |---|---|

@@ -45,6 +45,11 @@ Mabon Hapus i chi! and 秋分の日、どうぞ良い一日をお過ごしくだ
 Why did I choose this model from Sakana AI, and what interests me about their work? **[Travel to the future](https://marina.nullstar.fun/blog/paper_intel_2.html)** and you will understand.
 :::
 
+:::ps
+[November, 2026 EDIT] [Here](https://www.youtube.com/watch?v=ugmCis5nuF8) is a great overview of Web AI and running inference directly in the browser, from Google. I guess I am always ahead of the trends =D.
+:::
+
+
 <br>
 
 ---

@@ -2,43 +2,6 @@
 
 /* global assetUrl, escapeHtml -- from blog-common.js, loaded first */
 
-/** Parse post dates, including site format "YYYY; MM; DD". */
-function parsePostDate(dateStr) {
-  if (!dateStr) return NaN;
-  const raw = String(dateStr).trim();
-
-  const semicolon = raw.match(/^(\d{4});\s*(\d{1,2});\s*(\d{1,2})$/);
-  if (semicolon) {
-    const [, y, m, d] = semicolon;
-    return Date.UTC(Number(y), Number(m) - 1, Number(d));
-  }
-
-  const time = Date.parse(raw);
-  return Number.isNaN(time) ? NaN : time;
-}
-
-function compareByDateThenSlug(a, b, aSlug, bSlug) {
-  const aTime = parsePostDate(a);
-  const bTime = parsePostDate(b);
-  const aHasDate = !Number.isNaN(aTime);
-  const bHasDate = !Number.isNaN(bTime);
-
-  if (aHasDate && bHasDate && aTime !== bTime) {
-    return bTime - aTime;
-  }
-  if (aHasDate !== bHasDate) {
-    return aHasDate ? -1 : 1;
-  }
-
-  const aSlugNum = Number(aSlug);
-  const bSlugNum = Number(bSlug);
-  if (!Number.isNaN(aSlugNum) && !Number.isNaN(bSlugNum) && aSlugNum !== bSlugNum) {
-    return bSlugNum - aSlugNum;
-  }
-
-  return String(bSlug || "").localeCompare(String(aSlug || ""));
-}
-
 const EMPTY_DRAFTS_HTML = '<p class="blog-draft-empty">Nothing listed here yet.</p>';
 
 /**
@@ -49,7 +12,10 @@ async function fetchIndex(path) {
   const response = await fetch(assetUrl(path), { cache: "no-cache" });
   if (!response.ok) return null;
   const entries = await response.json();
-  return Array.isArray(entries) ? entries : [];
+  if (!Array.isArray(entries)) {
+    throw new Error("Index response must be an array.");
+  }
+  return entries;
 }
 
 async function loadBlog() {
@@ -70,15 +36,20 @@ async function loadBlog() {
     }
 
     const rendered = posts.map((post) => {
-      const slug = post.slug || "";
+      if (!post || typeof post !== "object" || Array.isArray(post)
+        || typeof post.slug !== "string" || !post.slug
+        || !/^[A-Za-z0-9_-]+$/.test(post.slug)
+        || (post.title !== undefined && typeof post.title !== "string")
+        || (post.date !== undefined && typeof post.date !== "string")) {
+        throw new Error("Technical Notes index contains an invalid entry.");
+      }
+      const slug = post.slug;
       return {
         safeSlug: encodeURIComponent(slug),
         title: post.title || slug.replace(/-/g, " "),
         date: post.date || "",
       };
     });
-
-    rendered.sort((a, b) => compareByDateThenSlug(a.date, b.date, a.safeSlug, b.safeSlug));
 
     rendered.forEach((post) => {
       const line = document.createElement("p");
@@ -112,6 +83,10 @@ async function loadDrafts() {
         if (typeof entry === "string") {
           return { statusLabel: "wip", title: entry.trim(), date: "", slug: "" };
         }
+        if (!entry || typeof entry !== "object" || Array.isArray(entry)
+          || ["slug", "title", "date", "status"].some((key) => entry[key] !== undefined && typeof entry[key] !== "string")) {
+          throw new Error("Drafts index contains an invalid entry.");
+        }
         const slug = entry.slug || "";
         const date = entry.date || "";
         return {
@@ -122,7 +97,6 @@ async function loadDrafts() {
         };
       })
       .filter((row) => row.title.trim());
-    rows.sort((a, b) => compareByDateThenSlug(a.date, b.date, a.slug, b.slug));
     if (rows.length === 0) {
       draftRoot.innerHTML = EMPTY_DRAFTS_HTML;
       return;
@@ -150,8 +124,6 @@ window.addEventListener("DOMContentLoaded", () => {
 globalThis.MarinaBlog = {
   assetUrl,
   escapeHtml,
-  parsePostDate,
-  compareByDateThenSlug,
   loadBlog,
   loadDrafts,
 };

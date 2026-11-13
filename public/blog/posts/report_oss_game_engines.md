@@ -253,12 +253,14 @@ And an *ever-growing* list of very good (but somehow random) resources on buildi
 - **[heredragonsabound](https://heredragonsabound.blogspot.com/)**
 - **[gameprogrammingpatterns](https://gameprogrammingpatterns.com/)**
 - **[gamesfromwithin](https://gamesfromwithin.com/)**
+- **[Wyatt Cheng’s YouTube](https://www.youtube.com/@candlesan)**
+- **[A 3D Game Asset Pipeline with Open-Source (Tonbi, 2026)](https://www.youtube.com/watch?v=fsEhyEAOqXk)**
 
 <br>
 
 ---
 
-### Until next time, my friend!
+### Until next time, my anon friend!
 
 ### ⬛
 

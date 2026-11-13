@@ -6,7 +6,7 @@ date: 2026; 10; 30
 
 > [🎧](https://www.youtube.com/watch?v=ODKy0ffjXS0) *“[The universe is change](https://www.youtube.com/watch?v=GScw6xLHPp4); our life is what our thoughts make it."* — Marcus Aurelius on Meditations
 
-> [🎼](https://www.youtube.com/watch?v=P3l3ezun46I) *“If you consider yourself a serious researcher, it’s essential to read the original sources.”* — Marina von Steinkirch
+> [🎼](https://www.youtube.com/watch?v=P3l3ezun46I) *"Every new model is an experiment in harness design."* — Marina von Steinkirch
 
 <br>
 
@@ -21,6 +21,10 @@ date: 2026; 10; 30
 <br>
 
 ![](/blog/assets/report_harn_0.webp)
+
+<br>
+
+![](/blog/assets/report_harn_29.webp)
 
 <br>
 
@@ -442,7 +446,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### Context Management Decisions
+## Context Management Decisions
 
 <br>
 
@@ -458,7 +462,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### Tool System Decisions
+## Tool System Decisions
 
 <br>
 
@@ -472,7 +476,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### Security and Isolation Decisions
+## Security and Isolation Decisions
 
 <br>
 
@@ -484,7 +488,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### Orchestration Decisions
+## Orchestration Decisions
 
 <br>
 
@@ -494,7 +498,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### Multi-Agent Orchestrator Pattern
+## Multi-Agent Orchestrator Pattern
 
 <br>
 
@@ -507,7 +511,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### Enterprise Full-Featured Pattern
+## Enterprise Full-Featured Pattern
 
 <br>
 
@@ -520,7 +524,7 @@ As I read through the material, below are my highlights — with a moderate atte
 
 <br>
 
-### Scenario-Verticalized or Research-Oriented Pattern
+## Scenario-Verticalized or Research-Oriented Pattern
 
 <br>
 
@@ -534,9 +538,105 @@ As I read through the material, below are my highlights — with a moderate atte
 <br>
 
 
+----
+
+# 3️⃣🐯 Paper III: [Shepherd: Enabling Programmable Meta-Agents via Reversible Agentic Execution Traces (S. Yu et al., 2026)](https://arxiv.org/abs/2605.10913)
+
+<br>
+
+#### ✨ Let's close the paper trilogy by looking at what a harness substrate needs to offer once agents start operating on other agents: observing, intercepting, forking, reverting, and rewriting a running execution. ✨
+
+<br>
+
+- Meta-agents are higher-order agents that create, manage, and act on other agents and their execution traces, during or after a run. Examples include advisors that steer workers away from dead ends, meta-optimizers such as [GEPA](https://arxiv.org/abs/2507.19457) and [MetaHarness](https://yoonholee.com/meta-harness/) (see also [MIPRO](https://arxiv.org/abs/2406.11695) for optimizing instructions and demonstrations in multi-stage LM programs), and tree-search RL trainers that branch rollouts to compare continuations.
+
+- The paper's complaint is that today's substrates were built to keep state for the running agent, not for whoever supervises it. They mostly expose transcripts and environment snapshots, so every meta-agent ends up rebuilding its own tooling to reconstruct the full execution state.
+
+- Existing work covers fragments: OpenHands surfaces a session's event stream, AgentGit hands the worker Git-like commit tools, BranchFS isolates the filesystem, and Docker snapshots the environment. None of them supports all four operations (intercept, fork agent plus environment, revert, modify) on a running agent.
+
+- **[Shepherd](https://github.com/shepherd-agents/shepherd)** is a Python substrate that gives an agent's execution the treatment functions get in functional programming: it becomes a value that a meta-agent can hold, run, copy, and rewrite.
+
+<br>
+
+## The Four Primitives
+
+<br>
+
+| Primitive | What the meta-agent can do              | Functional programming construct |
+| --------- | --------------------------------------- | -------------------------------- |
+| Task      | Modify agent behavior                   | Typed function                   |
+| Effect    | Observe and intercept execution         | Algebraic effect                 |
+| Scope     | Fork execution state                    | Scoped effect handler            |
+| Trace     | Revert and replay from a past state     | Persistent data structure        |
+
+<br>
+
+- **Tasks (what the agent is):** an agent is a typed Python function declared with an `@agent` decorator; its signature and docstring are compiled into a prompt and the output is validated against the declared type. Tasks with the same signature are interchangeable, and a meta-agent is simply a task whose arguments are other tasks (so meta-meta-agents come for free).
+
+- **Effects (what the agent does):** every LLM call, tool call, and environment mutation is reified as a typed record appended to an immutable stream. Each action emits two events, an intent and an outcome, which lets a supervisor read the intent and stop it before the outcome ever materializes.
+
+- Because the stream is immutable, watching a worker does not perturb it: the trace is the same bytes whether or not anyone is subscribed.
+
+- Effects carry a reversibility tier. Reversible ones (filesystem writes, sandbox state) roll back natively; compensable ones (database writes) roll back through user-supplied handlers; irreversible ones (model calls, emails) can only be recorded for audit.
+
+- **Scopes (where the agent runs):** a scope binds the sandbox handles, model providers, tools, and stream cursor, and supports four operations: `emit`, `fork`, `merge`, and `discard`. A fork captures filesystem, processes, and bindings in one atomic copy-on-write step, so discarding a child leaves the parent exactly as it was. Scopes can run in parallel and nest.
+
+- **Execution trace (what has been done):** a persistent, Git-like commit graph. The scope operations map onto familiar verbs: emit is a commit, fork is a new branch, merge is a merge, and discard deletes the branch.
+
+- Every past agent-environment state is reachable by hash and replays byte-exactly, so finding where a regression first appeared, or where two siblings diverged, becomes graph traversal. Branches share their common prefix by content hash, and a meta-agent only pays for the divergent suffix.
+
+- The core semantics are formalized as a small algebraic-effects calculus mechanized in Lean.
+
+<br>
+
+## Substrate Performance
+
+<br>
+
+- Forks take roughly 134–143 ms regardless of image size (42 MB to 5.8 GB), about 2–3% of one agent turn, because a fork adds a copy-on-write layer instead of duplicating the filesystem. The abstract's headline is 5× faster than `docker commit` and fork.
+
+- A fork preserves the parent's byte-identical message prefix, so the provider's prompt cache keeps resolving: around a 95% cache-hit rate on Terminal-Bench 2.0 tasks. (This ties back to the KV-cache discussion in Paper I: append-only context and stable prefixes pay off again, this time across branches.)
+
+- The same interface is realized across Docker, E2B, Modal, Daytona, and Prime Intellect sandboxes.
+
+<br>
+
+## Three Meta-Agents Built on It
+
+<br>
+
+- **Runtime supervisor (during execution):** two parallel coding workers run in forked scopes while a stronger model subscribes to both effect streams, with three tools: inject guidance, hand off (restart the follower from the leader's fork), and discard a stuck worker. On CooperBench, the pair pass rate goes from 28.8% (unsupervised cooperation) to 54.7%, close to the 57.2% of a single agent doing both features alone, at lower wall-clock than solo.
+
+- Unsupervised, each worker only sees what its peer chose to send; the supervisor sees everything both actually did. It mostly prefers the lightweight inject action.
+
+- **Counterfactual Replay Optimization (after execution):** a proposer reads the traces of failed runs and emits workflow edits, each paired with a fix set (examples it should repair) and a guard set (examples that must not regress). Each edit is validated by forking the parent trace at the first commit the edit would affect and replaying only the suffix.
+
+- Holding the unaffected prefix constant removes the noise that full-pipeline reruns introduce. CRO beats MetaHarness on four of five datasets, with 27–58% less wall-clock; on Terminal-Bench 2.0 the abstract reports a 12.8% improvement over MetaHarness at 58% lower wall-clock.
+
+- **Meta-agent-guided Tree-RL (during training):** along each rollout, a meta-agent picks a turn to fork and sibling branches are sampled from that exact state. Actions before the fork get the usual GRPO advantage; actions after it get an advantage computed within the sibling group, which gives per-step credit without a learned value function.
+
+- On held-out Terminal-Bench 2.0, Qwen3.5-35B-A3B goes from 26.1% (base) to 34.2% (flat GRPO) to 39.4% (Tree-GRPO), and Nemotron-3-Super-120B-A12B from 30.3% to 33.8% to 37.2%.
+
+<br>
+
+## Caveats and Where It Could Go
+
+<br>
+
+- The authors frame all three results as proofs of existence: the primitives are enough to produce a meaningful uplift, with no claim that the meta-agent policies are optimal or that the numbers require Shepherd.
+
+- The meta-agent has to be strong enough to be useful, and for short tasks its token cost can exceed the worker's.
+
+- Counterfactual replay assumes edits are weakly coupled to side effects. An edit to something used at every step (say, a system prompt) makes the suffix the entire trajectory, and the cache buys nothing.
+
+- Future directions they list: counterfactual interpretability probes, cheap forks as a base for continual learning, post-training workers to use fork, discard, and replay as native actions, and reversibility tiers as a safety property (preempt an irreversible effect before it materializes, and give auditors a content-addressed record of what actually happened rather than what the agent reported).
+
+<br>
+
+
 ---
 
-# 3️⃣🐯 Prelude: Agentic and Loop Patterns
+# 4️⃣🐯 Prelude: Agentic and Loop Patterns
 
 <br>
 
@@ -586,6 +686,7 @@ As I read through the material, below are my highlights — with a moderate atte
 - An agent evaluates its own output and uses that feedback to refine its response iteratively.
 - Also known as the evaluator-optimizer pattern, it uses a self-correction loop.
 - An initial LLM generates a response or completes a task. A subsequent LLM step acts as a reflector or evaluator. Its feedback is then fed back into the process, prompting the LLM to produce a refined output.
+- A caveat from **[Large Language Models Cannot Self-Correct Reasoning Yet (Huang et al., 2023)](https://arxiv.org/abs/2310.01798)**: without external feedback, LLMs struggle to self-correct their reasoning, and performance can even degrade after self-correction.
 
 <br>
 
@@ -607,6 +708,8 @@ As I read through the material, below are my highlights — with a moderate atte
 - This pattern aims to solve complex problems requiring multi-step reasoning by creating an initial plan.
 - The plan is generated dynamically based on the user's input.
 - Subtasks are then assigned to worker agents. An orchestrator LLM collects the results, evaluates whether the overall goal has been achieved, and either synthesizes the final output or initiates a replanning step.
+- A related variant is **[ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models (Xu et al., 2023)](https://arxiv.org/abs/2305.18323)**: the planner writes the whole plan up front, without waiting for tool observations, which reduces token consumption compared to interleaved reason-act loops.
+- Another variant is **[An LLM Compiler for Parallel Function Calling (Kim et al., 2023)](https://arxiv.org/abs/2312.04511)**: a planner formulates an execution plan of function calls, a task-fetching unit dispatches them, and an executor runs them in parallel, reducing latency and cost compared to ReAct.
 
 <br>
 
@@ -616,6 +719,8 @@ As I read through the material, below are my highlights — with a moderate atte
 
 - Multiple distinct agents, each assigned a specific role, persona, or area of expertise, collaborate to achieve a common goal.
 - The agents interact and collaborate, often under the coordination of a central coordinator agent or through handoff logic, in which one agent passes control to another.
+- A seminal framework here is **[AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation (Wu et al., 2023)](https://arxiv.org/abs/2308.08155)**, in which customizable, conversable agents solve tasks by talking to each other.
+- A caveat from **[Towards a Science of Scaling Agent Systems (Kim et al., 2025)](https://arxiv.org/abs/2512.08296)**: adding agents does not always help, and whether a multi-agent setup beats a single agent depends on the task and the coordination overhead.
 
 <br>
 
@@ -630,6 +735,7 @@ As I read through the material, below are my highlights — with a moderate atte
 - **[OpenAI Agents SDK](https://github.com/openai/openai-agents-python/tree/main)** and **[examples of agent patterns](https://github.com/openai/openai-agents-python/tree/main/examples/agent_patterns)**
 - **[Anthropic's recipes of agent patterns](https://github.com/anthropics/claude-cookbooks/tree/main/patterns/agents)** and **[blog post](https://www.anthropic.com/research/building-effective-agents)**
 - **[Microsoft's agent design patterns](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns)**
+- **[Stanford CS329Z's lecture on AI agent design patterns (ReAct, CodeAct, and more)](https://www.youtube.com/watch?v=JC_pLC5EX_w)**
 
 <br>
 
@@ -725,9 +831,66 @@ memory-assisted input = current task + retrieved relevant memories
 
 <br>
 
+## 🟪 Additional Notable Resources
+
+<br>
+
+![](/blog/assets/report_harn_26.webp)
+
+<br>
+
+### Agentic Communication
+
+<br>
+
+- [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework (S. Hong, 2023)](https://arxiv.org/abs/2308.00352)
+- [Towards a Science of Scaling Agent Systems (Y. Kim et al., 2025)](https://arxiv.org/abs/2512.08296)
+- [Agent Handoffs vs Agents as Tools: Who Keeps Control? (cellcog, 2026)](https://cellcog.ai/blog/agent-handoffs-vs-agents-as-tools/)
+
+<br>
+
+![](/blog/assets/report_harn_27.webp)
+
+<br>
+
+### Agentic Coordination
+
+<br>
+
+- [Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks (Microsoft, 2024)](https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/)
+- [Tracing Hierarchical Memory for Multi-Agent Systems (G. Zhang et al., 2025)](https://arxiv.org/abs/2506.07398)
+- [Why Do Multi-Agent LLM Systems Fail? (Cemri, 2025)](https://arxiv.org/abs/2503.13657)
+- [CooperBench: Why Coding Agents Cannot be Your Teammates Yet (K. Khatua, 2026)](https://arxiv.org/html/2601.13295v1)
+- [Patterns and problems in emerging multiagent system (Anthropic, 2026)](https://www.anthropic.com/research/multiagent-systems)
+- [Artificial Hivemind: The Open-Ended Homogeneity of Language Model (L.Jiang, 2026)](https://arxiv.org/pdf/2510.22954)
+
+<br>
+
+![](/blog/assets/report_harn_28.webp)
+
+<br>
+
+### Mechanism Design Towards AGI+ASI
+
+<br>
+
+- [Artificial symbiotic intelligence: Agents, AGI and the orchestration of many minds (B. Bratton et al., 2026)](https://institute.deepmind.com/essays/artificial-symbiotic-intelligence/)
+- [Engineering Simplicity: Simple Mechanism Interfaces Steer LLM Agents (K. Zhu et al., 2026)](https://arxiv.org/pdf/2609.36365)
+- [Learning Self-Orchestration in Decentralized Agent Swarms (G. Xu et al., 2026)](https://arxiv.org/pdf/2610.22322)
+- [Economy of Minds: Emerging Multi-Agent Intelligence with Economic Interactions (Z. Qi et al., 2026)](https://arxiv.org/abs/2606.02859)
+- [Intelligent AI Delegation (N. Tomašev et al., 2026)](https://arxiv.org/abs/2602.11865)
+- [Don't Trust Stubborn Neighbors: A Security Framework for Agentic Networks (S. Abedini et al., 2026)](https://arxiv.org/abs/2603.15809)
+- [Cheaters and whistleblowers in the agent swarm (D. Paglieri et al., 2026)](https://institute.deepmind.com/essays/cheaters-and-whistleblowers-in-the-agent-swarm/)
+- [Mechanism Design for Alignment and Control (D. Bergemann et al., 2026) ](https://cowles.yale.edu/sites/default/files/2026-09/d2557.pdf)
+- [Mechanism Design Meets Large Language Models (B. Chen et al., 2025)](https://openreview.net/pdf?id=9o0yRH5pxL)
+- [Towards a Science of Scaling Agent Systems (Y. Kim et al., 2025)](https://arxiv.org/pdf/2512.08296)
+- [Scaling Large Language Model-based Multi-Agent Collaboration (C. Qian et al., 2024)](https://arxiv.org/abs/2406.07155)
+
+<br>
+
 ---
 
-# 4️⃣🐯 How Leading AI Companies Design Their Agent Harnesses and Orchestration
+# 5️⃣🐯 How Leading AI Companies Design Their Agent Harnesses and Orchestration
 
 <br>
 
@@ -795,7 +958,7 @@ memory-assisted input = current task + retrieved relevant memories
 
 - This is a design heuristic that engineers around today’s perceived model issues. As models improve, these guardrails will likely be unnecessary, but today helps agents execute correctly and autonomously.
 
-- For the outer loop of improving agents, we’re looking at methods like RLMs to more efficiently mine traces. 
+- For the outer loop of improving agents, we’re looking at methods like [RLMs](https://arxiv.org/abs/2512.24601) to more efficiently mine traces. 
 
 <br>
 
@@ -1353,7 +1516,7 @@ export default defineAgent({
 
 <br>
 
-![](/blog/assets/report_harn_18.svg)
+![](/blog/assets/report_harn_18.webp)
 
 <br>
 
@@ -1767,11 +1930,18 @@ Any team building production AI agents can benefit:
 
 ---
 
-# 5️⃣🐯 Open-Source Agentic Harnesses
+# 6️⃣🐯 Open-Source Agentic Harnesses
 
 <br>
 
 #### ✨ Here, I list some of the most popular projects, organized by programming language for easy reference. For each, I've added some personal notes about their codebases and links to additional resources. I'll continue adding relevant resources as I come across them. ✨
+
+<br>
+
+> A nice resource is [Hugging Face's Harness Lens](https://harness-hub-harness-lens.hf.space/): a project that lets you search and compare across 39 harness. It offers several useful features, including a nice [leaderboard](https://huggingface.co/spaces/joelniklaus/harness-leaderboard), a [compaction calculator](https://harness-hub-harness-lens.hf.space/#/compaction), [tool comparions](https://harness-hub-harness-lens.hf.space/#/tools), and [prompt comparisons](https://harness-hub-harness-lens.hf.space/#/prompts).
+
+![](/blog/assets/report_harn_25.webp)
+
 
 <br>
 
@@ -1787,7 +1957,7 @@ Any team building production AI agents can benefit:
 
 - Everything is a plugin. The agent is a Bevy app; its tools, commands, sessions, sign-in and terminal view are each a plugin listed in plugins.toml, so any of them can be removed, replaced or added to.
 
-- It rebuilds itself. `/reload` rebuilds the agent with your plugin changes and restarts it in the same session, and keeps the old build running if the new one does not compile.
+- It rebuilds itself. `/reload` rebuilds the agent with your plugin changes and restarts it in the same session,aand keeps the old build running if the new one does not compile.
 
 - Subagents and checkpoints of what shell changed are optional plugins, and the tools work on remote hosts over ssh or any command.
 
@@ -1885,7 +2055,7 @@ goose-server: the server that supports the desktop (electron) app. also known as
 
 <br>
 
-- goose can delegate to external ACP agents (like Claude Code or Codex) as providers. The ACP agent handles tool execution internally. goose passes configured extensions through as MCP servers.
+- goose can delegate to external [ACP](https://agentclientprotocol.com/get-started/introduction) agents (like Claude Code or Codex) as providers. The ACP agent handles tool execution internally. goose passes configured extensions through as MCP servers.
 
 <br>
 
@@ -2172,6 +2342,7 @@ let agent = AgentBuilder::new(cwd, None, ToolNotificationHandle::noop())
 <br>
 
 - **[Grok's user guide](https://github.com/xai-org/grok-build/tree/main/crates/codegen/xai-grok-pager/docs/user-guide)**
+- **[Grok Bot team at Y Combinator](https://www.youtube.com/watch?v=y1-9yeYLJUo)**
 - **[Grok's memory/dream code](https://github.com/xai-org/grok-build/tree/main/crates/codegen/xai-grok-memory)** (and **[docs](https://github.com/xai-org/grok-build/blob/main/crates/codegen/xai-grok-pager/docs/user-guide/13-memory.md)**)
 - **[Grok's compaction code](https://github.com/xai-org/grok-build/tree/main/crates/common/xai-grok-compaction)** (and **[transcript](https://github.com/xai-org/grok-build/tree/main/crates/codegen/xai-compaction-transcript)**)
 - **[Grok's tool runtime code](https://github.com/xai-org/grok-build/tree/main/crates/common/xai-tool-runtime)**
@@ -2848,6 +3019,10 @@ async with runtime:
 
 <br>
 
+![](/blog/assets/report_evals_4.webp)
+
+<br>
+
 - Pi ships with powerful defaults but skips features like sub-agents and plan mode. Customize Pi with extensions, skills, prompt templates, and themes. Bundle them as Pi packages and share via npm or git.
 
 - Pi's minimal system prompt and extensibility let you do actual context engineering. Control what goes into the context window and how it's managed.
@@ -3210,6 +3385,8 @@ Stores memory in `~/.openclaw/workspace/`:
 
 - 🦀 [microclaw (Rust)](https://github.com/microclaw/microclaw):Self-hosted Rust agent platform with two product surfaces and an embeddable SDK. MicroClaw Server runs continuously for chat channels, Web, APIs, scheduling, and automation.
 
+- 🦀 [Prime Intellect's Prime Agent (Rust)](https://github.com/PrimeIntellect-ai/prime-agent): A self-improving RLM agent for coding workflows and long-running autonomous tasks. The model's only tool is a persistent IPython kernel, sub-agents are `rlm()` calls, and the harness can edit its own prompts, skills, memory, and sub-agents (**[blog post](https://www.primeintellect.ai/blog/prime-agent)**).
+
 - 🐍 [ECC (Python)](https://github.com/affaan-m/ECC): The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.
 
 - 🐍 [Hugging Face's smolagents (Python)](https://github.com/huggingface/smolagents): A library that enables you to run powerful agents in a few lines of code. 
@@ -3220,9 +3397,17 @@ Stores memory in `~/.openclaw/workspace/`:
 
 - 🐍 [raven (Python)](https://github.com/EverMind-AI/Raven): The harness of harnesses, built for recursive self-improvement (RSI). As a Host Agent, it brings built-in and third-party agents together to carry out complex tasks. Its modular architecture supports iterative improvement of Raven's own harness: proposing changes to how agents plan and act, evaluating those changes, and adopting improvements that pass validation.
 
+- 🐍 [rlm (Python)](https://github.com/alexzhang13/rlm): General plug-and-play inference library for [Recursive Language Models](https://arxiv.org/abs/2512.24601) (RLMs), supporting various sandboxes. The prompt becomes a variable in a REPL, and the model writes code to examine it and launch recursive sub-LM calls.
+
+- 🐍 [Meta's HyperAgents (Python)](https://github.com/facebookresearch/HyperAgents): Self-referential self-improving agents that can optimize for any computable task.
+
+- 🐍 [NVIDIA-labs OO Agents (Python)](https://arxiv.org/abs/2607.20709): Model-agnostic framework in which an agent is a Python object: methods are the actions the model can take, docstrings are the prompts, and methods whose body is `...` are completed at runtime by an LLM-driven loop.
+
 - 🟦 [Google's gemini-cli (TypeScript)](https://github.com/google-gemini/gemini-cli): AI agent that brings the power of Gemini directly into your terminal. It provides lightweight access to Gemini, giving you the most direct path from your prompt to our model.
 
 - 🟦 [opencode (TypeScript)](https://github.com/anomalyco/opencode): open-source AI coding agent (so you can **[work offline](https://latent.space/p/offline-coding)** with **[open-weights models](https://www.youtube.com/watch?v=79Pnm5hANsA)**). It’s available as a terminal-based interface, desktop app, or web app.
+
+- 🟦 [Warp (Rust)](https://github.com/warpdotdev/warp): Open-source agentic development environment built around a terminal, with a built-in coding agent or support for CLI agents such as Claude Code, Codex, and Gemini CLI. Its code-defined Warp Factories are designed to run on different models and harnesses, with evals, benchmarks, and self-improvement built in.
 
 - 🟦 [Letta (TypeScript)](https://github.com/letta-ai/letta-code): Stateful agents that are like people, with memory, identity, and the ability to learn and adapt. (EDIT: we will look at their memory design in the **[agentic memory report](https://marina.nullstar.fun/blog/report_memory.html)**)
 
@@ -3232,7 +3417,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 ---
 
-# 6️⃣🐯 Open-Source Orchestration and Integration Layer
+# 7️⃣🐯 Open-Source Orchestration and Integration Layer
 
 <br>
 
@@ -3243,6 +3428,8 @@ Stores memory in `~/.openclaw/workspace/`:
 - 🦀 [NVIDIA's OpenShell (Rust)](https://github.com/NVIDIA/OpenShell): Safe, private runtime for fleets of autonomous AI agents. Agents are most useful when they can read files, install packages, call APIs, and use credentials. OpenShell gives them that capability without giving them unrestricted access to your data, secrets, or network. You declare what each agent can touch in a policy, and OpenShell enforces it.
 
 - 🦀 [Rivet (Rust)](http://github.com/rivet-dev/rivet): The orchestrator for agentic workloads. A fast, high-density and scalable orchestrator for every workload an agent needs.
+
+- 🦀 [Block's buzz (Rust)](https://github.com/block/buzz): A hive mind communication platform. Self-hostable workspace where humans and agents share channels, built as a Nostr relay in which every message and workflow step is a signed event. Includes an ACP harness for goose, Codex, and Claude Code.
 
 - 🐍 [LangChain / LangGraph (Python, TypeScript)](https://github.com/langchain-ai/langchain): A framework for building agents and LLM-powered applications. It helps you chain together interoperable components and third-party integrations with simplify AI application development — all while future-proofing decisions as the underlying technology evolves. LangChain provides components, integrations, and abstractions for building LLM applications and agents. LangGraph is its complementary orchestration runtime for stateful, long-running agents, with cycles, persistence, durable execution, and human-in-the-loop workflows.
 
@@ -3272,7 +3459,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 - 🐍 [Microsoft AutoGen (Python, .NET)](https://github.com/microsoft/autogen): Framework for creating multi-agent AI applications that can act autonomously or work alongside humans. It defines a Memory protocol with `add`, `query`, `update_context`, and `clear` methods. Built-in implementations include `ListMemory` (in-process only), `ChromaDBVectorMemory`, and `RedisMemory`. The `update_context` method injects retrieved memories into the model context automatically. The limitation is deduplication. There is no conflict resolution, no merging of near-duplicate facts. Stores degrade over time as redundant records accumulate.
 
-- 🐍 [DSPy (Python)](https://github.com/stanfordnlp/dspy): The framework for programming—rather than prompting—language models. It allows you to iterate fast on building modular AI systems and offers algorithms for optimizing their prompts and weights, whether you're building simple classifiers, sophisticated RAG pipelines, or Agent loops.
+- 🐍 [DSPy (Python)](https://github.com/stanfordnlp/dspy): The framework for programming—rather than prompting—language models. It allows you to iterate fast on building modular AI systems and offers algorithms for optimizing their prompts and weights, whether you're building simple classifiers, sophisticated RAG pipelines, or Agent loops. The core DSPy differentiator are optimizers. They are algorithms that improves a program based on its observed performance.They do not necessarily mean training or fine-tuning an LLM, but most work entirely at the prompt and demonstration level. [Here's a great lecture from Stanford on it](https://www.youtube.com/watch?v=q0Q-Hy8TTps).
 
 - 🐍 [Pydantic AI (Python)](https://github.com/pydantic/pydantic-ai): Typed, extensible agent loop with every model a string swap away. The same agent runs everywhere you need it: behind a web frontend, in the terminal, on a voice call, on a durable background queue, in GitHub Actions, or as a plain object you call `run()` on.
 
@@ -3318,7 +3505,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 <br>
 
-### That's it for today. I hope you had as much fun reading as I had conducting this research. Thank you for reading, and until next time, my friends!
+### That's it for today. I hope you had as much fun reading as I had conducting this research. Thank you for reading, and until next time, my anon friend!
 
 ### ⬛️
 

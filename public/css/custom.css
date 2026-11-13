@@ -114,7 +114,7 @@ p.journey-footnote {
     margin-left: 2rem;
 }
 
-/* Language switch: clone of the cat/moon toggle, sitting to its left */
+/* Language switch: clone of the dog/moon toggle, sitting to its left */
 @media (min-width: 768px) {
     .profile-color-modes.js-promo-color-modes-banner-profile {
         display: block !important;
@@ -129,7 +129,16 @@ p.journey-footnote {
     z-index: 1;
 }
 
-/* Dog illu: same wake/sleep frames as the theme cat, driven by locale */
+.profile-color-modes-toggle:focus-visible {
+    outline: 2px solid #0969da;
+    outline-offset: 3px;
+}
+
+[data-color-mode="dark"] .profile-color-modes-toggle:focus-visible {
+    outline-color: #79c0ff;
+}
+
+/* Dog illu: same wake/sleep frames as the theme dog, driven by locale */
 
 @media (max-width: 767.98px) {
     .mobile-nav-sticky {
@@ -970,7 +979,7 @@ body.error-404 {
     font-family: 'Orbitron', monospace;
 }
 
-/* Date and subtitle take the orange and green of the cat by the theme switch (github.min.css
+/* Date and subtitle take the orange and green of the dog by the theme switch (github.min.css
    draws it with --color-scale-orange-3 / --color-scale-green-3), so they follow the theme too.
    Light mode: those two are pale on white (1.9:1 and 1.5:1), so it uses deeper shades of each. */
 .blog-post-meta {

@@ -563,7 +563,19 @@ Each trajectory alternates between harness mediation and model action. The harne
 
 ---
 
-# 🏡 Our Picks: Fresh & Nice OSS 
+# 🏡 Bonus ➡️ My Backlog of Papers to Read in the Future
+
+<br>
+
+- **[Self-Improvement Memory Enables Continual Recursive Self-Improvement (Google, 2026)](https://arxiv.org/pdf/2611.18856)**
+- **[From AGI to ASI (Google DeepMind, 2026)](https://arxiv.org/pdf/2606.12683)**
+- **[Meta-learning of Sequential Strategies (DeepMind, 2019)](https://arxiv.org/pdf/1905.03030)**
+
+<br>
+
+---
+
+# 🏡 Bonus ➡️ Our Picks: This Week's Fresh & Nice OSS 
 
 <br>
 
