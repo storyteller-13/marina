@@ -198,10 +198,1353 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-11-13">2026; 11; 13</time></p>
+									<h1 id="post-title" class="section-title">🧠 IDEA → My Ever-Evolving Omarchy Security Journey</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Intermediate to Advanced Engineers | Today&#x27;s Word: Safety · Sicherheit · あんぜん · בְּטִיחוּת</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=bduQfCPSnLQ">🎧</a> <em>“Love is the desire for the perpetual possession of the good.”</em> — Plato on <em>Symposium</em></p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=5NckzRLftkU">🎵</a> <em>&quot;One must still have chaos in oneself to be able to give birth to a dancing star.&quot;</em> — Friedrich Nietzsche on <em>Thus Spoke Zarathustra</em></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/ryden.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<div class="blog-poem">
+<p class="blog-poem-stanza">All that is gold does not glitter,<br>Not all those who wander are lost;<br>The old that is strong does not wither,<br>Deep roots are not reached by the frost.</p>
+<p class="blog-poem-stanza">From the ashes a fire shall be woken,<br>A light from the shadows shall spring;<br>Renewed shall be blade that was broken,<br>The crownless again shall be king.</p>
+<p class="blog-poem-attribution">— Bilbo Baggins</p>
+</div>
+<p><br></p>
+<h4 id="hello-and-happy-friday-the-13th-my-dear-anon-friend">Hello and happy <a target="_blank" rel="noopener noreferrer" href="https://www.science.org/doi/10.1126/science.132.3436.1291">Friday the 13th</a>, my dear anon friend.</h4>
+<h4 id="today-we-ll-walk-through-the-steps-i-take-to-harden-one-of-my-linux-machines-my-omarchy-box-i-ve-called-this-an-ever-evolving-project-because-for-now-my-focus-is-on-establishing-the-fundamentals-that-said-some-of-these-steps-came-out-of-rather-lengthy-debugging-sessions-i-m-looking-at-you-apparmor-and-secure-boot">Today, we&#39;ll walk through the steps I take to harden one of my Linux machines: my Omarchy box. I&#39;ve called this an &quot;ever-evolving&quot; project because, for now, my focus is on establishing the fundamentals. That said, some of these steps came out of rather lengthy debugging sessions (I&#39;m looking at you, <a target="_blank" rel="noopener noreferrer" href="https://wiki.archlinux.org/title/AppArmor">AppArmor</a> and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Secure_Boot">Secure Boot</a>).</h4>
+<h4 id="security-hardening-is-an-ongoing-process-there-are-plenty-of-additional-monitoring-mechanisms-forensic-inspections-and-security-tests-that-i-may-incorporate-into-this-work-over-time-alongside-new-measures-as-they-become-available-the-source-code-for-this-project-along-with-some-of-my-other-opinionated-configurations-is-maintained-in-this-github-repository">Security hardening is an ongoing process. There are plenty of additional monitoring mechanisms, forensic inspections, and security tests that I may incorporate into this work over time, alongside new measures as they become available. The source code for this project, along with some of my other opinionated configurations, is maintained in <a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/omarchy_stuff"><strong>this GitHub repository</strong></a>.</h4>
+<p><br></p>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">PS1</span> This work is the result of an ongoing collaboration with all my frontier robot friends.</p>
+</aside>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">PS2</span> On a quick note, <a target="_blank" rel="noopener noreferrer" href="https://www.kitp.ucsb.edu/sites/default/files/YM_working_group.pdf"><strong>this</strong></a> is pretty exciting to me for several reasons. First, this group has close ties to my alma mater, Stony Brook, through its C.N. Yang Theoretical Institute and the Simons Institute. Second, during my PhD, I briefly collaborated with <a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/#research"><strong>Nikita Nekrasov</strong></a> on graph-theoretical approaches to mathematical problems that could potentially connect to string theory. He is incredibly smart, and it&#39;s awesome to see these folks achieving such solid results with AI. Third, this is <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=sfKc2uoA9pA"><strong>pretty impressive progress</strong></a>, and I can&#39;t wait for the second half, which tackles the <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Yang%E2%80%93Mills_existence_and_mass_gap">mass gap problem</a></strong>.</p>
+</aside>
+<p><br></p>
+<p>As I go through the material, please remember our rules:</p>
+<p><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#inspecting-the-system-baseline-security-check">🔒 Inspecting the System: Baseline Security Check</a><ul><li><a href="#system-information">System Information</a></li><li><a href="#firewall-configuration">Firewall Configuration</a></li><li><a href="#listening-network-ports">Listening Network Ports</a></li><li><a href="#system-services">System Services</a></li><li><a href="#enabled-security-services">Enabled Security Services</a></li><li><a href="#failed-system-services">Failed System Services</a></li><li><a href="#apparmor-status">AppArmor Status</a></li><li><a href="#linux-security-modules">Linux Security Modules</a></li><li><a href="#linux-audit-framework">Linux Audit Framework</a></li><li><a href="#loaded-audit-rules">Loaded Audit Rules</a></li><li><a href="#audit-services-and-boot-configuration">Audit Services and Boot Configuration</a></li><li><a href="#kernel-security-parameters">Kernel Security Parameters</a></li><li><a href="#network-routing">Network Routing</a></li><li><a href="#disk-encryption">Disk Encryption</a></li></ul></li><li><a href="#network-firewall-ports-and-protocols">🔒 Network: Firewall, Ports, and Protocols</a><ul><li><a href="#firewall">Firewall</a></li><li><a href="#ports-and-processes">Ports and Processes</a></li><li><a href="#network-discovery">Network Discovery</a></li><li><a href="#networkmanager-and-dns">NetworkManager and DNS</a></li><li><a href="#ipv6">IPv6</a></li><li><a href="#vpn-verification">VPN Verification</a></li><li><a href="#unused-network-protocols">Unused Network Protocols</a></li><li><a href="#build-your-own-vpn-on-a-vps">Build Your Own VPN on a VPS</a></li><li><a href="#example-forensics-in-practice">Example: Forensics in Practice</a></li></ul></li><li><a href="#services-stopping-what-you-don-t-need">🔒 Services: Stopping What You Don&#39;t Need</a><ul><li><a href="#running-services">Running Services</a></li><li><a href="#disable-unused-services">Disable Unused Services</a></li><li><a href="#disable-bluetooth-down-to-the-kernel-modules">Disable Bluetooth Down to the Kernel Modules</a></li><li><a href="#systemd-service-exposure">Systemd Service Exposure</a></li></ul></li><li><a href="#kernel-hardening-runtime-settings">🔒 Kernel: Hardening Runtime Settings</a><ul><li><a href="#hardening-kernel">Hardening Kernel</a></li><li><a href="#check-unexpected-kernel-modules">Check Unexpected Kernel Modules</a></li></ul></li><li><a href="#access-control-users-ssh-usb-and-boot-chain">🔒 Access Control: Users, SSH, USB, and Boot Chain</a><ul><li><a href="#ssh">SSH</a></li><li><a href="#hyprland-permissions">Hyprland Permissions</a></li><li><a href="#avoid-bad-usb">Avoid Bad USB</a></li><li><a href="#apparmor">AppArmor</a></li><li><a href="#profile-findings">Profile Findings</a></li><li><a href="#secure-boot">Secure Boot</a></li><li><a href="#privilege-escalation">Privilege Escalation</a></li><li><a href="#networkmanager-authorization">NetworkManager Authorization</a></li><li><a href="#thunderbolt-authorization">Thunderbolt Authorization</a></li></ul></li><li><a href="#applications-updates-and-removing-unused-software">🔒 Applications: Updates and Removing Unused Software</a><ul><li><a href="#system-updates">System Updates</a></li><li><a href="#flatpak">Flatpak</a></li><li><a href="#remove-unused-applications">Remove Unused Applications</a></li></ul></li><li><a href="#filesystem-permissions-and-logs">🔒 Filesystem: Permissions and Logs</a><ul><li><a href="#permissions">Permissions</a></li><li><a href="#logs">Logs</a></li><li><a href="#audit-rules">Audit Rules</a></li><li><a href="#validate-audit-events">Validate Audit Events</a></li><li><a href="#audit-log-protection">Audit Log Protection</a></li><li><a href="#login-uid-attribution">Login UID Attribution</a></li></ul></li><li><a href="#persistence-what-starts-automatically">🔒 Persistence: What Starts Automatically</a></li><li><a href="#verification-audits-and-malware-scans">🔒 Verification: Audits and Malware Scans</a><ul><li><a href="#package-verification">Package Verification</a></li><li><a href="#malware-and-rootkit-detection">Malware and Rootkit Detection</a></li></ul></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h1 id="inspecting-the-system-baseline-security-check">🔒 Inspecting the System: Baseline Security Check</h1>
+<p><br></p>
+<p>This section establishes a baseline by reviewing the operating system, firewall configuration, network exposure, security services, failed system services, mandatory access controls, Linux Security Modules, auditing, kernel hardening parameters, network routing, and disk encryption. Each check is explained below.</p>
+<p><br></p>
+<h2 id="system-information">System Information</h2>
+<p><br></p>
+<p>This will report detailed information about the kernel, the Linux distribution, and the machine architecture:</p>
+<pre><code class="language-bash">
+uname -a
+cat /etc/os-release | head -10
+</code></pre>
+<p><br></p>
+<h2 id="firewall-configuration">Firewall Configuration</h2>
+<p><br></p>
+<p>This will report whether the firewall is active, the default incoming and outgoing traffic policy, logging configuration, and any configured firewall rules (through numerical identifiers).</p>
+<pre><code class="language-bash">
+sudo ufw status verbose
+sudo ufw status numbered
+</code></pre>
+<p>For a hardened desktop machine, a typical configuration would use:</p>
+<pre><code>
+  - Incoming: deny
+  - Outgoing: allow
+  - Routed: disabled or an appropriately restricted policy.
+</code></pre>
+<p><br></p>
+<h2 id="listening-network-ports">Listening Network Ports</h2>
+<p><br></p>
+<p>This command inspects network sockets currently listening for incoming connections, with details for the socket protocol, the current socket state, local IP, associated process name and PID, etc.</p>
+<blockquote><p><code>ss</code> is the modern replacement for the older <code>netstat</code> utility and provides information about network sockets and connections.</p></blockquote>
+<pre><code class="language-bash">
+sudo ss -lntup
+</code></pre>
+<p>The arguments specify what we want to inspect:</p>
+<ul>
+<li><code>-l</code>: listening sockets only.</li>
+<li><code>-n</code>: numerical addresses and port numbers instead of resolving hostnames and service names.</li>
+<li><code>-t</code>: TCP sockets.</li>
+<li><code>-u</code>: UDP sockets.</li>
+<li><code>-p</code>: the processes associated with the sockets, including process names and PIDs when available.</li>
+</ul>
+<p><br></p>
+<h2 id="system-services">System Services</h2>
+<p><br></p>
+<p>This command inspects the runtime state of several important system services using <code>systemctl</code> (the command-line interface for interacting with <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Systemd">systemd</a>).</p>
+<pre><code class="language-bash">
+systemctl is-active \
+  ufw.service \
+  &lt;YOUR VPN&gt;.VPN.service \
+  auditd.service \
+  apparmor.service \
+  bluetooth.service \
+  cups.service \
+  avahi-daemon.service \
+  docker.service \
+  sshd.service
+</code></pre>
+<p>The output reports one of the following states:</p>
+<pre><code>
+- active: The service is currently running.
+- inactive: The service is not currently running.
+- failed: The service encountered an error.
+- unknown: systemd cannot determine the requested unit&#39;s state.
+</code></pre>
+<p><br></p>
+<h2 id="enabled-security-services">Enabled Security Services</h2>
+<p><br></p>
+<p>This command inspects whether services are configured to start automatically during system initialization.</p>
+<pre><code class="language-bash">
+systemctl is-enabled \
+  ufw.service \
+  auditd.service \
+  apparmor.service \
+  &lt;YOUR VPN&gt;.VPN.service
+</code></pre>
+<p>Typical results include:</p>
+<pre><code>
+- enabled: Configured to start automatically through systemd.
+- disabled: Not configured for automatic startup.
+- static: Cannot be enabled directly because the unit is intended to be started through another unit.
+- masked: Explicitly prevented from being started.
+- indirect: Enabled through another unit or mechanism.
+</code></pre>
+<p><br></p>
+<h2 id="failed-system-services">Failed System Services</h2>
+<p><br></p>
+<p>This command inspects systemd for services that have entered a failed state.</p>
+<pre><code class="language-bash">
+systemctl --failed --no-pager
+</code></pre>
+<p>This can reveal:</p>
+<pre><code>
+- Security services that failed to start.
+- Background processes that crashed.
+- Incorrect service configurations.
+- Missing dependencies.
+- Problems introduced by system updates.
+- Hardware or driver-related service failures.
+</code></pre>
+<p><br></p>
+<h2 id="apparmor-status">AppArmor Status</h2>
+<p><br></p>
+<p>This command inspects the current state of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/AppArmor">AppArmor</a>, Linux&#39;s Mandatory Access Control (MAC) framework.</p>
+<pre><code class="language-bash">
+sudo aa-status
+</code></pre>
+<p><code>sudo aa-status</code> reports information such as:</p>
+<pre><code>
+- Whether AppArmor is enabled in the kernel.
+- Whether AppArmor profiles are loaded.
+- How many profiles are currently loaded.
+- How many profiles are enforcing restrictions.
+- How many profiles are operating in complain mode.
+- Which processes are currently confined by AppArmor.
+</code></pre>
+<p>Two particularly important profile modes are:</p>
+<pre><code>
+- Enforce mode: Restrictions are actively applied. Unauthorized operations are denied and can be recorded.
+- Complain mode: Policy violations are logged, but operations are generally allowed rather than blocked.
+</code></pre>
+<p><br></p>
+<h2 id="linux-security-modules">Linux Security Modules</h2>
+<p><br></p>
+<p>This command displays the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Linux_Security_Modules">Linux Security Modules</a> (LSM) currently active in the kernel&#39;s security framework.</p>
+<pre><code class="language-bash">
+cat /sys/kernel/security/lsm
+</code></pre>
+<p>Depending on the kernel configuration, the output may contain entries such as:</p>
+<pre><code>
+- capability: Enforces Linux capability-based access controls.
+- landlock: Provides application-level sandboxing through unprivileged access-control rules.
+- lockdown: Restricts certain kernel operations to protect kernel integrity.
+- yama: Provides additional restrictions on process inspection and debugging.
+- apparmor: Implements AppArmor mandatory access-control policies.
+- bpf: Provides security hooks associated with BPF-based mechanisms, where supported.
+</code></pre>
+<p><br></p>
+<h2 id="linux-audit-framework">Linux Audit Framework</h2>
+<p><br></p>
+<p>This command queries the current status of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Linux_Audit">Linux Audit</a> subsystem.</p>
+<pre><code class="language-bash">
+sudo auditctl -s
+</code></pre>
+<p><code>auditctl -s</code> displays the current audit subsystem status:</p>
+<pre><code>
+- enabled: Indicates whether auditing is enabled, disabled, or immutable.
+- failure: Defines how the system should react to certain audit subsystem failures.
+- pid: PID of the running audit daemon, when applicable.
+- rate_limit: Maximum number of audit messages generated per second, if configured.
+- backlog_limit: Maximum number of pending audit messages the kernel can queue.
+- lost: Number of audit messages lost because they could not be delivered or processed.
+- backlog: Number of audit messages currently waiting in the queue.
+</code></pre>
+<p><br></p>
+<h2 id="loaded-audit-rules">Loaded Audit Rules</h2>
+<p><br></p>
+<p>This command displays the audit rules currently loaded into the kernel.</p>
+<pre><code class="language-bash">
+sudo auditctl -l
+</code></pre>
+<p>Depending on the configuration, these rules can monitor:</p>
+<pre><code>
+- Changes to critical system configuration files.
+- Modifications to authentication and authorization files.
+- Execution of privileged binaries.
+- Changes to user and group databases.
+- Access to sensitive directories.
+- Container-related system activity.
+- Changes to firewall and network configuration.
+- Administrative operations performed through privileged interfaces.
+</code></pre>
+<p><br></p>
+<h2 id="audit-services-and-boot-configuration">Audit Services and Boot Configuration</h2>
+<p><br></p>
+<p>Check whether the audit services are enabled, review the audit configuration, and confirm that the boot parameters do not disable auditing:</p>
+<pre><code class="language-bash">
+systemctl is-enabled auditd.service audit-rules.service
+systemctl status audit-rules.service --no-pager
+ls /etc/audit/rules.d/
+sudo cat /etc/audit/auditd.conf
+sudo grep -RniE &#39;audit=|audit_backlog_limit|auditd&#39; /etc/default/grub /etc/kernel/cmdline /boot/loader/entries/ /etc/mkinitcpio.conf 2&gt;/dev/null
+</code></pre>
+<blockquote><p><strong>Note:</strong> At the start of this review, auditing was disabled and no persistent rules were loaded. We configure a baseline ruleset in the Filesystem section, and we do not enable immutable mode (<code>-e 2</code>) until the rules are verified.</p></blockquote>
+<p><br></p>
+<h2 id="kernel-security-parameters">Kernel Security Parameters</h2>
+<p><br></p>
+<p>This command inspects several kernel parameters that influence the security posture of the running Linux kernel.</p>
+<pre><code class="language-bash">
+sysctl kernel.yama.ptrace_scope
+sysctl kernel.kptr_restrict
+sysctl kernel.dmesg_restrict
+sysctl kernel.unprivileged_bpf_disabled
+sysctl kernel.kexec_load_disabled
+sysctl kernel.unprivileged_userns_clone
+sysctl fs.suid_dumpable
+sysctl kernel.core_pattern
+cat /sys/kernel/security/lockdown
+</code></pre>
+<p><code>kernel.unprivileged_userns_clone</code> should stay enabled, since browser sandboxes and containers depend on it. The lockdown file shows the active mode, where <code>[none]</code> means lockdown is off.</p>
+<p><br></p>
+<h4 id="yama-process-inspection-restrictions">Yama Process Inspection Restrictions</h4>
+<p>This parameter controls restrictions on the <code>ptrace</code> system call, which allows one process to inspect and debug another process.</p>
+<p>Depending on its configuration:</p>
+<pre><code>
+- 0: Traditional ptrace permissions. Processes can potentially inspect other processes owned by the same user, subject to normal permission checks.
+- 1: Restricted ptrace. A process generally cannot attach to arbitrary processes belonging to the same user; additional relationship and authorization requirements apply.
+- 2: Administrative-only ptrace. Attaching to processes requires the appropriate administrative capability.
+- 3: No ptrace attachment. Attaching is disabled, and the restriction cannot be relaxed until reboot.
+</code></pre>
+<p><br></p>
+<h4 id="kernel-pointer-disclosure-restrictions">Kernel Pointer Disclosure Restrictions</h4>
+<p><code>sysctl kernel.kptr_restrict</code> controls the visibility of kernel memory addresses through interfaces that might otherwise expose kernel pointers.</p>
+<p>Typical values include:</p>
+<pre><code>
+- 0: Kernel pointers are exposed according to the permissions of the relevant interfaces.
+- 1: Kernel pointers are hidden from unprivileged users, subject to exceptions for privileged users with the appropriate capabilities.
+- 2: Kernel pointers are hidden from all users, including privileged users.
+</code></pre>
+<p><br></p>
+<h4 id="kernel-message-access-restrictions">Kernel Message Access Restrictions</h4>
+<p><code>kernel.dmesg_restrict</code> controls access to kernel messages through the <code>dmesg</code> interface.</p>
+<p>Typical values:</p>
+<pre><code>
+- 0: Unprivileged users can generally read kernel messages.
+- 1: Reading kernel messages requires the appropriate administrative capability, typically CAP_SYSLOG.
+</code></pre>
+<p><br></p>
+<h4 id="unprivileged-bpf-restrictions">Unprivileged BPF Restrictions</h4>
+<p><code>kernel.unprivileged_bpf_disabled</code> controls whether unprivileged users can load certain BPF (<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Berkeley_Packet_Filter">Berkeley Packet Filter</a>) programs.</p>
+<p>Common values:</p>
+<pre><code>
+- 0: Unprivileged BPF is enabled.
+- 1: Unprivileged BPF is disabled, and the restriction cannot be reversed until reboot.
+- 2: Unprivileged BPF is disabled but can potentially be re-enabled by an appropriately privileged process.
+</code></pre>
+<p><br></p>
+<h4 id="kexec-restrictions">Kexec Restrictions</h4>
+<p><code>sysctl kernel.kexec_load_disabled</code> controls whether the <code>kexec_load</code> system call can load a new kernel into memory for execution.</p>
+<p>Typical values:</p>
+<pre><code>
+- 0: Kernel loading through the relevant kexec interface is permitted, subject to normal permissions.
+- 1: The ability to load a new kernel through kexec_load is disabled and cannot be re-enabled until reboot.
+</code></pre>
+<p><br></p>
+<h2 id="network-routing">Network Routing</h2>
+<p><br></p>
+<p>This command inspects the machine&#39;s network routing configuration, including IPv4 and IPv6 policy-routing rules and the route selected for a specific destination.</p>
+<pre><code class="language-bash">
+ip -4 rule show
+ip -6 rule show
+ip route get 1.1.1.1
+</code></pre>
+<p><br></p>
+<h4 id="ipv4-policy-routing">IPv4 Policy Routing</h4>
+<p><code>ip -4 rule show</code> displays the IPv4 routing policy database (RPDB) rules.</p>
+<p>The rules can contain:</p>
+<pre><code>
+- Priority values.
+- Source and destination address selectors.
+- Firewall marks.
+- Incoming interface selectors.
+- Routing table references.
+</code></pre>
+<p><br></p>
+<h4 id="ipv6-policy-routing">IPv6 Policy Routing</h4>
+<p><code>ip -6 rule show</code> performs the same inspection for IPv6 routing rules.</p>
+<p><br></p>
+<h4 id="route-selection">Route Selection</h4>
+<p><code>ip route get 1.1.1.1</code> asks the kernel how it would route a packet destined for <code>1.1.1.1</code>.</p>
+<p>The output typically identifies:</p>
+<pre><code>
+- The selected routing table and route.
+- The outgoing network interface.
+- The selected source IP address.
+- The next-hop gateway, when applicable.
+</code></pre>
+<p>For example, the result might indicate that traffic should leave through a VPN interface rather than the ordinary wireless or Ethernet interface.</p>
+<p><br></p>
+<h2 id="disk-encryption">Disk Encryption</h2>
+<p><br></p>
+<p>This command displays block devices and their associated filesystem information.</p>
+<pre><code class="language-bash">
+lsblk -f
+</code></pre>
+<p>When inspecting an encrypted Linux installation, you may encounter entries such as:</p>
+<pre><code>
+- crypto_LUKS: Indicates a LUKS-encrypted block device.
+- ext4, btrfs, or xfs: Filesystem types commonly used within decrypted storage volumes.
+- crypt: A device-mapper mapping representing an opened encrypted volume.
+- vfat: Commonly used for EFI System Partitions.
+</code></pre>
+<p><br></p>
+<hr>
+<h1 id="network-firewall-ports-and-protocols">🔒 Network: Firewall, Ports, and Protocols</h1>
+<p><br></p>
+<p>This section secures how the machine communicates with the outside world: the firewall, open ports and connections, the VPN, IPv6, and unused network protocols.</p>
+<p><br></p>
+<h2 id="firewall">Firewall</h2>
+<p><br></p>
+<p>Set the default policies and enable the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Uncomplicated_Firewall">UFW</a> firewall:</p>
+<pre><code class="language-bash">
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw logging on
+sudo ufw enable
+</code></pre>
+<p>Then check that it is active:</p>
+<pre><code>
+sudo ufw status verbose
+</code></pre>
+<p>The output should show:</p>
+<pre><code>
+Status: active
+Default: deny (incoming), allow (outgoing)
+</code></pre>
+<blockquote><p><strong>Note:</strong> Keep the outgoing policy at <code>allow</code>. The VPN client must reach its servers through the physical interface, and a restrictive outgoing policy can prevent reconnection. The VPN routing and kill switch provide the fail-closed behavior instead.</p></blockquote>
+<p>Block inbound traffic to a suspicious port:</p>
+<pre><code class="language-bash">
+sudo ufw deny in PORT-NUMBER-HERE/udp
+</code></pre>
+<p>Review the allow rules and remove any you do not recognize. Confirm that nothing uses the port first, then delete the rule for both protocols:</p>
+<pre><code class="language-bash">
+sudo ufw status numbered
+sudo ufw delete allow &lt;PORT&gt;/tcp
+sudo ufw delete allow &lt;PORT&gt;/udp
+</code></pre>
+<p><br></p>
+<h2 id="ports-and-processes">Ports and Processes</h2>
+<p><br></p>
+<p>Install <code>lsof</code> (used below to map ports to processes):</p>
+<pre><code class="language-bash">
+sudo pacman -S lsof
+</code></pre>
+<p>Check listening ports:</p>
+<pre><code class="language-bash">
+sudo ss -tulpn
+</code></pre>
+<p>All listening sockets, including process ownership:</p>
+<pre><code class="language-bash">
+sudo ss -tulpne
+</code></pre>
+<p>Listening TCP ports:</p>
+<pre><code class="language-bash">
+sudo ss -lntp
+</code></pre>
+<p>Listening UDP ports:</p>
+<pre><code class="language-bash">
+sudo ss -lnup
+</code></pre>
+<p>Processes listening on network interfaces:</p>
+<pre><code class="language-bash">
+sudo lsof -i -P -n | grep LISTEN
+</code></pre>
+<p>Check active network connections:</p>
+<pre><code class="language-bash">
+ss -tunap
+nmcli connection show --active
+</code></pre>
+<p><br></p>
+<blockquote><p><strong>Note:</strong> Check for DNS listeners that no longer serve a purpose. A leftover <code>DNSStubListenerExtra</code> setting can keep <code>systemd-resolved</code> listening on an old bridge address, even after the software that needed it has been removed:</p></blockquote>
+<pre><code class="language-bash">
+sudo grep -RniE &#39;DNSStubListenerExtra&#39; /etc/systemd/resolved.conf /etc/systemd/resolved.conf.d/ 2&gt;/dev/null
+</code></pre>
+<p>Remove the stale setting only after confirming that nothing uses it. Then restart the resolver and verify that only the loopback listeners remain:</p>
+<pre><code class="language-bash">
+sudo systemctl restart systemd-resolved
+sudo ss -lntup | grep &#39;:53&#39;
+</code></pre>
+<p><br></p>
+<h2 id="network-discovery">Network Discovery</h2>
+<p><br></p>
+<p>Disable unnecessary network discovery (should return <code>inactive</code>):</p>
+<pre><code class="language-bash">
+sudo systemctl disable --now avahi-daemon.service avahi-daemon.socket
+systemctl is-active avahi-daemon.service
+systemctl is-active avahi-daemon.socket
+</code></pre>
+<p><br></p>
+<h2 id="networkmanager-and-dns">NetworkManager and DNS</h2>
+<p><br></p>
+<p>Inspect NetworkManager and DNS configuration:</p>
+<pre><code class="language-bash">
+NetworkManager --print-config
+NetworkManager --version
+resolvectl status
+nmcli connection show
+pacman -Qi networkmanager
+sudo pacman -Qo /usr/bin/NetworkManager
+</code></pre>
+<p><br></p>
+<h2 id="ipv6">IPv6</h2>
+<p><br></p>
+<p>If your VPN doesn&#39;t support IPv6, disable it to prevent leaks:</p>
+<pre><code class="language-bash">
+sudo nvim /etc/sysctl.d/70-disable-ipv6.conf
+</code></pre>
+<p>with:</p>
+<pre><code>
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+</code></pre>
+<p>The <code>all</code> and <code>default</code> values do not prove that every interface is covered. The <code>all</code> value applies to interfaces that already exist when it is written, and new interfaces inherit <code>default</code>. Check each interface:</p>
+<pre><code class="language-bash">
+for i in /proc/sys/net/ipv6/conf/*/disable_ipv6; do
+    printf &quot;%-20s &quot; &quot;$(basename &quot;$(dirname &quot;$i&quot;)&quot;)&quot;
+    cat &quot;$i&quot;
+done
+</code></pre>
+<p>For a physical connection, you can also disable IPv6 in its NetworkManager profile, which persists across reconnects:</p>
+<pre><code class="language-bash">
+sudo nmcli connection modify &quot;&lt;CONNECTION-NAME&gt;&quot; ipv6.method disabled
+</code></pre>
+<blockquote><p><strong>Note:</strong> Do not disable IPv6 on the VPN&#39;s virtual interfaces without checking the VPN&#39;s requirements first. The VPN may use them for its kill switch and routing.</p></blockquote>
+<p>Test IPv4 and IPv6 connectivity:</p>
+<pre><code class="language-bash">
+curl -4 --connect-timeout 10 https://api.ipify.org
+curl -6 --connect-timeout 10 https://api64.ipify.org
+</code></pre>
+<blockquote><p><strong>Note:</strong> While IPv6 is disabled, the IPv6 test is expected to fail. An IPv6 route through the VPN does not mean that IPv6 connectivity works.</p></blockquote>
+<p><br></p>
+<h2 id="vpn-verification">VPN Verification</h2>
+<p><br></p>
+<p>Check the VPN service and the active connections:</p>
+<pre><code class="language-bash">
+systemctl is-active &lt;YOUR VPN&gt;.VPN.service
+systemctl is-enabled &lt;YOUR VPN&gt;.VPN.service
+nmcli -f NAME,TYPE,DEVICE connection show --active
+</code></pre>
+<p>Check IPv4 routing, including the VPN server endpoints and the local gateway:</p>
+<pre><code class="language-bash">
+ip -4 route get 1.1.1.1
+ip -4 route get &lt;VPN-SERVER-IP&gt;
+ip -4 route get &lt;LOCAL-GATEWAY-IP&gt;
+ip -4 rule show
+ip -4 route show table &lt;TABLE-NUMBER&gt;
+ip -4 route show table main
+</code></pre>
+<p>In a healthy setup, general internet traffic uses the VPN interface. Only the VPN server endpoints use the physical interface, because the tunnel has to reach its server through the local network. The local gateway stays reachable for local network access.</p>
+<p>Check DNS, the firewall, and the VPN processes:</p>
+<pre><code class="language-bash">
+resolvectl status
+sudo ufw status verbose
+pgrep -a -i vpn
+</code></pre>
+<p>Check the routing of marked traffic. The VPN client marks its own traffic with a firewall mark, so marked packets bypass the VPN routing table and use the kill-switch route instead. Use the mark that your VPN client reports:</p>
+<pre><code class="language-bash">
+ip route get 1.1.1.1
+ip route get 1.1.1.1 mark &lt;FWMARK&gt;
+ip route show table main
+ip -details link show &lt;KILL-SWITCH-INTERFACE&gt;
+</code></pre>
+<p>The unmarked route should use the VPN tunnel. The marked route should use the kill-switch interface. The kill-switch interface is a dummy device that carries no traffic of its own. The main table should prefer it over the Wi-Fi default route. The only expected physical-network route is the exception for the VPN server&#39;s address.</p>
+<blockquote><p><strong>Note:</strong> An application can set the firewall mark on its own sockets, so the mark does not need a matching <code>iptables</code> or <code>nftables</code> rule. Do not conclude that the routing is unprotected because the mangle and NAT tables are empty.</p></blockquote>
+<p>The VPN routing table should end with an unreachable default route, so traffic that is not tunneled is dropped instead of sent over Wi-Fi.</p>
+<p>Check the VPN application&#39;s settings before you test:</p>
+<ul>
+<li><strong>Kill switch:</strong> set to the advanced (permanent) option, so traffic stays blocked when the connection drops.</li>
+<li><strong>Split tunneling:</strong> disabled, so no application bypasses the tunnel by accident.</li>
+<li><strong>DNS:</strong> leave NetworkManager on automatic DNS. Do not add third-party DNS servers to the Wi-Fi profile. In Firefox, turn DNS over HTTPS off, so that the system resolver handles lookups through the VPN.</li>
+</ul>
+<p>Routing output alone does not prove that the kill switch works. Run a controlled disconnect test:</p>
+<p>1Note your current public IPv4 address: <code>curl -4 --connect-timeout 5 https://api.ipify.org</code>.</p>
+<ol>
+<li>Disconnect the VPN in its application. Leave the firewall and the kill switch enabled.</li>
+<li>Run the same request, and check the route and the kill-switch interface:</li>
+</ol>
+<pre><code class="language-bash">
+curl -4 --connect-timeout 5 https://api.ipify.org
+ip route get 1.1.1.1
+ip -br addr show &lt;KILL-SWITCH-INTERFACE&gt;
+</code></pre>
+<p>Reconnect the VPN immediately afterward.</p>
+<p>Test the disconnected state with the same requests, then reboot and repeat the connected and disconnected checks. Protection must survive a reboot.</p>
+<p>Run a monitor in a second terminal before you disconnect. It checks the public address every two seconds and prints BLOCKED when the request fails:</p>
+<pre><code class="language-bash">
+while true; do
+    printf &#39;%s &#39; &quot;$(date +%H:%M:%S)&quot;
+    curl -4 -sS --connect-timeout 2 https://api.ipify.org || echo &quot;BLOCKED&quot;
+    sleep 2
+done
+</code></pre>
+<p>The expected result is that the request fails rather than returning your ISP address. On this system, the test passed. Traffic did not fall back to Wi-Fi during the disconnect. The test covers this one failure scenario, not a reboot, a daemon crash, or an interface change, so verify those separately.</p>
+<p><br></p>
+<h2 id="unused-network-protocols">Unused Network Protocols</h2>
+<p><br></p>
+<p>Check whether the modules are loaded and inspect their metadata:</p>
+<pre><code class="language-bash">
+for module in dccp sctp rds tipc; do
+    echo
+    echo &quot;--- $module ---&quot;
+
+    if lsmod | grep -q &quot;^${module}&quot;; then
+        echo &quot;LOADED&quot;
+    else
+        echo &quot;NOT LOADED&quot;
+    fi
+
+    modinfo &quot;$module&quot; 2&gt;/dev/null |
+        grep -E &#39;^(filename|description|depends):&#39; ||
+        echo &quot;MODULE NOT AVAILABLE&quot;
+done
+</code></pre>
+<p>Check for active sockets and existing module configuration:</p>
+<pre><code class="language-bash">
+ss -A dccp -a 2&gt;/dev/null
+ss -A sctp -a 2&gt;/dev/null
+
+grep -RniE &#39;dccp|sctp|rds|tipc&#39; \
+    /etc/modprobe.d/ /etc/modules-load.d/ 2&gt;/dev/null || true
+</code></pre>
+<p>Disable unused network protocol modules (modprobe file):</p>
+<pre><code class="language-bash">
+sudo tee /etc/modprobe.d/disable-unused-protocols.conf &lt;&lt;&#39;EOF&#39;
+# Disable unused network protocols (Lynis NETW-3200)
+install sctp /usr/bin/false
+install rds /usr/bin/false
+install tipc /usr/bin/false
+blacklist sctp
+blacklist rds
+blacklist tipc
+EOF
+</code></pre>
+<p>Verify the resulting configuration and module behavior:</p>
+<pre><code class="language-bash">
+cat /etc/modprobe.d/disable-unused-protocols.conf
+modprobe -n -v sctp
+modprobe -n -v rds
+modprobe -n -v tipc
+lsmod | grep -E &#39;^(dccp|sctp|rds|tipc)&#39; ||
+    echo &quot;All four protocols are unloaded.&quot;
+</code></pre>
+<p><br></p>
+<h2 id="build-your-own-vpn-on-a-vps">Build Your Own VPN on a VPS</h2>
+<p><br></p>
+<blockquote><p><strong>TBA:</strong> This part is still to be added.</p></blockquote>
+<p>A commercial VPN is convenient, but you still have to trust its provider. In this part, we&#39;ll set up our own VPN server on a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Virtual_private_server">VPS</a> (a small virtual machine rented from a cloud provider) and connect the Omarchy box to it.</p>
+<p><br></p>
+<h4 id="steps">Steps</h4>
+<ul>
+<li>Choosing a VPS provider and region.</li>
+<li>Creating a hardened VPS (SSH keys, firewall, unattended upgrades).</li>
+<li>Installing and configuring <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/WireGuard">WireGuard</a> on the server.</li>
+<li>Creating client keys and configuring the Omarchy box.</li>
+<li>Routing traffic through the tunnel and checking for DNS and IPv6 leaks.</li>
+</ul>
+<p><br></p>
+<h2 id="example-forensics-in-practice">Example: Forensics in Practice</h2>
+<p><br></p>
+<p>The following example applies the theory above. It shows how the same tools can be used to trace which process owns an open network socket.</p>
+<p>Inspect network interfaces and routes:</p>
+<pre><code class="language-bash">
+ip -brief address
+ip route
+</code></pre>
+<p>Inspect the UDP tables and socket ownership:</p>
+<pre><code class="language-bash">
+sudo cat /proc/net/udp
+sudo cat /proc/net/udp6
+
+sudo grep -R &quot;PORT-NUMBER-HERE&quot; /proc/*/net/udp /proc/*/net/udp6 2&gt;/dev/null
+
+sudo ls -l /proc/$(pidof NetworkManager)/fd
+</code></pre>
+<p>Replace the inode number in the following command with the one found in the previous output:</p>
+<pre><code class="language-bash">
+sudo find /proc/[0-9]*/fd \
+    -lname &#39;socket:[INODE-NUMBER-HERE]&#39; 2&gt;/dev/null
+</code></pre>
+<p>Inspect network namespaces and NetworkManager service restrictions:</p>
+<pre><code class="language-bash">
+sudo lsns -t net
+sudo readlink /proc/$(pidof NetworkManager)/ns/net
+sudo readlink /proc/1/ns/net
+
+systemctl show NetworkManager \
+    -p MainPID \
+    -p ControlGroup \
+    -p PrivateNetwork \
+    -p NetworkNamespacePath \
+    -p RestrictAddressFamilies
+</code></pre>
+<p>Check which process owns a port:</p>
+<pre><code class="language-bash">
+sudo lsof -i :PORT-NUMBER-HERE
+sudo ss -ulpn | grep PORT-NUMBER-HERE
+sudo ss -lunp &#39;sport = :PORT-NUMBER-HERE&#39;
+sudo ss -ulpne &#39;sport = :PORT-NUMBER-HERE&#39;
+sudo fuser -v PORT-NUMBER-HERE/udp
+</code></pre>
+<p>Search NetworkManager configuration and logs for the port:</p>
+<pre><code class="language-bash">
+sudo grep -R &quot;PORT-NUMBER-HERE&quot; /etc/NetworkManager /usr/lib/NetworkManager 2&gt;/dev/null
+
+sudo journalctl -u NetworkManager -b --no-pager |
+    grep -iE &#39;dns|dhcp|connectivity|PORT-NUMBER-HERE&#39;
+</code></pre>
+<p><br></p>
+<hr>
+<h1 id="services-stopping-what-you-don-t-need">🔒 Services: Stopping What You Don&#39;t Need</h1>
+<p><br></p>
+<p>Every running service is a potential entry point. This section reviews what is running, disables what is not needed, and turns off Bluetooth down to the kernel modules.</p>
+<p><br></p>
+<h2 id="running-services">Running Services</h2>
+<p><br></p>
+<p>Check running services:</p>
+<pre><code class="language-bash">
+systemctl list-units --type=service --state=running
+</code></pre>
+<p>Check enabled services:</p>
+<pre><code class="language-bash">
+systemctl list-unit-files --state=enabled
+</code></pre>
+<p>Check for processes consuming unusual amounts of CPU:</p>
+<pre><code class="language-bash">
+ps aux --sort=-%cpu | head -20
+</code></pre>
+<p><br></p>
+<p>Check the user-level services. They run under your account and can execute programs with your privileges:</p>
+<pre><code class="language-bash">
+systemctl --user list-unit-files --type=service --state=enabled
+systemctl --user list-units --type=service --state=running
+</code></pre>
+<p>Inspect an unfamiliar service before you disable it. Identify its executable, its definition file, and the user it runs as:</p>
+<pre><code class="language-bash">
+systemctl --user status &lt;SERVICE&gt;.service --no-pager
+systemctl --user cat &lt;SERVICE&gt;.service
+systemctl --user show &lt;SERVICE&gt;.service -p ExecStart -p FragmentPath -p User -p MainPID
+</code></pre>
+<p><br></p>
+<h2 id="disable-unused-services">Disable Unused Services</h2>
+<p><br></p>
+<p>Disable and mask the services that are not required:</p>
+<pre><code class="language-bash">
+sudo systemctl disable --now cups.service
+sudo systemctl disable --now bolt.service
+sudo systemctl mask bolt.service
+sudo systemctl disable --now docker.socket
+sudo systemctl disable --now docker.service
+
+systemctl is-enabled cups.service bolt.service
+</code></pre>
+<p><br></p>
+<h2 id="disable-bluetooth-down-to-the-kernel-modules">Disable Bluetooth Down to the Kernel Modules</h2>
+<p><br></p>
+<p>Disable and mask the Bluetooth services:</p>
+<pre><code class="language-bash">
+sudo systemctl disable --now bluetooth.service
+sudo systemctl disable --now bluetooth.socket
+sudo systemctl mask bluetooth.service
+sudo systemctl mask bluetooth.socket
+pacman -Qs blue
+</code></pre>
+<p><br></p>
+<p>Blacklist the Bluetooth kernel modules in a modprobe file:</p>
+<pre><code>
+sudo nvim /etc/modprobe.d/disable-bluetooth.conf
+</code></pre>
+<p>with:</p>
+<pre><code>
+# Disable Bluetooth kernel modules
+blacklist bluetooth
+blacklist btusb
+blacklist btrtl
+blacklist btbcm
+blacklist btintel
+blacklist btmtk
+blacklist bnep
+blacklist rfcomm
+</code></pre>
+<p>Then reboot.</p>
+<p><br></p>
+<h2 id="systemd-service-exposure">Systemd Service Exposure</h2>
+<p><br></p>
+<p>Use <code>systemd-analyze security</code> to see which sandboxing options a unit uses. A low score is a reason to review the service, not proof that it is vulnerable:</p>
+<pre><code class="language-bash">
+SYSTEMD_PAGER=cat systemd-analyze security --no-pager &lt;UNIT&gt;.service
+systemctl show &lt;UNIT&gt;.service -p User -p NoNewPrivileges -p ProtectSystem -p ProtectHome -p CapabilityBoundingSet
+</code></pre>
+<p>Compare what the process could acquire (<code>CapBnd</code>) with what it actually uses (<code>CapEff</code>) before you restrict anything:</p>
+<pre><code class="language-bash">
+sudo awk &#39;/^(Name|Uid|CapEff|CapBnd|NoNewPrivs):/&#39; /proc/&lt;PID&gt;/status
+</code></pre>
+<blockquote><p><strong>Note:</strong> Do not apply a generic hardening profile to a VPN daemon. It needs network privileges to manage routes and interfaces, and a restriction that breaks tunnel setup or kill-switch recovery can leave the machine unprotected. Make one change at a time, test the VPN after each change, and keep a copy of the original unit so you can restore it.</p></blockquote>
+<p><br></p>
+<hr>
+<h1 id="kernel-hardening-runtime-settings">🔒 Kernel: Hardening Runtime Settings</h1>
+<p><br></p>
+<p>These settings control how the kernel exposes information and handles risky features. We check the current values, then apply a hardened configuration.</p>
+<p><br></p>
+<p>Inspect kernel security settings:</p>
+<pre><code class="language-bash">
+sysctl kernel.randomize_va_space
+sysctl kernel.kptr_restrict
+sysctl kernel.dmesg_restrict
+sysctl kernel.unprivileged_bpf_disabled
+</code></pre>
+<p><br></p>
+<h2 id="hardening-kernel">Hardening Kernel</h2>
+<p><br></p>
+<p>Create the hardening configuration file:</p>
+<pre><code>
+sudo nvim /etc/sysctl.d/99-hardening.conf
+</code></pre>
+<p>with:</p>
+<pre><code>
+# Restrict kernel pointer exposure
+kernel.kptr_restrict = 2
+# Restrict TTY line discipline autoloading
+dev.tty.ldisc_autoload = 0
+# Protect FIFOs and regular files in world-writable sticky directories
+fs.protected_fifos = 2
+fs.protected_regular = 2
+# Prevent suid processes from dumping core
+fs.suid_dumpable = 0
+# Disable kernel module loading after boot (uncomment only if you do not load modules post-boot)
+# kernel.modules_disabled = 1
+# Restrict Magic SysRq key functions
+kernel.sysrq = 0
+# Harden BPF Just-In-Time compiler
+net.core.bpf_jit_harden = 2
+# Log martian packets (packets with impossible routing addresses) on all interfaces
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.conf.default.log_martians = 1
+</code></pre>
+<p>Apply the changes:</p>
+<pre><code class="language-bash">
+sudo sysctl --system
+</code></pre>
+<p>Files in <code>/etc/sysctl.d/</code> are applied in order, so a later file overrides an earlier one with the same key.</p>
+<blockquote><p><strong>Note:</strong> Optional hardening, such as kernel lockdown and kexec restrictions, can interfere with kernel modules and development workflows, so it is not enabled here.</p></blockquote>
+<p><br></p>
+<h2 id="check-unexpected-kernel-modules">Check Unexpected Kernel Modules</h2>
+<p><br></p>
+<p>List the loaded kernel modules and check for unexpected ones:</p>
+<pre><code class="language-bash">
+lsmod
+lsmod | grep -E &#39;firewire&#39;
+</code></pre>
+<p><br></p>
+<hr>
+<h1 id="access-control-users-ssh-usb-and-boot-chain">🔒 Access Control: Users, SSH, USB, and Boot Chain</h1>
+<p><br></p>
+<p>This section controls who and what can access the system: user privileges, remote SSH logins, Hyprland app permissions, USB and Thunderbolt devices, network authorization, and the boot chain (AppArmor and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Secure_Boot">Secure Boot</a>).</p>
+<p><br></p>
+<h2 id="ssh">SSH</h2>
+<p><br></p>
+<p>Harden the SSH daemon configuration:</p>
+<pre><code>
+sudo nvim /etc/ssh/sshd_config
+</code></pre>
+<p>with:</p>
+<pre><code>
+PermitRootLogin no
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PubkeyAuthentication yes
+X11Forwarding no
+AllowAgentForwarding no
+AllowUsers yourusername
+</code></pre>
+<p>or disable SSH entirely:</p>
+<pre><code class="language-bash">
+sudo systemctl stop sshd
+sudo systemctl disable sshd
+sudo systemctl stop sshd.socket sshd.service
+sudo systemctl disable sshd.socket sshd.service
+</code></pre>
+<p><br></p>
+<h2 id="hyprland-permissions">Hyprland Permissions</h2>
+<p><br></p>
+<p>Confirm the Hyprland packages and open the configuration file:</p>
+<pre><code>
+pacman -Q hyprland hyprland-guiutils
+sudo nvim ~/.config/hypr/hyprland.lua
+</code></pre>
+<p><br></p>
+<p>Add the following rules to require approval for screen capture, input capture, plugin loading, and cursor tracking:</p>
+<pre><code class="language-lua">
+-- Screen capture: require approval
+hl.permission({
+    binary = &quot;.*&quot;,
+    type = &quot;screencopy&quot;,
+    mode = &quot;deny&quot;
+})
+
+-- Keyboard and mouse input capture: require approval
+hl.permission({
+    binary = &quot;.*&quot;,
+    type = &quot;input-capture&quot;,
+    mode = &quot;deny&quot;
+})
+
+-- Plugin loading: require approval
+hl.permission({
+    binary = &quot;.*&quot;,
+    type = &quot;plugin&quot;,
+    mode = &quot;ask&quot;
+})
+
+-- Cursor tracking: require approval
+hl.permission({
+    binary = &quot;.*&quot;,
+    type = &quot;cursorpos&quot;,
+    mode = &quot;deny&quot;
+})
+</code></pre>
+<p><br></p>
+<h2 id="avoid-bad-usb">Avoid Bad USB</h2>
+<p><br></p>
+<p>Install usbguard, generate a policy from the currently connected devices, and enable the daemon:</p>
+<pre><code class="language-bash">
+sudo pacman -S usbguard
+sudo usbguard generate-policy | sudo tee /etc/usbguard/rules.conf &gt; /dev/null
+sudo systemctl enable --now usbguard.service
+sudo systemctl status usbguard.service
+</code></pre>
+<p><br></p>
+<h2 id="apparmor">AppArmor</h2>
+<p><br></p>
+<blockquote><p><strong>Note:</strong> AppArmor took me a good amount of debugging time, so I will expand this section in detail in a future post.</p></blockquote>
+<p>Install and enable AppArmor:</p>
+<pre><code class="language-bash">
+sudo pacman -S apparmor
+sudo systemctl enable --now apparmor
+</code></pre>
+<p>Verify kernel support:</p>
+<pre><code class="language-bash">
+zgrep CONFIG_SECURITY_APPARMOR /proc/config.gz
+</code></pre>
+<p>Check for profiles that do not confine their applications, and for processes running without confinement:</p>
+<pre><code class="language-bash">
+sudo grep -l &quot;flags=(unconfined)&quot; /etc/apparmor.d/*
+sudo aa-unconfined
+</code></pre>
+<blockquote><p><strong>Note:</strong> A profile with <code>flags=(unconfined)</code> only gives the application a name; it does not confine it. Proper confinement requires application-specific rules, which we will build and test in a future post.</p></blockquote>
+<p>Check the order in which the Linux Security Modules are initialized. AppArmor should be initialized before BPF, so check the active order and the boot parameters that set it:</p>
+<pre><code class="language-bash">
+cat /sys/kernel/security/lsm
+cat /proc/cmdline
+sudo grep -n &#39;KERNEL_CMDLINE&#39; /etc/default/limine
+</code></pre>
+<blockquote><p><strong>Note:</strong> During testing, the active order placed BPF before AppArmor, and the kernel logged <code>audit: error in audit_log_subj_ctx</code> while audit rules were loaded. The fix is to place AppArmor before BPF in the kernel parameters. Confirm the active order with <code>cat /sys/kernel/security/lsm</code> after reboot.</p></blockquote>
+<p>Review the profiles before changing any of them. Count the profiles in each mode, then list the profiles in complain mode and the unconfined profiles:</p>
+<pre><code class="language-bash">
+sudo aa-status
+sudo aa-status --show=profiles --filter.mode=complain
+sudo aa-status --show=profiles --filter.mode=unconfined
+apparmor_parser --version
+systemctl status apparmor.service --no-pager
+</code></pre>
+<blockquote><p><strong>Note:</strong> A profile in enforce mode restricts only the processes that run under it. Check <code>sudo aa-status --verbose</code> to see which running processes are confined. A count of enforcing profiles alone does not mean that your applications are protected. Running processes that have a profile but are unconfined are a hardening opportunity.</p></blockquote>
+<blockquote><p><strong>Note:</strong> Complain mode logs violations without blocking them. Unconfined profiles have no effective confinement. On this version of <code>aa-status</code>, the <code>--unconfined</code> option is not available, so use the <code>--filter.mode</code> filter instead.</p></blockquote>
+<p>Prioritize the review. Start with browsers, password managers, and other network-facing applications, then development tools, terminals, and AI agents, then desktop services. Do not switch a profile to enforce mode until you know which files, processes, and network access the application needs. An incorrect profile can break a workflow without making the system meaningfully safer.</p>
+<h2 id="profile-findings">Profile Findings</h2>
+<p><br></p>
+<p>Before changing a profile, inspect it, its package owner, and any local overrides:</p>
+<pre><code class="language-bash">
+sudo grep -nE &#39;^[[:space:]]*profile[[:space:]]&#39; /etc/apparmor.d/&lt;PROFILE&gt;
+pacman -Qo /etc/apparmor.d/&lt;PROFILE&gt;
+sudo ls -la /etc/apparmor.d/local/
+sudo aa-status --show=profiles --filter.profiles=&lt;PROFILE&gt;
+</code></pre>
+<p>The findings on this system are:</p>
+<ul>
+<li><strong>Transmission:</strong> four profiles are in complain mode, but Transmission is not installed or running. They stay unchanged.</li>
+<li><strong>Discord, Slack, Element, and MongoDB Compass:</strong> their profiles are unconfined, and the applications are not installed. Their package-owned files stay unchanged.</li>
+<li><strong>1Password:</strong> the profile is deliberately unconfined, and there are no local overrides. Eight running processes have the profile but are unconfined. A generic policy could break desktop access, browser integration, or vault access, so the profile stays unchanged until a tested policy exists.</li>
+<li><strong>Brave and Firefox:</strong> both are installed and running, and both profiles are unconfined. They are the next candidates, and we will test one browser at a time.</li>
+</ul>
+<blockquote><p><strong>Note:</strong> Profiles owned by the <code>apparmor</code> package are replaced during updates. Put site-specific changes in <code>/etc/apparmor.d/local/</code> instead.</p></blockquote>
+<p><br></p>
+<h2 id="secure-boot">Secure Boot</h2>
+<p><br></p>
+<blockquote><p>Set a BIOS/UEFI password and enable Secure Boot.</p></blockquote>
+<blockquote><p><strong>Note:</strong> We will go over the details of how to set up Secure Boot in a future post. It is very important because it makes sure only trusted, signed boot code runs, which protects the system from bootkits and tampered bootloaders. It also takes a little time to get right, so we&#39;ll take it step by step.</p></blockquote>
+<p><br></p>
+<p>Check the boot chain integrity:</p>
+<pre><code class="language-bash">
+sudo pacman -S sbctl
+sudo sbctl status
+</code></pre>
+<p>Verify the EFI binaries:</p>
+<pre><code class="language-bash">
+sudo sbctl verify
+</code></pre>
+<blockquote><p><strong>Important:</strong> Back up your existing UEFI keys before you enroll your own keys. Do not replace firmware keys or enable Secure Boot until you have verified that every boot component is signed.</p></blockquote>
+<p>Inspect bootloader and kernel parameters:</p>
+<pre><code class="language-bash">
+bootctl status
+cat /proc/cmdline
+</code></pre>
+<p>Update the Limine configuration:</p>
+<pre><code class="language-bash">
+sudo limine-update
+</code></pre>
+<p><br></p>
+<h2 id="privilege-escalation">Privilege Escalation</h2>
+<p><br></p>
+<p>An attacker who compromises a normal user account will look for a way to root. The most common paths are sudo rules, SUID and SGID binaries, and file capabilities. Review each one before changing anything.</p>
+<p>Check the root accounts, the sudo rules, and the privileged groups:</p>
+<pre><code class="language-bash">
+getent passwd | awk -F: &#39;$3 == 0 {print $1, $3, $6, $7}&#39;
+awk -F: &#39;$3 &gt;= 1000 {print $1}&#39; /etc/passwd
+sudo -l
+sudo grep -RInE &#39;^[[:space:]]*[^#].*&#39; /etc/sudoers /etc/sudoers.d/ 2&gt;/dev/null
+getent group wheel adm disk
+sudo visudo -c
+</code></pre>
+<p>List the SUID and SGID binaries, and the file capabilities:</p>
+<pre><code class="language-bash">
+sudo find /usr/bin /usr/sbin /bin /sbin /usr/local/bin -xdev -type f -perm /6000 -printf &#39;%m %u:%g %p\n&#39; 2&gt;/dev/null | sort
+sudo getcap -r /usr/bin /usr/sbin /usr/local/bin /opt 2&gt;/dev/null
+</code></pre>
+<p>For each entry, confirm the owning package and its purpose:</p>
+<pre><code class="language-bash">
+stat -c &#39;%A %a %U:%G %n&#39; /usr/bin/&lt;BINARY&gt;
+pacman -Qo /usr/bin/&lt;BINARY&gt;
+getcap -v /usr/bin/&lt;BINARY&gt;
+</code></pre>
+<p>Findings on this system:</p>
+<ul>
+<li><strong>Root accounts:</strong> only <code>root</code> has UID 0. The regular user is in <code>wheel</code>, and the <code>disk</code> group is empty, and <code>adm</code> contains only the system <code>daemon</code> user. Sudo rules validate without errors.</li>
+<li><strong>Sudo:</strong> the user has full sudo access, which is expected on a single-user workstation. Credentials stay cached for ten minutes (<code>timestamp_timeout=10</code>). The Omarchy <code>NOPASSWD</code> entries are limited to specific commands and should be reviewed periodically.</li>
+<li><strong><code>gpu-screen-recorder</code>:</strong> <code>gsr-kms-server</code> has <code>cap_sys_admin</code>, which allows monitor capture without a password prompt. Keep it only if you use direct monitor capture.</li>
+<li><strong><code>btop</code>:</strong> <code>cap_dac_read_search</code> and <code>cap_perfmon</code> enable CPU wattage and GPU monitoring. Keep them while <code>show_cpu_watts</code> is enabled.</li>
+<li><strong><code>inetutils</code>:</strong> the legacy <code>rcp</code>, <code>rlogin</code>, and <code>rsh</code> clients have <code>cap_net_bind_service</code>, but they are not used here. The package is removed in the Applications section.</li>
+<li><strong>Root password:</strong> <code>root</code> has a password set, and SSH is disabled and inactive. Consider locking direct root password login only after you have confirmed a recovery path.</li>
+<li><strong>Other SUID binaries:</strong> each one belongs to a recognizable package, such as <code>pkexec</code> (Polkit), <code>mount.cifs</code>, <code>nvidia-modprobe</code>, and <code>ksu</code>. They stay in place for now.</li>
+</ul>
+<blockquote><p><strong>Note:</strong> Remove a capability or an SUID bit only after you identify the package&#39;s purpose. Some of them are required for hardware and monitoring features.</p></blockquote>
+<p><br></p>
+<h2 id="networkmanager-authorization">NetworkManager Authorization</h2>
+<p><br></p>
+<p>NetworkManager lets users change network settings through Polkit. Check the vendor policy, the distribution rules, and the connection permissions before changing anything:</p>
+<pre><code class="language-bash">
+sudo grep -RInE &#39;settings\.modify\.system|auth_admin|auth_self|allow_active|allow_inactive&#39; /usr/share/polkit-1/actions/org.freedesktop.NetworkManager.policy
+sudo cat /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules
+ls -la /etc/polkit-1/rules.d/
+pkaction --action-id org.freedesktop.NetworkManager.settings.modify.system --verbose
+nmcli -g connection.permissions connection show &quot;&lt;CONNECTION-NAME&gt;&quot;
+</code></pre>
+<p>The vendor policy requires administrator authentication for system-wide connection changes. A distribution rule file can override that default, and it should be checked for any unconditional grant to the <code>wheel</code> group. Connections restricted to one user, such as a VPN profile, are not affected by a system-wide grant.</p>
+<p>To require administrator authentication without changing the vendor files, add a local rule. Polkit evaluates rule files in filename order, and the first rule that returns a result wins. <code>AUTH_ADMIN</code> requires administrator authentication without the temporary caching of <code>AUTH_ADMIN_KEEP</code>:</p>
+<pre><code class="language-bash">
+sudo tee /etc/polkit-1/rules.d/00-networkmanager-auth.rules &gt; /dev/null &lt;&lt;&#39;EOF&#39;
+polkit.addRule(function(action, subject) {
+    if (action.id === &quot;org.freedesktop.NetworkManager.settings.modify.system&quot;) {
+        return polkit.Result.AUTH_ADMIN;
+    }
+});
+EOF
+</code></pre>
+<p>Verify the file permissions, the service, and any rule errors in the log:</p>
+<pre><code class="language-bash">
+sudo stat -c &#39;%A %a %U:%G %n&#39; /etc/polkit-1/rules.d/00-networkmanager-auth.rules
+systemctl is-active polkit.service
+sudo journalctl -u polkit.service -b --no-pager | grep -iE &#39;error|exception|syntax|rule|failed&#39; || true
+</code></pre>
+<blockquote><p><strong>Note:</strong> This rule changes only system-wide connection authorization. It does not change VPN routing, autoconnect, or the kill-switch configuration. Test a controlled authorization request before relying on it, and confirm that the file is <code>644 root:root</code> and that the log shows no rule errors.</p></blockquote>
+<p><br></p>
+<h2 id="thunderbolt-authorization">Thunderbolt Authorization</h2>
+<p><br></p>
+<p>Thunderbolt devices can expose high-speed, DMA-capable interfaces, so their authorization is a meaningful security boundary. The Bolt package ships a Polkit rule that returns <code>YES</code> for active local <code>wheel</code> members, which skips administrator authentication for authorizing, enrolling, and managing Thunderbolt devices. Check the rule, the daemon, and the hardware before deciding:</p>
+<pre><code class="language-bash">
+sudo cat /usr/share/polkit-1/rules.d/org.freedesktop.bolt.rules
+pkaction --action-id org.freedesktop.bolt.authorize --verbose
+systemctl status bolt.service --no-pager
+pacman -Qi bolt | grep -E &#39;^(Name|Version|Install Reason)&#39;
+lspci -nn | grep -i thunderbolt || true
+</code></pre>
+<p>On this system, the Thunderbolt controller is present and the Bolt daemon is running. Since no Thunderbolt peripherals are used, the package is removed, which also removes its <code>wheel</code> rule:</p>
+<pre><code class="language-bash">
+sudo pacman -Rns bolt
+</code></pre>
+<p>Review the removal list before you confirm it. Do not force the removal. Verify the result:</p>
+<pre><code class="language-bash">
+pacman -Q bolt 2&gt;&amp;1
+ls -l /usr/share/polkit-1/rules.d/*bolt* 2&gt;&amp;1
+pgrep -a boltd || echo &quot;No Bolt daemon running&quot;
+</code></pre>
+<p>Removing a package does not stop a process that is already running. If <code>boltd</code> is still running after the removal, stop it by its process ID:</p>
+<pre><code class="language-bash">
+pgrep -x boltd
+sudo kill -TERM &lt;PID&gt;
+</code></pre>
+<blockquote><p><strong>Note:</strong> Removing the package removes the Thunderbolt user daemon, not the Thunderbolt hardware or its kernel drivers. USB-C and ordinary USB devices keep working. If you later need Thunderbolt docks or eGPUs, reinstall Bolt and replace its <code>wheel</code> rule with administrator authentication instead of restoring the exception.</p></blockquote>
+<p><br></p>
+<hr>
+<h1 id="applications-updates-and-removing-unused-software">🔒 Applications: Updates and Removing Unused Software</h1>
+<p><br></p>
+<p>Outdated and unused software widens the attack surface. This section keeps the system updated and removes packages that are not needed.</p>
+<p><br></p>
+<h2 id="system-updates">System Updates</h2>
+<p><br></p>
+<p>Keep the system updated:</p>
+<pre><code class="language-bash">
+omarchy-update
+sudo pacman -Syu
+</code></pre>
+<p><br></p>
+<h2 id="flatpak">Flatpak</h2>
+<p><br></p>
+<p>Use <code>flatpak</code> to run desktop applications in a sandbox:</p>
+<pre><code class="language-bash">
+sudo pacman -S flatpak
+flatpak list
+</code></pre>
+<p><br></p>
+<h2 id="remove-unused-applications">Remove Unused Applications</h2>
+<p><br></p>
+<p>Remove the packages that are not needed:</p>
+<pre><code class="language-bash">
+sudo pacman -Rns \
+  cups \
+  cups-filters \
+  cups-pk-helper \
+  python-pycups \
+  avahi \
+  inetutils \
+  bolt \
+  chromium \
+  moonlight-qt \
+  gliff \
+  obs-studio \
+  gpu-screen-recorder \
+  grim \
+  wtype \
+  hyprland-preview-share-picker \
+  slurp
+</code></pre>
+<p><br></p>
+<p>If you don&#39;t use Docker, remove it (this also deletes all local Docker images, containers, and volumes):</p>
+<pre><code class="language-bash">
+sudo pacman -Rns docker docker-buildx docker-compose containerd runc ufw-docker lazydocker
+sudo rm -rf /var/lib/docker
+</code></pre>
+<p><br></p>
+<hr>
+<h1 id="filesystem-permissions-and-logs">🔒 Filesystem: Permissions and Logs</h1>
+<p><br></p>
+<p>This section restricts access to personal files, reviews the logs that record logins and failed authentication attempts, and configures the audit rules that feed those logs.</p>
+<p><br></p>
+<h2 id="permissions">Permissions</h2>
+<p><br></p>
+<p>Make sure your home directory is only accessible by you:</p>
+<pre><code class="language-bash">
+chmod 700 &quot;$HOME&quot;
+ls -ld &quot;$HOME&quot;
+</code></pre>
+<p><br></p>
+<h2 id="logs">Logs</h2>
+<p><br></p>
+<p>Look at the SSH logs:</p>
+<pre><code class="language-bash">
+sudo journalctl -u sshd
+</code></pre>
+<p>Check recent login sessions:</p>
+<pre><code class="language-bash">
+last -a
+</code></pre>
+<p>Check recent authentication records:</p>
+<pre><code class="language-bash">
+sudo journalctl -b | grep -Ei &#39;authentication failure|failed password|sudo:&#39;
+</code></pre>
+<p><br></p>
+<p>Check remote logging configuration:</p>
+<pre><code class="language-bash">
+grep -RniE &#39;(@@?|omfwd|Target=)&#39; /etc/rsyslog.conf /etc/rsyslog.d/ 2&gt;/dev/null
+systemctl status rsyslog --no-pager
+</code></pre>
+<p><br></p>
+<h2 id="audit-rules">Audit Rules</h2>
+<p><br></p>
+<p>Check that the security-sensitive paths exist before writing audit rules for them:</p>
+<pre><code class="language-bash">
+for path in /etc/passwd /etc/group /etc/shadow /etc/gshadow /etc/sudoers /etc/sudoers.d /etc/pam.d /etc/security /etc/ssh/sshd_config /etc/audit /etc/NetworkManager/system-connections; do
+    if [ -e &quot;$path&quot; ]; then
+        printf &quot;EXISTS   %s\n&quot; &quot;$path&quot;
+    else
+        printf &quot;MISSING  %s\n&quot; &quot;$path&quot;
+    fi
+done
+</code></pre>
+<p>Create a conservative baseline ruleset. It monitors security-sensitive configuration changes without auditing every system call:</p>
+<pre><code class="language-bash">
+sudo tee /etc/audit/rules.d/10-security-baseline.rules &gt; /dev/null &lt;&lt;&#39;EOF&#39;
+# Audit event buffer and failure behavior
+-b 8192
+-f 1
+
+# User and group identity
+-w /etc/passwd -p wa -k identity
+-w /etc/group -p wa -k identity
+-w /etc/shadow -p wa -k identity
+-w /etc/gshadow -p wa -k identity
+
+# Privilege escalation and sudo configuration
+-w /etc/sudoers -p wa -k scope
+-w /etc/sudoers.d/ -p wa -k scope
+
+# Authentication and access control
+-w /etc/pam.d/ -p wa -k auth
+-w /etc/security/ -p wa -k auth
+
+# SSH configuration
+-w /etc/ssh/sshd_config -p wa -k sshd
+
+# Audit configuration
+-w /etc/audit/ -p wa -k audit
+
+# Network and firewall configuration
+-w /etc/NetworkManager/system-connections/ -p wa -k network
+-w /etc/ufw/ -p wa -k firewall
+-w /etc/default/ufw -p wa -k firewall
+
+# Kernel security configuration
+-w /etc/sysctl.conf -p wa -k sysctl
+-w /etc/sysctl.d/ -p wa -k sysctl
+EOF
+</code></pre>
+<p>Review the rules file and validate the ruleset:</p>
+<pre><code class="language-bash">
+sudo cat /etc/audit/rules.d/10-security-baseline.rules
+sudo augenrules --check
+</code></pre>
+<blockquote><p><strong>Note:</strong> Until the rules are loaded, <code>augenrules --check</code> reports that the rules have changed. This is expected. It does not validate the rule syntax, so check the output of the load step below for errors.</p></blockquote>
+<p>Load the rules and inspect them. The audit configuration itself is not made immutable (<code>-e 2</code>) at this stage:</p>
+<pre><code class="language-bash">
+sudo augenrules --load
+sudo auditctl -l
+sudo auditctl -s
+</code></pre>
+<blockquote><p><strong>Note:</strong> On the first attempt, <code>auditctl -l</code> reported <code>No rules</code>, and <code>audit-rules.service</code> failed. Use the following commands to find the cause. Clear existing rules with <code>sudo auditctl -D</code> before any manual reload.</p></blockquote>
+<p>Check the service status and its log:</p>
+<pre><code class="language-bash">
+systemctl status audit-rules.service --no-pager
+sudo journalctl -u audit-rules.service -b --no-pager
+</code></pre>
+<p>Load the compiled file directly and check the exit code:</p>
+<pre><code class="language-bash">
+sudo auditctl -R /etc/audit/audit.rules
+echo &quot;exit code: $?&quot;
+</code></pre>
+<p>Test the basic directives one at a time to find the one that fails:</p>
+<pre><code class="language-bash">
+sudo auditctl -b 8192
+sudo auditctl -f 1
+sudo auditctl -w /etc/passwd -p wa -k identity
+sudo auditctl -l
+</code></pre>
+<p>Test a watch rule on its own. If each watch is accepted individually, the problem lies in loading the complete file rather than in a single rule:</p>
+<pre><code class="language-bash">
+sudo auditctl -w /etc/sysctl.d/ -p wa -k sysctl
+sudo auditctl -l
+</code></pre>
+<blockquote><p><strong>Note:</strong> <code>auditctl</code> may print <code>Old style watch rules are slower</code> for <code>-w</code> rules. The <code>-w</code> syntax still works, and it is used here for readability. For higher event volumes, check <code>auditctl(8)</code> for the newer rule syntax.</p></blockquote>
+<p><code>auditctl -R</code> can stop at the first error. The <code>-i</code> option ignores errors while reading a rules file, which can help isolate the failing rule, but it can also hide a failure. Use it only for diagnosis.</p>
+<blockquote><p><strong>Note:</strong> <code>auditd.service</code> only wants <code>audit-rules.service</code>, so a failed rule load does not stop the audit daemon from starting.</p></blockquote>
+<p>Check the kernel log for audit errors:</p>
+<pre><code class="language-bash">
+sudo journalctl -k -b --no-pager | grep -i audit | tail -40
+</code></pre>
+<blockquote><p><strong>Note:</strong> Errors such as <code>audit: error in audit_log_subj_ctx</code> indicate a kernel-level problem, not a rule problem. Do not treat the audit setup as healthy until these errors stop. See the LSM order check in the AppArmor section.</p></blockquote>
+<p><br></p>
+<h2 id="validate-audit-events">Validate Audit Events</h2>
+<p><br></p>
+<p>Loading the rules is not enough. Confirm that the audit system records events. The following test creates and removes a file in <code>/etc/audit/</code>, which is covered by a watch:</p>
+<pre><code class="language-bash">
+sudo install -m 600 /dev/null /etc/audit/.audit-validation-test
+sudo rm /etc/audit/.audit-validation-test
+</code></pre>
+<p>Search the audit log for the recent events and check the counters:</p>
+<pre><code class="language-bash">
+sudo ausearch -k audit -ts recent -i | tail -60
+sudo auditctl -s
+</code></pre>
+<p>A successful test shows three events: the file creation (<code>nametype=CREATE</code>), the permission change (<code>fchmodat</code>), and the deletion (<code>nametype=DELETE</code>). Each event records the login identity (<code>auid</code>), the effective user, the process, and the executable. <code>lost 0</code> means that no records were dropped.</p>
+<blockquote><p><strong>Note:</strong> <code>subj=unconfined</code> describes the execution context of the command. It does not indicate a rule failure.</p></blockquote>
+<p><br></p>
+<h2 id="audit-log-protection">Audit Log Protection</h2>
+<p><br></p>
+<p>Check the ownership and permissions of the audit log, the logging configuration, and the filesystem that holds the logs:</p>
+<pre><code class="language-bash">
+sudo stat -c &#39;%A %a %U:%G %n&#39; /var/log/audit /var/log/audit/audit.log
+sudo ls -lah /var/log/audit/
+sudo grep -nE &#39;^(log_file|log_group|log_format|flush|freq|write_logs|max_log_file|num_logs|max_log_file_action|space_left|space_left_action|admin_space_left|admin_space_left_action|disk_full_action|disk_error_action)&#39; /etc/audit/auditd.conf
+df -hT /var/log/audit
+</code></pre>
+<p>Auditd manages its own rotation, so no logrotate entry is expected for the audit log.</p>
+<blockquote><p><strong>Note:</strong> With the default settings, the log keeps roughly 40 to 48 MB of history, and the disk-space warnings trigger only when space is critically low. The <code>SUSPEND</code> actions stop audit logging when the disk is full. This is preferable to silently losing records.</p></blockquote>
+<p>Increase the retention and the disk-space thresholds. Back up the configuration first, and change only these four settings:</p>
+<pre><code class="language-bash">
+sudo cp -a /etc/audit/auditd.conf &quot;/etc/audit/auditd.conf.backup-$(date +%F-%H%M%S)&quot;
+
+sudo sed -i -E \
+  -e &#39;s/^max_log_file[[:space:]]*=.*/max_log_file = 50/&#39; \
+  -e &#39;s/^num_logs[[:space:]]*=.*/num_logs = 10/&#39; \
+  -e &#39;s/^space_left[[:space:]]*=.*/space_left = 5120/&#39; \
+  -e &#39;s/^admin_space_left[[:space:]]*=.*/admin_space_left = 2048/&#39; \
+  /etc/audit/auditd.conf
+
+sudo grep -nE &#39;^(max_log_file|num_logs|space_left|admin_space_left)[[:space:]]*=&#39; /etc/audit/auditd.conf
+</code></pre>
+<p>Keep the existing <code>ROTATE</code>, <code>SYSLOG</code>, and <code>SUSPEND</code> actions. They provide a controlled response when space runs out.</p>
+<p><br></p>
+<h2 id="login-uid-attribution">Login UID Attribution</h2>
+<p><br></p>
+<p>A login UID ties each process to the login session that started it. Before making it immutable, confirm that the current session and its processes carry the expected UID:</p>
+<pre><code class="language-bash">
+cat /proc/self/loginuid
+sudo cat /proc/1/loginuid
+sudo grep -Rns &#39;pam_loginuid&#39; /etc/pam.d/
+loginctl list-sessions
+</code></pre>
+<p>Check the processes of the user session:</p>
+<pre><code class="language-bash">
+ps -p $$ -o pid,ppid,user,comm,luid
+ps -u &quot;$USER&quot; -o pid,ppid,comm,luid --sort=pid | head -30
+</code></pre>
+<p>Your shell and user processes should report your UID. PID 1 reports <code>4294967295</code>, which means that no login UID is set, and that is normal for system initialization. On this system, all inspected user-session processes reported UID 1000, and no container runtime was active.</p>
+<p>Check whether an immutability rule already exists:</p>
+<pre><code class="language-bash">
+sudo grep -Rns -- &#39;--loginuid-immutable&#39; /etc/audit/rules.d/ /etc/audit/audit.rules 2&gt;/dev/null
+</code></pre>
+<blockquote><p><strong>Note:</strong> <code>--loginuid-immutable</code> prevents changes to login UIDs once they are set. Once enabled, it cannot be turned off at runtime; only a reboot clears it. It can also break software that changes its login UID, and some container setups.</p></blockquote>
+<p>After the checks above, enable it for the current boot:</p>
+<pre><code class="language-bash">
+sudo auditctl --loginuid-immutable
+sudo auditctl -s
+</code></pre>
+<p>Then make it persistent in its own rules file, so it stays separate from the security baseline:</p>
+<pre><code class="language-bash">
+sudo tee /etc/audit/rules.d/99-loginuid-immutable.rules &gt; /dev/null &lt;&lt;&#39;EOF&#39;
+--loginuid-immutable
+EOF
+sudo augenrules --load
+</code></pre>
+<p>After the next reboot, verify that the setting is active and that all watches are still loaded:</p>
+<pre><code class="language-bash">
+sudo auditctl -s
+sudo auditctl -l | wc -l
+</code></pre>
+<p>Look for <code>loginuid_immutable 1</code>, <code>lost 0</code>, and <code>backlog 0</code>. The watch count should match the number of rules in the baseline.</p>
+<p><br></p>
+<hr>
+<h1 id="persistence-what-starts-automatically">🔒 Persistence: What Starts Automatically</h1>
+<p><br></p>
+<p>Malicious software often configures itself to start again after a reboot. This section reviews the places where programs can launch automatically.</p>
+<p><br></p>
+<p>Check for anything that starts automatically:</p>
+<pre><code class="language-bash">
+crontab -l
+sudo ls -la /etc/cron.*
+systemctl list-timers --all
+systemctl --user list-unit-files --state=enabled
+ls -la ~/.config/autostart
+</code></pre>
+<p><br></p>
+<hr>
+<h1 id="verification-audits-and-malware-scans">🔒 Verification: Audits and Malware Scans</h1>
+<p><br></p>
+<p>After applying the changes, this section verifies them. It covers package integrity, malware and rootkit scans, and a full system audit. Repeat these checks periodically, for example weekly, to catch configuration regressions.</p>
+<p><br></p>
+<h2 id="package-verification">Package Verification</h2>
+<p><br></p>
+<p>Check package integrity and known vulnerabilities:</p>
+<pre><code class="language-bash">
+pacman -Qkk
+sudo pacman -S arch-audit
+arch-audit -u
+</code></pre>
+<p><br></p>
+<h2 id="malware-and-rootkit-detection">Malware and Rootkit Detection</h2>
+<p><br></p>
+<blockquote><p><strong>Note:</strong> The tools below (<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/ClamAV">ClamAV</a>, rkhunter, and Lynis) are a first pass only. Later, we will review their reports in detail and add more information to this section.</p></blockquote>
+<p><br></p>
+<p>Install ClamAV, update its virus signatures, and scan the home directory and the full system:</p>
+<pre><code class="language-bash">
+sudo pacman -S clamav
+sudo freshclam
+clamscan -r -i &quot;$HOME&quot;
+sudo clamscan -r -i / \
+  --exclude-dir=&quot;^/sys&quot; \
+  --exclude-dir=&quot;^/proc&quot; \
+  --exclude-dir=&quot;^/dev&quot; \
+  --log=&quot;/var/log/clamscan_full.log&quot;
+</code></pre>
+<p><br></p>
+<p>Install rkhunter, update its database, and run a check:</p>
+<pre><code class="language-bash">
+sudo pacman -S rkhunter
+sudo rkhunter --update
+sudo rkhunter --check
+</code></pre>
+<p><br></p>
+<p>If rkhunter flags a legitimate script, whitelist it in the configuration file:</p>
+<pre><code class="language-bash">
+sudo nvim /etc/rkhunter.conf
+</code></pre>
+<p>Add:</p>
+<pre><code>
+SCRIPTWHITELIST=&quot;/usr/bin/egrep&quot;
+SCRIPTWHITELIST=&quot;/usr/bin/fgrep&quot;
+SCRIPTWHITELIST=&quot;/usr/bin/ldd&quot;
+</code></pre>
+<p><br></p>
+<p>Install Lynis and run a full system audit:</p>
+<pre><code class="language-bash">
+sudo pacman -S lynis
+sudo lynis audit system
+</code></pre>
+<p><br></p>
+<hr>
+<h5 id="that-s-it-for-today-see-you-in-the-next-update">That&#39;s it for today. See you in the next update!</h5>
+<h5 id="section">⬛️</h5></div>
 								</article>
 							</div>
 						</div>

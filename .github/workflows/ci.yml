@@ -33,3 +33,6 @@ jobs:
 
       - name: Run tests and linter
         run: pre-commit run --all-files
+
+      - name: Check generated blog artifacts are current
+        run: make check-generated

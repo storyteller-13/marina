@@ -198,10 +198,169 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-03-29">2026; 03; 29</time></p>
+									<h1 id="post-title" class="section-title">📚 BOOK → Build an LLM from Scratch (Raschka, 2024)</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 9/10 | Beginner to Intermediate AI/Software Engineers</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p><br></p>
+<p><img src="/blog/assets/3.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>This book walks through the full lifecycle of building a large language model: from raw text tokenization all the way to classical fine-tuning examples.</p>
+<p>I enjoyed this read: although it&#39;s introductory, it has great explanations, great pictures (visual learners winning here), and fun Python exercises. I read it in 3 days, and it helped me refresh some key concepts in my mind.</p>
+<p>The journey is structured as the following:</p>
+<table>
+<thead><tr>
+<th>Stage</th>
+<th>Focus</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Core mechanics: data, attention, architecture (attention, transformers), pretraining</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Foundations: training loop, evaluation, loading pre-trained weights</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Fine-tuning: classification or instruction-following</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:</p>
+<p><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#the-pipeline-for-working-with-text-data">The Pipeline for Working with Text Data</a></li><li><a href="#attention">Attention</a></li><li><a href="#gpt-model-architecture">GPT Model Architecture</a></li><li><a href="#pretraining-evaluation">Pretraining &amp;&amp; Evaluation</a></li><li><a href="#classification-fine-tuning">Classification Fine-Tuning</a></li><li><a href="#what-this-book-does-well">What This Book Does Well</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<p><img src="/blog/assets/llm_time.webp" alt="LLM-from-scratch pipeline overview" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h2 id="the-pipeline-for-working-with-text-data">The Pipeline for Working with Text Data</h2>
+<p><br></p>
+<pre><code>
+1. Tokenization; split text into tokens
+2. Byte Pair Encoding (BPE); the tokenization scheme used by GPT-2/3 (using Python&#39;s tiktoken)
+    - start with individual characters and iteratively merges the most frequent adjacent pairs into subwords and words
+3. Token ID; each token maps to an integer in the vocabulary
+4. Embeddings; token IDs are looked up in a learned weight matrix to produce continuous vectors the network can process 
+    - a fancy lookup table for which the lookup weights get optimized during training
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="attention">Attention</h2>
+<p><br></p>
+<p>Self-attention is the heart of the transformer. For each token in the sequence, compute how much it should &quot;attend to&quot; every other token, then blend those tokens&#39; information accordingly. The mechanics use three learned projections per token (just as in database lingo):</p>
+<pre><code>
+- Query (Q) — &quot;what am I looking for?&quot;
+- Key (K) — &quot;what do I offer?&quot;
+- Value (V) — &quot;what information do I carry?&quot;
+</code></pre>
+<p>Attention scores are computed as dot products between queries and keys, scaled by the square root of the embedding dimension (to prevent gradients from vanishing with large values), then passed through softmax to produce weights that are normalized.</p>
+<p><br></p>
+<hr>
+<h2 id="gpt-model-architecture">GPT Model Architecture</h2>
+<p><br></p>
+<p>The full GPT model stacks transformer blocks repeatedly:</p>
+<pre><code>
+- Masked multi-head attention
+    - Masking ensures the model can only attend to past tokens during training (masked positions are set to negative infinity before softmax)
+    - Multi-head attention runs several attention operations in parallel with different learned projections, then concatenates the results
+    - The smallest GPT-2 has 12 heads over a 768-dimensional embedding space
+- Layer normalization (applied before each sub-layer)
+- Feed-forward network with GELU activation.
+     - GELU is smoother around zero than ReLU, and allows small negative values, which improves gradient flow during training
+- Shortcut (residual) connections
+    - Deep networks suffer from vanishing gradients — by the time error signals propagate back through many layers, they shrink toward zero
+    - Residual connections give gradients a shortcut, preserving signal and enabling much deeper networks to train
+</code></pre>
+<p>GPT-2 model sizes for reference (their weights are open):</p>
+<table>
+<thead><tr>
+<th>Variant</th>
+<th>Parameters</th>
+<th>Attention Heads</th>
+<th>Embedding Dim</th>
+<th>Context Length</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Small</td>
+<td>124M</td>
+<td>12</td>
+<td>768</td>
+<td>1,024</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>355M</td>
+<td>16</td>
+<td>1,024</td>
+<td>1,024</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>774M</td>
+<td>20</td>
+<td>1,280</td>
+<td>1,024</td>
+</tr>
+<tr>
+<td>XL</td>
+<td>1.5B</td>
+<td>25</td>
+<td>1,600</td>
+<td>1,024</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h2 id="pretraining-evaluation">Pretraining &amp;&amp; Evaluation</h2>
+<p><br></p>
+<p><img src="/blog/assets/training.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Pretraining is conceptually straightforward: minimize cross-entropy loss between the model&#39;s predicted token probabilities and the actual next token.</p>
+<p>In practice:</p>
+<pre><code>
+- Cross-entropy loss (measuring divergence between predicted and true token distributions)
+- Perplexity = exp(loss) (as a more interpretable metric)
+- AdamW optimizer (as the standard choice for better regularization)
+- Temperature scaling and probabilistic sampling introduce controlled randomness, trading coherence for diversity
+</code></pre>
+<p>At inference time, GPT generates one token at a time:</p>
+<pre><code>
+1. Feed the input sequence through the model
+2. Convert the final output logits to probabilities via softmax
+3. Sample or greedily select the next token (greedy decoding always picks the highest-probability token)
+4. Append it to the sequence and repeat
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="classification-fine-tuning">Classification Fine-Tuning</h2>
+<p><br></p>
+<p>The classical spam detection classification example:</p>
+<pre><code>
+- Replace the final output layer with a small classification head
+- Freeze most of the model&#39;s layers
+    - lower layers encode broadly useful representations (syntax, semantics)
+    - upper layers are more task-specific and benefit from adaptation
+- Only train the last transformer block, final LayerNorm, and the new classification head
+- Use the same cross-entropy loss as pretraining
+- Don&#39;t need to fine-tune the whole model (just the top layer(s) on a small labeled dataset)
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="what-this-book-does-well">What This Book Does Well</h2>
+<p><br></p>
+<pre><code>
+- Demystifies LLMs by building everything from first principles in PyTorch
+- Bridges the gap between intuition and implementation (concepts like attention and tokenization become much clearer once you&#39;ve coded them)
+- The progression from &quot;random weights → pretrained → fine-tuned&quot; mirrors how real production models are built
+</code></pre>
+<p><br></p>
+<h4 id="section">⬛️</h4></div>
 								</article>
 							</div>
 						</div>

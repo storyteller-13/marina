@@ -1775,6 +1775,13 @@ Any team building production AI agents can benefit:
 
 <br>
 
+> A nice resource is [Hugging Face's Harness Lens](https://harness-hub-harness-lens.hf.space/): a project that lets you search and compare across 39 harness. It offers several useful features, including a nice [leaderboard](https://huggingface.co/spaces/joelniklaus/harness-leaderboard), a [compaction calculator](https://harness-hub-harness-lens.hf.space/#/compaction), [tool comparions](https://harness-hub-harness-lens.hf.space/#/tools), and [prompt comparisons](https://harness-hub-harness-lens.hf.space/#/prompts).
+
+![](/blog/assets/report_harn_25.png)
+
+
+<br>
+
 ---
 
 ## 🦀 [Rig (Rust)](https://github.com/0xPlaygrounds/rig)
@@ -1787,7 +1794,7 @@ Any team building production AI agents can benefit:
 
 - Everything is a plugin. The agent is a Bevy app; its tools, commands, sessions, sign-in and terminal view are each a plugin listed in plugins.toml, so any of them can be removed, replaced or added to.
 
-- It rebuilds itself. `/reload` rebuilds the agent with your plugin changes and restarts it in the same session, and keeps the old build running if the new one does not compile.
+- It rebuilds itself. `/reload` rebuilds the agent with your plugin changes and restarts it in the same session,aand keeps the old build running if the new one does not compile.
 
 - Subagents and checkpoints of what shell changed are optional plugins, and the tools work on remote hosts over ssh or any command.
 
@@ -3318,7 +3325,7 @@ Stores memory in `~/.openclaw/workspace/`:
 
 <br>
 
-### That's it for today. I hope you had as much fun reading as I had conducting this research. Thank you for reading, and until next time, my friends!
+### That's it for today. I hope you had as much fun reading as I had conducting this research. Thank you for reading, and until next time, my friend!
 
 ### ⬛️
 

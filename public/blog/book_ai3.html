@@ -198,10 +198,655 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-08-14">2026; 08; 14</time></p>
+									<h1 id="post-title" class="section-title">📚 BOOK → Artificial Intel 3️⃣ of 3️⃣ (Russell &amp; Norvig, 2010)</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 10/10 | Beginner to Advanced AI Scientists</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><em>&quot;The study both of Formal Logic and of the Theory of Probabilities has led me to adopt the opinion that there is no such thing as a distinct method of induction as contrasted with deduction, but that induction is simply an inverse employment of deduction.&quot;</em> - W. S. Jevons (1874)</p></blockquote>
+<p><br></p>
+<p>In this third and final post, I continue the work started in <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_ai.html"><strong>Part 1️⃣</strong></a> and <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_ai2.html"><strong>Part 2️⃣</strong></a>, studying the chapters on learning, natural language, perception, and robotics, and thinking about the problems I have been tackling.</p>
+<p><br></p>
+<p>As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:</p>
+<p><strong>🤖 If you see a 👾, it means I found something particularly cool or learned something new.</strong><br><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 If these notes look interesting to you, it&#39;s your ✦moral duty✦ to read the original book.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#18-learning-from-examples">🪻 18. LEARNING FROM EXAMPLES</a></li><li><a href="#19-knowledge-in-learning">🪻 19. KNOWLEDGE IN LEARNING</a></li><li><a href="#20-learning-probabilistic-models">🪻 20. LEARNING PROBABILISTIC MODELS</a></li><li><a href="#21-reinforcement-learning">🪻 21. REINFORCEMENT LEARNING</a></li><li><a href="#22-natural-language-processing">🪻 22. NATURAL LANGUAGE PROCESSING</a></li><li><a href="#23-natural-language-for-communication">🪻 23. NATURAL LANGUAGE FOR COMMUNICATION</a></li><li><a href="#24-perception">🪻 24. PERCEPTION</a></li><li><a href="#25-robotics">🪻 25. ROBOTICS</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="18-learning-from-examples">🪻 18. LEARNING FROM EXAMPLES</h2>
+<p><br></p>
+<blockquote><p><em>An agent is learning if it improves its performance on future tasks after making observations about the world.</em></p></blockquote>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">PS1</span> This chapter introduces the very basic concepts of ML, which <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/ml-classifiers-and-experiments-py">we have known for decades</a></strong>, but somehow I still find it fun to read. It’s like rewatching a favorite movie for the 10th time just because it feels familiar and nice, and then finding that one little thing you missed or never really thought about (call me a weirdo). Plus, it’s always nice to rest the brain after <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/podcast_nl.html">an intense thinking sesh</a></strong>. Plus, perhaps someone reading this will learn something new, too.</p>
+</aside>
+<p><br></p>
+<h4 id="forms-of-learning">FORMS OF LEARNING</h4>
+<p><br></p>
+<ul>
+<li>Any component of an agent can be improved by learning from data. The improvements, and the techniques used to make them, depend on four major factors:</li>
+</ul>
+<pre><code class="language-💡">
+- Which component is to be improved.
+- What prior knowledge the agent already has.
+- What representation is used for the data and the component.
+	→ propositional and first-order logical sentences for the components in a logical agent
+	→ Bayesian networks for the inferential components of a decision-theoretic agent
+- What feedback is available to learn from 
+	→ Unsupervised, supervised, and reinforcement learning
+</code></pre>
+<p><br></p>
+<h4 id="supervised-learning">SUPERVISED LEARNING</h4>
+<p><br></p>
+<blockquote><p><em>Given a training set of <code>N</code> example input–output pairs <code>(x1,y1),(x2,y2),... (xN,yN )</code>, where each <code>yj</code> was generated by an unknown function <code>y= f(x)</code>, discover a function <code>h</code> (hypothesis) that approximates the true function <code>f</code>.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>A hypothesis generalizes well if the test set correctly predicts the value of <code>y</code> for novel examples. When the output <code>y</code> is one of a finite set of values, the learning problem is called classification, and is called Boolean or binary classification. If there are only two values. When <code>y</code> is a number, the learning problem is called regression.</li>
+</ul>
+<ul>
+<li>We don’t know what <code>f</code> is, but we will approximate it with a function h selected from a hypothesis space, <code>H</code> (e.g., the set of polynomials).</li>
+</ul>
+<ul>
+<li>Fundamental problem in inductive learning: <em>how do we choose from among multiple consistent hypotheses?</em>: One answer is to prefer the simplest hypothesis consistent with the data, the Ockham’s razor. And in general, there is a tradeoff between complex hypotheses that fit the training data well and simpler hypotheses that may generalize better.</li>
+</ul>
+<p><br></p>
+<h4 id="learning-decision-trees">LEARNING DECISION TREES</h4>
+<p><br></p>
+<blockquote><p><em>A decision tree represents a function that takes as input a vector of attribute values and returns a “decision”—a single output value. The input and output values can be discrete or continuous. </em></p></blockquote>
+<p><br></p>
+<ul>
+<li>A decision tree reaches its decision by performing a sequence of tests. Each internal node in the tree corresponds to a test of the value of one of the input attributes, <code>Ai</code>, and the branches from the node are labeled with the possible values of the attribute, <code>Ai=vik</code>.</li>
+</ul>
+<ul>
+<li>No matter how we measure size, it is an intractable problem to find the smallest consistent tree; there is no way to efficiently search through the <code>2^2^n</code> trees. With some simple heuristics, however, we can find a good approximate solution: a small (but not smallest) consistent tree.</li>
+</ul>
+<ul>
+<li>The DECISION-TREE-LEARNING algorithm adopts a greedy divide-and-conquer strategy: always test the most important attribute first → divides the problem up into smaller subproblems that can then be solved recursively.</li>
+</ul>
+<ul>
+<li>We can evaluate the accuracy of a learning algorithm with a learning curve (training set vs. correct on test set) → as the training set size grows, the accuracy increases.</li>
+</ul>
+<ul>
+<li>Formal measure of “fairly good” and “really useless” → the notion of information gain, which is defined in terms of entropy, the fundamental quantity in information theory (Shannon and Weaver, 1949).</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Entropy is a measure of the uncertainty of a random variable; acquisition of information corresponds to a reduction in entropy. A random variable with only one value—a coin that always comes up heads—has no uncertainty and thus its entropy is defined as zero; thus, we gain no information by observing its value. </em></p></blockquote>
+<p><br></p>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">PS2</span> I love <strong><a target="_blank" rel="noopener noreferrer" href="http://www.astro.sunysb.edu/steinkirch/books/qi.pdf">information theory</a></strong> and thinking about all things entropy, both in Computer Science and in Physics.</p>
+</aside>
+<p><br></p>
+<ul>
+<li>The information gain from a test set is the expected reduction of entropy.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>For decision trees, a technique called decision tree pruning combats overfitting. How do we detect that a node is testing an irrelevant attribute? By using a statistical significance test. Such a test begins by assuming that there is no underlying pattern (the so-called null hypothesis). Then the actual data are analyzed to calculate the extent to which they deviate from a perfect absence of pattern. If the degree of deviation is statistically unlikely (usually taken to mean a 5% probability or less), then that is considered to be good evidence for the presence of a significant pattern in the data. The probabilities are calculated from standard distributions of the amount of deviation one would expect to see in random sampling.</em></p></blockquote>
+<p><br></p>
+<h4 id="evaluating-and-choosing-the-best-hypothesis">EVALUATING AND CHOOSING THE BEST HYPOTHESIS</h4>
+<p><br></p>
+<ul>
+<li>Stationarity assumption: that there is a probability distribution over examples that remains stationary over time. Each example data point (before we see it) is a random variable <code>Ej</code> whose observed value <code>ej = (xj,yj)</code> is sampled from that distribution, and is independent of the previous examples: <code>P(Ej|Ej 1,Ej 2,...) = P(Ej)</code>, and each example has an identical prior probability distribution: <code>P(Ej) = P(Ej 1) = P(Ej 2) =···</code>. Examples that satisfy these assumptions are called independent and identically distributed or I.I.D.</li>
+</ul>
+<ul>
+<li>We can squeeze more out of the data and still get an accurate estimate using a technique called <code>k</code>-fold cross-validation. The idea is that each example serves double duty—as training data and test data. First we split the data into &#39;k&#39; equal subsets. We then perform <code>k</code> rounds of learning; on each round <code>1/k</code> of the data is held out as a test set and the remaining examples are used as training data. The extreme is <code>k=n</code>, also known as leave-one-out cross-validation or LOOCV. If the test set is locked away, but you still want to measure performance on unseen data as a way of selecting a good hypothesis, then divide the available data (without the test set) into a training set and a validation set.</li>
+</ul>
+<ul>
+<li>This process of explicitly penalizing complex hypotheses is called regularization (because it looks for a function that is more regular, or less complex). Note that the cost function requires us to make two choices: the loss function and the complexity measure, which is called a regularization function. The choice of regularization function depends on the hypothesis space.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>How do we know that the hypothesis <code>h</code> is close to the target function <code>f</code> if we don’t know what <code>f</code> is? How many examples do we need to get a good <code>h</code>? </em></p></blockquote>
+<p><br></p>
+<h4 id="regression-and-classification-with-linear-models">REGRESSION AND CLASSIFICATION WITH LINEAR MODELS</h4>
+<p><br></p>
+<blockquote><p><em>A different hypothesis space, one that has been used for hundred of years: the class of linear functions of continuous-value inputs. The task of finding the vector of weights that best fits these data is called linear regression.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Many forms of learning involve adjusting weights to minimize a loss, so it helps to have a mental picture of what’s going on in weight space—the space defined by all possible settings of the weights.</li>
+</ul>
+<ul>
+<li>Because we are trying to minimize the loss, we will use gradient descent. We choose any starting point in weight space—here, a point in the <code>(w0, w1)</code> plane—and then move to a neighboring point that is downhill, repeating until we converge on the minimum possible loss. A parameter <code>α</code>, the step size, is called the learning rate when we are trying to minimize loss in a learning problem.</li>
+</ul>
+<ul>
+<li>Batch gradient descent learning rule for univariate linear regression → convergence to the unique global minimum is guaranteed (as long as we pick <code>α</code> small enough) but may be very slow: we have to cycle through all the training data for every step, and there may be many steps.</li>
+</ul>
+<ul>
+<li>Stochastic gradient descent → consider only a single training point at a time, taking a step after each one using Equation. Stochastic gradient descent can be used in an online setting, where new data are coming in one at a time, or offline, where we cycle through the same data as many times as is necessary, taking a step after considering each single example. It is often faster than batch gradient descent. With a fixed learning rate <code>α</code>, however, it does not guarantee convergence; it can oscillate around the minimum without settling down. In some cases, as we see later, a schedule of decreasing learning rates (as in simulated annealing) does guarantee convergence.</li>
+</ul>
+<ul>
+<li>Multivariate linear regression → each example <code>xj</code> is an <code>n</code>-element vector. With univariate linear regression we didn’t have to worry about overfitting. But with multivariate linear regression in high-dimensional spaces it is possible that some dimension that is actually irrelevant appears by chance to be useful, resulting in overfitting. It is common to use regularization on multivariate linear functions to avoid over-fitting.</li>
+</ul>
+<ul>
+<li>As with loss functions, with <code>q=1</code> we have <code>L1</code> regularization, which minimizes the sum of the absolute values; with <code>q=2</code>, <code>L2</code> regularization minimizes the sum of squares. <code>L1</code> regularization has an important advantage: it tends to produce a sparse model. That is, it often sets many weights to zero. <code>L1</code> regularization takes the dimensional axes seriously, while <code>L2</code> treats them as arbitrary. The <code>L2</code> function is spherical, which makes it rotationally invariant (if you apply <code>L2</code> regularization before and after rotating, you get exactly the same point as the answer).</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>The process of fitting the weights of using a logistic function <code>(1 / {1 + e^{-wx}})</code> to minimize loss on a data set is called logistic regression.</em></p></blockquote>
+<p><br></p>
+<h4 id="artificial-neural-networks">ARTIFICIAL NEURAL NETWORKS</h4>
+<p><br></p>
+<blockquote><p><em>Since 1943, much more detailed and realistic models have been developed, both for neurons and for larger systems in the brain, leading to the modern field of computational neuroscience. On the other hand, researchers in AI and statistics became interested in the more abstract properties of neural networks, such as their ability to perform distributed computation, to tolerate noisy inputs, and to learn.</em></p></blockquote>
+<p><br></p>
+<blockquote><p>✨ <em>Neural networks are composed of nodes or units connected by directed links. A link from unit <code>i</code> to unit <code>j</code> serves to propagate the activation ai from <code>i</code> to <code>j</code>. Each link also has a numeric weight <code>wi,j</code> associated with it, which determines the strength and sign of the connection.</em> ✨</p></blockquote>
+<p><br></p>
+<ul>
+<li>The activation function g is typically either a hard threshold, in which case the unit is called a perceptron, or a logistic function, in which case the term sigmoid perceptron. Both of these nonlinear activation function ensure the important property that the entire network of units can represent a nonlinear function.</li>
+</ul>
+<ul>
+<li>A feed-forward network has connections only in one direction—that is, it forms a directed acyclic graph. Every node receives input from “upstream” nodes and delivers output to “downstream” nodes; there are no loops. A feed-forward network represents a function of its current input; thus, it has no internal state other than the weights themselves.</li>
+</ul>
+<ul>
+<li>A recurrent network feeds its outputs back into its own inputs. This means that the activation levels of the network form a dynamical system that may reach a stable state or exhibit oscillations or even chaotic behavior. Moreover, the response of the network to a given input depends on its initial state, which may depend on previous inputs. Hence, recurrent networks (unlike feed-forward networks) can support short-term memory.</li>
+</ul>
+<ul>
+<li>Feed-forward networks are usually arranged in layers, such that each unit receives input only from units in the immediately preceding layer. In single-layer networks, every unit connects directly from the network’s inputs to its outputs. Multilayer networks have one or more layers of hidden units that are not connected to the outputs of the network.</li>
+</ul>
+<ul>
+<li>A network with all the inputs connected directly to the outputs is called a single-layer neural network, or a perceptron network.</li>
+</ul>
+<ul>
+<li>A perceptron network with <code>m</code> outputs is really <code>m</code> separate networks, because each weight affects only one of the outputs. There will be <code>m</code> separate training processes.</li>
+</ul>
+<ul>
+<li>Depending on the type of activation function used, the training processes will be either the perceptron learning rule or gradient descent rule for the logistic regression.</li>
+</ul>
+<p><br></p>
+<blockquote><p>✨ <em>Whereas a perceptron network decomposes into <code>m</code> separate learning problems for an <code>m</code>-output problem, this decomposition fails in a multilayer network. We can decompose an <code>m</code>-output learning problem into <code>m</code> learning problems, provided we remember to add up the gradient contributions from each of them when updating the weights. The major complication comes from the addition of hidden layers to the network. Fortunately, it turns out that we can back-propagate the error from the output layer to the hidden layers. The back-propagation process emerges directly from a derivation of the overall error gradient. First, we will describe the process with an intuitive justification; then, we will show the derivation.</em> ✨</p></blockquote>
+<p><br></p>
+<ul>
+<li>The back-propagation algorithm for learning in multilayer networks can be summarized as:</li>
+</ul>
+<pre><code class="language-💡">
+1. Compute the Δ values for the output units, using the observed error.
+
+2. Starting with output layer, repeat the following for each layer in the network, until the earliest hidden layer is reached:
+    1.  Propagate the Δ values back to the previous layer.
+    2. Update the weights between the two layers.
+</code></pre>
+<p><br></p>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">PS3</span> I remember deriving in detail all those equations <em>in gory</em> back in my Ph.D., and I must say, those were good times...</p>
+</aside>
+<p><br></p>
+<pre><code class="language-💡">
+function BACK-PROP-LEARNING(examples, network) returns a neural network
+	inputs: examples, a set of examples, each with input vector x and output vector y network, 
+	a multilayer network with L layers, weights wi,j, activation function g
+	local variables: Δ, a vector of errors, indexed by network node
+
+	repeat
+		for each weight wi,j in network do
+			wi,j ←a small random number
+		for each example (x, y) in examples do
+			/* Propagate the inputs forward to compute the outputs */
+			for each node i in the input layer do
+				ai ←xi
+			for ℓ = 2 to L do
+				for each node j in layer ℓ do
+					inj ← i wi,j ai
+					aj ←g(inj)
+			/* Propagate deltas backward from output layer to input layer */
+			for each node j in the output layer do
+				Δ[j]←g′(inj) × (yj− aj)
+			for ℓ= L−1 to 1 do
+				for each node i in layer ℓ do
+					Δ[i]←g′(ini) j wi,j Δ[j]
+			/* Update every weight in network using deltas */
+			for each weight wi,j in network do
+				wi,j ←wi,j + α × ai × Δ[j]
+	until some stopping criterion is satisfied
+	return network
+</code></pre>
+<p><br></p>
+<ul>
+<li>👾 The optimal brain damage algorithm begins with a fully connected network and removes connections from it. After the network is trained for the first time, an information-theoretic approach identifies an optimal selection of connections that can be dropped. The network is then retrained, and if its performance has not decreased then the process is repeated. In addition to removing connections, it is also possible to remove units that are not contributing much to the result.</li>
+</ul>
+<p><br></p>
+<h4 id="nonparametric-models">NONPARAMETRIC MODELS</h4>
+<p><br></p>
+<blockquote><p><em>A learning model that summarizes data with a set of parameters of fixed size (independent of the number of training examples) is called a parametric model. A nonparametric model is one that cannot be characterized by a bounded set of parameters.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Given a query <code>xq</code>, find the <code>k</code> examples that are nearest to <code>xq</code>. This is called <code>k</code>-nearest neighbors lookup. To avoid ties, <code>k</code> is always chosen to be an odd number. To do regression, we can take the mean or median of the <code>k</code> neighbors, or we can solve a linear regression problem on the neighbors.</li>
+</ul>
+<ul>
+<li>The very word “nearest” implies a distance metric. How do we measure the distance from a query point <code>xq</code> to an example point <code>xj</code>? Distances are measured with a Minkowski distance or <code>Lp</code> norm, defined as <code>Lp(xj,xq) = SUM_i |xj,i−xq,i|^p)^{1/p}</code>. With <code>p = 2</code> as the Euclidean distance and <code>p = 1</code> the Manhattan distance.</li>
+</ul>
+<ul>
+<li>k-nearest-neighbors regression: instead of using just the two examples to the left and right of a query point <code>xq</code>, use the <code>k</code> nearest neighbors. A larger value of <code>k</code> tends to smooth out the magnitude of the spikes, although the resulting function has discontinuities.</li>
+</ul>
+<ul>
+<li>Locally weighted regression gives us the advantages of nearest neighbors, without the discontinuities. The idea of locally weighted regression is that at each query point <code>xq</code>, the examples that are close to <code>xq</code> are weighted heavily, and the examples that are farther away are weighted less heavily or not at all. The decrease in weight over distance is always gradual, not sudden.</li>
+</ul>
+<ul>
+<li>Kernel: how much to weight each example. A kernel function looks like a bump. Gaussians, have been used for kernels. Latest research suggests that the choice of shape doesn’t matter much, but we do need to be careful about the width of the kernel.</li>
+</ul>
+<ul>
+<li>Most nonparametric models have the advantage that it is easy to do leave-one-out cross-validation without having to recompute everything. With a <code>k</code>-nearest-neighbors model, for instance, when given a test example <code>(x,y)</code> we retrieve the <code>k</code> nearest neighbors once, compute the per-example loss <code>L(y,h(x))</code> from them, and record that as the leave-one-out result for every example that is not one of the neighbors. Then we retrieve the <code>k + 1</code> nearest neighbors and record distinct results for leaving out each of the <code>k</code> neighbors. With <code>N</code> examples the whole process is <code>O(k)</code>, not <code>O(kN)</code>.</li>
+</ul>
+<p><br></p>
+<h4 id="support-vector-machines">SUPPORT VECTOR MACHINES</h4>
+<p><br></p>
+<ul>
+<li>There are three properties that make SVMs attractive as the most popular approach for supervised learning:</li>
+</ul>
+<pre><code class="language-💡">
+1. SVMs construct a maximum margin separator
+	→ a decision boundary with the largest possible distance to example points
+
+2. SVMs create a linear separating hyperplane
+	→ but they have the ability to embed the data into a higher dimensional space, 
+	using the so-called kernel trick
+
+3. SVMs are a nonparametric method
+	→ they retain training examples and potentially need to store them all
+</code></pre>
+<p><br></p>
+<ul>
+<li>Instead of minimizing expected empirical loss on the training data, SVMs attempt to minimize expected generalization loss.</li>
+</ul>
+<ul>
+<li>✨ A final important property is that the weights <code>αj</code> associated with each data point are zero except for the support vectors — the points closest to the separator. (They are called “support” vectors because they “hold up” the separating plane.) ✨</li>
+</ul>
+<ul>
+<li>✨ Any “reasonable” kernel function corresponds to some feature space. These feature spaces can be very large, even for innocuous-looking kernels. For example, the polynomial kernel, <code>K(xj,xk)= (1 + xj·xk)d</code>, corresponds to a feature space whose dimension is exponential in <code>d</code>. ✨</li>
+</ul>
+<ul>
+<li>✨ The kernel trick: optimal linear separators can be found efficiently in feature spaces with billions of (or, in some cases, infinitely many) dimensions. The resulting linear separators, when mapped back to the original input space, can correspond to arbitrarily wiggly, nonlinear decision boundaries between the positive and negative examples. ✨</li>
+</ul>
+<p><br></p>
+<h4 id="ensemble-learning">ENSEMBLE LEARNING</h4>
+<p><br></p>
+<blockquote><p><em>So far we have looked at learning methods in which a single hypothesis, chosen from a hypothesis space, is used to make predictions. The idea of ensemble learning methods is to select a collection, or ensemble, of hypotheses from the hypothesis space and combine their predictions. For example, during cross-validation we might generate twenty different decision trees, and have them vote on the best classification for a new example.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>The weighted training set → each example has an associated weight <code>wj ≥ 0</code>. The higher the weight of an example, the higher is the importance attached to it during the learning of a hypothesis.</li>
+</ul>
+<ul>
+<li>Boosting starts with <code>wj = 1</code> for all the examples (i.e., a normal training set). From this set, it generates the first hypothesis, <code>h1</code>. This hypothesis will classify some of the training examples correctly and some incorrectly. We would like the next hypothesis to do better on the misclassified examples, so we increase their weights while decreasing the weights of the correctly classified examples. From this new weighted training set, we generate hypothesis <code>h2</code>. The process continues in this way until we have generated <code>k</code> hypotheses, where <code>k</code> is an input to the boosting algorithm.</li>
+</ul>
+<ul>
+<li>Online learning → an agent receives an input <code>xj</code> from nature, predicts the corresponding <code>yj</code>, and then is told the correct answer. Then the process repeats with <code>xj+1</code>, and so on. Online learning is helpful when the data may be changing rapidly over time.</li>
+</ul>
+<p><br></p>
+<blockquote><p>✨👾⭐️ <em>&quot;Ockham’s Razor”, in Latin, Entia non sunt multiplicanda praeter necessitatem - “Pluralitas non est ponenda sine necessitate,” or “plurality shouldn’t be posited without necessity”. A similar sentiment was expressed by Aristotle in 350 B.C. in Physics book I, chapter VI: “For the more limited, if adequate, is always preferable.” Whereas the identification-in-the-limit approach concentrates on eventual convergence, the study of Kolmogorov complexity or algorithmic complexity, developed independently by Solomonoff (1964, 2009) and Kolmogorov (1965), attempts to provide a formal definition for the notion of simplicity used in Ockham’s razor. To escape the problem that simplicity depends on the way in which information is represented, it is proposed that simplicity be measured by the length of the shortest program for a universal Turing machine that correctly reproduces the observed data. Although there are many possible universal Turing machines, and hence many possible “shortest” programs, these programs differ in length by at most a constant that is independent of the amount of data. This beautiful insight, which essentially shows that any initial representation bias will eventually be overcome by the data itself, is marred only by the undecidability of computing the length of the shortest program.</em> ⭐️👾✨</p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="19-knowledge-in-learning">🪻 19. KNOWLEDGE IN LEARNING</h2>
+<p><br></p>
+<blockquote><p><em>Learning methods that can take advantage of prior knowledge about the world. In most cases, the prior knowledge is represented as general first-order logical theories.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Let Descriptions denote the conjunction of all the example descriptions in the training set, and let Classifications denote the conjunction of all the example classifications. Then a Hypothesis that “explains the observations” must satisfy the following property (recall that <code>|=</code> means “logically entails”):</li>
+</ul>
+<p><br></p>
+<p><code>Background ∧ Hypothesis ∧ Descriptions |= Classification</code></p>
+<p><br></p>
+<h4 id="explanation-based-learning">EXPLANATION-BASED LEARNING</h4>
+<p><br></p>
+<ul>
+<li>Explanation-based learning (EBL) extracts general rules from single examples by explaining the examples and generalizing the explanation. It provides a deductive method for turning first-principles knowledge into useful, efficient, special-purpose expertise.</li>
+</ul>
+<ul>
+<li>Memoization: used in computer science to speed up programs by saving the results of computation. The basic idea of memo functions is to accumulate a database of input–output pairs; when the function is called, it first checks the database to see whether it can avoid solving the problem from scratch.</li>
+</ul>
+<ul>
+<li>By generalizing from past example problems, EBL makes the knowledge base more efficient for the kind of problems that it is reasonable to expect.</li>
+</ul>
+<p><br></p>
+<h4 id="learning-using-relevance-information">LEARNING USING RELEVANCE INFORMATION</h4>
+<p><br></p>
+<ul>
+<li>Relevance-based learning (RBL) uses prior knowledge in the form of determinations to identify the relevant attributes, thereby generating a reduced hypothesis space and speeding up learning. RBL also allows deductive generalizations from single examples.</li>
+</ul>
+<ul>
+<li>For Boolean functions, <code>log(|H|)</code> examples are required to converge to a reasonable hypothesis, where <code>|H|</code> is the size of the hypothesis space. If the learner has <code>n</code> Boolean features with which to construct hypotheses, then, in the absence of further restrictions, <code>|H|= O(2^2^n ),</code> so the number of examples is <code>O(2n)</code>. If the determination contains <code>d</code> predicates in the left-hand side, the learner will require only <code>O(2^d)</code> examples, a reduction of <code>O(2^{n-d})</code>.</li>
+</ul>
+<p><br></p>
+<h4 id="inductive-logic-programming-ilp">INDUCTIVE LOGIC PROGRAMMING (ILP)</h4>
+<p><br></p>
+<blockquote><p>✨👾 <em>The current-best-hypothesis approach is an old idea in philosophy (Mill, 1843). Early work in cognitive psychology also suggested that it is a natural form of concept learning in humans (Bruner et al., 1957). In AI, the approach is most closely associated with the work of Patrick Winston, whose Ph.D. thesis (Winston, 1970) addressed the problem of learning descriptions of complex objects. The version space method (Mitchell, 1977, 1982) takes a different approach, maintaining the set of all consistent hypotheses and eliminating those found to be inconsistent with new examples.</em> 👾✨</p></blockquote>
+<p><br></p>
+<ul>
+<li>Knowledge-based inductive learning (KBIL) finds inductive hypotheses that explain sets of observations with the help of background knowledge.</li>
+</ul>
+<ul>
+<li>ILP techniques perform KBIL on knowledge that is expressed in first-order logic. ILP methods can learn relational knowledge that is not expressible in attribute-based systems.</li>
+</ul>
+<p><br></p>
+<pre><code class="language-💡">
+1. Offers a rigorous approach to the general knowledge-based inductive learning problem.
+
+2. It offers complete algorithms for inducing general, first-order theories from examples, 
+	→ which can therefore learn successfully in domains where attribute-based algorithms are hard to apply.
+
+3. Inductive logic programming produces hypotheses that are (relatively) easy for humans to read. 
+</code></pre>
+<p><br></p>
+<ul>
+<li>ILP can be done with a top-down approach of refining a very general rule or through a bottom-up approach of inverting the deductive process.</li>
+</ul>
+<ul>
+<li>ILP methods naturally generate new predicates with which concise new theories can be expressed and show promise as general-purpose scientific theory formation systems.</li>
+</ul>
+<ul>
+<li>👾 Algorithms that can generate new predicates are called constructive induction algorithms. Constructive induction is a necessary part of the picture of cumulative learning. It has been one of the hardest problems in machine learning, but some ILP techniques provide effective mechanisms for achieving it.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Literals:</li>
+</ul>
+<pre><code class="language-💡">
+1. Literals using predicates: the literal can be negated or unnegated, 
+	any existing predicate can be used, and the arguments must all be variables.
+
+2. Equality and inequality literals: these relate variables already 
+	appearing in the clause.
+
+3. Arithmetic comparisons: when dealing with functions of continuous variables, 
+	literals such as `x &gt; y` and `y ≤ z` can be added. 
+</code></pre>
+<p><br></p>
+<ul>
+<li>Sketch of the FOIL algorithm for learning sets of first-order Horn clauses from examples:</li>
+</ul>
+<pre><code class="language-💡">
+function FOIL(examples, target) returns a set of Horn clauses
+	inputs: examples, set of examples
+		target, a literal for the goal predicate
+	local variables: clauses, set of clauses, initially empty
+
+	while examples contains positive examples do
+		clause ←NEW-CLAUSE(examples, target)
+		remove positive examples covered by clause from examples
+		add clause to clauses
+	return clauses
+
+function NEW-CLAUSE(examples, target) returns a Horn clause
+	local variables: clause, a clause with target as head and an empty body l, 
+	a literal to be added to the clause extended examples,
+	 a set of examples with values for new variables
+
+	extended examples ←examples
+	while extended examples contains negative examples do
+		l ←CHOOSE-LITERAL(NEW-LITERALS(clause), extended examples)
+		append l to the body of clause
+		extended examples ←set of examples created by applying EXTEND-EXAMPLE
+		to each example in extended examples
+	return clause
+
+function EXTEND-EXAMPLE(example, literal) returns a set of examples
+	if example satisfies literal
+		then return the set of examples created by extending example 
+		with each possible constant value for each new variable in literal
+	else return the empty set
+</code></pre>
+<p><br></p>
+<ul>
+<li>👾 One interesting additional feature of FOIL is the use of Ockham’s razor to eliminate some hypotheses. If a clause becomes longer (according to some metric) than the total length of the positive examples that the clause explains, that clause is not considered as a potential hypothesis.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="20-learning-probabilistic-models">🪻 20. LEARNING PROBABILISTIC MODELS</h2>
+<p><br></p>
+<h4 id="statistical-learning">STATISTICAL LEARNING</h4>
+<p><br></p>
+<blockquote><p><em>Bayesian learning simply calculates the probability of each hypothesis, given the data, and makes predictions on that basis. That is, the predictions are made by using all the hypotheses, weighted by their probabilities, rather than by using just a single “best” hypothesis. In this way, learning is reduced to probabilistic inference. The key quantities in the Bayesian approach are the hypothesis prior, <code>P(hi)</code>, and the likelihood of the data under each hypothesis, <code>P(d |hi)</code>.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>✨ Bayesian learning → for any fixed prior that does not rule out the true hypothesis, the posterior probability of any false hypothesis will, under certain technical conditions, eventually vanish. ✨</li>
+</ul>
+<ul>
+<li>👾 Typically, more complex hypotheses have a lower prior probability—in part because there are usually many more complex hypotheses than simple hypotheses. On the other hand, more complex hypotheses have a greater capacity to fit the data → the simplest logical theory that is consistent with the data → maximum a posteriori learning provides a natural embodiment of Ockham’s razor.</li>
+</ul>
+<ul>
+<li>Maximum a posteriori (MAP) learning selects a single most likely hypothesis given the data. The hypothesis prior is still used and the method is often more tractable than full Bayesian learning.</li>
+</ul>
+<ul>
+<li>A final simplification is provided by assuming a uniform prior over the space of hypotheses. → Maximum-likelihood (ML) → distrust the subjective nature of hypothesis priors. It is a reasonable approach when there is no reason to prefer one hypothesis over another a priori—for example, when all hypotheses are equally complex.</li>
+</ul>
+<p><br></p>
+<h4 id="learning-with-complete-data">LEARNING WITH COMPLETE DATA</h4>
+<p><br></p>
+<ul>
+<li>The general task of learning a probability model, given data that are assumed to be generated from that model, is called density estimation.</li>
+</ul>
+<ul>
+<li>With complete data, the maximum-likelihood parameter learning problem for a Bayesian network decomposes into separate learning problems, one for each parameter.</li>
+</ul>
+<ul>
+<li>Naive Bayes → “naive” because it assumes that the attributes are conditionally independent of each other, given the class. Naive Bayes learning scales well to very large problems: with n Boolean attributes, there are just 2n + 1 parameters, and no search is required to find hML, the maximum-likelihood naive Bayes hypothesis. Finally, naive Bayes learning systems have no difficulty with noisy or missing data and can give probabilistic predictions when appropriate.</li>
+</ul>
+<ul>
+<li>The Bayesian approach to parameter learning starts by defining a prior probability distribution over the possible hypotheses. We call this the hypothesis prior. Then, as data arrives, the posterior probability distribution is updated.</li>
+</ul>
+<p><br></p>
+<h4 id="learning-with-hidden-variables-the-expectation-maximization-algorithm">LEARNING WITH HIDDEN VARIABLES: THE EXPECTATION-MAXIMIZATION ALGORITHM</h4>
+<p><br></p>
+<ul>
+<li>Many real-world problems have hidden variables (sometimes called latent variables), which are not observable in the data that are available for learning. Latent variables can dramatically reduce the number of parameters required to specify a Bayesian network.</li>
+</ul>
+<ul>
+<li>The parameter updates for Bayesian network learning with hidden variables are directly available from the results of inference on each example. Moreover, only local posterior probabilities are needed for each parameter → the information needed for learning is available locally for each parameter.</li>
+</ul>
+<ul>
+<li>When some variables are hidden, local maximum likelihood solutions can be found using the EM algorithm. Applications include clustering using mixtures of Gaussians, learning Bayesian networks, and learning hidden Markov models.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="21-reinforcement-learning">🪻 21. REINFORCEMENT LEARNING</h2>
+<p><br></p>
+<ul>
+<li>An optimal policy is a policy that maximizes the expected total reward. The task of reinforcement learning is to use observed rewards to learn an optimal (or nearly optimal) policy for the environment.</li>
+</ul>
+<ul>
+<li>We will consider three of the agent designs:</li>
+</ul>
+<pre><code class="language-💡">
+- A utility-based agent learns a utility function on states
+	→ and uses it to select actions that maximize the expected outcome utility
+
+- Q-learning agent learns an action-utility function
+	→ or Q-function, giving the expected utility of taking a given action in a given state
+
+- A reflex agent learns a policy that maps directly from states to actions
+</code></pre>
+<p><br></p>
+<ul>
+<li>Exploration → an agent must experience as much as possible of its environment in order to learn how to behave in it.</li>
+</ul>
+<p><br></p>
+<h4 id="passive-reinforcement-learning">PASSIVE REINFORCEMENT LEARNING</h4>
+<p><br></p>
+<ul>
+<li>The main difference is that the passive learning agent does not know the transition model <code>P(s |s,a)</code>, which specifies the probability of reaching state s from state <code>s</code> after doing action <code>a</code>; nor does it know the reward function <code>R(s)</code>, which specifies the reward for each state.</li>
+</ul>
+<ul>
+<li>The utility of a state is the expected total reward from that state onward (called the expected reward-to-go), and each trial provides a sample of this quantity for each state visited.</li>
+</ul>
+<ul>
+<li>Direct utility estimation succeeds in reducing the reinforcement learning problem to an inductive learning problem, about which much is known. Unfortunately, it misses a very important source of information, namely, the fact that the utilities of states are not independent! The utility of each state equals its own reward plus the expected utility of its successor states. By ignoring the connections between states, direct utility estimation misses opportunities for learning.</li>
+</ul>
+<ul>
+<li>An adaptive dynamic programming (or ADP) agent takes advantage of the constraints among the utilities of states by learning the transition model that connects them and solving the corresponding Markov decision process using a dynamic programming method.</li>
+</ul>
+<ul>
+<li>Bayesian reinforcement learning, assumes a prior probability <code>P(h)</code> for each hypothesis h about what the true model is; the posterior probability <code>P(h|e)</code> is obtained in the usual way by Bayes’ rule given the observations to date. Then, if the agent has decided to stop learning, the optimal policy is the one that gives the highest expected utility.</li>
+</ul>
+<ul>
+<li>Robust control theory allows for a set of possible models <code>H</code> and defines an optimal robust policy as one that gives the best outcome in the worst case over <code>H</code>.</li>
+</ul>
+<ul>
+<li>Although bandit problems are extremely difficult to solve exactly to obtain an optimal exploration method, it is nonetheless possible to come up with a reasonable scheme that will eventually lead to optimal behavior by the agent. Any such scheme needs to be greedy in the limit of infinite exploration, or GLIE. A GLIE scheme must try each action in each state an unbounded number of times to avoid having a finite probability that an optimal action is missed because of an unusually bad series of outcomes</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>To formulate a bandit problem properly, one must define exactly what is meant by optimal behavior. Most definitions in the literature assume that the aim is to maximize the expected total reward obtained over the agent’s lifetime. These definitions require that the expectation be taken over the possible worlds that the agent could be in, as well as over the possible results of each action sequence in any given world. Here, a “world” is defined by the transition model <code>P(s |s,a)</code>. Thus, in order to act optimally, the agent needs a prior distribution over the possible models. The resulting optimization problems are usually wildly intractable.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>👾 One can use the theory of n-armed bandits to argue for the reasonableness of the selection strategy in genetic algorithms. If you consider each arm in an n-armed bandit problem to be a possible string of genes, and the investment of a coin in one arm to be the reproduction of those genes, then it can be proven that genetic algorithms allocate coins optimally, given an appropriate set of independence assumptions.</li>
+</ul>
+<ul>
+<li>Q-functions may seem like just another way of storing utility information, but they have a very important property: a TD agent that learns a Q-function does not need a model of the form <code>P(s |s,a)</code>, either for learning or for action selection. For this reason, Q-learning is called a model-free method.</li>
+</ul>
+<ul>
+<li>The compression achieved by a function approximator allows the learning agent to generalize from states it has visited to states it has not visited.</li>
+</ul>
+<p><br></p>
+<h4 id="policy-search">POLICY SEARCH</h4>
+<p><br></p>
+<ul>
+<li>Keep twiddling the policy as long as its performance improves, then stop.</li>
+</ul>
+<ul>
+<li>The policy is a discontinuous function of the parameters when the actions are discrete. There will be values of <code>θ</code> such that an infinitesimal change in <code>θ</code> causes the policy to switch from one action to another. For this reason, policy search methods often use a stochastic policy representation <code>πθ(s,a)</code>, which specifies the probability of selecting action a in state <code>s</code>. One popular representation is the softmax function.</li>
+</ul>
+<ul>
+<li>Softmax becomes nearly deterministic if one action is much better than the others, but it always gives a differentiable function of <code>θ</code>; hence, the value of the policy (which depends in a continuous fashion on the action selection probabilities) is a differentiable function of <code>θ</code>.</li>
+</ul>
+<ul>
+<li>For the case of a stochastic policy <code>πθ(s,a)</code>, it is possible to obtain an unbiased estimate of the gradient at <code>θ</code>, <code>∇ θρ(θ)</code>, directly from the results of trials executed at <code>θ</code> →  the true gradient of the policy value is approximated by a sum of terms involving the gradient of the action-selection probability in each trial → REINFORCE → usually much more effective than hill climbing using lots of trials at each value of <code>θ</code>.</li>
+</ul>
+<ul>
+<li>⭐️ In distributed RL, the aim is to devise methods by which multiple, coordinated agents learn to optimize a common utility function. The basic idea is that each subagent learns its own Q-function from its own stream of rewards. For example, a robot-navigation component can receive rewards for making progress towards the goal, while the obstacle-avoidance component receives negative rewards for every collision. Each global decision maximizes the sum of Q-functions and the whole process converges to globally optimal solutions. Multiagent RL is distinguished from distributed RL by the presence of agents who cannot coordinate their actions (except by explicit communicative acts) and who may not share the same utility function. Thus, multiagent RL deals with sequential game-theoretic problems or Markov games. The consequent requirement for randomized policies is not a significant complication. What does cause problems is the fact that, while an agent is learning to defeat its opponent’s policy, the opponent is changing its policy to defeat the agent. Thus, the environment is nonstationary. Littman (1994) noted this difficulty when introducing the first RL algorithms for zero-sum Markov games. Hu and Wellman (2003) present a Q-learning algorithm for general-sum games that converges when the Nash equilibrium is unique; when there are multiple equilibria, the notion of convergence is not so easy to define (Shoham et al., 2004).</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="22-natural-language-processing">🪻 22. NATURAL LANGUAGE PROCESSING</h2>
+<p><br></p>
+<h4 id="language-models">LANGUAGE MODELS</h4>
+<p><br></p>
+<blockquote><p><em>Models that predict the probability distribution of language expressions. They can perform well on such diverse tasks as language identification, spelling correction, genre classification, and named-entity recognition.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>A model of the probability distribution of n-letter sequences is thus called an <code>n</code>-gram model. An <code>n</code>-gram model is defined as a Markov chain of order <code>n−1</code>.</li>
+</ul>
+<ul>
+<li>A way of describing the probability of a sequence is with a measure called perplexity → the reciprocal of probability, normalized by sequence length → It can also be thought of as the weighted average branching factor of a model.</li>
+</ul>
+<ul>
+<li>Text classification can be done with naive Bayes n-gram models or with any of the classification algorithms we have previously discussed. Classification can also be seen as a problem in data compression.</li>
+</ul>
+<p><br></p>
+<h4 id="information-retrieval">INFORMATION RETRIEVAL</h4>
+<p><br></p>
+<ul>
+<li>The earliest IR systems worked on a Boolean keyword model. Each word in the document collection is treated as a Boolean feature that is true of a document if the word occurs in the document and false if it does not.</li>
+</ul>
+<ul>
+<li>Most IR systems have abandoned the Boolean model and use models based on the statistics of word counts. In the BM25 scoring function, the score is a linear weighted combination of scores for each of the words that make up the query.</li>
+</ul>
+<ul>
+<li>Information retrieval systems use a very simple language model based on bags of words, yet still manage to perform well in terms of recall and precision on very large corpora of text. On Web corpora, link-analysis algorithms improve performance.</li>
+</ul>
+<ul>
+<li>Information-extraction systems use a more complex model that includes limited notions of syntax and semantics in the form of templates. They can be built from finite-state automata, HMMs, or conditional random fields, and can be learned from examples.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>N-gram letter models for language modeling were proposed by Markov (1913). Claude Shannon (Shannon and Weaver, 1949) was the first to generate n-gram word models of English. Chomsky (1956, 1957) pointed out the limitations of finite-state models compared with context-free models, concluding, “Probabilistic models give no particular insight into some of the basic problems of syntactic structure.”</em></p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="23-natural-language-for-communication">🪻 23. NATURAL LANGUAGE FOR COMMUNICATION</h2>
+<p><br></p>
+<ul>
+<li>Formal language theory and phrase structure grammars (and in particular, context-free grammar) are useful tools for dealing with some aspects of natural language. The probabilistic context-free grammar (PCFG) formalism is widely used.</li>
+</ul>
+<ul>
+<li>Grammatical formalisms can be classified by their generative capacity: the set of languages they can represent. Chomsky (1957) describes four classes of grammatical formalisms that differ only in the form of the rewrite rules. The classes can be arranged in a hierarchy, where each class can be used to describe all the languages that can be described by a less powerful class, as well as some additional languages. Here we list the hierarchy, most powerful class first:</li>
+</ul>
+<p><br></p>
+<pre><code class="language-💡">
+* Recursively enumerable grammars use unrestricted rules: 
+	→ both sides of the rewrite rules can have any number of terminal and nonterminal symbols.
+
+* Context-sensitive grammars are restricted only in that the right-hand side must contain at least as many symbols as the left-hand side. 
+
+* In context-free grammars (or CFGs), the left-hand side consists of a single nonterminal symbol. 
+	→ Thus, each rule licenses rewriting the nonterminal as the right-hand side in any context. 
+
+* Regular grammars are the most restricted class. 
+	→ Every rule has a single nonterminal on the left-hand side and a terminal symbol optionally followed by a non-terminal on the right-hand side.
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="24-perception">🪻 24. PERCEPTION</h2>
+<p><br></p>
+<blockquote><p><em>Perception provides agents with information about the world they inhabit by interpreting the response of sensors. A sensor measures some aspect of the environment in a form that can be used as input by an agent program. </em></p></blockquote>
+<p><br></p>
+<ul>
+<li>An object model describes the objects that inhabit the visual world.</li>
+</ul>
+<ul>
+<li>A rendering model describes the physical, geometric, and statistical processes that produce the stimulus from the world.</li>
+</ul>
+<ul>
+<li>The process of image formation is well understood in its geometric and physical aspects. Given a description of a three-dimensional scene, we can easily produce a picture of it from some arbitrary camera position (the graphics problem). Inverting the process by going from an image to a description of the scene is more difficult.</li>
+</ul>
+<ul>
+<li>To extract the visual information necessary for the tasks of manipulation, navigation, and recognition, intermediate representations have to be constructed. Early vision image-processing algorithms extract primitive features from the image, such as edges and regions.</li>
+</ul>
+<ul>
+<li>There are various cues in the image that enable one to obtain three-dimensional information about the scene: motion, stereopsis, texture, shading, and contour analysis. Each of these cues relies on background assumptions about physical scenes to provide nearly unambiguous interpretations.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="25-robotics">🪻 25. ROBOTICS</h2>
+<p><br></p>
+<blockquote><p>✨ <em>Robots are physical agents that perform tasks by manipulating the physical world. Real robots must cope with environments that are partially observable, stochastic, dynamic, and continuous.</em> ✨</p></blockquote>
+<p><br></p>
+<blockquote><p>👾 <em>The term robotics was first used by Asimov (1950). Robotics (under other names) has a much longer history, however. In ancient Greek mythology, a mechanical man named Talos was supposedly designed and built by Hephaistos, the Greek god of metallurgy.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Robotic perception concerns itself with estimating decision-relevant quantities from sensor data. To do so, we need an internal representation and a method for updating this internal representation over time. Common examples of hard perceptual problems include localization, mapping, and object recognition.</li>
+</ul>
+<ul>
+<li>Robot perception can be viewed as temporal inference from sequences of actions and measurements, as illustrated by a dynamic Bayes network.</li>
+</ul>
+<ul>
+<li>Probabilistic filtering algorithms such as Kalman filters and particle filters are useful for robot perception. These techniques maintain the belief state, a posterior distribution over state variables.</li>
+</ul>
+<ul>
+<li>A Monte Carlo localization algorithm using a range-scan sensor model with independent noise:</li>
+</ul>
+<pre><code class="language-💡">
+function MONTE-CARLO-LOCALIZATION(a, z, N, P(X′|X, v, ω), P(z|z∗), m) returns a set of samples for the next time step
+	inputs: 
+		a, robot velocities v and ω
+		z, range scan z1, . . . , zM
+		P(X′|X, v, ω), motion model
+		P(z|z∗), range sensor noise model
+		m, 2D map of the environment
+	persistent: S, a vector of samples of size N
+	local variables: 
+			W, a vector of weights of size N
+			S′, a temporary vector of particles of size N
+			W′, a vector of weights of size N
+	if S is empty then /* initialization phase */
+		for i = 1 to N do
+		S[i]←sample from P(X0)
+		for i = 1 to N do /* update cycle */
+			S′[i]←sample from P(X′|X= S[i], v, ω)
+			W′[i]←1
+			for j = 1 to M do
+				z∗ ←RAYCAST(j, X= S′[i], m)
+				W′[i]←W′[i]· P(zj|z∗)
+		S ←WEIGHTED-SAMPLE-WITH-REPLACEMENT(N,S′,W ′)
+	return S
+</code></pre>
+<p><br></p>
+<ul>
+<li>Configuration space search algorithms include cell decomposition techniques, which decompose the space of all configurations into finitely many cells, and skeletonization techniques, which project configuration spaces onto lower-dimensional manifolds. The motion planning problem is then solved using search in these simpler structures.</li>
+</ul>
+<ul>
+<li>An example skeletonization → a Voronoi graph of the free space—the set of all points that are equidistant to two or more obstacles. To do path planning with a Voronoi graph, the robot first changes its present configuration to a point on the Voronoi graph. It is easy to show that this can always be achieved by a straight-line motion in configuration space. Second, the robot follows the Voronoi graph until it reaches the point nearest to the target configuration. Finally, the robot leaves the Voronoi graph and moves to the target.</li>
+</ul>
+<ul>
+<li>An alternative to the Voronoi graphs is the probabilistic roadmap, a skeletonization approach that offers more possible routes, and thus deals better with wide-open spaces. The graph is created by randomly generating a large number of configurations, and discarding those that do not fall into free space.</li>
+</ul>
+<ul>
+<li>Sometimes it is easier to specify a robot controller directly, rather than deriving a path from an explicit model of the environment. Such controllers can often be written as simple finite state machines.</li>
+</ul>
+<p><br></p>
+<blockquote><p>🤣 <em>Robot soccer provides great opportunities for research in AI, since it raises a range of problems relevant to many other, more serious robot applications. Annual robotic soccer competitions have attracted large numbers of AI researchers and added a lot of excitement to the field of robotics.</em></p></blockquote>
+<p><br></p>
+<hr>
+<h4 id="thank-you-again-for-the-3rd-time-dr-russell-dr-norvig-for-this-awesome-journey"><em>Thank you again, for the 3rd time, Dr. Russell &amp; Dr. Norvig, for this awesome journey.</em></h4>
+<h4 id="section">⬛️</h4></div>
 								</article>
 							</div>
 						</div>

@@ -198,10 +198,174 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-10-21">2026; 10; 21</time></p>
+									<h1 id="post-title" class="section-title">🏄‍♀️ REPORT → A Ride Through Entity Component System</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">In which all computer code is essentially a series of data transformations.</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=xWF2IuEO2nw">🎶</a> <em>&quot;Fantasy is escapist, and that is its glory.&quot;</em> — Ursula K. Le Guin on The Language of the Night</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=-7IPRCHlkyc">🎧</a> <em>&quot;In every real man a child is hidden that wants to play.&quot;</em> — Friedrich Nietzsche on Thus Spoke Zarathustra</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=ndXbWP_cgKU">🎼</a> <em>&quot;I have a binary rule for publishing writings: either you take your time to make sure it&#39;s perfect, or you put it out fast and iterate publicly, like in open-source development. The first is perfectionism; the second is pragmatism.&quot;</em> — Marina von Steinkirch</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/wade.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Hello there, my dear anon friend. Continuing our informal discussion from <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/report_oss_game_engines.html">earlier this week</a></strong> about <strong><a target="_blank" rel="noopener noreferrer" href="https://www.nullstar.games/">NULLSTAR</a></strong>&#39;s <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/idea_nullstar.html">PleiadesOS:STEROPE</a></strong>, today we&#39;re going to dive a little into a topic we only briefly mentioned: <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Entity_component_system">Entity Component Systems (ECS)</a></strong>.</p>
+<p>As we read through today&#39;s material, please remember our rules:</p>
+<p><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#a-general-mental-model">🦴 A General Mental Model</a></li><li><a href="#a-rusty-example">🦴 A Rusty Example</a></li><li><a href="#further-references">🦴 Further References</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h1 id="a-general-mental-model">🦴 A General Mental Model</h1>
+<p><br></p>
+<p>From <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/SanderMertens/ecs-faq">ecs-faq</a></strong>, <em>ECS describes a design approach which promotes code reusability by separating data from behavior. Data is often stored in cache-friendly ways which benefit performance, so that ECS can typically support larger numbers of simulation objects.</em></p>
+<p>More specifically, ECS separates three things that <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Object-oriented_programming">object-oriented programming</a></strong> often bundles together:</p>
+<p>1️⃣ Entity: identity (a unique identifier for something in the world; the behavior of an entity can be changed at runtime; it can contain zero or more components)<br>2️⃣ Component: data without logic (a small piece of state attached to an entity; such as position, velocity, inventory, etc.; implementations typically use structs, classes, or associative arrays)<br>3️⃣ System: logic for behavior (code that processes entities with the relevant components)</p>
+<p><br></p>
+<p>This means that:</p>
+<ul>
+<li>The behavior comes from composition (over inheritance), and it can be changed at runtime by adding or removing components. This avoids deep class hierarchies and <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem">the diamond problem</a></strong>.</li>
+<li>For example, instead of a class <code>Troll</code> extends <code>Monster</code> extends <code>Entity</code>, a troll is an <code>ID</code> with <code>Position</code> + <code>Velocity</code> + <code>AI</code>...</li>
+<li>Components of the same type are stored contiguously, so systems iterate over tightly packed arrays (maximizes CPU cache locality and decouples data from behavior). This is data-oriented design, making it ideal for multiplayer and high-performance simulations.</li>
+</ul>
+<p><br></p>
+<blockquote><p>💡 <em>ECS is commonly associated with <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=0_Byw9UMn9g">data-oriented design (DOD)</a></strong>, a software design philosophy that emphasizes data layout and memory access patterns as primary design concerns. DOD focuses on how data is laid out in RAM: when components of the same type are stored contiguously in memory arrays, the CPU loads them into its cache efficiently, drastically reducing cache misses during iteration.</em></p></blockquote>
+<p><br></p>
+<hr>
+<h1 id="a-rusty-example">🦴 A Rusty Example</h1>
+<p><br></p>
+<p>Let&#39;s model a very simple simulation <em>from one of the main robots</em>, with a player and an NPC using <strong><a target="_blank" rel="noopener noreferrer" href="https://docs.rs/bevy_ecs/latest/bevy_ecs/">bevy_ecs API</a></strong>. Both entities have positions and velocities, but only the player has a mutable quantity called <code>entropy</code>.</p>
+<p>First, components are normal Rust structs. Specific instances of components correlate to entities:</p>
+<pre><code>
+use bevy_ecs::prelude::*;
+
+#[derive(Component, Debug)]
+struct Position {
+    x: f32,
+    y: f32,
+}
+
+#[derive(Component)]
+struct Velocity {
+    x: f32,
+    y: f32,
+}
+
+#[derive(Component)]
+struct Entropy(u32);
+
+#[derive(Component)]
+struct Player;
+
+#[derive(Component)]
+struct Npc;
+</code></pre>
+<p><br></p>
+<p>Systems are normal Rust functions that run in parallel with each other:</p>
+<pre><code>
+// Processes every entity that has Position + Velocity.
+fn movement_system(mut query: Query&lt;(&amp;mut Position, &amp;Velocity)&gt;) {
+    for (mut position, velocity) in &amp;mut query {
+        position.x += velocity.x;
+        position.y += velocity.y;
+    }
+}
+
+// Processes only entities that have Entropy.
+fn entropy_system(query: Query&lt;(Entity, &amp;Entropy)&gt;) {
+    for (entity, entropy) in &amp;query {
+        println!(&quot;Entity {:?}: Entropy = {}&quot;, entity, entropy.0);
+    }
+}
+</code></pre>
+<p><br></p>
+<p>Entities, components, and resources are stored in a <code>World</code>, which are like <code>std::collections</code>’s <code>HashSet</code> and <code>Vec</code>, and they expose operations to insert, read, write, and remove the data they store:</p>
+<pre><code>
+fn main() {
+    let mut world = World::new();
+
+    (all the code below)
+}
+</code></pre>
+<p><br></p>
+<p>Entities are unique identifiers that correlate to zero or more components:</p>
+<pre><code>
+// An entity is an ID with a collection of components.
+let player = world
+        .spawn((
+            Player,
+            Position { x: 0.0, y: 0.0 },
+            Velocity { x: 1.0, y: 0.5 },
+            Entropy(100),
+        ))
+        .id();
+
+let npc = world
+        .spawn((
+            Npc,
+            Position { x: 10.0, y: 10.0 },
+            Velocity { x: -1.0, y: 0.0 },
+        ))
+        .id();
+</code></pre>
+<p><br></p>
+<p>Schedules run a set of systems according to some execution strategy (built in &quot;parallel executor&quot;, running as many of them in parallel as possible):</p>
+<pre><code>
+// A Schedule executes systems against the World.
+let mut schedule = Schedule::default();
+schedule.add_systems((movement_system, entropy_system));
+
+// Run one simulation tick.
+schedule.run(&amp;mut world);
+
+// Inspect the updated state.
+let position = world.get::&lt;&amp;Position&gt;(player).unwrap();
+println!(&quot;Player position: ({}, {})&quot;, position.x, position.y);
+
+let position = world.get::&lt;&amp;Position&gt;(npc).unwrap();
+println!(&quot;NPC position: ({}, {})&quot;, position.x, position.y);
+</code></pre>
+<p><br></p>
+<p>Things to note:</p>
+<ul>
+<li>There is no inheritance: the NPC and the player share movement capabilities without a common base class.</li>
+<li>Queries define membership: adding or removing a component changes which systems match an entity.</li>
+<li>The schedule defines execution: systems can run independently and if one system depends on another’s output, the ordering requirement must be expressed.</li>
+</ul>
+<p><br></p>
+<p><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/SanderMertens/ecs-faq#how-do-i-design-for-ecs">How do I design for ECS?</a></strong></p>
+<ul>
+<li>How many instances of the data will exist?</li>
+<li>How often is data accessed?</li>
+<li>How often is the data mutated?</li>
+<li>When does data need to be accessed/mutated?</li>
+<li>Which data is accessed/mutated together?</li>
+<li>What is the cardinality of the data (the number of entities, components, component instances, or possible combinations of component types in the world)?</li>
+<li>Do the components and systems have single responsibilities?</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/ecs.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h1 id="further-references">🦴 Further References</h1>
+<p><br></p>
+<p>Let&#39;s end today&#39;s discussion with an <em>ever-growing</em> list of good resources on building ECS:</p>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/jslee02/awesome-entity-component-system">Awesome ECS</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://www.dataorienteddesign.com/dodbook/">Data Oriented Design Book</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/dbartolini/data-oriented-design">Data Oriented Design Resources</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/leudz/shipyard">shipyard: ECS focused on usability and speed (Rust)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/Ralith/hecs">hecs: a high-performance, minimalist ECS world (Rust)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/amethyst/specs">specs: ECS for easy parallelism, high flexibility, high performance (Rust)</a></strong> (<strong><a target="_blank" rel="noopener noreferrer" href="https://amethyst.github.io/specs/docs/tutorials/">book</a></strong>)</li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/amethyst/legion">legion: feature rich high performance ECS library (Rust)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/skypjack/entt">entt: fast and reliable ECS (C++)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/SanderMertens/flecs">flecs: fast ECS to build simulations with millions of entities (C/C++)</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">Unity&#39;s Entity Component System Samples</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://google.github.io/styleguide/rustguide.html">Google&#39;s Rust Style Guide</a></strong></li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="until-next-time-my-friend">Until next time, my friend!</h3>
+<h3 id="section">⬛</h3></div>
 								</article>
 							</div>
 						</div>

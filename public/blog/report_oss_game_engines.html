@@ -198,10 +198,301 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-10-17">2026; 10; 17</time></p>
+									<h1 id="post-title" class="section-title">🏄‍♀️ REPORT → A Ride Through OSS Simulation Engines</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">In which we learn a little bit about the current open-source landscape.</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=xjoRehKLslE">🎧</a> <em>&quot;It is a riddle wrapped in a mystery inside an enigma; but perhaps there is a key.&quot;</em> — Winston Churchill, 1939</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/the_idea_maze.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Happy Monday, my dear anon friend. Today, we will take a quick look at the current open-source landscape for game engines. This is a high-level overview meant to enlighten us all about this <em>playful</em> engineering sub-niche. Enjoy!</p>
+<p>Ah, and by the way, as we read through today&#39;s material, please remember our rules:</p>
+<p><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#serving-the-infrastructure-for-mmo-experiences-in-the-agentic-era">🌞 Serving the Infrastructure for MMO Experiences in the Agentic Era</a></li><li><a href="#head-to-head-comparison">🌞 Head-to-head comparison</a></li><li><a href="#what-each-engine-means-for-real-time-mmo-experiences">🌞 What each engine means for real-time MMO Experiences</a><ul><li><a href="#godot-fastest-route-to-a-playable-mmo-prototype">Godot: fastest route to a playable MMO prototype</a></li><li><a href="#bevy-best-for-a-custom-simulation-platform">Bevy: best for a custom simulation platform</a></li><li><a href="#o3de-strongest-integrated-networking-foundation">O3DE: strongest integrated networking foundation</a></li><li><a href="#and-for-all-engines">And for all engines...</a></li></ul></li><li><a href="#engine-architecture-integration">🌞 Engine-Architecture Integration</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h1 id="serving-the-infrastructure-for-mmo-experiences-in-the-agentic-era">🌞 Serving the Infrastructure for MMO Experiences in the Agentic Era</h1>
+<p><br></p>
+<p>One of the reasons we are building <a target="_blank" rel="noopener noreferrer" href="https://nullstar.games/"><strong>NULLSTAR</strong></a> is to bring the development of interactive experiences to a remarkably modular agentic paradigm (<strong><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2608.25512">&quot;everything is a plugin&quot;</a></strong>). This matters because a game engine renders and simulates <em>experience worlds</em>, but does not automatically provide the infrastructure needed to support a persistent MMO with thousands/millions/billions➕ of players. NULLSTAR is a seven-layer operating system being developed to integrate these components. Today, we are discussing more specifically our sixth layer, <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/idea_nullstar.html">PleiadesOS:STEROPE</a></strong>.</p>
+<p>Although several great engine options are available (e.g., browser-first platforms, single-player, 2D), the infrastructure for the experiences we are creating should support the following features:</p>
+<ul>
+<li>(Multimodal) asset streaming</li>
+<li>High-quality rendering for a large-world simulation</li>
+<li>The ability to operate the game for years (persistence)</li>
+<li>Authoritative multiplayer networking with excellent server performance</li>
+</ul>
+<p><br></p>
+<p>Therefore, for this report, let us narrow our options to three powerful open-source engines that meet these criteria:</p>
+<ol>
+<li><a target="_blank" rel="noopener noreferrer" href="https://godotengine.org/"><strong>Godot</strong></a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://bevy.org/"><strong>Bevy</strong></a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://o3de.org/"><strong>Open 3D Engine (O3DE)</strong></a></li>
+</ol>
+<p><br></p>
+<hr>
+<h1 id="head-to-head-comparison">🌞 Head-to-head comparison</h1>
+<p><br></p>
+<table>
+<thead><tr>
+<th>Criterion</th>
+<th>Godot</th>
+<th>Bevy</th>
+<th>O3DE</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Main language</td>
+<td>GDScript, C#, C++</td>
+<td>Rust</td>
+<td>C++, Lua, Python</td>
+</tr>
+<tr>
+<td>Rust integration</td>
+<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/godot-rust/gdext">Rust binding</a>, <a target="_blank" rel="noopener noreferrer" href="https://godot-rust.github.io/book/">The Godot-Rust Book</a></td>
+<td>Native</td>
+<td>Either by a separate processes over a network API, or building a Rust embedded library, or a custom O3DE Gem</td>
+</tr>
+<tr>
+<td>3D graphics</td>
+<td>Good</td>
+<td>Good</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td>Editor workflow</td>
+<td>Strong integrated editor</td>
+<td>Evolving editor</td>
+<td>Extensive editor and component tooling</td>
+</tr>
+<tr>
+<td>Dedicated server support</td>
+<td>Yes</td>
+<td>Yes, via custom application</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Built-in multiplayer framework</td>
+<td>Yes</td>
+<td>Relies on ecosystem libraries</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Server-authoritative networking</td>
+<td>Must architect correctly</td>
+<td>Must architect correctly</td>
+<td>Supported by <a target="_blank" rel="noopener noreferrer" href="https://docs.o3de.org/docs/user-guide/networking/multiplayer/overview">Multiplayer Gem</a></td>
+</tr>
+<tr>
+<td>Entity replication</td>
+<td>Available through multiplayer APIs</td>
+<td>Depends on chosen networking stack</td>
+<td>Built-in framework</td>
+</tr>
+<tr>
+<td>Local prediction</td>
+<td>Custom implementation/integrations</td>
+<td>Depends on networking stack</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>Native ECS</td>
+<td>No (<a target="_blank" rel="noopener noreferrer" href="https://github.com/csprance/gecs">Godot Entity Component System</a>)</td>
+<td>Yes</td>
+<td>Yes, entity-component architecture</td>
+</tr>
+<tr>
+<td>Data-oriented systems</td>
+<td>Optional/custom</td>
+<td>Core design</td>
+<td>Component-based, with a different execution model</td>
+</tr>
+<tr>
+<td>Parallel system scheduling</td>
+<td>Not a native ECS scheduler</td>
+<td>Built in</td>
+<td>Engine-managed; not equivalent to Bevy&#39;s ECS scheduler</td>
+</tr>
+<tr>
+<td>ECS usable independently</td>
+<td>Requires custom/external approach</td>
+<td>Yes, everything around the <a target="_blank" rel="noopener noreferrer" href="https://docs.rs/bevy_ecs/latest/bevy_ecs/"><code>bevy_ecs</code> library</a></td>
+<td>Tightly integrated with engine architecture</td>
+</tr>
+<tr>
+<td>Development speed for a small team</td>
+<td>High</td>
+<td>Medium – low</td>
+<td>Medium – low</td>
+</tr>
+<tr>
+<td>Long-term engine customization</td>
+<td>High</td>
+<td>Very high</td>
+<td>Very high</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h1 id="what-each-engine-means-for-real-time-mmo-experiences">🌞 What each engine means for real-time MMO Experiences</h1>
+<p><br></p>
+<h2 id="godot-fastest-route-to-a-playable-mmo-prototype">Godot: fastest route to a playable MMO prototype</h2>
+<p><br></p>
+<blockquote><p><em>Godot supports dedicated headless servers and multiplayer APIs, but you still need to design the authoritative simulation and production server architecture.</em></p></blockquote>
+<p><br></p>
+<p><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/godotengine/godot">Godot</a></strong> is attractive for getting character movement, exploration, quests, inventory, dialogue, and social gameplay into a functioning game quickly. <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=7ZwEmxihlw4">Here</a></strong> are some examples of games made in 2025. Plus, some of its strongest features are:</p>
+<ul>
+<li>Node-based architecture (i.e., an object-oriented paradigm using a traditional scene tree and node inheritance hierarchy)</li>
+<li>Mature editor and iteration workflow</li>
+<li>Dedicated headless server exports</li>
+<li>Multiplayer APIs that you can use as a foundation</li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://docs.godotengine.org/en/stable/about/complying_with_licenses.html">MIT licensing</a></strong>, with fewer engine-license constraints for commercial distribution</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Intuitive scene-driven design with the following features: 1) Build your game from simple blocks, 2) Extend beyond features provided by the engine, 3) Create data-driven elements with custom resources, 4) Support both high and low-end devices, 5) Seamlessly integrate with your asset pipeline, 6) Create animated videos and prerendered cutscenes in engine.</em></p></blockquote>
+<p><br></p>
+<p>Now, here are some things that would need be implemented (integrated with PleiadesOS:TAYGETE and PleiadesOS:CELAENO):</p>
+<h5 id="server-authoritative-gameplay">Server-authoritative gameplay</h5>
+<ul>
+<li>movement, combat, cooldowns, damage, and interaction rules on the server</li>
+<li>validation of client inputs so players cannot report their own health, position, inventory, or rewards</li>
+</ul>
+<h5 id="persistent-character-and-world-data">Persistent character and world data</h5>
+<ul>
+<li>database schema for accounts, characters, equipment, inventories, quests, and progression</li>
+<li>saving and restore world state across server restarts, including object changes and completed events</li>
+<li>handling concurrent writes, retries, transaction boundaries, and crash recovery</li>
+<li>keeping durable storage separate from frequently updated in-memory simulation state</li>
+</ul>
+<p><br></p>
+<h2 id="bevy-best-for-a-custom-simulation-platform">Bevy: best for a custom simulation platform</h2>
+<p><br></p>
+<blockquote><p><em>Bevy offers more freedom to build a Rust-native stack, but its networking capabilities depend on the libraries and architecture you select. Its community maintains networking and replication options, rather than one integrated, MMO-ready networking solution.</em></p></blockquote>
+<p><br></p>
+<p><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/bevyengine/bevy">Bevy</a></strong> makes sense if the experience is a long-lived software platform with custom simulation rules, procedural systems, agent behavior, and a Rust-heavy codebase. <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/bevyengine/bevy/tree/latest/examples">Here</a></strong> are some examples. Plus, some of its strongest features are:</p>
+<ul>
+<li>Native <strong><a target="_blank" rel="noopener noreferrer" href="https://bevy.org/learn/quick-start/getting-started/ecs/">ECS (Entity Component System)</a></strong> architecture (a natural fit for large numbers of simulated entities, <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/report_ecs.html">travel to the future to learn more</a></strong>)</li>
+<li>Game logic can share types and concepts with other Rust services (Rust is our language of choice for performance-sensitive server components)</li>
+<li>You can choose networking libraries to fit your protocol and deployment model</li>
+<li>Dual <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/bevyengine/bevy#license">MIT and Apache 2.0 licensing</a></strong></li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Design Goals: 1) Capable: Offer a complete 2D and 3D feature set , 2) Simple: Easy for newbies to pick up, but infinitely flexible for power users , 3) Data Focused: Data-oriented architecture using the Entity Component System paradigm, 4) Modular: Use only what you need. Replace what you don&#39;t like, 5) Fast: App logic should run quickly, and when possible, in parallel, 6) Productive: Changes should compile quickly.</em></p></blockquote>
+<p><br></p>
+<p>In addition, these are the things that would need be implemented for this engine (integrated with PleiadesOS:TAYGETE and PleiadesOS:CELAENO):</p>
+<h5 id="multiplayer-networking-and-replication">Multiplayer networking and replication</h5>
+<ul>
+<li>which ECS components are replicated, which remain server-only, and which are predicted locally</li>
+<li>selection of a networking solution for client-server communication, packet delivery, and connection lifecycle management</li>
+<li>serialization, delta updates, entity creation and destruction messages, and synchronization of component changes</li>
+</ul>
+<h5 id="editor-and-developer-tooling">Editor and developer tooling</h5>
+<ul>
+<li>repeatable local development environments that launch clients, dedicated servers, and supporting services together</li>
+</ul>
+<p><br></p>
+<h2 id="o3de-strongest-integrated-networking-foundation">O3DE: strongest integrated networking foundation</h2>
+<p><br></p>
+<blockquote><p><em>O3DE has a notable advantage in built-in multiplayer infrastructure: its official Multiplayer Gem documents server-authoritative networking, entity replication, network inputs, and local prediction.</em></p></blockquote>
+<p><br></p>
+<p><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/o3de/o3de">O3DE</a></strong> is worth consideration for advanced high-fidelity 3D rendering and a networking framework integrated into the engine (O3DE has the most AAA-style tech). <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@Open3DEngine/videos">Here</a></strong> are some of the good work they are doing. Plus, some of its strongest features are:</p>
+<ul>
+<li>Native entity-component architecture (uses entities composed of reusable components)</li>
+<li>Dedicated server runtime</li>
+<li>Multiplayer Gem with replication and server-authoritative networking</li>
+<li>C++ customization and modular Gems</li>
+<li>Extensive tooling for complex 3D applications</li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/o3de/o3de/blob/development/LICENSE.txt">Apache 2.0 licensing</a></strong></li>
+</ul>
+<p><br></p>
+<blockquote><p><em>In Open 3D Engine (O3DE), the synchronization needed for multiplayer support is performed through multiplayer components. Like other components in O3DE, these are attached to entities. Multiplayer components can receive remote procedure calls (RPC), which are function calls from a remote source. Multiplayer components also define the data to be synchronized across the network. Each multiplayer component, normally generated as an auto-component, defines its own requirements for other data to be present and defines which functions are available. Some of the features offered in the O3DE Multiplayer Gem include: 1) Role-based synchronization and replication rules, 2) Local prediction and backwards reconciliation (“rollback”), and 3) Server-authoritative asynchronous multiplayer.</em></p></blockquote>
+<p><br></p>
+<p>In addition, here are some things that would need be implemented for this engine (integrated with PleiadesOS:TAYGETE and PleiadesOS:CELAENO):</p>
+<h5 id="network-enabled-game-entities">Network-enabled game entities</h5>
+<ul>
+<li>using O3DE&#39;s auto-component generation where appropriate, then implement the gameplay behavior</li>
+</ul>
+<p><br></p>
+<h2 id="and-for-all-engines">And for all engines...</h2>
+<p><br></p>
+<h4 id="orchestration-and-intelligence-integrated-with-pleiadesos-taygete-pleiadesos-merope-and-pleiadesos-celaeno">✨ Orchestration and Intelligence, integrated with PleiadesOS:TAYGETE, PleiadesOS:MEROPE, and PleiadesOS:CELAENO:</h4>
+<h5 id="gameplay-and-ai-systems">Gameplay and AI systems</h5>
+<ul>
+<li>combat, quests, progression, world events, and game-specific rules using the engine&#39;s component and scripting systems</li>
+<li>AI decisions on the server and replicate the resulting actions to clients</li>
+<li>configuration of network entity roles and ownership for players, NPCs, interactable objects, and other gameplay entities</li>
+</ul>
+<h5 id="world-zoning-and-large-scale-server-architecture">World zoning and large-scale server architecture</h5>
+<ul>
+<li>the division between world regions, instances, and server processes</li>
+<li>routing and handoff mechanisms for players moving between regions</li>
+<li>how to scale individual regions, recover failed processes, and maintain world ownership</li>
+<li>how to transfer entities and player ownership between server processes</li>
+<li>coordination of shared world events and avoid conflicting writes when multiple services interact with the same state</li>
+</ul>
+<h5 id="accounts-and-sessions">Accounts and sessions</h5>
+<ul>
+<li>integration of account authentication and authorization</li>
+<li>handling server discovery, matchmaking, party management, and session assignment</li>
+<li>handling reconnections, duplicate logins, server transfers, and session expiration</li>
+<li>maintaining the relationship between a player&#39;s account, character, active session, and current world server</li>
+</ul>
+<h5 id="persistent-world-and-character-services">Persistent world and character services</h5>
+<ul>
+<li>storing characters, inventories, quests, world changes, and progression durably</li>
+<li>connecting the simulation to account and persistence services</li>
+<li>deciding when state changes must be committed, and recover from crashes or failed writes</li>
+<li>implementing save/load workflows that reconcile persisted data with entities spawned into the running world</li>
+</ul>
+<h5 id="build-and-deployment">Build and deployment</h5>
+<ul>
+<li>headless dedicated servers and package the binaries with their configuration and secrets</li>
+<li>deployment of pipelines that roll out updates through orchestration, scaling, graceful restarts, and rolling deployments</li>
+<li>management of engine modules (e.g., O3DE Gems), project dependencies, and custom engine code with end-to-end workflows</li>
+</ul>
+<p><br></p>
+<h4 id="mmo-operations-integrated-with-pleiadesos-alcyone">✨ MMO operations, integrated with PleiadesOS:ALCYONE:</h4>
+<h5 id="runtime-observability"><strong>Runtime observability</strong></h5>
+<ul>
+<li>health checks for every server process</li>
+<li>logs, metrics, and crash reports, and set up monitoring and alerting</li>
+<li>profile server performance under real conditions</li>
+</ul>
+<h5 id="security"><strong>Security</strong></h5>
+<ul>
+<li>secure remote procedure calls</li>
+<li>rate-limit potentially abusive requests</li>
+<li>security controls across the whole stack</li>
+</ul>
+<h5 id="testing"><strong>Testing</strong></h5>
+<ul>
+<li>run automated multiplayer tests, including replication correctness, desynchronization, and network failure</li>
+<li>load-test with realistic player counts and entity-update volumes</li>
+</ul>
+<p><br></p>
+<hr>
+<h1 id="engine-architecture-integration">🌞 Engine-Architecture Integration</h1>
+<p><br></p>
+<p>Let&#39;s end today&#39;s discussion with some eye candy: a diagram of how the infrastructure for MMO worlds can be organized into multiple layers:</p>
+<p><br></p>
+<p><img src="/blog/assets/sterope_1.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>And an <em>ever-growing</em> list of very good (but somehow random) resources on building large-scale experiences:</p>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://frozenfractal.com">frozenfractal</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://heredragonsabound.blogspot.com/">heredragonsabound</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://gameprogrammingpatterns.com/">gameprogrammingpatterns</a></strong></li>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://gamesfromwithin.com/">gamesfromwithin</a></strong></li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="until-next-time-my-friend">Until next time, my friend!</h3>
+<h3 id="section">⬛</h3>
+<p><br></p>
+<p><img src="/blog/assets/goat.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p></div>
 								</article>
 							</div>
 						</div>

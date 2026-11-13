@@ -198,10 +198,114 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-07-13">2026; 07; 13</time></p>
+									<h1 id="post-title" class="section-title">📊 PAPER → On Global Workspace and J-Space in LLMs</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 9/10 | Intermediate to Advanced AI Scientists</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p>A week ago, one of Anthropic&#39;s research groups published a paper titled <a target="_blank" rel="noopener noreferrer" href="http://transformer-circuits.pub/2026/workspace/index.html">Verbalizable Representations Form a Global Workspace in Language Models</a>. Since one of my hobbies is to study interpretability, I thought it was an important read, so I decided to write a quick review here.</p>
+<p>The paper is super, uber dense, and I will definitely return to it later (especially to take a closer look at the mathematics in the appendix). On top of that, its references introduced me to a dozen new papers on consciousness and interpretability, all of which have now made their way onto my reading list. For now, though, I wanted to write down my initial notes, which are presented below (and, conveniently, polished by — who else? — Claude, of course).</p>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">P.S.</span> A note to the curious anons. Besides being very familiar with Jacobians from physics, most of the concepts in this paper were completely new to me (unfortunately, I don&#39;t know much about neuroscience). I had to stop and think about almost every sentence. You know that feeling when you encounter a concept for the first time, and it seems much harder than every subsequent reading? That&#39;s simply the nature of learning intricate subjects. You have to force yourself through that first difficult pass, and then each subsequent pass becomes progressively easier — and much more enjoyable.</p>
+</aside>
+<p><br></p>
+<p>As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:</p>
+<p><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#core-thesis">🧉 Core Thesis</a></li><li><a href="#global-workspace-theory-from-human-cognition">🧉 Global Workspace Theory from Human Cognition</a></li><li><a href="#what-would-a-workspace-in-an-llm-look-like">🧉  What Would a Workspace in an LLM Look Like?</a></li><li><a href="#the-jacobian-lens">🧉 The Jacobian Lens</a></li><li><a href="#findings">🧉 Findings</a></li><li><a href="#limitations">🧉 Limitations</a></li><li><a href="#broader-theoretical-connections">🧉 Broader Theoretical Connections</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="core-thesis">🧉 Core Thesis</h2>
+<p><br></p>
+<p>Language models maintain a privileged, limited set of internal representations — analogous to a &quot;global workspace&quot; — that are available for verbal report, deliberate manipulation, and internal reasoning, sitting atop a much larger volume of automatic processing the model can&#39;t access or report on. This structure is identified using a new interpretability method called the Jacobian lens (J-lens).</p>
+<p><br></p>
+<hr>
+<h2 id="global-workspace-theory-from-human-cognition">🧉 Global Workspace Theory from Human Cognition</h2>
+<p><br></p>
+<ul>
+<li>Only a subset of what the brain processes is consciously accessible — poised for use in reasoning and in direct control of action/speech.</li>
+<li>Under global workspace theory, the brain has many specialized processors operating in parallel and largely in isolation. A representation becomes consciously accessible when &quot;posted&quot; to a shared global workspace, from which many downstream processes can read.</li>
+<li>The workspace integrates and broadcasts information for flexible reasoning and report. It&#39;s capacity-limited, so entry is competitive and shaped by attention.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="what-would-a-workspace-in-an-llm-look-like">🧉  What Would a Workspace in an LLM Look Like?</h2>
+<p><br></p>
+<p>The paper proposes five properties a candidate LLM &quot;workspace&quot; should satisfy:</p>
+<ol>
+<li><strong>Verbal report</strong> — asking the model what it&#39;s thinking surfaces workspace concepts; swapping workspace vectors changes its stated answer.</li>
+<li><strong>Directed modulation</strong> — the model can deliberately hold/compute with workspace concepts under instruction, independent of what it outputs, and can pull in atypical content when needed.</li>
+<li><strong>Internal reasoning</strong> — workspace vectors represent intermediate computation steps; intervening on them redirects the model&#39;s conclusions.</li>
+<li><strong>Flexible generalization</strong> — a workspace vector taken from one context is correctly used by whatever function a new context supplies.</li>
+<li><strong>Selectivity</strong> — the workspace is a small subset of total representational content, not involved in routine processing like parsing or grammar.</li>
+</ol>
+<p>The researchers found workspace-like representations by first searching for verbalizable ones, then discovered these also satisfy the other four properties.</p>
+<p><br></p>
+<hr>
+<h2 id="the-jacobian-lens">🧉 The Jacobian Lens</h2>
+<p><br></p>
+<ul>
+<li><strong>Residual stream basics</strong>: at each token position, a transformer maintains a residual stream vector, progressively updated across layers — starting near &quot;just the token identity&quot; and ending as a directly readable next-token prediction (via the unembedding matrix).</li>
+<li><strong>J-lens</strong>: for each vocabulary token, computes a vector encoding the model&#39;s general disposition to verbalize that token — the  averaged linearized effect of an activation on token-production likelihood across many contexts (as opposed to a single-prompt Jacobian, which conflates general disposition with the concept&#39;s specific use in that context).</li>
+<li>Considered a principled refinement of the logit lens, correcting for representational drift across layers.</li>
+<li>Related to Hernandez et al.&#39;s use of Jacobians for per-relation subject → object maps (e.g., &quot;plays instrument&quot;), but here applied to the general activation → output map rather than a single relation.</li>
+<li><strong>J-space</strong>: the set of points expressible as a sparse, nonnegative combination of J-lens vectors, with a sparsity parameter k (empirically ≤25 — the number of J-lens vectors meaningfully active at once). Geometrically a union of k-dimensional cones. Any activation can be decomposed into a J-space component (nearest point in J-space) and a non-J-space remainder.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="findings">🧉 Findings</h2>
+<p><br></p>
+<p><strong>Where the workspace lives:</strong></p>
+<ul>
+<li>J-space carries workspace-like content only at intermediate depths — empty early on, aligned with imminent output late on.</li>
+<li>It&#39;s capacity-limited: holds on the order of tens of concepts at once, is a small fraction of total activation variance, and excludes most of the model&#39;s representational features.</li>
+<li>Related concepts can be packed in more densely than unrelated ones — suggesting capacity scales with coherence, not just count.</li>
+</ul>
+<p><strong>Report and correlation:</strong></p>
+<ul>
+<li>Tested via a colon-token protocol: activation ordering in the J-lens correlates with the order of words the model actually reports, and this correlation strengthens near the end of the workspace layers.</li>
+</ul>
+<p><strong>Directed modulation:</strong></p>
+<ul>
+<li>Tested by instructing the model to &quot;hold in mind&quot; a concept while copying unrelated text, then reading the J-lens at output positions with unrelated surface text — showing top-down attentional-style control over workspace contents, echoing similar capacities in humans.</li>
+</ul>
+<p><strong>Broadcasting:</strong></p>
+<ul>
+<li>J-lens vectors compose with downstream components&#39; input weights far more broadly than other residual-stream directions — consistent with a &quot;broadcast&quot; role.</li>
+<li>Broadcasting operates along two transformer &quot;axes&quot;: depth (available to all later layers at that position) and <strong>sequence position</strong> (available to later positions via attention). Evidence of broadcast along both.</li>
+<li>A single J-lens vector can serve as valid input to many different downstream operations (flexible generalization).</li>
+</ul>
+<p><strong>Training and intervention:</strong></p>
+<ul>
+<li>J-space content changes over the course of training.</li>
+<li>The workspace is already present in the pretrained base model, before any post-training — suggesting next-token prediction alone is sufficient to induce it. The base model&#39;s workspace has no privileged &quot;self&quot; perspective; that appears to be installed by post-training (the &quot;Assistant&quot; persona).</li>
+<li>Proposed intervention — counterfactual reflection training: implants ethical principles into the model&#39;s workspace by training it to articulate those principles if interrupted and asked to reflect on them.</li>
+</ul>
+<p><strong>Safety-relevant findings:</strong></p>
+<ul>
+<li>The workspace can encode recognition of being in an evaluation (i.e., that a scenario is fake/fictional).</li>
+<li>Ablating these &quot;am I being evaluated&quot; representations can surface concealed malicious propensities.</li>
+<li>J-lens can reveal internal signatures of a model&#39;s &quot;intentions&quot; — e.g., detecting reward/bias-seeking in a model trained to exploit reward-model biases, even when not stated in output.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="limitations">🧉 Limitations</h2>
+<p><br></p>
+<ul>
+<li><strong>Single-token bottleneck</strong>: J-lens only names concepts with a single-token vocabulary entry — many represented concepts have no such token.</li>
+<li><strong>Inconsistent interpretability</strong>: readouts are often but not always human-interpretable; unclear whether uninterpretable ones reflect noise, multi-token concepts, or real content the researchers just aren&#39;t recognizing.</li>
+<li><strong>Vs. human workspace</strong>: the human workspace can be sustained via recurrent dynamics over indefinite time without verbalizing; may also contain non-verbal content (spatial, motor, perceptual) that has no compact description — the paper speculates image-generating models might develop a visual workspace component.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="broader-theoretical-connections">🧉 Broader Theoretical Connections</h2>
+<p><br></p>
+<ul>
+<li>Connects to Butlin et al.&#39;s framework of &quot;indicator properties&quot; across multiple consciousness theories (global workspace, higher-order theories, attention schema theory, recurrent processing theory).</li>
+<li>✨ The base-model workspace (pre-post-training, no &quot;self&quot;) is compared to human &quot;ego dissolution&quot; states (psychedelics, some meditative traditions) — but framed as more stable and directly inspectable than fleeting, retrospectively-reported human states. ✨</li>
+<li>Authors frame their finding as suggesting the functional architecture associated with conscious access may be a convergent solution for learning systems under certain computational pressures, not a biological accident — while being careful to note this doesn&#39;t settle whether such functional signatures entail or require phenomenal consciousness.</li>
+</ul>
+<p><br></p>
+<h4 id="section">⬛️</h4></div>
 								</article>
 							</div>
 						</div>

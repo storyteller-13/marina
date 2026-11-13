@@ -198,10 +198,366 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-09-25">2026; 09; 25</time></p>
+									<h1 id="post-title" class="section-title">🧠 IDEA → WebLLM, WebGPU, Open-Source Tiny Inference</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Beginner to Advanced AI Scientists and Engineers | Today&#x27;s Word: Threshold · Schwelle · きょうかい · סַף</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=JCX0SEX9YMo">🎼</a> <em>&quot;In the face of the <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=x8JVrSc4J8Y">Sublime</a></strong>, we feel a shiver, a foretaste of death itself, something too large for our minds to encompass. And for a moment it shakes us out of our smugness and releases us from the deathlike grip of habit and banality.&quot;</em> — Robert Green, on The Laws of Human Nature</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=-X3klDNV0VE">🎶</a> <em>&quot;The rest is silence.&quot;</em> — William Shakespeare, on Hamlet</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/duff.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>In another of my side quests, I&#39;ve been looking at small, distilled LLMs that can be run locally in the browser (or are tiny enough to be submitted as very fast, <em>free</em> inference jobs in the cloud).</p>
+<p>I built an open-source e2e demo that you can <strong><a target="_blank" rel="noopener noreferrer" href="https://japanese.nullstar.fun/">play with</a></strong> (and you should check the <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/tiny-models-inference">source code</a></strong>, as it&#39;s pretty good 😏).</p>
+<p>The inference stack we&#39;ll be learning about is:</p>
+<p>1️⃣ <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/mlc-ai/web-llm">WebLLM</a></strong><br>2️⃣ <strong><a target="_blank" rel="noopener noreferrer" href="https://gpuweb.github.io/gpuweb/">WebGPU</a></strong><br>3️⃣ MLC and <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/mlc-ai/mlc-llm">MLC-LLM</a></strong></p>
+<p><br></p>
+<p><img src="/blog/assets/webllm_stack.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>As always, please remember the rules:</p>
+<p><strong>🤖 If you see a 👾, it means I found something particularly cool or learned something new.</strong><br><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#webllm-the-in-browser-llm-engine">🏯 WebLLM, The In-Browser LLM Engine</a><ul><li><a href="#webllm-a-high-performance-in-browser-llm-inference-engine-ruan-et-al-arxiv-2412-15803">WebLLM: A High-Performance In-Browser LLM Inference Engine, Ruan et al. (arXiv:2412.15803)</a></li><li><a href="#web-workers">Web Workers</a></li></ul></li><li><a href="#mlc-machine-learning-compilation">🏯 MLC (Machine Learning Compilation)</a><ul><li><a href="#mlc-llm">MLC-LLM</a></li><li><a href="#apache-tvm">Apache TVM</a></li><li><a href="#tensorir">TensorIR</a></li><li><a href="#why-compilation-is-needed">Why compilation is needed</a></li><li><a href="#mlc-llm-artifacts-for-the-web">MLC LLM artifacts for the web</a></li><li><a href="#jit-and-ahead-of-time-compilation">JIT and ahead-of-time compilation</a></li></ul></li><li><a href="#webgpu-the-hardware-accelerator">🏯 WebGPU, The Hardware Accelerator</a><ul><li><a href="#webgl">WebGL</a></li><li><a href="#wgsl-webgpu-shading-language">WGSL (WebGPU Shading Language)</a></li></ul></li><li><a href="#other-considerations">🏯 Other Considerations</a><ul><li><a href="#the-competitive-landscape">The competitive landscape</a></li><li><a href="#practical-limitations">Practical limitations</a></li><li><a href="#lastly-some-food-for-thought">Lastly, some food for thought...</a></li></ul></li></ul></nav>
+<br><br>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">PS1</span> Mabon Hapus i chi! and 秋分の日、どうぞ良い一日をお過ごしください。</p>
+</aside>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">PS2</span> Why did I choose this model from Sakana AI, and what interests me about their work? <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/paper_intel_2.html">Travel to the future</a></strong> and you will understand.</p>
+</aside>
+<p><br></p>
+<hr>
+<h2 id="webllm-the-in-browser-llm-engine">🏯 WebLLM, <em>The In-Browser LLM Engine</em></h2>
+<p><br></p>
+<p><img src="/blog/assets/local_inference.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>WebLLM is a JavaScript/TypeScript inference engine for running LLMs directly in the browser, using MLC-compiled WebGPU kernels running inside a Web Worker.</li>
+</ul>
+<ul>
+<li>Zero Server Dependency (and privacy): Once the model weights are downloaded and cached in your browser, everything runs locally.</li>
+</ul>
+<p><br></p>
+<h3 id="webllm-a-high-performance-in-browser-llm-inference-engine-ruan-et-al-arxiv-2412-15803">WebLLM: A High-Performance In-Browser LLM Inference Engine, Ruan et al. (<strong><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/html/2412.15803v2">arXiv:2412.15803</a></strong>)</h3>
+<p><br></p>
+<p><img src="/blog/assets/webllm_stack_paper.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p><em>With machine learning compilers MLC-LLM and Apache TVM, WebLLM leverages optimized WebGPU kernels, overcoming the absence of performant WebGPU kernel libraries. Evaluations show that WebLLM can retain up to 80% native performance on the same device with room to close the gap further.</em></p></blockquote>
+<blockquote><p><em>Open-weight providers now routinely ship capable small models in the 1-8B-parameter range, and techniques such as quantization have made real-time local inference common on consumer hardware (Abdin et al. (2024), Gemma Teamet al. (2024), Liu et al. (2026)).</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Enabling LLM-based features in web applications poses three challenges:</li>
+</ul>
+<p>1️⃣ A standardized API that web applications can easily incorporate<br>2️⃣ Adaptation to the browser’s runtime environment<br>3️⃣ efficient GPU acceleration.</p>
+<p><br></p>
+<ul>
+<li>WebLLM’s architecture addresses these challenges by dividing the system into three corresponding parts:</li>
+</ul>
+<p>1️⃣ <code>ServiceWorkerMLCEngine</code>: lightweight, endpoint-like object the web developer instantiates in the page. It takes OpenAI-style JSON requests and streams back OpenAI-style JSON responses.<br>2️⃣ MLCEngine running inside Web Workers / Service Workers: the actual computation happens off the main thread, so a long generation doesn&#39;t freeze page scrolling or input.<br>3️⃣ Ahead-of-time-compiled WebGPU kernels: produced by MLC-LLM/TVM. Plus a WebAssembly layer (compiled from C++ via Emscripten) for CPU-side work that doesn&#39;t belong on the GPU: the grammar engine for structured/JSON generation, paged-KV-cache bookkeeping, and tensor-manipulation glue for launching kernels.</p>
+<p><br></p>
+<blockquote><p><em>The lightweight frontend engine <code>ServiceWorkerMLCEngine</code> that is exposed to the web application, and a backend engine MLCEngine in the worker thread that actually computes the LLM workload. The two engines communicate via message-passing, and the messages are simply OpenAI-style requests and responses.</em></p></blockquote>
+<blockquote><p><em>Using WebGPU is not enough since LLM inference requires non-trivial computation on the CPU. WebAssembly (WASM) is a portable low-level bytecode that can be compiled from C++ code and run in a JavaScript runtime with near-native performance. Thus, instead of re-implementing CPU workload in JavaScript, WebLLM leverages Emscripten to compile high-performance subsystems written in C++ into WebAssembly for various CPU workloads in LLM inference, including a grammar engine for structured generation, sequence management in the paged KV-cache and tensor manipulation for launching kernels.</em></p></blockquote>
+<p><br></p>
+<h3 id="web-workers">Web Workers</h3>
+<p><br></p>
+<p><img src="/blog/assets/webllm_stack_2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>LLM inference can take a long time, therefore WebLLM supports Web Workers.</li>
+</ul>
+<ul>
+<li>It utilizes background threads so that running heavy AI tasks doesn&#39;t freeze or lag the website&#39;s user interface.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="mlc-machine-learning-compilation">🏯 MLC (Machine Learning Compilation)</h2>
+<p><br></p>
+<p><img src="/blog/assets/mlc.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p><strong><a target="_blank" rel="noopener noreferrer" href="https://mlc.ai/">What is ML compiler?</a></strong> A machine learning compiler is a specialized compiler that transforms high-level ML models into optimized code that can efficiently run on various hardware platforms. It bridges the gap between ML frameworks and hardware backends, enabling models to run faster and use less memory across different devices from cloud servers to edge devices.</p></blockquote>
+<p><br></p>
+<ul>
+<li>The user-facing browser layer. It runs supported open LLMs entirely in the browser, uses WebGPU for local acceleration, uses WebAssembly for CPU-side runtime work, and presents an API designed to resemble OpenAI’s chat-completion APIs.</li>
+</ul>
+<ul>
+<li>A compiler discipline and toolchain, built on Apache TVM, that takes a model written in Python and compiles it into optimized GPU kernels and portable binaries for a target backend (optimized implementations for different hardware and runtime targets; WebGPU included). It&#39;s the translator.</li>
+</ul>
+<ul>
+<li>The deeper problem MLC solves is hardware fragmentation.</li>
+</ul>
+<ul>
+<li>A conceptual example is:</li>
+</ul>
+<pre><code class="language-javascript">
+import { CreateMLCEngine } from &quot;@mlc-ai/web-llm&quot;;
+
+const engine = await CreateMLCEngine(&quot;a-supported-MLC-model-id&quot;);
+
+const stream = await engine.chat.completions.create({
+  messages: [
+    { role: &quot;system&quot;, content: &quot;You are a concise assistant.&quot; },
+    { role: &quot;user&quot;, content: &quot;Summarize this note.&quot; }
+  ],
+  stream: true
+});
+
+for await (const chunk of stream) {
+  process.stdout?.write?.(chunk.choices[0]?.delta?.content ?? &quot;&quot;);
+}
+</code></pre>
+<p><br></p>
+<h3 id="mlc-llm">MLC-LLM</h3>
+<p><br></p>
+<blockquote><p><em>WebLLM leverages machine learning compilation libraries MLC-LLM and Apache TVM to compile performant WebGPU kernels. MLC-LLM ingests any open-source model’s implementation in Python, which can use techniques such as the aforementioned PagedAttention and FlashAttention, and compiles the model’s computation into the backend of interest (in this case, WebGPU). Besides compiling to the specified target, MLC-LLM provides both graph-level optimizations (e.g. kernel fusion) and operator-level optimizations (e.g. GEMM tiling) to improve kernel performance. MLC-LLM converts open-source models into two artifacts: converted weights and a WASM library. The WASM library contains both WebGPU kernels and non-kernel functions in WebAssembly.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>An LLM deployment engine built on machine-learning compilation that provides optimized inference across GPUs, browsers, mobile devices, and servers.</li>
+</ul>
+<ul>
+<li>It compiles and runs code on MLCEngine: a unified high-performance LLM inference engine across the above platforms.</li>
+</ul>
+<ul>
+<li>MLC-LLM also runs as a server: MLCEngine exposes an OpenAI-compatible REST endpoint, Python API, JavaScript API, and native iOS/Android bindings — all sharing the same compiled core, so a WebLLM app in the browser and a native iOS app can, in principle, be running weights produced by the exact same compilation pipeline.</li>
+</ul>
+<p><br></p>
+<h3 id="apache-tvm"><a target="_blank" rel="noopener noreferrer" href="https://tvm.apache.org/docs">Apache TVM</a></h3>
+<p><br></p>
+<blockquote><p><em>A deep learning compiler that enables access to high-performance machine learning anywhere for everyone.</em></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/tvm.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h3 id="tensorir"><a target="_blank" rel="noopener noreferrer" href="https://dl.acm.org/doi/epdf/10.1145/3575693.3576933">TensorIR</a></h3>
+<p><br></p>
+<p><img src="/blog/assets/tensorir.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h3 id="why-compilation-is-needed">Why compilation is needed</h3>
+<p><br></p>
+<ul>
+<li>A model checkpoint is not automatically a high-performance program for every device.</li>
+</ul>
+<ul>
+<li>It encodes parameters and an architecture, but efficient execution still requires decisions such as:</li>
+</ul>
+<p><br></p>
+<p>1️⃣ How to store weights and activations in memory.<br>2️⃣ Which numerical precision and quantization scheme to use.<br>3️⃣ Which operations can be fused to avoid intermediate memory traffic.<br>4️⃣ How to tile matrix multiplications.<br>5️⃣ How to schedule work across GPU threads and workgroups.<br>6️⃣ How to target the constraints and capabilities of WebGPU, Metal, Vulkan, CUDA, CPUs, or mobile devices.</p>
+<p><br></p>
+<ul>
+<li>Apache TVM’s compilation model explicitly supports transformations at both the graph and tensor-program levels, then produces a deployable module for the target device.</li>
+</ul>
+<p><br></p>
+<h3 id="mlc-llm-artifacts-for-the-web">MLC LLM artifacts for the web</h3>
+<p><br></p>
+<ul>
+<li>For WebLLM deployment, MLC LLM produces two key artifacts:</li>
+</ul>
+<p><br></p>
+<p>1️⃣ Converted model weights, often quantized (e.g., 4-bit) and packaged in MLC format.<br>2️⃣ A binary kernel library — a .so/.dylib/.dll for native targets, or a WebAssembly .wasm module containing WebGPU kernels for the browser, containing execution logic, including the compiled WebGPU kernels and non-kernel runtime functions.</p>
+<p><br></p>
+<ul>
+<li>WebLLM downloads and uses both of these artifacts in the browser.</li>
+</ul>
+<ul>
+<li>The model identifier must correspond to an artifact WebLLM supports and can access; an actual production integration should also display loading progress, verify WebGPU availability, handle cancellation, and offer a graceful server or CPU fallback.</li>
+</ul>
+<p><br></p>
+<h3 id="jit-and-ahead-of-time-compilation">JIT and ahead-of-time compilation</h3>
+<p><br></p>
+<ul>
+<li>MLC LLM can compile model libraries at runtime (JIT) or generate them explicitly for deployment (ahead of time).</li>
+</ul>
+<ul>
+<li>Ahead-of-time compilation is particularly relevant for web and mobile deployments because it lets an application distribute a target-specific artifact rather than asking each client to perform model compilation during startup.</li>
+</ul>
+<ul>
+<li>The WebLLM paper compared browser WebLLM with native MLC LLM on the same Apple MacBook Pro M3 Max, using Chrome Canary 133.</li>
+</ul>
+<ul>
+<li>In that experiment:</li>
+</ul>
+<p><br></p>
+<table>
+<thead><tr>
+<th>Model</th>
+<th>WebLLM generation</th>
+<th>speed	Native MLC LLM speed</th>
+<th>Browser performance retained</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Llama 3.1 8B</td>
+<td>41.1 tokens/s</td>
+<td>57.7 tokens/s</td>
+<td>71.2%</td>
+</tr>
+<tr>
+<td>Phi-3.5 Mini (3.8B)</td>
+<td>71.1 tokens/s</td>
+<td>89.3 tokens/s</td>
+<td>79.6%</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h2 id="webgpu-the-hardware-accelerator">🏯 WebGPU, <em>The Hardware Accelerator</em></h2>
+<p><br></p>
+<p><img src="/blog/assets/gpudevice.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>A standardized low-level browser API that exposes modern GPU graphics and general-purpose computation to web applications (JavaScript). It&#39;s the hardware doorway.</li>
+</ul>
+<ul>
+<li>It acts as the performance backbone, allowing WebLLM to achieve close to native inference speeds.</li>
+</ul>
+<ul>
+<li>The catch is that WebGPU ships with no ML kernel library — no cuDNN- or cuBLAS-equivalent — so every matrix multiply, attention op, and quantization kernel has to be hand-written or generated by a compiler (That gap is exactly what MLC fills).</li>
+</ul>
+<ul>
+<li>WebGPU exposes compute shaders and storage buffers directly, which is the same programming model native ML kernel authors already use. The shader executes thousands of parallel operations.</li>
+</ul>
+<ul>
+<li>A shader is the portion of a WGSL program that executes a shader stage in a pipeline. A shader comprises:</li>
+</ul>
+<p><br></p>
+<p>1️⃣ An entry point function.<br>2️⃣ The transitive closure of all called functions, starting with the entry point. This set includes both user-defined and built-in functions.<br>3️⃣ The set of variables and constants statically accessed by all those functions.<br>4️⃣ The set of types used to define or analyze all those functions, variables, and constants.</p>
+<p><br></p>
+<ul>
+<li>An application begins with:</li>
+</ul>
+<pre><code class="language-javascript">
+const adapter = await navigator.gpu.requestAdapter();
+const device = await adapter.requestDevice();
+</code></pre>
+<p><br></p>
+<h3 id="webgl">WebGL</h3>
+<p><br></p>
+<p><img src="/blog/assets/opengl.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Prior to WebGPU, browser GPU compute meant abusing WebGL&#39;s graphics pipeline (packing tensors into textures) — workable but awkward and slow.</li>
+</ul>
+<p><br></p>
+<table>
+<thead><tr>
+<th>Feature</th>
+<th>WebGL</th>
+<th>WebGPU</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Primary origin</td>
+<td>Graphics</td>
+<td>Graphics + compute</td>
+</tr>
+<tr>
+<td>Modern GPU model</td>
+<td>Limited</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>General compute</td>
+<td>Awkward</td>
+<td>First-class</td>
+</tr>
+<tr>
+<td>Compute shaders</td>
+<td>No native equivalent</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>GPU memory model</td>
+<td>Older abstraction</td>
+<td>Modern explicit resources</td>
+</tr>
+<tr>
+<td>ML suitability</td>
+<td>Possible but awkward</td>
+<td>Much better</td>
+</tr>
+<tr>
+<td>Shader language</td>
+<td>GLSL</td>
+<td>WGSL</td>
+</tr>
+<tr>
+<td>Modern GPU APIs</td>
+<td>Less aligned</td>
+<td>Designed around modern GPU architecture</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<ul>
+<li>Feb 2017 — Apple&#39;s WebKit team proposes a W3C community group after showing an early &quot;WebGPU&quot; proof-of-concept based on Metal; Google and Mozilla had parallel prototypes (&quot;NXT&quot; and an Obsidian/Vulkan-based design, respectively).</li>
+<li>2018 — Chrome announces intent to implement the emerging standard.</li>
+<li>Feb 2020 — Google ships Tint, and the shading language work converges on WGSL.</li>
+<li>April 2023 — Chrome 113 and Edge ship WebGPU by default on Windows/ChromeOS/macOS (Android followed in Chrome 121).</li>
+<li>June–July 2025 — Safari (Safari 26, tied to macOS Tahoe/iOS 26) and Firefox (Firefox 141) ship WebGPU, completing coverage of all four major engines.</li>
+<li>As of late 2025 — the spec sits at W3C Candidate Recommendation (CR) status — mature and implemented everywhere, but formally still short of final &quot;Recommendation.&quot;</li>
+</ul>
+<p><br></p>
+<h3 id="wgsl-webgpu-shading-language">WGSL (WebGPU Shading Language)</h3>
+<p><br></p>
+<p><img src="/blog/assets/js_orc.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>The native shader language designed for <strong><a target="_blank" rel="noopener noreferrer" href="https://gpuweb.github.io/gpuweb/wgsl/">WebGPU</a></strong>.</li>
+</ul>
+<ul>
+<li>The syntax is similar to Rust.</li>
+</ul>
+<ul>
+<li>If you&#39;re trying to optimize or implement an LLM GPU kernel yourself, WGSL becomes very relevant.</li>
+</ul>
+<ul>
+<li>WebGPU issues a unit of work to the GPU in the form of a GPU command.</li>
+</ul>
+<ul>
+<li>WGSL is concerned with two kinds of GPU commands: 1) a draw command executes a render pipeline in the context of inputs, outputs, and attached resources, 2) a dispatch command executes a compute pipeline in the context of inputs and attached resources.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="other-considerations">🏯 Other Considerations</h2>
+<p><br></p>
+<h3 id="the-competitive-landscape">The competitive landscape</h3>
+<p><br></p>
+<p>WebLLM is not the only way to run models in a browser; it&#39;s worth knowing where it sits:</p>
+<p><br></p>
+<p>➡️ <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/huggingface/transformers.js">Transformers.js (Hugging Face)</a></strong> — a JS port of the transformers pipeline API, backed by ONNX Runtime Web, which can itself target either WebAssembly or WebGPU depending on browser support. It covers a much broader task surface (embeddings, classification, audio, vision) than WebLLM, and is arguably the easiest on-ramp for non-LLM tasks, but for pure autoregressive LLM decoding, benchmarks generally show it in the same performance ballpark as WebLLM when both use WebGPU, with WASM fallback for smaller/simpler models.</p>
+<p>2️⃣ <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/ngxson/wllama">wllama</a></strong> / llama-cpp-wasm — WebAssembly bindings for llama.cpp itself. Historically WASM/CPU-only (SIMD-accelerated, no GPU needed at all, which is a real advantage for reach), wllama added WebGPU support in its v3 release. It works from GGUF files directly, so it plugs into the same model ecosystem as desktop llama.cpp/Ollama users already use.</p>
+<p>3️⃣ WebNN (Web Neural Network API) — a different W3C standard, lower-level and NPU/accelerator-aware rather than GPU-compute-aware. It&#39;s designed to let the browser hand inference off to whatever dedicated silicon a device has (Apple Neural Engine, Qualcomm/Intel NPUs, etc.), not just the GPU. It reached an updated W3C Candidate Recommendation in January 2026 after what the spec calls &quot;over 100 significant changes,&quot; including new transformer-support operators and a buffer-sharing MLTensor API — clearly being pushed toward LLM-scale workloads, but implementation is still catching up to WebGPU&#39;s browser coverage.</p>
+<p><br></p>
+<ul>
+<li>The rough mental model: WebGPU/WebNN are the standards bodies&#39; answer to &quot;how does a web page reach hardware acceleration,&quot; while WebLLM/Transformers.js/wllama are competing (and partly complementary) engineering answers to &quot;how do I actually get a chat model running well on top of that.&quot;</li>
+</ul>
+<p><br></p>
+<h3 id="practical-limitations">Practical limitations</h3>
+<p><br></p>
+<p>➡️ First-load cost: multi-gigabyte weight downloads and WebGPU shader compilation add real latency (roughly 1–5 seconds of shader compile time alone is commonly reported, on top of the download) before the first token appears. Caching (IndexedDB/OPFS/Cache API) is what makes repeat visits fast.</p>
+<p>2️⃣ Hardware floor: WebGPU support on lower-end Android devices and older GPUs remains uneven — this is a driver/vendor coverage problem, not something WebLLM or WebGPU-the-spec can fix unilaterally.</p>
+<p>3️⃣ The native-performance gap means anything latency-critical at scale is still likely to prefer server-side inference; WebLLM&#39;s value proposition is privacy, offline capability, and zero server cost — not raw speed.</p>
+<p>4️⃣ Security surface: WebGPU is comparatively young as a spec and its sandboxing is still being actively hardened; running untrusted model weights or untrusted WGSL is not risk-free.</p>
+<p><br></p>
+<h3 id="lastly-some-food-for-thought">Lastly, some food for thought...</h3>
+<p><br></p>
+<p>Performance depends on:</p>
+<ul>
+<li>GPU driver</li>
+<li>browser implementation</li>
+<li>WebGPU backend</li>
+<li>model size</li>
+<li>quantization</li>
+<li>context length</li>
+<li>KV cache</li>
+<li>memory bandwidth</li>
+<li>shader efficiency</li>
+<li>browser overhead</li>
+<li>thermal limits</li>
+<li>available GPU memory</li>
+<li>CPU performance for tokenization and auxiliary operations</li>
+</ul>
+<p><br></p>
+<hr>
+<h5 id="section">⬛️</h5></div>
 								</article>
 							</div>
 						</div>

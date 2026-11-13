@@ -198,10 +198,207 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-08-22">2026; 08; 22</time></p>
+									<h1 id="post-title" class="section-title">📚 BOOK → TAOCP 1️⃣ of 6️⃣ (Donald E. Knuth, 2019)</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 10/10 | Beginner to Advanced Computer Scientists | Today&#x27;s Word: Hope · Hoffnung · きぼう · תִּקְוָה</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p><img src="/blog/assets/monet.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Here are four cool quotes from this chapter:</p>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=hkWKXdRMVxE">🎶</a> ✨ <em><strong>&quot;The process of preparing programs for a digital computer is especially attractive, not only because it can be economically and scientifically rewarding, but also because it can be an aesthetic experience much like composing poetry or music&quot;.</strong></em> ✨</p></blockquote>
+<blockquote><p><em><strong>Things have changed in the past two decades.</strong></em> — Bill Gate (1995)</p></blockquote>
+<blockquote><p><em><strong>Practice yourself, for heaven&#39;s sake, in little things; and thence proceed to greater.</strong></em> — Epictetus (c. 100 CE)</p></blockquote>
+<blockquote><p><em><strong>Any one who considers arithmetical methods of producing random digits is, of course, in a state of sin.</strong></em> — John Von Neumann (1951)</p></blockquote>
+<p><br></p>
+<p>And, perhaps, this one was not in the book:</p>
+<blockquote><p><em><strong>Things have changed in the past three decades</strong></em> — Marina von Steinkirch (2026)</p></blockquote>
+<p><br></p>
+<p>For the first series of posts, as I continue to work on my dreams, I decided to delve into a <strong><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2608.16753">quintessential</a></strong> <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=xH7U7w9Qzlo">Bible</a></strong> that has been on my reading list for decades. At some point (again, when I was living in the Bay Area), I even owned the physical books — but shamefully, barely read them.</p>
+<p>Well, I am super-uber excited because now I’m in that slightly <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=iSIP65HQ-iA">liminal space</a></strong> where I actually have some time to read them in between the tasks of my main work as an engineer and researcher. One thing I have learned over the many years of honing my craft, and about the way my <strong><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2607.12664v1">brain</a></strong> works, is that I am most efficient when I alternate between bits of <em>producing</em> work (like writing code, writing, or doing some planing) and <em>consuming</em> work (like technical reading/audiobooks, debugging, or watching podcasts) — or sometimes both at the same time, if you’re like me and enjoy coding while having a secondary task running in the background. Luckily, this kind of cyclical context switching is somehow both fun and productive. How about you? Have you figured out <em>your best protocol</em> for working on your craft and doing what you love?</p>
+<p>By the way, is it weird that I am low-key very thrilled about this journey? I have no idea how many posts I will need to write to complete all 4️⃣ volumes of <strong><a target="_blank" rel="noopener noreferrer" href="https://a.co/d/00mW1tAR">The Art of Computer Programming</a></strong> by the master Donald E. Knuth (or even whether I will complete the Odyssey <em>alive</em>...), but I do have a feeling I might emerge as another hero when I come out <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=lrd5aiw-gv4">the other side</a></strong>.</p>
+<p>In this post, I worked through Volume 1️⃣, <em>Fundamental Algorithms</em>, and the first part of Volume 2️⃣, <em>Seminumerical Algorithms</em>. And, not going to lie, I know I’m a great computer scientist because I pretty much know everything in this first book in my bones. I guess dedicating your entire life to your profession does that. 💁🏻‍♀️</p>
+<p><br></p>
+<p><img src="/blog/assets/nerd.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>As always, below are a few highlights (for personal inventory), with a moderate attempt at coherence:</p>
+<p><strong>🤖 If you see a 👾, it means I found something particularly cool or learned something new.</strong><br><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 If you see a ☀️, it means it&#39;s just a fun easter egg (because life&#39;s short; <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=VbD_kBJc_gI">we must dance</a>).</strong><br><strong>🤖 If these notes look interesting to you, it&#39;s your ✦moral duty✦ to read the original books.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#volume-1-chapter-1-and-2-basic-concepts">🌠 VOLUME 1️⃣; CHAPTER 1️⃣ and 2️⃣; BASIC CONCEPTS</a><ul><li><a href="#induction-deduction-logic">Induction; Deduction; Logic</a></li><li><a href="#routines-subroutines-co-routines">Routines; Subroutines; Co-routines</a></li><li><a href="#data-structures">Data Structures</a></li></ul></li><li><a href="#volume-2-chapter-3-random-numbers">🌠 VOLUME 2️⃣; CHAPTER 3️⃣; RANDOM NUMBERS</a><ul><li><a href="#random-numbers">Random Numbers</a></li></ul></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="volume-1-chapter-1-and-2-basic-concepts">🌠 VOLUME 1️⃣; CHAPTER 1️⃣ and 2️⃣; BASIC CONCEPTS</h2>
+<p><br></p>
+<h3 id="induction-deduction-logic">Induction; Deduction; Logic</h3>
+<p><br></p>
+<p>☀️ <em>(note to self that should never be shared publicly: I wish he had used some version of assembly, but I get it — the whole portability and generalization thing.)</em></p>
+<p><br></p>
+<blockquote><p>👾 <em>Mathematical Induction → Let <code>P(n)</code> be some statement about the integer <code>n</code>; for example, <code>P(n)</code> might be “<code>n</code> times <code>(n + 3)</code> is an even number,&quot; or &quot;if <code>n ≥ 10</code>, then <code>2^n &gt; n^31</code>” . Suppose we want to prove that <code>P(n)</code> is true for all positive integers <code>n</code>. An important way to do this is: 1) Give a proof that <code>P(1)</code> is true; 2) Give a proof that &quot;if all of <code>P(1), P(2), ... , P(n)</code> are true, then <code>P(n + 1)</code> is also true&quot;; this proof should be valid for any positive integer <code>n</code> → algorithmic proof procedure.</em></p></blockquote>
+<p><br></p>
+<blockquote><p>👾 <em>The concept of mathematical induction should be distinguished from what is usually called inductive reasoning in science. A scientist takes specific observations and creates, by &quot;induction,&quot; a general theory or hypothesis that accounts for these facts. Induction is no more than our best guess about the situation; mathematicians would call it an empirical result or a conjecture.</em></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/knuth8.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h3 id="routines-subroutines-co-routines">Routines; Subroutines; Co-routines</h3>
+<p><br></p>
+<ul>
+<li>Transfer of control between subroutines and main programs → subroutine linkage → no subroutine may call on any other subroutine that is (directly or indirectly) calling on it.</li>
+</ul>
+<ul>
+<li>Subroutines are special cases of more general program components, called co-routines. In contrast to the unsymmetric relationship between a main routine and a subroutine, there is complete symmetry between coroutines, which call on each other.</li>
+</ul>
+<ul>
+<li>A computer memory is often classified as a &quot;random access memory&quot;; or as a &quot;read-only memory&quot;, which is supposed to contain essentially constant information; or a &quot;secondary bulk memory&quot;; or an &quot;associative memory&quot;, more properly called a &quot;content-addressed memory&quot;, for which information is addressed by its value rather than by its location; and so on. The intended function of each kind of memory is so important that it enters into the name of the particular memory type; all of these devices are “memory” units, but the purposes to which they are put profoundly influence their design and their cost.</li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="data-structures">Data Structures</h3>
+<p><br></p>
+<ul>
+<li>The process of entering and leaving subroutines during the execution of a computer program has a stack-like behavior. Stacks are particularly useful for the processing of languages with a nested structure, like programming languages, arithmetic expressions, and the literary German “Schachtelsätze.”</li>
+</ul>
+<ul>
+<li>Topological sorting → important process needed in connection with network problems, with so-called PERT charts, and even with linguistics; in fact, it is of potential use whenever we have a problem involving a partial ordering. A partial ordering of a set <code>S</code> is a relation between the objects of <code>S</code>, which we may denote by the symbol <code>“⪯”</code>, satisfying the following properties for any objects <code>x</code>, <code>y</code>, and <code>z</code> (not necessarily distinct) in <code>S</code>:</li>
+</ul>
+<pre><code class="language-🐝">
+i) If x ⪯ y and y ⪯ z, then x ⪯ z. (Transitivity.)
+ii) If x ⪯ y and y ⪯ x, then x = y. (Antisymmetry.)
+iii) x ⪯ x. (Reflexivity.)
+</code></pre>
+<p><br></p>
+<ul>
+<li>Discrete simulation program → the simulation of a system in which all changes in the state of the system may be assumed to happen at certain discrete instants of time. The “system” being simulated is usually a set of individual activities that are largely independent although they interact with each other. In a discrete simulation, we proceed by doing whatever is to be done at a certain instant of simulated time, then advance the simulated clock to the next time when some action is scheduled to occur.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth1.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p><img src="/blog/assets/knuth2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>There is very little distinction between abstract forests and trees. If we delete the root of a tree, we have a forest; conversely, if we add just one node to any forest and regard the trees of the forest as subtrees of the new node, we get a tree.</li>
+</ul>
+<ul>
+<li>Let us define a binary tree as a finite set of nodes that either is empty, or consists of a root and the elements of two disjoint binary trees called the left and right subtrees of the root. This recursive definition of binary tree should be studied carefully. Notice that a binary tree is not a special case of a tree; it is another concept entirely (although we will see many relations between the two concepts).</li>
+</ul>
+<ul>
+<li>👾 A free tree or “unrooted tree” is defined to be a connected graph with no cycles.</li>
+</ul>
+<ul>
+<li>An electrical engineer may prefer to call a “tree” what we call “free tree”. If we were to follow the terminology of some authors on graph theory, we would have to say “finite labeled rooted ordered tree” instead of just “tree,” and “topological bifurcating arborescence” instead of “binary tree”!</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>The “infinity lemma” → Every infinite oriented tree in which every vertex has finite degree has an infinite path to the root, that is, an infinite sequence of vertices <code>V0, V1, V2,...</code> in which <code>V0</code> is the root and <code>fin(e[Vj + 1]) = Vj</code> for all <code>j ≥ 0</code>.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>The concept of the “path length” of a tree is of great importance in the analysis of algorithms, since this quantity is often directly related to the execution time. Our primary concern is with binary trees, since they are so close to actual computer representations.</li>
+</ul>
+<ul>
+<li>How much structural information ought to be explicitly recorded in memory?</li>
+</ul>
+<ul>
+<li>Linking automata can easily simulate graph machines, taking at most a bounded number of steps per graph step. Conversely, however, it is unlikely that graph machines can simulate arbitrary linking automata without unboundedly increasing the running time, unless the definition is changed from undirected to directed graphs, in view of the restriction to vertices of bounded degree.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="volume-2-chapter-3-random-numbers">🌠 VOLUME 2️⃣; CHAPTER 3️⃣; RANDOM NUMBERS</h2>
+<p><br></p>
+<h3 id="random-numbers">Random Numbers</h3>
+<p><br></p>
+<blockquote><p><em>Numbers that are “chosen at random” are useful in many different kinds of applications: simulation, sampling, numerical analysis, computer programming, decision making, cryptography, aesthetic, and recreation.</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>It is conceivable that someday somebody will invent a random number generator that produces one of these other random quantities directly, instead of getting it indirectly via the uniform distribution. But no direct methods have as yet proved to be practical, except for the “random bit”...</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>D. H. Lehmer (1951): “A random sequence is a vague notion embodying the idea of a sequence in which each term is unpredictable to the uninitiated and whose digits pass a certain number of tests, traditional with statisticians and depending somewhat on the uses to which the sequence is to be put.”</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>J. N. Franklin (1962): “A sequence is random if it has every property that is shared by all infinite sequences of independent samples of random variables from the uniform distribution.”</em></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/knuth3.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Consider methods for generating a sequence of random fractions—random real numbers <code>Un</code>, uniformly distributed between zero and one. Since a computer can represent a real number with only finite accuracy, we shall actually be generating integers <code>Xn</code> between zero and some number <code>m</code>; the fraction <code>Un = Xn/m</code> will then lie between zero and one. Usually <code>m</code> is the word size of the computer, so <code>Xn</code> may be regarded (conservatively) as the integer contents of a computer word with the radix point assumed at the extreme right, andUn maybe regarded (liberally) as the contents of the same word with the radix point assumed at the extreme left.</li>
+</ul>
+<ul>
+<li>Linear congruential sequence → by far the most popular random number generators in use today are special cases of the following scheme → We choose four magic integers: <code>m</code>, the modulus; <code>0 &lt; m</code>, <code>a</code>, the multiplier; <code>0 ≤ a &lt; m</code>, <code>c</code>, the increment; <code>0 ≤ c &lt; m</code>, <code>X0</code>, the starting value; <code>0 ≤ X0 &lt; m</code>. The desired sequence of random numbers <code>⟨Xn⟩</code> is then obtained by setting:</li>
+</ul>
+<pre><code class="language-🐝">
+Xn+1 = (aXn + c) mod m, n ≥ 0
+</code></pre>
+<p><br></p>
+<p>With the following rules:</p>
+<pre><code class="language-🐝">
+1. The seed (X_0) must be chosen arbitrarily.
+2. The number (m) should be large, at least (2^{30}).
+3. If (m) is a power of 2 (i.e., if using a binary computer), choose (a) so that (a \bmod 8 = 5).
+4. The multiplier (a) should be chosen between (0.01m) and (0.99m), 
+        and its binary or decimal digits should not have a simple, regular pattern.
+5. (c) must have no factor in common with (m).
+6. It’s best to think of (X) as a random fraction (X/m) between 0 and 1.
+7. The accuracy in (t) dimensions will be only about one part in (\sqrt[t]{m}).
+8. At most about (m/1000) numbers should be generated; otherwise, the future will behave more like the past.
+</code></pre>
+<p><br></p>
+<ul>
+<li>The most prudent policy for a person to follow is to run each Monte Carlo program at least twice using quite different sources of random numbers, before taking the answers of the program seriously; this will not only give an indication of the stability of the results, it also will guard against the danger of trusting in a generator with hidden deficiencies.</li>
+</ul>
+<ul>
+<li>“Mathematicians consider the decimal expansion of <code>π</code> a random series, but to a modern numerologist it is rich with remarkable patterns.” Dr. Matrix has pointed out, for example, that the first repeated two-digit number in <code>π</code>’s expansion is <code>26</code>, and its second appearance comes in the middle of a curious repetition pattern: <code>3.14159265358979323846264338327950</code>. After listing a dozen or so further properties of these digits, he observed that <code>π</code>, when correctly interpreted, conveys the entire history of the human race!</li>
+</ul>
+<ul>
+<li>The chi-square test (<code>χ2</code> test) is perhaps the best known of all statistical tests, and it is a basic method that is used in connection with many other tests. The distribution is an approximation that is valid only for large enough values of <code>n</code>.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>The Kolmogorov–Smirnov test → the chi-square test applies to the situation when observations can fall into a finite number of categories. It is not unusual, however, to consider random quantities that range over infinitely many values, such as a random fraction (a random real number between <code>0</code> and <code>1</code>). Even though only finitely many real numbers can be represented in a computer, we want our random values to behave essentially as if all real numbers in <code>[0..1)</code> were equally likely. A general notation for specifying probability distributions, whether they are finite or infinite, is commonly used in the study of probability and statistics. Suppose we want to specify the distribution of the values of a random quantity, <code>X</code>; we do this in terms of the distribution function <code>F(x)</code>, where <code>F(x) = Pr(X ≤x) =</code> probability that <code>(X ≤ x)</code>. If we make <code>n</code> independent observations of the random quantity <code>X</code>, thereby obtaining the values <code>X1, X2,..., Xn</code>, we can form the empirical distribution function <code>Fn(x)</code>, where number of <code>X1,X2,...,Xn that are ≤ x Fn(x) = n</code>. The Kolmogorov–Smirnov test (KS test) may be used when <code>F(x)</code> has no jumps. It is based on the difference between <code>F(x)</code> and <code>Fn(x)</code>. A bad source of random numbers will give empirical distribution functions that do not approximate <code>F(x)</code> sufficiently well.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>An important difference between the KS test and the chi-square test is that the KS test applies to distributions <code>F(x)</code> having no jumps, while the chi-square test applies to distributions having nothing but jumps (since all observations are divided into <code>k</code> categories).</li>
+</ul>
+<p><br></p>
+<blockquote><p>☀️ <em>More generally, we want pairs of successive numbers to be uniformly distributed in an independent manner. The sun comes up just about as often as it goes down, in the long run, but that doesn’t make its motion random.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Theoretical tests for randomness (summarized by robot CG, “If these numbers were truly independent and uniformly distributed, would I see this particular pattern this often?”):</li>
+</ul>
+<pre><code class="language-🐝">
+1. Equidistribution test 
+    — checks whether generated values occur with approximately equal frequency across the possible outcomes.
+2. Serial test 
+    — checks whether successive pairs/tuples of values are uniformly distributed,
+    - detecting dependence between neighboring values.
+3. Gap test 
+    — examines the lengths of gaps between occurrences of values in a specified interval.
+4. Poker test 
+    — groups values into fixed-size sets and checks whether the resulting patterns occur with the expected frequencies.
+5. Coupon collector’s test 
+    — measures how many observations are needed to collect all possible categories, 
+    - looking for deviations from the expected collection time.
+6. Permutation test
+    — checks whether relative ordering of successive values produces each possible permutation with expected frequency.
+7. Run test 
+    — examines consecutive increasing/decreasing runs to detect patterns inconsistent with randomness.
+8. Maximum-of-t test 
+    — divides observations into blocks and studies the distribution of each block’s maximum.
+9. Collision test 
+    — looks for repeated values (“collisions”) and 
+    - compares their frequency with the probability expected under independent random sampling.
+10. Spectral test 
+    — primarily for linear congruential generators, 
+    - examines the lattice structure of generated points to detect hidden regularities.
+</code></pre>
+<p><br></p>
+<ul>
+<li>A sequence is said to be <code>∞</code>-distributed if it is <code>k</code>-distributed for all positive integers <code>k</code>.</li>
+</ul>
+<ul>
+<li>A truly random sequence will exhibit local non-randomness.</li>
+</ul>
+<ul>
+<li>Does <code>∞</code>-distributed = random? A <code>[0..1)</code> sequence is defined to be “random” if it is an <code>∞</code>-distributed sequence.</li>
+</ul>
+<p><br></p>
+<hr>
+<h4 id="to-be-continued">TO BE CONTINUED... 😄</h4>
+<p><br></p>
+<h4 id="section">⬛️</h4></div>
 								</article>
 							</div>
 						</div>

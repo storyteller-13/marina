@@ -198,10 +198,224 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-08-24">2026; 08; 24</time></p>
+									<h1 id="post-title" class="section-title">📚 BOOK → TAOCP 2️⃣ of 6️⃣ (Donald E. Knuth, 2019)</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 10/10 | Beginner to Advanced Computer Scientists | Today&#x27;s Word: Nostalgia · Nostalgie · なつかしさ · נוסטלגיה</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p><img src="/blog/assets/magritte2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Here are three cool quotes from my week:</p>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=o7WGrdg-p4Y">🎶</a> <em><strong>&quot;From error to error one discovers the entire truth.&quot;</strong></em> — Sigmund Freud</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=pJsX3os6Xc0">🎵</a>  <em><strong>&quot;An idea is like a virus. Resilient. Highly contagious. And even the smallest seed of an idea can grow. It can grow to define or destroy you.&quot;</strong></em> — Dom Cobb, Inception</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=h2cipX5Ir-0">🎼</a> <em><strong>&quot;Science is a method of disciplined skepticism: it does not seek absolute certainty, but progressively stronger evidence against plausible alternatives. We do not establish truth by eliminating uncertainty; we establish increasingly compelling evidence by exposing hypotheses to attempts at falsification. 5σ under the null hypothesis is the scientific method&#39;s way of saying the more surprising the claim, the more evidence it needs to earn belief. Turning Carl Sagan&#39;s old line, &#39;extraordinary claims require extraordinary evidence,&#39; into an actual, enforceable threshold.&quot;</strong></em> — Robot Clau in collaboration with Robot CG</p></blockquote>
+<p><br></p>
+<p>In this second post, I continue <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_knuth.html">the work started in Part 1️⃣</a></strong> during this <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=4V7Mt_TcFjM">luminal spacetime of mine</a></strong>. Here, I conclude volume 2️⃣ and revisit the basics and <strong><a target="_blank" rel="noopener noreferrer" href="https://essays.georgestrakhov.com/weird/">the beauty</a></strong> of arithmetic. This was a very nostalgic <strong><a target="_blank" rel="noopener noreferrer" href="https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/">sesh</a></strong> that transported me back to <strong><a target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20070322015644/http://fly.to/bytegirl">my high school</a></strong> and <strong><a target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20090620090344/http://www.steinkirch.org/">college days</a></strong> (and perhaps even <strong><a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/">my PhD</a></strong>?). I love <strong><a target="_blank" rel="noopener noreferrer" href="https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization">math</a></strong>, I love <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=6as2S-ixusE">science</a></strong>, I love <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=HI2q3ci3Iuc">computers</a></strong>, I love <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=pDSDbi6ffIc">nature</a></strong>, I love <strong><a target="_blank" rel="noopener noreferrer" href="https://www.munch.no/en/object/MM.M.00777">art</a></strong>, I love <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=tW6VQLOhBcE">philosophy</a></strong>, I love the <strong><a target="_blank" rel="noopener noreferrer" href="https://apod.nasa.gov/apod/ap260824.html">universe</a></strong>, I love <strong><a target="_blank" rel="noopener noreferrer" href="https://www.jank.cool/death-to-the-self-playing-game/">life</a></strong>.</p>
+<p><br></p>
+<p>As always, below are a few highlights (for personal inventory), with a moderate attempt at coherence:</p>
+<p><strong>🤖 If you see a 👾, it means I found something particularly cool or learned something new.</strong><br><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 If you see a ☀️, it means it&#39;s just a fun easter egg (because life&#39;s short; <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=VbD_kBJc_gI">we must dance</a>).</strong><br><strong>🤖 If these notes look interesting to you, it&#39;s your ✦moral duty✦ to read the original books.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#floating">Floating</a></li><li><a href="#gcd">GCD</a></li><li><a href="#primes">Primes</a></li><li><a href="#polymomials">Polymomials</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="volume-2-chapter-4-arithmetic">🌠 VOLUME 2️⃣; CHAPTER 4️⃣; ARITHMETIC</h2>
+<p><br></p>
+<h3 id="floating">Floating</h3>
+<p><br></p>
+<blockquote><p>✨ <em>“Every well-rounded programmer ought to have a knowledge of what goes on during the elementary steps of floating point arithmetic.</em> ✨</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/knuth5.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Fixed point positional notation was apparently first conceived by the Maya Indians in central America some 2000 years ago; their radix-20 system was highly developed, especially in connection with astronomical records and calendar dates. They began to use a written sign for zero about A.D. 200. But the Spanish conquerors destroyed nearly all of the Maya books on history and science, so we have comparatively little knowledge about the degree of sophistication that native Americans had reached in arithmetic. Special-purpose multiplication tables have been found, but no examples of division are known.</li>
+</ul>
+<ul>
+<li>Our decimal notation, which differs from the more ancient forms primarily because of its fixed radix point, together with its symbol for zero to mark an empty position, was developed first in India within the Hindu culture. The exact date when this notation first appeared is quite uncertain; about A.D. 600 seems to be a good guess. Hindu science was highly developed at that time, particularly in astronomy.</li>
+</ul>
+<ul>
+<li>The Hindu principles of decimal arithmetic were brought to Persia about A.D. 750, as several important works were translated into Arabic; a picturesque account of this development is given in a Hebrew document by Abraham Ibn Ezra.</li>
+</ul>
+<ul>
+<li>Decimal notation was applied at first only to integer numbers, not to fractions. Arabic astronomers, who required fractions in their star charts and other tables, continued to use the notation of Ptolemy, a notation based on sexagesimal fractions.</li>
+</ul>
+<ul>
+<li>Chinese mathematicians—who never used sexagesimals—were apparently the first people to work with the equivalent of decimal fractions, although their numeral system (lacking zero) was not originally a positional number system in the strict sense. Chinese units of weights and measures were decimal, so that Tsu Ch’ung-Chih (who died in A.D. 500 or 501) was able to express an approximation to <code>π</code> in the following form: 3 chang, 1 ch’in, 4 ts’un, 1 fen, 5 li, 9 hao, 2 miao, 7 hu.</li>
+</ul>
+<ul>
+<li>Blaise Pascal wrote, <em>&quot;Denaria enim ex instituto hominum, non ex necessitate naturæ ut vulgus arbitratur, et sane satis inepte, posita est&quot;</em>; i.e., <em>&quot;The decimal system has been established, somewhat foolishly to be sure, according to man’s custom, not from a natural necessity as most people think&quot;.</em></li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth4.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p>✨ <em>For many purposes, it is considerably more convenient to let the position of the radix point be dynamically variable or “floating” as a program is running, and to carry with each number an indication of its current radix point position. This idea has been used for many years in scientific calculations, especially for expressing very large numbers like Avogadro’s number <code>N = 6.02214 × 10^23</code> (<code>N = (74,+.60221400)</code>), or very small numbers like Planck’s constant <code>h = 6.6261 × 10^−27 erg sec</code> (<code>h = (24,+.66261000).</code>).</em> ✨</p></blockquote>
+<blockquote><p><em>Round numbers are always false.</em> — Samuel Johnson (1750)</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/knuth7.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Numerical subroutines should deliver results that satisfy simple, useful mathematical laws whenever possible.</li>
+</ul>
+<ul>
+<li>The crucial formula <code>u ⊕ v = round(u + v)</code> is a regularity property that makes a great deal of difference between whether mathematical analysis of computational algorithms is worth doing or worth avoiding. Without any underlying symmetry properties, the job of proving interesting results becomes extremely unpleasant. The enjoyment of one’s tools is an essential ingredient of successful work.</li>
+</ul>
+<ul>
+<li>Another interesting alternative is available for doing arithmetic on large integer numbers, based on some simple principles of number theory. The idea is to have several moduli <code>m1</code>,<code> m2</code>, ... , <code>mr</code> that contain no common factors, and to work indirectly with residues <code>u mod m1</code>, <code>u mod m2</code>,..., <code>u mod mr</code> instead of directly with the number <code>u</code>.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth6.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>We may therefore regard <code>(u1, u2, ... , ur)</code> as a new type of internal computer representation, a “modular representation,” of the integer <code>u</code>.</li>
+</ul>
+<ul>
+<li>The range of numbers that can be handled by modular arithmetic is equal to <code>m = m1 m2 ... mr</code>, the product of the moduli; and if each <code>mj</code> is near our computer’s word size we can deal with <code>n</code>-place numbers when <code>r ≈ n</code>.</li>
+</ul>
+<ul>
+<li>The critical problem in high-precision multiplication is the determination of “convolution products” such as <code>ur v0 + u_{r − 1} v1 + ··· + u0 vr</code>, and there is an intimate relation between convolutions and Fourier transformation.</li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="gcd">GCD</h3>
+<p><br></p>
+<p><img src="/blog/assets/gcd.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p><em>Original Euclidean algorithm → Given two integers <code>A</code> and <code>C</code> greater than unity, this algorithm finds their greatest common divisor: E1. [Is <code>A</code> divisible by <code>C</code>?] If <code>C</code> divides <code>A</code>, the algorithm terminates with <code>C</code> as the answer. E2. [Replace <code>A</code> by remainder.] If <code>A mod C</code> is equal to unity, the given numbers were relatively prime, so the algorithm terminates. Otherwise replace the pair of values <code>(A, C)</code> by <code>(C, A mod C)</code> and return to step E1.</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>Modern Euclidean algorithm → Given nonnegative integers <code>u</code> and <code>v</code>, this algorithm finds their greatest common divisor. <code>A1</code>. <code>[v = 0?]</code> If <code>v = 0</code>, the algorithm terminates with <code>u</code> as the answer. <code>A2</code>. [Take <code>u mod v</code>.] Set <code>r ← u mod v</code>, <code>u ← v</code>, <code>v ← r</code>, and return to <code>A1</code>.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>If u and v are integers chosen at random, the probability that <code>gcd(u, v) = 1</code> is <code>6 / π2 ≈.60793</code>.</li>
+</ul>
+<ul>
+<li>The execution time of Euclid’s algorithm depends on <code>T</code>, the number of times the division step <code>A2</code> is performed. The quantity <code>T</code> is also an important factor in the running time of other algorithms, such as the evaluation of functions satisfying a reciprocity formula.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/euclid.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<pre><code class="language-🐝">
+// x1, x2, ..., xn // = 1 / (x1 + 1 / (x2 + 1 / (··· / (xn − 1 + 1/xn ) ... )))
+</code></pre>
+<p><br></p>
+<pre><code class="language-🐝">
+π =  3 + //7,15,1,292,1,1,1,2,1,3,1,14,2,1,1,2,2,2,2,1,84,2,1,1,15,3,13,...//;
+e = 2 + //1,2,1,1,4,1,1,6,1,1,8,1,1,10,1,1,12,1,1,14,1,1,16,1,1,18,1,...//;
+γ = //1,1,2,1,2,1,4,3,13,5,1,1,8,1,2,4,1,1,40,1,11,3,7,1,7,1,1,5,1,49,...//;
+ϕ = 1 + //1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,...//.
+</code></pre>
+<p><br></p>
+<ul>
+<li>👾 The worst case of Euclid’s algorithm → the upper bound on the number of division steps → when the inputs are consecutive Fibonacci numbers.</li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="primes">Primes</h3>
+<p><br></p>
+<ul>
+<li>It is unfortunately not a simple matter to find this prime factorization of <code>n</code>, or to determine whether or not <code>n</code> is prime. So far as anyone knows, it is a great deal harder to factor a large number <code>n</code> than to compute the greatest common divisor of two large numbers <code>m</code> and <code>n</code>; therefore we should avoid factoring large numbers whenever possible. → (☀️ or we just build a <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Shor%27s_algorithm">quantum computer</a></strong>).</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/factoring.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Let <code>π(x)</code> be the number of primes <code>≤ x</code>, so that <code>π(2) = 1</code>, <code>π(10) = 4</code>; the asymptotic behavior of this function has been studied extensively by many of the world’s greatest mathematicians, beginning with Legendre in 1798, then the Riemann conjecture in 1859, which was disproved by J.E. Littlewood in 1914, and the Riemann hypothesis which states that the complex function <code>ζ(z)</code> is zero only when the real part of <code>z</code> is equal to <code>1/2</code>, except in the trivial cases where <code>z</code> is a negative even integer, which would imply <code>π(x) = L(x) + O(√xlogx)</code> where <code> L(x) = int_2^x dt/lnt</code>.</li>
+</ul>
+<ul>
+<li>👾 The size of prime factors has a remarkable connection with permutations: The average number of bits in the <code>k</code>th largest prime factor of a random <code>n</code>-bit integer is asymptotically the same as the average length of the <code>k</code>th largest cycle of a random <code>n</code>-element permutation, as <code>n → ∞</code>.</li>
+</ul>
+<ul>
+<li>Fermat’s method → Another approach to the factoring problem, which was used by Pierre de Fermat in 1643, is more suited to finding large factors than small ones. Assume that <code>N = uv</code>, where <code>u ≤ v</code>. For practical purposes we may assume that <code>N</code> is odd; this means that <code>u</code> and <code>v</code> are odd, and we can let:</li>
+</ul>
+<pre><code class="language-🐝">
+x = (u + v) / 2
+y = (v − u) / 2
+</code></pre>
+<p><br></p>
+<ul>
+<li>Fermat’s method consists of searching systematically for values of <code>x</code> and <code>y</code> that satisfy:</li>
+</ul>
+<pre><code class="language-🐝">
+N = x^2 − y^2, 0 ≤ y &lt; x ≤ N
+</code></pre>
+<p><br></p>
+<p><img src="/blog/assets/primes.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>According to Fermat’s theorem, we have <code>x^{p − 1} mod  p = 1</code> whenever <code>p</code> is prime and <code>x</code> is not a multiple of <code>p</code>. Furthermore, there are efficient ways to calculate <code>x^{n − 1} mod n</code>, requiring only <code>O(log n)</code> operations of multiplication <code>mod n</code>.</li>
+</ul>
+<ul>
+<li>Fermat’s theorem is a powerful test for showing nonprimality of a given number. When <code>n</code> is not prime, it is always possible to find a value of <code>x &lt; n</code> such that <code>x^{n − 1} mod n ≠ 1</code> → If there is a number <code>x</code> for which the order of <code>x</code> modulo <code>n</code> is equal to <code>n − 1</code>, then <code>n</code> is prime.</li>
+</ul>
+<ul>
+<li>It is unnecessary to calculate <code>x^k mod n</code> for all <code>k ≤ n − 1</code> to determine if the order of <code>x</code> is <code>n − 1</code> or not. The order of <code>x</code> will be <code>n − 1</code> if and only if:</li>
+</ul>
+<pre><code class="language-🐝">
+i) x^{n − 1} mod n = 1
+ii) x^{(n − 1)/p} mod ≠ 1 for all primes p that divide n − 1
+</code></pre>
+<p><br></p>
+<p><img src="/blog/assets/primes2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>👾 A completely rigorous and deterministic way to test for primality in polynomial time was finally discovered in 2002 by Manindra Agrawal, Neeraj Kayal, and Nitin Saxena → Let <code>r</code> be an integer such that <code>n⊥r</code> and the order of <code>n mod r</code> exceeds <code>(lgn)^2</code>. Then <code>n</code> is prime if and only if the polynomial congruence <code>(z + a)^n ≡ z^n + a</code> (modulo <code>z^r − 1</code>  and <code>n</code>) holds for <code>0 ≤ z ≤√r lg n</code>.</li>
+</ul>
+<ul>
+<li>Marin Mersenne’s Cogitata Physico-Mathematica (Mersenne numbers) → A number of the form <code>2^{n − 1}</code> cannot be prime unless <code>n</code> is prime, since <code>2^{uv} − 1</code> is divisible by <code>2^u − 1</code> → the numbers <code>2^{p − 1}</code> are prime for <code>p = 2, 3, 5, 7, 13, 17, 19, 31, 67, 127, 257</code>, and for no other <code>p</code> less than <code>257</code>.</li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="polymomials">Polymomials</h3>
+<p><br></p>
+<ul>
+<li>✨ It is possible to divide one polynomial by another in essentially the same way that we divide one multiple-precision integer by another, when arithmetic is being done on polynomials over a field. A field <code>S</code> is a commutative ring with identity, in which exact division is possible as well as the operations of addition, subtraction, and multiplication; this means as usual that whenever <code>u</code> and <code>v</code> are elements of <code>S</code>, and <code>v ≠ 0</code>, there is an element <code>w</code> in <code>S</code> such that <code>u = vw</code>. ✨</li>
+</ul>
+<ul>
+<li>✨ Of special importance is the field of integers modulo <code>2</code>, whose only elements are <code>0</code> and <code>1</code>. Polynomials over this field (namely polynomials modulo <code>2</code>) have many analogies to integers expressed in binary notation; and rational functions over this field have striking analogies to rational numbers whose numerator and denominator are represented in binary notation. ✨</li>
+</ul>
+<ul>
+<li>Unique factorization domains → Consider the more general situation that the algebraic system <code>S</code> of coefficients is a unique factorization domain, not necessarily a field. This means that <code>S</code> is a commutative ring with identity, and that i) <code>uv ≠ 0</code>, whenever <code>u</code> and <code>v</code> are nonzero elements of <code>S</code>; ii) every non zero element <code>u</code> of <code>S</code> is either a unit or has a “unique” representation as a product of primes <code>p1,..., pt</code>. A unit is an element that has a reciprocal, namely an element <code>u</code> such that <code>uv = 1</code> for some <code>v</code> in <code>S</code>; and a prime is a non unit element <code>p</code> such that the equation <code>p = qr</code> can be true only if either <code>q</code> or <code>r</code> is a unit.</li>
+</ul>
+<ul>
+<li>Any field is a unique factorization domain, in which each nonzero element is a unit and there are no primes.</li>
+</ul>
+<ul>
+<li>Polynomials over a unique factorization domain form a unique factorization domain. A polynomial that is prime in this domain is usually called an irreducible polynomial. A polynomial over a unique factorization domain is called primitive if its coefficients are relatively prime.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/primitive.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Gauss’s Lemma → The product of primitive polynomials over a unique factorization domain is primitive. → Any nonzero polynomial <code>u(x)</code> over a unique factorization domain <code>S</code> can be factored in the form <code>u(x) = c·v(x)</code>, where <code>c</code> is in <code>S</code> and <code>v(x)</code> is primitive. This representation is unique, in the sense that if <code>u = c1·v1(x) = c2·v2(x)</code>, then <code>c1 = ac2</code> and <code>v2(x) = av1(x)</code> where <code>a</code> is a unit of <code>S</code>.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/primitive2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Generalized Euclidean algorithm → Given nonzero polynomials <code>u(x)</code> and <code>v(x)</code> over a unique factorization domain <code>S</code>, this algorithm calculates a greatest common divisor of <code>u(x)</code> and <code>v(x)</code>. We assume that auxiliary algorithms exist to calculate greatest common divisors of elements of <code>S</code>, and to divide <code>a</code> by <code>b</code> in <code>S</code> when <code>b ≠ 0</code> and <code>a</code> is a multiple of <code>b</code>.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>”The asymptotically best algorithms frequently turn out to be worst on all problems for which they are used.”</em> — Cantor and Zassenhaus (1981)</p></blockquote>
+<p><br></p>
+<ul>
+<li>An addition chain for n is a sequence of integers <code>1 = a0, a1, a2, ..., ar = n</code> with the property that <code>ai = aj + ak, for some k ≤ j &lt; i</code>, for all <code>i = 1, 2,..., r</code>.</li>
+</ul>
+<ul>
+<li>👾 An addition chain corresponds in a natural way to a directed graph, where the vertices are labeled <code>ai</code> for <code>0 ≤ i ≤ r</code>, and where we draw arcs from <code>aj</code> to <code>ai</code> and from <code>ak</code> to <code>ai</code> as a representation of each step <code>ai = aj + ak</code>.</li>
+</ul>
+<ul>
+<li>The length of the addition chain, exclusive of useless steps, can be reconstructed by looking at the reduced graph → <code>(number of arcs) − (number of vertices) + 1</code> (deletion of a vertex of out-degree <code>1</code> also deletes one arc).</li>
+</ul>
+<ul>
+<li>An addition chain is equivalent to a star chain if and only if its reduced directed graph can be topologically sorted in only one way.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/starchains.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h5 id="to-be-continued">TO BE CONTINUED... 🤓</h5>
+<h5 id="talking-about-nostalgia-here-s-a-picture-of-me-when-i-was-living-in-d-c-and-studying-active-galactic-nuclei-at-the-goddard-space-flight-center-nasa-sudo-circa-2008">Talking about nostalgia — here’s a picture of me when I was living in D.C. and studying <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Active_galactic_nucleus">active galactic nuclei</a></strong> at the <strong><a target="_blank" rel="noopener noreferrer" href="https://www.nasa.gov/goddard/">Goddard Space Flight Center, NASA</a></strong> — <strong><a target="_blank" rel="noopener noreferrer" href="https://store.xkcd.com/">sudo</a></strong> circa 2008.</h5>
+<p><br></p>
+<p><img src="/blog/assets/nasa.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h5 id="section">⬛️</h5></div>
 								</article>
 							</div>
 						</div>

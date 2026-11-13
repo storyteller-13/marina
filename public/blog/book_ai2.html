@@ -198,10 +198,1045 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-08-07">2026; 08; 07</time></p>
+									<h1 id="post-title" class="section-title">📚 BOOK → Artificial Intel 2️⃣ of 3️⃣ (Russell &amp; Norvig, 2010)</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 10/10 | Beginner to Advanced AI Scientists</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><em><strong>&quot;We can see only a short distance ahead, but we can see that much remains to be done.&quot;</strong></em> - Alan Turing’s Computing Machinery and Intelligence (1950)</p></blockquote>
+<p><br></p>
+<p>In this second post, I continue <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_ai.html">the work started in Part 1️⃣</a></strong>, studying inference in first-order logic, planning, searching, uncertainty, reasoning, making decisions, and a bit of the superintelligence discussion from the last post.</p>
+<p>The remaining chapters for <code>V. Learning</code> and <code>VI. Communicating, perceiving, and acting</code> are closer to the applied side of ML and Robotics (which I studied during my PhD, or over the years...). I&#39;ll cover them in the final post, Part 3️⃣.</p>
+<p><br></p>
+<p>As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:</p>
+<p><strong>🤖 If you see a 👾, it means I found something particularly cool or learned something new.</strong><br><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 If these notes look interesting to you, it&#39;s your ✦moral duty✦ to read the original book.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#10-classical-planning">🎸 10. CLASSICAL PLANNING</a></li><li><a href="#11-planning-and-acting-in-the-real-world">🎸 11. PLANNING AND ACTING IN THE REAL WORLD</a></li><li><a href="#12-knowledge-representation">🎸 12. KNOWLEDGE REPRESENTATION</a></li><li><a href="#13-quantifying-uncertainty">🎸 13. QUANTIFYING UNCERTAINTY</a></li><li><a href="#14-probabilistic-reasoning">🎸 14.  PROBABILISTIC REASONING</a></li><li><a href="#15-probabilistic-reasoning-over-time">🎸 15. PROBABILISTIC REASONING OVER TIME</a></li><li><a href="#16-making-simple-decisions">🎸 16. MAKING SIMPLE DECISIONS</a></li><li><a href="#17-making-complex-decisions">🎸 17.  MAKING COMPLEX DECISIONS</a></li><li><a href="#26-philosophical-foundations">🎸 26. Philosophical Foundations</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="10-classical-planning">🎸 10. CLASSICAL PLANNING</h2>
+<p><br></p>
+<blockquote><p>👾 <em>AI as the study of rational action -&gt; planning—devising a plan of action to achieve one’s goals—is a critical part of AI.</em></p></blockquote>
+<p><br></p>
+<h4 id="definition-of-classical-planning">DEFINITION OF CLASSICAL PLANNING</h4>
+<p><br></p>
+<ul>
+<li>PDDL (the Planning Domain Definition Language) -&gt; allows us to express all <code>4Tn^2</code> actions with one action schema -&gt; describes the four things we need to define a search problem:</li>
+</ul>
+<p><br></p>
+<pre><code>
+- the initial state
+- the actions that are available in a state
+- the result of applying an action
+- the goal test
+</code></pre>
+<p><br></p>
+<ul>
+<li>The initial state is a conjunction of ground atoms.</li>
+</ul>
+<ul>
+<li>The goal is just like a precondition: a conjunction of literals (positive or negative) that may contain variables.</li>
+</ul>
+<p><br></p>
+<h4 id="algorithms-for-planning-as-state-space-search">ALGORITHMS FOR PLANNING AS STATE-SPACE SEARCH</h4>
+<p><br></p>
+<blockquote><p><em>The description of a planning problem defines a search problem.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Two approaches to searching for a plan -&gt; (a) Forward (progression) search through the space of states, starting in the initial state and using the problem’s actions to search forward for a member of the set of goal states.; (b) Backward (regression) search through sets of relevant states, starting at the set of states representing the goal and using the inverse of the actions to search backward for the initial state.</li>
+</ul>
+<p><br></p>
+<blockquote><p>🌟 <em>A search problem can be seen as a graph where the nodes are states and the edges are actions. The problem is to find a path connecting the initial state to a goal state. There are two ways we can relax this problem to make it easier: by adding more edges to the graph, making it strictly easier to find a path, or by grouping multiple nodes together, forming an abstraction of the state space that has fewer states, and thus is easier to search.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Subgoal independence assumption is that the cost of solving a conjunction of subgoals is approximated by the sum of the costs of solving each subgoal independently.</li>
+</ul>
+<p><br></p>
+<h4 id="planning-graphs">PLANNING GRAPHS</h4>
+<p><br></p>
+<blockquote><p><em>As a planning problem asks if we can reach a goal state from the initial state, a planning graph can be used to give better heuristic estimates.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>A planning problem asks if we can reach a goal state from the initial state. Suppose we are given a tree of all possible actions from the initial state to successor states, and their successors -&gt; exponential size -&gt; A planning graph is polynomial-size approximation to this tree that can be constructed quickly.</li>
+</ul>
+<ul>
+<li>It can’t answer definitively whether <code>G</code> is reachable from <code>S0</code>, but it can estimate how many steps it takes to reach <code>G</code>. -&gt; a directed graph organized into levels. -&gt; <code>Si</code> contains all the literals that could hold at time <code>i</code>, depending on the actions executed at preceding time steps AND <code>Ai</code> contains all the actions that could have their preconditions satisfied at time <code>i</code>.</li>
+</ul>
+<ul>
+<li>Mutual exclusion (or mutex) links -&gt; records conflicts between actions that would prevent them from occurring together.</li>
+</ul>
+<ul>
+<li>Level <code>S1</code> contains all the literals that could result from picking any subset of the actions in <code>A0</code>, as well as mutex links (gray lines) indicating literals that could not appear together -&gt; <code>S1</code> represents a belief state: a set of possible states. -&gt; continue alternating between -&gt; <code>n</code> state level <code>Si</code> and action level <code>Ai</code> until we reach a point where two consecutive levels are identical. -&gt; the graph has leveled off.</li>
+</ul>
+<ul>
+<li>Every <code>Si</code> level contains all the literals that could result from any possible choice of actions in <code>Ai</code>, along with constraints saying which pairs of literals are not possible. -&gt; the process of constructing the planning graph does not require choosing among actions, which would entail combinatorial search. Instead, it just records the impossibility of certain choices using mutex links.</li>
+</ul>
+<ul>
+<li>A mutex relation holds between two actions at a given level if any of the following three conditions holds: 1) Inconsistent effects; 2) Inference; 3) Competing needs.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>A planning graph is polynomial in the size of the planning problem. For a planning problem with <code>l</code> literals and <code>a</code> actions, each <code>Si</code> has no more than <code>l</code> nodes and l2 mutex links, and each <code>Ai</code> has no more than <code>a + l</code> nodes (including the no-ops), <code>(a + l)2</code> mutex links, and <code>2(al + l)</code> precondition and effect links. Thus, an entire graph with n levels has a size of <code>O(n(a + l)2)</code>. The time to build the graph has the same complexity.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>if any goal literal fails to appear in the final level of the graph, then the problem is unsolvable.</li>
+</ul>
+<ul>
+<li>Level cost of go -&gt; we can estimate the cost of achieving any goal literal <code>gi</code> from state <code>s</code> as the level at which <code>gi</code> first appears in the planning graph constructed from initial state <code>s</code>.</li>
+</ul>
+<ul>
+<li>Serial graph insists that only one action can actually occur at any given time step; this is done by adding mutex links between every pair of nonpersistence actions.</li>
+</ul>
+<p><br></p>
+<h4 id="the-graphplan-algorithm">The GRAPHPLAN Algorithm</h4>
+<p><br></p>
+<blockquote><p>👾 <em>How to extract a plan directly from the planning graph, rather than just using the graph to provide a heuristic -&gt; The GRAPHPLAN algorithm repeatedly adds a level to a planning graph with EXPAND-GRAPH. Once all the goals show up as non- mutex in the graph, GRAPHPLAN calls EXTRACT-SOLUTION to search for a plan that solves the problem. If that fails, it expands another level and tries again, terminating with failure when there is no reason to go on.</em></p></blockquote>
+<p><br></p>
+<pre><code>
+function GRAPHPLAN(problem) returns solution or failure
+	graph ← INITIAL-PLANNING-GRAPH(problem)
+	goals ← CONJUNCTS(problem.GOAL)
+	nogoods ← an empty hash table
+	for tl = 0 to ∞ do
+		if goals all non-mutex in St of graph then
+			solution ← EXTRACT-SOLUTION(graph, goals, NUMLEVELS(graph), nogoods)
+			if solution = failure then return solution
+		if graph and nogoods have both leveled off then return failure
+		graph←EXPAND-GRAPH(graph, problem)
+</code></pre>
+<p><br></p>
+<ul>
+<li>Mutex relations and their causes: inconsistent effects, interference, competing needs, inconsistent support.</li>
+</ul>
+<ul>
+<li>We could define EXTRACT-SOLUTION as a backward search problem where each state in the search contains a pointer to a level in the planning graph and a set of unsatisfied goals.</li>
+</ul>
+<ul>
+<li>Planning is PSPACE-complete and constructing the planning graph takes polynomial time -&gt; solution extraction is intractable in the worst case.</li>
+</ul>
+<ul>
+<li>How long do we have to keep expanding after the graph has leveled off? If the function EXTRACT-SOLUTION fails to find a solution, then there must have been at least one set of goals that were not achievable and were marked as a no-good.</li>
+</ul>
+<ul>
+<li>As soon as the graph itself and the no-goods have both leveled off, with no solution found, we can terminate with failure because there is no possibility of a subsequent change that could add a solution.</li>
+</ul>
+<ul>
+<li>Now all we have to do is prove that the graph and the no-goods will always level off. The key to this proof is that certain properties of planning graphs are monotonically increasing or decreasing.</li>
+</ul>
+<ul>
+<li>Properties:</li>
+</ul>
+<pre><code>
+* Literals increase monotonically: Once a literal appears at a given level, it will appear at all subsequent levels. This is because of the persistence actions; once a literal shows up, persistence actions cause it to stay forever.
+* Actions increase monotonically: Once an action appears at a given level, it will appear at all subsequent levels.
+* Mutexes decrease monotonically: If two actions are mutex at a given level Ai, then they will also be mutex for all previous levels at which they both appear. 
+* No-goods decrease monotonically: If a set of goals is not achievable at a given level, then they are not achievable in any previous level.
+</code></pre>
+<p><br></p>
+<h4 id="analysis-of-planning-approaches">ANALYSIS OF PLANNING APPROACHES</h4>
+<p><br></p>
+<ul>
+<li>Currently the most popular and effective approaches to fully automated planning are: 1) Translating to a Boolean satisfiability (SAT) problem; 2) Forward state-space search with carefully crafted heuristics; 3) Search using a planning graph.</li>
+</ul>
+<ul>
+<li>Planning combines the two major areas of AI we have covered so far: search and logic.</li>
+</ul>
+<ul>
+<li>Planning is foremost an exercise in controlling combinatorial explosion. If there are <code>n</code> propositions in a domain, then there are <code>2n</code> states. As we have seen, planning is PSPACE-hard. Against such pessimism, the identification of independent subproblems can be a powerful weapon. In the best case—full decomposability of the problem—we get an exponential speedup. Decomposability is destroyed, however, by negative interactions between actions. GRAPHPLAN records mutexes to point out where the difficult interactions are. SATPLAN represents a similar range of mutex relations, but does so by using the general CNF form rather than a specific data structure. Forward search addresses the problem heuristically by trying to find patterns (subsets of propositions) that cover the independent subproblems. Since this approach is heuristic, it can work even when the subproblems are not completely independent.</li>
+</ul>
+<ul>
+<li>AI planning arose from investigations into state-space search, theorem proving, and control theory and from the practical needs of robotics, scheduling, and other domains.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="11-planning-and-acting-in-the-real-world">🎸 11. PLANNING AND ACTING IN THE REAL WORLD</h2>
+<p><br></p>
+<h4 id="time-schedules-and-resources">TIME, SCHEDULES, AND RESOURCES</h4>
+<p><br></p>
+<ul>
+<li>Plan first, schedule later: that is, we divide the overall problem into a planning phase in which actions are selected, with some ordering constraints, to meet the goals of the problem, and a later scheduling phase, in which temporal information is added to the plan to ensure that it meets resource and deadline constraints.</li>
+</ul>
+<ul>
+<li>A typical job-shop scheduling problem, consists of a set of jobs, each of which consists a collection of actions with ordering constraints among them. Each action has a duration and a set of resource constraints required by the action. Each constraint specifies a type of resource (e.g., bolts, wrenches, or pilots), the number of that resource required, and whether that resource is consumable (e.g., the bolts are no longer available for use) or reusable (e.g., a pilot is occupied during a flight but is available again when the flight is over).</li>
+</ul>
+<ul>
+<li>As with search and planning problems, solutions can be evaluated according to a cost function; this can be quite complicated, with nonlinear resource costs, time-dependent delay costs, and so on. For simplicity, we assume that the cost function is just the total duration of the plan, which is called the makespan.</li>
+</ul>
+<ul>
+<li>To minimize makespan (plan duration), we must find the earliest start times for all the actions consistent with the ordering constraints supplied with the problem.</li>
+</ul>
+<ul>
+<li>We can apply the critical path method (CPM) to this graph to determine the possible start and end times of each action. A path through a graph representing a partial-order plan is a linearly ordered sequence of actions beginning with <code>Start</code> and ending with <code>Finish</code>.</li>
+</ul>
+<p><br></p>
+<h4 id="hierarchical-planning">HIERARCHICAL PLANNING</h4>
+<p><br></p>
+<blockquote><p><em>Hierarchical task network (HTN) planning allows the agent to take advice from the domain designer in the form of high-level actions (HLAs) that can be implemented in various ways by lower-level action sequences. The effects of HLAs can be defined with angelic semantics, allowing provably correct high-level plans to be derived without consideration of lower-level implementations. HTN methods can create the very large plans required by many real-world applications.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>The basic formalism we adopt to understand hierarchical decomposition comes from the area of hierarchical task networks or HTN planning. The key additional concept is the high-level action or HLA.</li>
+</ul>
+<ul>
+<li>Hierarchical decomposition -&gt;  a computational task is reduced to a small number of activities at the next lower level, so the computational cost of finding the correct way to arrange those activities for the current problem is small.</li>
+</ul>
+<ul>
+<li>A high-level plan achieves the goal from a given state if at least one of its implementations achieves the goal from that state.</li>
+</ul>
+<ul>
+<li>The key to HTN planning, then, is the construction of a plan library containing known methods for implementing complex, high-level actions. One method of constructing the library is to learn the methods from problem-solving experience.</li>
+</ul>
+<ul>
+<li>Requiring that an effect hold for every implementation is equivalent to assuming that someone else—an adversary—will choose the implementation. It treats the HLA’s multiple outcomes exactly as if the HLA were a nondeterministic action. For our case, the agent itself will choose the implementation. -&gt; demonic nondeterminism for the case where an adversary makes the choices, contrasting this with angelic nondeterminism, where the agent itself makes the choices.</li>
+</ul>
+<p><br></p>
+<h4 id="planning-and-acting-in-nondeterministic-domains">PLANNING AND ACTING IN NONDETERMINISTIC DOMAINS</h4>
+<p><br></p>
+<ul>
+<li>An online planning agent uses execution monitoring and splices in repairs as needed to recover from unexpected situations, which can be due to nondeterministic actions, exogenous events, or incorrect models of the environment.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Extend planning to handle partially observable, nondeterministic, and unknown environments -&gt; sensorless planning (also known as conformant planning) for environments with no observations; contingency planning for partially observable and nondeterministic environments; and online planning and replanning for unknown environments.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Planners deal with factored representations rather than atomic representations. This affects the way we represent the agent’s capability for action and observation and the way we represent belief states—the sets of possible physical states the agent might be in—for unobservable and partially observable environments.</li>
+</ul>
+<ul>
+<li>Conversion of a sensorless planning problem to a belief-state planning problem -&gt; the main differences are that the underlying physical transition model is represented by a collection of action schemas and the belief state can be represented by a logical formula instead of an explicitly enumerated set of states.</li>
+</ul>
+<ul>
+<li>In classical planning, where the closed-world assumption is made, we would assume that any fluent not mentioned in a state is false, but in sensorless (and partially observable) planning we have to switch to an open-world assumption in which states contain both positive and negative fluents, and if a fluent does not appear, its value is unknown. Thus, the belief state corresponds exactly to the set of possible worlds that satisfy the formula.</li>
+</ul>
+<ul>
+<li>The family of belief states defined as conjunctions of literals is closed under updates defined by PDDL action schemas.</li>
+</ul>
+<ul>
+<li>The meaning of the heuristic function is the same as for classical planning: an estimate (perhaps admissible) of the cost of achieving the goal from the given belief state.</li>
+</ul>
+<ul>
+<li>Replanning presupposes some form of execution monitoring to determine the need for a new plan. Replanning may also be needed if the agent’s model of the world is incorrect. The model for an action may have a missing precondition.</li>
+</ul>
+<ul>
+<li>The online agent has a choice of how carefully to monitor the environment. We distinguish three levels:</li>
+</ul>
+<p><br></p>
+<pre><code>
+- Action monitoring: before executing an action, the agent verifies that all the preconditions still hold.
+- Plan monitoring: before executing an action, the agent verifies that the remaining plan will still succeed.
+- Goal monitoring: before executing an action, the agent checks to see if there is a better set of goals it could be trying to achieve.
+</code></pre>
+<p><br></p>
+<ul>
+<li>Trouble occurs when an action is actually not nondeterministic, but rather depends on some precondition that the agent does not know about. Every prediction failure is an opportunity for learning; an agent should be able to modify its model of the world to accord with its percepts.</li>
+</ul>
+<p><br></p>
+<h4 id="multiagent-planning">🌟 MULTIAGENT PLANNING</h4>
+<p><br></p>
+<blockquote><p><em>When there are multiple agents in the environment, each agent faces a multiagent planning problem in which it tries to achieve its own goals with the help or hindrance of others.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>An agent with multiple effectors that can operate concurrently needs to do multieffector planning to manage each effector while handling positive and negative interactions among the effectors.</li>
+</ul>
+<ul>
+<li>When the effectors are physically decoupled into detached units - as in a fleet of delivery robots in a factory - multieffector planning becomes multibody planning.</li>
+</ul>
+<ul>
+<li>Decentralized planning problem -&gt; the subplan constructed for each body may need to include explicit communicative actions with other bodies.</li>
+</ul>
+<ul>
+<li>Some systems are a mixture of centralized and multiagent planning.</li>
+</ul>
+<ul>
+<li>A convention is any constraint on the selection of joint plans. When conventions are widespread, they are called social laws.</li>
+</ul>
+<ul>
+<li>In the absence of a convention, agents can use communication to achieve common knowledge of a feasible joint plan.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="12-knowledge-representation">🎸 12. KNOWLEDGE REPRESENTATION</h2>
+<p><br></p>
+<blockquote><p><em>General ontology -&gt; organize everything in the world into a hierarchy of categories.</em></p></blockquote>
+<p><br></p>
+<h4 id="categories-and-objects">CATEGORIES AND OBJECTS</h4>
+<p><br></p>
+<blockquote><p><em>Much reasoning takes place at the level of categories.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>There are two choices for representing categories in first-order logic: predicates and objects.</li>
+</ul>
+<ul>
+<li>Subclass relations organize categories into a taxonomy, or taxonomic hierarchy.</li>
+</ul>
+<ul>
+<li>Logical minimization: defining an object as the smallest one satisfying certain conditions.</li>
+</ul>
+<p><br></p>
+<h4 id="events">EVENTS</h4>
+<p><br></p>
+<ul>
+<li>Situation calculus represents actions and their effects, but it’s limited in its applicability: it was designed to describe a world in which actions are discrete, instantaneous, and happen one at a time. It also can’t describe two actions happening at the same time.</li>
+</ul>
+<ul>
+<li>Event calculus is based on points of time rather than on situations.</li>
+</ul>
+<ul>
+<li>We can extend event calculus to make it possible to represent simultaneous events, exogenous events (such as the wind blowing and changing the location of an object), continuous events (such as the level of water in the bathtub continuously rising) and other complications.</li>
+</ul>
+<ul>
+<li>The distinction between liquid and nonliquid events is exactly analogous to the difference between substances, or stuff, and individual objects, or things. In fact, some have called liquid events temporal substances, whereas substances like butter are spatial substances.</li>
+</ul>
+<ul>
+<li>Modal logic includes special modal operators that take sentences (rather than terms) as arguments. The syntax of modal logic is the same as first-order logic, except that sentences can also be formed with modal operators.</li>
+</ul>
+<ul>
+<li>We need a more complicated model, one that consists of a collection of possible worlds rather than just one true world. The worlds are connected in a graph by accessibility relations, one relation for each modal operator.</li>
+</ul>
+<ul>
+<li>One problem with the modal logic approach is that it assumes logical omniscience on the part of agents. That is, if an agent knows a set of axioms, then it knows all consequences of those axioms.</li>
+</ul>
+<p><br></p>
+<h4 id="reasoning-systems-for-categories">REASONING SYSTEMS FOR CATEGORIES</h4>
+<p><br></p>
+<ul>
+<li>Semantic networks provide graphical aids for visualizing a knowledge base and efficient algorithms for inferring properties of an object on the basis of its category membership; and description logics provide a formal language for constructing and combining category definitions and efficient algorithms for deciding subset and superset relationships between categories.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>In 1909, Charles S. Peirce proposed a graphical notation of nodes and edges called existential graphs that he called “the logic of the future.” Thus began a long-running debate between advocates of “logic” and advocates of “semantic networks.”</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>One of the most important aspects of semantic networks is their ability to represent default values for categories.</li>
+</ul>
+<ul>
+<li>The principal inference tasks for description logics are subsumption (checking if one category is a subset of another by comparing their definitions) and classification (checking whether an object belongs to a category).</li>
+</ul>
+<ul>
+<li>With disjunctive descriptions, nested definitions can lead easily to an exponential number of alternative routes by which one category can subsume another.</li>
+</ul>
+<p><br></p>
+<h4 id="reasoning-with-default-information">REASONING WITH DEFAULT INFORMATION</h4>
+<p><br></p>
+<ul>
+<li>Circumscription can be seen as a more powerful and precise version of the closed-world assumption. The idea is to specify particular predicates that are assumed to be “as false as possible”—that is, false for every object except those for which they are known to be true.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>A Truth Maintenance System (TMS) is an AI knowledge management system that keeps track of what is believed, why is believed, and how beliefs should change when new information is arrived. Justification-based TMS (JTMS) track justifications for beliefs and revises them when necessary. Assumption-based TMS (ATMS) manages multiple sets of assumptions simultaneously, allowing reasoning under different possible scenarios.</em></p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="13-quantifying-uncertainty">🎸 13. QUANTIFYING UNCERTAINTY</h2>
+<p><br></p>
+<h4 id="acting-under-uncertainty">ACTING UNDER UNCERTAINTY</h4>
+<p><br></p>
+<blockquote><p><em>Agents may need to handle uncertainty, whether due to partial observability, nondeterminism, or a combination of the two. An agent may never know for certain what state it’s in or where it will end up after a sequence of actions.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Problem-solving agents and logical agents are designed to handle uncertainty by keeping track of a belief state—a representation of the set of all possible world states that it might be in—and generating a contingency plan that handles every possible eventuality that its sensors may report during execution. This approach has drawbacks.</li>
+</ul>
+<ul>
+<li>When interpreting partial sensor information, a logical agent must consider every logically possible explanation for the observations, no matter how unlikely. This leads to impossible large and complex belief-state representations.</li>
+</ul>
+<ul>
+<li>A correct contingent plan that handles every eventuality can grow arbitrarily large and must consider arbitrarily unlikely contingencies.</li>
+</ul>
+<ul>
+<li>Sometimes there is no plan that is guaranteed to achieve the goal—yet the agent must act.</li>
+</ul>
+<ul>
+<li>Probability provides a way of summarizing the uncertainty that comes from our laziness and ignorance.</li>
+</ul>
+<ul>
+<li>To make such choices, an agent must first have preferences between the different possible outcomes of the various plans. An outcome is a completely specified state, including such factors as whether the agent arrives on time and the length of the wait at the airport. We use utility theory to represent and reason with preferences. Utility theory says that every state has a degree of usefulness, or utility, to an agent and that the agent will prefer states with higher utility.</li>
+</ul>
+<p><br></p>
+<pre><code>
+Decision theory = probability theory + utility theory
+</code></pre>
+<p><br></p>
+<ul>
+<li>Maximum expected utility (MEU) -&gt; an agent is rational if and only if it chooses the action that yields the highest expected utility, averaged over all the possible outcomes of the action.</li>
+</ul>
+<p><br></p>
+<h4 id="basic-probability-notation">BASIC PROBABILITY NOTATION</h4>
+<p><br></p>
+<ul>
+<li>In probability theory, the set of all possible worlds is called the sample space. The possible worlds are mutually exclusive and exhaustive—two possible worlds cannot both be the case, and one possible world must be the case.</li>
+</ul>
+<ul>
+<li>Unconditional or prior probabilities -&gt; degrees of belief in propositions in the absence of any other information -&gt; as opposed to conditional or posterior probability.</li>
+</ul>
+<ul>
+<li>A possible world is defined to be an assignment of values to all of the random variables under consideration.</li>
+</ul>
+<ul>
+<li>Kolmogorov’s axiom -&gt; inclusion–exclusion principle -&gt; <code>P(a ∨b) = P(a) + P(b)−P(a ∧b)</code></li>
+</ul>
+<p><br></p>
+<h4 id="inference-using-full-joint-distributions">INFERENCE USING FULL JOINT DISTRIBUTIONS</h4>
+<p><br></p>
+<ul>
+<li>Probabilistic inference: the computation of posterior probabilities for query propositions given observed evidence.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>WHERE DO PROBABILITIES COME FROM? 1) The frequentist position is that the numbers can come only from experiments.; 2) The objectivist view is that probabilities are real aspects of the universe—propensities of objects to behave in certain ways—rather than being just descriptions of an observer’s degree of belief.; 3) the subjectivist view describes probabilities as a way of characterizing an agent’s beliefs, rather than as having any external physical significance. The subjective Bayesian view allows any self-consistent ascription of prior probabilities to propositions, but then insists on proper Bayesian updating as evidence arrives.</em></p></blockquote>
+<p><br></p>
+<h4 id="bayes-rule-and-its-use">BAYES’ RULE AND ITS USE</h4>
+<p><br></p>
+<blockquote><p><em>The conditional probability <code>P(effect |cause)</code> quantifies the relationship in the causal direction, whereas <code>P(cause |effect)</code> describes the diagnostic direction.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Conditional independence assertions can allow probabilistic systems to scale up; moreover, they are much more commonly available than absolute independence assertions. -&gt; The decomposition of large probabilistic domains into weakly connected subsets through conditional independence is one of the most important developments in the recent history of AI.</li>
+</ul>
+<ul>
+<li>Naive Bayes -&gt;  where the “effect” variables are not actually conditionally independent given the cause variable</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="14-probabilistic-reasoning">🎸 14.  PROBABILISTIC REASONING</h2>
+<p><br></p>
+<blockquote><p><em>Bayesian networks -&gt; any full joint probability distribution and in many cases can do so very concisely (belief network, probabilistic network, causal network, and knowledge map).</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>👾 A Bayesian network is a directed graph in which each node is annotated with quantitative probability information. The full specification is as follows:</li>
+</ul>
+<p><br></p>
+<pre><code>
+1. Each node corresponds to a random variable, which may be discrete or continuous.
+2. A set of directed links or arrows connects pairs of nodes. If there is an arrow from node X to node Y , X is said to be a parent of Y. The graph has no directed cycles (and hence is a directed acyclic graph, or DAG.
+3. Each node Xi has a conditional probability distribution P(Xi |Parents(Xi)) that quantifies the effect of the parents on the node.
+</code></pre>
+<p><br></p>
+<ul>
+<li>The meaning of an arrow is typically that <code>X</code> has a direct influence on <code>Y</code>.</li>
+</ul>
+<ul>
+<li>Once the topology of the Bayesian network is laid out, we need only specify a conditional probability distribution for each variable, given its parents.</li>
+</ul>
+<p><br></p>
+<h4 id="the-semantics-of-bayesian-networks">THE SEMANTICS OF BAYESIAN NETWORKS</h4>
+<p><br></p>
+<ul>
+<li>One way to define what the network means—its semantics—is to define the way in which it represents a specific joint distribution over all the variables.</li>
+</ul>
+<ul>
+<li>If a Bayesian network is a representation of the joint distribution, then it too can be used to answer any query, by summing all the relevant joint entries.</li>
+</ul>
+<ul>
+<li>Chain rule —&gt; the Bayesian network is a correct representation of the domain only if each node is conditionally independent of its other predecessors in the node ordering, given its parents.</li>
+</ul>
+<ol>
+<li>Nodes: First determine the set of variables that are required to model the domain. Now order them, <code>{X1,... ,Xn}</code>. Any order will work, but the resulting network will be more compact if the variables are ordered such that causes precede effects.</li>
+<li>Links: <code>For i = 1 to n do: Choose, from X1,... ,Xi</code>, a minimal set of parents for <code>Xi</code>, such that the chain rule is satisfied. For each parent insert a link from the parent to <code>Xi</code>. CPTs: Write down the conditional probability table, <code>P(Xi|Parents(Xi))</code>. -&gt; the parents of node <code>Xi</code> should contain all those nodes in <code>X1, ... , Xi</code> that directly influence <code>Xi</code>.</li>
+</ol>
+<ul>
+<li>Another important property of Bayesian networks is that they contain no redundant probability values. If there is no redundancy, then there is no chance for inconsistency.</li>
+</ul>
+<ul>
+<li>The compactness of Bayesian networks is an example of a general property of locally structured (also called sparse) systems.</li>
+</ul>
+<ul>
+<li>👾 Using this semantics to derive a method for constructing Bayesian networks, we were led to the consequence that a node is conditionally independent of its other predecessors, given its parents. It turns out that we can also go in the other direction. We can start from a “topological” semantics that specifies the conditional independence relationships encoded by the graph structure, and from this we can derive the “numerical” semantics.</li>
+</ul>
+<ul>
+<li>Markov blanket: anode is conditionally independent of all other nodes in the network, given its parents, children, and children’s parents.</li>
+</ul>
+<p><br></p>
+<h4 id="efficient-representation-of-conditional-distributions">EFFICIENT REPRESENTATION OF CONDITIONAL DISTRIBUTIONS</h4>
+<p><br></p>
+<ul>
+<li>The worst-case scenario in which the relationship between the parents and the child is completely arbitrary -&gt; <code>O(2^k)</code></li>
+</ul>
+<ul>
+<li>Usually, such a relationships are describable by a canonical distribution.</li>
+</ul>
+<ul>
+<li>The simplest example is provided by deterministic nodes -&gt; has a value specified exactly by the values of its parents, with no uncertainty.</li>
+</ul>
+<ul>
+<li>Uncertain relationships can often be characterized by so-called noisy logical relationships. The standard example is the noisy-OR relation, which is a generalization of the logical <code>OR</code>.</li>
+</ul>
+<ul>
+<li>A network with both discrete and continuous variables is called a hybrid Bayesian network. To specify a hybrid network, we have to specify two new kinds of distributions: the conditional distribution for a continuous variable given discrete or continuous parents; and the conditional distribution for a discrete variable given continuous parents.</li>
+</ul>
+<ul>
+<li>👾 Linear Gaussian distribution -&gt; the child has a Gaussian distribution whose mean <code>μ</code> varies linearly with the value of the parent and whose standard deviation σ is fixed. -&gt;  We need two distributions, one for subsidy and one for <code>¬</code> subsidy.</li>
+</ul>
+<ul>
+<li>When discrete variables are added as parents (not as children) of continuous variables, the network defines a conditional Gaussian, or CG, distribution: given any assignment to the discrete variables, the distribution over the continuous variables is a multivariate Gaussian.</li>
+</ul>
+<ul>
+<li>👾 Both probit and logit distribution can be generalized to handle multiple continuous parents by taking a linear combination of the parent values.</li>
+</ul>
+<p><br></p>
+<h4 id="exact-inference-in-bayesian-networks">EXACT INFERENCE IN BAYESIAN NETWORKS</h4>
+<p><br></p>
+<blockquote><p><em>The basic task for any probabilistic inference system is to compute the posterior probability distribution for a set of query variables, given some observed event—that is, some assignment of values to a set of evidence variables.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>A query can be answered using a Bayesian network by computing sums of products of conditional probabilities from the network.</li>
+</ul>
+<ul>
+<li>The time complexity for a network with <code>n</code> Boolean variables is always <code>always(2^n)</code>. The numerationation algorithm for answering queries on Bayesian networks.</li>
+</ul>
+<p><br></p>
+<pre><code>
+function ENUMERATION-ASK(X, e, bn) returns a distribution over X
+	inputs: X, the query variable
+		e, observed values for variables E
+		bn, a Bayes net with variables {X} ∪ E ∪ Y /* Y = hidden variables */
+	Q(X)←a distribution over X, initially empty
+	for each value xi of X do
+		Q(xi)←ENUMERATE-ALL(bn.VARS, exi )
+			where exi is e extended with X= xi
+	return NORMALIZE(Q(X))
+
+function ENUMERATE-ALL(vars, e) returns a real number
+	if EMPTY?(vars) then return 1.0
+	Y ←FIRST(vars)
+	if Y has value y in e
+		then return P(y |parents(Y )) × ENUMERATE-ALL(REST(vars), e)
+		else return y P(y |parents(Y )) × ENUMERATE-ALL(REST(vars), ey)
+			where ey is e extended with Y= y
+</code></pre>
+<p><br></p>
+<blockquote><p><em>A polytree is a DAG whose underlying undirected graph is a tree. If you ignore the arrow directions, the graph is connected and has no cycles (tree).</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Singly connected networks or polytrees -&gt; the time and space complexity of exact inference in polytrees is linear in the size of the network.</li>
+</ul>
+<ul>
+<li>For multiply connected networks, variable elimination can have exponential time and space complexity in the worst case, even when the number of parents per node is bounded. -&gt; inference in Bayesian networks is NP-hard. -&gt; the problem is as hard as that of computing the number of satisfying assignments for a propositional logic formula. This means that it is #P-hard (&quot;number-P hard&quot;)—that is, strictly harder than NP-complete problems.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>The difficulty of solving a discrete CSP is related to how &quot;treelike&quot; its constraint graph is. Measures such as tree width, which bound the complexity of solving a CSP, can also be applied directly to Bayesian networks. Moreover, the variable elimination algorithm can be generalized to solve CSPs as well as Bayesian networks.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>In a polytree network, one would need to issue queries costing <code>O(n)</code> each, for a total of <code>O(time)</code> time. Using clustering algorithms (also known as join algorithms), the time can be reduced to <code>O(n)</code>. For this reason, these algorithms are widely used in commercial Bayesian network tools.</li>
+</ul>
+<p><br></p>
+<h4 id="approximate-inference-in-bayesian-networks">APPROXIMATE INFERENCE IN BAYESIAN NETWORKS</h4>
+<p><br></p>
+<ul>
+<li>In any sampling algorithm, the answers are computed by counting the actual samples generated. Suppose there are <code>N</code> total samples, and let <code>NPS (x1,... ,xn)</code> be the number of times the specific event <code>x1,... ,xn</code> occurs in the set of samples. We expect this number, as a fraction of the total, to converge in the limit to its expected value according to the sampling probability.</li>
+</ul>
+<ul>
+<li>Rejection sampling is a general method for producing samples from a hard-to-sample distribution given an easy-to-sample distribution. In its simplest form, it can be used to compute conditional probabilities. -&gt; lots of samples are rejected -&gt;  The fraction of samples consistent with the evidence <code>e</code> drops exponentially as the number of evidence variables grows, so the procedure is simply unusable for complex problems.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>Stochastic approximation techniques such as likelihood weighting and Markov chain Monte Carlo can give reasonable estimates of the true posterior probabilities in a network and can cope with much larger networks than can exact algorithms.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Likelihood weighting avoids the inefficiency of rejection sampling by generating only events that are consistent with the evidence <code>e</code>. It is a particular instance of the general statistical technique of importance sampling, tailored for inference in Bayesian networks.</li>
+</ul>
+<ul>
+<li>Markov chain Monte Carlo (MCMC) -&gt; instead of generating each sample from scratch, MCMC algorithms generate each sample by making a random change to the preceding sample -&gt; an MCMC algorithm as being in a particular current state specifying a value for every variable and generating a next state by making random changes to the current state.</li>
+</ul>
+<ul>
+<li>👾 A particular form of MCMC called Gibbs sampling is especially well suited for Bayesian networks. -&gt; The Gibbs sampling algorithm for Bayesian networks starts with an arbitrary state (with the evidence variables fixed at their observed values) and generates a next state by randomly sampling a value for one of the nonevidence variables <code>Xi</code>. The sampling for <code>Xi</code> is done conditioned on the current values of the variables in the Markov blanket of <code>Xi</code>. -&gt; The algorithm therefore wanders randomly around the state space—the space of possible complete assignments—flipping one variable at a time, but keeping the evidence variables fixed.</li>
+</ul>
+<ul>
+<li>👾 Why Gibbs sampling works -&gt; the sampling process settles into a “dynamic equilibrium” in which the long-run fraction of time spent in each state is exactly proportional to its posterior probability. -&gt; property follows from the specific transition probability with which the process moves from one state to another, as defined by the conditional distribution given the Markov blanket of the variable being sampled.</li>
+</ul>
+<ul>
+<li>Let <code>q(x → x )</code> be the probability that the process makes a transition from state <code>x</code> to state <code>x</code>. This transition probability defines what is called a Markov chain on the state space.</li>
+</ul>
+<ul>
+<li>Provided the transition probability distribution <code>q</code> is ergodic—that is, every state is reachable from every other and there are no strictly periodic cycles—there is exactly one distribution π satisfying the Markov chain equation for any given <code>q</code>.</li>
+</ul>
+<p><br></p>
+<h4 id="relational-and-first-order-probability-models">RELATIONAL AND FIRST-ORDER PROBABILITY MODELS</h4>
+<p><br></p>
+<ul>
+<li>If we can find a way to combine probability theory with the expressive power of first-order representations, we expect to be able to increase dramatically the range of problems that can be handled.</li>
+</ul>
+<ul>
+<li>A major part of human cognition seems to require learning what objects exist and being able to connect observations—which almost never come with unique IDs attached—to hypothesized objects in the world. -&gt; we need to be able to write so-called open-universe probability models.</li>
+</ul>
+<p><br></p>
+<h4 id="other-approaches-to-uncertain-reasoning">OTHER APPROACHES TO UNCERTAIN REASONING</h4>
+<p><br></p>
+<blockquote><p>😄 I learned this the hard way back in <a target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20070322015644/http://fly.to/bytegirl">high school</a> -&gt; <em>”The earliest expert systems of the 1970s ignored uncertainty and used strict logical reasoning, but it soon became clear that this was impractical for most real-world domains. The next generation of expert systems (especially in medical domains) used probabilistic techniques. Initial results were promising, but they did not scale up because of the exponential number of probabilities required in the full joint distribution. (Efficient Bayesian network algorithms were unknown then.)”</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Probability makes the same ontological commitment as logic: that propositions are true or false in the world, even if the agent is uncertain as to which is the case. Researchers in fuzzy logic have proposed an ontology that allows vagueness: that a proposition can be “sort of” true. Vagueness and uncertainty are in fact orthogonal issues.</li>
+</ul>
+<ul>
+<li>Logical systems in general, and logical rule-based systems in particular, have three desirable properties: 1) Locality (In logical systems, whenever we have a rule of the form <code>A ⇒ B</code>, we can conclude <code>B</code>, given evidence <code>A</code>, without worrying about any other rules. In probabilistic systems, we need to consider all the evidence); 2) Detachment (Once a logical proof is found for a proposition <code>B</code>, the proposition can be used regardless of how it was derived. That is, it can be detached from its justification. In dealing with probabilities, on the other hand, the source of the evidence for a belief is important for subsequent reasoning.); and 3) Truth-functionality (In logic, the truth of complex sentences can be computed from the truth of the components. Probability combination does not work this way, except under strong global independence assumptions).</li>
+</ul>
+<ul>
+<li>Rule-based systems is that the properties of locality, detachment, and truth-functionality are simply not appropriate for uncertain reasoning.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>The Dempster–Shafer theory is designed to deal with the distinction between uncertainty and ignorance. Rather than computing the probability of a proposition, it computes the probability that the evidence supports the proposition. This measure of belief is called a belief function, written <code>Bel(X)</code>.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>A Bayesian approach expresses our &quot;ignorance&quot; in terms of how our beliefs would change in the face of future information gathering.</li>
+</ul>
+<ul>
+<li>Fuzzy set theory is a means of specifying how well an object satisfies a vague description.</li>
+</ul>
+<ul>
+<li>Fuzzy control is a methodology for constructing control systems in which the mapping between real-valued input and output parameters is represented by fuzzy rules.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>Both the hybrid Bayesian network approach and the random sets approach appear to capture aspects of fuzziness without introducing degrees of truth. Nonetheless, there remain many open issues concerning the proper representation of linguistic observations and continuous quantities—issues that have been neglected by most outside the fuzzy community.</em></p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="15-probabilistic-reasoning-over-time">🎸 15. PROBABILISTIC REASONING OVER TIME</h2>
+<p><br></p>
+<blockquote><p>🌟 <em>Agents in partially observable environments must be able to keep track of the current state, to the extent that their sensors allow. An agent maintains a belief state that represents which states of the world are currently possible. From the belief state and a transition model, the agent can predict how the world might evolve in the next time step. From the percepts observed and a sensor model, the agent can update the belief state. Belief states were represented by explicitly enumerated sets of states, or by logical formulas. Those approaches defined belief states in terms of which world states were possible, but could say nothing about which states were likely or unlikely.</em></p></blockquote>
+<p><br></p>
+<blockquote><p>👾 <em>We describe three specific kinds of models: hidden Markov models, Kalman filters, and dynamic Bayesian networks.</em></p></blockquote>
+<p><br></p>
+<h4 id="time-and-uncertainty">TIME AND UNCERTAINTY</h4>
+<p><br></p>
+<ul>
+<li>We view the world as a series of snapshots, or time slices, each of which contains a set of random variables, some observable and some not. -&gt; we will assume that the same subset of variables is observable in each time slice (although this is not strictly necessary in anything that follows). We will use <code>Xt</code> to denote the set of state variables at time <code>t</code>, which are assumed to be unobservable, and <code>Et</code> to denote the set of observable evidence variables. The observation at time <code>t</code> is <code>Et = et</code> for some set of values <code>et</code>.</li>
+</ul>
+<ul>
+<li>With the set of state and evidence variables for a given problem decided on, the next step is to specify how the world evolves (the transition model) and how the evidence variables get their values (the sensor model).</li>
+</ul>
+<ul>
+<li>First-order Markov process, in which the current state depends only on the previous state and not on any earlier states. -&gt; The first-order Markov assumption says that the state variables contain all the information needed to characterize the probability distribution for the next time slice.</li>
+</ul>
+<ul>
+<li>There are infinitely many possible values of <code>t</code> -&gt; Do we need to specify a different distribution for each time step?  -&gt; We avoid this problem by assuming that changes in the world state are caused by a stationary process—that is, a process of change that is governed by laws that do not themselves change over time.</li>
+</ul>
+<p><br></p>
+<h4 id="inference-in-temporal-models">INFERENCE IN TEMPORAL MODELS</h4>
+<p><br></p>
+<ul>
+<li>Basic inference task to be solved:</li>
+</ul>
+<ol>
+<li>Filtering (state estimation) -&gt; computing the belief state (the posterior distribution over the most recent state) given all evidence to date. -&gt; what a rational agent does to keep track of the current state so that rational decisions can be made.</li>
+<li>Prediction -&gt; the task of computing the posterior distribution over the future state given all evidence to date.</li>
+<li>Smoothing -&gt; computing the posterior distribution over a past state, given all evidence up to the present. -&gt; provides a better estimate of the state than was available at the time because incorporate more evidence.</li>
+<li>Most likely explanation -&gt; given a sequence of observations, we wish to find the sequence of states that is most likely to have generated them.</li>
+<li>Learning -&gt; the transition and sensor models can be learned from observations. -&gt; Just as with static Bayesian networks, dynamic Bayes net learning can be done as a by-product of inference. -&gt; requires smoothing, rather than filtering.</li>
+</ol>
+<p><br></p>
+<ul>
+<li>The time and space requirements for updating must be constant if an agent with limited memory is to keep track of the current state distribution over an unbounded sequence of observations.</li>
+</ul>
+<p><br></p>
+<h4 id="hidden-markov-models">HIDDEN MARKOV MODELS</h4>
+<p><br></p>
+<blockquote><p><em>HMM is a temporal probabilistic model in which the state of the process is described by a single discrete random variable. -&gt; The possible values of the variable are the possible states of the world.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>The matrix formulation reveals opportunities for improved algorithms. The first is a simple variation on the forward–backward algorithm that allows smoothing to be carried out in constant space, independently of the length of the sequence. A second area in which the matrix formulation reveals an improvement is in online smoothing with a fixed lag.</li>
+</ul>
+<ul>
+<li>Localization -&gt; Here we make the problem slightly more realistic by including a simple probability model for the robot’s motion and by allowing for noise in the sensors.</li>
+</ul>
+<p><br></p>
+<h4 id="kalman-filters">KALMAN FILTERS</h4>
+<p><br></p>
+<blockquote><p><em>Kalman filtering -&gt; handling continuous variables with gaussians -&gt; every Kalman filter model can be represented in a DBN with continuous variables and linear Gaussian conditional distributions.</em></p></blockquote>
+<p><br></p>
+<h4 id="dynamic-bayesian-networks">DYNAMIC BAYESIAN NETWORKS</h4>
+<p><br></p>
+<blockquote><p><em>A dynamic Bayesian network, or DBN, is a Bayesian network that represents a temporal probability model.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>If every HMM is a DBN and every DBN can be translated into an HMM, what’s the difference? The difference is that, by decomposing the state of a complex system into its constituent variables, the can take advantage of sparseness in the temporal probability model.</li>
+</ul>
+<ul>
+<li>Not every DBN can be represented by a Kalman filter model. In a Kalman filter, the current state distribution is always a single multivariate Gaussian distribution—that is, a single “bump” in a particular location. DBNs, on the other hand, can model arbitrary distributions.</li>
+</ul>
+<ul>
+<li>For the system to handle sensor failure properly, the sensor model must include the possibility of failure.</li>
+</ul>
+<ul>
+<li>The cost of HMM updating, which is <code>O(d^{2n})</code> -&gt; even though we can use DBNs to represent very complex temporal processes with many sparsely connected variables, we cannot reason efficiently and exactly about those processes.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>Recall that likelihood weighting works by sampling the nonevidence nodes of the network in topological order, weighting each sample by the likelihood it accords to the observed evidence variables. As with the exact algorithms, we could apply likelihood weighting directly to an unrolled DBN, but this would suffer from the same problems of increasing time and space requirements per update as the observation sequence grows. -&gt; The problem is that the standard algorithm runs each sample in turn, all the way through the network. Instead, we can simply run all <code>N</code> samples together through the DBN, one slice at a time. The modified algorithm fits the general pattern of filtering algorithms, with the set of <code>N</code> samples as the forward message. The first key innovation, then, is to use the samples themselves as an approximate representation of the current state distribution.</em></p></blockquote>
+<p><br></p>
+<h4 id="keeping-track-of-many-objects">KEEPING TRACK OF MANY OBJECTS</h4>
+<p><br></p>
+<blockquote><p><em>The preceding sections have considered—without mentioning it—state estimation problems involving a single object. In this section, we see what happens when two or more objects generate the observations. What makes this case different from plain old state estimation is that there is now the possibility of uncertainty about which object generated which observation.</em></p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="16-making-simple-decisions">🎸 16. MAKING SIMPLE DECISIONS</h2>
+<p><br></p>
+<blockquote><p>✨ <em>We fill in the details of how utility theory combines with probability theory to yield a decision-theoretic agent—an agent that can make rational decisions based on what it believes and what it wants. Such an agent can make decisions in contexts in which uncertainty and conflicting goals leave a logical agent with no way to decide: a goal-based agent has a binary distinction between good (goal) and bad (non-goal) states, while a decision-theoretic agent has a continuous measure of outcome quality.</em> ✨</p></blockquote>
+<p><br></p>
+<h4 id="combining-beliefs-and-desires-under-uncertainty">COMBINING BELIEFS AND DESIRES UNDER UNCERTAINTY</h4>
+<p><br></p>
+<blockquote><p><em>Decision theory, in its simplest form, deals with choosing among actions based on the desirability of their immediate outcomes; that is, the environment is assumed to be episodic.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>The agent’s preferences are captured by a utility function, <code>U(s)</code>, which assigns a single number to express the desirability of a state. The expected utility of an action given the evidence, <code>EU(a|e)</code>, is just the average utility value of the outcomes, weighted by the probability that the outcome occurs.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 Also, in Portuguese, if someone is not being rational, you can say “Meu!” -&gt; <em>The principle of maximum expected utility (MEU) says that a rational agent should choose the action that maximizes the agent’s expected utility. -&gt; If an agent acts so as to maximize a utility function that correctly reflects the performance measure, then the agent will achieve the highest possible performance score (averaged over all the possible environments).</em></p></blockquote>
+<p><br></p>
+<h4 id="the-basis-of-utility-theory">THE BASIS OF UTILITY THEORY</h4>
+<p><br></p>
+<pre><code>
+A ≻ B the agent prefers A over B.
+A ∼ B the agent is indifferent between A and B.
+A ≻∼ B the agent prefers A over B or is indifferent between them.
+</code></pre>
+<p><br></p>
+<ul>
+<li>We can think of the set of outcomes for each action as a lottery—think of each action as a ticket. A lottery <code>L</code> with possible outcomes <code>S1,... ,Sn</code> that occur with probabilities <code>p1,... ,pn</code> is written <code>L = [p1,S1; p2,S2; ... pn,Sn]</code>.</li>
+</ul>
+<ul>
+<li>Each outcome <code>Si</code> of a lottery can be either an atomic state or another lottery. -&gt; preferences between complex lotteries are related to preferences between the underlying states in those lotteries?</li>
+</ul>
+<ul>
+<li>The axioms of utility theory:</li>
+</ul>
+<ol>
+<li>Orderability -&gt; the agent cannot avoid decide -&gt; Exactly one of <code>(A ≻ B), (B ≻ A)</code>, or <code>(A ∼ B)</code> holds.</li>
+<li>Transitiviy -&gt; <code>(A ≻ B) ∧(B ≻ C) ⇒ (A ≻ C)</code></li>
+<li>Continuity -&gt; <code>A ≻ B ≻ C ⇒ ∃p [p, A; 1−p, C] ∼ B</code></li>
+<li>Substitutability -&gt; <code>A ∼ B ⇒ [p, A; 1−p, C] ∼ [p, B; 1−p, C]</code></li>
+<li>Monotocity -&gt; <code>A ≻B ⇒ (p &gt; q ⇔ [p, A; 1−p, B] ≻[q, A; 1−q, B])</code></li>
+<li>Decomposability -&gt; <code>[p, A; 1−p, [q, B; 1−q, C]] ∼ [p, A; (1−p)q, B; (1−p)(1−q), C]</code></li>
+</ol>
+<ul>
+<li>Expected Utility of a Lottery: The utility of a lottery is the sum of the probability of each outcome times the utility of that outcome.</li>
+</ul>
+<p><br></p>
+<h4 id="utility-functions">UTILITY FUNCTIONS</h4>
+<p><br></p>
+<blockquote><p><em>Utility is a function that maps from lotteries to real numbers.</em></p></blockquote>
+<p><br></p>
+<blockquote><p>👾 <em>The evidence for human irrationality is also questioned by researchers in the field of evolutionary psychology, who point to the fact that our brain’s decision-making mechanisms did not evolve to solve word problems with probabilities and prizes stated as decimal numbers.</em></p></blockquote>
+<p><br></p>
+<h4 id="multiattribute-utility-functions">MULTIATTRIBUTE UTILITY FUNCTIONS</h4>
+<p><br></p>
+<blockquote><p><em>Problems on which outcomes are characterized by two or more attributes, are handled by multiattribute utility theory.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>If <code>A1</code> stochastically dominates <code>A2</code>, then for any monotonically nondecreasing utility function <code>U(x)</code>, the expected utility of <code>A1</code> is at least as high as the expected utility of <code>A2</code>.</li>
+</ul>
+<p><br></p>
+<h4 id="decision-networks-influence-network">DECISION NETWORKS (INFLUENCE NETWORK)</h4>
+<p><br></p>
+<blockquote><p><em>Decision networks combine Bayesian networks with additional node types for actions and utilities.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Chance nodes represent random variables, just as they do in Bayesian networks. -&gt; Each chance node has associated with it a conditional distribution that is indexed by the state of the parent nodes.</li>
+</ul>
+<ul>
+<li>Decision nodes represent points where the decision maker has a choice of actions.</li>
+</ul>
+<ul>
+<li>Utility nodes represent the agent’s utility function. -&gt; The utility node has as parents all variables describing the outcome that directly affect utility. -&gt; Associated with the utility node is a description of the agent’s utility as a function of the parent attributes.</li>
+</ul>
+<ul>
+<li>Actions are selected by evaluating the decision network for each possible setting of the decision node. Once the decision node is set, it behaves exactly like a chance node that has been set as an evidence variable.</li>
+</ul>
+<ul>
+<li>The algorithm for evaluating decision networks is ( straightforward extension of the Bayesian network algorithm):</li>
+</ul>
+<p><br></p>
+<pre><code>
+1. Set the evidence variables for the current state.
+2. For each possible value of the decision node:
+	(a) Set the decision node to that value.
+	(b) Calculate the posterior probabilities for the parent nodes of the utility node, using
+a standard probabilistic inference algorithm.
+	(c) Calculate the resulting utility for the action.
+3. Return the action with the highest utility.
+</code></pre>
+<p><br></p>
+<h4 id="the-value-of-information">THE VALUE OF INFORMATION</h4>
+<p><br></p>
+<ul>
+<li>Information value theory -&gt; enable an agent to choose what information to acquire.</li>
+</ul>
+<p><br></p>
+<h4 id="decision-theoretic-expert-systems">DECISION-THEORETIC EXPERT SYSTEMS</h4>
+<p><br></p>
+<ul>
+<li>It is traditional in decision analysis to talk about two roles: the decision maker states preferences between outcomes, and the decision analyst enumerates the possible actions and outcomes and elicits preferences from the decision maker to determine the best course of action.</li>
+</ul>
+<ul>
+<li>The emergence of Bayesian networks in the late 1980s made it possible to build large-scale systems that generated sound probabilistic inferences from evidence. The addition of decision networks means that expert systems can be developed that recommend optimal decisions, reflecting the preferences of the agent as well as the available evidence.</li>
+</ul>
+<ul>
+<li>Decision-theoretic expert systems:</li>
+</ul>
+<p><br></p>
+<pre><code>
+1. Create a causal model
+2. Simplify to a quality decision model
+3. Assign probabilities
+4. Assign utilities
+5. Verify and refine the model (with a gold-standard to compare against)
+6. Perform sensitivity analysis
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="17-making-complex-decisions">🎸 17.  MAKING COMPLEX DECISIONS</h2>
+<p><br></p>
+<blockquote><p><em>Sequential decision problems -&gt; the agent’s utility depends on a sequence of decisions.</em></p></blockquote>
+<p><br></p>
+<h4 id="sequential-decision-problems">SEQUENTIAL DECISION PROBLEMS</h4>
+<p><br></p>
+<ul>
+<li>Assume a fully observable environment -&gt; the transition model (the outcome of each action in each state, where the outcome is stochastic -&gt; transitions are markovian -&gt; the transition model can be represented as a dynamic bayesian network.</li>
+</ul>
+<ul>
+<li>To complete the definition of the task environment, we must specify the utility for the agent -&gt; Because the decision problem is sequential, the utility function will depend on a sequence of states—an environment history—rather than on a single state. -&gt; in each state <code>s</code>, the agent receives a reward <code>R(s)</code>, which may be positive or negative, but must be bounded.</li>
+</ul>
+<ul>
+<li>Markov decision process -&gt; a sequential decision problem for a fully observable, stochastic environment with a Markovian transition model and additive rewards is called <code>a</code> or MDP, and consists of a set of states (with an initial state <code>s0</code>); a set ACTIONS(s) of actions in each state; a transition model <code>P(s |s,a)</code>; and a reward function <code>R(s)</code>.</li>
+</ul>
+<ul>
+<li>Policy -&gt; a solution must specify what the agent should do for any state that the agent might reach. -&gt; If the agent has a complete policy, then no matter what the outcome of any action, the agent will always know what to do next. -&gt; An optimal policy is a policy that yields the highest expected utility.</li>
+</ul>
+<ul>
+<li>👾 A finite horizon means that there is a fixed time <code>N</code> after which nothing matters—the game is over. -&gt; the optimal action in a given state could change over time. -&gt; the optimal policy for a finite horizon is nonstationary.</li>
+</ul>
+<ul>
+<li>👾 Infinite horizon -&gt; no reason to behave differently in the same state at different times. -&gt; the optimal policy is stationary.</li>
+</ul>
+<ul>
+<li>Under stationarity there are just two coherent ways to assign utilities to sequences:</li>
+</ul>
+<ol>
+<li>Additive rewards</li>
+<li>Discounted rewards (with a discount factor <code>γ</code>  between <code>0</code> and <code>1</code>)</li>
+</ol>
+<p><br></p>
+<ul>
+<li>If the environment does not contain a terminal state, or if the agent never reaches one, then all environment histories will be infinitely long, and utilities with additive, undiscounted rewards will generally be infinite.</li>
+</ul>
+<ul>
+<li>A policy that is guaranteed to reach a terminal state is called a proper policy</li>
+</ul>
+<p><br></p>
+<h4 id="value-iteration">VALUE ITERATION</h4>
+<p><br></p>
+<blockquote><p><em>Algorithm for calculating an optimal policy. -&gt; calculate the utility of each state and then use the state utilities to select an optimal action in each state.</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>Bellman equation -&gt; the basis of the value iteration algorithm for solving MDPs -&gt; The utility of a state is the immediate reward for that state plus the expected discounted utility of the next state, assuming that the agent chooses the optimal action.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>If there are <code>n</code> possible states, then there are n Bellman equations, one for each state. The n equations contain n unknowns—the utilities of the states. -&gt; solve these simultaneous equations to find the utilities.</li>
+</ul>
+<ul>
+<li>Systems of nonlinear equations -&gt; start with arbitrary initial values for the utilities, updating the utility of each state from the utilities of its neighbors, until equilibrium.</li>
+</ul>
+<ul>
+<li>Contraction -&gt; a function of one argument that, when applied to two different inputs in turn, produces two output values that are closer together.</li>
+</ul>
+<ul>
+<li>👾 The Bellman update is a contraction by a factor of <code>γ</code> on the space of utility vectors.</li>
+</ul>
+<p><br></p>
+<h4 id="policy-iteration">POLICY ITERATION</h4>
+<p><br></p>
+<ul>
+<li>The policy iteration algorithm alternates the following two steps, beginning from some initial policy <code>π0</code>:</li>
+</ul>
+<ol>
+<li>Policy evaluation: given a policy <code>πi</code>, calculate <code>Ui = Uπi</code>, the utility of each state if <code>πi</code> were to be executed.</li>
+<li>Policy improvement: Calculate a new MEU policy <code>πi+1</code>, using one-step look-ahead based on <code>Ui</code>.</li>
+</ol>
+<ul>
+<li>The algorithm terminates when the policy improvement step yields no change in the utilities. -&gt; the utility function <code>Ui</code> is a fixed point of the Bellman update -&gt; must be an optimal policy.</li>
+</ul>
+<p><br></p>
+<h4 id="partially-observable-mdps-pomdps">PARTIALLY OBSERVABLE MDPS (POMDPs)</h4>
+<p><br></p>
+<blockquote><p>👾 <em>The agent does not necessarily know which state it is in, so it cannot execute the action <code>π(s)</code> recommended for that state. Furthermore, the utility of a state <code>s</code> and the optimal action in <code>s</code> depend not just on <code>s</code>, but also on how much the agent knows when it is in <code>s</code>.</em></p></blockquote>
+<p><br></p>
+<blockquote><p>👾 <em>A POMDP has the same elements as an MDP—the transition model <code>P(s |s,a)</code>, actions <code>A(s)</code>, and reward function <code>R(s)</code>—but, like the partially observable search problems, it also has a sensor model <code>P(e|s)</code>.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>The belief state b becomes a probability distribution over all possible states -&gt; The agent can calculate its current belief state as the conditional probability distribution over the actual states given the sequence of percepts and actions so far (filtering).</li>
+</ul>
+<ul>
+<li>POMDP belief-state space is continuous, because a POMDP belief state is a probability distribution.</li>
+</ul>
+<ul>
+<li>Solving a POMDP on a physical state space can be reduced to solving an MDP on the corresponding belief-state space.</li>
+</ul>
+<p><br></p>
+<h4 id="decisions-with-multiple-agents-game-theory">🌟 DECISIONS WITH MULTIPLE AGENTS: GAME THEORY</h4>
+<p><br></p>
+<blockquote><p><em>What if the uncertainty is due to other agents and the decisions they make?</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>Agent design: Game theory can analyze the agent’s decisions and compute the expected utility for each decision (under the assumption that other agents are acting optimally according to game theory).</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>Mechanism design: When an environment is inhabited by many agents, it might be possible to define the rules of the environment (i.e., the game that the agents must play) so that the collective good of all agents is maximized when each agent adopts the game-theoretic solution that maximizes its own utility. Mechanism design can also be used to construct intelligent multiagent systems that solve complex problems in a distributed fashion.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>A single-move game is defined by three components:</li>
+</ul>
+<ol>
+<li>Players or agents who will be making decisions. Two-player games have received the most attention, although n-player games for <code>n &gt; 2</code> are also common.</li>
+<li>Actions that the players can choose. The players may or may not have the same set of actions available.</li>
+<li>A payoff function that gives the utility to each player for each combination of actions by all the players. For single-move games the payoff function can be represented by a matrix, a representation known as the strategic form (also called normal form).</li>
+</ol>
+<p><br></p>
+<ul>
+<li>Each player in a game must adopt and then execute a strategy (which is the name used in game theory for a policy). A pure strategy is a deterministic policy; for a single-move game, a pure strategy is just a single action. For many games an agent can do better with a mixed strategy, which is a randomized policy that selects actions according to a probability distribution. The mixed strategy that chooses action a with probability <code>p</code> and action <code>b</code> otherwise is written <code>[p:a;(1−p):b]</code>. A strategy profile is an assignment of a strategy to each player; given the strategy profile, the game’s outcome is a numeric value for each player.</li>
+</ul>
+<ul>
+<li>A solution to a game is a strategy profile in which each player adopts a rational strategy. We will see that the most important issue in game theory is to define what &quot;rational&quot; means when each agent chooses only part of the strategy profile that determines the outcome.</li>
+</ul>
+<ul>
+<li>We say that a strategy <code>s</code> for player <code>p</code> strongly dominates strategy <code>s</code> if the outcome for <code>s</code> is better for <code>p</code> than the outcome for <code>s</code>, for every choice of strategies by the other player(s). Strategy <code>s</code> weakly dominates <code>s</code> if <code>s</code> is better than <code>s</code> on at least one strategy profile and no worse on any other. A dominant strategy is a strategy that dominates all others.</li>
+</ul>
+<ul>
+<li>An outcome is Pareto optimal if there is no other outcome that all players would prefer. An outcome is Pareto dominated by another outcome if all players would prefer the other outcome.</li>
+</ul>
+<ul>
+<li>When each player has a dominant strategy, the combination of those strategies is called a dominant strategy equilibrium. In general, a strategy profile forms an equilibrium if no player can benefit by switching strategies, given that every other player sticks with the same strategy. An equilibrium is essentially a local optimum in the space of policies; it is the top of a peak that slopes downward along every dimension, where a dimension corresponds to a player’s strategy choices.</li>
+</ul>
+<ul>
+<li>Nash equilibrium -&gt;  every game has at least one equilibrium. -&gt; dominant strategy equilibrium is a Nash equilibrium, but some games have Nash equilibria but no dominant strategies. -&gt; Exploitability evaluates the distance between a strategy and Nash equilibrium strategy, which can be measured from the strategy profits of both side. -&gt;  Nash Equilibrium is unexploitable, i.e. exploitability is 0.</li>
+</ul>
+<p><br></p>
+<blockquote><p>✨ <em>John Nash on Finite Games -&gt; &quot;For us an <code>n</code>-person game will be a set of <code>n</code> players, or positions, each with an associated finite set of pure strategies; and corresponding to each player, <code>i</code>, a payoff function, <code>pi</code>, which maps the set of all <code>n</code>-tuples of pure strategies into the real numbers. When we use the term <code>n</code>-tuple we shall always mean a set of <code>n</code> items, with each item associated with a different player.&quot;</em></p></blockquote>
+<p><br></p>
+<blockquote><p>✨ <em>John Nash on Finite Strategies -&gt; &quot;Mixed Strategy, <code>si</code>: A mixed strategy of player <code>i</code> will be a collection of non-negative numbers which have unit sum and are in one to one correspondence with his pure strategies.&quot;</em></p></blockquote>
+<p><br></p>
+<blockquote><p>✨ <em>John Nash&#39;s conclusion -&gt; &quot;The problem of analyzing a cooperative game becomes the problem of obtaining a suitable and convincing non-cooperative model for the negotiation.&quot;</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Von Neumann -&gt; every two-player zero-sum game has a maximin equilibrium when you allow mixed strategies. -&gt; every Nash equilibrium in a zero-sum game is a maximin for both players.</li>
+</ul>
+<ul>
+<li>Finding equilibria in non-zero-sum games is somewhat more complicated. The general approach has two steps:</li>
+</ul>
+<p>1) Enumerate all possible subsets of actions that might form mixed strategies.<br>2) For each strategy profile enumerated in 1), check to see if it is an equilibrium.</p>
+<p><br></p>
+<ul>
+<li>A strategy profile for a repeated game specifies an action choice for each player at each time step for every possible history of previous choices. As with MDPs, payoffs are additive over time.</li>
+</ul>
+<ul>
+<li>A game consisting of a sequence of turns -&gt; best represented by a game tree, which game theorists call the extensive form.</li>
+</ul>
+<ul>
+<li>Chance’s “strategy” is part of the definition of the game, specified as a probability distribution over actions</li>
+</ul>
+<ul>
+<li>Actions -&gt; here is no easy way to represent a game where the players have to discover what actions are available.</li>
+</ul>
+<ul>
+<li>👾 Game theory is very good at representing the idea that the other players’ strategies are initially unknown—as long as we assume all agents are rational. The theory itself does not say what to do when the other players are less than fully rational. The notion of a Bayes–Nash equilibrium partially addresses this point: it is an equilibrium with respect to a player’s prior probability distribution over the other players’ strategies—in other words, it expresses a player’s beliefs about the other players’ likely strategies.</li>
+</ul>
+<ul>
+<li>Game theory has been used primarily to analyze environments that are at equilibrium, rather than to control agents within an environment.</li>
+</ul>
+<p><br></p>
+<h4 id="mechanism-design">MECHANISM DESIGN</h4>
+<p><br></p>
+<blockquote><p>👾 <em>Inverse game theory -&gt; We would like to design a game whose solutions, consisting of each agent pursuing its own rational strategy, result in the maximization of some global utility function.</em></p></blockquote>
+<p><br></p>
+<p>Formally, a mechanism consists of:</p>
+<p>1) a language for describing the set of allowable strategies that agents may adopt<br>2) a distinguished agent, called the center, that collects reports of strategy choices from the agents in the game, and<br>3) an outcome rule, known to all agents, that the center uses to determine the payoffs to each agent, given their strategy choices.</p>
+<p><br></p>
+<ul>
+<li>A mechanism where agents have a dominant strategy is called a strategy-proof mechanism.</li>
+</ul>
+<ul>
+<li>Vickrey-Clarke-Groves, or VCG, mechanism -&gt; makes as dominant strategy for VCG each agent to report its true utility and that achieves an efficient allocation of the goods.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="26-philosophical-foundations">🎸 26. Philosophical Foundations</h2>
+<p><br></p>
+<blockquote><p><em>The assertion that machines could act as if they were intelligent is called the weak AI hypothesis by philosophers, and the assertion that machines that do so are actually thinking (not just simulating thinking) is called the strong AI hypothesis.</em></p></blockquote>
+<p><br></p>
+<h4 id="weak-ai-can-machines-act-intelligently">WEAK AI: CAN MACHINES ACT INTELLIGENTLY?</h4>
+<p><br></p>
+<blockquote><p>🌟 <em>The argument from disability by Alan Turing (a machine can never do) -&gt; Be kind, resourceful, beautiful, friendly, have initiative, have a sense of humor, tell right from wrong, make mistakes, fall in love, enjoy strawberries and cream, make someone fall in love with it, learn from experience, use words properly, be the subject of its own thought, have as much diversity of behavior as man, do something really new.</em> 😄</p></blockquote>
+<p><br></p>
+<blockquote><p>👾 <em>It is well known, through the work of Turing (1936) and Gödel (1931), that certain mathematical questions are in principle unanswerable by particular formal systems. Gödel&#39;s incompleteness theorem is the most famous example of this. Briefly, for any formal axiomatic system <code>F</code> powerful enough to do arithmetic, it is possible to construct a so-called Gödel sentence <code>G(F)</code> with the following properties:</em></p></blockquote>
+<ul>
+<li><code>G(F)</code> is a sentence of <code>F</code>, but cannot be proved within <code>F</code>.</li>
+<li>If <code>F</code> is consistent, then <code>G(F)</code> is true.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>👾 Philosophers such as J. R. Lucas (1961) have claimed that this theorem shows that machines are mentally inferior to humans, because machines are formal systems that are limited by the incompleteness theorem—they cannot establish the truth of their own Gödel sentence—while humans have no such limitation.</li>
+</ul>
+<ul>
+<li>👾 Turing machines are infinite, whereas computers are finite, and any computer can therefore be described as a (very large) system in propositional logic, which is not subject to Gödel&#39;s incompleteness theorem.</li>
+</ul>
+<ul>
+<li>👾 It&#39;s impossible to prove that humans are not subject to Gödel&#39;s incompleteness theorem -&gt; any rigorous proof would require a formalization of the claimed unformalizable human talent, and hence refute itself.</li>
+</ul>
+<ul>
+<li>👾 The qualification problem in AI -&gt;  The inability to capture everything in a set of logical rules -&gt; human behavior is far too complex to be captured by any simple set of rules and that because computers can do no more than follow a set of rules, they cannot generate behavior as intelligent as that of humans.</li>
+</ul>
+<ul>
+<li>👾 GOFAI is supposed to claim that all intelligent behavior can be captured by a system that reasons logically from a set of facts and rules describing the domain. -&gt; our simplest logical agent are vulnerable to the qualification problem. -&gt; probabilistic reasoning systems are more appropriate for open-ended domains.</li>
+</ul>
+<p><br></p>
+<h4 id="strong-ai-can-machines-really-think">STRONG AI: CAN MACHINES REALLY THINK?</h4>
+<p><br></p>
+<ul>
+<li>Many philosophers have claimed that a machine that passes the Turing Test would still not be actually thinking, but would be only a simulation of thinking.</li>
+</ul>
+<p><br></p>
+<blockquote><p>🥹 <em>Professor Geoffrey Jefferson (1949) &quot;Not until a machine could write a sonnet or compose a concerto because of thoughts and emotions felt, and not by the chance fall of symbols, could we agree that machine equals brain—that is, not only write it but know that it had written it.&quot;</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>The nature of the mind has been a standard topic of philosophical theorizing from ancient times to the present. In the Phaedo, Plato specifically considered and rejected the idea that the mind could be an “attunement” or pattern of organization of the parts of the body, a viewpoint that approximates the functionalist viewpoint in modern philosophy of mind. He decided instead that the mind had to be an immortal, immaterial soul, separable from the body and different in substance—the viewpoint of dualism. Aristotle distinguished a variety of souls (Greek ψυχη) in living things, some of which, at least, he described in a functionalist manner.</li>
+</ul>
+<ul>
+<li>Physicalist philosophers have attempted to explicate what it means to say that a person—and, by extension, a computer—is in a particular mental state. They have focused in particular on intentional states. These are states, such as believing, knowing, desiring, fearing, and so on, that refer to some aspect of the external world.</li>
+</ul>
+<ul>
+<li>If physicalism is correct, it must be the case that the proper description of a person’s mental state is determined by that person’s brain state.</li>
+</ul>
+<ul>
+<li>The content of mental states could be interpreted from two different points of view -&gt; The “wide content” view interprets it from the point of view of an omniscient outside observer with access to the whole situation, who can distinguish differences in the world. Under this view, the content of mental states involves both the brain state and the environment history. Narrow content, on the other hand, considers only the brain state.</li>
+</ul>
+<ul>
+<li>👾 If one is concerned with the question of whether AI systems are really thinking and really do have mental states, then narrow content is appropriate; it simply doesn’t make sense to say that whether or not an AI system is really thinking depends on conditions outside that system. Narrow content is also relevant if we are thinking about designing AI systems or understanding their operation, because it is the narrow content of a brain state that determines what will be the (narrow content of the) next brain state. This leads naturally to the idea that what matters about a brain state—what makes it have one kind of mental content and not another—is its functional role within the mental operation of the entity involved.</li>
+</ul>
+<ul>
+<li>Under functionalist theory, any two systems with isomorphic causal processes would have the same mental states. -&gt; Therefore, a computer program could have the same mental states as a person.</li>
+</ul>
+<ul>
+<li>A strong challenge to functionalism has been mounted by John Searle’s (1980) biological naturalism, according to which mental states are high-level emergent features that are caused by low-level physical processes in the neurons, and it is the (unspecified) properties of the neurons that matter. -&gt; “running the right program does not necessarily generate understanding.” -&gt; he then states 4 controversial (and perhaps proven wrong) axioms:</li>
+</ul>
+<pre><code>
+1. Computer programs are formal (syntactic).
+2. Human minds have mental contents (semantics).
+3. Syntax by itself is neither constitutive of nor sufficient for semantics.
+4. Brains cause minds.
+</code></pre>
+<ul>
+<li>Qualia  -&gt; the technical term for the intrinsic nature of experiences.</li>
+</ul>
+<p><br></p>
+<h4 id="the-ethics-and-risks-of-developing-artificial-intelligence">THE ETHICS AND RISKS OF DEVELOPING ARTIFICIAL INTELLIGENCE</h4>
+<p><br></p>
+<ul>
+<li>All scientists and engineers face ethical considerations of how they should act on the job, what projects should or should not be done, and how they should be handled. AI seems to pose some fresh problems beyond that of, say, building bridges that don’t fall down:</li>
+</ul>
+<ol>
+<li>People might lose their jobs to automation.</li>
+<li>People might have too much (or too little) leisure time.</li>
+<li>People might lose their sense of being unique.</li>
+<li>AI systems might be used toward undesirable ends.</li>
+<li>The use of AI systems might result in a loss of accountability.</li>
+</ol>
+<p><br></p>
+<ul>
+<li>Yudkowsky (2008) goes into more detail about how to design a Friendly AI. He asserts that friendliness (a desire not to harm humans) should be designed in from the start, but that the designers should recognize both that their own designs may be flawed, and that the robot will learn and evolve over time. Thus the challenge is one of mechanism design—to define a mechanism for evolving AI systems under a system of checks and balances, and to give the systems utility functions that will remain friendly in the face of such changes.</li>
+</ul>
+<ul>
+<li>We should note that the idea of safeguards against change in utility function is not a new one. In the Odyssey, Homer (ca. 700 B.C.) described Ulysses’ encounter with the sirens, whose song was so alluring it compelled sailors to cast themselves into the sea. Knowing it would have that effect on him, Ulysses ordered his crew to bind him to the mast so that he could not perform the self-destructive act. It is interesting to think how similar safeguards could be built into AI systems.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>💜 Finally, let us consider the robot’s point of view. If robots become conscious, then to treat them as mere “machines” (e.g., to take them apart) might be immoral.</li>
+</ul>
+<p><br></p>
+<hr>
+<h4 id="thank-you-again-dr-russell-dr-norvig-for-this-fun-and-captivating-journey"><em>Thank you again, Dr. Russell &amp; Dr. Norvig, for this fun and captivating journey.</em></h4>
+<h4 id="section">⬛️</h4></div>
 								</article>
 							</div>
 						</div>

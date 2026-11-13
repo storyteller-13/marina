@@ -198,10 +198,267 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-08-26">2026; 08; 26</time></p>
+									<h1 id="post-title" class="section-title">📚 BOOK → TAOCP 3️⃣ of 6️⃣ (Donald E. Knuth, 2019)</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 10/10 | Beginner to Advanced Computer Scientists | Today&#x27;s Word: Flourishing · Aufblühen · はんえい · שגשוג</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p>Here are two cool quotes from this chapter:</p>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=4yVheY2WBgM">🎶</a> <em>&quot;There is nothing more difficult to take in hand, more perilous to conduct, or more uncertain in its success, than to take the lead in the introduction of a new order of things.&quot;</em> — Niccolo Machiavelli (1513)</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=QO1uJdA73ts">🎼</a> <em>&quot;They that weave networks shall be confounded.&quot;</em> — Isaiah 19:9</p></blockquote>
+<p><br></p>
+<p>And two cool quotes from my studies this week:</p>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=UQh-vGjuocM">🎵</a> <em>&quot;But if the optimal route looks too quiet, the solution is not to avoid it. The solution is to stand firm, knowing that you&#39;re doing the right thing, and eventually the results will speak for themselves.&quot;</em> — Paul Graham</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=_9jaJtmraXA">🎹</a> <em>&quot;Then, as in the case of an archer, there must be some end at which we aim, and we shall be more likely to hit the mark if we have a target.”</em> — Aristotle’s  Nicomachean Ethics</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/magritte.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>In this third post, I continue the <em>brain-gymnastics</em> I began in <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_knuth.html"><strong>Part 1️⃣</strong></a> and in <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_knuth_2.html"><strong>Part 2️⃣</strong></a>, all within this <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=DqjWFZN82_A"><strong>luminal spacetime of ours</strong></a>. Today we go through the entire <strong>Sorting</strong> chapter, and I must say, this might be one of my favorites. Call me a <em>weirdo</em>, but there is a <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=G5BIhjXCJOY">sublime</a></strong> pleasure in trying <em>to optimize the order of a set of things</em>. Every algorithm traces a different pathway through the brain, a series of braidings (or multidimensions?) that makes it itch in a <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=2f9bBlGOuX4">peculiar</a></strong> way.</p>
+<p>Speaking of <strong><a target="_blank" rel="noopener noreferrer" href="https://blog.archive.org/2026/08/16/vintage-artificial-intelligence-before-it-got-awkward/">funny, pleasant</a></strong> ways the brain can be itched, it’s story time.</p>
+<p>Back in c. 2014, when I was in the <strong><a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/">last year of my PhD</a></strong>, I was running a lot of <strong><a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/reviews/first_results.pdf">Monte Carlo simulations</a></strong> and <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/astrophysics-mfits-py">calculations</a></strong> with <strong><a target="_blank" rel="noopener noreferrer" href="https://www.lanl.gov/">Los Alamos Laboratory</a></strong> to find <strong><a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/figures/opacities_LANL.png">the correct form</a></strong> for the <strong><a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/reviews/xrays.pdf">equation of state</a></strong> of <strong><a target="_blank" rel="noopener noreferrer" href="https://iopscience.iop.org/article/10.3847/0004-637X/832/2/102">neutron stars</a></strong> through the <strong><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/asset/webb/life-cycles-of-sun-like-and-massive-stars/">observation</a></strong> of <strong><a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/reviews/xrb_review.pdf">X-ray bursters</a></strong>. During those years of astrophysics, I was writing a lot of code in <a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/interstellar-idl/blob/master/src/calibration.pro"><strong>IDL</strong></a>, <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/robotics-matlab/blob/master/gradient/code/README_and_RESULTS.txt">MATLAB</a></strong>, and <a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/solar/blob/master/src/DataRedux.C"><strong>C</strong></a>/C++. But I was getting really hooked on Python. At that time, it felt like the most superior language (sorry, <a target="_blank" rel="noopener noreferrer" href="https://github.com/cypherpunk-symposium/csrf-apache-modsecurity-rb"><strong>Ruby</strong></a> crew...).</p>
+<p>Since I didn’t have a traditional computer science background, I decided it was the moment for me to work through the traditional classical algorithms exercises, and since there were <strong><a target="_blank" rel="noopener noreferrer" href="https://www.andrew.cmu.edu/user/ramesh/teaching/course/48784.pdf">barely</a></strong> any of them published in Python, that was the perfect excuse to create and open-source something unique. I started working through all the exercises in <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850"><strong>Cracking the Coding Interview</strong></a> and <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202?tag=ustxtaddt-20"><strong>Algorithms by Skiena</strong></a>, and at the same time, because I love <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=2chNuUpC8_Y">writing</a></strong> things down to organize my thoughts (and I used to love writing things in <strong><a target="_blank" rel="noopener noreferrer" href="https://www.latex-project.org/">LaTeX</a></strong> as well), I started creating a <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/master-algorithms-py">book on Python, algorithms, and data structures</a></strong>. The book was open, and the repository got <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/master-algorithms-py/blob/master/book_pdf/assets/600_stars.png">over 600 stars at the time</a></strong> (later, I lost all the stars and forks when I made the repository <strong><a target="_blank" rel="noopener noreferrer" href="https://youtu.be/1Fp6ibfOQ4Y?t=2699">private</a></strong>).</p>
+<p>A year or so later, I received an email from a <strong><a target="_blank" rel="noopener noreferrer" href="https://www.hanbit.co.kr/books/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EC%B4%88-%ED%8A%BC%ED%8A%BC-%ED%95%B5%EC%8B%AC-%EC%8F%99%EC%8F%99-%EC%8B%A4%EB%A0%A5-%EC%91%A5%EC%91%A5?code=B8465804191">Korean publisher asking whether they could publish my book</a></strong>. They would give me a small sum of money, plus two hard copies. Well, I told them, <em>“But the book is <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=Y9lSq6bM9C8&amp;t=2s">free</a></strong> already,”</em> and they go, <em>“But it’s not in Korean.”</em> That’s the story of <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/future-ai-org/master-algorithms-py/commits/master/?after=9fb230309aec59a1b35df7e2171af3d1044104b8+769">the publication of my first book</a></strong> (and the easter egg in this tale is that the book’s theme is <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Buffy_the_Vampire_Slayer">Buffy the Vampire Slayer</a></strong> — which they kept entirely in the publication!).</p>
+<p><br></p>
+<p><img src="/blog/assets/buffy2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Why am I telling this story?</p>
+<p>Ah, yes. That was the first time in my life when I actually tried to implement <em>almost</em> every type of sorting algorithm imaginable, and when I learned I had to love <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Merge_sort">merge sort</a></strong> and disapprove of <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Bubble_sort">bubble sort</a></strong>. Now, more than a decade later, as I return to these problems under the voice of <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Donald_Knuth">the Master</a></strong>, and one day before a final <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/images/eclipse_26_08_27.webp">eclipse</a></strong> <strong><a target="_blank" rel="noopener noreferrer" href="https://apod.nasa.gov/apod/ap260825.html">cycle</a></strong> in my <strong><a target="_blank" rel="noopener noreferrer" href="https://choices.vonsteinkirch.com/choices/choose-your-adventure/astrology/usd/undefined-1/eclipses">2nd house</a></strong>, I feel a beautiful sense of having come <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ouroboros">full circle</a></strong>.</p>
+<p><br></p>
+<p><img src="/blog/assets/knuth_infinite.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>A deep sense of worthiness. I think I made it. I think I became the amazing computer scientist I always dreamed I would be when I <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=eKLeBGHAUGw">grew up</a></strong>. And I am so very excited to live the best (and final) part of my life.</p>
+<p><br></p>
+<p><img src="/blog/assets/br.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>As always, below are a few highlights (for personal inventory), with a moderate attempt at coherence:</p>
+<p><strong>🤖 If you see a 👾, it means I found something particularly cool or learned something new.</strong><br><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 If you see a ☀️, it means it&#39;s just a fun easter egg (because life&#39;s short; <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=VbD_kBJc_gI">we must dance</a>).</strong><br><strong>🤖 If these notes look interesting to you, it&#39;s your ✦moral duty✦ to read the original books.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#combinatorial-properties-of-permutations">COMBINATORIAL PROPERTIES OF PERMUTATIONS</a></li><li><a href="#internal-sorting">INTERNAL SORTING</a></li><li><a href="#optimal-sorting">OPTIMAL SORTING</a></li><li><a href="#external-sorting">EXTERNAL SORTING</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="volume-3-chapter-5-sorting">VOLUME 3️⃣; CHAPTER 5️⃣; SORTING</h2>
+<p><br></p>
+<blockquote><p>✨ <em>Although dictionaries of the English language define “sorting” as the process of separating or arranging things according to class or kind, computer programmers traditionally use the word in the much more special sense of marshaling things into ascending or descending order. The process should perhaps be called ordering, not sorting; but anyone who tries to call it “ordering” is soon led into confusion because of the many different meanings attached to that word. Mathematical terminology abounds with still more senses of order (the order of a group, the order of a permutation, the order of a branch point, relations of order, etc., etc.). Thus we find that the word “order” can lead to chaos.</em> ✨</p></blockquote>
+<p><br></p>
+<ul>
+<li>From a broader perspective we will find also that sorting algorithms make a valuable case study of how to attack computer programming problems in general.</li>
+</ul>
+<p><br></p>
+<blockquote><p>✨<em>The goal of sorting is to determine a permutation <code>p(1)p(2) ... p(N)</code> of the indices <code>{1, 2, ..., N}</code> that will put the keys into nondecreasing order: <code>Kp(1) ≤ Kp(2) ≤ ··· ≤ Kp(N)</code>.</em> ✨</p></blockquote>
+<p><br></p>
+<ul>
+<li>Stable sorting has the additional property that <code>p(i) &lt; p(j)</code> whenever <code>Kp(i) = Kp(j)</code> and <code>i &lt; j</code>.</li>
+</ul>
+<ul>
+<li>Sorting can be classified generally into internal sorting, in which the records are kept entirely in the computer’s high-speed random-access memory, and external sorting, when more records are present than can be held comfortably in memory at once.</li>
+</ul>
+<ul>
+<li>The time required to sort <code>N</code> records, using a decent general-purpose sorting algorithm, is roughly proportional to <code>N log N</code>; we make about <code>log N</code> “passes” over the data. This is the minimum possible time. If the keys are known to be randomly distributed with respect to some continuous numerical distribution, we will see that sorting can be accomplished in <code>O(N)</code> steps on the average.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth9.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h3 id="combinatorial-properties-of-permutations">COMBINATORIAL PROPERTIES OF PERMUTATIONS</h3>
+<p><br></p>
+<blockquote><p><em>A permutation of a finite set is an arrangement of its elements into a row. Permutations are of special importance in the study of sorting algorithms, since they represent the unsorted input data. In order to study the efficiency of different sorting methods, we will want to be able to count the number of permutations that cause a certain step of a sorting procedure to be executed a certain number of times.</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>Let <code>a1 a2 ... an</code> be a permutation of the set <code>{1, 2, ..., n}</code>. If <code>i &lt; j</code> and <code>ai &gt; aj</code>, the pair <code>(ai, aj)</code> is called an inversion of the permutation; for example, the permutation <code>3 1 4 2</code> has three inversions: <code>(3, 1)</code>, <code>(3, 2)</code>, and <code>(4, 2)</code>. Each inversion is a pair of elements that is out of sort, so the only permutation with no inversions is the sorted permutation <code>12 ... n</code>.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>How many permutations of <code>{1, 2, ..., n}</code> are possible? The answer must be the number of possible inversion tables, and they are easily enumerated since there are <code>n</code> choices for <code>b1</code>, independently <code>n − 1</code> choices for <code>b2, ...</code>, <code>1</code> choice for <code>bn</code>, making n<code>(n − 1) ... 1 = n!</code> choices in all.</li>
+</ul>
+<ul>
+<li>The inversion table <code>b1 b2 ... bn</code> of the permutation <code>a1 a2 ... an</code> is obtained by letting <code>bj</code> be the number of elements to the left of <code>j</code> that are greater than <code>j</code>. An inversion table uniquely determines the corresponding permutation.</li>
+</ul>
+<ul>
+<li>Hence the number of inversions of a permutation <code>π</code> is the length of a downward path from <code>1234</code> to <code>π</code>; all such paths must have the same length.</li>
+</ul>
+<ul>
+<li>The inverse of a permutation has exactly as many inversions as the permutation itself.</li>
+</ul>
+<ul>
+<li>The analysis of several sorting algorithms involves the knowledge of how many permutations of <code>n</code> elements have exactly <code>k</code> inversions.</li>
+</ul>
+<ul>
+<li>A multiset is like a set except that it can have repetitions of identical elements.</li>
+</ul>
+<p><br></p>
+<blockquote><p>✨👾 <em>The number of permutations of a set has been known for more than 1500 years. The Hebrew Book of Creation (c.A.D.400), which was the earliest literary product of Jewish philosophical mysticism, gives the correct values of the first seven factorials, after which it says “Go on and compute what the mouth cannot express and the ear cannot hear.” (<strong><a target="_blank" rel="noopener noreferrer" href="https://choices.vonsteinkirch.com/choices/choose-your-adventure/alchemy/the-usdchoice-of-alchemy/undefined-7/by-moses-c.-1400-bce-1/by-moses-c.-1400-bce?q=">Sefer Yetzirah</a></strong>). This is one of the first two known enumerations of permutations in history.</em> 👾✨</p></blockquote>
+<p><br></p>
+<ul>
+<li>The intercalation product <code>α ⊺ β</code> of two multiset permutations <code>α</code> and <code>β</code> is obtained by (a) expressing <code>α</code> and <code>β</code> in the two-line notation, (b) juxtaposing these two-line representations, and (c) sorting the columns into nondecreasing order of the top line. The sorting is supposed to be stable, in the sense that left-to-right order of elements in the bottom line is preserved when the corresponding top line elements are equal.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth10.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p><em>Theorem: Let the elements of the multiset <code>M</code> be linearly ordered by the relation <code>“&lt;”</code>. Every permutation <code>π</code> of <code>M</code> has a unique representation as the intercalation <code>π = (x11 … x1 n1 y1) (x21 … x2 n2 y2) ... (xt1 … xtn tyt)</code>, <code>t ≥ 0</code>, where the following two conditions are satisfied: <code>y1 ≤ y2 ≤ ... ≤ yt</code> and <code>yi &lt; xij</code> for <code>1 ≤ j ≤ ni</code>, <code>1 ≤ i ≤ t</code>.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>A permutation is prime if and only if it is a cycle with no repeated elements. A nonprime permutation can be factored into smaller and smaller pieces until it has been expressed as a product of primes.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth11.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>If we place a vertical line at both ends of a permutation <code>a1 a2 ... an</code> and also between <code>aj</code> and <code>aj + 1</code> whenever <code>aj &gt; aj + 1</code>, the runs are the segments between pairs of lines. For example, the permutation <code>|3 5 7 |1 6 8 9 |4 |2 |</code> has four runs.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/eulerian.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>A Young tableau of shape <code>(n1, n2, ..., nm)</code>, where <code>n1 ≥ n2 ≥ ... ≥ nm &gt; 0</code>, is an arrangement of <code>n1 + n2 + ... + nm</code> distinct integers in an array of left-justified rows, with <code>ni</code> elements in row <code>i</code>, such that the entries of each row are in increasing order from left to right, and the entries of each column are increasing from top to bottom.</li>
+</ul>
+<ul>
+<li>An involution is a permutation that is its own inverse. The number of involutions of <code>{1, 2, ..., n}</code> is the same as the number of tableaux that can be formed from the elements <code>{1, 2, ..., n}</code>.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Algorithm (Insertion into a tableau) → Let <code>P = (Pij)</code> be a tableau of positive integers, and let <code>x</code> be a positive integer not in <code>P</code>. This algorithm transforms <code>P</code> into another tableau that contains <code>x</code> in addition to its original elements. The new tableau has the same shape as the old, except for the addition of a new position in row <code>s</code>, column <code>t</code>, where <code>s</code> and <code>t</code> are quantities determined by the algorithm.</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>Algorithm (Deletion from a tableau) → Given a tableau <code>P</code> and positive integers <code>s</code>, <code>t</code>, this algorithm transforms <code>P</code> into another tableau, having almost the same shape, but with <code>∞</code> in column <code>t</code> of row <code>s</code>. An element <code>x</code>, determined by the algorithm, is deleted from <code>P</code>.</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>Theorem → There is a one-to-one correspondence between the set of all permutations of <code>{1, 2, ..., n}</code> and the set of ordered pairs <code>(P, Q)</code> of tableaux formed from <code>{1, 2, ..., n}</code>, where <code>P</code> and <code>Q</code> have the same shape.</em></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/knuth_witchcraft.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p>✨ <em>In particular, this theorem establishes two surprising facts about the tableau insertion algorithm: If successive insertion of distinct elements <code>p1, ..., pn</code> into an empty tableau yields tableau <code>P</code>, insertion in the opposite order <code>pn, ..., p1</code> yields the transposed tableau <code>P^T</code>. And if we not only insert the <code>p</code>’s in this order <code>pn, ..., p1</code> but also interchange the roles of <code>&lt;</code> and <code>&gt;</code>, as well as <code>0</code> and <code>∞</code>, in the insertion process, we obtain the dual tableau <code>P^S</code> → The unusual nature of these coincidences might lead us to suspect that some sort of witchcraft is operating behind the scenes! No simple explanation for these phenomena is yet known.</em> ✨</p></blockquote>
+<p><br></p>
+<ul>
+<li>The hook corresponding to a cell in a tableau is defined to be the cell itself plus the cells lying below and to its right.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Theorem: the number of tableaux on <code>{1, 2, ..., n}</code> having a specified shape is <code>n!</code> divided by the product of the hook lengths (and so this is the number of binary trees) → The number of permutations <code>a1 a2 ... an</code> of <code>{1, 2, ..., n}</code> containing no decreasing subsequence <code>ai &gt; aj &gt; ak</code> for <code>i &lt; j &lt; k</code> is the number of binary trees with <code>n</code> nodes.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Binary trees with <code>n</code> nodes correspond to permutations that can be obtained with a stack, and that such permutations correspond to sequences <code>a1 a2 ... a_{2n}</code> of <code>n</code> <code>S</code>’s and <code>n</code> <code>X</code>’s, where the number of <code>S</code>’s is never less than the number of <code>X</code>’s as we read from left to right.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/steinkirch_tableau.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p>☀️ Another fun story ⬆️ → I spent a lot of time playing with Young tableaux during my PhD in Theoretical Physics, when I was studying group theory representations in the context of quantum field theory — and I ended up writing a couple of other books: <a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/books/group.pdf"><strong>Group Theory for Physicists</strong></a> (which was even <a target="_blank" rel="noopener noreferrer" href="https://gist.github.com/von-steinkirch/dbe61fee2861184489a648b719e57fd1"><strong>a little successful</strong></a> at the time) and <a target="_blank" rel="noopener noreferrer" href="https://www.astro.sunysb.edu/steinkirch/books/qft.pdf"><strong>Quantum Field Theory</strong></a>. I’m pretty proud of how I explain the theory, so if you’re interested in these subjects, I invite you to read the chapter.</p></blockquote>
+<p><br></p>
+<hr>
+<h3 id="internal-sorting">INTERNAL SORTING</h3>
+<p><br></p>
+<p><img src="/blog/assets/knuth_is_the_king.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p><img src="/blog/assets/knuth_bubble.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p><img src="/blog/assets/knuth_heap.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p><img src="/blog/assets/knuth_merge.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p><img src="/blog/assets/knuth_quick.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h3 id="optimal-sorting">OPTIMAL SORTING</h3>
+<p><br></p>
+<ul>
+<li>Let <code>T(G)</code> be the number of permutations consistent with <code>G</code>, that is, the number of ways to assign the integers <code>{1, 2, ... , n}</code> to the vertices of <code>G</code> so that the number on vertex <code>x</code> is less than the number on vertex <code>y</code> whenever <code>x → y</code> in <code>G</code> → the efficiency of <code>G</code> is <code>E(G) = {n!}{2^k T(G)}</code>.</li>
+</ul>
+<p><br></p>
+<blockquote><p>👾 <em>Theorem → Zero-one principle → If a network with <code>n</code> input lines sorts all <code>2n</code> sequences of <code>0</code>s and <code>1</code>s into nondecreasing order, it will sort any arbitrary sequence of <code>n</code> numbers into nondecreasing order.</em></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/knuth_graph_eff.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h3 id="external-sorting">EXTERNAL SORTING</h3>
+<p><br></p>
+<blockquote><p><em>Time for us to study the interesting problems that arise when the number of records to be sorted is larger than our computer can hold in its high-speed internal memory.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>👾 Algorithm (Polyphase merge sorting with “horizontal” distribution) → This algorithm takes initial runs and disperses them to tapes, one run at a time, until the supply of initial runs is exhausted. Then it specifies how the tapes are to be merged, assuming that there are <code>T = P + 1 ≥ 3</code> available tape units, using P-way merging. Tape <code>T</code> may be used to hold the input, since it does not receive any initial runs. The following tables are maintained:</li>
+</ul>
+<pre><code class="language-🐝">
+A[j], 1 ≤ j ≤ T
+	→ The perfect Fibonacci distribution we are striving for
+
+D[j], 1 ≤ j ≤ T
+	→ Number of dummy runs assumed to be present at the beginning of logical tape unit #j
+</code></pre>
+<p><br></p>
+<ul>
+<li>Algorithm (Cascade merge sorting with special distribution) → This algorithm takes initial runs and disperses them to tapes, one run at a time, until the supply of initial runs is exhausted. Then it specifies how the tapes are to be merged, assuming that there are <code>T ≥ 3</code> available tape units, using at most <code>(T − 1)</code>-way merging and avoiding unnecessary one-way merging. Tape <code>T</code> may be used to hold the input, since it does not receive any initial runs. The following tables are maintained:</li>
+</ul>
+<pre><code class="language-🐝">
+A[j], 1 ≤ j ≤ T: The perfect cascade distribution we have most recently reached
+
+AA[j], 1 ≤ j ≤ T: The perfect cascade distribution we are striving for
+
+D[j], 1 ≤ j ≤ T: Number of dummy runs assumed to be present on logical tape unit number j
+
+M[j], 1 ≤ j &lt; T: Maximum number of dummy runs desired on logical tape unit number j
+
+TAPE[j], 1 ≤ j ≤ T: Number of the physical tape unit corresponding to logical tape unit number j
+</code></pre>
+<p><br></p>
+<ul>
+<li>The following brief survey gives the highlights of the most significant algorithms we have encountered for internal sorting. As usual, <code>N</code> stands for the number of records in the given file:</li>
+</ul>
+<pre><code class="language-🐝">
+1. Distribution counting 
+    → is very useful when the keys have a small range
+    → It is stable (doesn’t affect the order of records with equal keys)
+    → but requires memory space for counters and for 2N records
+
+2. Straight insertion 
+    → is the simplest method to program, requires no extra space
+    → and is quite efficient for small N (say N ≤25)
+    → For large N it is unbearably slow unless the input is nearly in order
+
+3. Shellsort 
+    → is also quite easy to program, and uses minimum memory space
+    → and it is reasonably efficient for moderately large N (say N ≤ 1000)
+
+4. List insertion 
+    → uses the same basic idea as straight insertion, so it is suitable only for small N
+    → Like the other list sorting methods described below, it saves the cost of moving long records by manipulating links
+    → this is particularly advantageous when the records have variable length or are part of other data structures
+
+5. Address calculation techniques 
+    → efficient when the keys have a known (usually uniform) distribution
+    → the principal variants of this approach are multiple list insertion, and MacLaren’s combined radix-insertion method
+
+6. Merge exchange 
+    → Useful when a large number of comparisons can be made simultaneously
+
+7. Quicksort 
+    → probably the most useful general-purpose technique for internal sorting
+    → Requires very little memory space
+    → Its average running time on most computers beats that of its competitors
+    → It can run very slowly in its worst case, however
+    → so a careful choice of the partitioning elements should be made whenever nonrandom data are likely
+
+8. Straight selection 
+    → a simpl method
+    → especially suitable when special hardware is available to find the smallest element of a list rapidly
+
+9. Heapsort 
+    → requires minimum memory and is guaranteed to run pretty fast
+    → its average time and its maximum time are both roughly twice the average running time of quicksort
+
+10. List merging 
+    → is a list sort that, like heapsort, is guaranteed to be rather fast even in its worst case;
+    → moreover, it is stable with respect to equal keys
+
+11. Radix sorting 
+    → List sort especially appropriate for keys that are either rather short
+    → or that have an unusual lexicographic collating sequence.
+
+12. Merge insertion 
+    → is especially suitable for very small values of N, in a “straight-line-coded” routine
+    → it would be the appropriate method in an application that requires the sorting of numerous five- or six-record groups
+
+13. Hybrid methods 
+    → combining one or more of the techniques above, are also possible
+</code></pre>
+<p><br></p>
+<hr>
+<h5 id="to-be-continued-until-then-have-a-safe-eclipse">TO BE CONTINUED (UNTIL THEN, HAVE A SAFE ECLIPSE)... ☀️🌙</h5>
+<h5 id="talking-about-nostalgia-part-2-here-s-a-picture-of-me-during-my-astrophysics-phd-student-years-living-on-long-island-ny-those-were-cold-winters-but-i-loved-the-snow-one-of-my-favorite-hobbies-was-going-for-a-nice-hike-right-after-a-storm-when-the-snow-was-all-fluffy-and-fun-i-have-very-tender-memories-of-those-years-despite-all-the-work-of-graduate-school-and-living-on-a-graduate-student-scholarship-by-the-way-you-can-clearly-see-that-i-was-into-progressive-rock-the-definition-of-the-infinite-and-looking-exactly-like-buffy-circa-2012">Talking about <a target="_blank" rel="noopener noreferrer" href="https://archive.org/details/msdos_Racter_1984"><strong>nostalgia</strong></a>, part 2️⃣ — here’s a picture of me during my Astrophysics PhD student years, living on Long Island, NY. Those were cold winters, but I loved the snow. One of my favorite hobbies was going for a nice hike right after a storm, when the snow was all fluffy and fun. I have very tender <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=5aCegKCsd7I">memories</a></strong> of those years, despite all the work of graduate school and living on a graduate student scholarship. By the way, you can clearly see that I was into <a target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20090621102022/http://www.last.fm/user/steinkirch"><strong>progressive rock</strong></a>, the definition of the infinite, and <a target="_blank" rel="noopener noreferrer" href="https://www.imdb.com/title/tt11286314/mediaviewer/rm253881601/"><strong>looking exactly like Buffy</strong></a> — circa 2012.</h5>
+<p><br></p>
+<p><img src="/blog/assets/buffy.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h5 id="section">⬛️</h5></div>
 								</article>
 							</div>
 						</div>

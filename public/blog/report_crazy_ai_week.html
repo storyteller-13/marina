@@ -198,10 +198,55 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-04-05">2026; 04; 05</time></p>
+									<h1 id="post-title" class="section-title">🏄‍♀️ REPORT → A Ride Through a Crazy Week in AI</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">We are riding that exponential curve, aren&#x27;t we?</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p>This has been a week for the books, so today we&#39;ll take a moment to reflect on everything that&#39;s happening.</p>
+<p><br></p>
+<hr>
+<h2 id="updates-on-time">Updates on Time...</h2>
+<p><br></p>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/">TurboQuant</a> + <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2310.11453">1-Bit Frontier</a></strong>: Google Research and NYU&#39;s TurboQuant (ICLR 2026) compresses KV cache vectors to 3–4 bits with near-zero quality loss and no preprocessing or calibration required. For long-context agentic inference, KV cache is typically the dominant memory bottleneck. Big win for local models.</li>
+</ul>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/">Gemma 4 — Apache 2.0</a></strong>: Google DeepMind released four <a target="_blank" rel="noopener noreferrer" href="https://www.interconnects.ai/p/gemma-4-and-what-makes-an-open-model">open-weight models</a> (E2B, E4B, 26B MoE, 31B dense) under the Apache 2.0 license. The 31B scores 89.2% on AIME 2026 and 80% on LiveCodeBench, with native vision and audio input and context windows up to 256K tokens. Big win for local models ++.</li>
+</ul>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://www.constellationr.com/insights/news/alibabas-qwen-launches-new-flagship-llm-qwen-36-plus">Qwen 3.6-Plus</a></strong>: Alibaba&#39;s new flagship model features a 1M-token context window, always-on chain-of-thought reasoning, and deep integration with agentic coding frameworks including Claude Code and Cline. Scores 78.8 on SWE-bench Verified. Big win for local models ++.</li>
+</ul>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know">Claude Code Source Leak</a></strong>: On March 31, a JavaScript sourcemap shipped inside npm package v2.1.88 exposed 512,000 lines of TypeScript across 1,906 files. Reviewers found a multi-agent orchestration system, frustration-detection via regex, and KAIROS — a feature-gated always-on background agent with a &quot;dream&quot; mode for nightly memory consolidation.</li>
+</ul>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://openai.com/index/accelerating-the-next-phase-ai/">OpenAI Raises $122B at $852B Valuation</a></strong>: The round, anchored by Amazon ($50B), SoftBank, and Nvidia, is the largest private fundraise in history. OpenAI reports $2B in monthly revenue and 900M weekly active ChatGPT users.</li>
+</ul>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/karpathy/autoresearch">Karpathy on LLM Knowledge Bases + AutoResearch</a></strong>: Published a <a target="_blank" rel="noopener noreferrer" href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">workflow</a> for using LLMs to incrementally compile and maintain personal knowledge bases in Markdown with <a target="_blank" rel="noopener noreferrer" href="https://obsidian.md/">Obsidian</a>, instead of traditional RAG pipelines. His separate <a target="_blank" rel="noopener noreferrer" href="https://github.com/karpathy/autoresearch">AutoResearch</a> script runs 100+ ML experiments autonomously overnight on a single GPU.</li>
+</ul>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://thenextweb.com/news/the-unreleased-ai-metas-model">Meta&#39;s Avocado Delayed, Possibly Closed-Source</a></strong>: Meta&#39;s next-generation model has been pushed to May–June 2026 after falling short of competitors in internal evaluations for reasoning, coding, and writing. The company is reportedly considering temporarily licensing Google&#39;s Gemini, and may ship Avocado as a proprietary model — a departure from Meta&#39;s Llama strategy.</li>
+</ul>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://cursor.com/blog/cursor-3">Cursor 3</a></strong>: The new Agents Window provides a unified interface for running multiple coding agents in parallel across local, cloud, SSH, and mobile environments. The full interface was rebuilt from scratch (codenamed &quot;Glass&quot;) with agent orchestration as the primary interaction model rather than the file editor.</li>
+</ul>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/badlogic/pi-mono">Pi Agent</a></strong>: A minimal, open-source terminal coding agent by Mario Zechner that powers the OpenClaw ecosystem. Pi ships without opinionated features — no plan mode, no built-in sub-agents — and instead exposes a TypeScript extension API so developers can adapt it to their own workflows. Now launchable in one command via <code>ollama launch pi</code>.</li>
+</ul>
+<ul>
+<li><strong>Cool Tools and Open-source Projects: <a target="_blank" rel="noopener noreferrer" href="https://pipecat.ai">Pipecat</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/HKUDS/RAG-Anything">RAG-Anything</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/HKUDS/LightRAG">LightRAG</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/opendatalab/mineru">MinerU</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/rasbt/mini-coding-agent">mini-coding-agent</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/NousResearch/hermes-agent">Hermes (the other cool agent)</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/Comfy-Org/ComfyUI">ComfyUI</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/openai/symphony">OpenAI&#39;s Symphony</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/obra/superpowers">Superpowers</a> · <a target="_blank" rel="noopener noreferrer" href="https://github.com/microsoft/agent-governance-toolkit">agent-governance-toolkit</a></strong></li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="and-space">...and Space</h2>
+<p><br></p>
+<ul>
+<li><strong><a target="_blank" rel="noopener noreferrer" href="https://www.nasa.gov/artemis/">Artemis II</a></strong> — Not AI, but worth noting: on April 1, 2026, NASA launched four astronauts on a 10-day crewed mission around the Moon — the first humans to travel that far from Earth in 54 years. The mission is a systems validation flight ahead of an eventual lunar landing. Humans are going back to the Moon!</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/artemis2.webp" alt="Artemis II — crewed flight around the Moon" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h3 id="section">⬛️</h3></div>
 								</article>
 							</div>
 						</div>

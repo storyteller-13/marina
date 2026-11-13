@@ -65,12 +65,14 @@ def test_main_syncs_posts_and_drafts(tmp_path: Path, monkeypatch, capsys) -> Non
     monkeypatch.setattr(mod, "DRAFTS_DIR", drafts_dir)
     monkeypatch.setattr(mod, "INDEX_FILE", tmp_path / "posts.json")
     monkeypatch.setattr(mod, "DRAFTS_INDEX_FILE", tmp_path / "drafts.json")
+    monkeypatch.setattr(mod, "FEED_FILE", tmp_path / "index.xml")
     monkeypatch.setattr(mod, "POST_PAGES_DIR", tmp_path)
 
     mod.main()
     out = capsys.readouterr().out
     assert "Synced 3 posts" in out
     assert "Synced 2 drafts" in out
+    assert (tmp_path / "index.xml").is_file()
 
     posts = json.loads((tmp_path / "posts.json").read_text(encoding="utf-8"))
     assert [p["slug"] for p in posts] == ["newer", "older", "no-meta"]
@@ -94,18 +96,26 @@ def test_main_without_drafts_dir(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(mod, "DRAFTS_DIR", tmp_path / "missing-drafts")
     monkeypatch.setattr(mod, "INDEX_FILE", tmp_path / "posts.json")
     monkeypatch.setattr(mod, "DRAFTS_INDEX_FILE", tmp_path / "drafts.json")
+    monkeypatch.setattr(mod, "FEED_FILE", tmp_path / "index.xml")
     monkeypatch.setattr(mod, "POST_PAGES_DIR", tmp_path)
 
     mod.main()
     assert (tmp_path / "only.html").is_file()
     assert json.loads((tmp_path / "drafts.json").read_text(encoding="utf-8")) == []
+    empty_feed = tmp_path / "empty.xml"
+    mod.write_rss_feed([], empty_feed)
+    assert b"<item>" not in empty_feed.read_bytes()
 
 
 def test_cli_entrypoint(tmp_path: Path) -> None:
     """Run the script as a CLI on a copy of the site, so the test never rewrites the repo."""
     (tmp_path / "scripts").mkdir()
     shutil.copy(SCRIPT, tmp_path / "scripts" / SCRIPT.name)
+    shutil.copy(REPO / "scripts" / "render-blog-posts.js", tmp_path / "scripts" / "render-blog-posts.js")
     shutil.copytree(REPO / "public" / "blog" / "posts", tmp_path / "public" / "blog" / "posts")
+    (tmp_path / "public" / "js").mkdir()
+    shutil.copy(REPO / "public" / "js" / "blog-common.js", tmp_path / "public" / "js" / "blog-common.js")
+    shutil.copy(REPO / "public" / "js" / "blog-post.js", tmp_path / "public" / "js" / "blog-post.js")
     (tmp_path / "public" / "pages").mkdir()
     shutil.copy(REPO / "public" / "pages" / "post.html", tmp_path / "public" / "pages" / "post.html")
 
@@ -124,12 +134,24 @@ def test_cli_entrypoint(tmp_path: Path) -> None:
 
 def test_collect_entries_sorts_by_real_date(tmp_path: Path) -> None:
     mod = _load_mod()
-    for slug, date in [("sept", "2026; 9; 30"), ("oct", "2026; 10; 1"), ("none", ""), ("bad", "someday")]:
+    for slug, date in [("sept", "2026; 9; 30"), ("oct", "2026; 10; 1"), ("none", "")]:
         front = f"---\ndate: {date}\n---\n" if date else ""
         (tmp_path / f"{slug}.md").write_text(front, encoding="utf-8")
     # String sorting would put "2026; 9; 30" after "2026; 10; 1".
     assert [e["slug"] for e in mod.collect_entries(tmp_path)][:2] == ["oct", "sept"]
-    assert {e["slug"] for e in mod.collect_entries(tmp_path)[2:]} == {"none", "bad"}
+    assert [e["slug"] for e in mod.collect_entries(tmp_path)[2:]] == ["none"]
+
+
+def test_collect_entries_rejects_invalid_dates(tmp_path: Path) -> None:
+    mod = _load_mod()
+    for value in ["someday", "2026-02-30"]:
+        (tmp_path / "bad.md").write_text(f"---\ndate: {value}\n---\n", encoding="utf-8")
+        try:
+            mod.collect_entries(tmp_path)
+        except ValueError as error:
+            assert "invalid date" in str(error)
+        else:  # pragma: no cover
+            raise AssertionError("expected invalid date to fail")
 
 
 TEMPLATE = """<head>
@@ -140,16 +162,25 @@ TEMPLATE = """<head>
 \t<meta property="og:image" content="https://x/i.png">
 \t<title>Site</title>
 \t<link rel="canonical" href="https://x/pages/post.html">
-</head>"""
+</head>
+<article class="markdown-body entry-content f5 blog-post-page">
+  <p id="post-date" class="blog-post-meta" hidden><time></time></p>
+  <h1 id="post-title" class="section-title"></h1>
+  <p id="post-subtitle" class="blog-post-subtitle"></p>
+  <div id="post-content" class="blog-post-content markdown-body"></div>
+</article>"""
 
 
 def test_render_post_page_fills_metadata() -> None:
     mod = _load_mod()
     content = (
-        '---\ntitle: A "quoted" <title>\nsubtitle: Sub & more\n---\n'
+        '---\ntitle: A "quoted" <title>\nsubtitle: Sub & more\ndate: 2026-02-03\n---\n'
         "```\n![in code](/no.webp)\n```\n![first](/blog/assets/a.webp) ![second](/b.webp)\n"
     )
-    page = mod.render_post_page(TEMPLATE, "my-post", content)
+    page = mod.render_post_page(
+        TEMPLATE, "my-post", content,
+        '<div class="nested"></div><img src="/blog/assets/a.webp"><p>after nested div</p>',
+    )
     assert "<title>A &quot;quoted&quot; &lt;title&gt; · Marina von Steinkirch</title>" in page
     assert '<meta property="og:type" content="article">' in page
     assert '<meta property="og:title" content="A &quot;quoted&quot; &lt;title&gt;">' in page
@@ -158,6 +189,9 @@ def test_render_post_page_fills_metadata() -> None:
     assert '<meta property="og:image" content="https://marina.nullstar.fun/blog/assets/a.webp">' in page
     assert '<meta name="description" content="Sub &amp; more">' in page
     assert '<meta property="og:description" content="Sub &amp; more">' in page
+    assert '<time datetime="2026-02-03">2026-02-03</time>' in page
+    assert '<img src="/blog/assets/a.webp"' in page
+    assert "after nested div</p></div>" in page
     assert '<meta name="post-slug" content="my-post">' in page
     assert mod.GENERATED_MARK in page
 
@@ -181,6 +215,22 @@ def test_render_post_page_requires_template_tags() -> None:
         assert "post template is missing" in str(error)
     else:  # pragma: no cover
         raise AssertionError("expected ValueError")
+
+
+def test_replace_inner_requires_template_match() -> None:
+    mod = _load_mod()
+    try:
+        mod._replace_inner(r"(<p>).*?(</p>)", "body", "<div></div>")
+    except ValueError as error:
+        assert "post template is missing" in str(error)
+    else:  # pragma: no cover
+        raise AssertionError("expected missing template tag to fail")
+    try:
+        mod._replace_empty_element(r"(<p>)[\\s\\r\\n\\t]*(</p>)", "body", "<div></div>")
+    except ValueError as error:
+        assert "post template is missing empty element" in str(error)
+    else:  # pragma: no cover
+        raise AssertionError("expected missing empty template tag to fail")
 
 
 def test_write_post_pages_removes_only_stale_generated_pages(tmp_path: Path, capsys) -> None:

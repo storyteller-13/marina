@@ -198,10 +198,324 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-09-19">2026; 09; 19</time></p>
+									<h1 id="post-title" class="section-title">📊 PAPER → Collective Intelligence 1️⃣ of ♾️: Multi-Agents</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Intermediate to Advanced AI Scientists and Engineers | Today&#x27;s Word: Solace</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=w6Z8JfXjc4k">🎼</a> <em>&quot;What is past is prologue.&quot;</em> — William Shakespeare, on The Tempest</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/kusama.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Saturdays are a great day to review a few papers related to one of my main areas of interest (for <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/cypherpunk-symposium">many</a></strong> <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/urani-trade">years</a></strong>): collective (super)intelligence and multiplayer agents. The backlog is large, but this is fun (and we have our whole lives ahead of us).</p>
+<p>For anyone new here, multi-agent deployment is directly relevant to the work we&#39;re doing on <strong><a target="_blank" rel="noopener noreferrer" href="https://www.nullstar.games/">NULLSTAR</a></strong>&#39;s <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/idea_nullstar.html">PleiadesOS:CELAENO</a></strong> module.</p>
+<p><br></p>
+<p>As I read through the material, I wrote down a few highlights — with a moderate attempt at coherence — for my personal inventory and delight (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, remember the rules:</p>
+<p><strong>🤖 If you see a 👾, it means I found something particularly cool or learned something new.</strong><br><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#self-consistency-improves-chain-of-thought-reasoning-in-language-models-2023">🪂 Self-Consistency Improves Chain of Thought Reasoning in Language Models (2023)</a></li><li><a href="#language-models-are-super-mario-2024">🪂 Language Models are Super Mario (2024)</a></li><li><a href="#a-survey-on-the-memory-mechanism-of-llm-based-agents-2024">🪂 A Survey on the Memory Mechanism of LLM based Agents (2024)</a></li><li><a href="#learning-to-orchestrate-agents-in-natural-language-nielsen-et-al-2026">🪂  Learning to Orchestrate Agents in Natural Language (Nielsen et al., 2026)</a></li><li><a href="#trinity-an-evolved-llm-coordinator-j-xu-et-al-2026">🪂 Trinity: An Evolved LLM Coordinator (J. Xu et al., 2026)</a></li><li><a href="#sakana-fugu-technical-report-2026">🪂 Sakana Fugu Technical Report (2026)</a></li><li><a href="#recursive-harness-self-improvement-lee-et-al-2026">🪂 Recursive Harness Self-Improvement (Lee et al., 2026)</a></li><li><a href="#continuous-thought-machines-l-darlow-et-al-2025">🪂 Continuous Thought Machines (L. Darlow et al., 2025)</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="self-consistency-improves-chain-of-thought-reasoning-in-language-models-2023">🪂 <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2203.11171">Self-Consistency Improves Chain of Thought Reasoning in Language Models (2023)</a></h2>
+<p><br></p>
+<blockquote><p>Chain-of-thought prompting combined with pre-trained large language models has achieved encouraging results on complex reasoning tasks. In this paper, we propose a new decoding strategy, self-consistency, to replace the naive greedy decoding used in chain-of-thought prompting. It first samples a diverse set of reasoning paths instead of only taking the greedy one, and then selects the most consistent answer by marginalizing out the sampled reasoning paths. Self-consistency leverages the intuition that a complex reasoning problem typically admits multiple different ways of thinking leading to its unique correct answer.</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/ma_5.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h2 id="language-models-are-super-mario-2024">🪂 <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2311.03099v3">Language Models are Super Mario (2024)</a></h2>
+<p><br></p>
+<blockquote><p>Language Models (LMs), similar to Apocalypse and Super Mario, can enhance their capabilities by absorbing other models without the need for retraining or even GPUs.</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/ma_3.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p>Discussed the extremely redundant properties of SFT delta parameters in LMs and proposed a simple approach DARE to effectively reduce the number of delta parameters needed for SFT without any data, retraining, or even GPUs. DARE can impressively drop 90% or even 99% SFT delta parameters without sacrificing much performance compared with using all SFT delta parameters. We further employed DARE as a versatile plug-and-play approach for existing model merging methods to merge multiple task-specific fine-tuned models into a single model with diverse abilities. Extensive experimental results on both encoder- and decoder-based LMs demonstrated the effectiveness of DARE in reducing SFT delta parameter redundancy and facilitating the model merging performance. We also provided a deeper analysis of why DARE works as well as the prerequisites for using DARE. We hope that our findings can advance the understanding of model alignment from the perspective of analyzing model parameters.</p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="a-survey-on-the-memory-mechanism-of-llm-based-agents-2024">🪂 <a target="_blank" rel="noopener noreferrer" href="http://www.alphaxiv.org/pdf/2404.13501">A Survey on the Memory Mechanism of LLM based Agents (2024)</a></h2>
+<p><br></p>
+<blockquote><p>In the agent-environment interaction process, there are three key phases, that is, (1) the agent perceives information from the environment, and stores it into the memory; (2) the agent processes the stored information to make it more usable; and (3) the agent takes the next action based on the processed memory information. In all these phases, memory plays an extremely important role.</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/ma_1.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p>The textual memory stores raw information about the agent-environment interactions, which is more comprehensive and detailed. However, it is constrained by the token limitation of LLM prompts, which makes the agent hard to store extensive information. In contrast, the parametric memory is not limited by the prompt length, but it may suffer from information loss when transforming texts into parameters, and the complex memory training can bring additional challenges.</p></blockquote>
+<blockquote><p>For textual memory, each LLM inference requires to integrate memory into the context prompt, which leads to higher costs and longer processing times. In contrast, for parametric memory, the information can be integrated into the parameters of the LLM, eliminating the extra costs of these contexts. However, parametric memory takes additional costs in the writing process, but textual memory is easier to write, especially for small amounts of data. In a nutshell, textual memory is more efficient in writing, while parametric memory is more efficient in reading.</p></blockquote>
+<blockquote><p>Textual memory is usually more explainable than the parametric one, since natural languages are the most natural and straightforward strategies for humans to understand, while parametric memory is commonly represented in latent space. Nevertheless, such explainability is obtained at the cost of information density. This is because the sequences of words in textual memory are represented in a discrete space, which is not as dense as continuous space in parametric memory.</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/ma_2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p>Although parametric memory holds great prospects, it currently faces numerous challenges. Foremost among these is the issue of efficiency: how to effectively transform textual information into parameters or modifications of parameters is a critical question. Presently, researchers can transfer vast amounts of domain knowledge into the parameters of LLMs by SFT. However, it is time-consuming and requires extensive text corpus, making it unsuitable for situational knowledge. One viable approach is to employ meta-learning to let models learn to memorize. Moreover, the lack of interpretability associated with parametric memory can be a hindrance, especially in domains requiring high levels of trust, such as medicine. Therefore, enhancing the credibility and interpretability of parametric memory is an urgent issue that needs to be addressed.</p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="learning-to-orchestrate-agents-in-natural-language-nielsen-et-al-2026">🪂  <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2512.04388">Learning to Orchestrate Agents in Natural Language (Nielsen et al., 2026)</a></h2>
+<p><br></p>
+<ul>
+<li>Introduce a new kind of conductor model trained with RL to automatically discover coordination strategies among LLMs. -&gt; Learns not only to design targetered communication technologies for effective agent-to-agent collaboration, but also prompt engineer focused instructions to the LLMs to maximally leverage their individual capabilities.</li>
+</ul>
+<ul>
+<li>By learning optimal coordination strategies over pools of powerful worker LLMs, a 7B conductor achieves significant performance grains beyond any individual worker.</li>
+</ul>
+<ul>
+<li>By training with randomized agent pools, the conductor effectively adapts to arbitrary sets of open and closed source agents. -&gt; allowing the conductor to select itself as a worker gives rise to recursive topologies, elevating performance with a new form of dynamic test-time scaling through online iterative adaptation.</li>
+</ul>
+<ul>
+<li>RL conductor -&gt; a new kind of reasoning model trained with RL to dynamically divide challeging problems, delete targeted subtasks, design communication topologies for a set of worker LLM agents -&gt; our model itself is a LLM tasked to output a sequence of workflow steps, each defined by a natural language instruction focusing on some aspect of the overall task.</li>
+</ul>
+<ul>
+<li>Extend the framework by finetuning the pre-trained conductor with two additional techniques: 1) by training with randomized agent pools at each step, 2) by allowing the conductor to specify itself as a worker LLM (giving rise to a new kind of recursive topology).</li>
+</ul>
+<ul>
+<li>RL conductor -&gt; a language model trained through e2e RL to divide challeging problems, delegate targeted subtasks, and design communication topologies for a set of worker LLMs.</li>
+</ul>
+<ul>
+<li>RL reasoning paradigm (introduced by DeepSeek R1) -&gt; optimize an LLM policy using a custom system prompt, by making it generate its own completions on a set of verifiable problems -&gt; the reward ri for each output of the model are determined by two conditions: 1) the format condition, setting ri to -1 for any model that does not adhere to &lt;think&gt;/&lt;solution&gt;, 2) the correctness, setting ri to 1 in case the model&#39;s correctly formatted outputs match the solution si and to -0.5.</li>
+</ul>
+<ul>
+<li>The model is trained with GRPO.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="trinity-an-evolved-llm-coordinator-j-xu-et-al-2026">🪂 <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2512.04695">Trinity: An Evolved LLM Coordinator (J. Xu et al., 2026)</a></h2>
+<p><br></p>
+<blockquote><p>Lightweight coordinator that orchestrates collaboration among large language models (LLMs). The coordinator, comprising a compact language model (≈ 0.6Bparameters) and a lightweight head (≈ 10K parameters), is optimized with an evolutionary strategy for efficient and adaptive delegation. -&gt; TRINITY processes queries over multiple turns, where at each turn the coordinator assigns one of three roles (Thinker, Worker, or Verifier) to a selected LLM, effectively offloading complex skill acquisition from the coordinator itself.</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/ma_4.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p>Theoretical and empirical analyses highlight two key factors driving this success: (1) the coordinator’s hidden-state representations provide rich contextualization of inputs, and (2) under high dimensionality and strict budget constraints, the separable Covariance Matrix Adaptation Evolution Strategy algorithm provides substantial advantages over RL, imitation learning, and random search, leveraging potentA prominent line of work involving large language models (LLMs) aspires to scale in line with empirical scaling laws, targeting gains by enlarging model size, training tokens, and compute. Yet the extent to which such scaling remains efficient and yields sustained returns is uncertain and often resource intensive. An alternative at the micro level is model merging, which seeks parameter-level integration. However, this approach is frequently impractical due to architectural incompatibilities and the closed-source nature of many high-performing models. In light of these limitations, we adopt a macro-level approach: test-time model composition via coordination, which fuses the complementary strengths of multiple state-of-the-art models from diverse providers without modifying their weights. Leveraging prior data and training investments, this coordination can deliver performance improvements without retraining individual models.ial block-ε-separability.</p></blockquote>
+<blockquote><p>A prominent line of work involving large language models (LLMs) aspires to scale in line with empirical scaling laws, targeting gains by enlarging model size, training tokens, and compute. Yet the extent to which such scaling remains efficient and yields sustained returns is uncertain and often resource intensive. An alternative at the micro level is model merging, which seeks parameter-level integration. However, this approach is frequently impractical due to architectural incompatibilities and the closed-source nature of many high-performing models. In light of these limitations, we adopt a macro-level approach: test-time model composition via coordination, which fuses the complementary strengths of multiple state-of-the-art models from diverse providers without modifying their weights. Leveraging prior data and training investments, this coordination can deliver performance improvements without retraining individual models.</p></blockquote>
+<blockquote><p>To ensure the coordinator remains lightweight and offloads complex skill acquisition, TRINITY assigns the selected agent one of three distinct roles: (1) a thinker to devise high-level strategies and decompositions; (2) a worker to perform concrete problem-solving steps; and (3) a verifier to evaluate the current solution’s soundness and completeness.</p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="sakana-fugu-technical-report-2026">🪂 <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2606.21228">Sakana Fugu Technical Report (2026)</a></h2>
+<p><br></p>
+<h4 id="how-to-combine-the-individual-specializations-of-various-llms-into-a-collectively-intelligent-system-the-next-frontier-might-not-be-achieved-by-any-single-model-alone-but-by-systems-that-can-identify-combine-amplify-the-strength-of-models-intelligence-as-an-emergent-property-of-coordinated-model-collective">✨ How to combine the individual specializations of various LLMs into a collectively intelligent system? The next frontier might not be achieved by any single model alone, but by systems that can identify, combine, amplify the strength of models: Intelligence as an emergent property of coordinated model collective. ✨</h4>
+<p><br></p>
+<ul>
+<li>Sakana Fugu is a family of learned LLM orchestrators that expose multi-agent intelligence through a single model interface:</li>
+</ul>
+<p>➡️ Fugu models learn to construct query-adaptive workflows over a pool of expert LLM workers a model orchestration can serve as practical scaling axis<br>➡️ It composes models at the behavioral level rather than the parameter level<br>➡️ Treating orchestration as a first class scaling axis may distibute the benefits of frontier AI more broadly</p>
+<p><br></p>
+<ul>
+<li>Fugu Models are themselves language models trained to understand user queries and dynamically devise agentic scaffolds to solve them.</li>
+</ul>
+<ul>
+<li>Agent scaffolds augment autoregressive generation with: 1) structured prompting, 2) external tool use and function calling, 3) environment feedback, and 4) memory management.</li>
+</ul>
+<ul>
+<li>The growing range of language models with diverse capabilities and the impact of domain-specific agentic scaffolds motivate the development of systems that can orchestrate collective intelligence: dynamically choosing which models to evolve, how they should communicate, use tools, and interact with the environment.</li>
+</ul>
+<ul>
+<li>The scaffold is generated by a trained orchestrator at inference time. Rather than applying a fixed interaction pattern or relying on a task-specific harness, Fugu dynamically decided how to reason about each request, which frontier agents to involve, how they should communicate, and how the output should be synthesized into a final answer.</li>
+</ul>
+<p><br></p>
+<h4 id="related-work">Related Work</h4>
+<p><br></p>
+<ul>
+<li>A growing body of work studies how to coordinate groups of LLM agents through communication protocols, voting mechanisms, routing policies, and learned collaboration structures.</li>
+</ul>
+<ul>
+<li>Multi-agent LLM systems often rely on hand-designed collaboration patterns: orchestrating multiple agents across sucessive discussion or reasoning rounds, using fixed interaction structures to improve final answers -&gt; other works move toward learned or adaptive conditions and coordination, mapping queries to suitable agents -&gt; collaboration as learned graphs.</li>
+</ul>
+<ul>
+<li>Shaping the models&#39;s reasoning through prompting and decoding strategies, including CoT prompting, self-consistency, and structured search over reasoning paths such as Tree of Thoughts.</li>
+</ul>
+<ul>
+<li>Interleaving reasoning with acting, allowing the model to plan, call tools, and incorporate observations. -&gt; coupling reasoning traces with actions, equiping the model with external tools and function calling -&gt; adding feedback and interaction, where models critique and revise their own outputs through self-reflection, or from singlas from the environment. -&gt; together with support for a long-horizon memory, these components transform a static model into a capable agent.</li>
+</ul>
+<ul>
+<li>How to combine the capabilities of multiple models through model merging? At the parameter level, early approaches use static recipes such as weight averaging, models soups, or task-balanced interpolation to integrate capabilities across domains.</li>
+</ul>
+<ul>
+<li>More recent work introduces optimization-based merging, evolutionary search over merging recipes showing that learned strategies can outperform hand-designed ones.</li>
+</ul>
+<ul>
+<li>Other methods improve the reliability of parameter-space fusion by resolving task conflicts, sparsifying parameter updates, or preserving important directions. -&gt; however, parameter-space merging operates directly on weights -&gt; a complementary family of methods composes models in the data-flow or representation space. instead of averaging all weights, these approaches stitch layers, mix blocks, route hidden states, or construct hybrid architectures from existing components.</li>
+</ul>
+<p><br></p>
+<h4 id="sakana-fugu">Sakana Fugu</h4>
+<p><br></p>
+<blockquote><p><em>A lightweight selection head operates in parallel to the base models LM head. It takes a hidden state <code>h</code> from the orchestrator backbone as input and outputs <code>L</code> logits, one for each worker model in the pool. Unlike the TRINITY coordinator, Fugu does not asssing roles. The selected model is always invoked as a worker, which reduces coordination latency.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Family of learned orchestrators that expose a multi-agent system through a single model interface. -&gt; Given a user query, a Fugu Model constructs an agentic scaffold over a pool of frontier LLM workers. -&gt; The system can route, delegate, coordinate across multiple specialized agents.</li>
+</ul>
+<ul>
+<li>Builds on TRINITY, but scale and adapt the learned-orchestration idea to a production setting in which the orchestrator must make fast reliable routing decisions.</li>
+</ul>
+<ul>
+<li>Parametrization -&gt; Fugu&#39;s orchestrator is designed as a fast decision module over a pool of frontier worker models. It uses pre-trained language models.</li>
+</ul>
+<ul>
+<li>Fine-tune the singular-value scales of selected parameter matrices in the LM&#39;s layer. -&gt; concretely, given a pool of <code>L</code> worker models, we attach a lightweight prediction head after the final hidden layer of the orchestrator backbone.</li>
+</ul>
+<ul>
+<li>For a hidden state <code>h</code>, the head outputs <code>L</code> logits that score which worker model should be selected for the input. -&gt; Unlike TRINITY, Fugu always dispatches the query to the selected model as a worker. -&gt; Removing role assignment narrows the coordination space to model selection alone.</li>
+</ul>
+<ul>
+<li>To improve the representation used by this lightweight head without full fine-tuning, we adapt a small subset of the backbone parameters using singular-value fine tuning. -&gt; Together with the lightweight prediction head, this yields a small trainable parameter set while allowing the orchestrator representation to adapt to the routing problem.</li>
+</ul>
+<ul>
+<li>A key design choice is that Fugu uses the orchestrator logits rather than its generated text -&gt; since prompting and task execution are delegated to the selected frontier model, the orchestrator only needs to produce a worker-selection decision -&gt; Inference becomes cheaper -&gt; the system computes a hidden state and an early token position, apply the selection head, and dispatch the query to the selected worker, without the expensive autoregressive decoding process -&gt; This decision-only parametrization is central to Fugu&#39;s latency profile and makes evolutionary optimization practical.</li>
+</ul>
+<p><br></p>
+<h5 id="sft-on-single-step-tasks">SFT on Single-step Tasks</h5>
+<p><br></p>
+<ul>
+<li>Train Fugu in 2 stages: starting with SFT, assemble a large collection of single-step tasks spanning coding, reasoning, etc.</li>
+</ul>
+<ul>
+<li>Construct training labels: run every worker model Mi in the pool on qi for N repetitions and measure each model&#39;s performance by comparing with si, yielding for each model a set of candidate solutions and reward set -&gt; These rewards induce a ranking over the worker pool, from the model best suited to a problem -&gt; rather than discarding the reward magnitude by supervising on the hard ranking alone, we convert the scores into soft target distribution over softmax -&gt; use this distribution as supervision, training both the lightweight selection head and the singular-value scales in the orchestrator backbone.</li>
+</ul>
+<ul>
+<li>Learning from a soft performance distribution, rather than classifying a single best label, gives the orchestrator a richer training signal and makes its selection more robust when several workers are similarly capable.</li>
+</ul>
+<ul>
+<li>Because supervision is derived directly from measured worker performance and does not require generation from the orchestrator, this stage provides an efficient and stable initalization for the subsequent evolutionary optimization stage.</li>
+</ul>
+<p><br></p>
+<h5 id="applying-evolutionary-strategies-on-e2e-tasks">Applying Evolutionary Strategies on E2E Tasks</h5>
+<p><br></p>
+<ul>
+<li>After SFT on single-step tasks, we optimize Fugu with evolutionary strategies on E2E tasks -&gt; collect real-world multi-turn trajectories from different coding-assistant environments context, iterative editing, tool calls, execution feedback. -&gt; expand training distribution from static questions to agentic workflows.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>For an E2E task <code>qi</code> drawn from a collection, the orchestrator interacts with the harness over a sequence of turns.</em></p></blockquote>
+<blockquote><p><em>Each candidate fitness is estimated by averaging the terminal reward over replicated E2E runs, and the top-M candidates are recombined via fitness-weighted averaging.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Evolutionary algorithms are well-suited here because the SFT stage already places the orchestrator parameters in a strong region of the search space, allowing the evolutionary search to refine routing behavior at a finer granularity.</li>
+</ul>
+<p><br></p>
+<h4 id="fugu-ultra">Fugu Ultra</h4>
+<p><br></p>
+<ul>
+<li>Most complex workflows -&gt; add extensions to accommodate long-horizon function calling and multi-agent workflows through adaptive agent memory.</li>
+</ul>
+<ul>
+<li>The conductor&#39;s objective is to solve tasks indirectly by designing agentic workflows specific to any input question <code>qi</code>.</li>
+</ul>
+<ul>
+<li>Each agentic workflow is a sequence of workflow steps whose final output is returned as the actual conductor response <code>oi</code>.</li>
+</ul>
+<ul>
+<li>Each step specifies a string with a natural-language subtask, an integer ID corresponding to the assigned worker agent for the subtask, and an access list indexing which subtask solutions from the previous steps to include in the worker&#39;s context.</li>
+</ul>
+<p><br></p>
+<h5 id="workflow-execution">Workflow Execution</h5>
+<p><br></p>
+<ul>
+<li>The reward <code>ri</code> for each response from conductor model is determined by two conditions: 1) the conductor format condition (list that cannot be parsed), 2) the conductor correctness (the final output from executing a well-formatted agentic workflow).</li>
+</ul>
+<ul>
+<li>Trained Fugu ultra with GRPO, using the grouped completions to compute a Monte-Carlo advantage function.</li>
+</ul>
+<ul>
+<li>The conductor framework allows one to specify the orchestrator itself as a worker, further extending the range of topologies.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Emergence of problem decompositions and prompt-engineered subtasks leveraging the differing strengths and skills of each agent.</em></p></blockquote>
+<p><br></p>
+<h5 id="function-calling-agentic-workflows">Function Calling Agentic Workflows</h5>
+<p><br></p>
+<ul>
+<li>Function calling within a multi-agentic workflow poses a challenge in terms of memory.</li>
+</ul>
+<ul>
+<li>To honor the function call loop and enable any agent to interact freely with the environment, the system must retain which agent emitted each call, along with where the agent sits in the conductor workflow, so inter-agent communication topology is maintained -&gt; Track the conductor&#39;s workflow state containing the selected models, communication topology, and assigned subtasks.</li>
+</ul>
+<p><br></p>
+<h5 id="intra-workflow-agent-isolation">Intra-Workflow Agent Isolation</h5>
+<p><br></p>
+<ul>
+<li>In order to fully leverage the differing specialities of the agent team, we isolate each agent&#39;s workflow and function&#39;s calling trajectory from each other -&gt; This intra-workflow isolation is necessary to prevent orchestration collapses.</li>
+</ul>
+<ul>
+<li>An agent observes the actions and outputs of another only through the access list -&gt; avoid conditioning subsequent agent&#39;s solution trajectories on the work done by previous agents.</li>
+</ul>
+<p><br></p>
+<h5 id="persistent-shared-memory">Persistent Shared Memory</h5>
+<p><br></p>
+<ul>
+<li>Complete isolation from all function calling over a multi-turn conversation history is suboptimal -&gt; agents must retain some memory of their interactions with the environment in order to not make repeated tool calls to rediscover the same artifacts and accrue the background context to solve the task.</li>
+</ul>
+<ul>
+<li>Inter-workflow shared memory across agents, allowing them to observe tool calling from previous workflows -&gt; grant agents full memory over ongoing state of a multi-turn conversation -&gt; background context of each agent.</li>
+</ul>
+<p><br></p>
+<h5 id="training-setup">Training Setup</h5>
+<p><br></p>
+<ul>
+<li>To train Fugu-Ultra, scale the conductor&#39;s RL approach starting from a pre-trained checkpoint of a regular language model -&gt; Designed agentic workflows of up to 5 steps using a diverse pool of frontier LLMs -&gt; for multi-turn tasks, any agent is permitted unlimited interaction with the user environment -&gt; we train using our conductor reward, with GRPO and without any KL divergence penalty.</li>
+</ul>
+<ul>
+<li>The training dataset is a mixture of public available data and expert-design e2e environments simulating real agents-user interactions.</li>
+</ul>
+<p><br></p>
+<h4 id="capabilities">Capabilities</h4>
+<p><br></p>
+<h5 id="benchmarking">Benchmarking</h5>
+<p><br></p>
+<pre><code>
+- coding, SWE -&gt; SWE bench pro and terminal bench 2.1
+- underlying capacities -&gt; minimal evaluation harness, mini-SWE agent and terminus
+- scientific -&gt; GPQA diamond
+- multidiciplinary reasoning -&gt; humanity&#39;s last exam
+- competitive programming -&gt; live code bench
+- science -&gt; scicode
+- multimodal graphical -&gt; charxiv reasoning
+- conversational dialogues -&gt; t3
+- long-context retrieval -&gt; needle-in-a-haystack and long context retrieval
+</code></pre>
+<p><br></p>
+<blockquote><p><em>Domain adaptability is a hallmark feature of an intelligent orchestrator</em>.</p></blockquote>
+<p><br></p>
+<h5 id="autonomous-ml-research-workflow">Autonomous ML Research Workflow</h5>
+<p><br></p>
+<ul>
+<li>Autoresearch -&gt; an agent iteratively edits a small GPT training pipeline, executes each change, and retains modifications that reduce validation bits-per-byte.</li>
+</ul>
+<ul>
+<li>Success depends not on single coding step but on sustained exploration of optimizer settings, batching, architecture scale, and schedule choices over many sequential experiments.</li>
+</ul>
+<ul>
+<li>Fugu-Ultra is competitive early in the run and pulls ahead after mid-training, suggesting that orchestration is most valuable once the search space shifts from coarse configuration changes to finer optimizer and schedule tuning.</li>
+</ul>
+<ul>
+<li>Fugu-Ultra improves both peak performance and consistency (multi-model orchestration can outperform any individual frontier agent on an agentic training-optimization benchmark).</li>
+</ul>
+<p><br></p>
+<h5 id="optimal-strategies-topologies">Optimal Strategies &amp; Topologies</h5>
+<p><br></p>
+<ul>
+<li>Fugu-Ultra can produce any coordination topology describable in natural language on a per-question basis -&gt; multi-round debate and tree topologies are powerful strategies to maximize the collective knowledge from an agent team -&gt; domains requiring niche or specialized factual knowledge.</li>
+</ul>
+<ul>
+<li>Dynamic adaptation of an aggregator role is the kind of adaptation unavailable to multi-agent systems, which necessitate a fixed model to always act as a final synthesizer.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="recursive-harness-self-improvement-lee-et-al-2026">🪂 <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2607.15524">Recursive Harness Self-Improvement (Lee et al., 2026)</a></h2>
+<p><br></p>
+<blockquote><p><em>Under model–harness co-evolution, harnesses are not merely inference-time scaffolds but data-generating components whose execution traces can shape future foundation models. This motivates harness-in-the-loop learning: optimizing harnesses for both immediate agent performance and the quality of traces used for future model training.</em></p></blockquote>
+<blockquote><p><em>Recursive Harness Self-Improvement (RHI) represents the harness as a prompt-level specification of the agent loop and iteratively refines it using pairwise feedback over its own revision history. It defines the harness as the agent loop itself, including the roles assigned to agents, the instructions they follow, the information exchanged between agents (contracts), and the workflow structure governing when reasoning is invoked (hops).</em></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/ma_6.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h2 id="continuous-thought-machines-l-darlow-et-al-2025">🪂 <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2505.05522">Continuous Thought Machines (L. Darlow et al., 2025)</a></h2>
+<p><br></p>
+<ul>
+<li>By incorporating neuron-level processing and synchronization, we reintroduce neural timing as a foundational element.</li>
+</ul>
+<ul>
+<li>Continuous Thought Machine (CTM): a model designed to leverage neural dynamics as its core representation. The CTM has two innovations: (1) neuron-level temporal processing, where each neuron uses unique weight parameters to process incoming histories; and (2) neural synchronization as a latent representation.</li>
+</ul>
+<ul>
+<li>The CTM uses an internal sequence, meaning training times are extended. NLMs also increase parameter counts compared to standard activation functions, but also provide a new avenue for scaling. The experiments in this paper are preliminary and not intended to beat state-of-the-art models tailored for performance, therefore a limitation of this paper is its relatively limited depth of comparison since we favored breadth to investigate the CTM’s internal functionality.</li>
+</ul>
+<p><br></p>
+<hr>
+<h4 id="until-next-time">Until next time!</h4>
+<h4 id="section">⬛️</h4></div>
 								</article>
 							</div>
 						</div>

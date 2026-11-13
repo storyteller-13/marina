@@ -198,10 +198,440 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-07-18">2026; 07; 18</time></p>
+									<h1 id="post-title" class="section-title">📊 PAPER → A Mnemonic Walk Through Weng&#x27;s AI Research</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 10/10 | Beginner to Advanced AI/Software Engineers/Scientists</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p>A few days ago this article <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2026-07-04-harness/">Harness Engineering for Self-Improvement</a> came up in my feed. Since a great part of my work revolves around designing the <em>perfect</em> harnesses and skills for the problems I am solving, it immediately caught my attention. To my delight, the article was exactly the kind of read I enjoy: deep enough to be intellectually satisfying, well written, and packed with relevant citations presented through a thoughtful historical overview. After finishing it, my immediate thought was: <em>&quot;Who is the author, and what else can I learn from them?&quot;</em></p>
+<p>For anyone new here, harness engineering is directly relevant to the work we&#39;re doing on <strong><a target="_blank" rel="noopener noreferrer" href="https://www.nullstar.games/">NULLSTAR</a></strong>&#39;s <strong><a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/idea_nullstar.html">PleiadesOS:TAYGETE</a></strong> module.</p>
+<p><br></p>
+<p>As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:</p>
+<p><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#article-i-harness-engineering-for-self-improvement-2026">🧋 Article I: Harness Engineering for Self-Improvement (2026)</a></li><li><a href="#article-ii-scaling-laws-carefully-2026">🧋 Article II: Scaling Laws, Carefully (2026)</a></li><li><a href="#article-iii-why-we-think-2025">🧋 Article III: Why We Think (2025)</a></li><li><a href="#article-iv-reward-hacking-in-reinforcement-learning-2024">🧋 Article IV: Reward Hacking in Reinforcement Learning (2024)</a></li><li><a href="#article-v-extrinsic-hallucinations-in-llms-2024">🧋 Article V: Extrinsic Hallucinations in LLMs (2024)</a></li><li><a href="#article-vi-diffusion-models-for-video-generation-2024">🧋 Article VI: Diffusion Models for Video Generation (2024)</a></li><li><a href="#article-vii-thinking-about-high-quality-human-data-2024">🧋 Article VII: Thinking About High-Quality Human Data (2024)</a></li><li><a href="#article-viii-adversarial-attacks-on-llms-at-inference-time-2023">🧋 Article VIII: Adversarial Attacks on LLMs at Inference Time (2023)</a></li><li><a href="#article-ix-llm-powered-autonomous-agents-2023">🧋 Article IX: LLM Powered Autonomous Agents (2023)</a></li><li><a href="#article-x-prompt-engineering-2023">🧋 Article X: Prompt Engineering (2023)</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="article-i-harness-engineering-for-self-improvement-2026">🧋 Article I: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2026-07-04-harness/">Harness Engineering for Self-Improvement (2026)</a></h2>
+<p><br></p>
+<p>In this article, Weng goes over several quintessential papers on RSI, correlating them to harness design, which could result on the model rewriting its own weights or improving the training pipeline and deployment through self-improvement loops. She argues that harness engineering nows adds workflow design, evaluation, permission controls, and persistent state management to early agent frameworks.</p>
+<p><br></p>
+<blockquote><p><em>The concept of recursive self-improvement (RSI) dates back to I. J. Good (1965), where he defined an “ultraintelligent machine” as a system that can surpass humans in all intellectual activities and design better machines to improve itself. Yudkowsky (2008) used the phrase “recursive self-improvement” for a specific feedback loop: an AI uses its current intelligence to improve the cognitive machinery that produces its intelligence.</em></p></blockquote>
+<p><br></p>
+<p>In the first part of the article, Weng presents a high-level overview of three possible patterns for designing a harness:</p>
+<ol>
+<li>workflow automation, that follows a goal-oriented loop of plan, execute, observe/test, improve, execute again until the goal is achieved.</li>
+<li>files system as persistent memory for long-horizon agent systems, control over rich states and artifacts (e.g., logs, code diffs, paper summaries, error traces, and past rollout trajectories).</li>
+<li>sub-agent and backend jobs, when the main agent needs to search multiple hypotheses, run experiments concurrently, or delegate isolated subtasks without polluting the main context, and creating the need for a process manager (to launch jobs, inspect logs, cancel failed runs, merge results back into the main agent thread).</li>
+</ol>
+<p><br></p>
+<p>In the second part of the article, Weng discusses five directions for harness optimization:</p>
+<h4 id="0-context-engineering-treating-context-as-an-evolving-playbook-rather-than-an-increasingly-lengthening-prompt-through-the-concepts-of-i-a-generator-produces-tasks-trajectories-ii-a-reflector-insights-from-successful-and-failed-trajectories-and-iii-a-curator-updates-the-structured-context-with-incremental-itemized-entries">0️⃣ Context engineering: treating context as an evolving playbook rather than an increasingly lengthening prompt, through the concepts of i) a generator (produces tasks trajectories), ii) a reflector (insights from successful and failed trajectories), and iii) a curator (updates the structured context with incremental, itemized entries)</h4>
+<ul>
+<li>Meta context engineering separates the mechanism from the artifact content.</li>
+<li>A MCE skill defines a context function that maps: 1) static components: prompts, knowledge bases, code libraries; 2) dynamic operators: search, selection, filtering, formatting.</li>
+<li>A meta-level agent performs agentic crossover over prior skills to create a new skill given a task.</li>
+<li>A base-level context engineer executes the skill.</li>
+<li>Meta harness: a harness for optimizing harness (a dictionary in the file system containing source code, scores, rollout trajectories, and state updates).</li>
+</ul>
+<p><br></p>
+<h4 id="1-workflow-design-with-verifiability-trace-to-an-evidence-source-and-audited-by-chain-of-evidence-checks">1️⃣ Workflow design with verifiability: trace to an evidence source and audited by chain-of-evidence checks</h4>
+<p>Meta-agent search:</p>
+<ul>
+<li>1. Initialize an archive of agent workflows with simple agents such as CoT and self-refine</li>
+<li>2. Ask a meta-agent to program new agents, all in code, inspired by existing solutions in the archive</li>
+<li>3. Evaluate each new candidate and add successful ones back to the archive</li>
+</ul>
+<p>AFlow represents an agentic workflow as a graph, where nodes represent actions and edges implement logical operations in code. The workflow optimization relies on MCTS:</p>
+<ul>
+<li>1. Initialize the starting workflow Wo in the tree with a template</li>
+<li>2. Select a workflow node using a soft mixture of score and uniform exploration</li>
+<li>3. Expand it by asking an LLM to produce</li>
+</ul>
+<p><br></p>
+<h4 id="2-self-improving-harness">2️⃣ Self-improving harness</h4>
+<ul>
+<li>A harness is code that programs how prompts, tool calls, subagents, control flow, memory, and workflow logic work together.</li>
+<li>Self-taught optimizer is an example of recursive scaffolding improvement.</li>
+<li>Strategies: genetic algorithms, decomposing and improving parts, multi-armed prompt bandits, simulated annealing, varying temperature, and beam/tree search.</li>
+<li>Self-harness relies on LLM agents to improve their own harness via a propose-evaluate-accept loop. Stages: 1. weakness mining: cluster failures into verifier-grounder failure patterns; 2) harness proposal: propose bounded harness edits based on mined failure patterns.</li>
+</ul>
+<p><br></p>
+<h4 id="3-evolutionary-search-optimization-method-inspired-by-natural-selection-it-evolves-a-population-of-solutions-by-mutating-them-and-only-keeping-those-with-high-fitness">3️⃣ Evolutionary search: optimization method inspired by natural selection (it evolves a population of solutions by mutating them and only keeping those with high fitness)</h4>
+<ul>
+<li>AlphaEvolve: coding-age evolutionary search system, which stores pool of candidate programs and prompts frozen LLMs to generate diffs for improvement.</li>
+<li>Darwin Gödel Machine: targets the evolution of an editable harness-code repository with an LLM-based coding agent. Then Hyperagents introduced a meta-agent to control how to modify existing task agents to create new ones:</li>
+</ul>
+<ol>
+<li>In each iteration, pick one parent with a probability proportional to its performance and inversely to the number of children it has, to modify and branch off to produce new agents</li>
+<li>The selected parent agent examines its own benchmark evaluation log and then proposes improvements to its harness codebase to generate a new version of the coding agent</li>
+<li>New coding agents are evaluated, the ones with high performance are added back into the pool</li>
+</ol>
+<p><br></p>
+<h4 id="4-joint-optimization-with-model-weights">4️⃣ Joint Optimization with model weights</h4>
+<ul>
+<li>To enable full self-improvement, the model can totally be allowed to update its own weights at the same time.</li>
+<li>The weight update can be implement via improvements in the model training pipeline; 2) Task-specific agent: executes the task; 3) Feedback-agent: chooses whether to update the harness or the model weights based on recent trajectories.</li>
+</ul>
+<p><br></p>
+<p>Weng concludes the article tounching on some bottlenecks for RSI:</p>
+<ul>
+<li>Weak and fuzzy evaluators (current self-improvement loops work best for tasks when evaluation metrics are measurable and objective).</li>
+<li>Context and memory lifecycle (memory grows as AI agents become more autonomous and independent).</li>
+<li>Negative results (a research harness should make failed attempts easy to preserve).</li>
+<li>Diversity collapse (evolutionary and RL loops tend to exploit known high-reward patterns - need for mechanisms to prevent the population from collapsing into variants of the same solution).</li>
+<li>Reward hacking (a self-improvement loop optimizes whatever signals it&#39;s given - if the reward comes from unit tests, the agent may overfit to tests - so the evaluator and permission control should sit outside the loop that evolves harness, tests, trace audits, and human review).</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="article-ii-scaling-laws-carefully-2026">🧋 Article II: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2026-06-24-scaling-laws/">Scaling Laws, Carefully (2026)</a></h2>
+<p><br></p>
+<blockquote><p><em>We all love to think about the scaling laws in deep learning, and Weng is no exception: &quot;the training loss decreases predictably as we scale up model size, dataset size, and compute, following a power-law curve, which appears as a straight line on a log-log&quot;.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>The predictability of generalization error with scale was first investigated by 4 types of learning curves through a Bayesian approach, where they all follow a power law: 1) deterministic learning algorithm, noiseless data, one solution; 2) deterministic learning algorithm, noiseless data, multiple solutions; 3) deterministic learning algorithm, noisy data, hard learning; 4) stochastic learning algorithm, noisy data, irreducible loss.</li>
+<li>Then, empirically, a recurring pattern was observed: 1) generalization error scales as a power law across a set of factors; 2) model improvements shift the error curve but do not seem to affect the power law exponent; 3) architecture changes the offset of the power law fit but does not change the exponent (the slope of the power law appears to be a property of the problem domain rather than the model architecture); 4) the number of model parameters needed to fit a dataset of a certain size also scales as a power law.</li>
+<li>The curve can be broken into 3 stages: 1) small data region, when there are not enough learning signals, the model is only slightly better than random guessing; 2) the power-law region,  with a power-law relationship between loss, data, and model size; 3) the final irreducible-error region can be attributed to factors such as noise in the data.</li>
+<li>A common workflow is to fit scaling laws on a handful of small runs and then extrapolate to estimate the token and compute requirements for larger models.</li>
+</ul>
+<p><br></p>
+<h4 id="scaling-laws-in-data-infinite-region">Scaling Laws in Data-Infinite Region</h4>
+<ul>
+<li>Kaplan et al. (2020) popularized the concept of scaling laws, with a focus on Transformers and empirical experimentation at a larger scale.</li>
+<li>They found that 1) the cross-entropy test loss scales as a power law with model size, dataset size, and training compute across many orders of magnitude; 2) training curves follow predictable power laws whose parameters are independent of model size; 3) larger models are more sample-efficient (they reach a given loss with fewer optimization steps and fewer data points than small models); 4) architectural details matter less than sheer scale; 5) train loss and test loss are positively correlated; 6) given a fixed compute budget, it&#39;s more efficient to train a very large model and stop before convergence than to train a smaller model all the way to convergence (this disagrees with the Chinchilla scaling laws, since Kaplan et al. overestimated the optimal model size as their fitted exponent was larger).</li>
+</ul>
+<p><br></p>
+<h4 id="chinchilla-scaling-laws">Chinchilla Scaling Laws</h4>
+<ul>
+<li>Studied the relationship between the optimal model size (total parameters, including embeddings) and the number of tokens under a fixed compute budget. The central question: what was the best strategy to allocate resources (data tokens or more model parameters) given a constraint FLOPs (number of GPUS for a given time).</li>
+<li>The experiments scanned over 400 models, with sizes from 70M to over 16B parameters and training tokens from 5B to 500B.</li>
+<li>Method 1: fix model sizes, vary the token budget (for each parameter count, ran several runs with different token budgets and record the minimal loss achieved per FLOP budget).</li>
+<li>Method 2: isoFLOP profiles (fix a compute budget and plot the final loss against a parameter count - each iso-FLOP curve is a parabola in log-space and its minimum flags the optimal model size for that compute budget).</li>
+<li>Method 3: parametric fit of the loss (minimizing a parametric function under the constraint of FLOPs).</li>
+<li>The conclusion is that most large models at the time (~2022) were undertrained and it disagrees with Kaplan et al. on where the optimal size-vs-token tradeoff lies. This came from they trained in different sizes of models and counting/not-counting embedding parameters for small models.</li>
+</ul>
+<p><br></p>
+<h4 id="why-power-law">Why Power Law?</h4>
+<ul>
+<li>Large events are rare, small events are common, and the relationship between size and frequency often follows a straight line at log-log scale?</li>
+<li>Language modeling can be viewed as doing regression on a low-dimensional manifold of data, more model parameters can induce a finer partition of the data manifold and smaller generalization error?</li>
+<li>Knowledge or skills are learned in discrete chunks (quantized) and the frequency distribution of these skills follow a power law?</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="article-iii-why-we-think-2025">🧋 Article III: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2025-05-01-thinking/">Why We Think (2025)</a></h2>
+<p><br></p>
+<blockquote><p><em>Daniel Kahneman characterizes human thinking into 2 models, through the lens of the dual process theory: 1) fast thinking (operates quickly and automatically driven by intuition and emotion while requiring little to no effort); 2) slow thinking (demands deliberate, logical thought and significant cognitive efforts, requiring intentional engagement). System 1 is fast and easy and ends up being the main decision driver, at the cost of accuracy and logic. System 2 is more reflective and challenge our instincts to make more rational choices.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>In Transformer models, the amount of computation (flops) that the model does for each generated token is around 2x the number of parameters. For sparse models like mixture of experts, only a fraction of the parameters are used in each forward pass, so computation = 2 * parameters / sparsity (where sparsity is the fraction of experts active).</li>
+<li>CoT enables the model to perform far more flops of computation for each token of answer that it&#39;s trying to compute. The latent variable perspective is useful for understanding methods that involve collecting multiple parallel CoTs or searching over them.</li>
+<li>CoT reasoning capabilities can be significantly improved by doing reinforcement learning on a dataset of problems with automatically checkable solutions (such as STEM problems or coding tasks). This approach rose with the announcement of o1-preview, o3, and r1 (deepseek), which showed that a simple recipe where a policy gradient algorithm could lead to strong performance.</li>
+</ul>
+<p><br></p>
+<h4 id="branching-and-editing">Branching and Editing</h4>
+<ul>
+<li>The fundamental intent of test-time compute is to adaptively modify the model&#39;s output distribution at test time.</li>
+<li>Approaches for improving the decoding process: 1) parallel sampling (generates multiple outputs simultaneously, providing guidance per step with process reward signals or using verifiers to judge the quality at the end); 2) sequential revision (adapts the model&#39;s responses iteratively based on the output in the previous step, asking the model to reflect its existing response and correct mistakes).</li>
+</ul>
+<p><br></p>
+<h4 id="rl-for-better-reasoning">RL for Better Reasoning</h4>
+<ul>
+<li>DeepSeek-R1 is designed to excel in tasks that require advanced reasoning skills. They run through 2 rounds of SFT-RL training, so the model is good at both reasoning and non-reasoning tasks.</li>
+<li>Cold-start SFT fine-tunes the DeepSeek-V3-Base model on cold-start data.</li>
+<li>Reasoning-oriented RL trains a reasoning model on reasoning-only prompts with 2 types of rule-based rewards: 1) format reward (wrap CoTs by <code>&lt;thinking</code>&gt; tokens); 2) accuracy rewards: whether the final answers are correct.</li>
+<li>Rejection-sampling + non-reasoning SFT utilizes SFT data created by rejection sampling on the RL checkpoint, combined with non-reasoning supervised data from V3 in domains like writing and self-cognition to retrain the base.</li>
+<li>The final RL stage trains the previous on both reasoning and non-reasoning prompts.</li>
+<li>DeepSeek also showed that with pure RL (no SFT), it&#39;s still possible to learn advanced reasoning capabilities. Pure RL leads to great performance on math problems.</li>
+<li>DeepSeek shared unsuccessful attempts: 1) they failed to process reward models (PRM); 2) the efforts on MCTS also failed due to the large search space for language model tokens (compared to chess, etc.).</li>
+</ul>
+<p><br></p>
+<h4 id="thinking-in-continuous-space">Thinking in Continuous Space</h4>
+<ul>
+<li>Adaptive Computation Time (2016) pioneered the direction of enabling the model to dynamically decide the number of computation steps to take at the inference time (&quot;think more&quot; in continuous space at test time). Adaptative thinking time can be enabled vertically via recurrent architecture or horizontally via more sequential sampling steps.</li>
+<li>Universal Transformer (2019) combines self-attention in Transformer with recurrent mechanism in RNN, dynamically adjusting the number of steps using adaptive computation time (a recurrent function for learning the hidden state representation per token).</li>
+</ul>
+<p><br></p>
+<h4 id="thinking-tokens">Thinking Tokens</h4>
+<p><br></p>
+<blockquote><p><em>Thinking tokens are a set of implicit tokens introduced during training or inference that do not carry direct linguistic meaning - their role is to provide extra thinking time and computing power for the model to perform better.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Each thinking token buys extra time for the model to process and make better predictions.</li>
+<li>Thinking tokens on a toy model setup results in lower perplexity than baseline model trained without them.</li>
+<li>The benefits of thinking tokens are more pronounced for non-trivial reasoning tasks or sentences involving numbers.</li>
+<li>Pause tokens (<code>.</code> or <code>#</code>) at the end of the input sequence, gives the model extra computation during inference (introduces more inference loops).</li>
+<li>Quiet-STar (2025) introduces token-level reasoning by training the model to generate rationales after every token to explain future text (it mixes future-text predictions with and without rationales).</li>
+</ul>
+<h4 id="thinking-as-latent-variables">Thinking as Latent Variables</h4>
+<p><br></p>
+<blockquote><p><em>A latent variable model defines a probabilistic framework where observable data is explained through unobserved (latent) variables. They capture hidden structures or intermediate processes that generate the observable outcomes.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Language models can be viewed as probabilistic latent variable models where test-time thinking and reasoning steps are latent through variables.</li>
+<li>Expectation-Maximization is a commonly used iterative algorithm for optimizing parameters for a model with (hidden) latent variables, and thus applied to train better CoTs and then condition on that to generate better responses. We iterate between E-step (expectation) where we guess the missing information about latent variables and M-step (maximization) where we optimize the model parameters based on latent variables, until convergence.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Recent studies demonstrated that optimizing LLM test-time compute could be more effective than scaling up model parameters. Smaller models combined with advanced inference algorithms can offer Pareto-optimal trade-offs in cost and perfomance.</em></p></blockquote>
+<p><br></p>
+<hr>
+<h2 id="article-iv-reward-hacking-in-reinforcement-learning-2024">🧋 Article IV: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2024-11-28-reward-hacking/">Reward Hacking in Reinforcement Learning (2024)</a></h2>
+<p><br></p>
+<blockquote><p><em>Reward hacking occurs when a RL agent exploits flaws or ambiguities in the reward function to achieve high rewards, without genuinely learning or completing the intended task (e.g., when the model learns to modify unit tests or the response contain biases that mimic a user&#39;s preference)</em>.</p></blockquote>
+<p><br></p>
+<ul>
+<li>Reward function defines the task, and reward shaping impacts learning efficiency and accuracy in RL.</li>
+<li>Spurious correlation or shortcut learning in classification tasks is close related: spurious or shortcut features can cause a classifier to fail at learning and generalizing as intended. The ERM principle states that, since the full data distribution is unknown, minimizing the loss on training data is a reasonable proxy of risk so it favors models with the lowest training loss. Experiments showed that ERM would depend on spurious features no matter how easy the task is.</li>
+<li>Concepts: reward hacking (2016), reward corruption (2017), reward tampering (2019), specification gaming (2020), objective robustness (2021), goal misgeneralization (2022), reward misspecifications (2022).</li>
+<li>Experiments in 2 RL environments: CoinRun and Maze, demonstrated the importance of randomization during training.</li>
+<li>Reward tampering: the agent interferes with the reward function itself, causing the observed reward to no longer accurately represent the intended goal.</li>
+</ul>
+<p><br></p>
+<blockquote><p><em>Goodhart&#39;s law states that when a measure becomes the target, it ceases to be a good measure (a good metric can become corrupted once significant pressure is applied to optimize it).</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Reward hacking as a function of agent capabilities: 1) model size (larger models lead to increased proxy rewards but decreased true rewards); 2) action space resolution (increased precision in actions leads to more capable agents, but higher resolution causes proxy rewards to remain constant while true rewards decrease); 3) observation space noise (more accurate observations improve proxy rewards but reduce true rewards); 4) training time (optimizing the proxy reward over more steps harms true rewards after an initial period where the rewards are positively correlated).</li>
+</ul>
+<p><br></p>
+<h4 id="hacking-rlhf-of-llms">Hacking RLHF of LLMs</h4>
+<ul>
+<li>There are 3 types of reward we care in a RLHF setup: 1) oracle/gold reward (what we truly want the LLM to optimize); 2) human reward (what we collect to evaluate LLMs in practice, from humans with time constraints); 3) proxy reward (the score predicted by a reward model that is trained in human data - with potential modeling biases). RLHF optimizes the proxy reward, but we care about the gold reward score.</li>
+<li>Looking at the scaling laws for reward model overoptimization in RLHF: to scale up the human labels in their experiments, they use synthetic data setup where the gold label for the oracle reward is approximated by a large RM (6B parameters) where the proxy RMs for R range in size of 3M to 3B parameters.</li>
+<li>RLHF aims to improve the model&#39;s alignment with human preference, but human feedback may overfit to undesired attributes: 1) increasing for human approval but not necessarily correctness; 2) making incorrecting outputs more convincing to humans (the evaluation false positive rate increases after RLHF training).</li>
+</ul>
+<p><br></p>
+<h4 id="llm-as-a-grader">LLM as a Grader</h4>
+<ul>
+<li>LLMs can act as the evaluators to give feedback and training rewards to other generator models, especially for tasks that cannot be trivially judged or verified (e.g., processing long-form outputs).</li>
+<li>Can introduce bias such as a preference for their own responses when compared with different model families or positional bias when evaluating responses in order.</li>
+<li>Multiple strategies for calibration: 1) multiple evidence calibration (MEC); 2) Balanced position calibration (BPC); 3) Human-in-the-loop calibration (HITLC).</li>
+</ul>
+<p><br></p>
+<h4 id="in-context-reward-hacking">In-Context Reward Hacking</h4>
+<ul>
+<li>Iterative self-refinement is a training setup where the evaluation and  generation model are the same and both can be fine-tuned. In this setup, optimization can drive the model to exploit vulnerabilities in both.</li>
+<li>In-context reward hacking happens during feedback loops between an LLM and its evaluator (another LLM or the external world). At test time, the LLM optimizes an objective, but creates negative side effects in the process.</li>
+<li>ICRH happens at deployment time within a self-refinement setup via a feedback loop, while traditional reward hacking occurs during training.</li>
+</ul>
+<p><br></p>
+<h4 id="mitigations">Mitigations</h4>
+<ul>
+<li>RL algorithm improvement: 1) adversarial reward function; 2) model lookahead (give reward based on future antecipated states); 3) adversarial blinding (blind the model with certain variables so the agent cannot learn information that leads to hacking); 4) sandboxing; 5) reward capping; 6) counterexample resistance (improvement on adversarial robustness should benefit the robustness of the reward function); 7) combination of multiple rewards; 8) reward pretraining; 9) variable indifference (ask the agent to optimize only some variables); 10) trip wires (intentionally introduce some vulnerabilities and setup monitoring if it gets reward hacked).</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="article-v-extrinsic-hallucinations-in-llms-2024">🧋 Article V: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2024-07-07-hallucination/">Extrinsic Hallucinations in LLMs (2024)</a></h2>
+<p><br></p>
+<blockquote><p><em>Hallucination in LLMs refers to the model generating inconsistent or nonsensical content, i.e., the cases where their model output is not grounded by either the provided context or world knowledge.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Two types: 1) in-context (should be grounded by the context); 2) extrinsic (should be grounded by the pre-training dataset).</li>
+<li>Pre-training data issues: the volume of data corpus is enormous, and the model might incorrectly memorize information by simply maximizing the log-likelihood.</li>
+<li>Fine-tuning new knowledge: LLMs learn fine-tuning examples with new knowledge slower than other examples with knowledge consistent with pre-existing knowledge of the model, and once the examples with new knowledge are learned, they increase the model&#39;s tendency to hallucinate.</li>
+</ul>
+<p><br></p>
+<h4 id="hallucination-detection">Hallucination Detection</h4>
+<ul>
+<li>FactualityPrompt (2022), a new benchmark dataset, consists of both factual and nonfactual prompts. Two evaluation metrics for hallucination are considered: 1) hallucination name entity errors; 2) entailment ratios (using a RoBERTa model fine-tuning on MNLI and sentence-level knowledge grounding).</li>
+<li>FActScore (2023) decomposes a long form generation into multiple atomic facts and validates each separately.</li>
+<li>SAFE (2024) proposed an eval for checking long-form factuality in LLMs, using a language model as an agent to iteratively issue queries in a multi-step process and reason whether the search result supports the fact or not.</li>
+<li>FactTool (2023) follows a fact checking workflow: 1) claim extraction; 2) query generation; 3) tool querying and evidence collection; 4) agreement verification.</li>
+</ul>
+<p><br></p>
+<h4 id="sampling-based-detection">Sampling-Based Detection</h4>
+<ul>
+<li>SelfCheckGPT (2023) relies on consistency check on factuality mistakes against multiple samples from a black-box LLM.</li>
+</ul>
+<p><br></p>
+<h4 id="calibration-of-unknown-knowledge">Calibration of Unknown Knowledge</h4>
+<ul>
+<li>TruthfulQA (2021) and SelfAware (2023) are two benchmarks to measure how well model can generate truthful responses.</li>
+<li>Calibratedmath (2022) is a suite of programmatically generated math problems at different levels of difficulty to test how calibrated a model&#39;s output probability is.</li>
+</ul>
+<p><br></p>
+<h4 id="indirect-query">Indirect Query</h4>
+<ul>
+<li>Direct query asks the model to judge whether a generated reference exists. Indirect query asks for auxiliary details.</li>
+<li>Hypothesis is that the likelihood of multiple generations agreeing on the same authors for a hallucinated reference would be smaller than the likelihood of multiple responses to a direct query, indicating that the reference exists.</li>
+</ul>
+<p><br></p>
+<h4 id="anti-hallucination-methods">Anti-Hallucination Methods</h4>
+<ul>
+<li>RAGs are a very common approach to provide grounding information. RARR (Retrofit Attribution using Research and Revision, 2022) is a framework of retroactively enabling LLMs to support attributions to external evidence.</li>
+<li>FAVA (Factuality Verification with Augmented Knowledge, 2024) also retrieves relevant documents and then edits the model output to avoid hallucination errors.</li>
+<li>Ranking with retrieval (2022) methods relies on retrieval of relevant external knowledge but with no additional editing (based on decomposed CoT prompting).</li>
+<li>Self-RAG (2024) trains a LM e2e to learn to reflect on its own generation by outputting both task output and special reflection tokens.</li>
+</ul>
+<p><br></p>
+<h4 id="chain-of-actions">Chain of Actions</h4>
+<ul>
+<li>Design a process for using the model itself to do verification and revision to reduce hallucination.</li>
+<li>Chain-of-Verification (CoVe, 2023) based on a chain of actions to plan and execute verification: 1) baseline response; 2) plan verification; 3) execute verifications; 4) final output.</li>
+<li>RECITE (2023): relies on recitation as an intermediate step to improve factual correctness of model generation and reduce hallucination.</li>
+</ul>
+<p><br></p>
+<h4 id="sampling-methods">Sampling Methods</h4>
+<ul>
+<li>Nucleus sampling (top-p) is found to have a worse benchmark performance than greedy sampling.</li>
+<li>Factual-nucleus sampling algorithm: sampling randomness does more harm to factuality at the latter part of the sentence than at the beginning.</li>
+<li>Inference-Time Intervention (2023): investigated whether certain attention heads are more correlated with factuality by fitting a linear probe on the activations in each layer to discriminate between truthful vs. false outputs. For many heads, the probes cannot do better than random.</li>
+</ul>
+<p><br></p>
+<h4 id="fine-tuning-for-factuality">Fine-tuning for Factuality</h4>
+<ul>
+<li><code>TopicPrefix</code> introduced into training for better awareness, appended topic in front in each sentence.</li>
+<li>Sentence completion loss as a training objective.</li>
+<li>FLAME: run SFT + RLHF alignment training with special focus on factuality.</li>
+<li>Factuality tuning (2024): experimented with different ways of truthfulness estimation of atomic claims in each model sample and then run DPO.</li>
+</ul>
+<p><br></p>
+<h4 id="fine-tuning-for-attribution">Fine-tuning for Attribution</h4>
+<ul>
+<li>Assigning attribution in the model outputs when generating conditions on search results.</li>
+<li>WebGPT (2022) combines web search for document retrieval with a fine-tuned GPT model, aiming to answer long-form questions to reduce hallucination.</li>
+<li>GopherCite (2022) also uses search engine to create support materials and teaching models to provide references. Also run SFT for bootstrapping and RLHF.</li>
+</ul>
+<p><br></p>
+<h4 id="evaluation-benchmarks">Evaluation Benchmarks</h4>
+<ul>
+<li>TruthfulQA (2021)</li>
+<li>FactualityPrompt (2022)</li>
+<li>SelfAware (2023)</li>
+<li>LongFact (2024)</li>
+<li>HaDes (2021)</li>
+<li>FEVER</li>
+<li>FAVABench (2024)</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="article-vi-diffusion-models-for-video-generation-2024">🧋 Article VI: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2024-04-12-diffusion-video/">Diffusion Models for Video Generation (2024)</a></h2>
+<p><br></p>
+<p>A little walk through Diffusion Models, a strong technique to generate images and videos through AI. The challenges with video generation are pointed as:</p>
+<ol>
+<li>It has extra requirements on temporal consistency across frames in time, which demands more world knowledge to be encoded into the model.</li>
+<li>It&#39;s more difficult to collect large amounts of high-quality, high-dimensional video data, and text-video pairs.</li>
+</ol>
+<p>Weng then starts the review of the steps to video generation modeling from scratch.</p>
+<p><br></p>
+<h4 id="parametrization-samplings">Parametrization &amp;&amp; Samplings</h4>
+<ul>
+<li>Let <code>x</code> be a data point sampled from the real data distribution, now add a gaussian noise in small amount in time, creating a sequence of noisy variations of x, with increasing amount of noise as t increases.</li>
+<li>The noise-adding forward process is a Gaussian process. From here, we define a differentiable noise schedule of the Gaussian process and the log signal-to-noise-ratio, v-prediction parametrization (to avoid color shift),</li>
+</ul>
+<p>Thank you, Weng, for the beautiful math derivation.</p>
+<p><br></p>
+<h4 id="model-architecture">Model Architecture</h4>
+<ul>
+<li>U-net (e.g. Google) and Transformer (e.g. Sora from OpenAI) are still two common architecture choices.</li>
+<li>VDM alters the architecture for video modeling: it extends the 2D U-net to work for 3D data, where each feature map represents a 4D tensor of frames x height x width x channels. It&#39;s factorized over space and time, meaning that each layer operates on the space or time dimension, but not both.</li>
+<li>Imagen Video is constructed on a cascade of diffusion models to enhance the video generation quality and upgrades to output 1280x768 videos at 24 fps. The architecture consists of 7 diffusion models in total.</li>
+<li>It also applies progressive distillation to speed up sampling and each distillation iteration can reduce the required sampling steps by half. They were able to do distill 7 video diffusion models down to just 8 sampling steps per model without loss in perceptual quality.</li>
+<li>Sora leverages DiT (diffusion transformer) architecture that operates on spacetime patches of video and image latent codes. Visual input is represented as a sequence of spacetime patches which act as transformer input tokens.</li>
+</ul>
+<p><br></p>
+<h4 id="adapting-image-models-to-generate-videos">Adapting Image Models to Generate Videos</h4>
+<ul>
+<li>This approach inflates a pre-trained image-to-text diffusion model by inserting temporal layers and then chose to only fine-tune new layers on video data.</li>
+<li>Make-A-Video (2022) extends a pre-trained diffusion image model with a temporal dimension.</li>
+<li>Tune-A-Video (2023) inflates a pre-trained image diffusion model to enable one-shot video tuning.</li>
+<li>Gen-1 (2023) targets the task of editing a given video according to text inputs.</li>
+<li>Video LDM (2023) trains a Latent diffusion model image generator first, then the model is fine-tuned to produce videos with a temporal dimension added.</li>
+<li>Stable Video Diffusion (2023) has also an architecture design based on LDM with temporal layers inserted after every spatial convolution and attention layer, but SDV fine-tunes the entire model.</li>
+<li>Lumiere (2024) adopts a space-time U-Net architecture that generates the entire temporal duration of the video at once through a single pass, removing the dependency on temporal super-resolution components.</li>
+</ul>
+<p><br></p>
+<h4 id="training-free-adaptation">Training-Free Adaptation</h4>
+<ul>
+<li>It&#39;s possible to adapt a pre-trained text-to-image model to output videos without any training.</li>
+<li>Text2Video-Zero (2023) enables zero-shot, training-free video generation by enhancing a pre-trained image diffusion model.</li>
+<li>ControlVideo (2023) aims to generate videos conditioned on text prompt and a motion sequence (adapted from ControlNet).</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="article-vii-thinking-about-high-quality-human-data-2024">🧋 Article VII: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2024-02-05-human-data-quality/">Thinking About High-Quality Human Data (2024)</a></h2>
+<p><br></p>
+<p>Weng starts by stating the sets of operation steps for collecting human data:</p>
+<ol>
+<li>Task design to reduce complexity and improve clarity.</li>
+<li>Selection and training the raters, including regular feedback and calibration sessions.</li>
+<li>Collection and aggregations of data, using more ML techniques that can be applied to clean, filter, and aggregate data to identify true labels.</li>
+</ol>
+<p><br></p>
+<p>Weng then discusses the idea of the wisdom of the crowd (Vox populi), rater agreement, disagreement, the qualities of data and model training, prediction changes during training, and noisy cross-validation.</p>
+<p><br></p>
+<hr>
+<h2 id="article-viii-adversarial-attacks-on-llms-at-inference-time-2023">🧋 Article VIII: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2023-10-25-adv-attack-llm/">Adversarial Attacks on LLMs at Inference Time (2023)</a></h2>
+<p><br></p>
+<blockquote><p><em>Adversarial attacks or jailbreak prompts could potentially trigger the model to output something undesired.</em></p></blockquote>
+<p><br></p>
+<h4 id="threat-model">Threat Model</h4>
+<ul>
+<li>Threats to LLM-based applications: injection methods (passive methods, active methods, user-driven injections, hidden injections), information gathering (personal data, credentials, chat leakage), fraud (phishing, scams, masquerading), intrusion (persistence remote control, API calls), malware (spreading injections, spreading malware), manipulated content (wrong summary, disinformation, propaganda/bias, data hiding, ads/promotion), availability (DoS, increased computation).</li>
+<li>White-box vs. Black-box: white box attacks assume the attackers have full access to the model weights, architecture, and training pipeline, such that attackers can obtain gradient signals. Black-box attacks assume that attackers only have access to an API-like service where they provide input x and get back sample y, without knowing further information about the model.</li>
+</ul>
+<h4 id="types-of-adversarial-attacks">Types of Adversarial Attacks</h4>
+<ul>
+<li>Token manipulation: alter a fraction of tokens in the text input such that it triggers model failure, still maintaining semantic meanings (e.g., TextAttack, SEARs, EDA, TextFooler, BERT-Attack).</li>
+<li>Gradient-based attack: rely on gradient signals to learn an effective attack (e.g., GBDA, HotFlip, UAT, AutoPrompt, ARCA).</li>
+<li>Jailbreak prompting: heuristic to jailbreak built-in model safety (competing objective, mismatched generalization).</li>
+<li>Human red-teaming: human attack (experiments with QuizBowl QA dataset, Bot-Adversarial Dialogue).</li>
+<li>Model red-teaming: models attack the model, and the attacker model can be fine-tuned (experiments with several ways for sampling: zero-shot generation, stochastic few-shot generation, supervised learning, RL, FLIRT).</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="article-ix-llm-powered-autonomous-agents-2023">🧋 Article IX: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2023-06-23-agent/">LLM Powered Autonomous Agents (2023)</a></h2>
+<p><br></p>
+<p>In this ahead-of-the-time essay, Weng gives an overview of what an LLM-based agent system would look like, by dividing the design into the following components:</p>
+<ol>
+<li>Planning (the agent breaks down tasks into smaller ones through chain of thought, tree of thought, or LLM+P; and can self-reflect to improve final results through approaches such as Reflexion or Chain of Hindsight).</li>
+<li>Memory (sensorial memory that are very short and multimodal; short-term memory or working memory, defined as in-context learning/prompt engineering, and long-term memory through external vectors that provide retain and recall capabilities).</li>
+<li>Tool use (agent execute external API calls for information beyond the models weights, and evaluation of the results).</li>
+</ol>
+<p><br></p>
+<p>Weng finalizes the paper reviewing  possible case studies, such as scientific discovery agents, generative agents simulation, and proof-of-concept examples.</p>
+<p><br></p>
+<hr>
+<h2 id="article-x-prompt-engineering-2023">🧋 Article X: <a target="_blank" rel="noopener noreferrer" href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/">Prompt Engineering (2023)</a></h2>
+<p><br></p>
+<p>Also known as In-Context-Prompting, it refers to empirical methods for how communication with a LLM steer its behavior for desired outcomes without updating the model weights.</p>
+<p><br></p>
+<blockquote><p><em>Prompt is a sequence of prefix tokens that increase the probability of getting desired output given input.</em></p></blockquote>
+<p><br></p>
+<h4 id="zero-shot-prompting">Zero-Shot Prompting</h4>
+<ul>
+<li>Zero-shot learning is feeding the task text to the model and ask for results.</li>
+<li>Few-shot learning represents a set of high-quality demonstrations, each consisting of both input and desired output, on the target task. It leads to better performance but cost more tokens (and it may hit the context length limit).</li>
+<li>Weng then goes over a few examples of selection and ordering of prompts.</li>
+</ul>
+<p><br></p>
+<h4 id="instruction-prompting">Instruction Prompting</h4>
+<ul>
+<li>Instucted LLM (e.g., InstuctGPT, RLHF) finetunes a pretrained model with high-quality tuples of task instrcutins, input, or ground truth output.</li>
+<li>In-context instruction learning (2023) combines few-shot learning with instruction prompting. Their experiments were only on classification tasks, and the instruction prompt contains all label options.</li>
+</ul>
+<p><br></p>
+<h4 id="self-consistency-sampling">Self-Consistency Sampling</h4>
+<ul>
+<li>Sample multiple outputs with temperature &gt; 0 and then selecting the best one out of these candidates.</li>
+</ul>
+<p><br></p>
+<h4 id="chain-of-thoughts-cot-prompting">Chain-of-Thoughts (CoT) Prompting</h4>
+<ul>
+<li>Generates a sequence of short sentences to describe reasoning logics step by step, known as reasonings chains or rationales, to eventually lead to the final answer.</li>
+<li>The benefits are seem on complicated reasoning tasks with large models (&lt; 50B).</li>
+<li>Self-Ask (2022) repeatedly prompt the model to ask following-up questions to construct the thought iteratively.</li>
+<li>Tree of Thoughts (2023) extends CoT by exploring multiple reasoning possibilities at each step. It decomposes the problem into multiple thought steps and generates multiple thoughts per step, creating a tree structure. The search can be BFS or DFS while each state is evaluated by a classifier or majority vote.</li>
+</ul>
+<p><br></p>
+<h4 id="automatic-prompt-engineering">Automatic Prompt Engineering</h4>
+<ul>
+<li>APE is a method to search over a pool of model-generated instruction candidates and then filters the candidate set according to a chosen score function to chose the best candidate with highest score.</li>
+<li>Methods: augment-prune-select and clustering techniques.</li>
+</ul>
+<p><br></p>
+<hr>
+<h4 id="thank-you-lilian-weng-this-was-fun"><em>Thank you, Lilian Weng, this was fun!</em> 🤩</h4>
+<p><br></p>
+<h4 id="section">⬛️</h4></div>
 								</article>
 							</div>
 						</div>

@@ -30,11 +30,11 @@ The crownless again shall be king.
 
 <br>
 
-#### Hello and happy friday the 13th, my dear anon friend.
+#### Hello and happy [Friday the 13th](https://www.science.org/doi/10.1126/science.132.3436.1291), my dear anon friend.
 
-#### Today, we'll walk through the steps I take to harden one of my Linux machines: my Omarchy box. This is an ever-evolving effort. Some of these steps came from long debugging sessions I had to go through (looking at you, [AppArmor](https://wiki.archlinux.org/title/AppArmor) and [Secure Boot](https://en.wikipedia.org/wiki/Secure_Boot)).
+#### Today, we'll walk through the steps I take to harden one of my Linux machines: my Omarchy box. I've called this an "ever-evolving" project because, for now, my focus is on establishing the fundamentals. That said, some of these steps came out of rather lengthy debugging sessions (I'm looking at you, [AppArmor](https://wiki.archlinux.org/title/AppArmor) and [Secure Boot](https://en.wikipedia.org/wiki/Secure_Boot)).
 
-#### I’ve called it "ever-evolving" because, for now, my focus is on establishing the fundamentals. Security hardening, however, is an ongoing process. There are plenty of additional monitoring mechanisms, forensic inspections, and security tests that I may incorporate into this work over time, alongside new measures as they become available. The source code for this project, along with some of my other opinionated configurations, is maintained in **[this GitHub repository](https://github.com/future-ai-org/omarchy_stuff)**.
+#### Security hardening is an ongoing process. There are plenty of additional monitoring mechanisms, forensic inspections, and security tests that I may incorporate into this work over time, alongside new measures as they become available. The source code for this project, along with some of my other opinionated configurations, is maintained in [**this GitHub repository**](https://github.com/future-ai-org/omarchy_stuff).
 
 <br>
 
@@ -43,7 +43,7 @@ This work is the result of an ongoing collaboration with all my frontier robot f
 :::
 
 :::ps
-On a quick note, [**this**](https://www.kitp.ucsb.edu/sites/default/files/YM_working_group.pdf) is pretty exciting to me for several reasons. First, this group has close ties to my alma mater, Stony Brook, through its Yang-Mills Theoretical Institute and the Simons Institute. Second, during my PhD, I briefly collaborated with [**Nikita Nekrasov**](https://www.astro.sunysb.edu/steinkirch/#research) on graph-theoretical approaches to mathematical problems that could potentially connect to string theory. He is incredibly smart, and it's awesome to see these folks achieving such solid results with AI. Third, this is [**pretty impressive progress**](https://www.youtube.com/watch?v=sfKc2uoA9pA), and I can't wait for the second half, which tackles the **[mass gap problem](https://en.wikipedia.org/wiki/Yang%E2%80%93Mills_existence_and_mass_gap)**.
+On a quick note, [**this**](https://www.kitp.ucsb.edu/sites/default/files/YM_working_group.pdf) is pretty exciting to me for several reasons. First, this group has close ties to my alma mater, Stony Brook, through its C.N. Yang Theoretical Institute and the Simons Institute. Second, during my PhD, I briefly collaborated with [**Nikita Nekrasov**](https://www.astro.sunysb.edu/steinkirch/#research) on graph-theoretical approaches to mathematical problems that could potentially connect to string theory. He is incredibly smart, and it's awesome to see these folks achieving such solid results with AI. Third, this is [**pretty impressive progress**](https://www.youtube.com/watch?v=sfKc2uoA9pA), and I can't wait for the second half, which tackles the **[mass gap problem](https://en.wikipedia.org/wiki/Yang%E2%80%93Mills_existence_and_mass_gap)**.
 :::
 
 <br>
@@ -1939,6 +1939,6 @@ sudo lynis audit system
 
 ---
 
-#### That's it for today. See you in the next update!
+##### That's it for today. See you in the next update!
 
-#### ⬛️
+##### ⬛️

@@ -198,10 +198,223 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-08-27">2026; 08; 27</time></p>
+									<h1 id="post-title" class="section-title">📚 BOOK → TAOCP 4️⃣ of 6️⃣ (Donald E. Knuth, 2019)</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 10/10 | Beginner to Advanced Computer Scientists | Today&#x27;s Word: Inexorable · Unerbittlich · ふかひ · בִּלְתִּי נִמְנָע</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p>Here are three cool quotes from this chapter:</p>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=FQpuSV9AHQ4">🎶</a> <em>&quot;Seek and you shall find.&quot;</em> — Matthew 7:7</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=h9CqJTsT2Ms">🎼</a> <em>&quot;Attempt the end, and never stand to doubt; Nothing’s so hard, but search will find it out.&quot;</em> — Robert Herrick (1648)</p></blockquote>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=hnFlDk5n34Q">🌳</a> <em>&quot;Why don’t you pair ’em up in threes?&quot;</em> — attributed to Yogi Berra (c. 1970)</p></blockquote>
+<p><br></p>
+<p>And one cool quote from my studies this week:</p>
+<blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=yUXwdnOJ_z0">🎵</a> <em>&quot;You can&#39;t connect the dots looking forward; you can only connect them looking backwards.&quot;</em> — <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=jiHZqamCD8c">Steve Jobs (2005)</a></strong></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/klee.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>In this third post, I continue the <em>brain-marathon</em> I began in <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_knuth.html"><strong>Part 1️⃣</strong></a>, <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_knuth_2.html"><strong>Part 2️⃣</strong></a>, and <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/book_knuth_3.html"><strong>Part 3️⃣</strong></a>, savoring <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=dtW-AFYpH_A"><strong>our luminal reality</strong></a>.</p>
+<p>Today, we <strong><a target="_blank" rel="noopener noreferrer" href="https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/">dive</a></strong> into the <strong>Searching</strong> chapter. If you think of 💕 binary search 💕 when someone says &quot;search&quot;, you’re like me — it&#39;s <strong><a target="_blank" rel="noopener noreferrer" href="https://pollen-robotics.com/microduck/">nice</a></strong> and binaryly <strong><a target="_blank" rel="noopener noreferrer" href="https://apod.nasa.gov/apod/ap260820.html">pretty</a></strong>. This time, though, I learned there’s much more <strong><a target="_blank" rel="noopener noreferrer" href="https://apod.nasa.gov/apod/ap260827.html">color</a></strong> to it. And, funny enough, I learned this through the zodiacs on a <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=DAzVVp9lmis">tree</a></strong>. Read on if you want to understand what I mean!</p>
+<p><br></p>
+<p>As always, below are a few highlights (for personal inventory), with a moderate attempt at coherence:</p>
+<p><strong>🤖 If you see a 👾, it means I found something particularly cool or learned something new.</strong><br><strong>🤖 If you see a ✨, it means things that are so cool that they need a lil glitter around them.</strong><br><strong>🤖 If you see a ☀️, it means it&#39;s just a fun easter egg (because life&#39;s short; <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=VbD_kBJc_gI">we must dance</a>).</strong><br><strong>🤖 If these notes look interesting to you, it&#39;s your ✦moral duty✦ to read the original books.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#sequential-searching">SEQUENTIAL SEARCHING</a></li><li><a href="#searching-by-comparison-of-keys">SEARCHING BY COMPARISON OF KEYS</a></li><li><a href="#digital-searching">DIGITAL SEARCHING</a></li><li><a href="#hashing">HASHING</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="volume-3-chapter-6-searching">VOLUME 3️⃣; CHAPTER 6️⃣; SEARCHING</h2>
+<p><br></p>
+<h3 id="sequential-searching">SEQUENTIAL SEARCHING</h3>
+<p><br></p>
+<blockquote><p><em>“Begin at the beginning, and go on till you find the right key; then stop.” This sequential procedure is the obvious way to search.</em></p></blockquote>
+<p><br></p>
+<blockquote><p><em>Algorithm (Sequential search in ordered table) → Given a table of records <code>R_1, R_2, ..., R_N</code> whose keys are in increasing order <code>K_1 &lt; K_2 &lt; ... &lt; K_N</code>, this algorithm searches for a given argument <code>K</code>. For convenience and speed, the algorithm assumes that there is a dummy record <code>R_{N + 1}</code> whose key value is <code>K_{N + 1} = ∞ &gt; K</code>.</em></p></blockquote>
+<pre><code class="language-🐝">
+1. [Initialize.] Set i ← 1.
+
+2. [Compare.] If K ≤ K_i, go to 4.
+
+3. [Advance.] Increase i by 1 and return to 2.
+
+4. [Equality?] If K = K_i, the algorithm terminates successfully. Otherwise it terminates unsuccessfully.
+</code></pre>
+<p><br></p>
+<ul>
+<li>Another approximation to realistic distributions is the “80-20” rule of thumb that has commonly been observed in commercial applications. This rule states that 80 percent of the transactions deal with the most active 20 percent of a file; and the same rule applies in fractal fashion to the top 20 percent, so that 64 percent of the transactions deal with the most active 4 percent, etc.</li>
+</ul>
+<p><br></p>
+<hr>
+<h3 id="searching-by-comparison-of-keys">SEARCHING BY COMPARISON OF KEYS</h3>
+<p><br></p>
+<blockquote><p><em>In this section we shall discuss search methods that are based on a linear ordering of the keys, such as alphabetic order or numeric order.</em></p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/knuth_bs.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p><em>Algorithm (Binary search) → Given a table of records <code>R_1,  R_2, ..., R_N</code> whose keys are in increasing order <code>K_1 &lt; K_2 &lt; ··· &lt; K_N</code>, this algorithm searches for a given argument <code>K</code>.</em></p></blockquote>
+<pre><code class="language-🐝">
+1. [Initialize.] Set l ← 1, u ← N.
+
+2. [Get midpoint.] At this point we know that if K is in the table, it satisfies K_l ≤ K ≤ K_u. 
+    If u &lt; l, the algorithm terminates unsuccessfully. 
+    Otherwise, set i ← [(l + u) / 2], the approximate midpoint of the relevant table area.
+
+3. [Compare.] If K &lt; K_i, go to 4; if K &gt; K_i, go to 5; and if K = K_i, the algorithm terminates successfully.
+
+4. [Adjust u.] Set u ← i − 1 and return to 2.
+
+5. [Adjust l.] Set l ← i + 1 and return to 2.
+</code></pre>
+<p><br></p>
+<ul>
+<li>Fibonacci numbers provide us with an alternative to binary search. The resulting method is preferable on some computers, because it involves only addition and subtraction, not division by 2.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth_fib.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<blockquote><p>👾 <em>Algorithm (Fibonaccian search). Given a table of records <code>R_1, R_2, ..., R_N</code> whose keys are in increasing order <code>K_1 &lt; K_2 &lt; ··· &lt; K_N</code>, this algorithm searches for a given argument <code>K</code>. For convenience in description, we assume that <code>N + 1</code> is a perfect Fibonacci number, <code>F_{k + 1}</code>.</em></p></blockquote>
+<ul>
+<li>It is not difficult to make the method work for arbitrary <code>N</code>, if a suitable initialization is provided:</li>
+</ul>
+<pre><code class="language-🐝">
+1. [Initialize.] Set i ← F_k, p ← F_k − 1, q ← F_k − 2. 
+    (Throughout the algorithm, p and q will be consecutive Fibonacci numbers.)
+
+2. [Compare.] If K &lt; K_i, go to step 3; if K &gt; K_i, go to 4; and if K = Ki, 
+    the algorithm terminates successfully.
+
+3. [Decrease i.] If q = 0, the algorithm terminates unsuccessfully. 
+    Otherwise set i ← i − q, and set (p, q) ← (q, p − q); then return to 2.
+
+4. [Increase i.] If p = 1, the algorithm terminates unsuccessfully. 
+    Otherwise set i ← i + q, p ← p − q, then q ← q − p, and return to 2.
+</code></pre>
+<p><br></p>
+<ul>
+<li>Let <code>C</code>, <code>C1</code>, and <code>(C2 − S)</code> be the respective number of times steps 2, 3, and 4 are performed. Then we have:</li>
+</ul>
+<pre><code class="language-🐝">
+C = (ave ϕk/√5 + O(1), max k − 1)
+
+C1 = (ave k/√5 + O(1), max k − 1)
+
+C2 − S = (ave ϕ − 1k/√5 + O(1), max ⌊k/2⌋)
+
+(left branch is taken about ϕ ≈ 1.618 times as often as the right branch)
+</code></pre>
+<p><br></p>
+<blockquote><p><em>Interpolation search → When we know that <code>K</code> lies between <code>K_l</code> and <code>K_u</code>, we can choose the next probe to be about <code>(K − K_l) / (K_u − K_l)</code> of the way between <code>l</code> and <code>u</code>, assuming that the keys are numeric and that they increase in a roughly constant manner throughout the interval.</em></p></blockquote>
+<p><br></p>
+<ul>
+<li>Interpolation search is asymptotically superior to binary search. One step of binary search essentially reduces the amount of uncertainty from <code>n</code> to <code>1/2 n</code>, while one step of interpolation search essentially reduces it to <code>√n</code>, when the keys in the table are randomly distributed. Hence interpolation search takes about <code>lg lg N</code> steps, on the average, to reduce the uncertainty from <code>N</code> to <code>2</code>.</li>
+</ul>
+<ul>
+<li>However, computer simulation experiments show that interpolation search does not decrease the number of comparisons enough to compensate for the extra computing time involved, unless the table is rather large. Typical files aren’t sufficiently random, and the difference between <code>lg lg N</code> and <code>lg N</code> is not substantial unless <code>N</code> exceeds, say, <code>2^{16} = 65,536</code>. Interpolation is most successful in the early stages of searching a large possibly external file; after the range has been narrowed down, binary search finishes things off more quickly.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth_bs2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Figure 10 shows a binary search tree containing the names of eleven signs of the zodiac. If we now search for the twelfth name, <code>SAGITTARIUS</code>, starting at the root or apex of the tree, we find it is greater than <code>CAPRICORN</code>, so we move to the right; it is greater than <code>PISCES</code>, so we move right again; it is less than <code>TAURUS,</code> so we move left; and it is less than <code>SCORPIO</code>, so we arrive at external node <code>8</code> . The search was unsuccessful; we can now insert <code>SAGITTARIUS</code> at the place the search ended, by linking it into the tree in place of the external node <code>8</code> . In this way the table can grow without the necessity of moving any of the existing records. Figure 10 was formed by starting with an empty tree and successively inserting the keys <code>CAPRICORN</code>, <code>AQUARIUS</code>, <code>PISCES</code>, <code>ARIES</code>, <code>TAURUS</code>, <code>GEMINI</code>, <code>CANCER</code>, <code>LEO</code>, <code>VIRGO</code>, <code>LIBRA</code>, <code>SCORPIO</code>, in this order. It follows that the keys appear in strict alphabetic sequence from left to right, <code>AQUARIUS</code>, <code>ARIES</code>, <code>CANCER</code>, <code>CAPRICORN</code>, <code>GEMINI</code>, <code>LEO</code>, ... , <code>VIRGO</code>. if we traverse the tree in symmetric order, since symmetric order is based on traversing the left subtree of each node just before that node, then traversing the right subtree.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth_bs3.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Algorithm (Tree search and insertion) → Given a table of records that form a binary tree as described above, this algorithm searches for a given argument <code>K</code>. If <code>K</code> is not in the table, a new node containing <code>K</code> is inserted into the tree in the appropriate place.</li>
+</ul>
+<ul>
+<li>Theorem (T. N. Hibbard, 1962) → After a random element is deleted from a random tree by Algorithm D, the resulting tree is still random. The shape of the tree is random after deletions, but the relative distribution of values in a given tree shape may change, and it turns out that the first random insertion after deletion actually destroys the randomness property on the shapes.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth_bs4.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>Let us now explore the problem of finding the optimum tree → when <code>N</code> is large there are <code>perm(2N N) / ( N + 1 ) ≈ 4^N / √πN^{3/2})</code> binary trees (so we can’t just try them all).</li>
+</ul>
+<ul>
+<li>Call the expected number of comparisons for a binary tree the cost of the tree; and the minimum-cost tree is optimum. We can determine an optimum tree in <code>O(n^3)</code> units of time, using <code>O(n^2)</code> cells of memory.</li>
+</ul>
+<ul>
+<li>All subtrees of an optimum tree are optimum.</li>
+</ul>
+<ul>
+<li>The minimum cost is closely related to entropy →  If <code>p1, p2, ..., pn</code> are probabilities with <code>p1 + p2 + ... + pn = 1</code>, we define the entropy <code>H(p1, p2,..., pn)</code> by the formula <code>H(p1, p2,..., pn) = sum^n_{k = 1} pk lg(1 / pk)</code>. If <code>n</code> events are possible and the <code>k</code>th event occurs with probability <code>pk</code>, we can imagine that we have received <code>lg(1 / pk)</code> bits of information when the <code>k</code>th event has occurred.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth_garsia_wachs_2.webp" alt="" loading="lazy" decoding="async"></p>
+<p><img src="/blog/assets/knuth_garsia-wachs.webp" alt="" loading="lazy" decoding="async"></p>
+<p><img src="/blog/assets/knuth_opt_tree.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>The height of a tree is defined to be its maximum level, the length of the longest path from the root to an external node. A binary tree is called balanced if the height of the left subtree of every node never differs by more than <code>±1</code> from the height of its right subtree.</li>
+</ul>
+<ul>
+<li>Theorem (Adelson-Velsky and Landis) → The height of a balanced tree with <code>N</code> internal nodes always lies between <code>lg(N + 1)</code> and <code>1.440 lg(N  + 2) − 0.3277</code>.</li>
+</ul>
+<p><br></p>
+<pre><code class="language-🐝">
+A B-tree of order m is a tree that satisfies the following properties:
+
+i) Every node has at most m children.
+
+ii) Every node, except for the root and the leaves, has at least m/2 children.
+
+iii) The root has at least 2 children (unless it is a leaf).
+
+iv) All leaves appear on the same level, and carry no information.
+
+v) A nonleaf node with k children contains k − 1 keys.
+</code></pre>
+<p><br></p>
+<p><img src="/blog/assets/knuth_balanced_tree.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h3 id="digital-searching">DIGITAL SEARCHING</h3>
+<p><br></p>
+<ul>
+<li>A trie — pronounced “try” — is essentially an M-ary tree, whose nodes are M-place vectors with components corresponding to digits or characters. Each node on level <code>l</code> represents the set of all keys that begin with a certain sequence of l characters called its prefix; the node specifies an M-way branch, depending on the <code>(l + 1)</code>st character.</li>
+</ul>
+<ul>
+<li>The number of nodes needed to store <code>N</code> random keys in an M-ary trie, with the trie branching terminated for subfiles of <code>≤ s</code> keys, is approximately <code>N / (s lnM)</code>. This approximation is valid for large <code>N</code>, small <code>s</code>, and small <code>M</code>. Since a trie node involves <code>M</code> link fields, we will need only about <code>N / ln M</code> link fields if we choose <code>s = M</code>.</li>
+</ul>
+<ul>
+<li>The number of digits or characters examined during a random search is approximately <code>log_M N</code> for all methods considered.</li>
+</ul>
+<ul>
+<li>Sometimes it’s necessary to conduct a search based on the values of other fields in the records besides the primary key; these other fields are often called secondary keys or attributes of the record.</li>
+</ul>
+<ul>
+<li>✨It is interesting to note that the human brain is much better at secondary key retrieval than computers are; in fact, people find it rather easy to recognize faces or melodies from only fragmentary information, while computers have barely been able to do this at all. Therefore it is not unlikely that a completely new approach to machine design will someday be discovered that solves the problem of secondary key retrieval once and for all, making this entire section obsolete. ✨</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth_patricia.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h3 id="hashing">HASHING</h3>
+<p><br></p>
+<ul>
+<li>A third possibility for search methods is to avoid all this rummaging around by doing some arithmetical calculation on <code>K</code>, computing a function <code>f(K)</code> that is the location of <code>K</code> and the associated data in the table.</li>
+</ul>
+<p><br></p>
+<p><img src="/blog/assets/knuth_bytegirl.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<hr>
+<h5 id="to-be-continued">TO BE CONTINUED... 🫪</h5>
+<h5 id="talking-about-searching-would-a-binary-soul-search-be-the-answer-to-the-meaning-of-life-nowadays-i-believe-so-but-i-had-to-try-many-other-types-of-searches-to-come-to-this-conclusion-this-is-a-story-for-nostalgia-part-3-illustrated-by-the-picture-below-of-me-snowboarding-at-woodward-tahoe-circa-2019-this-one-is-long">Talking about searching, would a 💕 <strong>binary</strong> <em>soul</em> <strong>search</strong> 💕 be the answer to the meaning of life? Nowadays, I believe so, but I had to try many other types of searches to come to this conclusion. This is a story for <strong>nostalgia, part 3️⃣</strong> — illustrated by the picture below of me snowboarding at <strong><a target="_blank" rel="noopener noreferrer" href="https://www.rideboreal.com/explore/who-we-are/woodward-tahoe/">Woodward Tahoe</a></strong>, circa 2019. This one is long.</h5>
+<h5 id="once-i-left-cupertino-at-the-end-of-2016-i-officially-became-a-nomad-for-the-first-time-in-my-life-see-after-five-years-stuck-in-an-office-without-windows-followed-by-a-couple-of-years-of-working-too-many-hours-a-day-and-full-weekends-i-was-feeling-like-i-was-missing-out-i-wanted-a-chance-to-finally-experience-life-a-bit-all-that-free-spirit-that-had-been-sold-to-me-in-the-movies-at-that-time-i-had-a-very-cool-blue-subaru-crosstrek-that-could-hold-all-my-boards-for-surf-skate-and-snow-as-well-as-my-camera-gear-and-lenses-my-dji-drone-a-guitar-a-blanket-and-everything-i-needed-to-be-the-bravest-kid-in-the-world-two-years-later-i-got-myself-a-brand-new-tesla-which-i-called-summer-and-it-was-really-fun-to-drive-on-the-open-road-including-hawaii-yes-i-actually-shipped-it-there-when-i-was-living-in-kona-also-don-t-forget-that-i-was-still-very-green-at-probably-every-single-thing-in-life-at-that-time-because-until-then-i-had-pretty-much-spent-most-of-my-time-being-the-best-student-or-nerd-i-could-be">Once I left Cupertino, at the end of 2016, I officially became a nomad for the first time in my life. See, after five years stuck in an office without windows, followed by a couple of years of working too many hours a day and full weekends, I was feeling like I was missing out. I wanted a chance to finally experience life a bit, all that <strong><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=5CXzUcdNEtU">free spirit</a></strong> that had been sold to me in the movies. At that time, I had a very cool blue Subaru Crosstrek that could hold all my boards — for surf, skate, and snow — as well as my camera gear and lenses, <strong><a target="_blank" rel="noopener noreferrer" href="https://vimeo.com/bt3gl">my DJI drone</a></strong>, a guitar, a blanket, and everything I needed to be <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Kafka_on_the_Shore">the bravest kid in the world</a></strong> (two years later, I got myself a brand new Tesla, which I called Summer, and it was really fun to drive on the open road — including Hawaii, yes, I actually shipped it there when I was living in Kona). Also, don&#39;t forget that I was still very <em>green</em> at probably every single thing in life at that time, because until then, I had pretty much spent most of my time being the best student or nerd I could be.</h5>
+<p><br></p>
+<p><img src="/blog/assets/summer.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h5 id="i-decided-i-would-explore-and-stargaze-across-the-entire-states-of-california-and-hawaii-all-the-beaches-parks-and-mountains-i-wanted-to-live-this-type-of-life-once-before-going-back-to-my-normal-life-getting-married-becoming-a-full-adult-etc-i-wanted-to-get-to-know-people-i-wanted-to-learn-more-about-different-lifestyles-i-wanted-to-have-some-meat-for-storytelling-i-wanted-to-find-my-soul-i-wanted-to-chase-the-meaning-of-life-i-wanted-to-express-myself-creating-art-and-i-wanted-to-be-able-to-say-i-did-not-spend-my-entire-life-in-front-of-my-lovely-computers-and-i-did-for-years-i-lived-that-life-nobody-will-ever-steal-that-experience-from-me-it-s-mine-i-did-it">I decided I would explore and stargaze across the entire states of California and Hawaii — all the beaches, parks, and mountains. I wanted to live this type of life once before going back to my <em>normal</em> life, getting married, becoming a full adult, etc. I wanted to get to know people, I wanted to learn more about different lifestyles, I wanted to have some <strong><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Jack_Kerouac">meat for storytelling</a></strong>, I wanted to find my soul, I wanted to chase the meaning of life, I wanted <strong><a target="_blank" rel="noopener noreferrer" href="https://tv.vonsteinkirch.com/an-ode-to-a-quantum-simulation">to express myself creating art</a></strong>, and I wanted to be able to say I did not spend my entire life in front of my lovely computers. And I did. For years, I lived that life — nobody will ever steal that experience from me. It&#39;s mine. I did it.</h5>
+<h5 id="the-original-plan-was-to-do-this-while-working-remotely-i-joined-etsy-engineering-a-nice-remote-job-right-before-this-decision-staying-at-nice-airbnbs-or-nomadic-communities-there-were-so-many-of-them-before-the-pandemic-or-sometimes-even-getting-a-longer-stay-if-the-place-was-worth-it-such-as-in-encinitas-or-maui-for-instance-the-original-plan-was-to-do-this-for-just-a-couple-of-years-or-so-at-most-and-then-set-up-a-base-in-my-favorite-spot-and-move-on-with-my-destiny-it-took-something-like-a-global-pandemic-for-me-to-realize-that-this-life-is-not-very-sustainable-for-too-long-especially-if-your-main-goal-is-still-to-be-an-engineer-builder-or-you-know-a-serious-person">The original plan was to do this while working remotely (I joined Etsy Engineering, a nice remote job, right before this decision), staying at nice Airbnbs or nomadic communities (there were so many of them before the pandemic!), or sometimes even getting a longer stay if the place was worth it, such as in Encinitas or Maui, for instance. The original plan was to do this for just a couple of years or so at most, and then set up a base in my favorite spot and move on with my destiny. It took something like a global pandemic for me to realize that this life is not very sustainable for too long, especially if your main goal is still to be an engineer, builder, or, you know, a serious person.</h5>
+<h5 id="that-particular-year-in-the-tahoe-pic-was-a-very-intense-year-for-me-i-should-mention-that-i-only-learned-how-to-snowboard-back-in-2017-so-being-able-to-jump-on-a-slippery-tube-on-a-board-without-breaking-my-legs-or-dying-was-at-that-moment-the-coolest-personal-achievement-possible">That particular year in the Tahoe pic was a very intense year for me. I should mention that I only learned how to snowboard back in 2017, so being able to jump on a slippery tube on a board without breaking my legs or <strong><a target="_blank" rel="noopener noreferrer" href="https://science.nasa.gov/universe/stars/#death">dying</a></strong> was, at that moment, the coolest personal achievement possible.</h5>
+<h5 id="looking-back-now-as-the-person-i-am-today-after-all-the-suffering-that-came-after-this-journey-of-ego-dissolution-this-whole-thing-does-sound-a-little-silly-and-dangerous-and-i-am-not-sure-why-i-did-not-feel-either-of-those-feelings-back-then-but-it-s-only-silly-because-i-had-the-chance-to-experience-it-down-to-my-bones-overcome-it-and-eventually-call-it-silly-that-s-the-inexorable-beauty-of-growing-and-maturing-and-being-a-human-and-that-person-is-still-me-she-is-still-someone-i-got-to-be-once-and-i-don-t-look-back-on-it-regretfully-it-s-more-like-i-have-empirically-experienced-living-inside-that-persona-for-a-while">Looking back now, as the person I am today, after all the suffering that came after this journey of ego dissolution, this whole thing does sound a little silly and dangerous, and I am not sure why I did not feel either of those feelings back then. But it&#39;s only <em>silly</em> because I had the chance to experience it down to my bones, overcome it, and eventually call it <em>silly</em> — that&#39;s the inexorable beauty of growing and maturing and being a human. And that person is still me. She is still someone I got to be once, and I don&#39;t look back on it regretfully. It&#39;s more like, <em>&quot;I have empirically experienced living inside that persona for a while.&quot;</em></h5>
+<h5 id="life-is-a-funny-thing-if-you-live-intensively-like-i-did-indulging-yourself-to-maximize-experiences-and-knowledge-you-will-eventually-find-no-more-meaning-in-certain-choices-and-you-will-grow-out-of-past-characters-on-the-other-hand-if-you-don-t-do-it-at-all-if-you-never-go-explore-the-world-if-you-never-push-yourself-to-the-limits-if-you-never-leave-home-for-the-hero-s-journey-you-will-never-know-and-i-am-pretty-sure-you-will-become-one-of-those-people-who-eventually-grow-into-a-resentful-character-constantly-asking-what-if-but-you-might-also-become-super-safe-and-uber-rich-too-so-who-knows">Life is a funny thing. If you live intensively like I did, indulging yourself to maximize experiences and knowledge, you will eventually find no more meaning in certain choices, and you will grow out of past characters. On the other hand, if you don&#39;t do it at all — if you never go explore the world, if you never push yourself to the limits, if you never leave &quot;home&quot; for the hero&#39;s journey — you will never know. And I am pretty sure you will become one of those people who eventually grow into a resentful character, constantly asking, <em>&quot;what if?&quot;</em> (But you might also become super-safe and uber-rich, too, so who knows?).</h5>
+<h5 id="so-what-s-the-right-answer-to-be-or-not-to-be-should-we-stay-or-should-we-go-nobody-will-ever-be-able-to-answer-this-question-for-you-my-dear-anon-friend-it-s-your-job-to-live-your-life-it-s-your-job-to-let-others-live-their-lives-without-your-judgment-and-it-s-your-job-to-own-the-choices-you-make-in-the-game-of-choices-and-do-it-as-gracefully-and-gratefully-as-you-can">So what&#39;s the right answer? To be or not to be? Should we stay or should we go? Nobody will ever be able to answer this question for you, my dear anon friend. It&#39;s your job to live your life. It&#39;s your job to let others live their lives without your judgment. And it&#39;s your job to own the choices you make in the game of choices — and do it as gracefully and gratefully as you can 🫶🏼.</h5>
+<p><br></p>
+<p><img src="/blog/assets/searching_dopamine.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<aside class="blog-ps" aria-label="P.S.">
+<p><span class="blog-ps-label">P.S.</span> When I look back at this picture, I think, &quot;It&#39;s so epic — why am I not wearing something better?&quot; 😅. That’s a little quirk of mine: I never really cared about pictures or how I looked to others. I was the classic nerd who needed to wear comfortable clothes because, &quot;I&#39;m too busy and that&#39;s really what matters&quot;. See why I have never been interested in or cared about social media? These days, as maturity pushes me to embrace my lifelong role of a scholar and a leader (and, soon, a mother and wife), I&#39;ve become more mindful of my wardrobe. When I&#39;m working, I mostly wear black and suits; for personal activities, I enjoy floral, colorful, and elegant dresses.</p>
+</aside>
+<h5 id="section">⬛️</h5></div>
 								</article>
 							</div>
 						</div>

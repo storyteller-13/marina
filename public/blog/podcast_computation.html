@@ -198,10 +198,37 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-07-12">2026; 07; 12</time></p>
+									<h1 id="post-title" class="section-title">📺 PODCAST → Tim Roughgarden + Ergo on Computation</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 10/10 | Beginner to Intermediate Computer Scientists</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><h4 id="last-week-i-discovered-a-new-youtube-channel-called-ergo-and-they-re-publishing-lectures-featuring-many-outstanding-guests-i-wanted-to-binge-watch-all-of-them-but-i-decided-to-start-with-one-of-my-favorite-subjects-ever-algorithms-i-even-published-a-book-about-it-a-decade-ago">✨ Last week I discovered a <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@ergo_org">new YouTube channel called Ergo</a>, and they&#39;re publishing lectures featuring many outstanding guests. I wanted to binge-watch all of them, but I decided to start with one of my favorite subjects ever: <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/playlist?list=PL1GBzfniaE7xovcAP1LbbTi7UXsqEoCyl">Algorithms</a> (I even published <a target="_blank" rel="noopener noreferrer" href="https://github.com/cypherpunk-symposium/master-algorithms-py">a book about it</a> a decade ago).</h4>
+<p><br></p>
+<h2 id="p-np-4-life">🪎 P ? NP 4 Life</h2>
+<p><br></p>
+<blockquote><p><em>Why is it so hard to prove such a simple statement? Would it be easier to prove </em>why<em> it&#39;s so hard to prove?</em></p></blockquote>
+<p><br></p>
+<p>Tim Roughgarden walks through the origins of theoretical computer science, beginning with Alan Turing&#39;s seminal 1936 paper and Hilbert&#39;s program, later transformed by Gödel&#39;s incompleteness theorems.</p>
+<p>Starting with a whiteboard definition of a Turing machine and explaining how one machine can rule them all through universality, he explores whether there is a mechanical procedure capable of generating proofs for true statements. From there, he discusses the meaning of undecidability, confronting the uncomfortable but fundamental truth of the unsolvability of the Halting Problem. It is simply a fact about our universe that there is no automated procedure capable of solving it.</p>
+<p>He then revisits decision problems, explaining why provability cannot be determined simply by searching through increasingly longer proofs. This naturally leads back to Cantor&#39;s famous 1891 diagonalization argument, showing that there are more real numbers than integers — that some infinities are genuinely larger than others (i.e., different cardinalities of infinity). Ironically, the same diagonalization technique that was initially rejected by many mathematicians ultimately dealt a fatal blow to Hilbert&#39;s original program.</p>
+<p>Tim then introduces the (pre-quantum) Church–Turing thesis: any computation that can be effectively performed can also be carried out by a Turing machine. From there, he arrives at the P versus NP problem — arguably the deepest and most important open problem in theoretical computer science.</p>
+<p><br></p>
+<blockquote><p><em>Are there problems whose solutions are easy to verify but nevertheless require brute-force search to find?</em></p></blockquote>
+<p><br></p>
+<p>He builds intuition for efficient algorithms by defining P as the class of problems solvable in polynomial time, and explains how improvements in computing power affect the size of solvable problems. For example, with a linear-time algorithm, doubling computing power doubles the size of the problem that can be solved. With a quadratic-time algorithm, doubling computing power increases the solvable problem size by only about 41%.</p>
+<p>From there, he discusses graph algorithms, graph isomorphism (determining <a target="_blank" rel="noopener noreferrer" href="https://github.com/autistic-symposium/mlnet-complex-networks">whether two networks are structurally identical</a>), and contrasts exhaustive search with efficiently solvable problems like shortest paths. This naturally leads to the Traveling Salesman Problem (TSP), one of the canonical NP-complete problems, illustrating why we do not know efficient algorithms for solving it.</p>
+<p>Using reductions to connect different computational problems, he argues that it is much easier to believe that P ≠ NP than the opposite. Sudoku serves as a nice example: while verifying a completed puzzle is easy, finding a solution appears computationally difficult. He also mentions that John Nash, while working on cryptographic problems, likewise did not believe that P equals NP.</p>
+<p>Within NP (non-deterministic polynomial time), he discusses three broad groups of problems:</p>
+<ol>
+<li>NP-complete problems (such as TSP), to which all NP problems can be reduced.</li>
+<li>Problems already known to be in P.</li>
+<li>NP-intermediate problems, such as integer factorization.</li>
+</ol>
+<p>This third class has become especially important in the era of quantum computing. Thanks to Shor&#39;s algorithm, we know that integer factorization can be solved efficiently on a sufficiently powerful quantum computer, which would break RSA encryption. However, because factoring is only a set of the NP class, this does not imply that quantum computers make P = NP.</p>
+<p>Instead, quantum computing poses a challenge to the original Church–Turing thesis. If factoring can indeed be solved efficiently on a quantum computer but not on a classical computer, then it would no longer be true that every efficiently realizable computation can be simulated efficiently by a classical Turing machine. This realization motivated the quantum version of the Extended Church–Turing thesis.</p>
+<p>Finally, Tim spends some time reflecting on what makes a great mathematician or theoretical computer scientist. His conclusion is that success depends not only on talent or luck, but perhaps even more on persistence and relentless curiosity. That part made me smile. :)</p>
+<p><br></p>
+<p><em>Thank you, Tim, for such an entertaining discussion and for making us excited about algorithms once again!</em></p>
+<h3 id="section">⬛️</h3></div>
 								</article>
 							</div>
 						</div>

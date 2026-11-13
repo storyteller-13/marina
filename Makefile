@@ -1,4 +1,4 @@
-.PHONY: setup install server test lint grammar blog clean
+.PHONY: setup install server test lint grammar blog check-generated clean
 
 PORT ?= 8037
 PYTHON := python3
@@ -29,6 +29,9 @@ grammar:
 
 blog:
 	python3 scripts/sync-blog-posts.py
+
+check-generated: blog
+	git diff --exit-code -- public/blog/posts.json public/blog/drafts.json public/blog/*.html public/index.xml
 
 clean:
 	rm -rf node_modules .pytest_cache .ruff_cache .mypy_cache .pre-commit-cache \

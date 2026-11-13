@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Marina von Steinkirch — Technical Notes</title>
+    <link>https://marina.nullstar.fun</link>
+    <description>Technical notes by Marina von Steinkirch</description>
+    <language>en-us</language>
+    <atom:link href="https://marina.nullstar.fun/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🏄‍♀️ REPORT → A Ride Through AI Evals &amp; Benchmarks</title>
+      <link>https://marina.nullstar.fun/blog/report_evals.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/report_evals.html</guid>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Beginner to Advanced AI Scientists and Engineers | Today's word: Focus · Fokus · 集中 (しゅうちゅう) · מיקוד</description>
+    </item>
+    <item>
+      <title>🧠 IDEA → My Ever-Evolving Omarchy Security Journey</title>
+      <link>https://marina.nullstar.fun/blog/idea_omarchy_security.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/idea_omarchy_security.html</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Intermediate to Advanced Engineers | Today's Word: Safety · Sicherheit · あんぜん · בְּטִיחוּת</description>
+    </item>
+    <item>
+      <title>🏄‍♀️ REPORT → A Ride Through AI Agentic Memory</title>
+      <link>https://marina.nullstar.fun/blog/report_memory.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/report_memory.html</guid>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Beginner to Advanced AI Scientists and Engineers |  Today's word: Magic · Magie · 魔法 (まほう) · קסם</description>
+    </item>
+    <item>
+      <title>🏄‍♀️ REPORT → A Ride Through AI Harness Engineering</title>
+      <link>https://marina.nullstar.fun/blog/report_harness.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/report_harness.html</guid>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Beginner to Advanced AI Scientists and Engineers | Today's word: Action · Handlung · 行動 (こうどう) · פעולה</description>
+    </item>
+    <item>
+      <title>📚 BOOK → ML Engineering (S. Bekman, 2026)</title>
+      <link>https://marina.nullstar.fun/blog/book_ml_eng.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_ml_eng.html</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Intermediate to Advanced AI Engineers | Today's word: Halloween · ハロウィン · ליל כל הקדושים</description>
+    </item>
+    <item>
+      <title>📊 PAPER → Collective Intelligence 3️⃣ of ♾️: Harness RSI</title>
+      <link>https://marina.nullstar.fun/blog/paper_intel_3.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/paper_intel_3.html</guid>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Intermediate to Advanced AI Scientists and Engineers | Today's word: Home · Zuhause · 故郷 · בית</description>
+    </item>
+    <item>
+      <title>📊 PAPER → Collective Intelligence 2️⃣ of ♾️: Gödel Machines</title>
+      <link>https://marina.nullstar.fun/blog/paper_intel_2.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/paper_intel_2.html</guid>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Intermediate to Advanced AI Scientists | Today's word: Infinite · Unendlich · むげん · אינסופי</description>
+    </item>
+    <item>
+      <title>🏄‍♀️ REPORT → A Ride Through Entity Component System</title>
+      <link>https://marina.nullstar.fun/blog/report_ecs.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/report_ecs.html</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>In which all computer code is essentially a series of data transformations.</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Harness Engineering (I. Wijesiri, 2026)</title>
+      <link>https://marina.nullstar.fun/blog/book_harness_eng.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_harness_eng.html</guid>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 8/10 | Beginner to Intermediate AI Engineers | Today's word: Ghost · Geist · ゴースト · רוח רפאים</description>
+    </item>
+    <item>
+      <title>🏄‍♀️ REPORT → A Ride Through OSS Simulation Engines</title>
+      <link>https://marina.nullstar.fun/blog/report_oss_game_engines.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/report_oss_game_engines.html</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+      <description>In which we learn a little bit about the current open-source landscape.</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Machine Super Intelligence (S. Legg, 2008)</title>
+      <link>https://marina.nullstar.fun/blog/book_legg.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_legg.html</guid>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI Scientists | Today's Word: Future · Zukunft · 未来 · עתיד</description>
+    </item>
+    <item>
+      <title>🧠 IDEA → WebLLM, WebGPU, Open-Source Tiny Inference</title>
+      <link>https://marina.nullstar.fun/blog/idea_webllm_gpu.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/idea_webllm_gpu.html</guid>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Beginner to Advanced AI Scientists and Engineers | Today's Word: Threshold · Schwelle · きょうかい · סַף</description>
+    </item>
+    <item>
+      <title>📺 PODCAST → O'Connor + Kuhn on Consciousness 3️⃣ of 3️⃣</title>
+      <link>https://marina.nullstar.fun/blog/podcast_closer_3.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/podcast_closer_3.html</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI Scientists | Today's Word: Unfolding · Entfaltung · てんかい · הִתְפַּתְּחוּת</description>
+    </item>
+    <item>
+      <title>📊 PAPER → Collective Intelligence 1️⃣ of ♾️: Multi-Agents</title>
+      <link>https://marina.nullstar.fun/blog/paper_intel.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/paper_intel.html</guid>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Intermediate to Advanced AI Scientists and Engineers | Today's Word: Solace</description>
+    </item>
+    <item>
+      <title>📺 PODCAST → O'Connor + Kuhn on Consciousness 2️⃣ of 3️⃣</title>
+      <link>https://marina.nullstar.fun/blog/podcast_closer_2.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/podcast_closer_2.html</guid>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI Scientists | Today's Word: Alive</description>
+    </item>
+    <item>
+      <title>📺 PODCAST → O'Connor + Kuhn on Consciousness 1️⃣ of 3️⃣</title>
+      <link>https://marina.nullstar.fun/blog/podcast_closer.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/podcast_closer.html</guid>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI Scientists | Today's Word: Integrity</description>
+    </item>
+    <item>
+      <title>📚 BOOK → TAOCP 4️⃣ of 6️⃣ (Donald E. Knuth, 2019)</title>
+      <link>https://marina.nullstar.fun/blog/book_knuth_4.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_knuth_4.html</guid>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced Computer Scientists | Today's Word: Inexorable · Unerbittlich · ふかひ · בִּלְתִּי נִמְנָע</description>
+    </item>
+    <item>
+      <title>📚 BOOK → TAOCP 3️⃣ of 6️⃣ (Donald E. Knuth, 2019)</title>
+      <link>https://marina.nullstar.fun/blog/book_knuth_3.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_knuth_3.html</guid>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced Computer Scientists | Today's Word: Flourishing · Aufblühen · はんえい · שגשוג</description>
+    </item>
+    <item>
+      <title>📚 BOOK → TAOCP 2️⃣ of 6️⃣ (Donald E. Knuth, 2019)</title>
+      <link>https://marina.nullstar.fun/blog/book_knuth_2.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_knuth_2.html</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced Computer Scientists | Today's Word: Nostalgia · Nostalgie · なつかしさ · נוסטלגיה</description>
+    </item>
+    <item>
+      <title>📚 BOOK → TAOCP 1️⃣ of 6️⃣ (Donald E. Knuth, 2019)</title>
+      <link>https://marina.nullstar.fun/blog/book_knuth.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_knuth.html</guid>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced Computer Scientists | Today's Word: Hope · Hoffnung · きぼう · תִּקְוָה</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Artificial Intel 3️⃣ of 3️⃣ (Russell &amp; Norvig, 2010)</title>
+      <link>https://marina.nullstar.fun/blog/book_ai3.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_ai3.html</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI Scientists</description>
+    </item>
+    <item>
+      <title>📺 PODCAST → Nathan Lambert's Post-Training Lectures</title>
+      <link>https://marina.nullstar.fun/blog/podcast_nl.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/podcast_nl.html</guid>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Intermediate to Advanced AI Scientists/Engineers</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Artificial Intel 2️⃣ of 3️⃣ (Russell &amp; Norvig, 2010)</title>
+      <link>https://marina.nullstar.fun/blog/book_ai2.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_ai2.html</guid>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI Scientists</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Superintelligence (Bostrom, 2014)</title>
+      <link>https://marina.nullstar.fun/blog/book_superintel.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_superintel.html</guid>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI Scientists/Engineers</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Artificial Intel 1️⃣ of 3️⃣ (Russell &amp; Norvig, 2010)</title>
+      <link>https://marina.nullstar.fun/blog/book_ai.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_ai.html</guid>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI Scientists</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Hands-On LLM (Alammar &amp; Grootendorst, 2024)</title>
+      <link>https://marina.nullstar.fun/blog/book_hands.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_hands.html</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 8/10 | Beginner to Intermediate AI Engineers</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Generative AI with LangChain (Auffarth, 2023)</title>
+      <link>https://marina.nullstar.fun/blog/book_lanchain.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_lanchain.html</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 8/10 | Beginner to Intermediate AI Engineers</description>
+    </item>
+    <item>
+      <title>📊 PAPER → A Mnemonic Walk Through Weng's AI Research</title>
+      <link>https://marina.nullstar.fun/blog/paper_weng.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/paper_weng.html</guid>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced AI/Software Engineers/Scientists</description>
+    </item>
+    <item>
+      <title>📊 PAPER → On Global Workspace and J-Space in LLMs</title>
+      <link>https://marina.nullstar.fun/blog/paper_j-space.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/paper_j-space.html</guid>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 9/10 | Intermediate to Advanced AI Scientists</description>
+    </item>
+    <item>
+      <title>📺 PODCAST → Tim Roughgarden + Ergo on Computation</title>
+      <link>https://marina.nullstar.fun/blog/podcast_computation.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/podcast_computation.html</guid>
+      <pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Intermediate Computer Scientists</description>
+    </item>
+    <item>
+      <title>📺 PODCAST → This Week's Dialogues on General Relativity</title>
+      <link>https://marina.nullstar.fun/blog/podcast_gr.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/podcast_gr.html</guid>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Beginner to Advanced Physicists</description>
+    </item>
+    <item>
+      <title>📚 BOOK → RL AI 1️⃣ of 2️⃣ (Sutton &amp; Barto, 2018)</title>
+      <link>https://marina.nullstar.fun/blog/book_rl.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_rl.html</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 10/10 | Intermediate to Advanced AI Scientists</description>
+    </item>
+    <item>
+      <title>📚  BOOK → LLM Engineer (Chaumond et al., 2024)</title>
+      <link>https://marina.nullstar.fun/blog/book_llm_eng.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_llm_eng.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 9/10 | Beginner to Intermediate AI Engineers</description>
+    </item>
+    <item>
+      <title>🧠 IDEA → The OS for Multiplayer Superintelligence</title>
+      <link>https://marina.nullstar.fun/blog/idea_nullstar.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/idea_nullstar.html</guid>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 GMT</pubDate>
+      <description>In which I introduce how I believe friendship networks will be done in the future.</description>
+    </item>
+    <item>
+      <title>🧠 IDEA → Secure Research Pipelines in the Agentic Era</title>
+      <link>https://marina.nullstar.fun/blog/idea_secure_pipeline.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/idea_secure_pipeline.html</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <description>This article launches a series of conversational notes on building secure, AI-native research workflows across various operating systems — starting with macOS — by integrating data extraction and automation tools while avoiding unsafe plugins and related threat vectors.</description>
+    </item>
+    <item>
+      <title>🏄‍♀️ REPORT → A Ride Through a Crazy Week in AI</title>
+      <link>https://marina.nullstar.fun/blog/report_crazy_ai_week.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/report_crazy_ai_week.html</guid>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+      <description>We are riding that exponential curve, aren't we?</description>
+    </item>
+    <item>
+      <title>📚 BOOK → Build an LLM from Scratch (Raschka, 2024)</title>
+      <link>https://marina.nullstar.fun/blog/book_build_llm.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_build_llm.html</guid>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 9/10 | Beginner to Intermediate AI/Software Engineers</description>
+    </item>
+    <item>
+      <title>📚 BOOK → AI Engineering (Huyen, 2024)</title>
+      <link>https://marina.nullstar.fun/blog/book_ai_eng.html</link>
+      <guid isPermaLink="true">https://marina.nullstar.fun/blog/book_ai_eng.html</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Rating: 8/10 | Beginner to Intermediate AI/Software Engineers</description>
+    </item>
+  </channel>
+</rss>

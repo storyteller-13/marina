@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="scripts/sync-blog-posts.py">
+	<meta name="post-slug" content="report_evals">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="description" content="Beginner to Advanced AI Scientists and Engineers | Today&#x27;s word: Focus · Fokus · 集中 (しゅうちゅう) · מיקוד">
+	<meta property="og:description" content="Beginner to Advanced AI Scientists and Engineers | Today&#x27;s word: Focus · Fokus · 集中 (しゅうちゅう) · מיקוד">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1e2327">
+	<meta name="robots" content="noodp">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="🏄‍♀️ REPORT → A Ride Through AI Evals &amp; Benchmarks">
+	<meta property="og:url" content="https://marina.nullstar.fun/blog/report_evals.html">
+	<meta property="og:site_name" content="Technical Notes">
+	<meta property="og:image" content="https://marina.nullstar.fun/blog/assets/raphael.webp">
+	<title>🏄‍♀️ REPORT → A Ride Through AI Evals &amp; Benchmarks · Marina von Steinkirch</title>
+	<link rel="icon"
+		href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>👾</text></svg>">
+	<link rel="canonical" href="https://marina.nullstar.fun/blog/report_evals.html">
+	<link rel="stylesheet" href="/css/frameworks.min.css">
+	<link rel="stylesheet" href="/css/github.min.css">
+	<link rel="stylesheet" href="/css/github-style.css">
+	<link rel="stylesheet" href="/css/light.css">
+	<link rel="stylesheet" href="/css/dark.css">
+	<link rel="stylesheet" href="/css/syntax.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+	<script type="application/javascript" src="/js/theme-mode.js"></script>
+	<script type="application/javascript" src="/js/blog-common.js"></script>
+	<script type="application/javascript" src="/js/code-highlight.js"></script>
+	<script type="application/javascript" src="/js/blog-post.js"></script>
+</head>
+
+<body>
+	<div class="application-main">
+		<main>
+			<div
+				class="mt-4 position-sticky top-0 d-none d-md-block bg-white width-full border-bottom color-border-secondary header-sticky">
+				<div class="container-xl px-3 px-md-4 px-lg-5">
+					<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+						<div class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0"></div>
+						<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+							<div
+								class="UnderlineNav width-full box-shadow-none hx_UnderlineNav-with-profile-color-modes-banner nav-margin-left">
+								<nav class="UnderlineNav-body">
+									<a class="UnderlineNav-item" href="/"><code class="code-small">work</code></a>
+									<a class="UnderlineNav-item selected" href="/pages/blog.html"><code
+											class="code-small">blog</code></a>
+								</nav>
+								<div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
+									<svg width="106" height="60" viewBox="0 0 106 60" fill="none" stroke-width="3"
+										stroke-linecap="round" stroke-linejoin="round"
+										xmlns="http://www.w3.org/2000/svg">
+										<g class="profile-color-modes-illu-group profile-color-modes-illu-red">
+											<path
+												d="M37.5 58.5V57.5C37.5 49.768 43.768 43.5 51.5 43.5V43.5C59.232 43.5 65.5 49.768 65.5 57.5V58.5">
+											</path>
+										</g>
+										<g class="profile-color-modes-illu-group profile-color-modes-illu-orange">
+											<path
+												d="M104.07 58.5C103.401 55.092 97.7635 54.3869 95.5375 57.489C97.4039 54.6411 99.7685 48.8845 94.6889 46.6592C89.4817 44.378 86.1428 50.1604 85.3786 54.1158C85.9519 50.4768 83.7226 43.294 78.219 44.6737C72.7154 46.0534 72.7793 51.3754 74.4992 55.489C74.169 54.7601 72.4917 53.3567 70.5 52.8196">
+											</path>
+										</g>
+										<g class="profile-color-modes-illu-group profile-color-modes-illu-purple">
+											<path
+												d="M5.51109 58.5V52.5C5.51109 41.4543 14.4654 32.5 25.5111 32.5C31.4845 32.5 36.8464 35.1188 40.5111 39.2709C40.7212 39.5089 40.9258 39.7521 41.1245 40">
+											</path>
+											<path d="M27.511 49.5C29.6777 49.5 28.911 49.5 32.511 49.5"></path>
+											<path d="M27.511 56.5C29.6776 56.5 26.911 56.5 30.511 56.5"></path>
+										</g>
+										<g class="profile-color-modes-illu-group profile-color-modes-illu-green">
+											<circle cx="5.5" cy="12.5" r="4"></circle>
+											<circle cx="18.5" cy="5.5" r="4"></circle>
+											<path d="M18.5 9.5L18.5 27.5"></path>
+											<path d="M18.5 23.5C6 23.5 5.5 23.6064 5.5 16.5"></path>
+										</g>
+										<g class="profile-color-modes-illu-group profile-color-modes-illu-blue">
+											<g class="profile-color-modes-illu-frame">
+												<path
+													d="M40.6983 31.5C40.5387 29.6246 40.6456 28.0199 41.1762 27.2317C42.9939 24.5312 49.7417 26.6027 52.5428 30.2409C54.2551 29.8552 56.0796 29.6619 57.9731 29.6619C59.8169 29.6619 61.5953 29.8452 63.2682 30.211C66.0833 26.5913 72.799 24.5386 74.6117 27.2317C75.6839 28.8246 75.0259 33.7525 73.9345 37.5094C74.2013 37.9848 74.4422 38.4817 74.6555 39">
+												</path>
+											</g>
+											<g class="profile-color-modes-illu-frame">
+												<path
+													d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39">
+												</path>
+												<path d="M49.4996 33V35.6757"></path>
+												<path d="M67.3375 33V35.6757"></path>
+											</g>
+											<g class="profile-color-modes-illu-frame">
+												<path
+													d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39">
+												</path>
+											</g>
+											<g class="profile-color-modes-illu-frame">
+												<path
+													d="M41.508 31.5C41.6336 31.2259 41.7672 30.9582 41.9085 30.6968C40.7845 26.9182 40.086 21.8512 41.1762 20.2317C42.9939 17.5312 49.7417 19.6027 52.5428 23.2409C54.2551 22.8552 56.0796 22.6619 57.9731 22.6619C59.8169 22.6619 61.5953 22.8452 63.2682 23.211C66.0833 19.5913 72.799 17.5386 74.6117 20.2317C75.6839 21.8246 75.0259 26.7525 73.9345 30.5094C75.1352 32.6488 75.811 35.2229 75.811 38.2283C75.811 38.49 75.8058 38.7472 75.7957 39">
+												</path>
+												<path d="M49.4996 33V35.6757"></path>
+												<path d="M67.3375 33V35.6757"></path>
+											</g>
+											<g class="profile-color-modes-illu-frame">
+												<path
+													d="M73.4999 40.2236C74.9709 38.2049 75.8108 35.5791 75.8108 32.2283C75.8108 29.2229 75.1351 26.6488 73.9344 24.5094C75.0258 20.7525 75.6838 15.8246 74.6116 14.2317C72.7989 11.5386 66.0832 13.5913 63.2681 17.211C61.5952 16.8452 59.8167 16.6619 57.973 16.6619C56.0795 16.6619 54.2549 16.8552 52.5427 17.2409C49.7416 13.6027 42.9938 11.5312 41.176 14.2317C40.0859 15.8512 40.7843 20.9182 41.9084 24.6968C41.003 26.3716 40.4146 28.3065 40.2129 30.5">
+												</path>
+												<path d="M82.9458 30.5471L76.8413 31.657"></path>
+												<path d="M76.2867 34.4319L81.8362 37.7616"></path>
+												<path d="M49.4995 27.8242V30.4999"></path>
+												<path d="M67.3374 27.8242V30.4998"></path>
+											</g>
+											<g class="profile-color-modes-illu-frame">
+												<path
+													d="M45.3697 34.2658C41.8877 32.1376 39.7113 28.6222 39.7113 23.2283C39.7113 20.3101 40.3483 17.7986 41.4845 15.6968C40.3605 11.9182 39.662 6.85125 40.7522 5.23168C42.5699 2.53117 49.3177 4.6027 52.1188 8.24095C53.831 7.85521 55.6556 7.66186 57.5491 7.66186C59.3929 7.66186 61.1713 7.84519 62.8442 8.21095C65.6593 4.59134 72.375 2.5386 74.1877 5.23168C75.2599 6.82461 74.6019 11.7525 73.5105 15.5094C74.7112 17.6488 75.3869 20.2229 75.3869 23.2283C75.3869 28.6222 73.2105 32.1376 69.7285 34.2658C70.8603 35.5363 72.6057 38.3556 73.3076 40">
+												</path>
+												<path d="M49.0747 19.8242V22.4999"></path>
+												<path
+													d="M54.0991 28C54.6651 29.0893 55.7863 30.0812 57.9929 30.0812C59.0642 30.0812 59.8797 29.8461 60.5 29.4788">
+												</path>
+												<path d="M66.9126 19.8242V22.4999"></path>
+												<path d="M33.2533 20.0237L39.0723 22.1767"></path>
+												<path d="M39.1369 25.0058L33.0935 27.3212"></path>
+												<path d="M81.8442 19.022L76.0252 21.1751"></path>
+												<path d="M75.961 24.0041L82.0045 26.3196"></path>
+											</g>
+											<g class="profile-color-modes-illu-frame">
+												<path
+													d="M73.4999 40.2236C74.9709 38.2049 75.8108 35.5791 75.8108 32.2283C75.8108 29.2229 75.1351 26.6488 73.9344 24.5094C75.0258 20.7525 75.6838 15.8246 74.6116 14.2317C72.7989 11.5386 66.0832 13.5913 63.2681 17.211C61.5952 16.8452 59.8167 16.6619 57.973 16.6619C56.0795 16.6619 54.2549 16.8552 52.5427 17.2409C49.7416 13.6027 42.9938 11.5312 41.176 14.2317C40.0859 15.8512 40.7843 20.9182 41.9084 24.6968C41.003 26.3716 40.4146 28.3065 40.2129 30.5">
+												</path>
+												<path d="M82.9458 30.5471L76.8413 31.657"></path>
+												<path d="M76.2867 34.4319L81.8362 37.7616"></path>
+												<path d="M49.4995 27.8242V30.4999"></path>
+												<path d="M67.3374 27.8242V30.4998"></path>
+											</g>
+											<g class="profile-color-modes-illu-frame">
+												<path
+													d="M40.6983 31.5C40.5387 29.6246 40.6456 28.0199 41.1762 27.2317C42.9939 24.5312 49.7417 26.6027 52.5428 30.2409C54.2551 29.8552 56.0796 29.6619 57.9731 29.6619C59.8169 29.6619 61.5953 29.8452 63.2682 30.211C66.0833 26.5913 72.799 24.5386 74.6117 27.2317C75.6839 28.8246 75.0259 33.7525 73.9345 37.5094C74.2013 37.9848 74.4422 38.4817 74.6555 39">
+												</path>
+											</g>
+										</g>
+									</svg>
+									<span
+										class="profile-color-modes-toggle js-promo-color-modes-toggle no-select neon-toggle"
+										tabindex="0" role="button" aria-label="Switch between light and dark theme" data-theme-toggle>
+										<div class="profile-color-modes-toggle-track no-select neon-toggle-track"></div>
+										<div
+											class="profile-color-modes-toggle-thumb js-promo-color-modes-thumb neon-toggle-thumb">
+											<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13"
+												xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+												</path>
+											</svg>
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-xl px-3 px-md-4 px-lg-5">
+				<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+					<div class="flex-shrink-0 col-12 blog-post-column mb-4 mb-md-0">
+						<div
+							class="UnderlineNav user-profile-nav d-block d-md-none position-sticky top-0 pl-3 ml-n3 mr-n3 pr-3 bg-white mobile-nav-sticky">
+							<nav class="UnderlineNav-body">
+								<a class="UnderlineNav-item" href="/">
+									<code class="code-large">work</code>
+								</a>
+								<a class="UnderlineNav-item selected" href="/pages/blog.html">
+									<code class="code-large">blog</code>
+								</a>
+							</nav>
+							<button type="button" class="profile-color-modes-toggle mobile-theme-toggle neon-toggle no-select"
+				aria-label="Switch between light and dark theme" data-theme-toggle>
+				<span class="profile-color-modes-toggle-track neon-toggle-track"></span>
+				<span class="profile-color-modes-toggle-thumb neon-toggle-thumb">
+					<svg class="theme-toggle-moon" width="14" height="13" viewBox="0 0 14 13" aria-hidden="true"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+						</path>
+					</svg>
+				</span>
+			</button>
+						</div>
+						<div class="blog-back-row mt-4">
+							<a class="blog-back-link" href="/pages/blog.html">
+								<code class="code-small">&larr; back to the list</code>
+							</a>
+						</div>
+						<div class="Box mt-4">
+							<div class="Box-body p-4">
+								<article class="markdown-body entry-content f5 blog-post-page">
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-11-14">2026; 11; 14</time></p>
+									<h1 id="post-title" class="section-title">🏄‍♀️ REPORT → A Ride Through AI Evals &amp; Benchmarks</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Beginner to Advanced AI Scientists and Engineers | Today&#x27;s word: Focus · Fokus · 集中 (しゅうちゅう) · מיקוד</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><blockquote><p><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=efLx7KeGnWA">🎧</a> <em>&quot;The successful warrior is the average man, with laser-like focus.&quot;</em> — Bruce Lee</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/raphael.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h4 id="hello-there-my-anon-friend"><em>Hello there, my anon friend!</em></h4>
+<h4 id="this-is-the-final-installment-of-our-technical-debt-festival-check-out-part-i-here-and-part-ii-here-as-we-continue-our-research-for-nullstar-s-pleiadesos-alcyone-module-we-ll-take-a-deep-dive-into-the-current-landscape-of-agentic-evaluations-and-benchmarks-we-ll-explore-a-selection-of-relevant-articles-while-examining-some-of-the-most-prominent-projects-in-the-field"><em>This is the final installment of our Technical Debt Festival (check out <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/report_harness.html">Part I here</a> and <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/report_memory.html">Part II here</a>). As we continue our research for <a target="_blank" rel="noopener noreferrer" href="https://www.nullstar.games/">NULLSTAR</a>&#39;s <a target="_blank" rel="noopener noreferrer" href="https://marina.nullstar.fun/blog/idea_nullstar.html">PleiadesOS: ALCYONE</a> module, we&#39;ll take a deep dive into the current landscape of agentic evaluations and benchmarks. We&#39;ll explore a selection of relevant articles while examining some of the most prominent projects in the field.</em></h4>
+<p><br></p>
+<p><img src="/blog/assets/report_evals_3.png" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<h4 id="this-will-also-be-my-final-post-of-2026-on-this-blog-as-i-close-a-personal-chapter-in-my-life-and-shift-my-focus-entirely-toward-building-nullstar-i-ll-be-taking-a-short-break-from-this-format-of-outreach-and-external-interactions-to-dedicate-more-time-to-the-work-ahead-it-s-been-a-remarkable-year-and-i-m-deeply-grateful-for-the-people-conversations-and-opportunities-along-the-way-i-m-looking-forward-to-an-even-more-productive-and-exciting-2027"><em>This will also be my final post of 2026 on this blog. As <a target="_blank" rel="noopener noreferrer" href="https://matrix.nullstar.fun/?note=story-november-2026">I close a personal chapter in my life</a> and shift my focus entirely toward building <a target="_blank" rel="noopener noreferrer" href="https://www.nullstar.games/">NULLSTAR</a>, I&#39;ll be taking a short break from this format of outreach and external interactions to dedicate more time to the work ahead. It&#39;s been a remarkable year, and I&#39;m deeply grateful for the people, conversations, and opportunities along the way. I&#39;m looking forward to an even more productive and exciting 2027.</em></h4>
+<p><br></p>
+<p>As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:</p>
+<p><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#0-agentic-evals-and-benchmarks-tl-dr">0️⃣🦋 Agentic Evals and Benchmarks TL;DR</a><ul><li><a href="#the-pieces-around-a-benchmark">The Pieces Around a Benchmark</a></li><li><a href="#which-eval-answers-which-question">Which Eval Answers Which Question?</a></li><li><a href="#trusting-scores">Trusting Scores</a></li><li><a href="#a-practical-eval-loop">A Practical Eval Loop</a></li></ul></li><li><a href="#1-notable-projects">1️⃣🦋 Notable Projects</a><ul><li><a href="#coordinators-and-standards">Coordinators and Standards</a></li><li><a href="#coding-benchmarks">Coding Benchmarks</a></li><li><a href="#memory-benchmarks">Memory Benchmarks</a></li><li><a href="#other-benchmarks">Other Benchmarks</a></li></ul></li><li><a href="#2-tools-and-resources">2️⃣ 🦋 Tools and Resources</a><ul><li><a href="#training-datasets">Training Datasets</a></li><li><a href="#relevant-tools">Relevant Tools</a></li><li><a href="#notable-readings">Notable Readings</a></li></ul></li><li><a href="#3-notable-research-papers">3️⃣ 🦋 Notable Research Papers</a><ul><li><a href="#memory-evaluation">Memory Evaluation</a></li><li><a href="#coding-agents-and-software-engineering">Coding Agents and Software Engineering</a></li><li><a href="#web-computer-and-workplace-agents">Web, Computer and Workplace Agents</a></li><li><a href="#agent-harnesses-and-runtimes">Agent Harnesses and Runtimes</a></li><li><a href="#tools-skills-and-interfaces">Tools, Skills and Interfaces</a></li><li><a href="#observability-and-failure-analysis">Observability and Failure Analysis</a></li><li><a href="#evaluation-methodology-and-reliability">Evaluation Methodology and Reliability</a></li></ul></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h1 id="0-agentic-evals-and-benchmarks-tl-dr">0️⃣🦋 Agentic Evals and Benchmarks TL;DR</h1>
+<p><br></p>
+<h4 id="traditional-model-benchmarks-measure-isolated-capabilities-whereas-agentic-evaluations-must-assess-systems-operating-over-multiple-turns-steps-managing-context-and-pursuing-objectives-the-evaluation-of-the-model-is-wrapped-in-a-harness-with-tools-memory-skills-and-a-sandbox-working-through-long-tasks-that-end-in-a-verifier-the-common-measurements-are-task-success-correctness-tool-use-accuracy-reliability-efficiency-robustness-safety-and-cost">✨ <em>Traditional model benchmarks measure isolated capabilities, whereas agentic evaluations must assess systems operating over multiple turns/steps, managing context, and pursuing objectives. The evaluation of the model is wrapped in a harness with tools, memory, skills, and a sandbox, working through long tasks that end in a verifier. The common measurements are: task success, correctness, tool-use accuracy, reliability, efficiency, robustness, safety, and cost.</em> ✨</h4>
+<p><br></p>
+<hr>
+<h2 id="the-pieces-around-a-benchmark">The Pieces Around a Benchmark</h2>
+<p><br></p>
+<blockquote><p>A benchmark is the task set and its expected outcomes. A runner or task format packages tasks and executes trials. An evaluation framework helps define, run, and score experiments. Observability records what happened during a run so failures can be diagnosed. Training data is used to change a system; it is not itself evidence that the changed system works.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+benchmark tasks + environment
+             │
+             ▼
+runner / harness ── configures model, tools, memory, budgets
+             │
+             ▼
+          agent trial ── traces and artifacts ──▶ observability
+             │
+             ▼
+       verifier / judge ──▶ scores and failure analysis
+                                  │
+                                  └──▶ new regression tasks
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="which-eval-answers-which-question">Which Eval Answers Which Question?</h2>
+<p><br></p>
+<table>
+<thead><tr>
+<th>Evaluation family</th>
+<th>Examples in this guide</th>
+<th>What a result can tell you</th>
+<th>A useful caution</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Software engineering and terminal work</td>
+<td>Terminal-Bench 2 and Pro, SWE-bench and SWE-bench Pro, DeepSWE, SWE-Atlas, CompileBench</td>
+<td>How well an agent handles real repositories and terminal tasks; most are graded with tests</td>
+<td>Results depend on repository snapshot, tools, budget, and test quality</td>
+</tr>
+<tr>
+<td>Memory and personalization</td>
+<td>LongMemEval, LoCoMo, BEAM, ConvoMem, BABILong</td>
+<td>Whether a system recalls and applies information across long conversations; newer evaluations probe personalization, over-personalization, and sycophancy</td>
+<td>Recall alone does not measure whether memory is relevant, current, or appropriately used</td>
+</tr>
+<tr>
+<td>Tool use and APIs</td>
+<td>BFCL, Toolathlon, MCP-Atlas</td>
+<td>Whether an agent selects and uses tools to complete tasks</td>
+<td>A valid call may still be a poor or unsafe action; inspect end-task outcomes too</td>
+</tr>
+<tr>
+<td>Web and computer interaction</td>
+<td>WebArena, OSWorld-Verified, AndroidWorld</td>
+<td>Whether an agent can operate interfaces through a sequence of actions</td>
+<td>Environment state, visual variation, and reset behavior can change difficulty</td>
+</tr>
+<tr>
+<td>Safety and robustness</td>
+<td>Agent-SafetyBench and task-specific adversarial cases</td>
+<td>How the system behaves under risky, ambiguous, or adversarial conditions</td>
+<td>A benchmark pass does not establish safety outside its tested threat model</td>
+</tr>
+<tr>
+<td>Task formats, eval frameworks, and observability</td>
+<td>Harbor, SWE-gen; Inspect AI, DeepEval, Promptfoo, LM Evaluation Harness; Langfuse, Phoenix, Opik, OpenTelemetry GenAI conventions</td>
+<td>Harbor packages tasks for runs; SWE-gen turns merged pull requests into tasks usable for evaluation and reinforcement learning. Frameworks run and score experiments; observability captures traces. Production failures can become tasks for the next evaluation cycle</td>
+<td>These tools serve different roles. Reusing training tasks for evaluation can overstate progress; trace portability depends on what each system records</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h2 id="trusting-scores">Trusting Scores</h2>
+<p><br></p>
+<blockquote><p>Agent scores are estimates from a particular set of tasks, environment, harness, and run budget. A leaderboard number is useful evidence, not a universal measure of agent quality.</p></blockquote>
+<p><br></p>
+<ul>
+<li>Before comparing or relying on a result, check:</li>
+</ul>
+<pre><code>
+1. Task coverage: Do tasks resemble the real work and its difficulty?
+2. Verifier quality: Do tests check requested behavior, including regressions and edge cases?
+3. Run-to-run variation: Different paths on repeated runs. Report the number of attempts and a confidence interval.
+4. Harness disclosure: The model/version, prompt, tools, context and memory setup,, concurrency, retries, time or token limits.
+5. Useful trade-offs: Pair task success with latency, token or monetary cost, tool errors, and safety failures.
+6. Reproducibility: Publish run configuration and scoring code, and retain traces and artifacts for failures.
+</code></pre>
+<p><br></p>
+<ul>
+<li>For LLM judges, define a rubric, test agreement against human ratings, and use deterministic checks for facts that can be verified directly.</li>
+<li>For high-impact decisions, report disagreements and failure examples alongside the aggregate score.</li>
+</ul>
+<p><br></p>
+<h3 id="a-small-example">A small example</h3>
+<p><br></p>
+<p>Suppose two agent versions each attempt the same 40 tasks five times under the same model, tools, and budget:</p>
+<table>
+<thead><tr>
+<th>Measure</th>
+<th>Agent A</th>
+<th>Agent B</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Successful runs</td>
+<td>156 / 200 (78%)</td>
+<td>164 / 200 (82%)</td>
+</tr>
+<tr>
+<td>Median cost per run</td>
+<td>$0.42</td>
+<td>$0.71</td>
+</tr>
+<tr>
+<td>Median completion time</td>
+<td>4.8 min</td>
+<td>6.1 min</td>
+</tr>
+<tr>
+<td>Safety failures</td>
+<td>0</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<ul>
+<li>The four-point success gap alone is not enough to call B better.</li>
+<li>Show uncertainty for the difference, account for the fact that runs share the same tasks, and inspect whether B&#39;s extra successes justify its higher cost and safety failures.</li>
+<li>A useful report would also break results down by task category and include representative failure traces.</li>
+<li>If the uncertainty interval includes no meaningful difference, say the results are inconclusive rather than ranking the systems by the point estimates.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="a-practical-eval-loop">A Practical Eval Loop</h2>
+<p><br></p>
+<ol>
+<li><strong>Define the job.</strong> Write down the user goal, acceptable completion criteria, and unacceptable outcomes.</li>
+<li><strong>Build a representative task set.</strong> Start with real, permissioned examples, include common cases and difficult edge cases, and keep a held-out set for final comparisons.</li>
+<li><strong>Fix the conditions.</strong> Pin the model, prompts, harness, tools, environment, and budgets. Log them with every run.</li>
+<li><strong>Run repeatedly.</strong> Use enough independent trials to see variability. Capture success, cost, latency, and safety signals rather than one headline score.</li>
+<li><strong>Inspect failures.</strong> Review traces and artifacts to distinguish model errors from bad instructions, broken tools, weak tests, and environment problems.</li>
+<li><strong>Turn recurring failures into regression tasks.</strong> Re-run those tasks after every meaningful change, then periodically refresh the set so it still represents current work.</li>
+</ol>
+<p><br></p>
+<hr>
+<h1 id="1-notable-projects">1️⃣🦋 Notable Projects</h1>
+<p><br></p>
+<hr>
+<h2 id="coordinators-and-standards">Coordinators and Standards</h2>
+<p><br></p>
+<h3 id="harbor"><a target="_blank" rel="noopener noreferrer" href="https://www.harborframework.com/">Harbor</a></h3>
+<p><br></p>
+<blockquote><p>Harbor is a framework from the creators of Terminal-Bench for evaluating and optimizing agents and language models. You can use it to evaluate agents such as Claude Code, OpenHands, and Codex CLI, build and share your own benchmarks and environments, run experiments in thousands of environments in parallel through sandbox providers, and generate rollouts for RL optimization.</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/report_harn_19.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<ul>
+<li>A Harbor task is an instruction, environment, and test script. The task is defined as a directory of files with the following structure:</li>
+</ul>
+<pre><code>
+my-task/
+├── instruction.md
+├── task.toml
+├── environment/
+│   ├── Dockerfile  # or some other spec
+│   └── ...
+├── solution/
+│   ├── solve.sh
+│   └── ...
+└── tests/
+    ├── test.sh
+    └── ...
+</code></pre>
+<p><br></p>
+<ul>
+<li>A Harbor trial is an agent&#39;s attempt at completing a task. The diagram below shows how the components of a task are used in a trial.</li>
+</ul>
+<ul>
+<li>A task defines the logic to verify the completion of the instruction and produce a reward in the tests/test.sh script. The script must produce a numerical reward in the environment at /logs/verifier/reward.txt or /logs/verifier/reward.json (for multi-dimensional or labeled rewards).</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="coding-benchmarks">Coding Benchmarks</h2>
+<p><br></p>
+<hr>
+<h3 id="terminal-bench-1-legacy"><a target="_blank" rel="noopener noreferrer" href="https://github.com/harbor-framework/terminal-bench-1">terminal-bench-1 (legacy)</a></h3>
+<p><br></p>
+<blockquote><p>Terminal-Bench 1 is the original benchmark for LLMs on complicated tasks in the terminal, from compiling code and training models to setting up servers. Its authors now point users to Harbor, the framework that runs Terminal-Bench 2.0.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+Terminal-Bench 1 (legacy repo)
+  task prompt ──▶ agent in a terminal ──▶ test checks ──▶ pass / fail
+
+  current runner: Harbor, which runs Terminal-Bench 2.0
+                  (use this repo only for the original tasks)
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="terminal-bench-2"><a target="_blank" rel="noopener noreferrer" href="https://github.com/harbor-framework/terminal-bench-2">terminal-bench-2</a></h3>
+<p><br></p>
+<blockquote><p>Terminal-Bench is a popular benchmark for measuring how well agents and language models do valuable work in containerized environments. Its tasks include assembling proteins for synthesis, debugging async code, and resolving security vulnerabilities, so it tests end-to-end work rather than isolated questions.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+one task = one container
+┌──────────────────────────────────────────────────┐
+│ instruction.md: &quot;debug this async code ...&quot;       │
+│ environment/  : Docker image with the repo        │
+└──────────────────────────────────────────────────┘
+        │ agent works in a shell (run, edit, install)
+        ▼
+tests/test.sh ──▶ /logs/verifier/reward.txt ──▶ score
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="terminal-bench-pro"><a target="_blank" rel="noopener noreferrer" href="https://github.com/alibaba/terminal-bench-pro">terminal-bench-pro</a></h3>
+<p><br></p>
+<blockquote><p>Terminal-Bench Pro is a systematic extension of the original Terminal-Bench, designed to address key limitations of existing terminal-agent benchmarks. It has 400 tasks (200 public and 200 private) across eight domains, including data processing, games, debugging, system administration, scientific computing, software engineering, ML, and security.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+400 tasks = 200 public + 200 private
+                         ┌─ data processing
+                         ├─ games
+  terminal task ─────────┼─ debugging
+  (one of 8 domains)     ├─ system administration
+                         ├─ scientific computing
+                         ├─ software engineering
+                         ├─ ML
+                         └─ security
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="otel-bench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/QuesmaOrg/otel-bench">otel-bench</a></h3>
+<p><br></p>
+<blockquote><p>OTel-Bench is an open-source benchmark for evaluating AI models on OpenTelemetry instrumentation tasks, where models must instrument applications across multiple programming languages. The repository also links a results page and a blog post about the benchmark.</p></blockquote>
+<p><br></p>
+<pre><code class="language-python">
+# what a correct answer looks like: the model adds spans like these
+from opentelemetry import trace
+
+tracer = trace.get_tracer(__name__)
+
+def checkout(cart):
+    with tracer.start_as_current_span(&quot;checkout&quot;) as span:
+        span.set_attribute(&quot;cart.items&quot;, len(cart))
+        return process_payment(cart)  # the benchmark checks emitted spans
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="compilebench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/QuesmaOrg/CompileBench">CompileBench</a></h3>
+<p><br></p>
+<blockquote><p>CompileBench measures how well LLMs handle real open-source projects that suffer from dependency hell, legacy toolchains, and complex build systems. It focuses on the messy build-and-compile work that contest-style and vibe-coding benchmarks usually skip.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+old open-source project (deps, legacy toolchain, custom build)
+   │ agent: read README ─▶ install deps ─▶ pick compiler ─▶ fix Makefile
+   ▼
+build ──▶ binary runs? ──▶ score
+   ▲                    │
+   └── missing lib / wrong GCC / broken CMake: loop until it builds
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="runebench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/MaxBittker/RuneBench">RuneBench</a></h3>
+<p><br></p>
+<blockquote><p>RuneBench evaluates AI coding agents on RuneScape gameplay through rs-sdk. Agents play by writing and executing TypeScript snippets against an emulated game server running at 8x speed, with a folder of wiki-extracted markdown for strategy, and they are scored on their peak XP rate.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+agent (LLM) ──writes TypeScript snippet──▶ rs-sdk ──▶ game server (8x speed)
+     ▲                                              │
+     └──── game state, XP, wiki notes ◀─────────────┘
+score = peak XP rate reached
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="legacy-bench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/Factory-AI/legacy-bench">legacy-bench</a></h3>
+<p><br></p>
+<blockquote><p>Legacy-Bench evaluates AI coding agents on legacy software engineering tasks in COBOL, Fortran, and Java 7, the languages behind systems that handle financial settlements, telephone routing, and insurance claims. It measures how well frontier agents maintain, debug, and modernize that code, which modern Python and JavaScript benchmarks do not cover.</p></blockquote>
+<p><br></p>
+<pre><code class="language-cobol">
+       01 WS-TOTAL   PIC 9(7)V99 VALUE ZERO.
+       ADD WS-AMOUNT TO WS-TOTAL.
+*&gt; Agents must read code like this (COBOL, Fortran, Java 7), then
+*&gt; maintain, debug, or modernize it and pass the hidden tests.
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="swe-atlas"><a target="_blank" rel="noopener noreferrer" href="https://github.com/scaleapi/SWE-Atlas">SWE-atlas</a></h3>
+<p><br></p>
+<blockquote><p>SWE Atlas is a benchmark for coding agents across professional software engineering work, beyond simple issue resolution. It covers Codebase QnA, Test Writing, and Refactoring, and this repository provides the tasks and run setup, with results published on the SWE Atlas leaderboard.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+repo snapshot
+   ├── Codebase QnA ──▶ answer a question about the code ──▶ graded answer
+   ├── Test writing ──▶ new tests run against hidden checks
+   └── Refactoring  ──▶ behavior must stay the same ──▶ tests still pass
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="swe-bench-pro"><a target="_blank" rel="noopener noreferrer" href="https://github.com/scaleapi/SWE-bench_Pro-os">SWE-bench Pro</a></h3>
+<p><br></p>
+<blockquote><p>SWE-bench Pro asks whether AI agents can solve long-horizon software engineering tasks. The repository contains the code and data for the paper, and a public leaderboard hosted by Scale AI tracks results.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+issue + repo @ base commit
+        │
+        ▼
+agent writes a patch
+        │
+        ▼
+apply patch ──▶ run FAIL_TO_PASS tests (must now pass)
+                    └──▶ run PASS_TO_PASS tests (must still pass)
+                             │
+                             ▼
+                        resolved? yes / no
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="deepswe"><a target="_blank" rel="noopener noreferrer" href="https://deepswe.datacurve.ai/blog/deepswe">DeepSWE</a></h3>
+<p><br></p>
+<blockquote><p>DeepSWE is a benchmark for frontier coding agents on original, long-horizon software engineering tasks drawn from active open-source repositories. The tasks are written from scratch to avoid contamination, span 113 tasks across 91 repos in 5 languages, and use hand-written verifiers that test behavior rather than implementation details.</p></blockquote>
+<p><br></p>
+<p><img src="/blog/assets/report_harn_19.webp" alt="" loading="lazy" decoding="async"></p>
+<p><br></p>
+<p>Long-horizon software engineering benchmark with:</p>
+<ol>
+<li>Contamination free: tasks are written from scratch, not adapted from existing commits or PRs, so no model has seen the solution during pretraining.</li>
+<li>High diversity: 113 tasks span a broad pool of 91 repos in 5 programming languages.</li>
+<li>Real-world complexity: prompts are half the length of SWE-bench Pro&#39;s, yet solutions require 5.5x more code and ~2x more output tokens.</li>
+<li>Reliable verification: verifiers are hand-written to test software behavior, rather than implementation details.</li>
+</ol>
+<p><br></p>
+<p>It uses <a target="_blank" rel="noopener noreferrer" href="https://www.harborframework.com/">Harbor</a> task format:</p>
+<pre><code>
+task.toml         Metadata (repo, base commit, language, image, limits)
+instruction.md    The prompt the agent sees
+environment/      Dockerfile reproducing the prebuilt image
+tests/            Verifier entry point, held-out tests, and grader config
+solution/         Reference solution (held out from the agent)
+</code></pre>
+<p><br></p>
+<p>The verifier produces the following outputs for each run:</p>
+<pre><code>
+verifier/
+    reward.json      Structured scores (binary reward + pass fractions)
+    ctrf.json        Machine-readable test report with failure messages
+    test-stdout.txt  Raw suite output and a list of failure reasons
+    run.log          Raw stdout/stderr captured during the run
+    reports/         Framework-native report/log files from the grader
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="swe-bench"><a target="_blank" rel="noopener noreferrer" href="https://www.swebench.com/">SWE-bench</a></h3>
+<p><br></p>
+<blockquote><p>SWE-bench evaluates language models on resolving real GitHub issues from popular Python repositories, where the model must produce a patch that passes the project&#39;s tests. It has become one of the standard benchmarks for coding agents and publishes a leaderboard on its website.</p></blockquote>
+<p><br></p>
+<pre><code class="language-diff">
+# a typical model answer: a patch that makes the failing test pass
+--- a/pkg/parser.py
++++ b/pkg/parser.py
+@@ -41,7 +41,7 @@ def parse_value(value):
+-    if value == None:
++    if value is None:
+         return default
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="cca-swe-bench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebookresearch/cca-swebench">CCA-SWE-bench</a></h3>
+<p><br></p>
+<blockquote><p>A minimal harness from Meta Research that runs Confucius Code Agent (CCA) on SWE-bench Pro inside a Docker container. The agent receives the task, reasons about the fix, and executes actions such as shell commands and file reads and writes directly.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+docker container
+┌──────────────────────────────────────────────┐
+│ CCA agent                                    │
+│   ├─ reasons about the fix                   │
+│   ├─ runs shell commands ──▶ repo            │
+│   └─ reads / writes files ──▶ repo           │
+└──────────────────────────────────────────────┘
+        │ final diff
+        ▼
+  SWE-bench Pro grader
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="swe-bench-verified"><a target="_blank" rel="noopener noreferrer" href="https://www.swebench.com/">SWE-bench Verified</a></h3>
+<p><br></p>
+<blockquote><p>A human-validated subset of SWE-bench, with 500 real GitHub issues that agents must resolve by producing patches that pass the project&#39;s tests. It is the version most often reported for coding agents, and results are tracked on the SWE-bench leaderboard.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+500 human-validated issues (a subset of SWE-bench)
+   issue ──▶ agent ──▶ patch ──▶ tests
+                                  │
+   resolved rate = passed / 500 ◀─┘
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="memory-benchmarks">Memory Benchmarks</h2>
+<p><br></p>
+<h3 id="longmemeval"><a target="_blank" rel="noopener noreferrer" href="https://github.com/xiaowu0162/LongMemEval">LongMemEval</a></h3>
+<p><br></p>
+<blockquote><p>LongMemEval is a comprehensive, challenging, and scalable benchmark for testing the long-term memory of chat assistants. It was introduced by Di Wu and colleagues and tests recall and reasoning across long, multi-session conversations.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+chat history:  session 1 ─ session 2 ─ ... ─ session N   (long, multi-session)
+                              │
+question: &quot;What did I say about my trip in March?&quot;   (illustrative)
+                              │
+memory system or long context ──▶ answer ──▶ judged against the gold answer
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="locomo"><a target="_blank" rel="noopener noreferrer" href="https://github.com/snap-research/locomo">LoCoMo</a></h3>
+<p><br></p>
+<blockquote><p>LoCoMo comes from the ACL 2024 paper &quot;Evaluating Very Long-Term Conversational Memory of LLM Agents&quot; and is a benchmark of very long conversations. It has ten conversations, each annotated for question answering and event summarization, and its dialogs can also support multimodal dialog generation.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+very long conversation (many sessions, months of dialog)
+   │
+   ├──▶ QA pairs ──▶ agent answers ──▶ score
+   └──▶ event summaries ──▶ agent summarizes ──▶ score
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="convomem"><a target="_blank" rel="noopener noreferrer" href="https://github.com/SalesforceAIResearch/ConvoMem">ConvoMem</a></h3>
+<p><br></p>
+<blockquote><p>ConvoMem is a benchmark for conversational memory in large language models, with 75,336 question-answer pairs across six evidence categories. It tests how well assistants remember and use information from previous conversations.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+past conversations ──▶ memory store
+new question ──▶ retrieve evidence from memory ──▶ answer
+75,336 QA pairs, grouped into six evidence categories
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="beam"><a target="_blank" rel="noopener noreferrer" href="https://github.com/mohammadtavakoli78/BEAM">BEAM</a></h3>
+<p><br></p>
+<blockquote><p>BEAM, from the paper &quot;Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs&quot;, benchmarks and tries to improve long-term memory in language models. The repository contains the code and data for the paper.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+long dialogue (1M+ tokens)
+   ├── baseline: put everything in the context window
+   └── memory method: store, index, retrieve only what matters
+                       │
+                       ▼
+                 questions ──▶ long-term memory score
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="babilong"><a target="_blank" rel="noopener noreferrer" href="https://github.com/booydar/babilong">BABILong</a></h3>
+<p><br></p>
+<blockquote><p>BABILong is a long-context needle-in-a-haystack benchmark for LLMs, where the relevant facts are hidden inside long distractor text. Its evaluation sets cover many context lengths, from short texts up to 10M tokens, with samples for each task at each length.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+[ ...distractor...
+  FACT: &quot;Maria keeps the keys in the blue box&quot;
+  ...distractor... ]
+                              │
+question: &quot;Where are the keys?&quot; ──▶ model answer ──▶ exact match check
+context lengths: from short texts up to 10M tokens
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="squad"><a target="_blank" rel="noopener noreferrer" href="https://github.com/rajpurkar/SQuAD-explorer">SQuAD</a></h3>
+<p><br></p>
+<blockquote><p>SQuAD, the Stanford Question Answering Dataset, is a large reading comprehension dataset. This repository lets people explore the dataset, visualize model predictions, and generate predictions for their own data through the workflow used by the SQuAD leaderboard.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+passage: &quot;... the tower was completed in 1889 ...&quot;
+question: &quot;When was the tower completed?&quot;
+            │
+model ──▶ answer span &quot;1889&quot; ──▶ compare with gold span ──▶ EM / F1
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="agent-memory-benchmark"><a target="_blank" rel="noopener noreferrer" href="https://agentmemorybenchmark.ai/">Agent Memory Benchmark</a></h3>
+<p><br></p>
+<blockquote><p>The Agent Memory Benchmark (AMB) is an open, reproducible leaderboard for evaluating AI agent memory and retrieval systems on real-world long-context tasks. It is meant to show how memory systems compare on the same tasks, with the scoring and results visible.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+real-world long-context tasks (same tasks for every system)
+   │
+   ▼
+memory system under test ──▶ answers ──▶ scoring ──▶ public leaderboard
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="mem0-memory-benchmarks"><a target="_blank" rel="noopener noreferrer" href="https://github.com/mem0ai/memory-benchmarks">Mem0 Memory Benchmarks</a></h3>
+<p><br></p>
+<blockquote><p>An open-source evaluation suite for running benchmarks on memory-augmented LLM systems. It supports the Mem0 cloud and open-source versions and measures memory recall, extraction quality, and retrieval accuracy, using datasets such as LoCoMo, LongMemEval, and BEAM.</p></blockquote>
+<p><br></p>
+<pre><code class="language-python">
+# the loop these benchmarks run against a memory layer (Mem0 OSS API)
+from mem0 import Memory
+
+memory = Memory()
+messages = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;I moved to Lisbon last year&quot;}]
+memory.add(messages, user_id=&quot;user-1&quot;)
+results = memory.search(query=&quot;Where does the user live?&quot;,
+                        filters={&quot;user_id&quot;: &quot;user-1&quot;}, top_k=3)
+# the suite then scores recall, extraction quality, and retrieval accuracy
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="honcho-memory-benchmarks"><a target="_blank" rel="noopener noreferrer" href="https://honcho.dev/evals/">Honcho Memory Benchmarks</a></h3>
+<p><br></p>
+<blockquote><p>Honcho&#39;s evals page reports long-context memory results on LongMem S, LoCoMo, and BEAM 100K. These numbers come from the company itself, so compare them against the original benchmarks before drawing conclusions.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+benchmark       system           result
+LongMem S  ──┐
+LoCoMo     ──┼──▶ Honcho (self-reported) ──▶ compare with originals
+BEAM 100K  ──┘
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="frontiermemory"><a target="_blank" rel="noopener noreferrer" href="https://www.frontiermemory.com/">FrontierMemory</a></h3>
+<p><br></p>
+<blockquote><p>FrontierMemory is a benchmark for continual learning through memory, measuring how well systems keep learning as they accumulate memories over time.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+interaction 1 ──▶ memory ──▶ interaction 2 ──▶ ... ──▶ interaction N
+                    ▲                                    │
+                    └──── does accuracy improve as memory grows? ◀┘
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="cognee-knowledge-graph-memory-benchmarks"><a target="_blank" rel="noopener noreferrer" href="https://www.cognee.ai/knowledge-graph-memory-benchmarks">Cognee Knowledge Graph Memory Benchmarks</a></h3>
+<p><br></p>
+<blockquote><p>Two benchmark exercises from Cognee, run on HotPotQA, TwoWikiMultiHop, and MuSiQue, plus a head-to-head comparison with Mem0, Graphiti, and LightRAG. The page publishes the numbers, methodology, caveats, and reproduction code.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+HotPotQA / TwoWikiMultiHop / MuSiQue documents
+   │ ingest ──▶ knowledge graph (entities + relations)
+   ▼
+multi-hop question ──▶ graph traversal across hops ──▶ answer
+compared head-to-head with Mem0, Graphiti, and LightRAG
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="vectorize-agent-memory-benchmark"><a target="_blank" rel="noopener noreferrer" href="https://github.com/vectorize-io/agent-memory-benchmark">Vectorize Agent Memory Benchmark</a></h3>
+<p><br></p>
+<blockquote><p>Vectorize&#39;s agent memory benchmark was built because LoCoMo and LongMemEval were designed for 32k-token context windows, and modern models can often score well by putting everything in context. The project publishes its datasets, prompts, scoring logic, and results in the open.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+LoCoMo / LongMemEval  (designed for 32k-token windows)
+   │
+   ▼
+modern model: put the whole history in context ──▶ high score (a shortcut)
+   │
+   ▼
+new benchmark: publishes datasets, prompts, and scoring, aiming to test memory
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="zep-evaluation-harness"><a target="_blank" rel="noopener noreferrer" href="https://github.com/getzep/zep/tree/main/zep-eval-harness">Zep Evaluation Harness</a></h3>
+<p><br></p>
+<blockquote><p>The evaluation harness in the Zep repository, used to test Zep&#39;s memory system. Zep describes itself as a context layer for agents, and this harness is one of the tools for checking how well that memory works.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+conversation logs ──▶ Zep (context layer: facts and graph)
+eval questions ──▶ Zep retrieval ──▶ LLM answer ──▶ grader ──▶ score
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="letta-evals"><a target="_blank" rel="noopener noreferrer" href="https://www.letta.com/blog/letta-evals/">Letta Evals</a></h3>
+<p><br></p>
+<blockquote><p>Letta Evals is an open-source evaluation framework for systematically testing stateful agents, introduced by the Letta team. It is aimed at agents that learn and keep state across interactions, which static benchmarks do not capture well.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+stateful agent (keeps memory across turns)
+   │ turn 1 ──▶ turn 2 ──▶ ... ──▶ turn N   (state changes along the way)
+   ▼
+check final state and outputs ──▶ graded result
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="memorybench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/supermemoryai/memorybench">MemoryBench</a></h3>
+<p><br></p>
+<blockquote><p>A pluggable benchmarking framework for memory and context systems. You can mix any provider with any benchmark, bring your own datasets, resume runs from any pipeline stage, compare providers side by side, and inspect results in a web UI.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+providers (any)  x  benchmarks (any)
+   │ ingest ──▶ index ──▶ search ──▶ answer ──▶ evaluate
+   │          (resume a run from any stage)
+   ▼
+side-by-side comparison table + web UI
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="cl-bench-1-0"><a target="_blank" rel="noopener noreferrer" href="https://continual-learning-bench.com/news/cl-bench-1-0/">CL-Bench 1.0</a></h3>
+<p><br></p>
+<blockquote><p>Continual Learning Bench 1.0 measures an agent&#39;s ability to use memory to tackle long-horizon tasks. It checks whether systems adapt and improve from feedback across sequences of task instances.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+task 1 ──▶ agent + memory ──▶ feedback ──▶ memory update
+task 2 ──▶ agent + memory ──▶ feedback ──▶ memory update
+  ...
+task N ──▶ does performance improve across the sequence?
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="other-benchmarks">Other Benchmarks</h2>
+<p><br></p>
+<hr>
+<h3 id="skillsbench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/benchflow-ai/skillsbench">skillsbench</a></h3>
+<p><br></p>
+<blockquote><p>SkillsBench is the first benchmark for evaluating how well AI agents use skills, which are modular folders of instructions, scripts, and resources. It measures both skill effectiveness and agent behavior through gym-style benchmarking.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+skill/
+├── SKILL.md     instructions
+├── scripts/     helper code
+└── resources/   templates and data
+   │ agent loads the skill for a task
+   ▼
+gym-style run ──▶ score with the skill vs. without it
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="agentbench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/THUDM/AgentBench">AgentBench</a></h3>
+<p><br></p>
+<blockquote><p>AgentBench is a comprehensive benchmark for evaluating LLMs as agents, presented at ICLR 2024. The project has since added AgentBench FC, a function-calling version built on AgentRL.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+          ┌──────────────────────────────────────┐
+  LLM ◀──▶│ environments: OS · DB · knowledge    │
+  agent   │ graph · web browsing · games · ...   │
+          └──────────────────────────────────────┘
+   observation ──▶ action ──▶ observation ... ──▶ task success rate
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="commerceagentbench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/Accio-org/CommerceAgentBench">CommerceAgentBench</a></h3>
+<p><br></p>
+<blockquote><p>CommerceAgentBench, from the Accio team at Alibaba International, benchmarks long-horizon agents in high-fidelity, stateful, and reproducible replicas of real online services. The project includes a live leaderboard, a mock showcase, and reproducibility instructions.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+agent ──▶ stateful replica of an online store (catalog, cart, orders)
+   │ actions: search, add to cart, check out
+   ▼
+final state checked against the goal ──▶ reproducible score
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="claw-eval"><a target="_blank" rel="noopener noreferrer" href="https://github.com/claw-eval/claw-eval">Claw-Eval</a></h3>
+<p><br></p>
+<blockquote><p>Claw-Eval is an evaluation harness for LLMs as agents, aimed at trustworthy evaluation of autonomous agents. It has 300 human-verified tasks, 2,159 rubrics, and nine categories covering completion, safety, and robustness.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+300 human-verified tasks ──▶ agent run ──▶ trace
+                                  │
+                       rubric checks (2,159 rubrics)
+                       ├─ completion
+                       ├─ safety
+                       └─ robustness
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="harvey-lab"><a target="_blank" rel="noopener noreferrer" href="https://github.com/harveyai/harvey-labs">Harvey LAB</a></h3>
+<p><br></p>
+<blockquote><p>Harvey LAB, the Legal Agent Benchmark, is an open-source benchmark for evaluating agents on real legal work in realistic environments. It is designed to measure and improve how LLM agents perform legal tasks.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+legal task + workspace (documents, matter files)
+   │ agent drafts, reviews, or analyzes
+   ▼
+checked against task rubric ──▶ LAB score
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="apex"><a target="_blank" rel="noopener noreferrer" href="https://www.mercor.com/apex/">APEX</a></h3>
+<p><br></p>
+<blockquote><p>Mercor&#39;s APEX benchmarks and leaderboards measure AI productivity across software engineering, law, consulting, medicine, and more. The site presents results for frontier models in these professional domains.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+professional tasks: software engineering · law · consulting · medicine ...
+   │ frontier models attempt each task
+   ▼
+graded per domain ──▶ leaderboard
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="olam-labs-multi-agent-mindustry"><a target="_blank" rel="noopener noreferrer" href="https://github.com/olamlabs/multi-agent-mindustry">Olam Labs — Multi-Agent Mindustry</a></h3>
+<p><br></p>
+<blockquote><p>PvP and cooperative PvE benchmarks built on Mindustry and Harbor Multi-Agent. In the PvP series, teams compete over consecutive games with persistent agent sessions, and in endless survival, one team cooperates to defend its core against waves of enemies.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+PvP:  team A ◀──▶ Mindustry map ◀──▶ team B   (consecutive games)
+PvE:  team agents defend the core against waves of enemies
+built on Harbor Multi-Agent
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="mcp-atlas"><a target="_blank" rel="noopener noreferrer" href="https://github.com/scaleapi/mcp-atlas">MCP-Atlas</a></h3>
+<p><br></p>
+<blockquote><p>Scale AI&#39;s benchmark for tool-use competency with real Model Context Protocol servers. It has 1,000 tasks across 36 servers and 220 tools, and prompts avoid naming tools, so agents must choose the right tools and chain 3 to 6 calls across servers while ignoring plausible distractors.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+user prompt (tool names NOT given)
+   │
+   ▼
+agent picks from 220 tools across 36 MCP servers
+   │ chains 3-6 calls, while distractor tools are present
+   ▼
+final answer checked against the task
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="bfcl-v4"><a target="_blank" rel="noopener noreferrer" href="https://gorilla.cs.berkeley.edu/leaderboard.html">BFCL v4</a></h3>
+<p><br></p>
+<blockquote><p>The Berkeley Function-Calling Leaderboard from the Gorilla project, which evaluates how well LLMs select functions, format arguments against schemas, and chain calls. Version 4 is the current release of the leaderboard.</p></blockquote>
+<p><br></p>
+<pre><code class="language-json">
+// function schema given to the model
+{&quot;name&quot;: &quot;get_weather&quot;,
+ &quot;parameters&quot;: {&quot;city&quot;: &quot;string&quot;, &quot;unit&quot;: &quot;celsius | fahrenheit&quot;}}
+
+// model output, compared against the gold call
+get_weather(city=&quot;Lisbon&quot;, unit=&quot;celsius&quot;)
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="toolathlon"><a target="_blank" rel="noopener noreferrer" href="https://github.com/hkust-nlp/Toolathlon">Toolathlon</a></h3>
+<p><br></p>
+<blockquote><p>The Tool Decathlon, presented at ICLR 2026, benchmarks language agents on diverse, realistic, and long-horizon task execution with many tools, testing whether agents can plan and carry out multi-step work across them.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+long multi-step task across many apps
+   │ agent plans ──▶ calls tools (mail, sheets, calendar, files, ...)
+   ▼
+final environment state verified ──▶ success
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="osworld-verified"><a target="_blank" rel="noopener noreferrer" href="https://github.com/xlang-ai/OSWorld">OSWorld-Verified</a></h3>
+<p><br></p>
+<blockquote><p>OSWorld is a NeurIPS 2024 benchmark for multimodal agents on open-ended tasks in real computer environments. OSWorld-Verified is its verified release, where agents click, type, and navigate live desktop applications to finish tasks.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+desktop screenshot ──▶ VLM agent ──▶ action (click x,y · type · key)
+      ▲                                       │
+      └──── new screen ◀── VM desktop ◀───────┘
+task done? ──▶ execution-based check of app / file state
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="webarena"><a target="_blank" rel="noopener noreferrer" href="https://github.com/web-arena-x/webarena">WebArena</a></h3>
+<p><br></p>
+<blockquote><p>The code repository for WebArena, a realistic web environment for building and evaluating autonomous agents. Agents complete tasks in websites such as shopping, forums, and code hosting by reading pages and acting through the browser.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+goal: &quot;find X on the shop and add it to the cart&quot;
+browser (page DOM / screenshot)
+   │ click · type · scroll · navigate
+   ▼
+sites: shopping · forum · code hosting · wiki
+   ▼
+functional check of the final page or site state
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="androidworld"><a target="_blank" rel="noopener noreferrer" href="https://github.com/google-research/android_world">AndroidWorld</a></h3>
+<p><br></p>
+<blockquote><p>An environment and benchmark for autonomous agents on Android. Agents must tap, type, and navigate real apps on a live mobile interface to complete tasks.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+task: &quot;set an alarm for 7am in Clock&quot;
+   │ agent sees the screen (UI tree or pixels)
+   ▼
+tap · type · swipe · back ──▶ live Android app ──▶ state check
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="τ²-bench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/sierra-research/tau2-bench">τ²-bench</a></h3>
+<p><br></p>
+<blockquote><p>The τ-bench family from Sierra for tool-agent-user interaction. Agents talk to simulated users, keep state across turns, and follow strict business policies in domains such as airline, retail, and telecom, with τ²-bench extending the original.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+agent ◀──── messages ────▶ simulated user (LLM)
+  │ tool calls
+  ▼
+domain (airline / retail / telecom): database + policy rules
+  │
+  ▼
+final database state + tool trace ──▶ pass / fail per trial
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="browsecomp"><a target="_blank" rel="noopener noreferrer" href="https://github.com/openai/simple-evals">BrowseComp</a></h3>
+<p><br></p>
+<blockquote><p>A benchmark of 1,266 questions that require persistently browsing the internet for hard-to-find, entangled information. Answers are short and easy to verify, and in the original paper accuracy ranged from 0.6% for GPT-4o to 51.5% for Deep Research.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+question: obscure, multi-constraint clue
+   │ agent browses: search ──▶ open ──▶ read (many steps)
+   ▼
+short answer ──▶ compared with the reference (easy to verify)
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="agent-safetybench"><a target="_blank" rel="noopener noreferrer" href="https://github.com/thu-coai/Agent-SafetyBench">Agent-SafetyBench</a></h3>
+<p><br></p>
+<blockquote><p>A benchmark for evaluating the safety of LLM agents, with 349 interaction environments and 2,000 test cases across 8 risk categories and 10 failure modes. When 16 popular agents were tested, none scored above 60% on safety.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+349 environments + 2,000 test cases
+   agent ──▶ actions on simulated tools
+   ▼
+risk category (8) x failure mode (10) ──▶ safe / unsafe
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="agentx"><a target="_blank" rel="noopener noreferrer" href="https://inferencex.semianalysis.com/blog/agentic-benchmark-agent-benchmark-guide">AgentX</a></h3>
+<p><br></p>
+<blockquote><p>The AgentX benchmark from SemiAnalysis&#39;s InferenceX tests how inference systems serve long-context, multi-turn coding-agent sessions. It replays recorded agentic-coding traces, reproducing real prompt sizes, KV-cache prefix sharing, subagent fan-out, and timing, and its median request has 142,016 input tokens.</p></blockquote>
+<p><br></p>
+<pre><code class="language-text">
+recorded agentic-coding trace
+  ├─ median request: 142,016 input tokens
+  ├─ KV-cache prefix shared across turns
+  └─ subagent fan-out ──▶ parallel requests
+replayed against an inference server ──▶ latency and throughput
+</code></pre>
+<p><br></p>
+<hr>
+<h1 id="2-tools-and-resources">2️⃣ 🦋 Tools and Resources</h1>
+<p><br></p>
+<hr>
+<h2 id="training-datasets">Training Datasets</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/abundant-ai/SWE-gen">SWE-gen</a>: An automated pipeline that creates tasks from real bug fixes in open-source GitHub repos, in any programming language. It reverts a merged PR to recreate the buggy state, checks that the tests fail on the baseline and pass after the fix, and containerizes each task.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/abundant-ai/SWE-gen-Java">SWE-gen-Java</a>: A dataset of 1,000 JVM tasks generated from 16 open-source GitHub repos with SWE-gen. Each task is a merged PR with 1 to 10 edited source files and Fail-to-Pass unit tests, validated against both the baseline and the fix.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/abundant-ai/SWE-gen-JS">SWE-gen-JS</a>: A dataset of 1,000 JavaScript and TypeScript tasks from 30 open-source repos, generated with SWE-gen. Each task is a merged PR with linked issues, 3 to 10 edited source files, and Fail-to-Pass tests, following the Harbor format.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/abundant-ai/SWE-gen-Rust">SWE-gen-Rust</a>: A dataset of 1,000 Rust tasks from 23 open-source repos, generated with SWE-gen. Each task is a merged PR with 2 to 10 edited source files and Fail-to-Pass unit tests, validated against the baseline and the fix.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/abundant-ai/SWE-gen-Go">SWE-gen-Go</a>: A dataset of 1,000 Go tasks from 20 open-source repos, generated with SWE-gen. Each task is a merged PR with 2 to 10 edited source files and Fail-to-Pass unit tests, validated against the baseline and the fix.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/abundant-ai/SWE-gen-Cpp">SWE-gen-Cpp</a>: A dataset of 1,000 C++ tasks from 17 open-source repos, generated with SWE-gen. Each task is a merged PR with 1 to 10 edited source files and Fail-to-Pass unit tests, validated against the baseline and the fix.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://huggingface.co/datasets/nvidia/Nemotron-Terminal-Synthetic-Tasks">Nemotron-Terminal-Synthetic-Tasks</a>: A synthetic dataset of terminal tasks from NVIDIA, hosted on Hugging Face, for training terminal agents. It is one of several public datasets for agent training.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/camel-ai/seta-env">seta-env</a>: The SETA RL dataset from the CAMEL-AI Scaling Environments for Agents project, generated by an automated synthesis and verification pipeline. Each folder is one task with a task.yaml, a Dockerfile, and run-tests.sh, and the tasks are compatible with the Terminal-Bench format.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="relevant-tools">Relevant Tools</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/open-thoughts/OpenThoughts-Agent">OpenThoughts-Agent</a>: A research codebase from the OpenThoughts project for building tooling and finding data to train small agentic models. It covers generating Harbor tasks, training with SkyRL, and distilling trajectories with SFT.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/kanishkg/endless-terminals">endless-terminals</a>: A fully autonomous pipeline that generates terminal-use tasks without human annotation, for training terminal agents with reinforcement learning. It can generate tasks with a model such as Qwen3-32B and write them to a folder.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/withmartian/ares">Ares</a>: An RL-first framework for training and evaluating LLM agents, especially coding agents. It works as a modern gym, the environment layer for RL research on Harbor and SkyRL.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/yipihey/TerminalBenchTaskGenerator">Benchmark Templates</a>: A desktop application for creating, browsing, and managing Terminal-Bench-Science tasks in the Harbor format. Scientists describe a task in plain language, and a Claude Code agent generates and refines its five Harbor files before they are validated and tested locally.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/thirdlayerinc/autoagent">AutoAgent</a>: Autoresearch-style iteration for agent engineering: an AI agent builds and improves an agent harness overnight, changing the system prompt, tools, configuration, and orchestration. It runs the benchmark, keeps or discards each change based on the score, and repeats.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/mikehasa/agentacct">Agent Accounting</a>: A local-first dashboard that shows what your coding agents did and what they cost, across projects and clients. It reads local session logs from tools such as Claude Code, Codex, and OpenCode, and nothing leaves your computer.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/shadcn-ui/lint">shadcn Lint</a>: An agent-first linter for Tailwind design systems, where you define what is allowed. When an agent breaks a rule, the error explains the problem and suggests a fix based on your components, variants, and theme.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/wandb/weave">Weights &amp; Biases Weave</a>: A toolkit from Weights &amp; Biases for tracing and evaluating AI agents and LLM applications. Conversations, turns, LLM calls, and tool calls appear in the Agents tab, and the @weave.op decorator traces individual functions.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Cloud-CV/EvalAI">EvalAI</a>: An open-source platform for evaluating and comparing machine learning and AI algorithms at scale. It is used to host evaluation challenges where participants submit their results and compare them on leaderboards.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/future-agi/future-agi">Future AGI</a>: An open-source platform for shipping self-improving AI agents, combining evaluations, tracing, simulations, guardrails, a gateway, and optimization. It aims to close the feedback loop from prototype to production by turning traces into signal for the next version.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/UKGovernmentBEIS/inspect_ai">Inspect AI</a>: A framework for LLM evaluations created by the UK AI Security Institute. It has built-in components for prompt engineering, tool use, multi-turn dialog, and model-graded evaluations, and it can be extended with other Python packages.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/confident-ai/deepeval">DeepEval</a>: An open-source LLM evaluation framework that works like Pytest, but for LLM apps. It runs evals through metrics such as G-Eval, task completion, answer relevancy, and hallucination, many of which use LLM-as-a-judge.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/promptfoo/promptfoo">Promptfoo</a>: A CLI and library for evaluating and red-teaming LLM-based apps. It is used to test prompts and agents and to find security issues before they reach users.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/EleutherAI/lm-evaluation-harness">EleutherAI LM Evaluation Harness</a>: The widely used harness for running language model benchmarks, with support for many model backends. Recent versions added plugins for custom backends, filters, and metrics, along with a CLI that has subcommands and YAML configuration.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/NVIDIA-NeMo/Evaluator">NVIDIA NeMo Evaluator</a>: An LLM evaluation framework with benchmark environments, pluggable solvers, an interceptor proxy, and multi-format reporting. It has optional integrations, such as Harbor agents and Inspect AI log export.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/NVIDIA-NeMo/Gym/tree/main">NVIDIA NeMo Gym</a>: A library for evaluating and improving models and agents using environments. It provides infrastructure to develop environments, run evaluation and training at scale, and includes a collection of popular benchmarks and training environments.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/PrimeIntellect-ai/verifiers">Prime Intellect Verifiers</a>: A library for creating environments to train and evaluate LLMs. It integrates with Prime Intellect&#39;s Environments Hub, its prime-rl training framework, and its hosted training platform.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/AgentOps-AI/agentops">AgentOps</a>: A platform that helps developers build, evaluate, and monitor AI agents, from prototype to production. The app is open source under the MIT license.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Arize-ai/openinference">Arize — OpenInference</a>: A set of conventions and plugins that complement OpenTelemetry to enable tracing of AI applications. It works natively with Arize Phoenix and Arize AX, and with any OpenTelemetry-compatible backend.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Arize-ai/phoenix">Arize — Phoenix</a>: An open-source AI observability platform for experimentation, evaluation, and troubleshooting. Arize also offers Arize AX for managed production workflows.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/comet-ml/opik">Comet — Opik</a>: An open-source LLM observability and evaluation platform for agent tracing, LLM evaluation, prompt management, and production monitoring. It is Apache-2.0 licensed, and the full platform can be self-hosted.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Helicone/helicone">Helicone</a>: An open-source LLM observability platform with agent tracing, LLM routing, cost and latency tracking, datasets for fine-tuning, and automatic fallbacks. Setup takes one line of code.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/traceloop/openllmetry">Traceloop — OpenLLMetry</a>: A set of extensions built on OpenTelemetry that gives complete observability over an LLM application. Because it uses OpenTelemetry, it connects to existing tools such as Datadog and Honeycomb.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/langfuse/langfuse">Langfuse</a>: An open-source AI engineering platform for agent evals and observability. It tracks usage and costs, traces and evaluates agents, and manages prompts, and it can be used on Langfuse Cloud or self-hosted.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/mlflow/mlflow">MLflow</a>: An open-source AI engineering platform for agents, LLMs, and ML models, used to debug, evaluate, monitor, and optimize production AI applications. Teams use it to control costs and manage access to models and data.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">OpenTelemetry — GenAI Semantic Conventions</a>: The OpenTelemetry specification of standard attribute names and span structure for generative AI calls, so traces from different tools look the same. Many of the observability tools in this list build on it.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/open-telemetry/opentelemetry-demo">OpenTelemetry — Demo</a>: The Astronomy Shop, a microservice-based distributed system that shows how OpenTelemetry works in a near real-world environment. Vendors and tool authors use it to demonstrate their integrations, and contributors use it to test new versions.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/pydantic/logfire">Pydantic — Logfire</a>: An observability platform from the team behind Pydantic, built for production LLM and agent systems. It offers Python-centric insights such as profiling and database query visibility, and lets you query your data with standard SQL.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://openobserve.ai/">OpenObserve</a>: An observability platform for logs, metrics, traces, real user monitoring, and AI/LLM workloads. It emphasizes low storage costs compared with other platforms.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.braintrust.dev/">Braintrust</a>: An AI observability platform for tracing production systems, running evals, and catching regressions before they reach users. It is used to ship quality agents at scale.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/raga-ai-hub/RagaAI-Catalyst">RagaAI Catalyst</a>: A Python SDK for agent observability, monitoring, and evaluation. It covers project, dataset, evaluation, trace, and prompt management, along with synthetic data generation, guardrails, and red-teaming.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/lmnr-ai/lmnr">Laminar</a>: An open-source observability platform built for AI agents, with OpenTelemetry-native tracing and signals that flag behaviors such as loops, described in plain English. It also has an SDK and CLI for running evals locally or in CI/CD.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://docs.nvidia.com/nemo/relay/latest/about-nemo-relay/overview">NVIDIA — NeMo Relay</a>: NeMo Relay manages scopes, middleware, plugins, and lifecycle events for agent systems. Its documentation covers the overview and how to trace agent harness behavior.</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/NVIDIA/NeMo-Fabric">NVIDIA — NeMo Fabric</a>: NeMo Fabric gives applications, evaluation systems, and rollout platforms one interface for running agent harnesses and custom agents. It lets you compose runs, validate configurations before execution, switch harnesses, and compare normalized results.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="notable-readings">Notable Readings</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://alignment.openai.com/">OpenAI&#39;s Aligment</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.byterover.dev/blog/benchmark-ai-agent-memory">ByteRover — Benchmarking AI Agent Memory</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.letta.com/blog/evaluating-memory-in-production-agents/">Letta — Evaluating Memory in Production Agents</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://supermemory.ai/research/">Supermemory — Research</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://mem0.ai/library/agent-memory/why-beam-is-a-good-memory-benchmark-for-ai-agents">Mem0 — Why BEAM Is a Good Memory Benchmark</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://mem0.ai/library/agent-memory/understanding-memory-benchmark-for-production-ai-agents">Mem0 — Understanding Memory Benchmarks for Production AI Agents</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://mem0.ai/library/agent-memory/how-to-read-memory-benchmarks">Mem0 — How to Read Memory Benchmarks</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://memorypapers.org/benchmarks">Memory Papers — Benchmarks</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/benchflow-ai/awesome-evals">Awesome Evals</a>: curated list of evaluation resources</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://developers.openai.com/blog/eval-skills">OpenAI — Eval Skills</a>: OpenAI blog post on evaluation skills</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.langchain.com/blog/evaluating-deep-agents-our-learnings">LangChain — Evaluating Deep Agents</a>: LangChain&#39;s lessons from evaluating deep agents</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.langchain.com/blog/agent-evaluation-readiness-checklist">LangChain — Agent Evaluation Readiness Checklist</a>: checklist for getting an agent ready to evaluate</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.langchain.com/blog/evaluating-skills">LangChain — Evaluating Skills</a>: how to evaluate agent skills</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.langchain.com/blog/agent-observability-powers-agent-evaluation">LangChain — Agent Observability Powers Agent Evaluation</a>: how observability data feeds agent evaluation</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.anthropic.com/research/demystifying-evals-for-ai-agents">Anthropic — Demystifying Evals for AI Agents</a>: Anthropic&#39;s overview of designing evals for AI agents</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.anthropic.com/research/infrastructure-noise">Anthropic — Infrastructure Noise</a>: how infrastructure differences add noise to agentic evals</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.anthropic.com/research/eval-awareness-browsecomp">Anthropic — Eval Awareness and BrowseComp</a>: eval awareness in models tested on BrowseComp</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.anthropic.com/research/AI-resistant-technical-evaluations">Anthropic — AI-Resistant Technical Evaluations</a>: designing technical evaluations that resist AI assistance</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://developers.redhat.com/articles/2026/03/23/eval-driven-development-build-evaluate-ai-agents">Red Hat — Eval-Driven Development for AI Agents</a>: building and evaluating AI agents with eval-driven development</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.splunk.com/en_us/blog/artificial-intelligence/agent-evaluation-framework.html">Splunk — Agent Evaluation Framework</a>: Splunk&#39;s framework for evaluating agents</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://developers.googleblog.com/en/driving-the-agent-quality-flywheel-from-your-coding-agent/">Google — Driving the Agent Quality Flywheel</a>: improving agent quality with a feedback loop from coding agents</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://openai.com/index/how-we-detect-frontier-model-misalignment/">OpenAI — How We Detect Frontier Model Misalignment</a>: OpenAI on detecting misalignment in frontier models</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">AWS — AgentCore Evaluations</a>: AWS announcement that AgentCore Evaluations is generally available</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://developer.nvidia.com/blog/tracing-agent-harness-behavior-with-nvidia-nemo-relay/">NVIDIA — Tracing Agent Harness Behavior with NeMo Relay</a>: tracing agent harness behavior with NeMo Relay</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://temporal.io/blog/building-observable-ai-agents-temporal-now-integrates-with-braintrust">Temporal — Building Observable AI Agents with Braintrust</a>: building observable agents with Temporal and Braintrust</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://cloud.google.com/blog/products/data-analytics/introducing-bigquery-agent-analytics/">Google Cloud — BigQuery Agent Analytics</a>: analyzing agent behavior with BigQuery</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://developers.redhat.com/articles/2026/04/06/distributed-tracing-agentic-workflows-opentelemetry">Red Hat — Distributed Tracing for Agentic Workflows</a>: distributed tracing for agentic workflows with OpenTelemetry</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://metr.org/blog/2026-03-25-red-teaming-anthropic-agent-monitoring/">METR — Red Teaming Anthropic Agent Monitoring</a>: METR&#39;s red teaming of Anthropic&#39;s agent monitoring</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.interconnects.ai/p/artificial-analysis-v5-and-the-benchmarkers">Interconnects — Artificial Analysis V5 and the Benchmarkers</a>: a review of the benchmarking industry and what&#39;s missing</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://olamlabs.ai/">Olam Labs</a>: measures social intelligence in AI models through behavioral evaluations in multi-agent simulations</li>
+</ul>
+<p><br></p>
+<hr>
+<h1 id="3-notable-research-papers">3️⃣ 🦋 Notable Research Papers</h1>
+<p><br></p>
+<h2 id="memory-evaluation">Memory Evaluation</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2602.16313">MemoryArena: Benchmarking Agent Memory in Interdependent Multi-Session Agentic Tasks</a> — Zexue He et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2603.16557">BenchPreS: A Benchmark for Context-Aware Personalized Preference Selectivity of Persistent-Memory LLMs</a> — Sangyeon Yoon et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2601.16621">How Does Personalized Memory Shape LLM Behavior? Benchmarking Rational Preference Utilization in Personalized Assistants</a> — Xueyang Feng et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2601.13722">OP-Bench: Benchmarking Over-Personalization for Memory-Augmented Personalized Conversational Agents</a> — Yulin Hu et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2607.01071">MemSyco-Bench: Benchmarking Sycophancy in Agent Memory</a> — Zhishang Xiang et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2609.24259">MemCalib: Benchmarking and Optimizing Memory Use in LLM Agents</a> — Ruike Cao et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2506.21605">MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents</a> — Haoran Tan et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2507.05257">Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions</a> — Yuanzhe Hu et al., 2025</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="coding-agents-and-software-engineering">Coding Agents and Software Engineering</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2602.01465">Agyn: A Multi-Agent System for Team-Based Autonomous Software Engineering</a> — Nikita Benkovich et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2605.12925">AgentLens: Revealing The Lucky Pass Problem in SWE-Agent Evaluation</a> — Priyam Sahoo et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2606.19613">StaminaBench: Stress-Testing Coding Agents over 100 Interaction Turns</a> — Vlad Sobal et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2502.13681">Repo2Run: Automated Building Executable Environment for Code Repository at Scale</a> — Ruida Hu et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2504.07164">R2E-Gym: Procedural Environments and Hybrid Verifiers for Scaling Open-Weights SWE Agents</a> — Naman Jain et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2407.16741">OpenHands: An Open Platform for AI Software Developers as Generalist Agents</a> — Xingyao Wang et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2310.06770">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</a> — Carlos E. Jimenez et al., 2023</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="web-computer-and-workplace-agents">Web, Computer and Workplace Agents</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2604.10866">OccuBench: Evaluating AI Agents on Real-World Professional Tasks via Language Environment Simulation</a> — Xiaomeng Hu et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2401.13649">VisualWebArena: Evaluating Multimodal Agents on Realistic Visual Web Tasks</a> — Jing Yu Koh et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2403.07718">WorkArena: How Capable Are Web Agents at Solving Common Knowledge Work Tasks?</a> — Alexandre Drouin et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2404.07972">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</a> — Tianbao Xie et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2406.12045">τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</a> — Shunyu Yao et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2407.05291">WorkArena++: Towards Compositional Planning and Reasoning-based Common Knowledge Work Tasks</a> — Léo Boisvert et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2412.05467">The BrowserGym Ecosystem for Web Agent Research</a> — Thibault Le Sellier De Chezelles et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2412.14161">TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks</a> — Frank F. Xu et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2307.13854">WebArena: A Realistic Web Environment for Building Autonomous Agents</a> — Shuyan Zhou et al., 2023</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2308.03688">AgentBench: Evaluating LLMs as Agents</a> — Xiao Liu et al., 2023</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2311.12983">GAIA: a benchmark for General AI Assistants</a> — Grégoire Mialon et al., 2023</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="agent-harnesses-and-runtimes">Agent Harnesses and Runtimes</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2602.22480">VeRO: A Harness for Agents to Optimize Agents</a> — Varun Ursekar et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2603.01209">Evaluating Agents Across Runtime Contracts: When Mismatch Costs Efficiency or Quality</a> — Victor May et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2603.25723">Natural-Language Agent Harnesses</a> — Linyue Pan et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2603.28052">Meta-Harness: End-to-End Optimization of Model Harnesses</a> — Yoonho Lee et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2605.13357">AI Harness Engineering: A Runtime Substrate for Foundation-Model Software Agents</a> — Hailin Zhong et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2605.23950">Stop Comparing LLM Agents Without Disclosing the Harness</a> — Yunbei Zhang et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2605.27922">Harness-Bench: Evaluating Agent Harnesses across Models and Realistic Workflows</a> — Yilun Yao et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2610.28577">Cache Engineering for Agents</a> — Tianyu Fu et al., 2026</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="tools-skills-and-interfaces">Tools, Skills and Interfaces</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2603.28815">SkillTester: Benchmarking Utility and Security of Agent Skills</a> — Leye Wang et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2608.11386">The Devil Is in the Interface: Evaluating How Tool Architecture Shapes Coding Agent Behavior</a> — Xiangzhe Xu et al., 2026</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="observability-and-failure-analysis">Observability and Failure Analysis</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2503.06745">Beyond Black-Box Benchmarking: Observability, Analytics, and Optimization of Agentic Systems</a> — Dany Moshkovich et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2503.13657">Why Do Multi-Agent LLM Systems Fail?</a> — Mert Cemri et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2505.24201">SentinelAgent: Graph-based Anomaly Detection in Multi-Agent Systems</a> — Xu He et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2506.11019">Mind the Metrics: Patterns for Telemetry-Aware In-IDE AI Application Development using the Model Context Protocol (MCP)</a> — Vincent Koc et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2507.11277">Taming Uncertainty via Automation: Observing, Analyzing, and Optimizing Agentic AI Systems</a> — Dany Moshkovich et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2508.02736">AgentSight: System-Level Observability for AI Agents Using eBPF</a> — Yusheng Zheng et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2509.25370">Where LLM Agents Fail and How They can Learn From Failures</a> — Kunlun Zhu et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2411.03455">Watson: A Cognitive Observability Framework for the Reasoning of LLM-Powered Agents</a> — Benjamin Rombaut et al., 2024</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="evaluation-methodology-and-reliability">Evaluation Methodology and Reliability</h2>
+<p><br></p>
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2602.17753">The 2025 AI Agent Index: Documenting Technical and Safety Features of Deployed Agentic AI Systems</a> — Leon Staufer et al., 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2603.02601">AgentAssay: Token-Efficient Regression Testing for Non-Deterministic AI Agent Workflows</a> — Varun Pratap Bhardwaj, 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2603.27355">LLM Readiness Harness: Evaluation, Observability, and CI Gates for LLM/RAG Applications</a> — Alexandre Cristovão Maiorano, 2026</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2510.11977">Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation</a> — Sayash Kapoor et al., 2025</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2405.14782">Lessons from the Trenches on Reproducible Evaluation of Language Models</a> — Stella Biderman et al., 2024</li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2411.15594">A Survey on LLM-as-a-Judge</a> — Jiawei Gu et al., 2024</li>
+</ul>
+<p><br></p>
+<hr>
+<p><br></p>
+<h4 id="that-s-it-for-now-thank-you-for-reading-and-for-being-here-with-me-wishing-you-an-amazing-end-to-the-year-i-ll-see-you-in-2027-my-friend">That&#39;s it for now! Thank you for reading and for being here with me. Wishing you an amazing end to the year. I&#39;ll see you in 2027, my friend!</h4>
+<h4 id="section">⬛️</h4></div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<div class="footer container-xl width-full p-responsive">
+		<div class="pt-6 mt-6"></div>
+	</div>
+</body>
+
+</html>

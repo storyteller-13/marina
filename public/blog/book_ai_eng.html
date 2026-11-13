@@ -198,10 +198,369 @@
 						<div class="Box mt-4">
 							<div class="Box-body p-4">
 								<article class="markdown-body entry-content f5 blog-post-page">
-									<p id="post-date" class="blog-post-meta" hidden><time></time></p>
-									<h1 id="post-title" class="section-title"></h1>
-									<p id="post-subtitle" class="blog-post-subtitle"></p>
-									<div id="post-content" class="blog-post-content markdown-body"></div>
+									<p id="post-date" class="blog-post-meta"><time datetime="2026-03-25">2026; 03; 25</time></p>
+									<h1 id="post-title" class="section-title">📚 BOOK → AI Engineering (Huyen, 2024)</h1>
+									<p id="post-subtitle" class="blog-post-subtitle">Rating: 8/10 | Beginner to Intermediate AI/Software Engineers</p>
+									<div id="post-content" class="blog-post-content markdown-body" data-rendered="true"><p>A good end-to-end overview of the field.</p>
+<p><br></p>
+<p>As I read through the material, below are my highlights — with a moderate attempt at coherence — for my personal inventory (and perhaps as a way to connect with other friendly AI scientists and builders out there who love talking about the same things). As always, please remember our rules:</p>
+<p><strong>🤖 If these notes look cool to you, it&#39;s your ✦moral duty✦ to read the original resources.</strong><br><strong>🤖 Just another blog, but not your usual blog: they&#39;re living notes that I change as I fancy.</strong></p>
+<br><br>
+<nav class="post-summary" aria-label="Summary"><p><strong>Summary</strong></p><ul><li><a href="#the-ai-engineering-stack">The AI Engineering Stack</a></li><li><a href="#model-adaptation">Model Adaptation</a></li><li><a href="#transformer-architecture">Transformer Architecture</a></li><li><a href="#model-sizing-compute">Model Sizing &amp; Compute</a></li><li><a href="#alternative-architectures">Alternative Architectures</a></li><li><a href="#sampling-output-generation">Sampling &amp; Output Generation</a></li><li><a href="#evaluation">Evaluation</a></li><li><a href="#prompt-engineering-in-context-learning">Prompt Engineering &amp; In-Context Learning</a></li><li><a href="#prompt-security">Prompt Security</a></li><li><a href="#rag-retrieval-augmented-generation">RAG (Retrieval-Augmented Generation)</a></li><li><a href="#memory-in-ai-models">Memory in AI Models</a></li><li><a href="#finetuning-deep-dive">Finetuning (Deep Dive)</a></li><li><a href="#data-dataset-engineering">Data &amp; Dataset Engineering</a></li><li><a href="#inference-optimization">Inference Optimization</a></li><li><a href="#ai-application-architecture">AI Application Architecture</a></li><li><a href="#miscellaneous">Miscellaneous</a></li></ul></nav>
+<br><br>
+<p><br></p>
+<hr>
+<h2 id="the-ai-engineering-stack">The AI Engineering Stack</h2>
+<p><br></p>
+<ul>
+<li>The stack has three layers: <strong>Application Development</strong> (prompts, context, evaluation, interfaces), <strong>Model Development</strong> (modeling, training, finetuning, dataset engineering), and <strong>Infrastructure</strong> (model serving, compute, monitoring).</li>
+</ul>
+<ul>
+<li>AI engineering differs from traditional ML engineering in three key ways:</li>
+</ul>
+<pre><code>
+1. You use a pre-trained model instead of training your own.
+2. Models are bigger, consume more compute, and have higher latency.
+3. Models produce open-ended outputs, making evaluation much harder.
+</code></pre>
+<ul>
+<li>In short: AI engineering is less about model development and more about <strong>adapting and evaluating models</strong>.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="model-adaptation">Model Adaptation</h2>
+<p><br></p>
+<ul>
+<li>Adaptation techniques fall into two categories: <strong>prompt-based</strong> (no weight updates) and <strong>finetuning</strong> (weight updates required).</li>
+</ul>
+<ul>
+<li>Prompt engineering is easier to start, requires less data, and lets you experiment across many models — but may not be enough for complex tasks.</li>
+</ul>
+<ul>
+<li>Finetuning can significantly improve quality, latency, and cost, but is more complicated and data-hungry.</li>
+</ul>
+<ul>
+<li><strong>Training phases:</strong></li>
+</ul>
+<pre><code>
+1. Pre-training: trains from scratch; most resource-intensive (up to 98% of compute for InstructGPT).
+2. Finetuning: continues training a previously trained model; requires fewer resources.
+3. Post-training: conceptually the same as finetuning, but done by model developers (e.g., OpenAI) to align behavior before release.
+</code></pre>
+<ul>
+<li><strong>Post-training</strong> typically consists of two steps:</li>
+</ul>
+<pre><code>
+1. Supervised Finetuning (SFT) — optimizes for conversations instead of text completion.
+2. Preference Finetuning — aligns outputs with human preferences via RL (RLHF, DPO, RLAIF).
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="transformer-architecture">Transformer Architecture</h2>
+<p><br></p>
+<ul>
+<li>The transformer was created to address two problems with seq2seq + RNNs: (1) outputs were generated using only the final hidden state; (2) sequential processing was slow for long inputs.</li>
+</ul>
+<ul>
+<li>The <strong>attention mechanism</strong> lets the model weigh the importance of different input tokens when generating each output token.</li>
+</ul>
+<ul>
+<li>Attention uses three vectors: <strong>Query (Q)</strong> (current decoder state), <strong>Key (K)</strong> (token identifiers), <strong>Value (V)</strong> (token content).</li>
+</ul>
+<ul>
+<li>Attention is almost always <strong>multi-headed</strong>, allowing the model to attend to different groups of tokens simultaneously.</li>
+</ul>
+<ul>
+<li>Inference for transformer-based LLMs consists of two steps:</li>
+</ul>
+<pre><code>
+1. Prefill: processes all input tokens in parallel — **compute-bound**.
+2. Decode: generates one output token at a time — **memory bandwidth-bound**.
+</code></pre>
+<ul>
+<li>A transformer model&#39;s size is determined by: model dimension, number of transformer blocks, feedforward layer dimension, and vocabulary size.</li>
+</ul>
+<ul>
+<li>The <strong>embedding module</strong> converts tokens and positions into vectors; it determines max context length.</li>
+</ul>
+<ul>
+<li>The <strong>output layer</strong> (unembedding layer / model head) maps output vectors into token probabilities.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="model-sizing-compute">Model Sizing &amp; Compute</h2>
+<p><br></p>
+<ul>
+<li>To estimate inference memory: multiply number of parameters × bytes per parameter (e.g., 7B params × 2 bytes = 14 GB minimum).</li>
+</ul>
+<ul>
+<li><strong>Sparse models</strong> have a high percentage of zero-value parameters, enabling more efficient storage and computation.</li>
+</ul>
+<ul>
+<li><strong>Mixture-of-Experts (MoE)</strong>: model is divided into expert groups; only a subset of experts is active per token (e.g., Mixtral uses 46.7B total params but only 12.9B active per token).</li>
+</ul>
+<ul>
+<li><strong>FLOPs</strong> measure compute requirement for a task; <strong>FLOP/s</strong> measures hardware peak performance (e.g., NVIDIA H100 NVL delivers ~60 TeraFLOP/s).</li>
+</ul>
+<ul>
+<li>Model performance depends on both <strong>model size</strong> and <strong>dataset size</strong> — bigger means more compute, and compute costs money.</li>
+</ul>
+<ul>
+<li>The <strong>number of training tokens</strong> ≠ the number of tokens in a dataset (training for 2 epochs on 1T tokens = 2T training tokens).</li>
+</ul>
+<ul>
+<li><strong>KV cache</strong> is used only during inference (not training); its memory grows linearly with sequence length and batch size.<ul><li>Formula: <code>2 × B × S × L × H × M</code></li></ul></li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="alternative-architectures">Alternative Architectures</h2>
+<p><br></p>
+<ul>
+<li><strong>SSMs (State Space Models)</strong> show promise for long-range memory as an alternative to transformers.</li>
+</ul>
+<ul>
+<li>Evolution of SSMs: S4 → H3 → <strong>Mamba</strong> (scales to 3B params; inference scales linearly vs. quadratic for transformers) → <strong>Jamba</strong> (hybrid Transformer–Mamba; 52B total / 12B active params, fits in a single 80 GB GPU, supports 256K context length).</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="sampling-output-generation">Sampling &amp; Output Generation</h2>
+<p><br></p>
+<ul>
+<li>A language model outputs a <strong>logit vector</strong>; each logit corresponds to one token in the vocabulary.</li>
+</ul>
+<ul>
+<li><strong>Temperature</strong> controls creativity: higher temperature → rarer tokens more likely → more creative but less coherent; lower temperature → more consistent but potentially boring.</li>
+</ul>
+<ul>
+<li><strong>Constrained sampling</strong> filters the logit vector to only tokens that meet defined constraints, used for structured outputs.</li>
+</ul>
+<ul>
+<li><strong>Perplexity</strong> = exponential of entropy/cross-entropy; measures the model&#39;s uncertainty when predicting the next token.</li>
+</ul>
+<pre><code>
+1. More structured data → lower perplexity.
+2. Bigger vocabulary → higher perplexity.
+3. Longer context → lower perplexity.
+</code></pre>
+<ul>
+<li><strong>Entropy</strong> measures the average information carried by a token; higher entropy = more bits needed to represent a token.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="evaluation">Evaluation</h2>
+<p><br></p>
+<ul>
+<li>Evaluation is described as <strong>the biggest bottleneck to AI adoption</strong>.</li>
+</ul>
+<ul>
+<li>Evaluation is needed throughout: model selection, benchmarking progress, deployment decisions, and production monitoring.</li>
+</ul>
+<ul>
+<li><strong>Evaluation-Driven Development</strong>: successful enterprise applications tend to be those with clear, measurable evaluation criteria (recommender systems, fraud detection, code generation, classification tasks).</li>
+</ul>
+<ul>
+<li>The four-step evaluation workflow: (1) filter by hard attributes, (2) use public benchmarks to shortlist, (3) run internal experiments, (4) monitor in production.</li>
+</ul>
+<ul>
+<li>Evaluation criteria fall into buckets: domain-specific capability, generation capability, instruction-following capability, cost, and latency.</li>
+</ul>
+<ul>
+<li><strong>Data contamination</strong> detection methods: n-gram overlapping and perplexity (unusually low perplexity suggests the model has seen the data before).</li>
+</ul>
+<ul>
+<li>When designing an evaluation pipeline: check for variance across runs, avoid redundant correlated metrics, and account for latency/cost overhead.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="prompt-engineering-in-context-learning">Prompt Engineering &amp; In-Context Learning</h2>
+<p><br></p>
+<ul>
+<li>Teaching models via prompts is called <strong>in-context learning</strong>.</li>
+</ul>
+<ul>
+<li>Each example in the prompt is a &quot;shot&quot; — <em>few-shot</em>, <em>zero-shot</em>, <em>5-shot</em>, etc.</li>
+</ul>
+<ul>
+<li>Prompt engineering adjusts model behavior without changing weights.</li>
+</ul>
+<ul>
+<li>How much prompt engineering is needed depends on the model&#39;s robustness to prompt perturbation.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="prompt-security">Prompt Security</h2>
+<p><br></p>
+<ul>
+<li>Three main types of prompt attacks: <strong>prompt extraction</strong>, <strong>jailbreaking / prompt injection</strong>, and <strong>information extraction</strong>.</li>
+</ul>
+<ul>
+<li>Risks include: remote code/tool execution, data leaks, social harms, misinformation, service interruption, and brand risk.</li>
+</ul>
+<ul>
+<li>Adversarial purposes include: data theft, privacy violations, and copyright infringement.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="rag-retrieval-augmented-generation">RAG (Retrieval-Augmented Generation)</h2>
+<p><br></p>
+<ul>
+<li>RAG enhances generation by retrieving relevant information from external memory (databases, chat history, the internet).</li>
+</ul>
+<ul>
+<li>Think of RAG as <strong>dynamic context construction</strong> — equivalent to feature engineering in classical ML.</li>
+</ul>
+<ul>
+<li>A RAG system has two components: a <strong>retriever</strong> (indexing + querying) and a <strong>generator</strong>.</li>
+</ul>
+<ul>
+<li>Retrieval approaches:</li>
+</ul>
+<pre><code>
+1. Term-based: lexical matching; generally faster.
+2. Embedding-based (semantic): ranks by meaning alignment; requires vector database + ANN search.
+3. Hybrid search: combines both for production systems.
+</code></pre>
+<ul>
+<li>Vector search is framed as a <strong>nearest-neighbor search</strong> problem; large datasets use Approximate Nearest Neighbor (ANN) algorithms.</li>
+</ul>
+<ul>
+<li>RAG quality should be evaluated both component-by-component and end-to-end (retrieval quality, embedding quality, final outputs).</li>
+</ul>
+<ul>
+<li>Retrieval tactics: chunking strategy, reranking, query rewriting, contextual retrieval.</li>
+</ul>
+<ul>
+<li><strong>In short: finetuning is for form; RAG is for facts.</strong></li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="memory-in-ai-models">Memory in AI Models</h2>
+<p><br></p>
+<ul>
+<li>AI models have three memory mechanisms:</li>
+</ul>
+<pre><code>
+1. Internal knowledge — encoded in weights during training; doesn&#39;t change unless the model is updated.
+2. Short-term memory — the context window; fast but capacity-limited; doesn&#39;t persist across queries.
+3. Long-term memory — external data sources via retrieval (e.g., RAG); persistent and deletable without retraining.
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="finetuning-deep-dive">Finetuning (Deep Dive)</h2>
+<p><br></p>
+<ul>
+<li>Finetuning = adapting a model by further training all or part of it.</li>
+</ul>
+<ul>
+<li><strong>Backpropagation</strong> powers training: forward pass (compute output) + backward pass (update weights via gradients).</li>
+</ul>
+<ul>
+<li>Training memory = model weights + activations + gradients + optimizer states.</li>
+</ul>
+<ul>
+<li><strong>Full finetuning</strong> of a 7B model with Adam optimizer in FP16 requires ~56 GB — exceeds most consumer GPUs (12–48 GB).</li>
+</ul>
+<ul>
+<li><strong>PEFT (Parameter-Efficient Finetuning)</strong> methods reduce trainable parameters:</li>
+</ul>
+<pre><code>
+- Adapter-based (additive): adds modules to the model.
+- LoRA (Low-Rank Adaptation): decomposes weight matrices into two smaller matrices; merges back without extra inference latency.
+</code></pre>
+<ul>
+<li>LoRA is built on <strong>low-rank factorization</strong> (e.g., a 9×9 matrix → 9×1 and 1×9; 81 → 18 params). Higher rank = more information preserved, but more parameters.</li>
+</ul>
+<ul>
+<li>LoRA simplifies serving multiple finetuned models due to its <strong>modularity</strong>.</li>
+</ul>
+<ul>
+<li><strong>Task vectors / delta parameters</strong>: subtracting the base model from a finetuned model captures the &quot;essence&quot; of the task; can be linearly combined for model merging.</li>
+</ul>
+<ul>
+<li><strong>Distillation</strong>: finetune a small model to imitate a larger model using data generated by the large model.</li>
+</ul>
+<ul>
+<li><strong>Catastrophic forgetting</strong>: neural networks can forget previous tasks when sequentially finetuned on new ones.</li>
+</ul>
+<ul>
+<li><strong>Finetuning hyperparameters:</strong></li>
+</ul>
+<pre><code>
+1. Learning rate: step size toward the goal — too small = slow convergence; too large = overshooting.
+2. Batch size: fewer than 8 can cause unstable training; larger batches produce more stable updates.
+3. Gradient accumulation: accumulate gradients across batches when memory limits batch size.
+4. Epochs: large datasets may need 1–2 epochs; small datasets may benefit from 4–10.
+5. Prompt loss weight: response tokens should contribute more to the loss than prompt tokens during instruction finetuning.
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="data-dataset-engineering">Data &amp; Dataset Engineering</h2>
+<p><br></p>
+<ul>
+<li><strong>Data-centric AI</strong> improves performance by enhancing data quality and diversity; contrasts with <strong>model-centric AI</strong> (better architectures, bigger models).</li>
+</ul>
+<ul>
+<li>Data needed for finetuning depends on: finetuning technique (full vs. PEFT), task complexity, and base model&#39;s starting performance.</li>
+</ul>
+<ul>
+<li><strong>Deduplication methods</strong>: pairwise comparison (exact/n-gram/fuzzy/semantic), hashing (MinHash, Bloom filter), dimensionality reduction + comparison.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="inference-optimization">Inference Optimization</h2>
+<p><br></p>
+<ul>
+<li>Autoregressive models generate tokens sequentially — 10 ms/token × 100 tokens = 1 second total latency.</li>
+</ul>
+<ul>
+<li><strong>Latency metrics:</strong></li>
+</ul>
+<pre><code>
+1. TTFT (Time to First Token): duration of the prefill step; important for chatbots.
+2. TPOT (Time Per Output Token): ~120 ms/token (6–8 tokens/second) is sufficient for most reading speeds.
+3. Total latency = TTFT + TPOT × (number of output tokens).
+</code></pre>
+<ul>
+<li><strong>GPU utilization</strong> (nvidia-smi) measures % of time the GPU is active — not how efficiently it&#39;s working. 100% utilization doesn&#39;t mean 100% efficiency.</li>
+</ul>
+<ul>
+<li><strong>Four computation optimization techniques:</strong> vectorization, parallelization, loop tiling, operator fusion (the most architecture-specific).</li>
+</ul>
+<ul>
+<li>Major AI accelerators beyond NVIDIA: AMD GPUs, Google TPU, Intel Habana Gaudi, Graphcore IPU, Groq LPU, Cerebras QPU.</li>
+</ul>
+<p><br></p>
+<hr>
+<h2 id="ai-application-architecture">AI Application Architecture</h2>
+<p><br></p>
+<ul>
+<li>A production AI system evolves incrementally:</li>
+</ul>
+<pre><code>
+1. Add external data sources and tools for richer context.
+2. Add guardrails to protect users and the system.
+3. Add model router and gateway for complex pipelines and security.
+4. Add caching to optimize latency and cost.
+5. Add complex logic and write actions for maximum capability.
+</code></pre>
+<p><br></p>
+<hr>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<p><br></p>
+<ul>
+<li><strong>Lindy&#39;s Law</strong>: the future life expectancy of a technology is proportional to its current age — if it&#39;s been around a while, it&#39;ll likely stick around.</li>
+</ul>
+<ul>
+<li><strong>Embeddings</strong>: numerical representations that capture the meaning of data.</li>
+</ul>
+<ul>
+<li><strong>Quantization</strong>: reduces the precision of model weights — technically changes weight values but is not considered training.</li>
+</ul>
+<ul>
+<li>Tasks are either <strong>compute-bound</strong> (bottlenecked by computation speed) or <strong>memory bandwidth-bound</strong> (bottlenecked by data transfer rate); the distinction matters for optimization strategy.</li>
+</ul>
+<p><br></p>
+<h5 id="section">⬛️</h5></div>
 								</article>
 							</div>
 						</div>
